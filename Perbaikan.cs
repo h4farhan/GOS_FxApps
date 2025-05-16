@@ -17,6 +17,7 @@ namespace GOS_FxApps
         private DateTime tanggalpenerimaan;
         SqlConnection conn = Koneksi.GetConnection();
         private bool infocheck = false;
+
         public Perbaikan()
         {
             InitializeComponent();
@@ -259,6 +260,10 @@ namespace GOS_FxApps
                     setdefault();
                     setfalse();
                     tampil();
+                    txtnomorrod.Enabled = true;
+                    btncheck.Text = "Check Data";
+                    btncheck.FillColor = Color.FromArgb(94, 148, 255);
+                    infocheck = false;
                     btnsimpan.Enabled = false;
                 }
                 else 
@@ -278,6 +283,7 @@ namespace GOS_FxApps
         }
 
         private void btncheck_Click(object sender, EventArgs e)
+
         {
             if (infocheck == true)
             {

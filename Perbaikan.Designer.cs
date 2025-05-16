@@ -1227,6 +1227,7 @@ namespace GOS_FxApps
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Perbaikan";
             this.Text = "Perbaikan";
+            this.Load += new System.EventHandler(this.Perbaikan_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

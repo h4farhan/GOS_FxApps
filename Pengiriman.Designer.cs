@@ -40,7 +40,6 @@ namespace GOS_FxApps
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.txtrod10 = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtrod9 = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtrod8 = new Guna.UI2.WinForms.Guna2TextBox();
@@ -135,7 +134,6 @@ namespace GOS_FxApps
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.guna2Panel1.BorderRadius = 15;
             this.guna2Panel1.BorderThickness = 2;
-            this.guna2Panel1.Controls.Add(this.guna2Button1);
             this.guna2Panel1.Controls.Add(this.txtrod10);
             this.guna2Panel1.Controls.Add(this.txtrod9);
             this.guna2Panel1.Controls.Add(this.txtrod8);
@@ -153,24 +151,6 @@ namespace GOS_FxApps
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(501, 811);
             this.guna2Panel1.TabIndex = 2;
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button1.BorderRadius = 8;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(319, 748);
-            this.guna2Button1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(163, 43);
-            this.guna2Button1.TabIndex = 37;
-            this.guna2Button1.Text = "Check Data";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // txtrod10
             // 
@@ -593,7 +573,6 @@ namespace GOS_FxApps
         private Guna.UI2.WinForms.Guna2TextBox txtrod2;
         private Label label3;
         private Guna.UI2.WinForms.Guna2TextBox txtrod1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Panel panel3;
         private TableLayoutPanel tableLayoutPanel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;

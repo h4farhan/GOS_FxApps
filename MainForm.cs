@@ -230,5 +230,10 @@ namespace GOS_FxApps {
                 login.ShowDialog();
             }
         }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            SwitchPanel(new weldingp());
+        }
     }
 }

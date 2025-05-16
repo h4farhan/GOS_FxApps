@@ -36,12 +36,11 @@ namespace GOS_FxApps
             this.ControlBoxButton = new Guna.UI2.WinForms.Guna2ControlBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.headerPanel = new System.Windows.Forms.Panel();
-            this.lbluser = new System.Windows.Forms.Label();
-            this.iconButton14 = new FontAwesome.Sharp.IconButton();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbldate = new System.Windows.Forms.Label();
             this.lblshift = new System.Windows.Forms.Label();
             this.lblinfo = new System.Windows.Forms.Label();
+            this.lbldate = new System.Windows.Forms.Label();
+            this.lbluser = new System.Windows.Forms.Label();
+            this.iconButton14 = new FontAwesome.Sharp.IconButton();
             this.sidebarPanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -75,7 +74,6 @@ namespace GOS_FxApps
             this.jam = new System.Windows.Forms.Timer(this.components);
             this.titlePanel.SuspendLayout();
             this.headerPanel.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.sidebarPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.entryContainer.SuspendLayout();
@@ -121,9 +119,11 @@ namespace GOS_FxApps
             // headerPanel
             // 
             this.headerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.headerPanel.Controls.Add(this.lblshift);
+            this.headerPanel.Controls.Add(this.lblinfo);
+            this.headerPanel.Controls.Add(this.lbldate);
             this.headerPanel.Controls.Add(this.lbluser);
             this.headerPanel.Controls.Add(this.iconButton14);
-            this.headerPanel.Controls.Add(this.tableLayoutPanel3);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.ForeColor = System.Drawing.Color.Gainsboro;
             this.headerPanel.Location = new System.Drawing.Point(342, 20);
@@ -132,14 +132,53 @@ namespace GOS_FxApps
             this.headerPanel.Size = new System.Drawing.Size(1286, 50);
             this.headerPanel.TabIndex = 3;
             // 
+            // lblshift
+            // 
+            this.lblshift.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblshift.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblshift.ForeColor = System.Drawing.Color.White;
+            this.lblshift.Location = new System.Drawing.Point(410, 0);
+            this.lblshift.Margin = new System.Windows.Forms.Padding(20);
+            this.lblshift.Name = "lblshift";
+            this.lblshift.Size = new System.Drawing.Size(58, 50);
+            this.lblshift.TabIndex = 2;
+            this.lblshift.Text = "1";
+            this.lblshift.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblinfo
+            // 
+            this.lblinfo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblinfo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblinfo.ForeColor = System.Drawing.Color.White;
+            this.lblinfo.Location = new System.Drawing.Point(317, 0);
+            this.lblinfo.Margin = new System.Windows.Forms.Padding(20);
+            this.lblinfo.Name = "lblinfo";
+            this.lblinfo.Size = new System.Drawing.Size(93, 50);
+            this.lblinfo.TabIndex = 1;
+            this.lblinfo.Text = "Shift :";
+            this.lblinfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbldate
+            // 
+            this.lbldate.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbldate.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lbldate.ForeColor = System.Drawing.Color.White;
+            this.lbldate.Location = new System.Drawing.Point(0, 0);
+            this.lbldate.Margin = new System.Windows.Forms.Padding(20);
+            this.lbldate.Name = "lbldate";
+            this.lbldate.Size = new System.Drawing.Size(317, 50);
+            this.lbldate.TabIndex = 0;
+            this.lbldate.Text = "Tanggal Dan Jam";
+            this.lbldate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // lbluser
             // 
             this.lbluser.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbluser.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbluser.ForeColor = System.Drawing.Color.IndianRed;
-            this.lbluser.Location = new System.Drawing.Point(884, 0);
+            this.lbluser.Location = new System.Drawing.Point(904, 0);
             this.lbluser.Name = "lbluser";
-            this.lbluser.Size = new System.Drawing.Size(345, 50);
+            this.lbluser.Size = new System.Drawing.Size(325, 50);
             this.lbluser.TabIndex = 6;
             this.lbluser.Text = "Robert Danuarta [Manajer]";
             this.lbluser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -162,63 +201,6 @@ namespace GOS_FxApps
             this.iconButton14.TabIndex = 5;
             this.iconButton14.UseVisualStyleBackColor = false;
             this.iconButton14.Click += new System.EventHandler(this.iconButton14_Click);
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.92692F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.07308F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.tableLayoutPanel3.Controls.Add(this.lbldate, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.lblshift, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.lblinfo, 1, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(561, 50);
-            this.tableLayoutPanel3.TabIndex = 3;
-            // 
-            // lbldate
-            // 
-            this.lbldate.AutoSize = true;
-            this.lbldate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbldate.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lbldate.ForeColor = System.Drawing.Color.White;
-            this.lbldate.Location = new System.Drawing.Point(3, 0);
-            this.lbldate.Name = "lbldate";
-            this.lbldate.Size = new System.Drawing.Size(411, 50);
-            this.lbldate.TabIndex = 0;
-            this.lbldate.Text = "Tanggal Dan Jam";
-            this.lbldate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblshift
-            // 
-            this.lblshift.AutoSize = true;
-            this.lblshift.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblshift.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblshift.ForeColor = System.Drawing.Color.White;
-            this.lblshift.Location = new System.Drawing.Point(518, 0);
-            this.lblshift.Name = "lblshift";
-            this.lblshift.Size = new System.Drawing.Size(40, 50);
-            this.lblshift.TabIndex = 2;
-            this.lblshift.Text = "1";
-            this.lblshift.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblinfo
-            // 
-            this.lblinfo.AutoSize = true;
-            this.lblinfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblinfo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblinfo.ForeColor = System.Drawing.Color.White;
-            this.lblinfo.Location = new System.Drawing.Point(420, 0);
-            this.lblinfo.Name = "lblinfo";
-            this.lblinfo.Size = new System.Drawing.Size(92, 50);
-            this.lblinfo.TabIndex = 1;
-            this.lblinfo.Text = "Shift :";
-            this.lblinfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // sidebarPanel
             // 
@@ -294,7 +276,7 @@ namespace GOS_FxApps
             this.entryContainer.MaximumSize = new System.Drawing.Size(387, 345);
             this.entryContainer.MinimumSize = new System.Drawing.Size(387, 74);
             this.entryContainer.Name = "entryContainer";
-            this.entryContainer.Size = new System.Drawing.Size(387, 74);
+            this.entryContainer.Size = new System.Drawing.Size(387, 345);
             this.entryContainer.TabIndex = 2;
             // 
             // iconButton4
@@ -342,6 +324,7 @@ namespace GOS_FxApps
             this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton3.UseVisualStyleBackColor = true;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
             // 
             // iconButton2
             // 
@@ -448,7 +431,7 @@ namespace GOS_FxApps
             this.EditContainer.Controls.Add(this.iconButton8);
             this.EditContainer.Controls.Add(this.iconButton9);
             this.EditContainer.Controls.Add(this.Editbutton);
-            this.EditContainer.Location = new System.Drawing.Point(3, 209);
+            this.EditContainer.Location = new System.Drawing.Point(3, 480);
             this.EditContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EditContainer.MaximumSize = new System.Drawing.Size(387, 479);
             this.EditContainer.MinimumSize = new System.Drawing.Size(387, 74);
@@ -653,7 +636,7 @@ namespace GOS_FxApps
             this.btnlaporan.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnlaporan.IconSize = 40;
             this.btnlaporan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnlaporan.Location = new System.Drawing.Point(3, 287);
+            this.btnlaporan.Location = new System.Drawing.Point(3, 558);
             this.btnlaporan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnlaporan.Name = "btnlaporan";
             this.btnlaporan.Size = new System.Drawing.Size(387, 74);
@@ -674,7 +657,7 @@ namespace GOS_FxApps
             this.btnhistori.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnhistori.IconSize = 40;
             this.btnhistori.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnhistori.Location = new System.Drawing.Point(3, 365);
+            this.btnhistori.Location = new System.Drawing.Point(3, 636);
             this.btnhistori.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnhistori.Name = "btnhistori";
             this.btnhistori.Size = new System.Drawing.Size(387, 74);
@@ -805,8 +788,6 @@ namespace GOS_FxApps
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.titlePanel.ResumeLayout(false);
             this.headerPanel.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
             this.sidebarPanel.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.entryContainer.ResumeLayout(false);
@@ -857,7 +838,6 @@ namespace GOS_FxApps
         private System.Windows.Forms.Timer jam;
         private Label lblinfo;
         public Label lblshift;
-        private TableLayoutPanel tableLayoutPanel3;
         private FontAwesome.Sharp.IconButton iconButton14;
         public Label lbluser;
     }
