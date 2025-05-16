@@ -233,7 +233,6 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\acountcontrol.cs" />
     <Compile Include="Penerimaan.cs">
       <SubType>Form</SubType>
     </Compile>
