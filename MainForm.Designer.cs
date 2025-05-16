@@ -166,9 +166,9 @@ namespace GOS_FxApps
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.92184F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.07815F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.92692F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.07308F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel3.Controls.Add(this.lbldate, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.lblshift, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.lblinfo, 1, 0);
@@ -178,7 +178,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(606, 50);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(658, 50);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // lbldate
@@ -189,7 +189,7 @@ namespace GOS_FxApps
             this.lbldate.ForeColor = System.Drawing.Color.White;
             this.lbldate.Location = new System.Drawing.Point(3, 0);
             this.lbldate.Name = "lbldate";
-            this.lbldate.Size = new System.Drawing.Size(489, 50);
+            this.lbldate.Size = new System.Drawing.Size(490, 50);
             this.lbldate.TabIndex = 0;
             this.lbldate.Text = "Tanggal Dan Jam";
             this.lbldate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -200,9 +200,9 @@ namespace GOS_FxApps
             this.lblshift.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblshift.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblshift.ForeColor = System.Drawing.Color.White;
-            this.lblshift.Location = new System.Drawing.Point(565, 0);
+            this.lblshift.Location = new System.Drawing.Point(616, 0);
             this.lblshift.Name = "lblshift";
-            this.lblshift.Size = new System.Drawing.Size(38, 50);
+            this.lblshift.Size = new System.Drawing.Size(39, 50);
             this.lblshift.TabIndex = 2;
             this.lblshift.Text = "1";
             this.lblshift.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -213,12 +213,12 @@ namespace GOS_FxApps
             this.lblinfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblinfo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblinfo.ForeColor = System.Drawing.Color.White;
-            this.lblinfo.Location = new System.Drawing.Point(498, 0);
+            this.lblinfo.Location = new System.Drawing.Point(499, 0);
             this.lblinfo.Name = "lblinfo";
-            this.lblinfo.Size = new System.Drawing.Size(61, 50);
+            this.lblinfo.Size = new System.Drawing.Size(111, 50);
             this.lblinfo.TabIndex = 1;
             this.lblinfo.Text = "Shift :";
-            this.lblinfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblinfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // sidebarPanel
             // 

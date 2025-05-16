@@ -155,6 +155,7 @@ namespace GOS_FxApps
                 MessageBox.Show("Terjadi kesalahan: " + ex.Message);
             }
         }
+
         private void TextBox_Validating(object sender, CancelEventArgs e)
         {
             Guna2TextBox txt = (Guna2TextBox)sender; // Mengambil kontrol yang sedang divalidasi
@@ -171,7 +172,7 @@ namespace GOS_FxApps
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
-                        // Data ditemukan, bisa lanjutkan
+                        
                     }
                     else
                     {
