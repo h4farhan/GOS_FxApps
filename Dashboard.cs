@@ -11,8 +11,11 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace GOS_FxApps
 {
+    
+
     public partial class Dashboard : Form
     {
+        
         public Dashboard()
         {
             InitializeComponent();
