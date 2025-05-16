@@ -43,8 +43,6 @@ namespace GOS_FxApps
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -83,7 +81,6 @@ namespace GOS_FxApps
             this.label17 = new System.Windows.Forms.Label();
             this.chartLowestStock = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.chartStockMaterial = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartUssageMaterial = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label21 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -108,7 +105,6 @@ namespace GOS_FxApps
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartLowestStock)).BeginInit();
             this.tableLayoutPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartStockMaterial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartUssageMaterial)).BeginInit();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
@@ -592,7 +588,6 @@ namespace GOS_FxApps
             // 
             this.tableLayoutPanel7.ColumnCount = 1;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Controls.Add(this.chartStockMaterial, 0, 3);
             this.tableLayoutPanel7.Controls.Add(this.chartUssageMaterial, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.label21, 0, 2);
             this.tableLayoutPanel7.Controls.Add(this.label19, 0, 0);
@@ -609,10 +604,10 @@ namespace GOS_FxApps
             this.tableLayoutPanel7.Size = new System.Drawing.Size(1156, 990);
             this.tableLayoutPanel7.TabIndex = 3;
             // 
-            // chartStockMaterial
+            // chartUssageMaterial
             // 
-            this.chartStockMaterial.BackColor = System.Drawing.Color.Transparent;
-            this.chartStockMaterial.BorderlineColor = System.Drawing.Color.Transparent;
+            this.chartUssageMaterial.BackColor = System.Drawing.Color.Transparent;
+            this.chartUssageMaterial.BorderlineColor = System.Drawing.Color.Transparent;
             chartArea3.AxisX.IsLabelAutoFit = false;
             chartArea3.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 8F);
             chartArea3.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
@@ -628,11 +623,11 @@ namespace GOS_FxApps
             chartArea3.BackColor = System.Drawing.Color.Transparent;
             chartArea3.BackSecondaryColor = System.Drawing.Color.Transparent;
             chartArea3.Name = "ChartArea1";
-            this.chartStockMaterial.ChartAreas.Add(chartArea3);
-            this.chartStockMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartStockMaterial.Location = new System.Drawing.Point(3, 392);
-            this.chartStockMaterial.Name = "chartStockMaterial";
-            this.chartStockMaterial.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            this.chartUssageMaterial.ChartAreas.Add(chartArea3);
+            this.chartUssageMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartUssageMaterial.Location = new System.Drawing.Point(3, 46);
+            this.chartUssageMaterial.Name = "chartUssageMaterial";
+            this.chartUssageMaterial.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series3.ChartArea = "ChartArea1";
             series3.Font = new System.Drawing.Font("Segoe UI", 8F);
             series3.IsValueShownAsLabel = true;
@@ -640,43 +635,7 @@ namespace GOS_FxApps
             series3.IsXValueIndexed = true;
             series3.LabelForeColor = System.Drawing.Color.Gainsboro;
             series3.Name = "Series1";
-            this.chartStockMaterial.Series.Add(series3);
-            this.chartStockMaterial.Size = new System.Drawing.Size(1150, 297);
-            this.chartStockMaterial.TabIndex = 10;
-            this.chartStockMaterial.Text = "ChartRoundbar";
-            // 
-            // chartUssageMaterial
-            // 
-            this.chartUssageMaterial.BackColor = System.Drawing.Color.Transparent;
-            this.chartUssageMaterial.BorderlineColor = System.Drawing.Color.Transparent;
-            chartArea4.AxisX.IsLabelAutoFit = false;
-            chartArea4.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 8F);
-            chartArea4.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea4.AxisX.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea4.AxisX.MajorGrid.Enabled = false;
-            chartArea4.AxisY.IsLabelAutoFit = false;
-            chartArea4.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 8F);
-            chartArea4.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea4.AxisY.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea4.AxisY.MajorGrid.Enabled = false;
-            chartArea4.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea4.AxisY.TitleForeColor = System.Drawing.Color.Gainsboro;
-            chartArea4.BackColor = System.Drawing.Color.Transparent;
-            chartArea4.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea4.Name = "ChartArea1";
-            this.chartUssageMaterial.ChartAreas.Add(chartArea4);
-            this.chartUssageMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartUssageMaterial.Location = new System.Drawing.Point(3, 46);
-            this.chartUssageMaterial.Name = "chartUssageMaterial";
-            this.chartUssageMaterial.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series4.ChartArea = "ChartArea1";
-            series4.Font = new System.Drawing.Font("Segoe UI", 8F);
-            series4.IsValueShownAsLabel = true;
-            series4.IsVisibleInLegend = false;
-            series4.IsXValueIndexed = true;
-            series4.LabelForeColor = System.Drawing.Color.Gainsboro;
-            series4.Name = "Series1";
-            this.chartUssageMaterial.Series.Add(series4);
+            this.chartUssageMaterial.Series.Add(series3);
             this.chartUssageMaterial.Size = new System.Drawing.Size(1150, 297);
             this.chartUssageMaterial.TabIndex = 9;
             this.chartUssageMaterial.Text = "ChartRoundbar";
@@ -907,7 +866,6 @@ namespace GOS_FxApps
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartLowestStock)).EndInit();
             this.tableLayoutPanel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chartStockMaterial)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartUssageMaterial)).EndInit();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
@@ -960,7 +918,6 @@ namespace GOS_FxApps
         private Guna.UI2.WinForms.Guna2DataGridView dgvReceived;
         private Guna.UI2.WinForms.Guna2DataGridView dgvRepaired;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartRoundbar;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartStockMaterial;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartUssageMaterial;
     }
 }
