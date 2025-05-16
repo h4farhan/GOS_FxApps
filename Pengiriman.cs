@@ -175,8 +175,9 @@ namespace GOS_FxApps
                     }
                     else
                     {
-                        MessageBox.Show("Data tidak ditemukan");
-                        txt.Clear();  // Mengosongkan TextBox
+                        txt.Clear();
+                        txt.PlaceholderText = "Data Tidak Ditemukan";
+                        txt.PlaceholderForeColor = Color.Red;
                     }
                 }
                 catch (Exception ex)
@@ -202,6 +203,7 @@ namespace GOS_FxApps
 
             try
             {
+
                 conn.Open();
 
                 foreach (var item in data)
@@ -267,7 +269,9 @@ namespace GOS_FxApps
 
             private void guna2Button2_Click(object sender, EventArgs e)
             {
-                insertdata(list);
+            DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            insertdata(list);
             }
     }
 }
