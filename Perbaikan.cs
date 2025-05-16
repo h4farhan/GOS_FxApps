@@ -16,7 +16,7 @@ namespace GOS_FxApps
     {
         private DateTime tanggalpenerimaan;
         SqlConnection conn = Koneksi.GetConnection();
-
+        private bool infocheck = false;
         public Perbaikan()
         {
             InitializeComponent();
@@ -279,58 +279,78 @@ namespace GOS_FxApps
 
         private void btncheck_Click(object sender, EventArgs e)
         {
-            string nomorRod = txtnomorrod.Text;
-
-            using (SqlConnection conn = Koneksi.GetConnection())
+            if (infocheck == true)
             {
-                string query = "SELECT * FROM penerimaan_s WHERE nomor_rod = @nomor_rod";
+                setdefault();
+                setfalse();
+                txtnomorrod.Enabled = true;
+                btncheck.Text = "Check Data";
+                btncheck.FillColor = Color.FromArgb (94, 148, 255);
+                infocheck = false;
+            }
+            else
+            {
 
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                string nomorRod = txtnomorrod.Text;
+
+                using (SqlConnection conn = Koneksi.GetConnection())
                 {
-                    cmd.Parameters.AddWithValue("@nomor_rod", nomorRod);
+                    string query = "SELECT * FROM penerimaan_s WHERE nomor_rod = @nomor_rod";
 
-                    try
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        conn.Open();
-                        SqlDataReader reader = cmd.ExecuteReader();
+                        cmd.Parameters.AddWithValue("@nomor_rod", nomorRod);
 
-                        if (reader.Read())
+                        try
                         {
-                            txtjenis.Text = reader["jenis"].ToString();
-                            lbltotale1.Text = reader["e1"].ToString();
-                            lbltotale2.Text = reader["e2"].ToString();
-                            txte3.Text = reader["e3"].ToString();
-                            txts.Text = reader["s"].ToString();
-                            txtd.Text = reader["d"].ToString();
-                            txtb.Text = reader["b"].ToString();
-                            txtba.Text = reader["ba"].ToString();
-                            txtcr.Text = reader["cr"].ToString();
-                            txtm.Text = reader["m"].ToString();
-                            txtr.Text = reader["r"].ToString();
-                            txtc.Text = reader["c"].ToString();
-                            txtrl.Text = reader["rl"].ToString();
-                            tanggalpenerimaan = Convert.ToDateTime(reader["tanggal_penerimaan"]);
-                            settrue(); 
+                            conn.Open();
+                            SqlDataReader reader = cmd.ExecuteReader();
+
+                            if (reader.Read())
+                            {
+                                txtjenis.Text = reader["jenis"].ToString();
+                                lbltotale1.Text = reader["e1"].ToString();
+                                lbltotale2.Text = reader["e2"].ToString();
+                                txte3.Text = reader["e3"].ToString();
+                                txts.Text = reader["s"].ToString();
+                                txtd.Text = reader["d"].ToString();
+                                txtb.Text = reader["b"].ToString();
+                                txtba.Text = reader["ba"].ToString();
+                                txtcr.Text = reader["cr"].ToString();
+                                txtm.Text = reader["m"].ToString();
+                                txtr.Text = reader["r"].ToString();
+                                txtc.Text = reader["c"].ToString();
+                                txtrl.Text = reader["rl"].ToString();
+                                tanggalpenerimaan = Convert.ToDateTime(reader["tanggal_penerimaan"]);
+                                settrue();
+                                btncheck.Text = "Batal";
+                                btncheck.FillColor = Color.Red;
+                                infocheck = true;
+                                txtnomorrod.Enabled = false;
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Data tidak ditemukan.");
+                                setdefault();
+                                setfalse();
+                            }
+
+                            reader.Close();
                         }
-                        else
+                        catch (Exception ex)
                         {
-                            MessageBox.Show("Data tidak ditemukan.");
-                            setdefault();
-                            setfalse();
+                            MessageBox.Show("Terjadi kesalahan: " + ex.Message);
+                        }
+                        finally
+                        {
+                            conn.Close();
                         }
 
-                        reader.Close();
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Terjadi kesalahan: " + ex.Message);
-                    }
-                    finally
-                    {
-                        conn.Close();
-                    } 
-                    
                 }
+                
+                
             }
         }
 

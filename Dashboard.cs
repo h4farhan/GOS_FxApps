@@ -18,6 +18,8 @@ namespace GOS_FxApps
             InitializeComponent();
             LoadchartLS();
             LoadchartRB();
+            LoadchartSM();
+            LoadchartUM();
         }
 
         private void LoadchartLS()
