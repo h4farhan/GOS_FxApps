@@ -52,64 +52,64 @@ namespace GOS_FxApps
         private void guna2Button1_Click(object sender, EventArgs e)
         {
 
-            SqlCommand cmd = new SqlCommand("SELECT tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, " +
-                "e2_ers, e2_cst, e2_cstub, e2_jumlah,e3, s, d, b, ba, cr, m, r, c, rl,jumlah, tanggal_penerimaan  " +
-                "FROM perbaikan_s WHERE nomor_rod IN (@A, @B, @C, @D, @E, @F, @G, @H, @I, @J)", conn);
-            cmd.Parameters.AddWithValue("@A", txtrod1.Text);
-            cmd.Parameters.AddWithValue("@B", txtrod2.Text);
-            cmd.Parameters.AddWithValue("@C", txtrod3.Text);
-            cmd.Parameters.AddWithValue("@D", txtrod4.Text);
-            cmd.Parameters.AddWithValue("@E", txtrod5.Text);
-            cmd.Parameters.AddWithValue("@F", txtrod6.Text);
-            cmd.Parameters.AddWithValue("@G", txtrod7.Text);
-            cmd.Parameters.AddWithValue("@H", txtrod8.Text);
-            cmd.Parameters.AddWithValue("@I", txtrod9.Text);
-            cmd.Parameters.AddWithValue("@J", txtrod10.Text);
+            //SqlCommand cmd1 = new SqlCommand("SELECT tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, " +
+            //    "e2_ers, e2_cst, e2_cstub, e2_jumlah,e3, s, d, b, ba, cr, m, r, c, rl,jumlah, tanggal_penerimaan  " +
+            //    "FROM perbaikan_s WHERE nomor_rod IN (@A, @B, @C, @D, @E, @F, @G, @H, @I, @J)", conn);
+            //cmd1.Parameters.AddWithValue("@A", txtrod1.Text);
+            //cmd1.Parameters.AddWithValue("@B", txtrod2.Text);
+            //cmd1.Parameters.AddWithValue("@C", txtrod3.Text);
+            //cmd1.Parameters.AddWithValue("@D", txtrod4.Text);
+            //cmd1.Parameters.AddWithValue("@E", txtrod5.Text);
+            //cmd1.Parameters.AddWithValue("@F", txtrod6.Text);
+            //cmd1.Parameters.AddWithValue("@G", txtrod7.Text);
+            //cmd1.Parameters.AddWithValue("@H", txtrod8.Text);
+            //cmd1.Parameters.AddWithValue("@I", txtrod9.Text);
+            //cmd1.Parameters.AddWithValue("@J", txtrod10.Text);
 
-            try
-            {
-                conn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    list.Add(new Perbaikan
-                    {
-                        TanggalPerbaikan = reader["tanggal_perbaikan"] as DateTime?,
-                        Shift = reader["shift"].ToString().Trim(),
-                        NomorRod = reader["nomor_rod"] as int?,
-                        Jenis = reader["jenis"].ToString().Trim(),
-                        E1_Ers = reader["e1_ers"] as int?,
-                        E1_Est = reader["e1_est"] as int?,
-                        E1_Jumlah = reader["e1_jumlah"] as int?,
-                        E2_Ers = reader["e2_ers"] as int?,
-                        E2_Cst = reader["e2_cst"] as int?,
-                        E2_Cstub = reader["e2_cstub"] as int?,
-                        E2_Jumlah = reader["e2_jumlah"] as int?,
-                        E3 = reader["e3"] as int?,
-                        S = reader["s"] as int?,
-                        D = reader["d"] as int?,
-                        B = reader["b"] as int?,
-                        Ba = reader["ba"] as int?,
-                        Cr = reader["cr"] as int?,
-                        M = reader["m"] as int?,
-                        R = reader["r"] as int?,
-                        C = reader["c"] as int?,
-                        Rl = reader["rl"] as int?,
-                        Jumlah = reader["jumlah"] as int?,
-                        TanggalPenerimaan = reader["tanggal_penerimaan"] as DateTime?
-                    });
-                }
-                MessageBox.Show("Data ditemukan");
+            //try
+            //{
+            //    conn.Open();
+            //    SqlDataReader reader = cmd1.ExecuteReader();
+            //    while (reader.Read())
+            //    {
+            //        list.Add(new Perbaikan
+            //        {
+            //            TanggalPerbaikan = reader["tanggal_perbaikan"] as DateTime?,
+            //            Shift = reader["shift"].ToString().Trim(),
+            //            NomorRod = reader["nomor_rod"] as int?,
+            //            Jenis = reader["jenis"].ToString().Trim(),
+            //            E1_Ers = reader["e1_ers"] as int?,
+            //            E1_Est = reader["e1_est"] as int?,
+            //            E1_Jumlah = reader["e1_jumlah"] as int?,
+            //            E2_Ers = reader["e2_ers"] as int?,
+            //            E2_Cst = reader["e2_cst"] as int?,
+            //            E2_Cstub = reader["e2_cstub"] as int?,
+            //            E2_Jumlah = reader["e2_jumlah"] as int?,
+            //            E3 = reader["e3"] as int?,
+            //            S = reader["s"] as int?,
+            //            D = reader["d"] as int?,
+            //            B = reader["b"] as int?,
+            //            Ba = reader["ba"] as int?,
+            //            Cr = reader["cr"] as int?,
+            //            M = reader["m"] as int?,
+            //            R = reader["r"] as int?,
+            //            C = reader["c"] as int?,
+            //            Rl = reader["rl"] as int?,
+            //            Jumlah = reader["jumlah"] as int?,
+            //            TanggalPenerimaan = reader["tanggal_penerimaan"] as DateTime?
+            //        });
+            //    }
+            //    MessageBox.Show("Data ditemukan");
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+            //finally
+            //{
+            //    conn.Close();
+            //}
         }
 
         private void tampil()
@@ -202,6 +202,64 @@ namespace GOS_FxApps
 
             SqlConnection conn = Koneksi.GetConnection();
 
+            SqlCommand cmd1 = new SqlCommand("SELECT tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, " +
+                "e2_ers, e2_cst, e2_cstub, e2_jumlah,e3, s, d, b, ba, cr, m, r, c, rl,jumlah, tanggal_penerimaan  " +
+                "FROM perbaikan_s WHERE nomor_rod IN (@A, @B, @C, @D, @E, @F, @G, @H, @I, @J)", conn);
+            cmd1.Parameters.AddWithValue("@A", txtrod1.Text);
+            cmd1.Parameters.AddWithValue("@B", txtrod2.Text);
+            cmd1.Parameters.AddWithValue("@C", txtrod3.Text);
+            cmd1.Parameters.AddWithValue("@D", txtrod4.Text);
+            cmd1.Parameters.AddWithValue("@E", txtrod5.Text);
+            cmd1.Parameters.AddWithValue("@F", txtrod6.Text);
+            cmd1.Parameters.AddWithValue("@G", txtrod7.Text);
+            cmd1.Parameters.AddWithValue("@H", txtrod8.Text);
+            cmd1.Parameters.AddWithValue("@I", txtrod9.Text);
+            cmd1.Parameters.AddWithValue("@J", txtrod10.Text);
+
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = cmd1.ExecuteReader();
+                while (reader.Read())
+                {
+                    list.Add(new Perbaikan
+                    {
+                        TanggalPerbaikan = reader["tanggal_perbaikan"] as DateTime?,
+                        Shift = reader["shift"].ToString().Trim(),
+                        NomorRod = reader["nomor_rod"] as int?,
+                        Jenis = reader["jenis"].ToString().Trim(),
+                        E1_Ers = reader["e1_ers"] as int?,
+                        E1_Est = reader["e1_est"] as int?,
+                        E1_Jumlah = reader["e1_jumlah"] as int?,
+                        E2_Ers = reader["e2_ers"] as int?,
+                        E2_Cst = reader["e2_cst"] as int?,
+                        E2_Cstub = reader["e2_cstub"] as int?,
+                        E2_Jumlah = reader["e2_jumlah"] as int?,
+                        E3 = reader["e3"] as int?,
+                        S = reader["s"] as int?,
+                        D = reader["d"] as int?,
+                        B = reader["b"] as int?,
+                        Ba = reader["ba"] as int?,
+                        Cr = reader["cr"] as int?,
+                        M = reader["m"] as int?,
+                        R = reader["r"] as int?,
+                        C = reader["c"] as int?,
+                        Rl = reader["rl"] as int?,
+                        Jumlah = reader["jumlah"] as int?,
+                        TanggalPenerimaan = reader["tanggal_penerimaan"] as DateTime?
+                    });
+                }
+                MessageBox.Show("Data ditemukan");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
             try
             {
 
