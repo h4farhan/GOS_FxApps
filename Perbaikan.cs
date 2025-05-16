@@ -191,71 +191,80 @@ namespace GOS_FxApps
         {
             try
             {
-                conn.Open();
-                SqlCommand cmd1 = new SqlCommand("INSERT INTO perbaikan_s (tanggal_perbaikan,shift,nomor_rod,jenis,e1_ers,e1_est,e1_jumlah,e2_ers,e2_cst,e2_cstub,e2_jumlah," +
-                    "e3,s,d,b,ba,cr,m,r,c,rl,jumlah,tanggal_penerimaan) VALUES(getdate(),@shift,@nomorrod,@jenis,@e1ers,@e1est,@e1jumlah,@e2ers,@e2cst,@e2cstub,@e2jumlah,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah,@tanggalpenerimaan)", conn);
+                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
-                SqlCommand cmd2 = new SqlCommand("INSERT INTO perbaikan_p (tanggal_perbaikan,shift,nomor_rod,jenis,e1_ers,e1_est,e1_jumlah,e2_ers,e2_cst,e2_cstub,e2_jumlah," +
-                    "e3,s,d,b,ba,cr,m,r,c,rl,jumlah,tanggal_penerimaan) VALUES(getdate(),@shift,@nomorrod,@jenis,@e1ers,@e1est,@e1jumlah,@e2ers,@e2cst,@e2cstub,@e2jumlah,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah,@tanggalpenerimaan)", conn);
+                if (result == DialogResult.OK)
+                {
+                    conn.Open();
+                    SqlCommand cmd1 = new SqlCommand("INSERT INTO perbaikan_s (tanggal_perbaikan,shift,nomor_rod,jenis,e1_ers,e1_est,e1_jumlah,e2_ers,e2_cst,e2_cstub,e2_jumlah," +
+                        "e3,s,d,b,ba,cr,m,r,c,rl,jumlah,tanggal_penerimaan) VALUES(getdate(),@shift,@nomorrod,@jenis,@e1ers,@e1est,@e1jumlah,@e2ers,@e2cst,@e2cstub,@e2jumlah,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah,@tanggalpenerimaan)", conn);
 
-                cmd1.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
-                cmd1.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
-                cmd1.Parameters.AddWithValue("@jenis", txtjenis.Text);
-                cmd1.Parameters.AddWithValue("@e1ers", txte1ers.Text);
-                cmd1.Parameters.AddWithValue("@e1est", txte1est.Text);
-                cmd1.Parameters.AddWithValue("@e1jumlah", lbltotale1.Text);
-                cmd1.Parameters.AddWithValue("@e2ers", txte2ers.Text);
-                cmd1.Parameters.AddWithValue("@e2cst", txte2cst.Text);
-                cmd1.Parameters.AddWithValue("@e2cstub", txte2cstub.Text);
-                cmd1.Parameters.AddWithValue("@e2jumlah", lbltotale2.Text);
-                cmd1.Parameters.AddWithValue("@e3", txte3.Text);
-                cmd1.Parameters.AddWithValue("@s", txts.Text);
-                cmd1.Parameters.AddWithValue("@d", txtd.Text);
-                cmd1.Parameters.AddWithValue("@b", txtb.Text);
-                cmd1.Parameters.AddWithValue("@ba", txtba.Text);
-                cmd1.Parameters.AddWithValue("@cr", txtcr.Text);
-                cmd1.Parameters.AddWithValue("@m", txtm.Text);
-                cmd1.Parameters.AddWithValue("@r", txtr.Text);
-                cmd1.Parameters.AddWithValue("@c", txtc.Text);
-                cmd1.Parameters.AddWithValue("@rl", txtrl.Text);
-                cmd1.Parameters.AddWithValue("@jumlah", lbltotal.Text);
-                cmd1.Parameters.AddWithValue("@tanggalpenerimaan", tanggalpenerimaan);
+                    SqlCommand cmd2 = new SqlCommand("INSERT INTO perbaikan_p (tanggal_perbaikan,shift,nomor_rod,jenis,e1_ers,e1_est,e1_jumlah,e2_ers,e2_cst,e2_cstub,e2_jumlah," +
+                        "e3,s,d,b,ba,cr,m,r,c,rl,jumlah,tanggal_penerimaan) VALUES(getdate(),@shift,@nomorrod,@jenis,@e1ers,@e1est,@e1jumlah,@e2ers,@e2cst,@e2cstub,@e2jumlah,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah,@tanggalpenerimaan)", conn);
 
-                cmd2.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
-                cmd2.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
-                cmd2.Parameters.AddWithValue("@jenis", txtjenis.Text);
-                cmd2.Parameters.AddWithValue("@e1ers", txte1ers.Text);
-                cmd2.Parameters.AddWithValue("@e1est", txte1est.Text);
-                cmd2.Parameters.AddWithValue("@e1jumlah", lbltotale1.Text);
-                cmd2.Parameters.AddWithValue("@e2ers", txte2ers.Text);
-                cmd2.Parameters.AddWithValue("@e2cst", txte2cst.Text);
-                cmd2.Parameters.AddWithValue("@e2cstub", txte2cstub.Text);
-                cmd2.Parameters.AddWithValue("@e2jumlah", lbltotale2.Text);
-                cmd2.Parameters.AddWithValue("@e3", txte3.Text);
-                cmd2.Parameters.AddWithValue("@s", txts.Text);
-                cmd2.Parameters.AddWithValue("@d", txtd.Text);
-                cmd2.Parameters.AddWithValue("@b", txtb.Text);
-                cmd2.Parameters.AddWithValue("@ba", txtba.Text);
-                cmd2.Parameters.AddWithValue("@cr", txtcr.Text);
-                cmd2.Parameters.AddWithValue("@m", txtm.Text);
-                cmd2.Parameters.AddWithValue("@r", txtr.Text);
-                cmd2.Parameters.AddWithValue("@c", txtc.Text);
-                cmd2.Parameters.AddWithValue("@rl", txtrl.Text);
-                cmd2.Parameters.AddWithValue("@jumlah", lbltotal.Text);
-                cmd2.Parameters.AddWithValue("@tanggalpenerimaan", tanggalpenerimaan);
+                    cmd1.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
+                    cmd1.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
+                    cmd1.Parameters.AddWithValue("@jenis", txtjenis.Text);
+                    cmd1.Parameters.AddWithValue("@e1ers", txte1ers.Text);
+                    cmd1.Parameters.AddWithValue("@e1est", txte1est.Text);
+                    cmd1.Parameters.AddWithValue("@e1jumlah", lbltotale1.Text);
+                    cmd1.Parameters.AddWithValue("@e2ers", txte2ers.Text);
+                    cmd1.Parameters.AddWithValue("@e2cst", txte2cst.Text);
+                    cmd1.Parameters.AddWithValue("@e2cstub", txte2cstub.Text);
+                    cmd1.Parameters.AddWithValue("@e2jumlah", lbltotale2.Text);
+                    cmd1.Parameters.AddWithValue("@e3", txte3.Text);
+                    cmd1.Parameters.AddWithValue("@s", txts.Text);
+                    cmd1.Parameters.AddWithValue("@d", txtd.Text);
+                    cmd1.Parameters.AddWithValue("@b", txtb.Text);
+                    cmd1.Parameters.AddWithValue("@ba", txtba.Text);
+                    cmd1.Parameters.AddWithValue("@cr", txtcr.Text);
+                    cmd1.Parameters.AddWithValue("@m", txtm.Text);
+                    cmd1.Parameters.AddWithValue("@r", txtr.Text);
+                    cmd1.Parameters.AddWithValue("@c", txtc.Text);
+                    cmd1.Parameters.AddWithValue("@rl", txtrl.Text);
+                    cmd1.Parameters.AddWithValue("@jumlah", lbltotal.Text);
+                    cmd1.Parameters.AddWithValue("@tanggalpenerimaan", tanggalpenerimaan);
 
-                SqlCommand cmd3 = new SqlCommand("DELETE FROM penerimaan_s WHERE nomor_rod = @nomorrod", conn);
-                cmd3.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
+                    cmd2.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
+                    cmd2.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
+                    cmd2.Parameters.AddWithValue("@jenis", txtjenis.Text);
+                    cmd2.Parameters.AddWithValue("@e1ers", txte1ers.Text);
+                    cmd2.Parameters.AddWithValue("@e1est", txte1est.Text);
+                    cmd2.Parameters.AddWithValue("@e1jumlah", lbltotale1.Text);
+                    cmd2.Parameters.AddWithValue("@e2ers", txte2ers.Text);
+                    cmd2.Parameters.AddWithValue("@e2cst", txte2cst.Text);
+                    cmd2.Parameters.AddWithValue("@e2cstub", txte2cstub.Text);
+                    cmd2.Parameters.AddWithValue("@e2jumlah", lbltotale2.Text);
+                    cmd2.Parameters.AddWithValue("@e3", txte3.Text);
+                    cmd2.Parameters.AddWithValue("@s", txts.Text);
+                    cmd2.Parameters.AddWithValue("@d", txtd.Text);
+                    cmd2.Parameters.AddWithValue("@b", txtb.Text);
+                    cmd2.Parameters.AddWithValue("@ba", txtba.Text);
+                    cmd2.Parameters.AddWithValue("@cr", txtcr.Text);
+                    cmd2.Parameters.AddWithValue("@m", txtm.Text);
+                    cmd2.Parameters.AddWithValue("@r", txtr.Text);
+                    cmd2.Parameters.AddWithValue("@c", txtc.Text);
+                    cmd2.Parameters.AddWithValue("@rl", txtrl.Text);
+                    cmd2.Parameters.AddWithValue("@jumlah", lbltotal.Text);
+                    cmd2.Parameters.AddWithValue("@tanggalpenerimaan", tanggalpenerimaan);
+
+                    SqlCommand cmd3 = new SqlCommand("DELETE FROM penerimaan_s WHERE nomor_rod = @nomorrod", conn);
+                    cmd3.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
                 
-                cmd3.ExecuteNonQuery();
-                cmd1.ExecuteNonQuery();
-                cmd2.ExecuteNonQuery();
+                    cmd3.ExecuteNonQuery();
+                    cmd1.ExecuteNonQuery();
+                    cmd2.ExecuteNonQuery();
 
-                MessageBox.Show("Data Berhasil Disimpan");
-                setdefault();
-                setfalse();
-                tampil();
-                btnsimpan.Enabled = false;
+                    MessageBox.Show("Data Berhasil Disimpan", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    setdefault();
+                    setfalse();
+                    tampil();
+                    btnsimpan.Enabled = false;
+                }
+                else 
+                {
+
+                }      
 
             }
             catch (Exception ex)
