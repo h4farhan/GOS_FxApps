@@ -168,7 +168,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.92184F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.07815F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanel3.Controls.Add(this.lbldate, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.lblshift, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.lblinfo, 1, 0);
@@ -200,9 +200,9 @@ namespace GOS_FxApps
             this.lblshift.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblshift.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblshift.ForeColor = System.Drawing.Color.White;
-            this.lblshift.Location = new System.Drawing.Point(566, 0);
+            this.lblshift.Location = new System.Drawing.Point(565, 0);
             this.lblshift.Name = "lblshift";
-            this.lblshift.Size = new System.Drawing.Size(37, 50);
+            this.lblshift.Size = new System.Drawing.Size(38, 50);
             this.lblshift.TabIndex = 2;
             this.lblshift.Text = "1";
             this.lblshift.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -215,7 +215,7 @@ namespace GOS_FxApps
             this.lblinfo.ForeColor = System.Drawing.Color.White;
             this.lblinfo.Location = new System.Drawing.Point(498, 0);
             this.lblinfo.Name = "lblinfo";
-            this.lblinfo.Size = new System.Drawing.Size(62, 50);
+            this.lblinfo.Size = new System.Drawing.Size(61, 50);
             this.lblinfo.TabIndex = 1;
             this.lblinfo.Text = "Shift :";
             this.lblinfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
