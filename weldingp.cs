@@ -26,5 +26,15 @@ namespace GOS_FxApps
         {
 
         }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void weldingp_Load(object sender, EventArgs e)
+        {
+            btnsimpan.Enabled = false;
+        }
     }
 }
