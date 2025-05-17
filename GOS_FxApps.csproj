@@ -308,6 +308,7 @@
     <EmbeddedResource Include="registrasi.resx">
       <DependentUpon>registrasi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPenerimaan.rdlc" />
     <EmbeddedResource Include="userinfo.resx">
       <DependentUpon>userinfo.cs</DependentUpon>
     </EmbeddedResource>
