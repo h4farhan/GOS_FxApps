@@ -126,10 +126,11 @@ namespace GOS_FxApps
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1323, 462);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(991, 375);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -139,13 +140,14 @@ namespace GOS_FxApps
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel6, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(920, 456);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(689, 371);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel6
@@ -155,12 +157,13 @@ namespace GOS_FxApps
             this.tableLayoutPanel6.Controls.Add(this.label18, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.chartRoundbar, 0, 1);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 185);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(2, 150);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 2;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(914, 268);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(685, 219);
             this.tableLayoutPanel6.TabIndex = 4;
             // 
             // label18
@@ -168,9 +171,10 @@ namespace GOS_FxApps
             this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label18.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label18.Location = new System.Drawing.Point(3, 0);
+            this.label18.Location = new System.Drawing.Point(2, 0);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(908, 32);
+            this.label18.Size = new System.Drawing.Size(681, 26);
             this.label18.TabIndex = 5;
             this.label18.Text = "Stock Round Bar and Welding Pieces";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -196,7 +200,8 @@ namespace GOS_FxApps
             chartArea1.Name = "ChartArea1";
             this.chartRoundbar.ChartAreas.Add(chartArea1);
             this.chartRoundbar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartRoundbar.Location = new System.Drawing.Point(3, 35);
+            this.chartRoundbar.Location = new System.Drawing.Point(2, 28);
+            this.chartRoundbar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chartRoundbar.Name = "chartRoundbar";
             this.chartRoundbar.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.ChartArea = "ChartArea1";
@@ -207,7 +212,7 @@ namespace GOS_FxApps
             series1.LabelForeColor = System.Drawing.Color.Gainsboro;
             series1.Name = "Series1";
             this.chartRoundbar.Series.Add(series1);
-            this.chartRoundbar.Size = new System.Drawing.Size(908, 230);
+            this.chartRoundbar.Size = new System.Drawing.Size(681, 189);
             this.chartRoundbar.TabIndex = 6;
             this.chartRoundbar.Text = "ChartRoundbar";
             // 
@@ -218,12 +223,13 @@ namespace GOS_FxApps
             this.tableLayoutPanel4.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(914, 176);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(685, 144);
             this.tableLayoutPanel4.TabIndex = 3;
             // 
             // label1
@@ -231,9 +237,10 @@ namespace GOS_FxApps
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(2, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(908, 31);
+            this.label1.Size = new System.Drawing.Size(681, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "Stock Amount of Rod";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -252,12 +259,13 @@ namespace GOS_FxApps
             this.tableLayoutPanel5.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 34);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(2, 27);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.tableLayoutPanel5.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(908, 139);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(681, 115);
             this.tableLayoutPanel5.TabIndex = 3;
             // 
             // panel5
@@ -267,9 +275,10 @@ namespace GOS_FxApps
             this.panel5.Controls.Add(this.label14);
             this.panel5.Controls.Add(this.label16);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(727, 8);
+            this.panel5.Location = new System.Drawing.Point(546, 6);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(178, 128);
+            this.panel5.Size = new System.Drawing.Size(133, 107);
             this.panel5.TabIndex = 4;
             // 
             // label15
@@ -277,9 +286,10 @@ namespace GOS_FxApps
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 34F, System.Drawing.FontStyle.Bold);
             this.label15.ForeColor = System.Drawing.Color.DarkTurquoise;
-            this.label15.Location = new System.Drawing.Point(0, 59);
+            this.label15.Location = new System.Drawing.Point(0, 48);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(174, 42);
+            this.label15.Size = new System.Drawing.Size(129, 36);
             this.label15.TabIndex = 3;
             this.label15.Text = "1426";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -290,9 +300,10 @@ namespace GOS_FxApps
             this.label14.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label14.ForeColor = System.Drawing.Color.DarkTurquoise;
-            this.label14.Location = new System.Drawing.Point(0, 101);
+            this.label14.Location = new System.Drawing.Point(0, 84);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(174, 23);
+            this.label14.Size = new System.Drawing.Size(129, 19);
             this.label14.TabIndex = 2;
             this.label14.Text = "Pcs";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -303,8 +314,9 @@ namespace GOS_FxApps
             this.label16.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.label16.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.label16.Location = new System.Drawing.Point(0, 0);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(174, 59);
+            this.label16.Size = new System.Drawing.Size(129, 48);
             this.label16.TabIndex = 0;
             this.label16.Text = "Stock of \r\nRepaired rods";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -316,9 +328,10 @@ namespace GOS_FxApps
             this.panel4.Controls.Add(this.label11);
             this.panel4.Controls.Add(this.label13);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(546, 8);
+            this.panel4.Location = new System.Drawing.Point(410, 6);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(175, 128);
+            this.panel4.Size = new System.Drawing.Size(132, 107);
             this.panel4.TabIndex = 3;
             // 
             // label12
@@ -326,9 +339,10 @@ namespace GOS_FxApps
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 34F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label12.Location = new System.Drawing.Point(0, 59);
+            this.label12.Location = new System.Drawing.Point(0, 48);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(171, 42);
+            this.label12.Size = new System.Drawing.Size(128, 36);
             this.label12.TabIndex = 3;
             this.label12.Text = "1426";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -339,9 +353,10 @@ namespace GOS_FxApps
             this.label11.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label11.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label11.Location = new System.Drawing.Point(0, 101);
+            this.label11.Location = new System.Drawing.Point(0, 84);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(171, 23);
+            this.label11.Size = new System.Drawing.Size(128, 19);
             this.label11.TabIndex = 2;
             this.label11.Text = "Pcs";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -352,8 +367,9 @@ namespace GOS_FxApps
             this.label13.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.Color.DarkOrange;
             this.label13.Location = new System.Drawing.Point(0, 0);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(171, 59);
+            this.label13.Size = new System.Drawing.Size(128, 48);
             this.label13.TabIndex = 0;
             this.label13.Text = "Stock of \r\nunrepaired rods";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -365,9 +381,10 @@ namespace GOS_FxApps
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(365, 8);
+            this.panel3.Location = new System.Drawing.Point(274, 6);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(175, 128);
+            this.panel3.Size = new System.Drawing.Size(132, 107);
             this.panel3.TabIndex = 2;
             // 
             // label9
@@ -375,9 +392,10 @@ namespace GOS_FxApps
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 34F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label9.Location = new System.Drawing.Point(0, 59);
+            this.label9.Location = new System.Drawing.Point(0, 48);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(171, 42);
+            this.label9.Size = new System.Drawing.Size(128, 36);
             this.label9.TabIndex = 3;
             this.label9.Text = "1426";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -388,9 +406,10 @@ namespace GOS_FxApps
             this.label8.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label8.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label8.Location = new System.Drawing.Point(0, 101);
+            this.label8.Location = new System.Drawing.Point(0, 84);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(171, 23);
+            this.label8.Size = new System.Drawing.Size(128, 19);
             this.label8.TabIndex = 2;
             this.label8.Text = "Pcs";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -401,8 +420,9 @@ namespace GOS_FxApps
             this.label10.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.RoyalBlue;
             this.label10.Location = new System.Drawing.Point(0, 0);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(171, 59);
+            this.label10.Size = new System.Drawing.Size(128, 48);
             this.label10.TabIndex = 0;
             this.label10.Text = "Rods Shipped \r\nthis month";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -414,9 +434,10 @@ namespace GOS_FxApps
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(184, 8);
+            this.panel2.Location = new System.Drawing.Point(138, 6);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(175, 128);
+            this.panel2.Size = new System.Drawing.Size(132, 107);
             this.panel2.TabIndex = 1;
             // 
             // label6
@@ -424,9 +445,10 @@ namespace GOS_FxApps
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 34F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label6.Location = new System.Drawing.Point(0, 59);
+            this.label6.Location = new System.Drawing.Point(0, 48);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(171, 42);
+            this.label6.Size = new System.Drawing.Size(128, 36);
             this.label6.TabIndex = 3;
             this.label6.Text = "1426";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -437,9 +459,10 @@ namespace GOS_FxApps
             this.label5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label5.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label5.Location = new System.Drawing.Point(0, 101);
+            this.label5.Location = new System.Drawing.Point(0, 84);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(171, 23);
+            this.label5.Size = new System.Drawing.Size(128, 19);
             this.label5.TabIndex = 2;
             this.label5.Text = "Pcs";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -450,8 +473,9 @@ namespace GOS_FxApps
             this.label7.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.DarkViolet;
             this.label7.Location = new System.Drawing.Point(0, 0);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(171, 59);
+            this.label7.Size = new System.Drawing.Size(128, 48);
             this.label7.TabIndex = 0;
             this.label7.Text = "Rods Repaired \r\nthis month";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -463,9 +487,10 @@ namespace GOS_FxApps
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 8);
+            this.panel1.Location = new System.Drawing.Point(2, 6);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(175, 128);
+            this.panel1.Size = new System.Drawing.Size(132, 107);
             this.panel1.TabIndex = 0;
             // 
             // label3
@@ -473,9 +498,10 @@ namespace GOS_FxApps
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 34F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.DeepPink;
-            this.label3.Location = new System.Drawing.Point(0, 59);
+            this.label3.Location = new System.Drawing.Point(0, 48);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(171, 42);
+            this.label3.Size = new System.Drawing.Size(128, 36);
             this.label3.TabIndex = 3;
             this.label3.Text = "1426";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -486,9 +512,10 @@ namespace GOS_FxApps
             this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label4.ForeColor = System.Drawing.Color.DeepPink;
-            this.label4.Location = new System.Drawing.Point(0, 101);
+            this.label4.Location = new System.Drawing.Point(0, 84);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(171, 23);
+            this.label4.Size = new System.Drawing.Size(128, 19);
             this.label4.TabIndex = 2;
             this.label4.Text = "Pcs";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -499,8 +526,9 @@ namespace GOS_FxApps
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.DeepPink;
             this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 59);
+            this.label2.Size = new System.Drawing.Size(128, 48);
             this.label2.TabIndex = 0;
             this.label2.Text = "Rods Received \r\nthis month";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -512,12 +540,13 @@ namespace GOS_FxApps
             this.tableLayoutPanel3.Controls.Add(this.label17, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.chartLowestStock, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(929, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(695, 2);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(391, 456);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(294, 371);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // label17
@@ -525,9 +554,10 @@ namespace GOS_FxApps
             this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label17.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label17.Location = new System.Drawing.Point(3, 0);
+            this.label17.Location = new System.Drawing.Point(2, 0);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(385, 32);
+            this.label17.Size = new System.Drawing.Size(290, 26);
             this.label17.TabIndex = 5;
             this.label17.Text = "5 Materials with the lowest stock";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -562,7 +592,8 @@ namespace GOS_FxApps
             legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
             this.chartLowestStock.Legends.Add(legend1);
-            this.chartLowestStock.Location = new System.Drawing.Point(3, 35);
+            this.chartLowestStock.Location = new System.Drawing.Point(2, 28);
+            this.chartLowestStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chartLowestStock.Name = "chartLowestStock";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
@@ -585,7 +616,7 @@ namespace GOS_FxApps
             series2.Points.Add(dataPoint4);
             series2.Points.Add(dataPoint5);
             this.chartLowestStock.Series.Add(series2);
-            this.chartLowestStock.Size = new System.Drawing.Size(385, 418);
+            this.chartLowestStock.Size = new System.Drawing.Size(290, 341);
             this.chartLowestStock.TabIndex = 4;
             // 
             // tableLayoutPanel7
@@ -598,15 +629,16 @@ namespace GOS_FxApps
             this.tableLayoutPanel7.Controls.Add(this.label19, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel8, 0, 4);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 462);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 375);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 5;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 373F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 373F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 427F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1323, 1218);
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 303F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 303F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 347F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(991, 990);
             this.tableLayoutPanel7.TabIndex = 3;
             // 
             // chartStockMaterial
@@ -630,7 +662,8 @@ namespace GOS_FxApps
             chartArea3.Name = "ChartArea1";
             this.chartStockMaterial.ChartAreas.Add(chartArea3);
             this.chartStockMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartStockMaterial.Location = new System.Drawing.Point(3, 482);
+            this.chartStockMaterial.Location = new System.Drawing.Point(2, 391);
+            this.chartStockMaterial.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chartStockMaterial.Name = "chartStockMaterial";
             this.chartStockMaterial.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series3.ChartArea = "ChartArea1";
@@ -641,7 +674,7 @@ namespace GOS_FxApps
             series3.LabelForeColor = System.Drawing.Color.Gainsboro;
             series3.Name = "Series1";
             this.chartStockMaterial.Series.Add(series3);
-            this.chartStockMaterial.Size = new System.Drawing.Size(1317, 367);
+            this.chartStockMaterial.Size = new System.Drawing.Size(987, 299);
             this.chartStockMaterial.TabIndex = 10;
             this.chartStockMaterial.Text = "ChartRoundbar";
             // 
@@ -666,7 +699,8 @@ namespace GOS_FxApps
             chartArea4.Name = "ChartArea1";
             this.chartUssageMaterial.ChartAreas.Add(chartArea4);
             this.chartUssageMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartUssageMaterial.Location = new System.Drawing.Point(3, 56);
+            this.chartUssageMaterial.Location = new System.Drawing.Point(2, 45);
+            this.chartUssageMaterial.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chartUssageMaterial.Name = "chartUssageMaterial";
             this.chartUssageMaterial.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series4.ChartArea = "ChartArea1";
@@ -677,7 +711,7 @@ namespace GOS_FxApps
             series4.LabelForeColor = System.Drawing.Color.Gainsboro;
             series4.Name = "Series1";
             this.chartUssageMaterial.Series.Add(series4);
-            this.chartUssageMaterial.Size = new System.Drawing.Size(1317, 367);
+            this.chartUssageMaterial.Size = new System.Drawing.Size(987, 299);
             this.chartUssageMaterial.TabIndex = 9;
             this.chartUssageMaterial.Text = "ChartRoundbar";
             // 
@@ -686,9 +720,10 @@ namespace GOS_FxApps
             this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label21.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label21.Location = new System.Drawing.Point(3, 426);
+            this.label21.Location = new System.Drawing.Point(2, 346);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(1317, 53);
+            this.label21.Size = new System.Drawing.Size(987, 43);
             this.label21.TabIndex = 8;
             this.label21.Text = "Stock of Materials";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -698,9 +733,10 @@ namespace GOS_FxApps
             this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label19.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label19.Location = new System.Drawing.Point(3, 0);
+            this.label19.Location = new System.Drawing.Point(2, 0);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(1317, 53);
+            this.label19.Size = new System.Drawing.Size(987, 43);
             this.label19.TabIndex = 6;
             this.label19.Text = "Material usage this month";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -713,11 +749,12 @@ namespace GOS_FxApps
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel10, 1, 0);
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel9, 0, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 855);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(2, 694);
+            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(1317, 421);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(987, 343);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // tableLayoutPanel10
@@ -727,12 +764,13 @@ namespace GOS_FxApps
             this.tableLayoutPanel10.Controls.Add(this.dgvRepaired, 0, 1);
             this.tableLayoutPanel10.Controls.Add(this.label22, 0, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(661, 3);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(495, 2);
+            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 2;
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(653, 415);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(490, 339);
             this.tableLayoutPanel10.TabIndex = 2;
             // 
             // dgvRepaired
@@ -760,12 +798,13 @@ namespace GOS_FxApps
             this.dgvRepaired.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvRepaired.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRepaired.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvRepaired.Location = new System.Drawing.Point(3, 56);
+            this.dgvRepaired.Location = new System.Drawing.Point(2, 45);
+            this.dgvRepaired.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvRepaired.Name = "dgvRepaired";
             this.dgvRepaired.RowHeadersVisible = false;
             this.dgvRepaired.RowHeadersWidth = 51;
             this.dgvRepaired.RowTemplate.Height = 25;
-            this.dgvRepaired.Size = new System.Drawing.Size(647, 356);
+            this.dgvRepaired.Size = new System.Drawing.Size(486, 292);
             this.dgvRepaired.TabIndex = 11;
             this.dgvRepaired.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvRepaired.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -794,9 +833,10 @@ namespace GOS_FxApps
             this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label22.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label22.Location = new System.Drawing.Point(3, 0);
+            this.label22.Location = new System.Drawing.Point(2, 0);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(647, 53);
+            this.label22.Size = new System.Drawing.Size(486, 43);
             this.label22.TabIndex = 9;
             this.label22.Text = "Anode rods aepaired this month";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -808,12 +848,13 @@ namespace GOS_FxApps
             this.tableLayoutPanel9.Controls.Add(this.label20, 0, 0);
             this.tableLayoutPanel9.Controls.Add(this.dgvReceived, 0, 1);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 2;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(652, 415);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(489, 339);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
             // label20
@@ -821,9 +862,10 @@ namespace GOS_FxApps
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label20.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label20.Location = new System.Drawing.Point(3, 0);
+            this.label20.Location = new System.Drawing.Point(2, 0);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(646, 53);
+            this.label20.Size = new System.Drawing.Size(485, 43);
             this.label20.TabIndex = 9;
             this.label20.Text = "Anode rods received this month";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -853,12 +895,13 @@ namespace GOS_FxApps
             this.dgvReceived.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvReceived.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvReceived.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvReceived.Location = new System.Drawing.Point(3, 56);
+            this.dgvReceived.Location = new System.Drawing.Point(2, 45);
+            this.dgvReceived.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvReceived.Name = "dgvReceived";
             this.dgvReceived.RowHeadersVisible = false;
             this.dgvReceived.RowHeadersWidth = 51;
             this.dgvReceived.RowTemplate.Height = 25;
-            this.dgvReceived.Size = new System.Drawing.Size(646, 356);
+            this.dgvReceived.Size = new System.Drawing.Size(485, 292);
             this.dgvReceived.TabIndex = 10;
             this.dgvReceived.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvReceived.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -884,15 +927,15 @@ namespace GOS_FxApps
             // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.ClientSize = new System.Drawing.Size(1344, 1102);
+            this.ClientSize = new System.Drawing.Size(1008, 894);
             this.Controls.Add(this.tableLayoutPanel7);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.tableLayoutPanel1.ResumeLayout(false);
