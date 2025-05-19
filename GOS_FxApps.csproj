@@ -208,6 +208,14 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\PenerimaanForm.cs">
+      <DependentUpon>PenerimaanForm.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\PenerimaanForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PenerimaanForm.xsd</DependentUpon>
+    </Compile>
     <Compile Include="editpenerimaan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +227,12 @@
     </Compile>
     <Compile Include="editperbaikan.Designer.cs">
       <DependentUpon>editperbaikan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPenerimaan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPenerimaan.Designer.cs">
+      <DependentUpon>FormPenerimaan.cs</DependentUpon>
     </Compile>
     <Compile Include="koneksi.cs" />
     <Compile Include="loginform.cs">
@@ -280,6 +294,9 @@
     <EmbeddedResource Include="editperbaikan.resx">
       <DependentUpon>editperbaikan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPenerimaan.resx">
+      <DependentUpon>FormPenerimaan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="loginform.resx">
       <DependentUpon>loginform.cs</DependentUpon>
     </EmbeddedResource>
@@ -308,13 +325,26 @@
     <EmbeddedResource Include="registrasi.resx">
       <DependentUpon>registrasi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPenerimaan.rdlc" />
+    <Content Include="FormPenerimaan.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="userinfo.resx">
       <DependentUpon>userinfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="weldingp.resx">
       <DependentUpon>weldingp.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataSet\PenerimaanForm.xsc">
+      <DependentUpon>PenerimaanForm.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\PenerimaanForm.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PenerimaanForm.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\PenerimaanForm.xss">
+      <DependentUpon>PenerimaanForm.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
