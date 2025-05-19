@@ -235,5 +235,10 @@ namespace GOS_FxApps {
         {
             SwitchPanel(new weldingp());
         }
+
+        private void btnPenerimaanForm_Click(object sender, EventArgs e)
+        {
+            SwitchPanel(new FormPenerimaan());
+        }
     }
 }
