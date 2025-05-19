@@ -277,7 +277,7 @@ namespace GOS_FxApps
             this.entryContainer.MaximumSize = new System.Drawing.Size(309, 345);
             this.entryContainer.MinimumSize = new System.Drawing.Size(309, 74);
             this.entryContainer.Name = "entryContainer";
-            this.entryContainer.Size = new System.Drawing.Size(309, 74);
+            this.entryContainer.Size = new System.Drawing.Size(309, 345);
             this.entryContainer.TabIndex = 2;
             // 
             // iconButton4
@@ -432,7 +432,7 @@ namespace GOS_FxApps
             this.EditContainer.Controls.Add(this.iconButton8);
             this.EditContainer.Controls.Add(this.iconButton9);
             this.EditContainer.Controls.Add(this.Editbutton);
-            this.EditContainer.Location = new System.Drawing.Point(3, 209);
+            this.EditContainer.Location = new System.Drawing.Point(3, 480);
             this.EditContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EditContainer.MaximumSize = new System.Drawing.Size(309, 479);
             this.EditContainer.MinimumSize = new System.Drawing.Size(309, 74);
@@ -637,7 +637,7 @@ namespace GOS_FxApps
             this.btnlaporan.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnlaporan.IconSize = 40;
             this.btnlaporan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnlaporan.Location = new System.Drawing.Point(3, 287);
+            this.btnlaporan.Location = new System.Drawing.Point(3, 558);
             this.btnlaporan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnlaporan.Name = "btnlaporan";
             this.btnlaporan.Size = new System.Drawing.Size(309, 74);
@@ -658,7 +658,7 @@ namespace GOS_FxApps
             this.btnhistori.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnhistori.IconSize = 40;
             this.btnhistori.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnhistori.Location = new System.Drawing.Point(3, 365);
+            this.btnhistori.Location = new System.Drawing.Point(3, 636);
             this.btnhistori.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnhistori.Name = "btnhistori";
             this.btnhistori.Size = new System.Drawing.Size(309, 74);
