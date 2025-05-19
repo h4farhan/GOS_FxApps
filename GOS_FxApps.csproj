@@ -35,6 +35,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Azure.Core, Version=1.46.1.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
       <HintPath>packages\Azure.Core.1.46.1\lib\net472\Azure.Core.dll</HintPath>
@@ -234,6 +238,12 @@
     <Compile Include="FormPenerimaan.Designer.cs">
       <DependentUpon>FormPenerimaan.cs</DependentUpon>
     </Compile>
+    <Compile Include="formstok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formstok.Designer.cs">
+      <DependentUpon>formstok.cs</DependentUpon>
+    </Compile>
     <Compile Include="koneksi.cs" />
     <Compile Include="loginform.cs">
       <SubType>Form</SubType>
@@ -296,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPenerimaan.resx">
       <DependentUpon>FormPenerimaan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formstok.resx">
+      <DependentUpon>formstok.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="loginform.resx">
       <DependentUpon>loginform.cs</DependentUpon>

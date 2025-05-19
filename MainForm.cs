@@ -19,6 +19,8 @@ namespace GOS_FxApps {
         private bool sidebarx = false;
         private bool entryprodx = false;
         private bool editx = false;
+        private bool laporanx = false;
+        private bool historiy = false;
 
         public static MainForm Instance;
         
@@ -45,16 +47,20 @@ namespace GOS_FxApps {
         {
             entryContainer.Visible = false;
             EditContainer.Visible = false;
-            btnhistori.Visible = false; 
+            btnHistori.Visible = false; 
             btnlaporan.Visible = false; 
+            laporanContainer.Visible = false;
+            historycontainer.Visible = false;
         }
 
         public void setvisibletrue()
         {
             entryContainer.Visible = true;
             EditContainer.Visible = true;
-            btnhistori.Visible = true;
+            btnHistori.Visible = true;
             btnlaporan.Visible = true;
+            historycontainer.Visible = true;
+            laporanContainer.Visible=true;
         }
 
         private void HamburgerButton_Click_1(object sender, EventArgs e)
@@ -239,6 +245,64 @@ namespace GOS_FxApps {
         private void btnPenerimaanForm_Click(object sender, EventArgs e)
         {
             SwitchPanel(new FormPenerimaan());
+        }
+
+        private void laporantimer_Tick(object sender, EventArgs e)
+        {
+            if (laporanx)
+            {
+                laporanContainer.Height += 10;
+                if (laporanContainer.Height >= laporanContainer.MaximumSize.Height)
+                {
+                    laporantimer.Stop();
+                    laporanx = false;
+
+                }
+            }
+            else
+            {
+                laporanContainer.Height -= 10;
+                if (laporanContainer.Height <= laporanContainer.MinimumSize.Height)
+                {
+                    laporantimer.Stop();
+                    laporanx = true;
+                }
+
+            }
+        }
+
+        private void btnlaporan_Click(object sender, EventArgs e)
+        {
+            laporantimer.Start();
+        }
+
+        private void historitimer_Tick(object sender, EventArgs e)
+        {
+            if (historiy)
+            {
+                historycontainer.Height += 10;
+                if (historycontainer.Height >= historycontainer.MaximumSize.Height)
+                {
+                    historitimer.Stop();
+                    historiy = false;
+
+                }
+            }
+            else
+            {
+                historycontainer.Height -= 10;
+                if (historycontainer.Height <= historycontainer.MinimumSize.Height)
+                {
+                    historitimer.Stop();
+                    historiy = true;
+                }
+
+            }
+        }
+
+        private void btnHistori_Click(object sender, EventArgs e)
+        {
+            historitimer.Start();
         }
     }
 }
