@@ -73,6 +73,32 @@ namespace GOS_FxApps
             }
         }
 
+        private void cari()
+        {
+            string keyword = txtcari.Text;
+            using (SqlCommand cmd = new SqlCommand("SELECT * FROM perbaikan_s WHERE tanggal_perbaikan LIKE @keyword OR nomor_rod LIKE @keyword", conn))
+            {
+                cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+
+                try
+                {
+                    conn.Open();
+                    da.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan saat pencarian: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+
         private void setdefault()
         {
             txtnomorrod.Clear();
@@ -363,6 +389,11 @@ namespace GOS_FxApps
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void txtcari_TextChanged(object sender, EventArgs e)
+        {
+            cari();
         }
     }
 }

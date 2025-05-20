@@ -49,6 +49,33 @@ namespace GOS_FxApps
             }
         }
 
+        private void cari()
+        {
+            string keyword = txtcari.Text;
+            using (SqlCommand cmd = new SqlCommand("SELECT * FROM pemakaian_material WHERE kodeBarang LIKE @keyword OR namaBarang LIKE @keyword OR " +
+                "tanggalPemakaian LIKE @keyword", conn))
+            {
+                cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+
+                try
+                {
+                    conn.Open();
+                    da.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan saat pencarian: " + ex.Message);
+                }
+                finally 
+                { 
+                    conn.Close();
+                }
+            }
+        }
+
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             Form frmstok = new formstok();
@@ -174,5 +201,9 @@ namespace GOS_FxApps
 
         }
 
+        private void guna2TextBox11_TextChanged(object sender, EventArgs e)
+        {
+            cari();
+        }
     }
 }

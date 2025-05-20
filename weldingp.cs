@@ -72,6 +72,32 @@ namespace GOS_FxApps
             }
         }
 
+        private void cari()
+        {
+            string keyword = txtcari.Text;
+            using (SqlCommand cmd = new SqlCommand("SELECT * FROM Rb_Stok WHERE tanggal LIKE @keyword OR shift LIKE @keyword", conn))
+            {
+                cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+
+                try
+                {
+                    conn.Open();
+                    da.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan saat pencarian: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+
         private void getdatastok()
         {
             conn.Open();
@@ -306,6 +332,11 @@ namespace GOS_FxApps
             {
                 e.Handled = true;
             }
+        }
+
+        private void txtcari_TextChanged(object sender, EventArgs e)
+        {
+            cari();
         }
     }
 }

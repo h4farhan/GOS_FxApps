@@ -93,6 +93,32 @@ namespace GOS_FxApps
             }
         }
 
+        private void cari()
+        {
+            string keyword = txtcari.Text;
+            using (SqlCommand cmd = new SqlCommand("SELECT * FROM pengiriman WHERE tanggal_pengiriman LIKE @keyword OR nomor_rod LIKE @keyword", conn))
+            {
+                cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+
+                try
+                {
+                    conn.Open();
+                    da.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan saat pencarian: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+
         private void TextBox_Validating(object sender, CancelEventArgs e)
         {
             Guna2TextBox txt = (Guna2TextBox)sender; 
@@ -267,6 +293,11 @@ namespace GOS_FxApps
             DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
             insertdata(list);
-        }    
+        }
+
+        private void txtcari_TextChanged(object sender, EventArgs e)
+        {
+            cari();
+        }
     }
 }

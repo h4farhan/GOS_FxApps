@@ -49,6 +49,32 @@ namespace GOS_FxApps
             }
         }
 
+        private void cari()
+        {
+            string keyword = txtcari.Text;
+            using (SqlCommand cmd = new SqlCommand("SELECT * FROM stok_material WHERE kodeBarang LIKE @keyword OR namaBarang LIKE @keyword", conn))
+            {
+                cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+
+                try
+                {
+                    conn.Open();
+                    da.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan saat pencarian: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+
         private void setdefault()
         {
             txtkodebarang.Enabled = true;
@@ -196,6 +222,11 @@ namespace GOS_FxApps
             {
                 e.Handled = true;
             }
+        }
+
+        private void txtcari_TextChanged(object sender, EventArgs e)
+        {
+            cari();
         }
     }
 }

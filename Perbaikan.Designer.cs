@@ -1167,6 +1167,7 @@ namespace GOS_FxApps
             this.txtcari.Size = new System.Drawing.Size(391, 48);
             this.txtcari.TabIndex = 39;
             this.txtcari.TextOffset = new System.Drawing.Point(10, 0);
+            this.txtcari.TextChanged += new System.EventHandler(this.txtcari_TextChanged);
             // 
             // dataGridView1
             // 
