@@ -97,7 +97,11 @@ namespace GOS_FxApps
         {
             string kodeBarang = cmbnama.SelectedValue.ToString();
             string namaBarang = cmbnama.Text;
-            int jumlahPakai = Convert.ToInt32(txtjumlah.Text);
+            if (!int.TryParse(txtjumlah.Text, out int jumlahPakai))
+            {
+                MessageBox.Show("Masukkan jumlah yang valid.");
+                return;
+            }
 
             try
             {

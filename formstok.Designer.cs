@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -47,6 +48,7 @@
             this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
             this.titlePanel = new System.Windows.Forms.Panel();
             this.ControlBoxButton = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel1.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -339,6 +341,11 @@
             this.ControlBoxButton.Size = new System.Drawing.Size(33, 20);
             this.ControlBoxButton.TabIndex = 0;
             // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 20;
+            this.guna2Elipse1.TargetControl = this;
+            // 
             // formstok
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -391,5 +398,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtcari;
         private System.Windows.Forms.Panel titlePanel;
         private Guna.UI2.WinForms.Guna2ControlBox ControlBoxButton;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }
