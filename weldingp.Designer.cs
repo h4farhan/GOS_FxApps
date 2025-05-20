@@ -574,6 +574,7 @@
             this.txtsbarkg.SelectedText = "";
             this.txtsbarkg.Size = new System.Drawing.Size(192, 58);
             this.txtsbarkg.TabIndex = 13;
+            this.txtsbarkg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // txtsbarmm
             // 
@@ -600,6 +601,7 @@
             this.txtsbarmm.SelectedText = "";
             this.txtsbarmm.Size = new System.Drawing.Size(192, 58);
             this.txtsbarmm.TabIndex = 12;
+            this.txtsbarmm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label9
             // 
@@ -637,7 +639,7 @@
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 177F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 180F));
             this.tableLayoutPanel11.Size = new System.Drawing.Size(607, 180);
             this.tableLayoutPanel11.TabIndex = 0;
             // 
@@ -1025,6 +1027,7 @@
             this.txtpbar.SelectedText = "";
             this.txtpbar.Size = new System.Drawing.Size(202, 59);
             this.txtpbar.TabIndex = 8;
+            this.txtpbar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // txtkeluar
             // 
@@ -1051,6 +1054,7 @@
             this.txtkeluar.SelectedText = "";
             this.txtkeluar.Size = new System.Drawing.Size(202, 59);
             this.txtkeluar.TabIndex = 7;
+            this.txtkeluar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // txtmasuk
             // 
@@ -1077,6 +1081,7 @@
             this.txtmasuk.SelectedText = "";
             this.txtmasuk.Size = new System.Drawing.Size(202, 59);
             this.txtmasuk.TabIndex = 6;
+            this.txtmasuk.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label4
             // 
@@ -1103,8 +1108,8 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 355F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 355F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 360F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 360F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(616, 360);
             this.tableLayoutPanel5.TabIndex = 4;
             // 
@@ -1161,6 +1166,7 @@
             this.pkeluare2.SelectedText = "";
             this.pkeluare2.Size = new System.Drawing.Size(159, 55);
             this.pkeluare2.TabIndex = 19;
+            this.pkeluare2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label22
             // 
@@ -1198,6 +1204,7 @@
             this.pkeluare1.SelectedText = "";
             this.pkeluare1.Size = new System.Drawing.Size(159, 55);
             this.pkeluare1.TabIndex = 17;
+            this.pkeluare1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // guna2Separator3
             // 
@@ -1286,6 +1293,7 @@
             this.lathee2.SelectedText = "";
             this.lathee2.Size = new System.Drawing.Size(159, 55);
             this.lathee2.TabIndex = 15;
+            this.lathee2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label20
             // 
@@ -1323,6 +1331,7 @@
             this.lathee1.SelectedText = "";
             this.lathee1.Size = new System.Drawing.Size(159, 55);
             this.lathee1.TabIndex = 13;
+            this.lathee1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label15
             // 
@@ -1389,6 +1398,7 @@
             this.sawinge2.SelectedText = "";
             this.sawinge2.Size = new System.Drawing.Size(159, 55);
             this.sawinge2.TabIndex = 11;
+            this.sawinge2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label17
             // 
@@ -1426,6 +1436,7 @@
             this.sawinge1.SelectedText = "";
             this.sawinge1.Size = new System.Drawing.Size(159, 55);
             this.sawinge1.TabIndex = 7;
+            this.sawinge1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // guna2Separator1
             // 

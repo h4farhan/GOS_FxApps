@@ -299,5 +299,13 @@ namespace GOS_FxApps
             }
 
         }
+
+        private void AngkaOnly_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

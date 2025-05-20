@@ -304,5 +304,10 @@ namespace GOS_FxApps {
         {
             historitimer.Start();
         }
+
+        private void iconButton4_Click(object sender, EventArgs e)
+        {
+            SwitchPanel(new pemakaianMaterial());
+        }
     }
 }
