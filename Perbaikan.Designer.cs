@@ -207,7 +207,7 @@ namespace GOS_FxApps
             this.txtjenis.Enabled = false;
             this.txtjenis.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtjenis.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtjenis.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtjenis.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtjenis.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtjenis.Location = new System.Drawing.Point(197, 72);
             this.txtjenis.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -398,7 +398,8 @@ namespace GOS_FxApps
             this.txte2ers.Enabled = false;
             this.txte2ers.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txte2ers.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txte2ers.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txte2ers.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txte2ers.ForeColor = System.Drawing.Color.White;
             this.txte2ers.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txte2ers.Location = new System.Drawing.Point(66, 42);
             this.txte2ers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -422,7 +423,8 @@ namespace GOS_FxApps
             this.txte2cstub.Enabled = false;
             this.txte2cstub.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txte2cstub.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txte2cstub.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txte2cstub.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txte2cstub.ForeColor = System.Drawing.Color.White;
             this.txte2cstub.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txte2cstub.Location = new System.Drawing.Point(66, 160);
             this.txte2cstub.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -457,7 +459,8 @@ namespace GOS_FxApps
             this.txte2cst.Enabled = false;
             this.txte2cst.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txte2cst.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txte2cst.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txte2cst.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txte2cst.ForeColor = System.Drawing.Color.White;
             this.txte2cst.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txte2cst.Location = new System.Drawing.Point(66, 100);
             this.txte2cst.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -492,7 +495,8 @@ namespace GOS_FxApps
             this.txtr.Enabled = false;
             this.txtr.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtr.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtr.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtr.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtr.ForeColor = System.Drawing.Color.White;
             this.txtr.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtr.Location = new System.Drawing.Point(304, 388);
             this.txtr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -590,7 +594,8 @@ namespace GOS_FxApps
             this.txte1est.Enabled = false;
             this.txte1est.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txte1est.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txte1est.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txte1est.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txte1est.ForeColor = System.Drawing.Color.White;
             this.txte1est.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txte1est.Location = new System.Drawing.Point(64, 134);
             this.txte1est.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -625,7 +630,8 @@ namespace GOS_FxApps
             this.txte1ers.Enabled = false;
             this.txte1ers.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txte1ers.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txte1ers.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txte1ers.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txte1ers.ForeColor = System.Drawing.Color.White;
             this.txte1ers.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txte1ers.Location = new System.Drawing.Point(64, 72);
             this.txte1ers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -756,7 +762,8 @@ namespace GOS_FxApps
             this.txtc.Enabled = false;
             this.txtc.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtc.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtc.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtc.ForeColor = System.Drawing.Color.White;
             this.txtc.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtc.Location = new System.Drawing.Point(304, 464);
             this.txtc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -813,7 +820,8 @@ namespace GOS_FxApps
             this.txts.Enabled = false;
             this.txts.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txts.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txts.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txts.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txts.ForeColor = System.Drawing.Color.White;
             this.txts.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txts.Location = new System.Drawing.Point(60, 388);
             this.txts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -848,7 +856,8 @@ namespace GOS_FxApps
             this.txtd.Enabled = false;
             this.txtd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtd.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtd.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtd.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtd.ForeColor = System.Drawing.Color.White;
             this.txtd.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtd.Location = new System.Drawing.Point(60, 464);
             this.txtd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -872,7 +881,8 @@ namespace GOS_FxApps
             this.txtrl.Enabled = false;
             this.txtrl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrl.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrl.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtrl.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtrl.ForeColor = System.Drawing.Color.White;
             this.txtrl.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrl.Location = new System.Drawing.Point(419, 312);
             this.txtrl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -929,7 +939,8 @@ namespace GOS_FxApps
             this.txtba.Enabled = false;
             this.txtba.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtba.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtba.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtba.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtba.ForeColor = System.Drawing.Color.White;
             this.txtba.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtba.Location = new System.Drawing.Point(179, 388);
             this.txtba.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -953,7 +964,8 @@ namespace GOS_FxApps
             this.txtm.Enabled = false;
             this.txtm.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtm.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtm.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtm.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtm.ForeColor = System.Drawing.Color.White;
             this.txtm.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtm.Location = new System.Drawing.Point(304, 312);
             this.txtm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -977,7 +989,8 @@ namespace GOS_FxApps
             this.txte3.Enabled = false;
             this.txte3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txte3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txte3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txte3.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txte3.ForeColor = System.Drawing.Color.White;
             this.txte3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txte3.Location = new System.Drawing.Point(60, 312);
             this.txte3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1012,7 +1025,8 @@ namespace GOS_FxApps
             this.txtcr.Enabled = false;
             this.txtcr.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtcr.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcr.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtcr.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtcr.ForeColor = System.Drawing.Color.White;
             this.txtcr.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtcr.Location = new System.Drawing.Point(179, 464);
             this.txtcr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1058,7 +1072,8 @@ namespace GOS_FxApps
             this.txtb.Enabled = false;
             this.txtb.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtb.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtb.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtb.ForeColor = System.Drawing.Color.White;
             this.txtb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtb.Location = new System.Drawing.Point(182, 312);
             this.txtb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1209,7 +1224,6 @@ namespace GOS_FxApps
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(391, 650);
             this.dataGridView1.TabIndex = 0;
