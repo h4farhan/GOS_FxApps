@@ -1,6 +1,6 @@
 ﻿namespace GOS_FxApps
 {
-    partial class pemakaianMaterial
+    partial class editpmaterial
     {
         /// <summary>
         /// Required designer variable.
@@ -44,14 +44,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtjumlah = new Guna.UI2.WinForms.Guna2TextBox();
             this.cmbnama = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btncari = new Guna.UI2.WinForms.Guna2Button();
-            this.datecari = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -71,7 +69,7 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(980, 70);
-            this.panel1.TabIndex = 1;
+            this.panel1.TabIndex = 2;
             // 
             // label2
             // 
@@ -91,9 +89,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.label1.Location = new System.Drawing.Point(23, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 23);
+            this.label1.Size = new System.Drawing.Size(146, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Form Entry Data  >";
+            this.label1.Text = "Form Edit Data  >";
             // 
             // panel2
             // 
@@ -103,7 +101,7 @@
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(540, 763);
-            this.panel2.TabIndex = 3;
+            this.panel2.TabIndex = 4;
             // 
             // tableLayoutPanel1
             // 
@@ -157,7 +155,6 @@
             this.guna2Button2.Size = new System.Drawing.Size(163, 43);
             this.guna2Button2.TabIndex = 38;
             this.guna2Button2.Text = "Simpan Data";
-            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // datepemakaian
             // 
@@ -237,7 +234,6 @@
             this.txtjumlah.SelectedText = "";
             this.txtjumlah.Size = new System.Drawing.Size(312, 40);
             this.txtjumlah.TabIndex = 7;
-            this.txtjumlah.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // cmbnama
             // 
@@ -259,24 +255,6 @@
             this.cmbnama.Size = new System.Drawing.Size(312, 36);
             this.cmbnama.TabIndex = 6;
             // 
-            // guna2Button1
-            // 
-            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button1.BorderRadius = 8;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(259, 694);
-            this.guna2Button1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(163, 43);
-            this.guna2Button1.TabIndex = 39;
-            this.guna2Button1.Text = "Tambah Material";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.tableLayoutPanel2);
@@ -286,7 +264,7 @@
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(440, 763);
-            this.panel3.TabIndex = 4;
+            this.panel3.TabIndex = 5;
             // 
             // tableLayoutPanel2
             // 
@@ -311,10 +289,8 @@
             this.guna2Panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.guna2Panel2.BorderRadius = 15;
             this.guna2Panel2.BorderThickness = 2;
-            this.guna2Panel2.Controls.Add(this.btncari);
-            this.guna2Panel2.Controls.Add(this.datecari);
-            this.guna2Panel2.Controls.Add(this.txtcari);
             this.guna2Panel2.Controls.Add(this.dataGridView1);
+            this.guna2Panel2.Controls.Add(this.txtcari);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel2.Location = new System.Drawing.Point(4, 2);
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -367,42 +343,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(391, 588);
             this.dataGridView1.TabIndex = 39;
             // 
-            // btncari
-            // 
-            this.btncari.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btncari.BorderRadius = 8;
-            this.btncari.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btncari.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btncari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btncari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btncari.ForeColor = System.Drawing.Color.White;
-            this.btncari.Location = new System.Drawing.Point(326, 19);
-            this.btncari.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btncari.Name = "btncari";
-            this.btncari.Size = new System.Drawing.Size(80, 46);
-            this.btncari.TabIndex = 41;
-            this.btncari.Text = "Cari";
-            // 
-            // datecari
-            // 
-            this.datecari.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.datecari.BorderRadius = 5;
-            this.datecari.BorderThickness = 2;
-            this.datecari.Checked = true;
-            this.datecari.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.datecari.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.datecari.ForeColor = System.Drawing.Color.White;
-            this.datecari.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.datecari.Location = new System.Drawing.Point(15, 17);
-            this.datecari.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.datecari.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.datecari.Name = "datecari";
-            this.datecari.ShowCheckBox = true;
-            this.datecari.Size = new System.Drawing.Size(206, 48);
-            this.datecari.TabIndex = 43;
-            this.datecari.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
-            // 
             // txtcari
             // 
             this.txtcari.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -417,21 +357,38 @@
             this.txtcari.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtcari.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtcari.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcari.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtcari.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcari.ForeColor = System.Drawing.Color.White;
             this.txtcari.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.icons8_search_50;
-            this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
-            this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
-            this.txtcari.Location = new System.Drawing.Point(227, 17);
-            this.txtcari.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtcari.IconLeftOffset = new System.Drawing.Point(10, 0);
+            this.txtcari.Location = new System.Drawing.Point(17, 16);
+            this.txtcari.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtcari.Name = "txtcari";
-            this.txtcari.PlaceholderText = "Nomor ROD";
+            this.txtcari.PlaceholderText = "Cari";
             this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(93, 48);
-            this.txtcari.TabIndex = 42;
+            this.txtcari.Size = new System.Drawing.Size(389, 50);
+            this.txtcari.TabIndex = 38;
+            this.txtcari.TextOffset = new System.Drawing.Point(10, 0);
             // 
-            // pemakaianMaterial
+            // guna2Button1
+            // 
+            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Button1.BorderRadius = 8;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(259, 694);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(163, 43);
+            this.guna2Button1.TabIndex = 39;
+            this.guna2Button1.Text = "Tambah Material";
+            // 
+            // editpmaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -441,9 +398,8 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "pemakaianMaterial";
-            this.Text = "pemakaianMaterial";
-            this.Load += new System.EventHandler(this.pemakaianMaterial_Load);
+            this.Name = "editpmaterial";
+            this.Text = "editpmaterial";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -466,20 +422,18 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private System.Windows.Forms.Panel panel3;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private Guna.UI2.WinForms.Guna2TextBox txtjumlah;
-        private Guna.UI2.WinForms.Guna2ComboBox cmbnama;
+        private Guna.UI2.WinForms.Guna2DateTimePicker datepemakaian;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2DateTimePicker datepemakaian;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Button btncari;
-        private Guna.UI2.WinForms.Guna2DateTimePicker datecari;
+        private Guna.UI2.WinForms.Guna2TextBox txtjumlah;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbnama;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private Guna.UI2.WinForms.Guna2TextBox txtcari;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

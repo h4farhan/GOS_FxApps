@@ -264,6 +264,7 @@ namespace GOS_FxApps
                     tampil();
                     btnupdate.Enabled = false;
                     btnclear.Enabled = false;
+                    setfalse();
                 }
             }
             catch (Exception ex)

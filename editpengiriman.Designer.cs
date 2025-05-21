@@ -1,9 +1,6 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-
-namespace GOS_FxApps
+﻿namespace GOS_FxApps
 {
-    partial class editperbaikan
+    partial class editpengiriman
     {
         /// <summary>
         /// Required designer variable.
@@ -130,18 +127,18 @@ namespace GOS_FxApps
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(980, 57);
-            this.panel1.TabIndex = 2;
+            this.panel1.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(179, 16);
+            this.label2.Location = new System.Drawing.Point(173, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 30);
+            this.label2.Size = new System.Drawing.Size(121, 30);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Perbaikan";
+            this.label2.Text = "Pengiriman";
             // 
             // label1
             // 
@@ -162,7 +159,7 @@ namespace GOS_FxApps
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(540, 926);
-            this.panel2.TabIndex = 3;
+            this.panel2.TabIndex = 4;
             // 
             // tableLayoutPanel1
             // 
@@ -1160,7 +1157,7 @@ namespace GOS_FxApps
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(440, 926);
-            this.panel3.TabIndex = 4;
+            this.panel3.TabIndex = 5;
             // 
             // btnupdate
             // 
@@ -1326,7 +1323,7 @@ namespace GOS_FxApps
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // editperbaikan
+            // editpengiriman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1336,10 +1333,9 @@ namespace GOS_FxApps
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "editperbaikan";
-            this.Text = "editperbaikan";
-            this.Load += new System.EventHandler(this.editperbaikan_Load);
+            this.Name = "editpengiriman";
+            this.Text = "editpengiriman";
+            this.Load += new System.EventHandler(this.editpengiriman_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1371,74 +1367,74 @@ namespace GOS_FxApps
 
         #endregion
 
-        private Panel panel1;
-        private Label label2;
-        private Label label1;
-        private Panel panel2;
-        private TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2TextBox txtjenis;
-        private Label label3;
-        private Label label6;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2TextBox txtnomorrod;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label lbltotalupdate;
+        private Guna.UI2.WinForms.Guna2Button btnclear;
+        private Guna.UI2.WinForms.Guna2Button btnhitung;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label lbltotalsebelum;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
-        private Label label28;
-        private TableLayoutPanel tableLayoutPanel4;
-        private Label lbltotale2;
-        private Label label27;
-        private Label label23;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label lbltotale2;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label23;
         private Guna.UI2.WinForms.Guna2TextBox txte2ers;
         private Guna.UI2.WinForms.Guna2TextBox txte2cstub;
-        private Label label19;
+        private System.Windows.Forms.Label label19;
         private Guna.UI2.WinForms.Guna2TextBox txte2cst;
-        private Label label20;
+        private System.Windows.Forms.Label label20;
         private Guna.UI2.WinForms.Guna2TextBox txtr;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
-        private Label label8;
-        private TableLayoutPanel tableLayoutPanel2;
-        private Label lbltotale1;
-        private Label label24;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label lbltotale1;
+        private System.Windows.Forms.Label label24;
         private Guna.UI2.WinForms.Guna2TextBox txte1est;
-        private Label label4;
+        private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2TextBox txte1ers;
-        private Label label7;
+        private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2TextBox txtc;
-        private Label label16;
-        private Label label5;
-        private Label label9;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2TextBox txts;
-        private Label label17;
+        private System.Windows.Forms.Label label17;
         private Guna.UI2.WinForms.Guna2TextBox txtd;
         private Guna.UI2.WinForms.Guna2TextBox txtrl;
-        private Label label15;
-        private Label label18;
-        private Label label10;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2TextBox txtba;
         private Guna.UI2.WinForms.Guna2TextBox txtm;
         private Guna.UI2.WinForms.Guna2TextBox txte3;
-        private Label label11;
+        private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2TextBox txtcr;
-        private Label label14;
-        private Label label12;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label12;
         private Guna.UI2.WinForms.Guna2TextBox txtb;
-        private Label label13;
-        private Panel panel3;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel panel3;
         private Guna.UI2.WinForms.Guna2Button btnupdate;
-        private TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
-        private DataGridView dataGridView1;
         private Guna.UI2.WinForms.Guna2Button btncari;
         private Guna.UI2.WinForms.Guna2DateTimePicker datecari;
         private Guna.UI2.WinForms.Guna2TextBox txtcari;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private TableLayoutPanel tableLayoutPanel3;
-        private Label label21;
-        private Label lbltotalupdate;
-        private Guna.UI2.WinForms.Guna2Button btnclear;
-        private Guna.UI2.WinForms.Guna2Button btnhitung;
-        private TableLayoutPanel tableLayoutPanel6;
-        private Label label22;
-        private Label lbltotalsebelum;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

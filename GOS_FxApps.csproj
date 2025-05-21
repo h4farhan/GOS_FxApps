@@ -226,11 +226,29 @@
     <Compile Include="editpenerimaan.Designer.cs">
       <DependentUpon>editpenerimaan.cs</DependentUpon>
     </Compile>
+    <Compile Include="editpengiriman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editpengiriman.Designer.cs">
+      <DependentUpon>editpengiriman.cs</DependentUpon>
+    </Compile>
     <Compile Include="editperbaikan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="editperbaikan.Designer.cs">
       <DependentUpon>editperbaikan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editpmaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editpmaterial.Designer.cs">
+      <DependentUpon>editpmaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editweldingpiece.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editweldingpiece.Designer.cs">
+      <DependentUpon>editweldingpiece.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPenerimaan.cs">
       <SubType>Form</SubType>
@@ -307,8 +325,17 @@
     <EmbeddedResource Include="editpenerimaan.resx">
       <DependentUpon>editpenerimaan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="editpengiriman.resx">
+      <DependentUpon>editpengiriman.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="editperbaikan.resx">
       <DependentUpon>editperbaikan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editpmaterial.resx">
+      <DependentUpon>editpmaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editweldingpiece.resx">
+      <DependentUpon>editweldingpiece.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPenerimaan.resx">
       <DependentUpon>FormPenerimaan.cs</DependentUpon>

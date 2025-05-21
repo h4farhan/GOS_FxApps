@@ -309,5 +309,15 @@ namespace GOS_FxApps {
         {
             SwitchPanel(new pemakaianMaterial());
         }
+
+        private void iconButton7_Click(object sender, EventArgs e)
+        {
+            SwitchPanel(new editpengiriman());
+        }
+
+        private void iconButton6_Click(object sender, EventArgs e)
+        {
+            SwitchPanel(new editweldingpiece());
+        }
     }
 }
