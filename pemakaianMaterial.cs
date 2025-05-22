@@ -18,6 +18,8 @@ namespace GOS_FxApps
 
         public static pemakaianMaterial instance;
 
+        bool infocari = false;
+
         public pemakaianMaterial()
         {
             InitializeComponent();
@@ -49,30 +51,57 @@ namespace GOS_FxApps
             }
         }
 
-        private void cari()
+        private bool cari()
         {
-            string keyword = txtcari.Text;
-            using (SqlCommand cmd = new SqlCommand("SELECT * FROM pemakaian_material WHERE kodeBarang LIKE @keyword OR namaBarang LIKE @keyword OR " +
-                "tanggalPemakaian LIKE @keyword", conn))
+            DateTime? tanggal = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
+            string kodeBarang = txtcari.Text.Trim();
+
+            if (!tanggal.HasValue && string.IsNullOrEmpty(kodeBarang))
             {
-                cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
+                MessageBox.Show("Silakan isi Tanggal atau Kode Barang untuk melakukan pencarian.");
+                return false;
+            }
+
+            DataTable dt = new DataTable();
+
+            string query = "SELECT * FROM pemakaian_material WHERE 1=1";
+
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                if (tanggal.HasValue)
+                {
+                    query += "AND CAST(tanggalPemakaian AS DATE) = @tgl";
+                    cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
+                }
+
+                if (!string.IsNullOrEmpty(kodeBarang))
+                {
+                    query += " AND kodeBarang = @kode";
+                    cmd.Parameters.AddWithValue("@kode", kodeBarang);
+                }
+
+                cmd.CommandText = query;
+                cmd.Connection = conn;
 
                 try
                 {
                     conn.Open();
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+
                     dataGridView1.DataSource = dt;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Terjadi kesalahan saat pencarian: " + ex.Message);
                 }
-                finally 
-                { 
+                finally
+                {
                     conn.Close();
                 }
+                return dt.Rows.Count > 0;
             }
         }
 
@@ -118,6 +147,7 @@ namespace GOS_FxApps
         {
             combonama();
             tampil();
+            datecari.Checked = false;
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
@@ -201,9 +231,31 @@ namespace GOS_FxApps
 
         }
 
-        private void guna2TextBox11_TextChanged(object sender, EventArgs e)
+        private void btncari_Click(object sender, EventArgs e)
         {
-            cari();
+            if (!infocari)
+            {
+                bool hasilCari = cari();
+                if (hasilCari)
+                {
+                    infocari = true;
+                    btncari.Text = "Reset";
+                }
+                else
+                {
+                    infocari = false;
+                    btncari.Text = "Cari";
+                }
+            }
+            else
+            {
+                tampil();
+                infocari = false;
+                btncari.Text = "Cari";
+
+                txtcari.Text = "";
+                datecari.Checked = false;
+            }
         }
     }
 }

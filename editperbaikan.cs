@@ -397,5 +397,6 @@ namespace GOS_FxApps
                 btnclear.Enabled = true;
             }
         }
+
     }
 }

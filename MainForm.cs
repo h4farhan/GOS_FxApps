@@ -198,16 +198,6 @@ namespace GOS_FxApps {
             shiftcontrol();
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void panel4_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void iconButton14_Click(object sender, EventArgs e)
         {    
             if (loginstatus == true)
@@ -318,6 +308,11 @@ namespace GOS_FxApps {
         private void iconButton6_Click(object sender, EventArgs e)
         {
             SwitchPanel(new editweldingpiece());
+        }
+
+        private void iconButton5_Click(object sender, EventArgs e)
+        {
+            SwitchPanel(new editpmaterial());
         }
     }
 }

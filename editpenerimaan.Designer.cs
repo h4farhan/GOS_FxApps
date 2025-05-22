@@ -300,7 +300,7 @@ namespace GOS_FxApps
             this.btnhitung.Name = "btnhitung";
             this.btnhitung.Size = new System.Drawing.Size(150, 39);
             this.btnhitung.TabIndex = 39;
-            this.btnhitung.Text = "Hitung";
+            this.btnhitung.Text = "Hitung Ulang";
             this.btnhitung.Click += new System.EventHandler(this.btnhitung_Click);
             // 
             // tableLayoutPanel3

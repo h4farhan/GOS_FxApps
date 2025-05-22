@@ -17,6 +17,7 @@ namespace GOS_FxApps
         private DateTime tanggalpenerimaan;
         SqlConnection conn = Koneksi.GetConnection();
         private bool infocheck = false;
+        bool infocari = false;
 
         public Perbaikan()
         {
@@ -28,6 +29,7 @@ namespace GOS_FxApps
         private void Perbaikan_Load(object sender, EventArgs e)
         {
             btnsimpan.Enabled = false;
+            datecari.Checked = false;
         }
 
         private void tampil()
@@ -73,19 +75,46 @@ namespace GOS_FxApps
             }
         }
 
-        private void cari()
+        private bool cari()
         {
-            string keyword = txtcari.Text;
-            using (SqlCommand cmd = new SqlCommand("SELECT * FROM perbaikan_s WHERE tanggal_perbaikan LIKE @keyword OR nomor_rod LIKE @keyword", conn))
+            DateTime? tanggal = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
+            string inputRod = txtcari.Text.Trim();
+
+            if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
             {
-                cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
+                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.");
+                return false;
+            }
+
+            DataTable dt = new DataTable();
+
+            string query = "SELECT * FROM perbaikan_s WHERE 1=1";
+
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                if (tanggal.HasValue)
+                {
+                    query += "AND CAST(tanggal_perbaikan AS DATE) = @tgl";
+                    cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
+                }
+
+                if (!string.IsNullOrEmpty(inputRod))
+                {
+                    query += " AND nomor_rod = @rod";
+                    cmd.Parameters.AddWithValue("@rod", Convert.ToInt32(inputRod));
+                }
+
+                cmd.CommandText = query;
+                cmd.Connection = conn;
 
                 try
                 {
                     conn.Open();
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+
                     dataGridView1.DataSource = dt;
                 }
                 catch (Exception ex)
@@ -96,6 +125,7 @@ namespace GOS_FxApps
                 {
                     conn.Close();
                 }
+                return dt.Rows.Count > 0;
             }
         }
 
@@ -386,14 +416,31 @@ namespace GOS_FxApps
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btncari_Click(object sender, EventArgs e)
         {
+            if (!infocari)
+            {
+                bool hasilCari = cari();
+                if (hasilCari)
+                {
+                    infocari = true;
+                    btncari.Text = "Reset";
+                }
+                else
+                {
+                    infocari = false;
+                    btncari.Text = "Cari";
+                }
+            }
+            else
+            {
+                tampil();
+                infocari = false;
+                btncari.Text = "Cari";
 
-        }
-
-        private void txtcari_TextChanged(object sender, EventArgs e)
-        {
-            cari();
+                txtcari.Text = "";
+                datecari.Checked = false;
+            }
         }
     }
 }

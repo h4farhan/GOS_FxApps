@@ -128,7 +128,6 @@ namespace GOS_FxApps
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1313, 825);
             this.panel4.TabIndex = 3;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint_1);
             // 
             // headerPanel
             // 
@@ -453,7 +452,7 @@ namespace GOS_FxApps
             this.EditContainer.MaximumSize = new System.Drawing.Size(309, 345);
             this.EditContainer.MinimumSize = new System.Drawing.Size(309, 74);
             this.EditContainer.Name = "EditContainer";
-            this.EditContainer.Size = new System.Drawing.Size(309, 345);
+            this.EditContainer.Size = new System.Drawing.Size(309, 74);
             this.EditContainer.TabIndex = 8;
             // 
             // iconButton12
@@ -524,6 +523,7 @@ namespace GOS_FxApps
             this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton5.UseVisualStyleBackColor = true;
+            this.iconButton5.Click += new System.EventHandler(this.iconButton5_Click);
             // 
             // iconButton6
             // 
@@ -654,7 +654,7 @@ namespace GOS_FxApps
             this.laporanContainer.Controls.Add(this.iconButton18);
             this.laporanContainer.Controls.Add(this.btnPenerimaanForm);
             this.laporanContainer.Controls.Add(this.btnlaporan);
-            this.laporanContainer.Location = new System.Drawing.Point(3, 558);
+            this.laporanContainer.Location = new System.Drawing.Point(3, 287);
             this.laporanContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.laporanContainer.MaximumSize = new System.Drawing.Size(309, 479);
             this.laporanContainer.MinimumSize = new System.Drawing.Size(309, 74);
@@ -851,7 +851,7 @@ namespace GOS_FxApps
             // 
             this.historycontainer.Controls.Add(this.iconButton24);
             this.historycontainer.Controls.Add(this.btnHistori);
-            this.historycontainer.Location = new System.Drawing.Point(3, 636);
+            this.historycontainer.Location = new System.Drawing.Point(3, 365);
             this.historycontainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.historycontainer.MaximumSize = new System.Drawing.Size(309, 479);
             this.historycontainer.MinimumSize = new System.Drawing.Size(309, 74);

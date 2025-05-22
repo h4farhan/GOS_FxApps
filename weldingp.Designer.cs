@@ -38,6 +38,21 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.guna2Panel14 = new Guna.UI2.WinForms.Guna2Panel();
+            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+            this.ttlstoklathee1 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.ttlstoklathee2 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.guna2Panel13 = new Guna.UI2.WinForms.Guna2Panel();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.ttlstoksawinge1 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.ttlstoksawinge2 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.lble1mm = new System.Windows.Forms.Label();
@@ -61,22 +76,6 @@
             this.txtsbarkg = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtsbarmm = new Guna.UI2.WinForms.Guna2TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.guna2Panel12 = new Guna.UI2.WinForms.Guna2Panel();
-            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.guna2Panel14 = new Guna.UI2.WinForms.Guna2Panel();
-            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
-            this.ttlstoklathee1 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.ttlstoklathee2 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.guna2Panel13 = new Guna.UI2.WinForms.Guna2Panel();
-            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
-            this.ttlstoksawinge1 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.ttlstoksawinge2 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
@@ -123,25 +122,26 @@
             this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btncari = new Guna.UI2.WinForms.Guna2Button();
+            this.datecari = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
-            this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
-            this.guna2Panel5.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
-            this.guna2Panel4.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.guna2Panel12.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.guna2Panel14.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             this.guna2Panel13.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
+            this.guna2Panel5.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
+            this.guna2Panel4.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
@@ -238,9 +238,9 @@
             // 
             this.tableLayoutPanel10.ColumnCount = 1;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel11, 0, 0);
             this.tableLayoutPanel10.Controls.Add(this.guna2Panel5, 0, 2);
             this.tableLayoutPanel10.Controls.Add(this.guna2Panel4, 0, 1);
-            this.tableLayoutPanel10.Controls.Add(this.guna2Panel12, 0, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(631, 3);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
@@ -250,6 +250,226 @@
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.54864F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(623, 731);
             this.tableLayoutPanel10.TabIndex = 0;
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 2;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Controls.Add(this.guna2Panel14, 1, 0);
+            this.tableLayoutPanel11.Controls.Add(this.guna2Panel13, 0, 0);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 1;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 190F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(617, 190);
+            this.tableLayoutPanel11.TabIndex = 0;
+            // 
+            // guna2Panel14
+            // 
+            this.guna2Panel14.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.guna2Panel14.BorderRadius = 15;
+            this.guna2Panel14.BorderThickness = 2;
+            this.guna2Panel14.Controls.Add(this.tableLayoutPanel13);
+            this.guna2Panel14.Controls.Add(this.label24);
+            this.guna2Panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel14.Location = new System.Drawing.Point(311, 3);
+            this.guna2Panel14.Name = "guna2Panel14";
+            this.guna2Panel14.Padding = new System.Windows.Forms.Padding(13, 5, 5, 5);
+            this.guna2Panel14.Size = new System.Drawing.Size(303, 184);
+            this.guna2Panel14.TabIndex = 1;
+            // 
+            // tableLayoutPanel13
+            // 
+            this.tableLayoutPanel13.ColumnCount = 1;
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel13.Controls.Add(this.ttlstoklathee1, 0, 1);
+            this.tableLayoutPanel13.Controls.Add(this.label36, 0, 0);
+            this.tableLayoutPanel13.Controls.Add(this.ttlstoklathee2, 0, 3);
+            this.tableLayoutPanel13.Controls.Add(this.label38, 0, 2);
+            this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(178, 5);
+            this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(15);
+            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
+            this.tableLayoutPanel13.RowCount = 4;
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0016F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.9984F));
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(120, 174);
+            this.tableLayoutPanel13.TabIndex = 45;
+            // 
+            // ttlstoklathee1
+            // 
+            this.ttlstoklathee1.AutoSize = true;
+            this.ttlstoklathee1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ttlstoklathee1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.ttlstoklathee1.ForeColor = System.Drawing.SystemColors.Window;
+            this.ttlstoklathee1.Location = new System.Drawing.Point(3, 35);
+            this.ttlstoklathee1.Name = "ttlstoklathee1";
+            this.ttlstoklathee1.Size = new System.Drawing.Size(114, 57);
+            this.ttlstoklathee1.TabIndex = 5;
+            this.ttlstoklathee1.Text = "-";
+            this.ttlstoklathee1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label36.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label36.ForeColor = System.Drawing.SystemColors.Window;
+            this.label36.Location = new System.Drawing.Point(3, 0);
+            this.label36.Name = "label36";
+            this.label36.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
+            this.label36.Size = new System.Drawing.Size(114, 35);
+            this.label36.TabIndex = 4;
+            this.label36.Text = "E1 - 155 mm";
+            this.label36.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // ttlstoklathee2
+            // 
+            this.ttlstoklathee2.AutoSize = true;
+            this.ttlstoklathee2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ttlstoklathee2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.ttlstoklathee2.ForeColor = System.Drawing.SystemColors.Window;
+            this.ttlstoklathee2.Location = new System.Drawing.Point(3, 117);
+            this.ttlstoklathee2.Name = "ttlstoklathee2";
+            this.ttlstoklathee2.Size = new System.Drawing.Size(114, 57);
+            this.ttlstoklathee2.TabIndex = 3;
+            this.ttlstoklathee2.Text = "-";
+            this.ttlstoklathee2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label38.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label38.ForeColor = System.Drawing.SystemColors.Window;
+            this.label38.Location = new System.Drawing.Point(3, 92);
+            this.label38.Name = "label38";
+            this.label38.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
+            this.label38.Size = new System.Drawing.Size(114, 25);
+            this.label38.TabIndex = 2;
+            this.label38.Text = "E2 - 225 mm";
+            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label24
+            // 
+            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label24.ForeColor = System.Drawing.Color.White;
+            this.label24.Location = new System.Drawing.Point(16, 69);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(159, 46);
+            this.label24.TabIndex = 17;
+            this.label24.Text = "Stok Welding Piece \r\nLathe (Bubut)";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // guna2Panel13
+            // 
+            this.guna2Panel13.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.guna2Panel13.BorderRadius = 15;
+            this.guna2Panel13.BorderThickness = 2;
+            this.guna2Panel13.Controls.Add(this.tableLayoutPanel12);
+            this.guna2Panel13.Controls.Add(this.label10);
+            this.guna2Panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel13.Location = new System.Drawing.Point(3, 3);
+            this.guna2Panel13.Name = "guna2Panel13";
+            this.guna2Panel13.Padding = new System.Windows.Forms.Padding(13, 5, 5, 5);
+            this.guna2Panel13.Size = new System.Drawing.Size(302, 184);
+            this.guna2Panel13.TabIndex = 0;
+            // 
+            // tableLayoutPanel12
+            // 
+            this.tableLayoutPanel12.ColumnCount = 1;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel12.Controls.Add(this.ttlstoksawinge1, 0, 1);
+            this.tableLayoutPanel12.Controls.Add(this.label29, 0, 0);
+            this.tableLayoutPanel12.Controls.Add(this.ttlstoksawinge2, 0, 3);
+            this.tableLayoutPanel12.Controls.Add(this.label34, 0, 2);
+            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(177, 5);
+            this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(15);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 4;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0016F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.9984F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(120, 174);
+            this.tableLayoutPanel12.TabIndex = 44;
+            // 
+            // ttlstoksawinge1
+            // 
+            this.ttlstoksawinge1.AutoSize = true;
+            this.ttlstoksawinge1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ttlstoksawinge1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.ttlstoksawinge1.ForeColor = System.Drawing.SystemColors.Window;
+            this.ttlstoksawinge1.Location = new System.Drawing.Point(3, 35);
+            this.ttlstoksawinge1.Name = "ttlstoksawinge1";
+            this.ttlstoksawinge1.Size = new System.Drawing.Size(114, 57);
+            this.ttlstoksawinge1.TabIndex = 5;
+            this.ttlstoksawinge1.Text = "-";
+            this.ttlstoksawinge1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label29.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label29.ForeColor = System.Drawing.SystemColors.Window;
+            this.label29.Location = new System.Drawing.Point(3, 0);
+            this.label29.Name = "label29";
+            this.label29.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
+            this.label29.Size = new System.Drawing.Size(114, 35);
+            this.label29.TabIndex = 4;
+            this.label29.Text = "E1 - 155 mm";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // ttlstoksawinge2
+            // 
+            this.ttlstoksawinge2.AutoSize = true;
+            this.ttlstoksawinge2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ttlstoksawinge2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.ttlstoksawinge2.ForeColor = System.Drawing.SystemColors.Window;
+            this.ttlstoksawinge2.Location = new System.Drawing.Point(3, 117);
+            this.ttlstoksawinge2.Name = "ttlstoksawinge2";
+            this.ttlstoksawinge2.Size = new System.Drawing.Size(114, 57);
+            this.ttlstoksawinge2.TabIndex = 3;
+            this.ttlstoksawinge2.Text = "-";
+            this.ttlstoksawinge2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label34.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label34.ForeColor = System.Drawing.SystemColors.Window;
+            this.label34.Location = new System.Drawing.Point(3, 92);
+            this.label34.Name = "label34";
+            this.label34.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
+            this.label34.Size = new System.Drawing.Size(114, 25);
+            this.label34.TabIndex = 2;
+            this.label34.Text = "E2 - 225 mm";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(16, 69);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(159, 46);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "Stok Welding Piece \r\nSawing (Potong)";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // guna2Panel5
             // 
@@ -616,239 +836,6 @@
             this.label9.Size = new System.Drawing.Size(254, 30);
             this.label9.TabIndex = 11;
             this.label9.Text = "Sisa Potongan Round Bar";
-            // 
-            // guna2Panel12
-            // 
-            this.guna2Panel12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.guna2Panel12.BorderRadius = 15;
-            this.guna2Panel12.BorderThickness = 2;
-            this.guna2Panel12.Controls.Add(this.tableLayoutPanel11);
-            this.guna2Panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel12.Location = new System.Drawing.Point(3, 3);
-            this.guna2Panel12.Name = "guna2Panel12";
-            this.guna2Panel12.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2Panel12.Size = new System.Drawing.Size(617, 190);
-            this.guna2Panel12.TabIndex = 4;
-            // 
-            // tableLayoutPanel11
-            // 
-            this.tableLayoutPanel11.ColumnCount = 2;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Controls.Add(this.guna2Panel14, 1, 0);
-            this.tableLayoutPanel11.Controls.Add(this.guna2Panel13, 0, 0);
-            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(5, 5);
-            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.RowCount = 1;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 180F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(607, 180);
-            this.tableLayoutPanel11.TabIndex = 0;
-            // 
-            // guna2Panel14
-            // 
-            this.guna2Panel14.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.guna2Panel14.BorderRadius = 15;
-            this.guna2Panel14.BorderThickness = 2;
-            this.guna2Panel14.Controls.Add(this.tableLayoutPanel13);
-            this.guna2Panel14.Controls.Add(this.label24);
-            this.guna2Panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel14.Location = new System.Drawing.Point(306, 3);
-            this.guna2Panel14.Name = "guna2Panel14";
-            this.guna2Panel14.Padding = new System.Windows.Forms.Padding(13, 5, 5, 5);
-            this.guna2Panel14.Size = new System.Drawing.Size(298, 174);
-            this.guna2Panel14.TabIndex = 1;
-            // 
-            // tableLayoutPanel13
-            // 
-            this.tableLayoutPanel13.ColumnCount = 1;
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.Controls.Add(this.ttlstoklathee1, 0, 1);
-            this.tableLayoutPanel13.Controls.Add(this.label36, 0, 0);
-            this.tableLayoutPanel13.Controls.Add(this.ttlstoklathee2, 0, 3);
-            this.tableLayoutPanel13.Controls.Add(this.label38, 0, 2);
-            this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(173, 5);
-            this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(15);
-            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
-            this.tableLayoutPanel13.RowCount = 4;
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0016F));
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.9984F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(120, 164);
-            this.tableLayoutPanel13.TabIndex = 45;
-            // 
-            // ttlstoklathee1
-            // 
-            this.ttlstoklathee1.AutoSize = true;
-            this.ttlstoklathee1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ttlstoklathee1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.ttlstoklathee1.ForeColor = System.Drawing.SystemColors.Window;
-            this.ttlstoklathee1.Location = new System.Drawing.Point(3, 35);
-            this.ttlstoklathee1.Name = "ttlstoklathee1";
-            this.ttlstoklathee1.Size = new System.Drawing.Size(114, 52);
-            this.ttlstoklathee1.TabIndex = 5;
-            this.ttlstoklathee1.Text = "-";
-            this.ttlstoklathee1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label36.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label36.ForeColor = System.Drawing.SystemColors.Window;
-            this.label36.Location = new System.Drawing.Point(3, 0);
-            this.label36.Name = "label36";
-            this.label36.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
-            this.label36.Size = new System.Drawing.Size(114, 35);
-            this.label36.TabIndex = 4;
-            this.label36.Text = "E1 - 155 mm";
-            this.label36.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // ttlstoklathee2
-            // 
-            this.ttlstoklathee2.AutoSize = true;
-            this.ttlstoklathee2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ttlstoklathee2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.ttlstoklathee2.ForeColor = System.Drawing.SystemColors.Window;
-            this.ttlstoklathee2.Location = new System.Drawing.Point(3, 112);
-            this.ttlstoklathee2.Name = "ttlstoklathee2";
-            this.ttlstoklathee2.Size = new System.Drawing.Size(114, 52);
-            this.ttlstoklathee2.TabIndex = 3;
-            this.ttlstoklathee2.Text = "-";
-            this.ttlstoklathee2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label38.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label38.ForeColor = System.Drawing.SystemColors.Window;
-            this.label38.Location = new System.Drawing.Point(3, 87);
-            this.label38.Name = "label38";
-            this.label38.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
-            this.label38.Size = new System.Drawing.Size(114, 25);
-            this.label38.TabIndex = 2;
-            this.label38.Text = "E2 - 225 mm";
-            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label24
-            // 
-            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label24.ForeColor = System.Drawing.Color.White;
-            this.label24.Location = new System.Drawing.Point(16, 69);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(159, 46);
-            this.label24.TabIndex = 17;
-            this.label24.Text = "Stok Welding Piece \r\nLathe (Bubut)";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // guna2Panel13
-            // 
-            this.guna2Panel13.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.guna2Panel13.BorderRadius = 15;
-            this.guna2Panel13.BorderThickness = 2;
-            this.guna2Panel13.Controls.Add(this.tableLayoutPanel12);
-            this.guna2Panel13.Controls.Add(this.label10);
-            this.guna2Panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel13.Location = new System.Drawing.Point(3, 3);
-            this.guna2Panel13.Name = "guna2Panel13";
-            this.guna2Panel13.Padding = new System.Windows.Forms.Padding(13, 5, 5, 5);
-            this.guna2Panel13.Size = new System.Drawing.Size(297, 174);
-            this.guna2Panel13.TabIndex = 0;
-            // 
-            // tableLayoutPanel12
-            // 
-            this.tableLayoutPanel12.ColumnCount = 1;
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.Controls.Add(this.ttlstoksawinge1, 0, 1);
-            this.tableLayoutPanel12.Controls.Add(this.label29, 0, 0);
-            this.tableLayoutPanel12.Controls.Add(this.ttlstoksawinge2, 0, 3);
-            this.tableLayoutPanel12.Controls.Add(this.label34, 0, 2);
-            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(172, 5);
-            this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(15);
-            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
-            this.tableLayoutPanel12.RowCount = 4;
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0016F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.9984F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(120, 164);
-            this.tableLayoutPanel12.TabIndex = 44;
-            // 
-            // ttlstoksawinge1
-            // 
-            this.ttlstoksawinge1.AutoSize = true;
-            this.ttlstoksawinge1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ttlstoksawinge1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.ttlstoksawinge1.ForeColor = System.Drawing.SystemColors.Window;
-            this.ttlstoksawinge1.Location = new System.Drawing.Point(3, 35);
-            this.ttlstoksawinge1.Name = "ttlstoksawinge1";
-            this.ttlstoksawinge1.Size = new System.Drawing.Size(114, 52);
-            this.ttlstoksawinge1.TabIndex = 5;
-            this.ttlstoksawinge1.Text = "-";
-            this.ttlstoksawinge1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label29.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label29.ForeColor = System.Drawing.SystemColors.Window;
-            this.label29.Location = new System.Drawing.Point(3, 0);
-            this.label29.Name = "label29";
-            this.label29.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
-            this.label29.Size = new System.Drawing.Size(114, 35);
-            this.label29.TabIndex = 4;
-            this.label29.Text = "E1 - 155 mm";
-            this.label29.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // ttlstoksawinge2
-            // 
-            this.ttlstoksawinge2.AutoSize = true;
-            this.ttlstoksawinge2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ttlstoksawinge2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.ttlstoksawinge2.ForeColor = System.Drawing.SystemColors.Window;
-            this.ttlstoksawinge2.Location = new System.Drawing.Point(3, 112);
-            this.ttlstoksawinge2.Name = "ttlstoksawinge2";
-            this.ttlstoksawinge2.Size = new System.Drawing.Size(114, 52);
-            this.ttlstoksawinge2.TabIndex = 3;
-            this.ttlstoksawinge2.Text = "-";
-            this.ttlstoksawinge2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label34.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label34.ForeColor = System.Drawing.SystemColors.Window;
-            this.label34.Location = new System.Drawing.Point(3, 87);
-            this.label34.Name = "label34";
-            this.label34.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
-            this.label34.Size = new System.Drawing.Size(114, 25);
-            this.label34.TabIndex = 2;
-            this.label34.Text = "E2 - 225 mm";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(16, 69);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(159, 46);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "Stok Welding Piece \r\nSawing (Potong)";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel4
             // 
@@ -1610,12 +1597,79 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btncari);
+            this.panel3.Controls.Add(this.datecari);
             this.panel3.Controls.Add(this.txtcari);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(10, 73);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1257, 56);
             this.panel3.TabIndex = 40;
+            // 
+            // btncari
+            // 
+            this.btncari.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btncari.BorderRadius = 8;
+            this.btncari.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btncari.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btncari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btncari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btncari.ForeColor = System.Drawing.Color.White;
+            this.btncari.Location = new System.Drawing.Point(1174, 5);
+            this.btncari.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btncari.Name = "btncari";
+            this.btncari.Size = new System.Drawing.Size(80, 46);
+            this.btncari.TabIndex = 47;
+            this.btncari.Text = "Cari";
+            this.btncari.Click += new System.EventHandler(this.btncari_Click);
+            // 
+            // datecari
+            // 
+            this.datecari.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.datecari.BorderRadius = 5;
+            this.datecari.BorderThickness = 2;
+            this.datecari.Checked = true;
+            this.datecari.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.datecari.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.datecari.ForeColor = System.Drawing.Color.White;
+            this.datecari.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.datecari.Location = new System.Drawing.Point(2, 5);
+            this.datecari.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.datecari.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.datecari.Name = "datecari";
+            this.datecari.ShowCheckBox = true;
+            this.datecari.Size = new System.Drawing.Size(300, 46);
+            this.datecari.TabIndex = 49;
+            this.datecari.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
+            // 
+            // txtcari
+            // 
+            this.txtcari.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtcari.BorderRadius = 5;
+            this.txtcari.BorderThickness = 2;
+            this.txtcari.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtcari.DefaultText = "";
+            this.txtcari.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtcari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtcari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcari.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcari.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.txtcari.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcari.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtcari.ForeColor = System.Drawing.Color.White;
+            this.txtcari.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.icons8_search_50;
+            this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
+            this.txtcari.Location = new System.Drawing.Point(308, 5);
+            this.txtcari.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtcari.Name = "txtcari";
+            this.txtcari.PlaceholderText = "Shift";
+            this.txtcari.SelectedText = "";
+            this.txtcari.Size = new System.Drawing.Size(860, 46);
+            this.txtcari.TabIndex = 48;
+            this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
             // 
             // label32
             // 
@@ -1636,34 +1690,6 @@
             this.guna2Panel8.Name = "guna2Panel8";
             this.guna2Panel8.Size = new System.Drawing.Size(111, 19);
             this.guna2Panel8.TabIndex = 4;
-            // 
-            // txtcari
-            // 
-            this.txtcari.BorderRadius = 5;
-            this.txtcari.BorderThickness = 2;
-            this.txtcari.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtcari.DefaultText = "";
-            this.txtcari.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtcari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtcari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcari.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcari.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtcari.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.txtcari.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcari.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtcari.ForeColor = System.Drawing.Color.White;
-            this.txtcari.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.icons8_search_50;
-            this.txtcari.IconLeftOffset = new System.Drawing.Point(10, 0);
-            this.txtcari.Location = new System.Drawing.Point(0, 0);
-            this.txtcari.Margin = new System.Windows.Forms.Padding(4, 5, 4, 10);
-            this.txtcari.Name = "txtcari";
-            this.txtcari.PlaceholderText = "Cari";
-            this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(1257, 47);
-            this.txtcari.TabIndex = 39;
-            this.txtcari.TextOffset = new System.Drawing.Point(10, 0);
-            this.txtcari.TextChanged += new System.EventHandler(this.txtcari_TextChanged);
             // 
             // weldingp
             // 
@@ -1687,6 +1713,15 @@
             this.guna2Panel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
+            this.tableLayoutPanel11.ResumeLayout(false);
+            this.guna2Panel14.ResumeLayout(false);
+            this.guna2Panel14.PerformLayout();
+            this.tableLayoutPanel13.ResumeLayout(false);
+            this.tableLayoutPanel13.PerformLayout();
+            this.guna2Panel13.ResumeLayout(false);
+            this.guna2Panel13.PerformLayout();
+            this.tableLayoutPanel12.ResumeLayout(false);
+            this.tableLayoutPanel12.PerformLayout();
             this.guna2Panel5.ResumeLayout(false);
             this.guna2Panel5.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -1697,16 +1732,6 @@
             this.guna2Panel4.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            this.guna2Panel12.ResumeLayout(false);
-            this.tableLayoutPanel11.ResumeLayout(false);
-            this.guna2Panel14.ResumeLayout(false);
-            this.guna2Panel14.PerformLayout();
-            this.tableLayoutPanel13.ResumeLayout(false);
-            this.tableLayoutPanel13.PerformLayout();
-            this.guna2Panel13.ResumeLayout(false);
-            this.guna2Panel13.PerformLayout();
-            this.tableLayoutPanel12.ResumeLayout(false);
-            this.tableLayoutPanel12.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
@@ -1808,7 +1833,6 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel12;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel14;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel13;
@@ -1825,6 +1849,8 @@
         private System.Windows.Forms.Label ttlstoksawinge2;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Panel panel3;
+        private Guna.UI2.WinForms.Guna2Button btncari;
+        private Guna.UI2.WinForms.Guna2DateTimePicker datecari;
         private Guna.UI2.WinForms.Guna2TextBox txtcari;
     }
 }

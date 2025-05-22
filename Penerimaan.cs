@@ -16,6 +16,9 @@ namespace GOS_FxApps
     public partial class Penerimaan : Form
     {
         SqlConnection conn = Koneksi.GetConnection();
+
+        bool infocari = false;
+
         public Penerimaan()
         {
             InitializeComponent();
@@ -26,6 +29,7 @@ namespace GOS_FxApps
         private void Penerimaan_Load(object sender, EventArgs e)
         {
             btnsimpan.Enabled = false;
+            datecari.Checked = false;   
         }
 
         private void tampil()
@@ -198,14 +202,85 @@ namespace GOS_FxApps
             }  
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private bool cari()
         {
+            DateTime? tanggal = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
+            string inputRod = txtcari.Text.Trim();
 
+            if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
+            {
+                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.");
+                return false;
+            }
+
+            DataTable dt = new DataTable();
+
+            string query = "SELECT * FROM penerimaan_s WHERE 1=1";
+
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                if (tanggal.HasValue)
+                {
+                    query += "AND CAST(tanggal_penerimaan AS DATE) = @tgl";
+                    cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
+                }
+
+                if (!string.IsNullOrEmpty(inputRod))
+                {
+                    query += " AND nomor_rod = @rod";
+                    cmd.Parameters.AddWithValue("@rod", Convert.ToInt32(inputRod));
+                }
+
+                cmd.CommandText = query;
+                cmd.Connection = conn;
+
+                try
+                {
+                    conn.Open();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+
+                    dataGridView1.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan saat pencarian: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                return dt.Rows.Count > 0;
+            }
         }
 
-        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        private void btncari_Click(object sender, EventArgs e)
         {
+            if (!infocari)
+            {
+                bool hasilCari = cari();
+                if (hasilCari)
+                {
+                    infocari = true;
+                    btncari.Text = "Reset";
+                }
+                else
+                {
+                    infocari = false;
+                    btncari.Text = "Cari";
+                }
+            }
+            else
+            {
+                tampil();
+                infocari = false;
+                btncari.Text = "Cari";
 
+                txtcari.Text = "";
+                datecari.Checked = false;
+            }
         }
     }
 }

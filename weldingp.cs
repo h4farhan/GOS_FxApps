@@ -22,6 +22,7 @@ namespace GOS_FxApps
         private int wbe2;
         private int wastekg;
         private int ttle1e2mm;
+        bool infocari = false;
 
         public weldingp()
         {
@@ -72,32 +73,6 @@ namespace GOS_FxApps
             }
         }
 
-        private void cari()
-        {
-            string keyword = txtcari.Text;
-            using (SqlCommand cmd = new SqlCommand("SELECT * FROM Rb_Stok WHERE tanggal LIKE @keyword OR shift LIKE @keyword", conn))
-            {
-                cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-
-                try
-                {
-                    conn.Open();
-                    da.Fill(dt);
-                    dataGridView1.DataSource = dt;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan saat pencarian: " + ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-            }
-        }
-
         private void getdatastok()
         {
             conn.Open();
@@ -127,7 +102,6 @@ namespace GOS_FxApps
                 wbe1 = Convert.ToInt32(reader["wbe1"]);
                 wbe2 = Convert.ToInt32(reader["wbe2"]);
                 wastekg = Convert.ToInt32(reader["wastekg"]);
-                lblstcokakhir.Text = reader["bstok"].ToString();
             } else
             {
                 MessageBox.Show("data null");
@@ -212,16 +186,24 @@ namespace GOS_FxApps
             btnsimpan.Enabled = false;
             getdatastok();
             tampil();
+            datecari.Checked = false;
         }
 
         private void btnhitung_Click(object sender, EventArgs e)
         {
-            getdata();
-            hitungrb();
-            hitungrbs();
-            hitungrbl();
-            hitungwaste();
-            btnsimpan.Enabled=true;
+            //if (lblstoksekarang.Text == "-")
+            //{
+            //    MessageBox.Show("isi woi");
+            //}
+            //else
+            //{
+                getdata();
+                hitungrb();
+                hitungrbs();
+                hitungrbl();
+                hitungwaste();
+                btnsimpan.Enabled=true;
+            //}       
         }
 
         private void setdefault()
@@ -334,9 +316,85 @@ namespace GOS_FxApps
             }
         }
 
-        private void txtcari_TextChanged(object sender, EventArgs e)
+        private bool cari()
         {
-            cari();
+            DateTime? tanggal = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
+            string shift = txtcari.Text.Trim();
+
+            if (!tanggal.HasValue && string.IsNullOrEmpty(shift))
+            {
+                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.");
+                return false;
+            }
+
+            DataTable dt = new DataTable();
+
+            string query = "SELECT * FROM Rb_Stok WHERE 1=1";
+
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                if (tanggal.HasValue)
+                {
+                    query += "AND CAST(tanggal AS DATE) = @tgl";
+                    cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
+                }
+
+                if (!string.IsNullOrEmpty(shift))
+                {
+                    query += " AND shift = @shift";
+                    cmd.Parameters.AddWithValue("@shift", Convert.ToInt32(shift));
+                }
+
+                cmd.CommandText = query;
+                cmd.Connection = conn;
+
+                try
+                {
+                    conn.Open();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+
+                    dataGridView1.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan saat pencarian: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                return dt.Rows.Count > 0;
+            }
+        }
+
+        private void btncari_Click(object sender, EventArgs e)
+        {
+            if (!infocari)
+            {
+                bool hasilCari = cari();
+                if (hasilCari)
+                {
+                    infocari = true;
+                    btncari.Text = "Reset";
+                }
+                else
+                {
+                    infocari = false;
+                    btncari.Text = "Cari";
+                }
+            }
+            else
+            {
+                tampil();
+                infocari = false;
+                btncari.Text = "Cari";
+
+                txtcari.Text = "";
+                datecari.Checked = false;
+            }
         }
     }
 }
