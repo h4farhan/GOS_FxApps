@@ -40,19 +40,30 @@ namespace GOS_FxApps
             this.lblinfo = new System.Windows.Forms.Label();
             this.lbldate = new System.Windows.Forms.Label();
             this.lbluser = new System.Windows.Forms.Label();
-            this.iconButton14 = new FontAwesome.Sharp.IconButton();
             this.sidebarPanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dashboardButton = new FontAwesome.Sharp.IconButton();
             this.entryContainer = new System.Windows.Forms.Panel();
+            this.EditContainer = new System.Windows.Forms.Panel();
+            this.laporanContainer = new System.Windows.Forms.Panel();
+            this.historycontainer = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.entrytimer = new System.Windows.Forms.Timer(this.components);
+            this.edittimer = new System.Windows.Forms.Timer(this.components);
+            this.jam = new System.Windows.Forms.Timer(this.components);
+            this.historitimer = new System.Windows.Forms.Timer(this.components);
+            this.laporantimer = new System.Windows.Forms.Timer(this.components);
+            this.iconButton14 = new FontAwesome.Sharp.IconButton();
+            this.dashboardButton = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.penerimaanButton1 = new FontAwesome.Sharp.IconButton();
             this.entryButton = new FontAwesome.Sharp.IconButton();
-            this.EditContainer = new System.Windows.Forms.Panel();
             this.iconButton12 = new FontAwesome.Sharp.IconButton();
             this.iconButton11 = new FontAwesome.Sharp.IconButton();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
@@ -61,7 +72,6 @@ namespace GOS_FxApps
             this.iconButton8 = new FontAwesome.Sharp.IconButton();
             this.iconButton9 = new FontAwesome.Sharp.IconButton();
             this.Editbutton = new FontAwesome.Sharp.IconButton();
-            this.laporanContainer = new System.Windows.Forms.Panel();
             this.iconButton10 = new FontAwesome.Sharp.IconButton();
             this.iconButton13 = new FontAwesome.Sharp.IconButton();
             this.iconButton15 = new FontAwesome.Sharp.IconButton();
@@ -70,20 +80,10 @@ namespace GOS_FxApps
             this.iconButton18 = new FontAwesome.Sharp.IconButton();
             this.btnPenerimaanForm = new FontAwesome.Sharp.IconButton();
             this.btnlaporan = new FontAwesome.Sharp.IconButton();
-            this.historycontainer = new System.Windows.Forms.Panel();
             this.iconButton24 = new FontAwesome.Sharp.IconButton();
             this.btnHistori = new FontAwesome.Sharp.IconButton();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.HamburgerButton = new FontAwesome.Sharp.IconButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.entrytimer = new System.Windows.Forms.Timer(this.components);
-            this.edittimer = new System.Windows.Forms.Timer(this.components);
-            this.jam = new System.Windows.Forms.Timer(this.components);
-            this.historitimer = new System.Windows.Forms.Timer(this.components);
-            this.laporantimer = new System.Windows.Forms.Timer(this.components);
             this.titlePanel.SuspendLayout();
             this.headerPanel.SuspendLayout();
             this.sidebarPanel.SuspendLayout();
@@ -93,8 +93,8 @@ namespace GOS_FxApps
             this.laporanContainer.SuspendLayout();
             this.historycontainer.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // titlePanel
@@ -197,26 +197,6 @@ namespace GOS_FxApps
             this.lbluser.Text = "Robert Danuarta [Manajer]";
             this.lbluser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // iconButton14
-            // 
-            this.iconButton14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.iconButton14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.iconButton14.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton14.FlatAppearance.BorderSize = 0;
-            this.iconButton14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton14.ForeColor = System.Drawing.Color.Transparent;
-            this.iconButton14.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
-            this.iconButton14.IconColor = System.Drawing.Color.Aqua;
-            this.iconButton14.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton14.IconSize = 40;
-            this.iconButton14.Location = new System.Drawing.Point(1256, 0);
-            this.iconButton14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.iconButton14.Name = "iconButton14";
-            this.iconButton14.Size = new System.Drawing.Size(57, 50);
-            this.iconButton14.TabIndex = 5;
-            this.iconButton14.UseVisualStyleBackColor = false;
-            this.iconButton14.Click += new System.EventHandler(this.iconButton14_Click);
-            // 
             // sidebarPanel
             // 
             this.sidebarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
@@ -256,6 +236,173 @@ namespace GOS_FxApps
             this.panel1.Size = new System.Drawing.Size(309, 47);
             this.panel1.TabIndex = 0;
             // 
+            // entryContainer
+            // 
+            this.entryContainer.Controls.Add(this.iconButton4);
+            this.entryContainer.Controls.Add(this.iconButton3);
+            this.entryContainer.Controls.Add(this.iconButton2);
+            this.entryContainer.Controls.Add(this.iconButton1);
+            this.entryContainer.Controls.Add(this.penerimaanButton1);
+            this.entryContainer.Controls.Add(this.entryButton);
+            this.entryContainer.Location = new System.Drawing.Point(3, 131);
+            this.entryContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.entryContainer.MaximumSize = new System.Drawing.Size(309, 345);
+            this.entryContainer.MinimumSize = new System.Drawing.Size(309, 74);
+            this.entryContainer.Name = "entryContainer";
+            this.entryContainer.Size = new System.Drawing.Size(309, 74);
+            this.entryContainer.TabIndex = 2;
+            // 
+            // EditContainer
+            // 
+            this.EditContainer.Controls.Add(this.iconButton12);
+            this.EditContainer.Controls.Add(this.iconButton11);
+            this.EditContainer.Controls.Add(this.iconButton5);
+            this.EditContainer.Controls.Add(this.iconButton6);
+            this.EditContainer.Controls.Add(this.iconButton7);
+            this.EditContainer.Controls.Add(this.iconButton8);
+            this.EditContainer.Controls.Add(this.iconButton9);
+            this.EditContainer.Controls.Add(this.Editbutton);
+            this.EditContainer.Location = new System.Drawing.Point(4, 209);
+            this.EditContainer.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.EditContainer.MaximumSize = new System.Drawing.Size(309, 345);
+            this.EditContainer.MinimumSize = new System.Drawing.Size(309, 74);
+            this.EditContainer.Name = "EditContainer";
+            this.EditContainer.Size = new System.Drawing.Size(309, 74);
+            this.EditContainer.TabIndex = 8;
+            // 
+            // laporanContainer
+            // 
+            this.laporanContainer.Controls.Add(this.iconButton10);
+            this.laporanContainer.Controls.Add(this.iconButton13);
+            this.laporanContainer.Controls.Add(this.iconButton15);
+            this.laporanContainer.Controls.Add(this.iconButton16);
+            this.laporanContainer.Controls.Add(this.iconButton17);
+            this.laporanContainer.Controls.Add(this.iconButton18);
+            this.laporanContainer.Controls.Add(this.btnPenerimaanForm);
+            this.laporanContainer.Controls.Add(this.btnlaporan);
+            this.laporanContainer.Location = new System.Drawing.Point(3, 287);
+            this.laporanContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.laporanContainer.MaximumSize = new System.Drawing.Size(309, 479);
+            this.laporanContainer.MinimumSize = new System.Drawing.Size(309, 74);
+            this.laporanContainer.Name = "laporanContainer";
+            this.laporanContainer.Size = new System.Drawing.Size(309, 74);
+            this.laporanContainer.TabIndex = 9;
+            // 
+            // historycontainer
+            // 
+            this.historycontainer.Controls.Add(this.iconButton24);
+            this.historycontainer.Controls.Add(this.btnHistori);
+            this.historycontainer.Location = new System.Drawing.Point(3, 365);
+            this.historycontainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.historycontainer.MaximumSize = new System.Drawing.Size(309, 479);
+            this.historycontainer.MinimumSize = new System.Drawing.Size(309, 74);
+            this.historycontainer.Name = "historycontainer";
+            this.historycontainer.Size = new System.Drawing.Size(309, 74);
+            this.historycontainer.TabIndex = 10;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 67F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label2, 1, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 62);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 185F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(315, 261);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Location = new System.Drawing.Point(70, 185);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(242, 76);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "PT\r\nGENTANUSA GEMILANG";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 67F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.HamburgerButton, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(315, 62);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkGray;
+            this.label1.Location = new System.Drawing.Point(70, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(242, 62);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Powered by :\r\nPT Digital Transformasi Industri";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // entrytimer
+            // 
+            this.entrytimer.Interval = 10;
+            this.entrytimer.Tick += new System.EventHandler(this.entrytimer_Tick);
+            // 
+            // edittimer
+            // 
+            this.edittimer.Interval = 10;
+            this.edittimer.Tick += new System.EventHandler(this.edittimer_Tick);
+            // 
+            // jam
+            // 
+            this.jam.Enabled = true;
+            this.jam.Interval = 1000;
+            this.jam.Tick += new System.EventHandler(this.jam_Tick);
+            // 
+            // historitimer
+            // 
+            this.historitimer.Interval = 10;
+            this.historitimer.Tick += new System.EventHandler(this.historitimer_Tick);
+            // 
+            // laporantimer
+            // 
+            this.laporantimer.Interval = 10;
+            this.laporantimer.Tick += new System.EventHandler(this.laporantimer_Tick);
+            // 
+            // iconButton14
+            // 
+            this.iconButton14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.iconButton14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.iconButton14.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconButton14.FlatAppearance.BorderSize = 0;
+            this.iconButton14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton14.ForeColor = System.Drawing.Color.Transparent;
+            this.iconButton14.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
+            this.iconButton14.IconColor = System.Drawing.Color.Aqua;
+            this.iconButton14.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton14.IconSize = 40;
+            this.iconButton14.Location = new System.Drawing.Point(1256, 0);
+            this.iconButton14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iconButton14.Name = "iconButton14";
+            this.iconButton14.Size = new System.Drawing.Size(57, 50);
+            this.iconButton14.TabIndex = 5;
+            this.iconButton14.UseVisualStyleBackColor = false;
+            this.iconButton14.Click += new System.EventHandler(this.iconButton14_Click);
+            // 
             // dashboardButton
             // 
             this.dashboardButton.FlatAppearance.BorderSize = 0;
@@ -277,22 +424,6 @@ namespace GOS_FxApps
             this.dashboardButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.dashboardButton.UseVisualStyleBackColor = true;
             this.dashboardButton.Click += new System.EventHandler(this.dashboardButton_Click);
-            // 
-            // entryContainer
-            // 
-            this.entryContainer.Controls.Add(this.iconButton4);
-            this.entryContainer.Controls.Add(this.iconButton3);
-            this.entryContainer.Controls.Add(this.iconButton2);
-            this.entryContainer.Controls.Add(this.iconButton1);
-            this.entryContainer.Controls.Add(this.penerimaanButton1);
-            this.entryContainer.Controls.Add(this.entryButton);
-            this.entryContainer.Location = new System.Drawing.Point(3, 131);
-            this.entryContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.entryContainer.MaximumSize = new System.Drawing.Size(309, 345);
-            this.entryContainer.MinimumSize = new System.Drawing.Size(309, 74);
-            this.entryContainer.Name = "entryContainer";
-            this.entryContainer.Size = new System.Drawing.Size(309, 74);
-            this.entryContainer.TabIndex = 2;
             // 
             // iconButton4
             // 
@@ -436,24 +567,6 @@ namespace GOS_FxApps
             this.entryButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.entryButton.UseVisualStyleBackColor = true;
             this.entryButton.Click += new System.EventHandler(this.entryButton_Click);
-            // 
-            // EditContainer
-            // 
-            this.EditContainer.Controls.Add(this.iconButton12);
-            this.EditContainer.Controls.Add(this.iconButton11);
-            this.EditContainer.Controls.Add(this.iconButton5);
-            this.EditContainer.Controls.Add(this.iconButton6);
-            this.EditContainer.Controls.Add(this.iconButton7);
-            this.EditContainer.Controls.Add(this.iconButton8);
-            this.EditContainer.Controls.Add(this.iconButton9);
-            this.EditContainer.Controls.Add(this.Editbutton);
-            this.EditContainer.Location = new System.Drawing.Point(4, 209);
-            this.EditContainer.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.EditContainer.MaximumSize = new System.Drawing.Size(309, 345);
-            this.EditContainer.MinimumSize = new System.Drawing.Size(309, 74);
-            this.EditContainer.Name = "EditContainer";
-            this.EditContainer.Size = new System.Drawing.Size(309, 74);
-            this.EditContainer.TabIndex = 8;
             // 
             // iconButton12
             // 
@@ -644,24 +757,6 @@ namespace GOS_FxApps
             this.Editbutton.UseVisualStyleBackColor = true;
             this.Editbutton.Click += new System.EventHandler(this.Editbutton_Click);
             // 
-            // laporanContainer
-            // 
-            this.laporanContainer.Controls.Add(this.iconButton10);
-            this.laporanContainer.Controls.Add(this.iconButton13);
-            this.laporanContainer.Controls.Add(this.iconButton15);
-            this.laporanContainer.Controls.Add(this.iconButton16);
-            this.laporanContainer.Controls.Add(this.iconButton17);
-            this.laporanContainer.Controls.Add(this.iconButton18);
-            this.laporanContainer.Controls.Add(this.btnPenerimaanForm);
-            this.laporanContainer.Controls.Add(this.btnlaporan);
-            this.laporanContainer.Location = new System.Drawing.Point(3, 287);
-            this.laporanContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.laporanContainer.MaximumSize = new System.Drawing.Size(309, 479);
-            this.laporanContainer.MinimumSize = new System.Drawing.Size(309, 74);
-            this.laporanContainer.Name = "laporanContainer";
-            this.laporanContainer.Size = new System.Drawing.Size(309, 74);
-            this.laporanContainer.TabIndex = 9;
-            // 
             // iconButton10
             // 
             this.iconButton10.Dock = System.Windows.Forms.DockStyle.Top;
@@ -847,18 +942,6 @@ namespace GOS_FxApps
             this.btnlaporan.UseVisualStyleBackColor = true;
             this.btnlaporan.Click += new System.EventHandler(this.btnlaporan_Click);
             // 
-            // historycontainer
-            // 
-            this.historycontainer.Controls.Add(this.iconButton24);
-            this.historycontainer.Controls.Add(this.btnHistori);
-            this.historycontainer.Location = new System.Drawing.Point(3, 365);
-            this.historycontainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.historycontainer.MaximumSize = new System.Drawing.Size(309, 479);
-            this.historycontainer.MinimumSize = new System.Drawing.Size(309, 74);
-            this.historycontainer.Name = "historycontainer";
-            this.historycontainer.Size = new System.Drawing.Size(309, 74);
-            this.historycontainer.TabIndex = 10;
-            // 
             // iconButton24
             // 
             this.iconButton24.Dock = System.Windows.Forms.DockStyle.Top;
@@ -905,23 +988,6 @@ namespace GOS_FxApps
             this.btnHistori.UseVisualStyleBackColor = true;
             this.btnHistori.Click += new System.EventHandler(this.btnHistori_Click);
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 67F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label2, 1, 1);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 62);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 185F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(315, 261);
-            this.tableLayoutPanel2.TabIndex = 1;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -933,34 +999,6 @@ namespace GOS_FxApps
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(70, 185);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(242, 76);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "PT\r\nGENTANUSA GEMILANG";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 67F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.HamburgerButton, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(315, 62);
-            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // HamburgerButton
             // 
@@ -979,44 +1017,6 @@ namespace GOS_FxApps
             this.HamburgerButton.TabIndex = 0;
             this.HamburgerButton.UseVisualStyleBackColor = false;
             this.HamburgerButton.Click += new System.EventHandler(this.HamburgerButton_Click_1);
-            // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkGray;
-            this.label1.Location = new System.Drawing.Point(70, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(242, 62);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Powered by :\r\nPT Digital Transformasi Industri";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // entrytimer
-            // 
-            this.entrytimer.Interval = 10;
-            this.entrytimer.Tick += new System.EventHandler(this.entrytimer_Tick);
-            // 
-            // edittimer
-            // 
-            this.edittimer.Interval = 10;
-            this.edittimer.Tick += new System.EventHandler(this.edittimer_Tick);
-            // 
-            // jam
-            // 
-            this.jam.Enabled = true;
-            this.jam.Interval = 1000;
-            this.jam.Tick += new System.EventHandler(this.jam_Tick);
-            // 
-            // historitimer
-            // 
-            this.historitimer.Interval = 10;
-            this.historitimer.Tick += new System.EventHandler(this.historitimer_Tick);
-            // 
-            // laporantimer
-            // 
-            this.laporantimer.Interval = 10;
-            this.laporantimer.Tick += new System.EventHandler(this.laporantimer_Tick);
             // 
             // MainForm
             // 
@@ -1043,8 +1043,8 @@ namespace GOS_FxApps
             this.laporanContainer.ResumeLayout(false);
             this.historycontainer.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

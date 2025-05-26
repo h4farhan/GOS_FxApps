@@ -243,7 +243,6 @@ namespace GOS_FxApps
                         TanggalPenerimaan = reader["tanggal_penerimaan"] as DateTime?
                     });
                 }
-                MessageBox.Show("Data ditemukan");
 
             }
             catch (Exception ex)
@@ -307,7 +306,7 @@ namespace GOS_FxApps
                 cmd3.ExecuteNonQuery();
 
                 tampil();
-                MessageBox.Show("Data Berhasil Dikirim");
+                MessageBox.Show("Data Berhasil Dikirim!!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -324,7 +323,14 @@ namespace GOS_FxApps
         {
             DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
-            insertdata(list);
+            if (result == DialogResult.OK) 
+            { 
+                insertdata(list);
+            }
+            else
+            {
+
+            }                
         }
 
         private void btncari_Click(object sender, EventArgs e)

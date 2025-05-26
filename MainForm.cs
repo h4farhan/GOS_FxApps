@@ -234,7 +234,7 @@ namespace GOS_FxApps {
 
         private void btnPenerimaanForm_Click(object sender, EventArgs e)
         {
-            SwitchPanel(new FormPenerimaan());
+            SwitchPanel(new printpenerimaan());
         }
 
         private void laporantimer_Tick(object sender, EventArgs e)

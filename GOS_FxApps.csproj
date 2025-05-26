@@ -299,6 +299,12 @@
     <Compile Include="Perbaikan.Designer.cs">
       <DependentUpon>Perbaikan.cs</DependentUpon>
     </Compile>
+    <Compile Include="printpenerimaan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="printpenerimaan.Designer.cs">
+      <DependentUpon>printpenerimaan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="registrasi.cs">
@@ -306,6 +312,12 @@
     </Compile>
     <Compile Include="registrasi.Designer.cs">
       <DependentUpon>registrasi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reportviewr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportviewr.Designer.cs">
+      <DependentUpon>reportviewr.cs</DependentUpon>
     </Compile>
     <Compile Include="userinfo.cs">
       <SubType>Form</SubType>
@@ -352,6 +364,7 @@
     <EmbeddedResource Include="pemakaianMaterial.resx">
       <DependentUpon>pemakaianMaterial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Penerimaan.rdlc" />
     <EmbeddedResource Include="Penerimaan.resx">
       <DependentUpon>Penerimaan.cs</DependentUpon>
     </EmbeddedResource>
@@ -360,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Perbaikan.resx">
       <DependentUpon>Perbaikan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="printpenerimaan.resx">
+      <DependentUpon>printpenerimaan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -374,9 +390,9 @@
     <EmbeddedResource Include="registrasi.resx">
       <DependentUpon>registrasi.cs</DependentUpon>
     </EmbeddedResource>
-    <Content Include="FormPenerimaan.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <EmbeddedResource Include="reportviewr.resx">
+      <DependentUpon>reportviewr.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="userinfo.resx">
       <DependentUpon>userinfo.cs</DependentUpon>
     </EmbeddedResource>
