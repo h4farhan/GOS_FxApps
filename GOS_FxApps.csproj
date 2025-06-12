@@ -364,7 +364,9 @@
     <EmbeddedResource Include="pemakaianMaterial.resx">
       <DependentUpon>pemakaianMaterial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Penerimaan.rdlc" />
+    <EmbeddedResource Include="Penerimaan.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Penerimaan.resx">
       <DependentUpon>Penerimaan.cs</DependentUpon>
     </EmbeddedResource>

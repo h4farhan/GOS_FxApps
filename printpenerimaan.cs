@@ -21,71 +21,57 @@ namespace GOS_FxApps
         public printpenerimaan()
         {
             InitializeComponent();
-            table2();
             dataGridView1.ClearSelection();
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            int jumlah = dataGridView1.SelectedRows.Count;
-            labeljumlahbaris.Text = "Jumlah baris dipilih: " + jumlah.ToString();
-        }
+        private reportviewr frmrpt;
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            DateTime tanggal1 = datecari.Value.Date;
+            DateTime tanggal2 = datecari.Value.AddDays(1).Date;
+            string shift = cbShift.SelectedItem?.ToString();
+            string tim = txttim.Text;
+
+            if (string.IsNullOrEmpty(tim))
             {
-                if (dataGridView2.Rows.Count >= 30)
-                {
-                    MessageBox.Show("Data sudah maksimal (30 baris). Tidak bisa tambah lagi.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-
-                foreach (DataGridViewRow selectedRow in dataGridView1.SelectedRows)
-                {
-                    if (!selectedRow.IsNewRow)
-                    {
-                        string selectedId = selectedRow.Cells[1].Value?.ToString();
-
-                        bool exists = false;
-                        foreach (DataGridViewRow row in dataGridView2.Rows)
-                        {
-                            if (row.Cells[1].Value?.ToString() == selectedId)
-                            {
-                                exists = true;
-                                break;
-                            }
-                        }
-
-                        if (exists)
-                        {
-                            MessageBox.Show("Data di Tanggal " + selectedId + " sudah ada di tabel 2.", "Duplikat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                        else
-                        {
-                            object[] rowData = new object[selectedRow.Cells.Count];
-                            for (int i = 0; i < selectedRow.Cells.Count; i++)
-                            {
-                                rowData[i] = selectedRow.Cells[i].Value;
-                            }
-
-                            dataGridView2.Rows.Add(rowData);
-                            jumlahdata();
-                        }
-                    }
-                }
+                MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu");
+                return;
             }
-            else
+
+            // Ambil data dari adapter
+            var adapter = new GOS_FxApps.DataSet.PenerimaanFormTableAdapters.penerimaan_sTableAdapter();
+            GOS_FxApps.DataSet.PenerimaanForm.penerimaan_sDataTable data = adapter.GetData(tanggal1, tanggal2, shift);
+
+            // Inisialisasi form reportviewr
+            frmrpt = new reportviewr();
+            frmrpt.reportViewer1.Reset();
+            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "penerimaan.rdlc");
+
+            // Siapkan reportviewer
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("DataSetPenerimaan", (DataTable)data));
+
+            ReportParameter[] parameters = new ReportParameter[]
             {
-                MessageBox.Show("Pilih minimal satu baris terlebih dahulu.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+        new ReportParameter("tanggal1", tanggal1.ToString("yyyy-MM-dd")),
+        new ReportParameter("tanggal2", tanggal2.ToString("yyyy-MM-dd")),
+        new ReportParameter("shift", shift),
+        new ReportParameter("tim", tim)
+            };
+            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
+            frmrpt.reportViewer1.RefreshReport();
+
+            frmrpt.Show(); // Tampilkan form report
         }
+
 
         private void printpenerimaan_Load(object sender, EventArgs e)
         {
             tampil();
             datecari.Checked = false;
-            dateprint.Checked = false;
         }
 
         private void tampil()
@@ -129,37 +115,6 @@ namespace GOS_FxApps
             }
         }
 
-        private void table2()
-        {
-            dataGridView2.Columns.Clear();
-
-            dataGridView2.Columns.Add("id", "Id");
-            dataGridView2.Columns.Add("tgl", "Tanggal Penerimaan");
-            dataGridView2.Columns.Add("shift", "Shift");
-            dataGridView2.Columns.Add("nomorrod", "Nomor ROD");
-            dataGridView2.Columns.Add("jenis", "Jenis");
-            dataGridView2.Columns.Add("stasiun", "Stasiun");
-            dataGridView2.Columns.Add("e1", "E1");
-            dataGridView2.Columns.Add("e2", "E2");
-            dataGridView2.Columns.Add("e3", "E3");
-            dataGridView2.Columns.Add("s", "S");
-            dataGridView2.Columns.Add("d", "D");
-            dataGridView2.Columns.Add("b", "B");
-            dataGridView2.Columns.Add("ba", "BA");
-            dataGridView2.Columns.Add("cr", "CR");
-            dataGridView2.Columns.Add("m", "M");
-            dataGridView2.Columns.Add("r", "R");
-            dataGridView2.Columns.Add("c", "C");
-            dataGridView2.Columns.Add("rl", "RL");
-            dataGridView2.Columns.Add("jumlah", "Jumlah");
-
-            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView2.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            dataGridView2.AutoResizeColumnHeadersHeight();
-            dataGridView2.Columns["tgl"].FillWeight = 250;
-            dataGridView2.Columns["id"].Visible = false;
-        }
-
         private void AngkaOnly_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -178,39 +133,31 @@ namespace GOS_FxApps
 
         private bool cari()
         {
-            DateTime? tanggal = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
-            string inputRod = txtcari.Text.Trim();
+            DateTime? tanggal1 = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
+            DateTime? tanggal2 = datecari.Checked ? (DateTime?)datecari.Value.AddDays(1).Date : null;
+            string shift = cbShift.SelectedItem ?.ToString(); // ambil nilai teks shift
 
-            if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
+            // Validasi input
+            if (!tanggal1.HasValue || string.IsNullOrEmpty(shift))
             {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.");
+                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.");
                 return false;
             }
 
             DataTable dt = new DataTable();
 
-            string query = "SELECT * FROM penerimaan_p WHERE 1=1";
+            string query = "SELECT * FROM penerimaan_p WHERE tanggal_penerimaan >= @tanggal1 AND tanggal_penerimaan < @tanggal2 AND shift = @shift";
 
-            using (SqlCommand cmd = new SqlCommand())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
             {
-                if (tanggal.HasValue)
-                {
-                    query += "AND CAST(tanggal_penerimaan AS DATE) = @tgl";
-                    cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
-                }
-
-                if (!string.IsNullOrEmpty(inputRod))
-                {
-                    query += " AND nomor_rod = @rod";
-                    cmd.Parameters.AddWithValue("@rod", Convert.ToInt32(inputRod));
-                }
-
-                cmd.CommandText = query;
-                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@tanggal1", tanggal1);
+                cmd.Parameters.AddWithValue("@tanggal2", tanggal2);
+                cmd.Parameters.AddWithValue("@shift", shift);
 
                 try
                 {
                     conn.Open();
+
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dt);
@@ -226,7 +173,8 @@ namespace GOS_FxApps
                 {
                     conn.Close();
                 }
-                return dt.Rows.Count > 0;
+
+                return dt.Rows.Count > 0; // true jika ada data ditemukan
             }
         }
 
@@ -238,6 +186,7 @@ namespace GOS_FxApps
                 if (hasilCari)
                 {
                     infocari = true;
+                    btnprint.Enabled = true;
                     btncari.Text = "Reset";
                 }
                 else
@@ -252,84 +201,17 @@ namespace GOS_FxApps
                 infocari = false;
                 btncari.Text = "Cari";
 
-                txtcari.Text = "";
-                datecari.Checked = false;
-            }
-        }
+                btnprint.Enabled = false;
 
-        private void guna2Button3_Click(object sender, EventArgs e)
-        {
-            if (dataGridView2.SelectedRows.Count > 0)
-            {
-                foreach (DataGridViewRow row in dataGridView2.SelectedRows)
-                {
-                    if (!row.IsNewRow)
-                    {
-                        dataGridView2.Rows.Remove(row);
-                        jumlahdata();
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Pilih baris yang ingin dihapus terlebih dahulu.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                guna2Panel4.ResetText();
+                datecari.Checked = false;
             }
         }
 
         private void jumlahdata()
         {
-            int total = dataGridView2.Rows.Count;
+            int total = dataGridView1.Rows.Count;
             labeljumlahbaris2.Text = "Jumlah data: " + total.ToString();
-        }
-
-        private void guna2Button4_Click(object sender, EventArgs e)
-        {
-            if (dataGridView2.Rows.Count == 0 || dataGridView2.Rows.Cast<DataGridViewRow>().All(r => r.IsNewRow))
-            {
-                MessageBox.Show("Tabel sudah kosong.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            var result = MessageBox.Show("Yakin ingin menghapus semua data?", "Konfirmasi",
-                                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                dataGridView2.Rows.Clear();
-                jumlahdata();
-            }
-        }
-
-        private reportviewr frmReport;
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            string tgl = dateprint.Value.Date.ToString();
-            string shift = cbShift.SelectedValue.ToString();
-            string tim = txttim.Text;
-            string nmrrod = dataGridView2.Rows[0].Cells["nomorrod"].Value.ToString();
-            string jenis = dataGridView2.Rows[0].Cells["jenis"].Value.ToString();
-            string stasiun = dataGridView2.Rows[0].Cells["stasiun"].Value.ToString();
-            string e1 = dataGridView2.Rows[0].Cells["e1"].Value.ToString();
-            string e2 = dataGridView2.Rows[0].Cells["e2"].Value.ToString();
-            string e3 = dataGridView2.Rows[0].Cells["e3"].Value.ToString();
-            string s = dataGridView2.Rows[0].Cells["s"].Value.ToString();
-            string d = dataGridView2.Rows[0].Cells["d"].Value.ToString();
-            string b = dataGridView2.Rows[0].Cells["b"].Value.ToString();
-            string ba = dataGridView2.Rows[0].Cells["ba"].Value.ToString();
-            string cr = dataGridView2.Rows[0].Cells["cr"].Value.ToString();
-            string m = dataGridView2.Rows[0].Cells["m"].Value.ToString();
-            string r = dataGridView2.Rows[0].Cells["r"].Value.ToString();
-            string c = dataGridView2.Rows[0].Cells["c"].Value.ToString();
-            string rl = dataGridView2.Rows[0].Cells["rl"].Value.ToString();
-            string jumlah = dataGridView2.Rows[0].Cells["jumlah"].Value.ToString();
-
-            if (frmReport == null || frmReport.IsDisposed)
-                frmReport = new reportviewr();
-
-            frmReport.SetReportParameters(tgl, shift, tim, nmrrod, jenis, stasiun, e1, e2, e3, s, d, b, ba, cr, m, r, c, rl, jumlah);
-
-            frmReport.Show();
-            frmReport.BringToFront();
         }
     }
 }
