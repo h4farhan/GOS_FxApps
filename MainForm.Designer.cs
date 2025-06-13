@@ -94,12 +94,13 @@ namespace GOS_FxApps
             // titlePanel
             // 
             this.titlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.titlePanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.titlePanel.Controls.Add(this.ControlBoxButton);
             this.titlePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.titlePanel.Location = new System.Drawing.Point(0, 0);
             this.titlePanel.Margin = new System.Windows.Forms.Padding(2);
             this.titlePanel.Name = "titlePanel";
-            this.titlePanel.Size = new System.Drawing.Size(1221, 16);
+            this.titlePanel.Size = new System.Drawing.Size(1221, 30);
             this.titlePanel.TabIndex = 1;
             // 
             // ControlBoxButton
@@ -107,34 +108,35 @@ namespace GOS_FxApps
             this.ControlBoxButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.ControlBoxButton.FillColor = System.Drawing.Color.Transparent;
             this.ControlBoxButton.IconColor = System.Drawing.Color.Red;
-            this.ControlBoxButton.Location = new System.Drawing.Point(1196, 0);
+            this.ControlBoxButton.Location = new System.Drawing.Point(1192, 0);
             this.ControlBoxButton.Margin = new System.Windows.Forms.Padding(2);
             this.ControlBoxButton.Name = "ControlBoxButton";
-            this.ControlBoxButton.Size = new System.Drawing.Size(25, 16);
+            this.ControlBoxButton.Size = new System.Drawing.Size(25, 26);
             this.ControlBoxButton.TabIndex = 0;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Black;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(236, 57);
+            this.panel4.Location = new System.Drawing.Point(236, 80);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(985, 670);
+            this.panel4.Size = new System.Drawing.Size(985, 647);
             this.panel4.TabIndex = 3;
             // 
             // headerPanel
             // 
             this.headerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.headerPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.headerPanel.Controls.Add(this.panel3);
             this.headerPanel.Controls.Add(this.panel2);
             this.headerPanel.Controls.Add(this.lbldate);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.headerPanel.Location = new System.Drawing.Point(236, 16);
+            this.headerPanel.Location = new System.Drawing.Point(236, 30);
             this.headerPanel.Margin = new System.Windows.Forms.Padding(2);
             this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(985, 41);
+            this.headerPanel.Size = new System.Drawing.Size(985, 50);
             this.headerPanel.TabIndex = 3;
             // 
             // lbldate
@@ -147,7 +149,7 @@ namespace GOS_FxApps
             this.lbldate.Margin = new System.Windows.Forms.Padding(15, 16, 15, 16);
             this.lbldate.Name = "lbldate";
             this.lbldate.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.lbldate.Size = new System.Drawing.Size(283, 41);
+            this.lbldate.Size = new System.Drawing.Size(283, 46);
             this.lbldate.TabIndex = 0;
             this.lbldate.Text = "Tanggal Dan Jam";
             this.lbldate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -159,12 +161,12 @@ namespace GOS_FxApps
             this.sidebarPanel.Controls.Add(this.tableLayoutPanel2);
             this.sidebarPanel.Controls.Add(this.tableLayoutPanel1);
             this.sidebarPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.sidebarPanel.Location = new System.Drawing.Point(0, 16);
+            this.sidebarPanel.Location = new System.Drawing.Point(0, 30);
             this.sidebarPanel.Margin = new System.Windows.Forms.Padding(2);
             this.sidebarPanel.MaximumSize = new System.Drawing.Size(236, 0);
             this.sidebarPanel.MinimumSize = new System.Drawing.Size(45, 0);
             this.sidebarPanel.Name = "sidebarPanel";
-            this.sidebarPanel.Size = new System.Drawing.Size(236, 711);
+            this.sidebarPanel.Size = new System.Drawing.Size(236, 697);
             this.sidebarPanel.TabIndex = 1;
             // 
             // flowLayoutPanel1
@@ -180,7 +182,7 @@ namespace GOS_FxApps
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 262);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(236, 449);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(236, 435);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // panel1
@@ -777,7 +779,7 @@ namespace GOS_FxApps
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(283, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(166, 41);
+            this.panel2.Size = new System.Drawing.Size(166, 46);
             this.panel2.TabIndex = 7;
             // 
             // lblshift
@@ -788,7 +790,7 @@ namespace GOS_FxApps
             this.lblshift.Location = new System.Drawing.Point(114, 0);
             this.lblshift.Margin = new System.Windows.Forms.Padding(15, 16, 15, 16);
             this.lblshift.Name = "lblshift";
-            this.lblshift.Size = new System.Drawing.Size(44, 37);
+            this.lblshift.Size = new System.Drawing.Size(44, 42);
             this.lblshift.TabIndex = 4;
             this.lblshift.Text = "1";
             this.lblshift.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -801,7 +803,7 @@ namespace GOS_FxApps
             this.lblinfo.Location = new System.Drawing.Point(0, 0);
             this.lblinfo.Margin = new System.Windows.Forms.Padding(15, 16, 15, 16);
             this.lblinfo.Name = "lblinfo";
-            this.lblinfo.Size = new System.Drawing.Size(114, 37);
+            this.lblinfo.Size = new System.Drawing.Size(114, 42);
             this.lblinfo.TabIndex = 3;
             this.lblinfo.Text = "Shift Aktual :";
             this.lblinfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -812,9 +814,9 @@ namespace GOS_FxApps
             this.panel3.Controls.Add(this.lbluser);
             this.panel3.Controls.Add(this.iconButton14);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(700, 0);
+            this.panel3.Location = new System.Drawing.Point(696, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(285, 41);
+            this.panel3.Size = new System.Drawing.Size(285, 46);
             this.panel3.TabIndex = 8;
             // 
             // lbluser
@@ -825,7 +827,7 @@ namespace GOS_FxApps
             this.lbluser.Location = new System.Drawing.Point(-18, 0);
             this.lbluser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbluser.Name = "lbluser";
-            this.lbluser.Size = new System.Drawing.Size(250, 37);
+            this.lbluser.Size = new System.Drawing.Size(250, 42);
             this.lbluser.TabIndex = 8;
             this.lbluser.Text = "Robert Danuarta [Manajer]";
             this.lbluser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -845,7 +847,7 @@ namespace GOS_FxApps
             this.iconButton14.Location = new System.Drawing.Point(232, 0);
             this.iconButton14.Margin = new System.Windows.Forms.Padding(2);
             this.iconButton14.Name = "iconButton14";
-            this.iconButton14.Size = new System.Drawing.Size(49, 37);
+            this.iconButton14.Size = new System.Drawing.Size(49, 42);
             this.iconButton14.TabIndex = 7;
             this.iconButton14.UseVisualStyleBackColor = false;
             this.iconButton14.Click += new System.EventHandler(this.iconButton14_Click);
