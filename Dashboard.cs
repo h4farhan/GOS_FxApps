@@ -12,8 +12,6 @@ using Microsoft.Data.SqlClient;
 
 namespace GOS_FxApps
 {
-    
-
     public partial class Dashboard : Form
     {
         SqlConnection conn = Koneksi.GetConnection();
@@ -34,7 +32,6 @@ namespace GOS_FxApps
                 int jumlah3 = 0;
                 conn.Open();
 
-                // Query 1: penerimaan_s
                 string query1 = "SELECT COUNT(*) FROM penerimaan_s";
                 using (SqlCommand cmd1 = new SqlCommand(query1, conn))
                 {
@@ -42,7 +39,6 @@ namespace GOS_FxApps
                     lblubrepaired.Text = jumlah1.ToString();
                 }
 
-                // Query 2: pengiriman_s
                 string query2 = "SELECT COUNT(*) FROM perbaikan_s";
                 using (SqlCommand cmd2 = new SqlCommand(query2, conn))
                 {
@@ -61,10 +57,7 @@ namespace GOS_FxApps
             {
                 conn.Close();
             }
-
-
         }
-
 
         private void LoadchartRB()
         {
@@ -109,7 +102,6 @@ namespace GOS_FxApps
                 conn.Close(); 
             }
             
-            // Buat series untuk data kolom
             chartRoundbar.Series.Clear();
             Series series = new Series();
             series.Name = "DataSeries";
@@ -118,9 +110,6 @@ namespace GOS_FxApps
             series.IsValueShownAsLabel = true;
             series.LabelForeColor = Color.Gainsboro;
 
-            
-
-            // Tambahkan data ke series
             series.Points.AddXY("Roundbar Stock", rbStock);
             series.Points.AddXY("Rounbar Sawing E1", rbSawinge1);
             series.Points.AddXY("Rounbar Sawing E2", rbSawinge2);
@@ -131,7 +120,6 @@ namespace GOS_FxApps
             series.Points.AddXY("Welding Pieces Lathe E1", wplathee1);
             series.Points.AddXY("Welding Pieces Lathe E2", wplathee2);
 
-            //Styling
             series.Points[0].Color = Color.Red;
             series.Points[1].Color = Color.Lime;
             series.Points[2].Color = Color.Lime;
@@ -142,7 +130,6 @@ namespace GOS_FxApps
             series.Points[7].Color = Color.Violet;
             series.Points[8].Color = Color.Violet;
 
-            // Tambahkan series ke chart
             chartRoundbar.Series.Add(series);
 
             chartRoundbar.ChartAreas[0].AxisX.Interval = 1;   
@@ -154,14 +141,13 @@ namespace GOS_FxApps
 
             Series series = new Series("Stock Material");
             series.ChartType = SeriesChartType.Column;
-            series.IsXValueIndexed = true;
             series.IsValueShownAsLabel = true;
             series.LabelForeColor = Color.Gainsboro;
 
             try
             {
                 conn.Open();
-                string query = "SELECT namaBarang, jumlahStok FROM stok_material";
+                string query = "SELECT TOP 10 namaBarang, jumlahStok FROM stok_material ORDER BY jumlahStok ASC;";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 using (SqlDataReader dr = cmd.ExecuteReader())
@@ -184,14 +170,11 @@ namespace GOS_FxApps
                 conn.Close();
             }
 
-            // Styling Chart
-            series.Color = Color.SteelBlue;
+            series.Color = Color.Red;
             chartUssageMaterial.Series.Add(series);
             chartUssageMaterial.ChartAreas[0].AxisX.Interval = 1;
-            chartUssageMaterial.ChartAreas[0].AxisX.LabelStyle.Angle = -45; // miringkan label agar tidak tabrakan
             chartUssageMaterial.ChartAreas[0].AxisX.Title = "Nama Barang";
             chartUssageMaterial.ChartAreas[0].AxisY.Title = "Jumlah Stok";
         }
-
     }
 }
