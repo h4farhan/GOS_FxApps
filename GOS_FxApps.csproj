@@ -250,12 +250,6 @@
     <Compile Include="editweldingpiece.Designer.cs">
       <DependentUpon>editweldingpiece.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPenerimaan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormPenerimaan.Designer.cs">
-      <DependentUpon>FormPenerimaan.cs</DependentUpon>
-    </Compile>
     <Compile Include="formstok.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -348,9 +342,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="editweldingpiece.resx">
       <DependentUpon>editweldingpiece.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormPenerimaan.resx">
-      <DependentUpon>FormPenerimaan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formstok.resx">
       <DependentUpon>formstok.cs</DependentUpon>
