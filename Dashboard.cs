@@ -22,6 +22,7 @@ namespace GOS_FxApps
             InitializeComponent();
             LoadchartRB();
             LoadPanel();
+            LoadChartStock();
         }
 
         private void LoadPanel()
@@ -145,6 +146,51 @@ namespace GOS_FxApps
             chartRoundbar.Series.Add(series);
 
             chartRoundbar.ChartAreas[0].AxisX.Interval = 1;   
+        }
+
+        private void LoadChartStock()
+        {
+            chartUssageMaterial.Series.Clear();
+
+            Series series = new Series("Stock Material");
+            series.ChartType = SeriesChartType.Column;
+            series.IsXValueIndexed = true;
+            series.IsValueShownAsLabel = true;
+            series.LabelForeColor = Color.Gainsboro;
+
+            try
+            {
+                conn.Open();
+                string query = "SELECT namaBarang, jumlahStok FROM stok_material";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        string namaBarang = dr["namaBarang"].ToString();
+                        int jumlah = dr["jumlahStok"] != DBNull.Value ? Convert.ToInt32(dr["jumlahStok"]) : 0;
+
+                        series.Points.AddXY(namaBarang, jumlah);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            // Styling Chart
+            series.Color = Color.SteelBlue;
+            chartUssageMaterial.Series.Add(series);
+            chartUssageMaterial.ChartAreas[0].AxisX.Interval = 1;
+            chartUssageMaterial.ChartAreas[0].AxisX.LabelStyle.Angle = -45; // miringkan label agar tidak tabrakan
+            chartUssageMaterial.ChartAreas[0].AxisX.Title = "Nama Barang";
+            chartUssageMaterial.ChartAreas[0].AxisY.Title = "Jumlah Stok";
         }
 
     }
