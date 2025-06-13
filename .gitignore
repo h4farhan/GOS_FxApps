@@ -32,3 +32,4 @@ _ReSharper*/
 *.vspscc
 *.vssscc
 .vs/
+/Report1.rdlc
