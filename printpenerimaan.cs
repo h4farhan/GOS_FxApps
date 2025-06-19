@@ -24,9 +24,44 @@ namespace GOS_FxApps
             dataGridView1.ClearSelection();
         }
 
-        private reportviewr frmrpt;
+        private void formpenerimaan()
+        {
+                DateTime tanggal1 = datecari.Value.Date;
+                DateTime tanggal2 = datecari.Value.AddDays(1).Date;
+                string shift = cbShift.SelectedItem?.ToString();
+                string tim = txttim.Text;
 
-        private void guna2Button2_Click(object sender, EventArgs e)
+                if (string.IsNullOrEmpty(tim))
+                {
+                    MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu");
+                    return;
+                }
+
+                var adapter = new GOS_FxApps.DataSet.PenerimaanFormTableAdapters.penerimaan_sTableAdapter();
+                GOS_FxApps.DataSet.PenerimaanForm.penerimaan_sDataTable data = adapter.GetData(tanggal1, tanggal2, shift);
+
+                frmrpt = new reportviewr();
+                frmrpt.reportViewer1.Reset();
+                frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "penerimaan.rdlc");
+
+                frmrpt.reportViewer1.LocalReport.DataSources.Clear();
+                frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                    new ReportDataSource("DataSetPenerimaan", (DataTable)data));
+
+                ReportParameter[] parameters = new ReportParameter[]
+                {
+            new ReportParameter("tanggal1", tanggal1.ToString("yyyy-MM-dd")),
+            new ReportParameter("tanggal2", tanggal2.ToString("yyyy-MM-dd")),
+            new ReportParameter("shift", shift),
+            new ReportParameter("tim", tim)
+                };
+                frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
+                frmrpt.reportViewer1.RefreshReport();
+
+                frmrpt.Show();
+        }
+
+        private void formperbaikan()
         {
             DateTime tanggal1 = datecari.Value.Date;
             DateTime tanggal2 = datecari.Value.AddDays(1).Date;
@@ -39,42 +74,94 @@ namespace GOS_FxApps
                 return;
             }
 
-            // Ambil data dari adapter
-            var adapter = new GOS_FxApps.DataSet.PenerimaanFormTableAdapters.penerimaan_sTableAdapter();
-            GOS_FxApps.DataSet.PenerimaanForm.penerimaan_sDataTable data = adapter.GetData(tanggal1, tanggal2, shift);
+            var adapter = new GOS_FxApps.DataSet.PerbaikanFormTableAdapters.perbaikan_pTableAdapter();
+            GOS_FxApps.DataSet.PerbaikanForm.perbaikan_pDataTable data = adapter.GetData(tanggal1, tanggal2, shift);
 
-            // Inisialisasi form reportviewr
             frmrpt = new reportviewr();
             frmrpt.reportViewer1.Reset();
-            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "penerimaan.rdlc");
-
-            // Siapkan reportviewer
+            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "Perbaikan.rdlc");
 
             frmrpt.reportViewer1.LocalReport.DataSources.Clear();
             frmrpt.reportViewer1.LocalReport.DataSources.Add(
-                new ReportDataSource("DataSetPenerimaan", (DataTable)data));
+                new ReportDataSource("DataSetPerbaikan", (DataTable)data));
 
             ReportParameter[] parameters = new ReportParameter[]
             {
-        new ReportParameter("tanggal1", tanggal1.ToString("yyyy-MM-dd")),
-        new ReportParameter("tanggal2", tanggal2.ToString("yyyy-MM-dd")),
-        new ReportParameter("shift", shift),
-        new ReportParameter("tim", tim)
+            new ReportParameter("tanggal1", tanggal1.ToString("yyyy-MM-dd")),
+            new ReportParameter("tanggal2", tanggal2.ToString("yyyy-MM-dd")),
+            new ReportParameter("shift", shift),
+            new ReportParameter("tim", tim)
             };
             frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
             frmrpt.reportViewer1.RefreshReport();
 
-            frmrpt.Show(); // Tampilkan form report
+            frmrpt.Show();
         }
 
+        private void formpengiriman()
+        {
+            DateTime tanggal1 = datecari.Value.Date;
+            DateTime tanggal2 = datecari.Value.AddDays(1).Date;
+            string shift = cbShift.SelectedItem?.ToString();
+            string tim = txttim.Text;
+
+            if (string.IsNullOrEmpty(tim))
+            {
+                MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu");
+                return;
+            }
+
+            var adapter = new GOS_FxApps.DataSet.PengirimanFormTableAdapters.pengirimanTableAdapter();
+            GOS_FxApps.DataSet.PengirimanForm.pengirimanDataTable data = adapter.GetData(tanggal1, tanggal2, shift);
+
+            for (int i = 0; i < data.Rows.Count; i++)
+            {
+                data.Rows[i]["RowNumber"] = i + 1;
+            }
+
+            for (int i = data.Rows.Count; i < 120; i++)
+            {
+                var row = data.NewRow();             
+                row["RowNumber"] = i + 1;
+                row["nomor_rod"] = DBNull.Value;
+                row["tanggal_pengiriman"] = DBNull.Value;
+                row["shift"] = DBNull.Value;
+                data.Rows.Add(row);           
+            }
+
+            frmrpt = new reportviewr();
+            frmrpt.reportViewer1.Reset();
+            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "Pengiriman.rdlc");
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSetPengiriman", (DataTable)data));
+
+            ReportParameter[] parameters = new ReportParameter[]
+            {
+            new ReportParameter("tanggal1", tanggal1.ToString("yyyy-MM-dd")),
+            new ReportParameter("tanggal2", tanggal2.ToString("yyyy-MM-dd")),
+            new ReportParameter("shift", shift),
+            new ReportParameter("tim", tim)
+            };
+            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
+            frmrpt.reportViewer1.RefreshReport();
+
+            frmrpt.Show();
+        }
+
+        private reportviewr frmrpt;
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            formpengiriman();
+        }
 
         private void printpenerimaan_Load(object sender, EventArgs e)
         {
-            tampil();
             datecari.Checked = false;
         }
 
-        private void tampil()
+        private void tampilpenerimaan()
         {
             try
             {
@@ -115,17 +202,104 @@ namespace GOS_FxApps
             }
         }
 
-        private void AngkaOnly_KeyPress(object sender, KeyPressEventArgs e)
+        private void tampilperbaikan()
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            try
             {
-                e.Handled = true;
+                string query = "SELECT * FROM perbaikan_p";
+                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                ad.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].HeaderText = "Tanggal Perbaikan";
+                dataGridView1.Columns[2].HeaderText = "Shift";
+                dataGridView1.Columns[3].HeaderText = "Nomor ROD";
+                dataGridView1.Columns[4].HeaderText = "Jenis";
+                dataGridView1.Columns[5].HeaderText = "E1 Ers";
+                dataGridView1.Columns[6].HeaderText = "E1 Est";
+                dataGridView1.Columns[7].HeaderText = "E1 Jumlah";
+                dataGridView1.Columns[8].HeaderText = "E2 Ers";
+                dataGridView1.Columns[9].HeaderText = "E2 Cst";
+                dataGridView1.Columns[10].HeaderText = "E2 Cstub";
+                dataGridView1.Columns[11].HeaderText = "E2 Jumlah";
+                dataGridView1.Columns[12].HeaderText = "E3";
+                dataGridView1.Columns[13].HeaderText = "S";
+                dataGridView1.Columns[14].HeaderText = "D";
+                dataGridView1.Columns[15].HeaderText = "B";
+                dataGridView1.Columns[16].HeaderText = "BA";
+                dataGridView1.Columns[17].HeaderText = "CR";
+                dataGridView1.Columns[18].HeaderText = "M";
+                dataGridView1.Columns[19].HeaderText = "R";
+                dataGridView1.Columns[20].HeaderText = "C";
+                dataGridView1.Columns[21].HeaderText = "RL";
+                dataGridView1.Columns[22].HeaderText = "Jumlah";
+                dataGridView1.Columns[23].HeaderText = "Tanggal Penerimaan";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan: " + ex.Message);
+            }
+        }
+
+        private void tampilpengiriman()
+        {
+            try
+            {
+                string query = "SELECT * FROM pengiriman";
+                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                ad.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].HeaderText = "Tanggal Pengiriman";
+                dataGridView1.Columns[2].HeaderText = "Shift";
+                dataGridView1.Columns[3].HeaderText = "Nomor ROD";
+                dataGridView1.Columns[4].HeaderText = "Jenis";
+                dataGridView1.Columns[5].HeaderText = "E1 Ers";
+                dataGridView1.Columns[6].HeaderText = "E1 Est";
+                dataGridView1.Columns[7].HeaderText = "E1 Jumlah";
+                dataGridView1.Columns[8].HeaderText = "E2 Ers";
+                dataGridView1.Columns[9].HeaderText = "E2 Cst";
+                dataGridView1.Columns[10].HeaderText = "E2 Cstub";
+                dataGridView1.Columns[11].HeaderText = "E2 Jumlah";
+                dataGridView1.Columns[12].HeaderText = "E3";
+                dataGridView1.Columns[13].HeaderText = "S";
+                dataGridView1.Columns[14].HeaderText = "D";
+                dataGridView1.Columns[15].HeaderText = "B";
+                dataGridView1.Columns[16].HeaderText = "BA";
+                dataGridView1.Columns[17].HeaderText = "CR";
+                dataGridView1.Columns[18].HeaderText = "M";
+                dataGridView1.Columns[19].HeaderText = "R";
+                dataGridView1.Columns[20].HeaderText = "C";
+                dataGridView1.Columns[21].HeaderText = "RL";
+                dataGridView1.Columns[22].HeaderText = "Jumlah";
+                dataGridView1.Columns[23].HeaderText = "Tanggal Penerimaan";
+                dataGridView1.Columns[24].HeaderText = "Tanggal Perbaikan";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan: " + ex.Message);
             }
         }
 
         private void HurufOnly_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            if (char.IsControl(e.KeyChar))
+            {
+                return;
+            }
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.KeyChar = char.ToUpper(e.KeyChar);
+            }
+            else
             {
                 e.Handled = true;
             }
@@ -137,7 +311,6 @@ namespace GOS_FxApps
             DateTime? tanggal2 = datecari.Checked ? (DateTime?)datecari.Value.AddDays(1).Date : null;
             string shift = cbShift.SelectedItem ?.ToString(); // ambil nilai teks shift
 
-            // Validasi input
             if (!tanggal1.HasValue || string.IsNullOrEmpty(shift))
             {
                 MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.");
@@ -146,7 +319,7 @@ namespace GOS_FxApps
 
             DataTable dt = new DataTable();
 
-            string query = "SELECT * FROM penerimaan_p WHERE tanggal_penerimaan >= @tanggal1 AND tanggal_penerimaan < @tanggal2 AND shift = @shift";
+            string query = "SELECT * FROM pengiriman WHERE tanggal_pengiriman >= @tanggal1 AND tanggal_pengiriman < @tanggal2 AND shift = @shift";
 
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
@@ -174,7 +347,7 @@ namespace GOS_FxApps
                     conn.Close();
                 }
 
-                return dt.Rows.Count > 0; // true jika ada data ditemukan
+                return dt.Rows.Count > 0;
             }
         }
 
@@ -197,7 +370,7 @@ namespace GOS_FxApps
             }
             else
             {
-                tampil();
+                tampilpengiriman();
                 infocari = false;
                 btncari.Text = "Cari";
 
@@ -211,7 +384,49 @@ namespace GOS_FxApps
         private void jumlahdata()
         {
             int total = dataGridView1.Rows.Count;
-            labeljumlahbaris2.Text = "Jumlah data: " + total.ToString();
+            //labeljumlahbaris2.Text = "Jumlah data: " + total.ToString();
+        }
+
+        private void TambahCancelOption()
+        {
+            if (!cmbpilihdata.Items.Contains("Cancel"))
+            {
+                cmbpilihdata.Items.Add("Cancel");
+            }
+        }
+
+        private void cmbpilihdata_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbpilihdata.SelectedItem == null)
+                return;
+
+            string pilihan = cmbpilihdata.SelectedItem.ToString();
+
+            if (pilihan == "Penerimaan")
+            {
+                paneldata.Visible = true;
+                tampilpenerimaan();
+                TambahCancelOption();
+            }
+            else if (pilihan == "Perbaikan")
+            {
+                paneldata.Visible = true;
+                tampilperbaikan();
+                TambahCancelOption();
+            }
+            else if (pilihan == "Pengiriman")
+            {
+                paneldata.Visible = true;
+                tampilpengiriman();
+                TambahCancelOption();
+            }
+            else if (pilihan == "Cancel")
+            {
+                paneldata.Visible = false;
+                cmbpilihdata.SelectedIndex = -1;
+                dataGridView1.DataSource = null;
+            }
+
         }
     }
 }
