@@ -217,14 +217,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PengirimanForm.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DataSet\PerbaikanForm.cs">
-      <DependentUpon>PerbaikanForm.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet\PerbaikanForm.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PerbaikanForm.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DataSet\PenerimaanForm.cs">
       <DependentUpon>PenerimaanForm.xsd</DependentUpon>
     </Compile>
@@ -232,6 +224,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PenerimaanForm.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\PerbaikanForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PerbaikanForm.xsd</DependentUpon>
     </Compile>
     <Compile Include="editpenerimaan.cs">
       <SubType>Form</SubType>
@@ -422,17 +419,6 @@
     <None Include="DataSet\PengirimanForm.xss">
       <DependentUpon>PengirimanForm.xsd</DependentUpon>
     </None>
-    <None Include="DataSet\PerbaikanForm.xsc">
-      <DependentUpon>PerbaikanForm.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet\PerbaikanForm.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PerbaikanForm.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSet\PerbaikanForm.xss">
-      <DependentUpon>PerbaikanForm.xsd</DependentUpon>
-    </None>
     <None Include="DataSet\PenerimaanForm.xsc">
       <DependentUpon>PenerimaanForm.xsd</DependentUpon>
     </None>
@@ -443,6 +429,17 @@
     </None>
     <None Include="DataSet\PenerimaanForm.xss">
       <DependentUpon>PenerimaanForm.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\PerbaikanForm.xsc">
+      <DependentUpon>PerbaikanForm.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\PerbaikanForm.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PerbaikanForm.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\PerbaikanForm.xss">
+      <DependentUpon>PerbaikanForm.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

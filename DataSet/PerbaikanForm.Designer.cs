@@ -201,7 +201,7 @@ namespace GOS_FxApps.DataSet {
         private void InitClass() {
             this.DataSetName = "PerbaikanForm";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DataSet1.xsd";
+            this.Namespace = "http://tempuri.org/PerbaikanForm.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableperbaikan_p = new perbaikan_pDataTable();
@@ -324,6 +324,8 @@ namespace GOS_FxApps.DataSet {
             private global::System.Data.DataColumn columnrl;
             
             private global::System.Data.DataColumn columnjumlah;
+            
+            private global::System.Data.DataColumn columntanggal_penerimaan;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -544,6 +546,14 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn tanggal_penerimaanColumn {
+                get {
+                    return this.columntanggal_penerimaan;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -601,7 +611,8 @@ namespace GOS_FxApps.DataSet {
                         int r, 
                         int c, 
                         int rl, 
-                        int jumlah) {
+                        int jumlah, 
+                        System.DateTime tanggal_penerimaan) {
                 perbaikan_pRow rowperbaikan_pRow = ((perbaikan_pRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -626,7 +637,8 @@ namespace GOS_FxApps.DataSet {
                         r,
                         c,
                         rl,
-                        jumlah};
+                        jumlah,
+                        tanggal_penerimaan};
                 rowperbaikan_pRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowperbaikan_pRow);
                 return rowperbaikan_pRow;
@@ -679,6 +691,7 @@ namespace GOS_FxApps.DataSet {
                 this.columnc = base.Columns["c"];
                 this.columnrl = base.Columns["rl"];
                 this.columnjumlah = base.Columns["jumlah"];
+                this.columntanggal_penerimaan = base.Columns["tanggal_penerimaan"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -730,6 +743,8 @@ namespace GOS_FxApps.DataSet {
                 base.Columns.Add(this.columnrl);
                 this.columnjumlah = new global::System.Data.DataColumn("jumlah", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnjumlah);
+                this.columntanggal_penerimaan = new global::System.Data.DataColumn("tanggal_penerimaan", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntanggal_penerimaan);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnno}, true));
                 this.columnno.AutoIncrement = true;
@@ -738,17 +753,8 @@ namespace GOS_FxApps.DataSet {
                 this.columnno.AllowDBNull = false;
                 this.columnno.ReadOnly = true;
                 this.columnno.Unique = true;
-                this.columntanggal_perbaikan.Caption = "tanggal_penerimaan";
                 this.columnshift.MaxLength = 10;
                 this.columnjenis.MaxLength = 10;
-                this.columne1_ers.Caption = "e1";
-                this.columne1_est.Caption = "e2";
-                this.columne1_jumlah.Caption = "e3";
-                this.columne2_ers.Caption = "s";
-                this.columne2_cst.Caption = "d";
-                this.columne2_cstub.Caption = "b";
-                this.columne2_jumlah.Caption = "ba";
-                this.columne3.Caption = "cr";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1254,6 +1260,22 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime tanggal_penerimaan {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableperbaikan_p.tanggal_penerimaanColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'tanggal_penerimaan\' in table \'perbaikan_p\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableperbaikan_p.tanggal_penerimaanColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Istanggal_perbaikanNull() {
                 return this.IsNull(this.tableperbaikan_p.tanggal_perbaikanColumn);
             }
@@ -1515,6 +1537,18 @@ namespace GOS_FxApps.DataSet {
             public void SetjumlahNull() {
                 this[this.tableperbaikan_p.jumlahColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Istanggal_penerimaanNull() {
+                return this.IsNull(this.tableperbaikan_p.tanggal_penerimaanColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Settanggal_penerimaanNull() {
+                this[this.tableperbaikan_p.tanggal_penerimaanColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1677,19 +1711,10 @@ namespace GOS_FxApps.DataSet.PerbaikanFormTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "perbaikan_p";
             tableMapping.ColumnMappings.Add("no", "no");
-            tableMapping.ColumnMappings.Add("tanggal_penerimaan", "tanggal_perbaikan");
+            tableMapping.ColumnMappings.Add("tanggal_perbaikan", "tanggal_perbaikan");
             tableMapping.ColumnMappings.Add("shift", "shift");
             tableMapping.ColumnMappings.Add("nomor_rod", "nomor_rod");
             tableMapping.ColumnMappings.Add("jenis", "jenis");
-            tableMapping.ColumnMappings.Add("e1", "e1_ers");
-            tableMapping.ColumnMappings.Add("e2", "e1_est");
-            tableMapping.ColumnMappings.Add("e3", "e1_jumlah");
-            tableMapping.ColumnMappings.Add("s", "e2_ers");
-            tableMapping.ColumnMappings.Add("d", "e2_cst");
-            tableMapping.ColumnMappings.Add("b", "e2_cstub");
-            tableMapping.ColumnMappings.Add("ba", "e2_jumlah");
-            tableMapping.ColumnMappings.Add("cr", "e3");
-            tableMapping.ColumnMappings.Add("tanggal_perbaikan", "tanggal_perbaikan");
             tableMapping.ColumnMappings.Add("e1_ers", "e1_ers");
             tableMapping.ColumnMappings.Add("e1_est", "e1_est");
             tableMapping.ColumnMappings.Add("e1_jumlah", "e1_jumlah");
@@ -1697,11 +1722,18 @@ namespace GOS_FxApps.DataSet.PerbaikanFormTableAdapters {
             tableMapping.ColumnMappings.Add("e2_cst", "e2_cst");
             tableMapping.ColumnMappings.Add("e2_cstub", "e2_cstub");
             tableMapping.ColumnMappings.Add("e2_jumlah", "e2_jumlah");
+            tableMapping.ColumnMappings.Add("e3", "e3");
+            tableMapping.ColumnMappings.Add("s", "s");
+            tableMapping.ColumnMappings.Add("d", "d");
+            tableMapping.ColumnMappings.Add("b", "b");
+            tableMapping.ColumnMappings.Add("ba", "ba");
+            tableMapping.ColumnMappings.Add("cr", "cr");
             tableMapping.ColumnMappings.Add("m", "m");
             tableMapping.ColumnMappings.Add("r", "r");
             tableMapping.ColumnMappings.Add("c", "c");
             tableMapping.ColumnMappings.Add("rl", "rl");
             tableMapping.ColumnMappings.Add("jumlah", "jumlah");
+            tableMapping.ColumnMappings.Add("tanggal_penerimaan", "tanggal_penerimaan");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -1726,7 +1758,9 @@ namespace GOS_FxApps.DataSet.PerbaikanFormTableAdapters {
                 "OR ([m] = @Original_m)) AND ((@IsNull_r = 1 AND [r] IS NULL) OR ([r] = @Original" +
                 "_r)) AND ((@IsNull_c = 1 AND [c] IS NULL) OR ([c] = @Original_c)) AND ((@IsNull_" +
                 "rl = 1 AND [rl] IS NULL) OR ([rl] = @Original_rl)) AND ((@IsNull_jumlah = 1 AND " +
-                "[jumlah] IS NULL) OR ([jumlah] = @Original_jumlah)))";
+                "[jumlah] IS NULL) OR ([jumlah] = @Original_jumlah)) AND ((@IsNull_tanggal_peneri" +
+                "maan = 1 AND [tanggal_penerimaan] IS NULL) OR ([tanggal_penerimaan] = @Original_" +
+                "tanggal_penerimaan)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tanggal_perbaikan", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1773,10 +1807,12 @@ namespace GOS_FxApps.DataSet.PerbaikanFormTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_rl", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_jumlah", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jumlah", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_jumlah", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jumlah", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tanggal_penerimaan", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_penerimaan", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tanggal_penerimaan", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_penerimaan", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [perbaikan_p] ([tanggal_perbaikan], [shift], [nomor_rod], [jenis], [e1_ers], [e1_est], [e1_jumlah], [e2_ers], [e2_cst], [e2_cstub], [e2_jumlah], [e3], [s], [d], [b], [ba], [cr], [m], [r], [c], [rl], [jumlah]) VALUES (@tanggal_perbaikan, @shift, @nomor_rod, @jenis, @e1_ers, @e1_est, @e1_jumlah, @e2_ers, @e2_cst, @e2_cstub, @e2_jumlah, @e3, @s, @d, @b, @ba, @cr, @m, @r, @c, @rl, @jumlah);
-SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, s, d, b, ba, cr, m, r, c, rl, jumlah FROM perbaikan_p WHERE (no = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [perbaikan_p] ([tanggal_perbaikan], [shift], [nomor_rod], [jenis], [e1_ers], [e1_est], [e1_jumlah], [e2_ers], [e2_cst], [e2_cstub], [e2_jumlah], [e3], [s], [d], [b], [ba], [cr], [m], [r], [c], [rl], [jumlah], [tanggal_penerimaan]) VALUES (@tanggal_perbaikan, @shift, @nomor_rod, @jenis, @e1_ers, @e1_est, @e1_jumlah, @e2_ers, @e2_cst, @e2_cstub, @e2_jumlah, @e3, @s, @d, @b, @ba, @cr, @m, @r, @c, @rl, @jumlah, @tanggal_penerimaan);
+SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, s, d, b, ba, cr, m, r, c, rl, jumlah, tanggal_penerimaan FROM perbaikan_p WHERE (no = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal_perbaikan", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shift", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1800,6 +1836,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "c", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rl", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@jumlah", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jumlah", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal_penerimaan", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_penerimaan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [perbaikan_p] SET [tanggal_perbaikan] = @tanggal_perbaikan, [shift] = @shi" +
@@ -1807,30 +1844,33 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
                 "e1_est, [e1_jumlah] = @e1_jumlah, [e2_ers] = @e2_ers, [e2_cst] = @e2_cst, [e2_cs" +
                 "tub] = @e2_cstub, [e2_jumlah] = @e2_jumlah, [e3] = @e3, [s] = @s, [d] = @d, [b] " +
                 "= @b, [ba] = @ba, [cr] = @cr, [m] = @m, [r] = @r, [c] = @c, [rl] = @rl, [jumlah]" +
-                " = @jumlah WHERE (([no] = @Original_no) AND ((@IsNull_tanggal_perbaikan = 1 AND " +
-                "[tanggal_perbaikan] IS NULL) OR ([tanggal_perbaikan] = @Original_tanggal_perbaik" +
-                "an)) AND ((@IsNull_shift = 1 AND [shift] IS NULL) OR ([shift] = @Original_shift)" +
-                ") AND ((@IsNull_nomor_rod = 1 AND [nomor_rod] IS NULL) OR ([nomor_rod] = @Origin" +
-                "al_nomor_rod)) AND ((@IsNull_jenis = 1 AND [jenis] IS NULL) OR ([jenis] = @Origi" +
-                "nal_jenis)) AND ((@IsNull_e1_ers = 1 AND [e1_ers] IS NULL) OR ([e1_ers] = @Origi" +
-                "nal_e1_ers)) AND ((@IsNull_e1_est = 1 AND [e1_est] IS NULL) OR ([e1_est] = @Orig" +
-                "inal_e1_est)) AND ((@IsNull_e1_jumlah = 1 AND [e1_jumlah] IS NULL) OR ([e1_jumla" +
-                "h] = @Original_e1_jumlah)) AND ((@IsNull_e2_ers = 1 AND [e2_ers] IS NULL) OR ([e" +
-                "2_ers] = @Original_e2_ers)) AND ((@IsNull_e2_cst = 1 AND [e2_cst] IS NULL) OR ([" +
-                "e2_cst] = @Original_e2_cst)) AND ((@IsNull_e2_cstub = 1 AND [e2_cstub] IS NULL) " +
-                "OR ([e2_cstub] = @Original_e2_cstub)) AND ((@IsNull_e2_jumlah = 1 AND [e2_jumlah" +
-                "] IS NULL) OR ([e2_jumlah] = @Original_e2_jumlah)) AND ((@IsNull_e3 = 1 AND [e3]" +
-                " IS NULL) OR ([e3] = @Original_e3)) AND ((@IsNull_s = 1 AND [s] IS NULL) OR ([s]" +
-                " = @Original_s)) AND ((@IsNull_d = 1 AND [d] IS NULL) OR ([d] = @Original_d)) AN" +
-                "D ((@IsNull_b = 1 AND [b] IS NULL) OR ([b] = @Original_b)) AND ((@IsNull_ba = 1 " +
-                "AND [ba] IS NULL) OR ([ba] = @Original_ba)) AND ((@IsNull_cr = 1 AND [cr] IS NUL" +
-                "L) OR ([cr] = @Original_cr)) AND ((@IsNull_m = 1 AND [m] IS NULL) OR ([m] = @Ori" +
-                "ginal_m)) AND ((@IsNull_r = 1 AND [r] IS NULL) OR ([r] = @Original_r)) AND ((@Is" +
-                "Null_c = 1 AND [c] IS NULL) OR ([c] = @Original_c)) AND ((@IsNull_rl = 1 AND [rl" +
-                "] IS NULL) OR ([rl] = @Original_rl)) AND ((@IsNull_jumlah = 1 AND [jumlah] IS NU" +
-                "LL) OR ([jumlah] = @Original_jumlah)));\r\nSELECT no, tanggal_perbaikan, shift, no" +
-                "mor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, " +
-                "e3, s, d, b, ba, cr, m, r, c, rl, jumlah FROM perbaikan_p WHERE (no = @no)";
+                " = @jumlah, [tanggal_penerimaan] = @tanggal_penerimaan WHERE (([no] = @Original_" +
+                "no) AND ((@IsNull_tanggal_perbaikan = 1 AND [tanggal_perbaikan] IS NULL) OR ([ta" +
+                "nggal_perbaikan] = @Original_tanggal_perbaikan)) AND ((@IsNull_shift = 1 AND [sh" +
+                "ift] IS NULL) OR ([shift] = @Original_shift)) AND ((@IsNull_nomor_rod = 1 AND [n" +
+                "omor_rod] IS NULL) OR ([nomor_rod] = @Original_nomor_rod)) AND ((@IsNull_jenis =" +
+                " 1 AND [jenis] IS NULL) OR ([jenis] = @Original_jenis)) AND ((@IsNull_e1_ers = 1" +
+                " AND [e1_ers] IS NULL) OR ([e1_ers] = @Original_e1_ers)) AND ((@IsNull_e1_est = " +
+                "1 AND [e1_est] IS NULL) OR ([e1_est] = @Original_e1_est)) AND ((@IsNull_e1_jumla" +
+                "h = 1 AND [e1_jumlah] IS NULL) OR ([e1_jumlah] = @Original_e1_jumlah)) AND ((@Is" +
+                "Null_e2_ers = 1 AND [e2_ers] IS NULL) OR ([e2_ers] = @Original_e2_ers)) AND ((@I" +
+                "sNull_e2_cst = 1 AND [e2_cst] IS NULL) OR ([e2_cst] = @Original_e2_cst)) AND ((@" +
+                "IsNull_e2_cstub = 1 AND [e2_cstub] IS NULL) OR ([e2_cstub] = @Original_e2_cstub)" +
+                ") AND ((@IsNull_e2_jumlah = 1 AND [e2_jumlah] IS NULL) OR ([e2_jumlah] = @Origin" +
+                "al_e2_jumlah)) AND ((@IsNull_e3 = 1 AND [e3] IS NULL) OR ([e3] = @Original_e3)) " +
+                "AND ((@IsNull_s = 1 AND [s] IS NULL) OR ([s] = @Original_s)) AND ((@IsNull_d = 1" +
+                " AND [d] IS NULL) OR ([d] = @Original_d)) AND ((@IsNull_b = 1 AND [b] IS NULL) O" +
+                "R ([b] = @Original_b)) AND ((@IsNull_ba = 1 AND [ba] IS NULL) OR ([ba] = @Origin" +
+                "al_ba)) AND ((@IsNull_cr = 1 AND [cr] IS NULL) OR ([cr] = @Original_cr)) AND ((@" +
+                "IsNull_m = 1 AND [m] IS NULL) OR ([m] = @Original_m)) AND ((@IsNull_r = 1 AND [r" +
+                "] IS NULL) OR ([r] = @Original_r)) AND ((@IsNull_c = 1 AND [c] IS NULL) OR ([c] " +
+                "= @Original_c)) AND ((@IsNull_rl = 1 AND [rl] IS NULL) OR ([rl] = @Original_rl))" +
+                " AND ((@IsNull_jumlah = 1 AND [jumlah] IS NULL) OR ([jumlah] = @Original_jumlah)" +
+                ") AND ((@IsNull_tanggal_penerimaan = 1 AND [tanggal_penerimaan] IS NULL) OR ([ta" +
+                "nggal_penerimaan] = @Original_tanggal_penerimaan)));\r\nSELECT no, tanggal_perbaik" +
+                "an, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub" +
+                ", e2_jumlah, e3, s, d, b, ba, cr, m, r, c, rl, jumlah, tanggal_penerimaan FROM p" +
+                "erbaikan_p WHERE (no = @no)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal_perbaikan", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shift", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1854,6 +1894,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@c", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "c", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rl", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@jumlah", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jumlah", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal_penerimaan", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_penerimaan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tanggal_perbaikan", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tanggal_perbaikan", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1899,6 +1940,8 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_rl", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_jumlah", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jumlah", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_jumlah", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jumlah", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tanggal_penerimaan", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_penerimaan", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tanggal_penerimaan", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_penerimaan", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@no", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -1915,29 +1958,30 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT no, 
-tanggal_perbaikan, 
-shift, 
-nomor_rod, 
-jenis, 
-e1_ers,
-e1_est,
-e1_jumlah,
-e2_ers,
-e2_cst,
-e2_cstub,
-e2_jumlah,
-e3, 
-s, 
-d, 
-b,
-ba, 
-cr, 
-m, 
-r, 
-c, 
-rl, 
-jumlah 
+            this._commandCollection[0].CommandText = @"SELECT [no]
+      ,[tanggal_perbaikan]
+      ,[shift]
+      ,[nomor_rod]
+      ,[jenis]
+      ,[e1_ers]
+      ,[e1_est]
+      ,[e1_jumlah]
+      ,[e2_ers]
+      ,[e2_cst]
+      ,[e2_cstub]
+      ,[e2_jumlah]
+      ,[e3]
+      ,[s]
+      ,[d]
+      ,[b]
+      ,[ba]
+      ,[cr]
+      ,[m]
+      ,[r]
+      ,[c]
+      ,[rl]
+      ,[jumlah]
+      ,[tanggal_penerimaan]
 FROM perbaikan_p 
 WHERE tanggal_perbaikan BETWEEN @tanggal1 AND @tanggal2 
 AND shift = @shift";
@@ -2063,7 +2107,8 @@ AND shift = @shift";
                     global::System.Nullable<int> Original_r, 
                     global::System.Nullable<int> Original_c, 
                     global::System.Nullable<int> Original_rl, 
-                    global::System.Nullable<int> Original_jumlah) {
+                    global::System.Nullable<int> Original_jumlah, 
+                    global::System.Nullable<global::System.DateTime> Original_tanggal_penerimaan) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_no));
             if ((Original_tanggal_perbaikan.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -2241,6 +2286,14 @@ AND shift = @shift";
                 this.Adapter.DeleteCommand.Parameters[43].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[44].Value = global::System.DBNull.Value;
             }
+            if ((Original_tanggal_penerimaan.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[45].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[46].Value = ((System.DateTime)(Original_tanggal_penerimaan.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[45].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[46].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2283,7 +2336,8 @@ AND shift = @shift";
                     global::System.Nullable<int> r, 
                     global::System.Nullable<int> c, 
                     global::System.Nullable<int> rl, 
-                    global::System.Nullable<int> jumlah) {
+                    global::System.Nullable<int> jumlah, 
+                    global::System.Nullable<global::System.DateTime> tanggal_penerimaan) {
             if ((tanggal_perbaikan.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(tanggal_perbaikan.Value));
             }
@@ -2416,6 +2470,12 @@ AND shift = @shift";
             else {
                 this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
+            if ((tanggal_penerimaan.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[22].Value = ((System.DateTime)(tanggal_penerimaan.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2459,6 +2519,7 @@ AND shift = @shift";
                     global::System.Nullable<int> c, 
                     global::System.Nullable<int> rl, 
                     global::System.Nullable<int> jumlah, 
+                    global::System.Nullable<global::System.DateTime> tanggal_penerimaan, 
                     int Original_no, 
                     global::System.Nullable<global::System.DateTime> Original_tanggal_perbaikan, 
                     string Original_shift, 
@@ -2482,6 +2543,7 @@ AND shift = @shift";
                     global::System.Nullable<int> Original_c, 
                     global::System.Nullable<int> Original_rl, 
                     global::System.Nullable<int> Original_jumlah, 
+                    global::System.Nullable<global::System.DateTime> Original_tanggal_penerimaan, 
                     int no) {
             if ((tanggal_perbaikan.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(tanggal_perbaikan.Value));
@@ -2615,184 +2677,198 @@ AND shift = @shift";
             else {
                 this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_no));
-            if ((Original_tanggal_perbaikan.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((System.DateTime)(Original_tanggal_perbaikan.Value));
+            if ((tanggal_penerimaan.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(tanggal_penerimaan.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Original_no));
+            if ((Original_tanggal_perbaikan.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((System.DateTime)(Original_tanggal_perbaikan.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             if ((Original_shift == null)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_shift));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_shift));
             }
             if ((Original_nomor_rod.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_nomor_rod.Value));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(Original_nomor_rod.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
             if ((Original_jenis == null)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_jenis));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_jenis));
             }
             if ((Original_e1_ers.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((int)(Original_e1_ers.Value));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(Original_e1_ers.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
             if ((Original_e1_est.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(Original_e1_est.Value));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(Original_e1_est.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
             }
             if ((Original_e1_jumlah.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(Original_e1_jumlah.Value));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((int)(Original_e1_jumlah.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
             if ((Original_e2_ers.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((int)(Original_e2_ers.Value));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((int)(Original_e2_ers.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
             }
             if ((Original_e2_cst.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((int)(Original_e2_cst.Value));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((int)(Original_e2_cst.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
             }
             if ((Original_e2_cstub.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((int)(Original_e2_cstub.Value));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((int)(Original_e2_cstub.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
             }
             if ((Original_e2_jumlah.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((int)(Original_e2_jumlah.Value));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((int)(Original_e2_jumlah.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
             }
             if ((Original_e3.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((int)(Original_e3.Value));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((int)(Original_e3.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
             }
             if ((Original_s.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((int)(Original_s.Value));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((int)(Original_s.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
             }
             if ((Original_d.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((int)(Original_d.Value));
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((int)(Original_d.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
             }
             if ((Original_b.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((int)(Original_b.Value));
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((int)(Original_b.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[52].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
             }
             if ((Original_ba.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((int)(Original_ba.Value));
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((int)(Original_ba.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[54].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
             }
             if ((Original_cr.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[56].Value = ((int)(Original_cr.Value));
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((int)(Original_cr.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[56].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[57].Value = global::System.DBNull.Value;
             }
             if ((Original_m.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[58].Value = ((int)(Original_m.Value));
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((int)(Original_m.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[58].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[59].Value = global::System.DBNull.Value;
             }
             if ((Original_r.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[60].Value = ((int)(Original_r.Value));
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((int)(Original_r.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[60].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[61].Value = global::System.DBNull.Value;
             }
             if ((Original_c.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((int)(Original_c.Value));
+                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((int)(Original_c.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[62].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[63].Value = global::System.DBNull.Value;
             }
             if ((Original_rl.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[64].Value = ((int)(Original_rl.Value));
+                this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((int)(Original_rl.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[64].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[65].Value = global::System.DBNull.Value;
             }
             if ((Original_jumlah.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[66].Value = ((int)(Original_jumlah.Value));
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((int)(Original_jumlah.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[66].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[67].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[67].Value = ((int)(no));
+            if ((Original_tanggal_penerimaan.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((System.DateTime)(Original_tanggal_penerimaan.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[69].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[70].Value = ((int)(no));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2836,6 +2912,7 @@ AND shift = @shift";
                     global::System.Nullable<int> c, 
                     global::System.Nullable<int> rl, 
                     global::System.Nullable<int> jumlah, 
+                    global::System.Nullable<global::System.DateTime> tanggal_penerimaan, 
                     int Original_no, 
                     global::System.Nullable<global::System.DateTime> Original_tanggal_perbaikan, 
                     string Original_shift, 
@@ -2858,8 +2935,9 @@ AND shift = @shift";
                     global::System.Nullable<int> Original_r, 
                     global::System.Nullable<int> Original_c, 
                     global::System.Nullable<int> Original_rl, 
-                    global::System.Nullable<int> Original_jumlah) {
-            return this.Update(tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, s, d, b, ba, cr, m, r, c, rl, jumlah, Original_no, Original_tanggal_perbaikan, Original_shift, Original_nomor_rod, Original_jenis, Original_e1_ers, Original_e1_est, Original_e1_jumlah, Original_e2_ers, Original_e2_cst, Original_e2_cstub, Original_e2_jumlah, Original_e3, Original_s, Original_d, Original_b, Original_ba, Original_cr, Original_m, Original_r, Original_c, Original_rl, Original_jumlah, Original_no);
+                    global::System.Nullable<int> Original_jumlah, 
+                    global::System.Nullable<global::System.DateTime> Original_tanggal_penerimaan) {
+            return this.Update(tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, s, d, b, ba, cr, m, r, c, rl, jumlah, tanggal_penerimaan, Original_no, Original_tanggal_perbaikan, Original_shift, Original_nomor_rod, Original_jenis, Original_e1_ers, Original_e1_est, Original_e1_jumlah, Original_e2_ers, Original_e2_cst, Original_e2_cstub, Original_e2_jumlah, Original_e3, Original_s, Original_d, Original_b, Original_ba, Original_cr, Original_m, Original_r, Original_c, Original_rl, Original_jumlah, Original_tanggal_penerimaan, Original_no);
         }
     }
     
