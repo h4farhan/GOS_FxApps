@@ -2,13 +2,6 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="PenerimaanForm">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>30bc97f9-4fbc-4da4-8b2c-a9dbb1f2d5b4</rd:DataSourceID>
-    </DataSource>
     <DataSource Name="PengirimanForm">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
@@ -29,7 +22,7 @@
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="tanggal_pengiriman">
-          <DataField>tanggal_perbaikan</DataField>
+          <DataField>tanggal_pengiriman</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="shift">
@@ -42,12 +35,12 @@
         </Field>
         <Field Name="RowNumber">
           <DataField>RowNumber</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>PengirimanForm</rd:DataSetName>
-        <rd:SchemaPath>E:\GitHub\GOS_FxApps\DataSet\PengirimanForm.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Genta Operational System\GOS_FxApps\DataSet\PengirimanForm.xsd</rd:SchemaPath>
         <rd:TableName>pengiriman</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -1023,10 +1016,10 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>3.99408cm</Height>
+        <Height>2.3272cm</Height>
         <Style />
       </Body>
-      <Width>19.16619cm</Width>
+      <Width>18.9cm</Width>
       <Page>
         <PageHeader>
           <Height>5.42976cm</Height>
@@ -1469,6 +1462,12 @@
                         <FontWeight>Normal</FontWeight>
                       </Style>
                     </TextRun>
+                    <TextRun>
+                      <Value>=First(Fields!shift.Value, "DataSetPengiriman")</Value>
+                      <Style>
+                        <FontWeight>Normal</FontWeight>
+                      </Style>
+                    </TextRun>
                   </TextRuns>
                   <Style />
                 </Paragraph>
@@ -1499,6 +1498,13 @@
                       <Value>: </Value>
                       <Style>
                         <FontWeight>Normal</FontWeight>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>=Format(First(Fields!tanggal_pengiriman.Value, "DataSetPengiriman"), "dd-MM-yyyy")</Value>
+                      <Style>
+                        <FontWeight>Normal</FontWeight>
+                        <Format>D</Format>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -1544,8 +1550,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>4.51619cm</Top>
-              <Left>2.47036cm</Left>
+              <Top>4.44563cm</Top>
+              <Left>2.43508cm</Left>
               <Height>0.70583cm</Height>
               <Width>5.51963cm</Width>
               <ZIndex>8</ZIndex>
@@ -1596,16 +1602,6 @@
             </Border>
           </Style>
         </PageHeader>
-        <PageFooter>
-          <Height>2cm</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </PageFooter>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
         <LeftMargin>1cm</LeftMargin>
