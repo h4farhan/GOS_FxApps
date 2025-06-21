@@ -153,7 +153,7 @@ namespace GOS_FxApps
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            formperbaikan();
+            formpenerimaan();
         }
 
         private void printpenerimaan_Load(object sender, EventArgs e)
