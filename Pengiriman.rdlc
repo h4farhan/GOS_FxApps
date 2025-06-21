@@ -675,15 +675,9 @@
             <Filters>
               <Filter>
                 <FilterExpression>=Fields!RowNumber.Value</FilterExpression>
-                <Operator>GreaterThan</Operator>
+                <Operator>Between</Operator>
                 <FilterValues>
-                  <FilterValue DataType="Integer">30</FilterValue>
-                </FilterValues>
-              </Filter>
-              <Filter>
-                <FilterExpression>=Fields!RowNumber.Value</FilterExpression>
-                <Operator>LessThanOrEqual</Operator>
-                <FilterValues>
+                  <FilterValue DataType="Integer">31</FilterValue>
                   <FilterValue DataType="Integer">60</FilterValue>
                 </FilterValues>
               </Filter>

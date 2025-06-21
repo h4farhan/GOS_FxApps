@@ -78,6 +78,7 @@ namespace GOS_FxApps
             this.label4 = new System.Windows.Forms.Label();
             this.txtnomorrod = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btncancel = new Guna.UI2.WinForms.Guna2Button();
             this.btnsimpan = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
@@ -85,7 +86,6 @@ namespace GOS_FxApps
             this.datecari = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnhapus = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -105,7 +105,7 @@ namespace GOS_FxApps
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(735, 57);
             this.panel1.TabIndex = 0;
@@ -139,7 +139,7 @@ namespace GOS_FxApps
             this.panel2.Controls.Add(this.tableLayoutPanel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 57);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(405, 620);
             this.panel2.TabIndex = 1;
@@ -154,7 +154,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel1, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 176F));
@@ -197,7 +197,7 @@ namespace GOS_FxApps
             this.guna2Panel2.Controls.Add(this.label9);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel2.Location = new System.Drawing.Point(17, 185);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(378, 426);
             this.guna2Panel2.TabIndex = 1;
@@ -212,7 +212,7 @@ namespace GOS_FxApps
             this.guna2Panel3.Controls.Add(this.btnhitung);
             this.guna2Panel3.Controls.Add(this.tableLayoutPanel3);
             this.guna2Panel3.Location = new System.Drawing.Point(13, 311);
-            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(353, 102);
             this.guna2Panel3.TabIndex = 2;
@@ -228,7 +228,7 @@ namespace GOS_FxApps
             this.btnhitung.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnhitung.ForeColor = System.Drawing.Color.White;
             this.btnhitung.Location = new System.Drawing.Point(230, 57);
-            this.btnhitung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnhitung.Margin = new System.Windows.Forms.Padding(2);
             this.btnhitung.Name = "btnhitung";
             this.btnhitung.Size = new System.Drawing.Size(112, 32);
             this.btnhitung.TabIndex = 39;
@@ -245,7 +245,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel3.Controls.Add(this.label22, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.lbltotal, 1, 1);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(7, 3);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.8F));
@@ -738,7 +738,7 @@ namespace GOS_FxApps
             this.guna2Panel1.Controls.Add(this.txtnomorrod);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.Location = new System.Drawing.Point(17, 2);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(378, 172);
             this.guna2Panel1.TabIndex = 0;
@@ -851,15 +851,35 @@ namespace GOS_FxApps
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btnhapus);
+            this.panel3.Controls.Add(this.btncancel);
             this.panel3.Controls.Add(this.btnsimpan);
             this.panel3.Controls.Add(this.tableLayoutPanel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(405, 57);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(330, 620);
             this.panel3.TabIndex = 2;
+            // 
+            // btncancel
+            // 
+            this.btncancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btncancel.BorderRadius = 8;
+            this.btncancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btncancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btncancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btncancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btncancel.Enabled = false;
+            this.btncancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btncancel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btncancel.ForeColor = System.Drawing.Color.White;
+            this.btncancel.Location = new System.Drawing.Point(68, 555);
+            this.btncancel.Margin = new System.Windows.Forms.Padding(2);
+            this.btncancel.Name = "btncancel";
+            this.btncancel.Size = new System.Drawing.Size(122, 35);
+            this.btncancel.TabIndex = 36;
+            this.btncancel.Text = "Cancel";
+            this.btncancel.Click += new System.EventHandler(this.btncancel_Click);
             // 
             // btnsimpan
             // 
@@ -872,7 +892,7 @@ namespace GOS_FxApps
             this.btnsimpan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnsimpan.ForeColor = System.Drawing.Color.White;
             this.btnsimpan.Location = new System.Drawing.Point(197, 554);
-            this.btnsimpan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnsimpan.Margin = new System.Windows.Forms.Padding(2);
             this.btnsimpan.Name = "btnsimpan";
             this.btnsimpan.Size = new System.Drawing.Size(122, 35);
             this.btnsimpan.TabIndex = 35;
@@ -889,7 +909,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel2.Controls.Add(this.guna2Panel4, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -909,7 +929,7 @@ namespace GOS_FxApps
             this.guna2Panel4.Controls.Add(this.dataGridView1);
             this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel4.Location = new System.Drawing.Point(2, 2);
-            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.guna2Panel4.Size = new System.Drawing.Size(318, 541);
@@ -926,7 +946,7 @@ namespace GOS_FxApps
             this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btncari.ForeColor = System.Drawing.Color.White;
             this.btncari.Location = new System.Drawing.Point(245, 16);
-            this.btncari.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btncari.Margin = new System.Windows.Forms.Padding(2);
             this.btncari.Name = "btncari";
             this.btncari.Size = new System.Drawing.Size(60, 37);
             this.btncari.TabIndex = 44;
@@ -944,7 +964,7 @@ namespace GOS_FxApps
             this.datecari.ForeColor = System.Drawing.Color.White;
             this.datecari.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.datecari.Location = new System.Drawing.Point(11, 15);
-            this.datecari.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.datecari.Margin = new System.Windows.Forms.Padding(2);
             this.datecari.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.datecari.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datecari.Name = "datecari";
@@ -1011,7 +1031,7 @@ namespace GOS_FxApps
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.Gray;
             this.dataGridView1.Location = new System.Drawing.Point(11, 59);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -1026,26 +1046,6 @@ namespace GOS_FxApps
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // btnhapus
-            // 
-            this.btnhapus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnhapus.BorderRadius = 8;
-            this.btnhapus.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnhapus.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnhapus.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnhapus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnhapus.Enabled = false;
-            this.btnhapus.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnhapus.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnhapus.ForeColor = System.Drawing.Color.White;
-            this.btnhapus.Location = new System.Drawing.Point(68, 555);
-            this.btnhapus.Margin = new System.Windows.Forms.Padding(2);
-            this.btnhapus.Name = "btnhapus";
-            this.btnhapus.Size = new System.Drawing.Size(122, 35);
-            this.btnhapus.TabIndex = 36;
-            this.btnhapus.Text = "Hapus Data";
-            this.btnhapus.Click += new System.EventHandler(this.btnhapus_Click);
-            // 
             // Penerimaan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1056,7 +1056,7 @@ namespace GOS_FxApps
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Penerimaan";
             this.Text = "Penerimaan";
             this.Load += new System.EventHandler(this.Penerimaan_Load);
@@ -1132,6 +1132,6 @@ namespace GOS_FxApps
         private Guna.UI2.WinForms.Guna2Button btncari;
         private Guna.UI2.WinForms.Guna2DateTimePicker datecari;
         private Guna.UI2.WinForms.Guna2TextBox txtcari;
-        private Guna.UI2.WinForms.Guna2Button btnhapus;
+        private Guna.UI2.WinForms.Guna2Button btncancel;
     }
 }

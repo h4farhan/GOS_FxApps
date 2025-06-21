@@ -106,7 +106,7 @@ namespace GOS_FxApps
             }
         }
 
-        private void hapusdata()
+        private void editdata()
         {
             try
             {
@@ -115,31 +115,64 @@ namespace GOS_FxApps
                 if (result == DialogResult.OK)
                 {
                     conn.Open();
-                    SqlCommand cmd1 = new SqlCommand("DELETE FROM penerimaan_s WHERE no = @no", conn);
-                    SqlCommand cmd2 = new SqlCommand("DELETE FROM penerimaan_p WHERE no = @no", conn);
-                    cmd1.Parameters.AddWithValue("@no", noprimary);
+                    SqlCommand cmd = new SqlCommand("UPDATE penerimaan_s SET jenis = @jenis, stasiun = @stasiun, e1 = @e1, e2 = @e2, e3 = @e3, s = @s, d = @d," +
+                        "b = @b, ba = @ba, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah WHERE no = @no ", conn);
+                    SqlCommand cmd2 = new SqlCommand("UPDATE penerimaan_p SET jenis = @jenis, stasiun = @stasiun, e1 = @e1, e2 = @e2, e3 = @e3, s = @s, d = @d," +
+                        "b = @b, ba = @ba, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah WHERE no = @no ", conn);
+
+                    cmd.Parameters.AddWithValue("@jenis", txtjenis.Text);
+                    cmd.Parameters.AddWithValue("@stasiun", txtstasiun.Text);
+                    cmd.Parameters.AddWithValue("@e1", txte1.Text);
+                    cmd.Parameters.AddWithValue("@e2", txte2.Text);
+                    cmd.Parameters.AddWithValue("@e3", txte3.Text);
+                    cmd.Parameters.AddWithValue("@s", txts.Text);
+                    cmd.Parameters.AddWithValue("@d", txtd.Text);
+                    cmd.Parameters.AddWithValue("@b", txtb.Text);
+                    cmd.Parameters.AddWithValue("@ba", txtba.Text);
+                    cmd.Parameters.AddWithValue("@cr", txtcr.Text);
+                    cmd.Parameters.AddWithValue("@m", txtm.Text);
+                    cmd.Parameters.AddWithValue("@r", txtr.Text);
+                    cmd.Parameters.AddWithValue("@c", txtc.Text);
+                    cmd.Parameters.AddWithValue("@rl", txtrl.Text);
+                    cmd.Parameters.AddWithValue("@jumlah", lbltotal.Text);
+                    cmd.Parameters.AddWithValue("@no", noprimary);
+
+                    cmd2.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
+                    cmd2.Parameters.AddWithValue("@jenis", txtjenis.Text);
+                    cmd2.Parameters.AddWithValue("@stasiun", txtstasiun.Text);
+                    cmd2.Parameters.AddWithValue("@e1", txte1.Text);
+                    cmd2.Parameters.AddWithValue("@e2", txte2.Text);
+                    cmd2.Parameters.AddWithValue("@e3", txte3.Text);
+                    cmd2.Parameters.AddWithValue("@s", txts.Text);
+                    cmd2.Parameters.AddWithValue("@d", txtd.Text);
+                    cmd2.Parameters.AddWithValue("@b", txtb.Text);
+                    cmd2.Parameters.AddWithValue("@ba", txtba.Text);
+                    cmd2.Parameters.AddWithValue("@cr", txtcr.Text);
+                    cmd2.Parameters.AddWithValue("@m", txtm.Text);
+                    cmd2.Parameters.AddWithValue("@r", txtr.Text);
+                    cmd2.Parameters.AddWithValue("@c", txtc.Text);
+                    cmd2.Parameters.AddWithValue("@rl", txtrl.Text);
+                    cmd2.Parameters.AddWithValue("@jumlah", lbltotal.Text);
                     cmd2.Parameters.AddWithValue("@no", noprimary);
-                    cmd1.ExecuteNonQuery();
+
+                    cmd.ExecuteNonQuery();
                     cmd2.ExecuteNonQuery();
-                    MessageBox.Show("Data Berhasil Dihapus");
+                    MessageBox.Show("Data Berhasil Diupdate", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     tampil();
                     setdefault();
                     btnsimpan.Text = "Simpan Data";
-                    btnhapus.Enabled = false;
+                    btncancel.Enabled = false;
                     btnsimpan.Enabled = false;
-                }
-                else
-                {
-
+                    
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal Hapus " + ex.Message);
+                MessageBox.Show("Terjadi Kesalahan Update Data " + ex.Message);
             }
-            finally 
-            { 
-                conn.Close() ;
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -182,12 +215,9 @@ namespace GOS_FxApps
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            if(btnsimpan.Text == "Cancel")
+            if(btnsimpan.Text == "Update Data")
             {
-                setdefault();
-                btnsimpan.Text = "Simpan Data";
-                btnhapus.Enabled = false;
-                btnsimpan.Enabled = false;
+                editdata();
             }
             else
             {
@@ -230,28 +260,57 @@ namespace GOS_FxApps
 
         private void btnhitung_Click(object sender, EventArgs e)
         {
-            if (txtnomorrod.Text == "" || txtjenis.Text == "" || txtstasiun.Text == "") 
+            if (btnhitung.Text == "Hitung Ulang")
             {
-                MessageBox.Show("Data Tidak Boleh Kosong");
-            }
-            else
-            {
-                int angka1 = SafeParse(txte1);
-                int angka2 = SafeParse(txte2);
-                int angka3 = SafeParse(txte3);
-                int angka4 = SafeParse(txts);
-                int angka5 = SafeParse(txtd);
-                int angka6 = SafeParse(txtb);
-                int angka7 = SafeParse(txtba);
-                int angka8 = SafeParse(txtcr);
-                int angka9 = SafeParse(txtm);
-                int angka10 = SafeParse(txtr);
-                int angka11 = SafeParse(txtc);
-                int angka12 = SafeParse(txtrl);
+                if (txtnomorrod.Text == "" || txtjenis.Text == "" || txtstasiun.Text == "")
+                {
+                    MessageBox.Show("Data Tidak Boleh Kosong");
+                }
+                else
+                {
+                    int angka1 = SafeParse(txte1);
+                    int angka2 = SafeParse(txte2);
+                    int angka3 = SafeParse(txte3);
+                    int angka4 = SafeParse(txts);
+                    int angka5 = SafeParse(txtd);
+                    int angka6 = SafeParse(txtb);
+                    int angka7 = SafeParse(txtba);
+                    int angka8 = SafeParse(txtcr);
+                    int angka9 = SafeParse(txtm);
+                    int angka10 = SafeParse(txtr);
+                    int angka11 = SafeParse(txtc);
+                    int angka12 = SafeParse(txtrl);
 
-                int hasil = angka1 + angka2 + angka3 + angka4 + angka5 + angka6 + angka7 + angka8 + angka9 + angka10 + angka11 + angka12;
-                lbltotal.Text = hasil.ToString();
-                btnsimpan.Enabled = true;
+                    int hasil = angka1 + angka2 + angka3 + angka4 + angka5 + angka6 + angka7 + angka8 + angka9 + angka10 + angka11 + angka12;
+                    lbltotal.Text = hasil.ToString();
+                    btnsimpan.Enabled = true;
+                }
+            }
+            else 
+            {
+                if (txtnomorrod.Text == "" || txtjenis.Text == "" || txtstasiun.Text == "")
+                {
+                    MessageBox.Show("Data Tidak Boleh Kosong");
+                }
+                else
+                {
+                    int angka1 = SafeParse(txte1);
+                    int angka2 = SafeParse(txte2);
+                    int angka3 = SafeParse(txte3);
+                    int angka4 = SafeParse(txts);
+                    int angka5 = SafeParse(txtd);
+                    int angka6 = SafeParse(txtb);
+                    int angka7 = SafeParse(txtba);
+                    int angka8 = SafeParse(txtcr);
+                    int angka9 = SafeParse(txtm);
+                    int angka10 = SafeParse(txtr);
+                    int angka11 = SafeParse(txtc);
+                    int angka12 = SafeParse(txtrl);
+
+                    int hasil = angka1 + angka2 + angka3 + angka4 + angka5 + angka6 + angka7 + angka8 + angka9 + angka10 + angka11 + angka12;
+                    lbltotal.Text = hasil.ToString();
+                    btnsimpan.Enabled = true;
+                }
             }  
         }
 
@@ -359,16 +418,19 @@ namespace GOS_FxApps
                 txtc.Text = row.Cells["c"].Value.ToString();
                 txtrl.Text = row.Cells["rl"].Value.ToString();
                 lbltotal.Text = row.Cells["jumlah"].Value.ToString();
-                btnhapus.Enabled = true;
-                btnsimpan.Enabled = true;
-                btnsimpan.Text = "Cancel";
+                btncancel.Enabled = true;
+                btnsimpan.Text = "Update Data";
+                btnhitung.Text = "Hitung Ulang";
 
             }
         }
 
-        private void btnhapus_Click(object sender, EventArgs e)
+        private void btncancel_Click(object sender, EventArgs e)
         {
-            hapusdata();
+            setdefault();
+            btnsimpan.Text = "Simpan Data";
+            btncancel.Enabled = false;
+            btnsimpan.Enabled = false;
         }
     }
 }
