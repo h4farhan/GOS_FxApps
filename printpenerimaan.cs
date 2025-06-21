@@ -153,7 +153,7 @@ namespace GOS_FxApps
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            formperbaikan();
+            formpengiriman();
         }
 
         private void printpenerimaan_Load(object sender, EventArgs e)
@@ -319,7 +319,7 @@ namespace GOS_FxApps
 
             DataTable dt = new DataTable();
 
-            string query = "SELECT * FROM perbaikan_p WHERE tanggal_perbaikan >= @tanggal1 AND tanggal_perbaikan < @tanggal2 AND shift = @shift";
+            string query = "SELECT * FROM pengiriman WHERE tanggal_pengiriman >= @tanggal1 AND tanggal_pengiriman < @tanggal2 AND shift = @shift";
 
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
@@ -370,7 +370,7 @@ namespace GOS_FxApps
             }
             else
             {
-                tampilperbaikan();
+                tampilpengiriman();
                 infocari = false;
                 btncari.Text = "Cari";
 
