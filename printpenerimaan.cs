@@ -319,7 +319,7 @@ namespace GOS_FxApps
 
             DataTable dt = new DataTable();
 
-            string query = "SELECT * FROM pengiriman WHERE tanggal_pengiriman >= @tanggal1 AND tanggal_pengiriman < @tanggal2 AND shift = @shift";
+            string query = "SELECT * FROM penerimaan_p WHERE tanggal_penerimaan >= @tanggal1 AND tanggal_penerimaan < @tanggal2 AND shift = @shift";
 
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
@@ -370,7 +370,7 @@ namespace GOS_FxApps
             }
             else
             {
-                tampilpengiriman();
+                tampilpenerimaan();
                 infocari = false;
                 btncari.Text = "Cari";
 
