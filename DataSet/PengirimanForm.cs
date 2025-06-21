@@ -13,3 +13,10 @@
         }
     }
 }
+
+namespace GOS_FxApps.PengirimanFormTableAdapters {
+    
+    
+    public partial class pengirimanTableAdapter {
+    }
+}

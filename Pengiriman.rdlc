@@ -1501,6 +1501,12 @@
                         <FontWeight>Normal</FontWeight>
                       </Style>
                     </TextRun>
+                    <TextRun>
+                      <Value>=Format(First(Fields!tanggal_pengiriman.Value, "DataSetPengiriman"), "dd-MM-yyyy")</Value>
+                      <Style>
+                        <FontWeight>Normal</FontWeight>
+                      </Style>
+                    </TextRun>
                   </TextRuns>
                   <Style />
                 </Paragraph>
