@@ -33,3 +33,4 @@ _ReSharper*/
 *.vssscc
 .vs/
 /Report1.rdlc
+/DataSet/PengirimanForm.cs
