@@ -18,6 +18,7 @@ namespace GOS_FxApps
         SqlConnection conn = Koneksi.GetConnection();
 
         bool infocari = false;
+        int noprimary;
 
         public Penerimaan()
         {
@@ -32,44 +33,7 @@ namespace GOS_FxApps
             datecari.Checked = false;   
         }
 
-        private void tampil()
-        {
-            try
-            {
-                string query = "SELECT * FROM penerimaan_s";
-                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                ad.Fill(dt);
-                dataGridView1.DataSource = dt;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-
-                dataGridView1.Columns[0].Visible = false;
-                dataGridView1.Columns[1].HeaderText = "Tanggal Penerimaan";
-                dataGridView1.Columns[2].HeaderText = "Shift";
-                dataGridView1.Columns[3].HeaderText = "Nomor ROD";
-                dataGridView1.Columns[4].HeaderText = "Jenis";
-                dataGridView1.Columns[5].HeaderText = "Stasiun";
-                dataGridView1.Columns[6].HeaderText = "E1";
-                dataGridView1.Columns[7].HeaderText = "E2";
-                dataGridView1.Columns[8].HeaderText = "E3";
-                dataGridView1.Columns[9].HeaderText = "S";
-                dataGridView1.Columns[10].HeaderText = "D";
-                dataGridView1.Columns[11].HeaderText = "B";
-                dataGridView1.Columns[12].HeaderText = "BA";
-                dataGridView1.Columns[13].HeaderText = "CR";
-                dataGridView1.Columns[14].HeaderText = "M";
-                dataGridView1.Columns[15].HeaderText = "R";
-                dataGridView1.Columns[16].HeaderText = "C";
-                dataGridView1.Columns[17].HeaderText = "RL";
-                dataGridView1.Columns[18].HeaderText = "Jumlah";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan: " + ex.Message);
-            }
-        }
-
-        private void guna2Button2_Click(object sender, EventArgs e)
+        private void simpandata()
         {
             try
             {
@@ -129,7 +93,7 @@ namespace GOS_FxApps
                 }
                 else
                 {
-                    
+
                 }
             }
             catch (Exception ex)
@@ -139,6 +103,95 @@ namespace GOS_FxApps
             finally
             {
                 conn.Close();
+            }
+        }
+
+        private void hapusdata()
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.OK)
+                {
+                    conn.Open();
+                    SqlCommand cmd1 = new SqlCommand("DELETE FROM penerimaan_s WHERE no = @no", conn);
+                    SqlCommand cmd2 = new SqlCommand("DELETE FROM penerimaan_p WHERE no = @no", conn);
+                    cmd1.Parameters.AddWithValue("@no", noprimary);
+                    cmd2.Parameters.AddWithValue("@no", noprimary);
+                    cmd1.ExecuteNonQuery();
+                    cmd2.ExecuteNonQuery();
+                    MessageBox.Show("Data Berhasil Dihapus");
+                    tampil();
+                    setdefault();
+                    btnsimpan.Text = "Simpan Data";
+                    btnhapus.Enabled = false;
+                    btnsimpan.Enabled = false;
+                }
+                else
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal Hapus " + ex.Message);
+            }
+            finally 
+            { 
+                conn.Close() ;
+            }
+        }
+
+        private void tampil()
+        {
+            try
+            {
+                string query = "SELECT * FROM penerimaan_s";
+                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                ad.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].HeaderText = "Tanggal Penerimaan";
+                dataGridView1.Columns[2].HeaderText = "Shift";
+                dataGridView1.Columns[3].HeaderText = "Nomor ROD";
+                dataGridView1.Columns[4].HeaderText = "Jenis";
+                dataGridView1.Columns[5].HeaderText = "Stasiun";
+                dataGridView1.Columns[6].HeaderText = "E1";
+                dataGridView1.Columns[7].HeaderText = "E2";
+                dataGridView1.Columns[8].HeaderText = "E3";
+                dataGridView1.Columns[9].HeaderText = "S";
+                dataGridView1.Columns[10].HeaderText = "D";
+                dataGridView1.Columns[11].HeaderText = "B";
+                dataGridView1.Columns[12].HeaderText = "BA";
+                dataGridView1.Columns[13].HeaderText = "CR";
+                dataGridView1.Columns[14].HeaderText = "M";
+                dataGridView1.Columns[15].HeaderText = "R";
+                dataGridView1.Columns[16].HeaderText = "C";
+                dataGridView1.Columns[17].HeaderText = "RL";
+                dataGridView1.Columns[18].HeaderText = "Jumlah";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan: " + ex.Message);
+            }
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            if(btnsimpan.Text == "Cancel")
+            {
+                setdefault();
+                btnsimpan.Text = "Simpan Data";
+                btnhapus.Enabled = false;
+                btnsimpan.Enabled = false;
+            }
+            else
+            {
+                simpandata();
             }
         }
 
@@ -281,6 +334,41 @@ namespace GOS_FxApps
                 txtcari.Text = "";
                 datecari.Checked = false;
             }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                noprimary = Convert.ToInt32(row.Cells["no"].Value);
+                txtnomorrod.Text = row.Cells["nomor_rod"].Value.ToString();
+                txtjenis.Text = row.Cells["jenis"].Value.ToString();
+                txtstasiun.Text = row.Cells["stasiun"].Value.ToString();
+                txte1.Text = row.Cells["e1"].Value.ToString();
+                txte2.Text = row.Cells["e2"].Value.ToString();
+                txte3.Text = row.Cells["e3"].Value.ToString();
+                txts.Text = row.Cells["s"].Value.ToString();
+                txtd.Text = row.Cells["d"].Value.ToString();
+                txtb.Text = row.Cells["b"].Value.ToString();
+                txtba.Text = row.Cells["ba"].Value.ToString();
+                txtcr.Text = row.Cells["cr"].Value.ToString();
+                txtm.Text = row.Cells["m"].Value.ToString();
+                txtr.Text = row.Cells["r"].Value.ToString();
+                txtc.Text = row.Cells["c"].Value.ToString();
+                txtrl.Text = row.Cells["rl"].Value.ToString();
+                lbltotal.Text = row.Cells["jumlah"].Value.ToString();
+                btnhapus.Enabled = true;
+                btnsimpan.Enabled = true;
+                btnsimpan.Text = "Cancel";
+
+            }
+        }
+
+        private void btnhapus_Click(object sender, EventArgs e)
+        {
+            hapusdata();
         }
     }
 }

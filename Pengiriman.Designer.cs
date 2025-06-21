@@ -75,9 +75,9 @@ namespace GOS_FxApps
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(980, 55);
+            this.panel1.Size = new System.Drawing.Size(735, 45);
             this.panel1.TabIndex = 1;
             // 
             // label2
@@ -85,10 +85,9 @@ namespace GOS_FxApps
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(179, 16);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(141, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 30);
+            this.label2.Size = new System.Drawing.Size(100, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Pengiriman";
             // 
@@ -97,10 +96,9 @@ namespace GOS_FxApps
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.label1.Location = new System.Drawing.Point(23, 20);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(17, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 23);
+            this.label1.Size = new System.Drawing.Size(128, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Form Entry Data  >";
             // 
@@ -108,27 +106,27 @@ namespace GOS_FxApps
             // 
             this.panel2.Controls.Add(this.tableLayoutPanel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 55);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.panel2.Location = new System.Drawing.Point(0, 45);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(540, 824);
+            this.panel2.Size = new System.Drawing.Size(405, 669);
             this.panel2.TabIndex = 2;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel1, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 9F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(540, 824);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 7F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(405, 669);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // guna2Panel1
@@ -148,10 +146,10 @@ namespace GOS_FxApps
             this.guna2Panel1.Controls.Add(this.label3);
             this.guna2Panel1.Controls.Add(this.txtrod1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel1.Location = new System.Drawing.Point(24, 2);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.guna2Panel1.Location = new System.Drawing.Point(18, 2);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(501, 811);
+            this.guna2Panel1.Size = new System.Drawing.Size(376, 658);
             this.guna2Panel1.TabIndex = 2;
             // 
             // txtrod10
@@ -166,15 +164,17 @@ namespace GOS_FxApps
             this.txtrod10.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtrod10.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrod10.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod10.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtrod10.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtrod10.ForeColor = System.Drawing.Color.White;
             this.txtrod10.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod10.Location = new System.Drawing.Point(111, 605);
-            this.txtrod10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtrod10.Location = new System.Drawing.Point(83, 492);
+            this.txtrod10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod10.Name = "txtrod10";
             this.txtrod10.PlaceholderText = "4xxxx";
             this.txtrod10.SelectedText = "";
-            this.txtrod10.Size = new System.Drawing.Size(269, 50);
+            this.txtrod10.Size = new System.Drawing.Size(202, 41);
             this.txtrod10.TabIndex = 16;
+            this.txtrod10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             this.txtrod10.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // txtrod9
@@ -189,15 +189,17 @@ namespace GOS_FxApps
             this.txtrod9.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtrod9.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrod9.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod9.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtrod9.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtrod9.ForeColor = System.Drawing.Color.White;
             this.txtrod9.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod9.Location = new System.Drawing.Point(111, 545);
-            this.txtrod9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtrod9.Location = new System.Drawing.Point(83, 443);
+            this.txtrod9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod9.Name = "txtrod9";
             this.txtrod9.PlaceholderText = "4xxxx";
             this.txtrod9.SelectedText = "";
-            this.txtrod9.Size = new System.Drawing.Size(269, 50);
+            this.txtrod9.Size = new System.Drawing.Size(202, 41);
             this.txtrod9.TabIndex = 15;
+            this.txtrod9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             this.txtrod9.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // txtrod8
@@ -212,15 +214,17 @@ namespace GOS_FxApps
             this.txtrod8.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtrod8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrod8.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod8.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtrod8.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtrod8.ForeColor = System.Drawing.Color.White;
             this.txtrod8.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod8.Location = new System.Drawing.Point(111, 485);
-            this.txtrod8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtrod8.Location = new System.Drawing.Point(83, 394);
+            this.txtrod8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod8.Name = "txtrod8";
             this.txtrod8.PlaceholderText = "4xxxx";
             this.txtrod8.SelectedText = "";
-            this.txtrod8.Size = new System.Drawing.Size(269, 50);
+            this.txtrod8.Size = new System.Drawing.Size(202, 41);
             this.txtrod8.TabIndex = 14;
+            this.txtrod8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             this.txtrod8.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // txtrod7
@@ -235,15 +239,17 @@ namespace GOS_FxApps
             this.txtrod7.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtrod7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrod7.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod7.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtrod7.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtrod7.ForeColor = System.Drawing.Color.White;
             this.txtrod7.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod7.Location = new System.Drawing.Point(111, 425);
-            this.txtrod7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtrod7.Location = new System.Drawing.Point(83, 345);
+            this.txtrod7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod7.Name = "txtrod7";
             this.txtrod7.PlaceholderText = "4xxxx";
             this.txtrod7.SelectedText = "";
-            this.txtrod7.Size = new System.Drawing.Size(269, 50);
+            this.txtrod7.Size = new System.Drawing.Size(202, 41);
             this.txtrod7.TabIndex = 13;
+            this.txtrod7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             this.txtrod7.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // txtrod6
@@ -258,15 +264,17 @@ namespace GOS_FxApps
             this.txtrod6.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtrod6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrod6.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtrod6.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtrod6.ForeColor = System.Drawing.Color.White;
             this.txtrod6.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod6.Location = new System.Drawing.Point(111, 365);
-            this.txtrod6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtrod6.Location = new System.Drawing.Point(83, 297);
+            this.txtrod6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod6.Name = "txtrod6";
             this.txtrod6.PlaceholderText = "4xxxx";
             this.txtrod6.SelectedText = "";
-            this.txtrod6.Size = new System.Drawing.Size(269, 50);
+            this.txtrod6.Size = new System.Drawing.Size(202, 41);
             this.txtrod6.TabIndex = 12;
+            this.txtrod6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             this.txtrod6.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // txtrod5
@@ -281,15 +289,17 @@ namespace GOS_FxApps
             this.txtrod5.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtrod5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrod5.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtrod5.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtrod5.ForeColor = System.Drawing.Color.White;
             this.txtrod5.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod5.Location = new System.Drawing.Point(111, 305);
-            this.txtrod5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtrod5.Location = new System.Drawing.Point(83, 248);
+            this.txtrod5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod5.Name = "txtrod5";
             this.txtrod5.PlaceholderText = "4xxxx";
             this.txtrod5.SelectedText = "";
-            this.txtrod5.Size = new System.Drawing.Size(269, 50);
+            this.txtrod5.Size = new System.Drawing.Size(202, 41);
             this.txtrod5.TabIndex = 11;
+            this.txtrod5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             this.txtrod5.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // txtrod4
@@ -304,15 +314,17 @@ namespace GOS_FxApps
             this.txtrod4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtrod4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrod4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtrod4.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtrod4.ForeColor = System.Drawing.Color.White;
             this.txtrod4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod4.Location = new System.Drawing.Point(111, 245);
-            this.txtrod4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtrod4.Location = new System.Drawing.Point(83, 199);
+            this.txtrod4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod4.Name = "txtrod4";
             this.txtrod4.PlaceholderText = "4xxxx";
             this.txtrod4.SelectedText = "";
-            this.txtrod4.Size = new System.Drawing.Size(269, 50);
+            this.txtrod4.Size = new System.Drawing.Size(202, 41);
             this.txtrod4.TabIndex = 10;
+            this.txtrod4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             this.txtrod4.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // txtrod3
@@ -327,15 +339,17 @@ namespace GOS_FxApps
             this.txtrod3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtrod3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrod3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtrod3.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtrod3.ForeColor = System.Drawing.Color.White;
             this.txtrod3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod3.Location = new System.Drawing.Point(111, 185);
-            this.txtrod3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtrod3.Location = new System.Drawing.Point(83, 150);
+            this.txtrod3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod3.Name = "txtrod3";
             this.txtrod3.PlaceholderText = "4xxxx";
             this.txtrod3.SelectedText = "";
-            this.txtrod3.Size = new System.Drawing.Size(269, 50);
+            this.txtrod3.Size = new System.Drawing.Size(202, 41);
             this.txtrod3.TabIndex = 9;
+            this.txtrod3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             this.txtrod3.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // txtrod2
@@ -350,15 +364,17 @@ namespace GOS_FxApps
             this.txtrod2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtrod2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrod2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtrod2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtrod2.ForeColor = System.Drawing.Color.White;
             this.txtrod2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod2.Location = new System.Drawing.Point(111, 125);
-            this.txtrod2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtrod2.Location = new System.Drawing.Point(83, 102);
+            this.txtrod2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod2.Name = "txtrod2";
             this.txtrod2.PlaceholderText = "4xxxx";
             this.txtrod2.SelectedText = "";
-            this.txtrod2.Size = new System.Drawing.Size(269, 50);
+            this.txtrod2.Size = new System.Drawing.Size(202, 41);
             this.txtrod2.TabIndex = 7;
+            this.txtrod2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             this.txtrod2.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // label3
@@ -366,10 +382,9 @@ namespace GOS_FxApps
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(133, 21);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(100, 17);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(229, 28);
+            this.label3.Size = new System.Drawing.Size(184, 21);
             this.label3.TabIndex = 0;
             this.label3.Text = "Masukkan Nomor ROD";
             // 
@@ -385,15 +400,17 @@ namespace GOS_FxApps
             this.txtrod1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtrod1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrod1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtrod1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtrod1.ForeColor = System.Drawing.Color.White;
             this.txtrod1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod1.Location = new System.Drawing.Point(111, 65);
-            this.txtrod1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtrod1.Location = new System.Drawing.Point(83, 53);
+            this.txtrod1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod1.Name = "txtrod1";
             this.txtrod1.PlaceholderText = "4xxxx";
             this.txtrod1.SelectedText = "";
-            this.txtrod1.Size = new System.Drawing.Size(269, 50);
+            this.txtrod1.Size = new System.Drawing.Size(202, 41);
             this.txtrod1.TabIndex = 5;
+            this.txtrod1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             this.txtrod1.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // panel3
@@ -401,10 +418,10 @@ namespace GOS_FxApps
             this.panel3.Controls.Add(this.guna2Button2);
             this.panel3.Controls.Add(this.tableLayoutPanel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(540, 55);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.panel3.Location = new System.Drawing.Point(405, 45);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(440, 824);
+            this.panel3.Size = new System.Drawing.Size(330, 669);
             this.panel3.TabIndex = 3;
             // 
             // guna2Button2
@@ -417,10 +434,10 @@ namespace GOS_FxApps
             this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(262, 750);
-            this.guna2Button2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.guna2Button2.Location = new System.Drawing.Point(196, 608);
+            this.guna2Button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(163, 43);
+            this.guna2Button2.Size = new System.Drawing.Size(122, 35);
             this.guna2Button2.TabIndex = 38;
             this.guna2Button2.Text = "Kirim";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
@@ -432,15 +449,15 @@ namespace GOS_FxApps
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel2.Controls.Add(this.guna2Panel2, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 7F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(440, 746);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 6F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(330, 605);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // guna2Panel2
@@ -453,10 +470,10 @@ namespace GOS_FxApps
             this.guna2Panel2.Controls.Add(this.txtcari);
             this.guna2Panel2.Controls.Add(this.dataGridView1);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel2.Location = new System.Drawing.Point(4, 2);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.guna2Panel2.Location = new System.Drawing.Point(3, 2);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(421, 735);
+            this.guna2Panel2.Size = new System.Drawing.Size(316, 595);
             this.guna2Panel2.TabIndex = 2;
             // 
             // btncari
@@ -469,10 +486,10 @@ namespace GOS_FxApps
             this.btncari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btncari.ForeColor = System.Drawing.Color.White;
-            this.btncari.Location = new System.Drawing.Point(326, 22);
-            this.btncari.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btncari.Location = new System.Drawing.Point(244, 18);
+            this.btncari.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btncari.Name = "btncari";
-            this.btncari.Size = new System.Drawing.Size(80, 46);
+            this.btncari.Size = new System.Drawing.Size(60, 37);
             this.btncari.TabIndex = 44;
             this.btncari.Text = "Cari";
             this.btncari.Click += new System.EventHandler(this.btncari_Click);
@@ -487,12 +504,13 @@ namespace GOS_FxApps
             this.datecari.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.datecari.ForeColor = System.Drawing.Color.White;
             this.datecari.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.datecari.Location = new System.Drawing.Point(15, 20);
+            this.datecari.Location = new System.Drawing.Point(11, 16);
+            this.datecari.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.datecari.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.datecari.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datecari.Name = "datecari";
             this.datecari.ShowCheckBox = true;
-            this.datecari.Size = new System.Drawing.Size(206, 48);
+            this.datecari.Size = new System.Drawing.Size(178, 39);
             this.datecari.TabIndex = 46;
             this.datecari.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
             // 
@@ -516,12 +534,12 @@ namespace GOS_FxApps
             this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.icons8_search_50;
             this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
-            this.txtcari.Location = new System.Drawing.Point(227, 20);
-            this.txtcari.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtcari.Location = new System.Drawing.Point(193, 16);
+            this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtcari.Name = "txtcari";
             this.txtcari.PlaceholderText = "Nomor ROD";
             this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(93, 48);
+            this.txtcari.Size = new System.Drawing.Size(47, 39);
             this.txtcari.TabIndex = 45;
             // 
             // dataGridView1
@@ -553,8 +571,8 @@ namespace GOS_FxApps
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.Gray;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 73);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(11, 59);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -565,20 +583,20 @@ namespace GOS_FxApps
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(391, 649);
+            this.dataGridView1.Size = new System.Drawing.Size(293, 525);
             this.dataGridView1.TabIndex = 39;
             // 
             // Pengiriman
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.ClientSize = new System.Drawing.Size(980, 879);
+            this.ClientSize = new System.Drawing.Size(735, 714);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Pengiriman";
             this.Text = "Pengiriman";
             this.panel1.ResumeLayout(false);
