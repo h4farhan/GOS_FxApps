@@ -68,9 +68,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(980, 70);
+            this.panel1.Size = new System.Drawing.Size(735, 57);
             this.panel1.TabIndex = 1;
             // 
             // label2
@@ -78,9 +78,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(179, 16);
+            this.label2.Location = new System.Drawing.Point(134, 13);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(201, 30);
+            this.label2.Size = new System.Drawing.Size(164, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Pemakaian Material";
             // 
@@ -89,9 +90,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.label1.Location = new System.Drawing.Point(23, 20);
+            this.label1.Location = new System.Drawing.Point(17, 16);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 23);
+            this.label1.Size = new System.Drawing.Size(128, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Form Entry Data  >";
             // 
@@ -99,27 +101,27 @@
             // 
             this.panel2.Controls.Add(this.tableLayoutPanel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 70);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.panel2.Location = new System.Drawing.Point(0, 57);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(540, 763);
+            this.panel2.Size = new System.Drawing.Size(405, 620);
             this.panel2.TabIndex = 3;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel1, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 9F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(540, 763);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 7F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(405, 620);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // guna2Panel1
@@ -127,7 +129,7 @@
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.guna2Panel1.BorderRadius = 15;
             this.guna2Panel1.BorderThickness = 2;
-            this.guna2Panel1.Controls.Add(this.guna2Button2);
+            this.guna2Panel1.Controls.Add(this.guna2Button1);
             this.guna2Panel1.Controls.Add(this.datepemakaian);
             this.guna2Panel1.Controls.Add(this.label6);
             this.guna2Panel1.Controls.Add(this.label5);
@@ -135,10 +137,10 @@
             this.guna2Panel1.Controls.Add(this.txtjumlah);
             this.guna2Panel1.Controls.Add(this.cmbnama);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel1.Location = new System.Drawing.Point(24, 2);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.guna2Panel1.Location = new System.Drawing.Point(18, 2);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(501, 750);
+            this.guna2Panel1.Size = new System.Drawing.Size(376, 609);
             this.guna2Panel1.TabIndex = 2;
             // 
             // guna2Button2
@@ -151,10 +153,10 @@
             this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(325, 692);
-            this.guna2Button2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.guna2Button2.Location = new System.Drawing.Point(197, 561);
+            this.guna2Button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(163, 43);
+            this.guna2Button2.Size = new System.Drawing.Size(122, 35);
             this.guna2Button2.TabIndex = 38;
             this.guna2Button2.Text = "Simpan Data";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
@@ -170,11 +172,12 @@
             this.datepemakaian.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.datepemakaian.ForeColor = System.Drawing.Color.White;
             this.datepemakaian.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.datepemakaian.Location = new System.Drawing.Point(95, 337);
+            this.datepemakaian.Location = new System.Drawing.Point(71, 274);
+            this.datepemakaian.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.datepemakaian.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.datepemakaian.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datepemakaian.Name = "datepemakaian";
-            this.datepemakaian.Size = new System.Drawing.Size(312, 40);
+            this.datepemakaian.Size = new System.Drawing.Size(234, 32);
             this.datepemakaian.TabIndex = 11;
             this.datepemakaian.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
             // 
@@ -184,9 +187,10 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(91, 403);
+            this.label6.Location = new System.Drawing.Point(68, 327);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(151, 23);
+            this.label6.Size = new System.Drawing.Size(121, 19);
             this.label6.TabIndex = 10;
             this.label6.Text = "Jumlah Pemakaian";
             // 
@@ -196,9 +200,10 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(91, 301);
+            this.label5.Location = new System.Drawing.Point(68, 245);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(156, 23);
+            this.label5.Size = new System.Drawing.Size(124, 19);
             this.label5.TabIndex = 9;
             this.label5.Text = "Tanggal Pemakaian";
             // 
@@ -208,9 +213,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(91, 208);
+            this.label4.Location = new System.Drawing.Point(68, 169);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(152, 23);
+            this.label4.Size = new System.Drawing.Size(121, 19);
             this.label4.TabIndex = 8;
             this.label4.Text = "Pilih Nama Barang";
             // 
@@ -230,12 +236,12 @@
             this.txtjumlah.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtjumlah.ForeColor = System.Drawing.Color.White;
             this.txtjumlah.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtjumlah.Location = new System.Drawing.Point(95, 436);
-            this.txtjumlah.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtjumlah.Location = new System.Drawing.Point(71, 354);
+            this.txtjumlah.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtjumlah.Name = "txtjumlah";
             this.txtjumlah.PlaceholderText = "4xxxx";
             this.txtjumlah.SelectedText = "";
-            this.txtjumlah.Size = new System.Drawing.Size(312, 40);
+            this.txtjumlah.Size = new System.Drawing.Size(234, 32);
             this.txtjumlah.TabIndex = 7;
             this.txtjumlah.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -254,9 +260,10 @@
             this.cmbnama.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbnama.ForeColor = System.Drawing.Color.White;
             this.cmbnama.ItemHeight = 30;
-            this.cmbnama.Location = new System.Drawing.Point(95, 243);
+            this.cmbnama.Location = new System.Drawing.Point(71, 197);
+            this.cmbnama.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbnama.Name = "cmbnama";
-            this.cmbnama.Size = new System.Drawing.Size(312, 36);
+            this.cmbnama.Size = new System.Drawing.Size(235, 36);
             this.cmbnama.TabIndex = 6;
             // 
             // guna2Button1
@@ -269,23 +276,23 @@
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(259, 694);
-            this.guna2Button1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.guna2Button1.Location = new System.Drawing.Point(240, 559);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(163, 43);
+            this.guna2Button1.Size = new System.Drawing.Size(122, 35);
             this.guna2Button1.TabIndex = 39;
             this.guna2Button1.Text = "Tambah Material";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.guna2Button2);
             this.panel3.Controls.Add(this.tableLayoutPanel2);
-            this.panel3.Controls.Add(this.guna2Button1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(540, 70);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.panel3.Location = new System.Drawing.Point(405, 57);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(440, 763);
+            this.panel3.Size = new System.Drawing.Size(330, 620);
             this.panel3.TabIndex = 4;
             // 
             // tableLayoutPanel2
@@ -295,15 +302,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel2.Controls.Add(this.guna2Panel2, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 7F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(440, 685);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 6F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(330, 557);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // guna2Panel2
@@ -316,10 +323,10 @@
             this.guna2Panel2.Controls.Add(this.txtcari);
             this.guna2Panel2.Controls.Add(this.dataGridView1);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel2.Location = new System.Drawing.Point(4, 2);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.guna2Panel2.Location = new System.Drawing.Point(3, 2);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(421, 674);
+            this.guna2Panel2.Size = new System.Drawing.Size(316, 547);
             this.guna2Panel2.TabIndex = 2;
             // 
             // btncari
@@ -332,10 +339,10 @@
             this.btncari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btncari.ForeColor = System.Drawing.Color.White;
-            this.btncari.Location = new System.Drawing.Point(326, 19);
-            this.btncari.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btncari.Location = new System.Drawing.Point(244, 15);
+            this.btncari.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btncari.Name = "btncari";
-            this.btncari.Size = new System.Drawing.Size(80, 46);
+            this.btncari.Size = new System.Drawing.Size(60, 37);
             this.btncari.TabIndex = 41;
             this.btncari.Text = "Cari";
             this.btncari.Click += new System.EventHandler(this.btncari_Click);
@@ -350,12 +357,13 @@
             this.datecari.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.datecari.ForeColor = System.Drawing.Color.White;
             this.datecari.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.datecari.Location = new System.Drawing.Point(15, 17);
+            this.datecari.Location = new System.Drawing.Point(11, 14);
+            this.datecari.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.datecari.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.datecari.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datecari.Name = "datecari";
             this.datecari.ShowCheckBox = true;
-            this.datecari.Size = new System.Drawing.Size(206, 48);
+            this.datecari.Size = new System.Drawing.Size(154, 39);
             this.datecari.TabIndex = 43;
             this.datecari.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
             // 
@@ -379,12 +387,12 @@
             this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.icons8_search_50;
             this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
-            this.txtcari.Location = new System.Drawing.Point(227, 17);
-            this.txtcari.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtcari.Location = new System.Drawing.Point(170, 14);
+            this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtcari.Name = "txtcari";
             this.txtcari.PlaceholderText = "Kode Barang";
             this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(93, 48);
+            this.txtcari.Size = new System.Drawing.Size(70, 39);
             this.txtcari.TabIndex = 42;
             // 
             // dataGridView1
@@ -416,8 +424,8 @@
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.Gray;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 73);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(11, 59);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -429,19 +437,20 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(391, 588);
+            this.dataGridView1.Size = new System.Drawing.Size(293, 477);
             this.dataGridView1.TabIndex = 39;
             // 
             // pemakaianMaterial
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.ClientSize = new System.Drawing.Size(980, 833);
+            this.ClientSize = new System.Drawing.Size(735, 677);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "pemakaianMaterial";
             this.Text = "pemakaianMaterial";
             this.Load += new System.EventHandler(this.pemakaianMaterial_Load);

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using Microsoft.Reporting.Map.WebForms.BingMaps;
 
 namespace GOS_FxApps
 {
@@ -23,12 +24,35 @@ namespace GOS_FxApps
         private int wastekg;
         private int ttle1e2mm;
         bool infocari = false;
+        int noprimary;
+        int idmulai;
+
+        public class datarows
+        {
+            public int id { get; set; }
+            public double dsmasuk { get; set; }
+            public double dskeluar { get; set; }
+            public double dsstok { get; set; }
+            public double dsmasukpotonge1 { get; set; }
+            public double dsmasukpotonge2 { get; set; }
+            public double dsmasukbubute1 { get; set; }
+            public double dsmasukbubute2 { get; set; }
+            public double dsrbkeluare1 { get; set; }
+            public double dsrbkeluare2 { get; set; }
+            public double dsstokpotonge1 { get; set; }
+            public double dsstokpotonge2 { get; set; }
+            public double dsstokbubute1 { get; set; }
+            public double dsstokbubute2 { get; set; }
+            public double dssisapotongkg { get; set; }
+            public double dswastekg { get; set; }
+        }
 
         public weldingp()
         {
             InitializeComponent();
         }
 
+        //Kode Kode Tampil Data
         private void tampil()
         {
             try
@@ -72,7 +96,6 @@ namespace GOS_FxApps
                 MessageBox.Show("Terjadi kesalahan: " + ex.Message);
             }
         }
-
         private void getdatastok()
         {
             conn.Open();
@@ -89,27 +112,103 @@ namespace GOS_FxApps
             reader.Close();
             conn.Close();
         }
-
         private void getdata()
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand("SELECT TOP 1 bstok,wpe1,wpe2,wbe1,wbe2,wastekg from Rb_Stok order by id_stok DESC;", conn);
             SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read()) { 
+            if (reader.Read())
+            {
                 bstok = Convert.ToInt32(reader["bstok"]);
                 wpe1 = Convert.ToInt32(reader["wpe1"]);
                 wpe2 = Convert.ToInt32(reader["wpe2"]);
                 wbe1 = Convert.ToInt32(reader["wbe1"]);
                 wbe2 = Convert.ToInt32(reader["wbe2"]);
                 wastekg = Convert.ToInt32(reader["wastekg"]);
-            } else
+            }
+            else
             {
                 MessageBox.Show("data null");
             }
             reader.Close();
             conn.Close();
         }
+        private void getdataedit()
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT TOP 1 bstok,wpe1,wpe2,wbe1,wbe2,wastekg from Rb_Stok WHERE id_stok < @id order by id_stok DESC", conn);
+            cmd.Parameters.AddWithValue("@id", noprimary);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                bstok = Convert.ToInt32(reader["bstok"]);
+                wpe1 = Convert.ToInt32(reader["wpe1"]);
+                wpe2 = Convert.ToInt32(reader["wpe2"]);
+                wbe1 = Convert.ToInt32(reader["wbe1"]);
+                wbe2 = Convert.ToInt32(reader["wbe2"]);
+                wastekg = Convert.ToInt32(reader["wastekg"]);
+            }
+            else
+            {
+                MessageBox.Show("data null");
+            }
+            reader.Close();
+            conn.Close();
+        }
+        private void tampildataedit()
+        {
+            DateTime tanggal = DateTime.Now.Date;
+            string shift = MainForm.Instance.lblshift.Text;
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Rb_Stok WHERE CONVERT(date, tanggal) = @tgl AND shift = @shift", conn);
+                cmd.Parameters.AddWithValue("@tgl", tanggal);
+                cmd.Parameters.AddWithValue("@shift", shift);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    noprimary = Convert.ToInt32(reader["id_stok"]);
+                    txtmasuk.Text = reader["bmasuk"].ToString();
+                    txtkeluar.Text = reader["bkeluar"].ToString();
+                    lblstoksekarang.Text = reader["bstok"].ToString();
+                    txtpbar.Text = reader["bpanjang"].ToString();
+                    txtsbarmm.Text = reader["bsisamm"].ToString();
+                    sawinge1.Text = reader["bpe1"].ToString();
+                    sawinge2.Text = reader["bpe2"].ToString();
+                    lathee1.Text = reader["bbe1"].ToString();
+                    lathee2.Text = reader["bbe2"].ToString();
+                    pkeluare1.Text = reader["rbkeluare1"].ToString();
+                    pkeluare2.Text = reader["rbkeluare2"].ToString();
+                    ttlstoksawinge1.Text = reader["wpe1"].ToString();
+                    ttlstoksawinge2.Text = reader["wpe2"].ToString();
+                    ttlstoklathee1.Text = reader["wbe1"].ToString();
+                    ttlstoklathee2.Text = reader["wbe2"].ToString();
+                    txtsbarkg.Text = reader["bsisakg"].ToString();
+                    lblwastekg.Text = reader["wastekg"].ToString();
+                    lble1mm.Text = reader["e1mm"].ToString();
+                    lble2mm.Text = reader["e2mm"].ToString();
+                    lblttle1e2.Text = reader["ttle1e2"].ToString();
+                    lblwaste.Text = reader["waste"].ToString();
+                    txtketerangan.Text = reader["keterangan"].ToString();
+                }
+                else
+                {
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan Tampil: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
 
+
+        //Kode Kode Kalkulasi
         private int SafeParse(string input)
         {
             int hasil;
@@ -118,7 +217,13 @@ namespace GOS_FxApps
             else
                 return 0;
         }
-
+        private void AngkaOnly_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
         private void hitungrb()
         {
             int masuk = SafeParse(txtmasuk.Text);
@@ -127,7 +232,6 @@ namespace GOS_FxApps
             int totalrb = masuk + bstok - keluar;
             lblstoksekarang.Text = totalrb.ToString();
         }
-
         private void hitungrbs()
         {
             int rbse1 = SafeParse(sawinge1.Text);
@@ -152,7 +256,6 @@ namespace GOS_FxApps
             
             lblttle1e2.Text = ttle1e2mm.ToString();
         }
-
         private void hitungrbl()
         {
             int rble1 = SafeParse(lathee1.Text);
@@ -167,7 +270,6 @@ namespace GOS_FxApps
             ttlstoklathee1.Text = ttllathee1.ToString();
             ttlstoklathee2.Text = ttllathee2.ToString();
         }
-
         private void hitungwaste()
         {
             int sisarbkg = SafeParse(txtsbarkg.Text);
@@ -180,142 +282,118 @@ namespace GOS_FxApps
             lblwastekg.Text = ttlwastekg.ToString();
             lblwaste.Text = ttlwaste.ToString();
         }
-
-        private void weldingp_Load(object sender, EventArgs e)
+        private void update()
         {
-            btnsimpan.Enabled = false;
-            getdatastok();
-            tampil();
-            datecari.Checked = false;
-        }
-
-        private void btnhitung_Click(object sender, EventArgs e)
-        {
-            //if (lblstoksekarang.Text == "-")
-            //{
-            //    MessageBox.Show("isi woi");
-            //}
-            //else
-            //{
-                getdata();
-                hitungrb();
-                hitungrbs();
-                hitungrbl();
-                hitungwaste();
-                btnsimpan.Enabled=true;
-            //}       
-        }
-
-        private void setdefault()
-        {
-            txtmasuk.Clear();
-            txtkeluar.Clear();
-            lblstoksekarang.Text = "-";
-            txtpbar.Clear();
-            txtsbarmm.Clear();
-            sawinge1.Clear();
-            sawinge2.Clear();
-            lathee1.Clear();
-            lathee2.Clear();
-            pkeluare1.Clear();
-            pkeluare2.Clear();
-            ttlstoksawinge1.Text = "-";
-            ttlstoksawinge2.Text = "-";
-            ttlstoklathee1.Text = "-";
-            ttlstoklathee2.Text = "-";
-            txtsbarkg.Clear();
-            lblwastekg.Text = "-";
-            lble1mm.Text = "-";
-            lble2mm.Text = "-";
-            lblttle1e2.Text = "-";
-            lblwaste.Text = "-";
-            txtketerangan.Clear();
-        }
-
-        private void btnsimpan_Click(object sender, EventArgs e)
-        {
-            DateTime tanggalinput = DateTime.Now.Date;
-            conn.Open();
-
-            SqlCommand cmd = new SqlCommand("SELECT tanggal, shift FROM Rb_Stok WHERE CONVERT(date, tanggal) = @tglinput AND shift = @shift", conn);
-            cmd.Parameters.AddWithValue("@tglinput", tanggalinput);
-            cmd.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
-
-            SqlDataReader dr = cmd.ExecuteReader();
-            if (dr.Read())
+            using (SqlConnection conn = Koneksi.GetConnection())
             {
-                MessageBox.Show("Data untuk shift dan tanggal ini sudah pernah dimasukkan.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                setdefault();
-                btnsimpan.Enabled = false;
-                conn.Close();
-            }
-            else
-            {
-                conn.Close(); 
-                try
+                conn.Open();
+                string query = "SELECT * FROM Rb_Stok WHERE id_stok > @id ORDER BY id_stok ASC";
+                SqlCommand cmd1 = new SqlCommand(query, conn);
+                cmd1.Parameters.AddWithValue("@id", idmulai);
+                SqlDataReader reader = cmd1.ExecuteReader();
+
+                List<datarows> rows = new List<datarows>();
+                while (reader.Read())
                 {
-                    DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-
-                    if (result == DialogResult.OK)
+                    rows.Add(new datarows
                     {
-                        conn.Open();
-                        SqlCommand cmd1 = new SqlCommand("INSERT INTO Rb_Stok (tanggal,shift,bmasuk,bkeluar,bstok,bpanjang,bsisamm,bpe1,bpe2,bbe1,bbe2,rbkeluare1,rbkeluare2," +
-                            "wpe1,wpe2,wbe1,wbe2,bsisakg,wastekg,e1mm,e2mm,ttle1e2,waste,keterangan) VALUES(GETDATE(),@shift,@bmasuk,@bkeluar,@bstok,@bpanjang,@bsisamm,@bpe1,@bpe2," +
-                            "@bbe1,@bbe2,@rbkeluare1,@rbkeluare2,@wpe1,@wpe2,@wbe1,@wbe2,@bsisakg,@wastekg,@e1mm,@e2mm,@ttle1e2,@waste,@keterangan)", conn);
-
-                        cmd1.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
-                        cmd1.Parameters.AddWithValue("@bmasuk", txtmasuk.Text);
-                        cmd1.Parameters.AddWithValue("@bkeluar", txtkeluar.Text);
-                        cmd1.Parameters.AddWithValue("@bstok", lblstoksekarang.Text);
-                        cmd1.Parameters.AddWithValue("@bpanjang", txtpbar.Text);
-                        cmd1.Parameters.AddWithValue("@bsisamm", txtsbarmm.Text);
-                        cmd1.Parameters.AddWithValue("@bpe1", sawinge1.Text);
-                        cmd1.Parameters.AddWithValue("@bpe2", sawinge2.Text);
-                        cmd1.Parameters.AddWithValue("@bbe1", lathee1.Text);
-                        cmd1.Parameters.AddWithValue("@bbe2", lathee2.Text);
-                        cmd1.Parameters.AddWithValue("@rbkeluare1", pkeluare1.Text);
-                        cmd1.Parameters.AddWithValue("@rbkeluare2", pkeluare2.Text);
-                        cmd1.Parameters.AddWithValue("@wpe1", ttlstoksawinge1.Text);
-                        cmd1.Parameters.AddWithValue("@wpe2", ttlstoksawinge2.Text);
-                        cmd1.Parameters.AddWithValue("@wbe1", ttlstoklathee1.Text);
-                        cmd1.Parameters.AddWithValue("@wbe2", ttlstoklathee2.Text);
-                        cmd1.Parameters.AddWithValue("@bsisakg", txtsbarkg.Text);
-                        cmd1.Parameters.AddWithValue("@wastekg", lblwastekg.Text);
-                        cmd1.Parameters.AddWithValue("@e1mm", lble1mm.Text);
-                        cmd1.Parameters.AddWithValue("@e2mm", lble2mm.Text);
-                        cmd1.Parameters.AddWithValue("@ttle1e2", lblttle1e2.Text);
-                        cmd1.Parameters.AddWithValue("@waste", lblwaste.Text);
-                        cmd1.Parameters.AddWithValue("@keterangan", txtketerangan.Text);
-
-                        cmd1.ExecuteNonQuery();
-
-                        MessageBox.Show("Data Berhasil Disimpan", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        setdefault();
-                        tampil();
-                        btnsimpan.Enabled = false;
-                    }
+                        id = Convert.ToInt32(reader["id_stok"]),
+                        dsmasuk = Convert.ToInt32(reader["bmasuk"]),
+                        dskeluar = Convert.ToDouble(reader["bkeluar"]),
+                        dsstok = Convert.ToDouble(reader["bstok"]),
+                        dsmasukpotonge1 = Convert.ToDouble(reader["bpe1"]),
+                        dsmasukpotonge2 = Convert.ToDouble(reader["bpe2"]),
+                        dsmasukbubute1 = Convert.ToDouble(reader["bbe1"]),
+                        dsmasukbubute2 = Convert.ToDouble(reader["bbe2"]),
+                        dsrbkeluare1 = Convert.ToDouble(reader["rbkeluare1"]),
+                        dsrbkeluare2 = Convert.ToDouble(reader["rbkeluare2"]),
+                        dsstokpotonge1 = Convert.ToDouble(reader["wpe1"]),
+                        dsstokpotonge2 = Convert.ToDouble(reader["wpe2"]),
+                        dsstokbubute1 = Convert.ToDouble(reader["wbe1"]),
+                        dsstokbubute2 = Convert.ToDouble(reader["wbe2"]),
+                        dssisapotongkg = Convert.ToDouble(reader["bsisakg"]),
+                        dswastekg = Convert.ToDouble(reader["wastekg"]),
+                    });
                 }
-                catch (Exception ex)
+                reader.Close();
+
+                SqlCommand cmddataedit = new SqlCommand("SELECT TOP 1 * FROM Rb_Stok WHERE id_stok = @id", conn);
+                cmddataedit.Parameters.AddWithValue("@id", idmulai);
+                SqlDataReader dr = cmddataedit.ExecuteReader();
+
+                double dstok = 0,
+                       dmasukpotonge1 = 0,
+                       dmasukpotonge2 = 0,
+                       dkeluarbubute1 = 0,
+                       dkeluarbubute2 = 0,
+                       drbkeluare1 = 0,
+                       drbkeluare2 = 0,
+                       dstokpotonge1 = 0,
+                       dstokpotonge2 = 0,
+                       dstokbubute1 = 0,
+                       dstokbubute2 = 0,
+                       dsisapotongkg = 0,
+                       dwastekg = 0;
+
+                if (dr.Read())
                 {
-                    MessageBox.Show("Data Gagal Dimasukkan: " + ex.Message);
+                    dstok = Convert.ToDouble(dr["bstok"]);
+                    dmasukpotonge1 = Convert.ToDouble(dr["bpe1"]);
+                    dmasukpotonge2 = Convert.ToDouble(dr["bpe2"]);
+                    dkeluarbubute1 = Convert.ToDouble(dr["bbe1"]);
+                    dkeluarbubute2 = Convert.ToDouble(dr["bbe2"]);
+                    drbkeluare1 = Convert.ToDouble(dr["rbkeluare1"]);
+                    drbkeluare2 = Convert.ToDouble(dr["rbkeluare2"]);
+                    dstokpotonge1 = Convert.ToDouble(dr["wpe1"]);
+                    dstokpotonge2 = Convert.ToDouble(dr["wpe2"]);
+                    dstokbubute1 = Convert.ToDouble(dr["wbe1"]);
+                    dstokbubute2 = Convert.ToDouble(dr["wbe2"]);
+                    dsisapotongkg = Convert.ToDouble(dr["bsisakg"]);
+                    dwastekg = Convert.ToDouble(dr["wastekg"]);
                 }
-                finally
+                dr.Close();
+
+                foreach (var ds in rows)
                 {
-                    conn.Close();
-                    getdatastok();
+                    double destok = dstok + ds.dsmasuk - ds.dskeluar;
+                    double destokpotonge1 = dstokpotonge1 + ds.dsmasukpotonge1 - ds.dsmasukbubute1;
+                    double destokpotonge2 = dstokpotonge2 + ds.dsmasukpotonge2 - ds.dsmasukbubute2;
+                    double destokbubute1 = dstokbubute1 + ds.dsmasukbubute1 - ds.dsrbkeluare1;
+                    double destokbubute2 = dstokbubute2 + ds.dsmasukbubute2 - ds.dsrbkeluare2;
+                    double dewastekg = dwastekg + ds.dssisapotongkg;
+
+                    SqlCommand updateCmd = new SqlCommand(@"
+                                                            UPDATE Rb_Stok SET 
+                                                                bstok = @bstok, 
+                                                                wpe1 = @wpe1, 
+                                                                wpe2 = @wpe2, 
+                                                                wbe1 = @wbe1, 
+                                                                wbe2 = @wbe2, 
+                                                                wastekg = @wastekg 
+                                                            WHERE id_stok = @id", conn);
+
+                    updateCmd.Parameters.AddWithValue("@bstok", destok);
+                    updateCmd.Parameters.AddWithValue("@wpe1", destokpotonge1);
+                    updateCmd.Parameters.AddWithValue("@wpe2", destokpotonge2);
+                    updateCmd.Parameters.AddWithValue("@wbe1", destokbubute1);
+                    updateCmd.Parameters.AddWithValue("@wbe2", destokbubute2);
+                    updateCmd.Parameters.AddWithValue("@wastekg", dewastekg);
+                    updateCmd.Parameters.AddWithValue("@id", ds.id);
+
+                    updateCmd.ExecuteNonQuery();
+
+                    dstok = destok;
+                    dstokpotonge1 = destokpotonge1;
+                    dstokpotonge2 = destokpotonge2;
+                    dstokbubute1 = destokbubute1;
+                    dstokbubute2 = destokbubute2;
+                    dwastekg = dewastekg;
                 }
             }
-
         }
 
-        private void AngkaOnly_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
 
+        //Kode Kode Fungsi
         private bool cari()
         {
             DateTime? tanggal = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
@@ -369,7 +447,241 @@ namespace GOS_FxApps
                 return dt.Rows.Count > 0;
             }
         }
+        private void simpandata()
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
+                if (result == DialogResult.OK)
+                {
+                    conn.Open();
+                    SqlCommand cmd1 = new SqlCommand("INSERT INTO Rb_Stok (tanggal,shift,bmasuk,bkeluar,bstok,bpanjang,bsisamm,bpe1,bpe2,bbe1,bbe2,rbkeluare1,rbkeluare2," +
+                        "wpe1,wpe2,wbe1,wbe2,bsisakg,wastekg,e1mm,e2mm,ttle1e2,waste,keterangan) VALUES(GETDATE(),@shift,@bmasuk,@bkeluar,@bstok,@bpanjang,@bsisamm,@bpe1,@bpe2," +
+                        "@bbe1,@bbe2,@rbkeluare1,@rbkeluare2,@wpe1,@wpe2,@wbe1,@wbe2,@bsisakg,@wastekg,@e1mm,@e2mm,@ttle1e2,@waste,@keterangan)", conn);
+
+                    cmd1.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
+                    cmd1.Parameters.AddWithValue("@bmasuk", txtmasuk.Text);
+                    cmd1.Parameters.AddWithValue("@bkeluar", txtkeluar.Text);
+                    cmd1.Parameters.AddWithValue("@bstok", lblstoksekarang.Text);
+                    cmd1.Parameters.AddWithValue("@bpanjang", txtpbar.Text);
+                    cmd1.Parameters.AddWithValue("@bsisamm", txtsbarmm.Text);
+                    cmd1.Parameters.AddWithValue("@bpe1", sawinge1.Text);
+                    cmd1.Parameters.AddWithValue("@bpe2", sawinge2.Text);
+                    cmd1.Parameters.AddWithValue("@bbe1", lathee1.Text);
+                    cmd1.Parameters.AddWithValue("@bbe2", lathee2.Text);
+                    cmd1.Parameters.AddWithValue("@rbkeluare1", pkeluare1.Text);
+                    cmd1.Parameters.AddWithValue("@rbkeluare2", pkeluare2.Text);
+                    cmd1.Parameters.AddWithValue("@wpe1", ttlstoksawinge1.Text);
+                    cmd1.Parameters.AddWithValue("@wpe2", ttlstoksawinge2.Text);
+                    cmd1.Parameters.AddWithValue("@wbe1", ttlstoklathee1.Text);
+                    cmd1.Parameters.AddWithValue("@wbe2", ttlstoklathee2.Text);
+                    cmd1.Parameters.AddWithValue("@bsisakg", txtsbarkg.Text);
+                    cmd1.Parameters.AddWithValue("@wastekg", lblwastekg.Text);
+                    cmd1.Parameters.AddWithValue("@e1mm", lble1mm.Text);
+                    cmd1.Parameters.AddWithValue("@e2mm", lble2mm.Text);
+                    cmd1.Parameters.AddWithValue("@ttle1e2", lblttle1e2.Text);
+                    cmd1.Parameters.AddWithValue("@waste", lblwaste.Text);
+                    cmd1.Parameters.AddWithValue("@keterangan", txtketerangan.Text);
+
+                    cmd1.ExecuteNonQuery();
+
+                    MessageBox.Show("Data Berhasil Disimpan", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    setdefault();
+                    tampil();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Data Gagal Dimasukkan: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+                getdatastok();
+            }
+        }
+        private void editdata()
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.OK)
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("UPDATE Rb_Stok SET bmasuk = @bmasuk, bkeluar = @bkeluar, bstok = @bstok, bpanjang = @bpanjang, bsisamm = @bsisamm, bpe1 = @bpe1, bpe2 = @bpe2, bbe1 = @bbe1," +
+                        "bbe2 = @bbe2, rbkeluare1 = @rbkeluare1, rbkeluare2 = @rbkeluare2, wpe1 = @wpe1, wpe2 = @wpe2, wbe1 = @wbe1, wbe2 = @wbe2, bsisakg = @bsisakg, wastekg = @wastekg, e1mm = @e1mm, e2mm = @e2mm," +
+                        "ttle1e2 = @ttle1e2, waste = @waste, keterangan = @keterangan WHERE id_stok = @id", conn);
+
+                    cmd.Parameters.AddWithValue("@bmasuk", txtmasuk.Text);
+                    cmd.Parameters.AddWithValue("@bkeluar", txtkeluar.Text);
+                    cmd.Parameters.AddWithValue("@bstok", lblstoksekarang.Text);
+                    cmd.Parameters.AddWithValue("@bpanjang", txtpbar.Text);
+                    cmd.Parameters.AddWithValue("@bsisamm", txtsbarmm.Text);
+                    cmd.Parameters.AddWithValue("@bpe1", sawinge1.Text);
+                    cmd.Parameters.AddWithValue("@bpe2", sawinge2.Text);
+                    cmd.Parameters.AddWithValue("@bbe1", lathee1.Text);
+                    cmd.Parameters.AddWithValue("@bbe2", lathee2.Text);
+                    cmd.Parameters.AddWithValue("@rbkeluare1", pkeluare1.Text);
+                    cmd.Parameters.AddWithValue("@rbkeluare2", pkeluare2.Text);
+                    cmd.Parameters.AddWithValue("@wpe1", ttlstoksawinge1.Text);
+                    cmd.Parameters.AddWithValue("@wpe2", ttlstoksawinge2.Text);
+                    cmd.Parameters.AddWithValue("@wbe1", ttlstoklathee1.Text);
+                    cmd.Parameters.AddWithValue("@wbe2", ttlstoklathee2.Text);
+                    cmd.Parameters.AddWithValue("@bsisakg", txtsbarkg.Text);
+                    cmd.Parameters.AddWithValue("@wastekg", lblwastekg.Text);
+                    cmd.Parameters.AddWithValue("@e1mm", lble1mm.Text);
+                    cmd.Parameters.AddWithValue("@e2mm", lble2mm.Text);
+                    cmd.Parameters.AddWithValue("@ttle1e2", lblttle1e2.Text);
+                    cmd.Parameters.AddWithValue("@waste", lblwaste.Text);
+                    cmd.Parameters.AddWithValue("@keterangan", txtketerangan.Text);
+                    cmd.Parameters.AddWithValue("@id", noprimary);
+
+                    cmd.ExecuteNonQuery();
+
+                    update();
+
+                    MessageBox.Show("Data Berhasil Diupdate", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    setdefault();
+                    tampil();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi Kesalahan Update Data " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+                getdatastok();
+            }
+
+        }
+        private void setdefault()
+        {
+            txtmasuk.Clear();
+            txtkeluar.Clear();
+            lblstoksekarang.Text = "-";
+            txtpbar.Clear();
+            txtsbarmm.Clear();
+            sawinge1.Clear();
+            sawinge2.Clear();
+            lathee1.Clear();
+            lathee2.Clear();
+            pkeluare1.Clear();
+            pkeluare2.Clear();
+            ttlstoksawinge1.Text = "-";
+            ttlstoksawinge2.Text = "-";
+            ttlstoklathee1.Text = "-";
+            ttlstoklathee2.Text = "-";
+            txtsbarkg.Clear();
+            lblwastekg.Text = "-";
+            lble1mm.Text = "-";
+            lble2mm.Text = "-";
+            lblttle1e2.Text = "-";
+            lblwaste.Text = "-";
+            txtketerangan.Clear();
+            bstok = 0;
+            wpe1 = 0;
+            wpe2 = 0;
+            wbe1 = 0;
+            wbe2 = 0;
+            wastekg = 0;
+            ttle1e2mm = 0;
+            noprimary = 0;
+        }
+        
+
+        //Kode Load Form
+        private void weldingp_Load(object sender, EventArgs e)
+        {
+            btnsimpan.Enabled = false;
+            getdatastok();
+            tampil();
+            datecari.Checked = false;
+        }
+
+        
+        //Kode Kode Button
+        private void btnhitung_Click(object sender, EventArgs e)
+        {
+            if (btnhitung.Text == "Hitung") {
+                getdata();
+                hitungrb();
+                hitungrbs();
+                hitungrbl();
+                hitungwaste();
+                
+                btnsimpan.Enabled = true;
+                btnbatal.Enabled = true;
+            }
+            else
+            {
+                getdataedit();
+                hitungrb();
+                hitungrbs();
+                hitungrbl();
+                hitungwaste();
+                btnsimpan.Enabled = true;
+                btnbatal.Enabled = true;
+            }   
+        }
+        private void btnsimpan_Click(object sender, EventArgs e)
+        {
+            if (btnsimpan.Text == "Simpan Data")
+            {
+                DateTime tanggalinput = DateTime.Now.Date;
+                using (SqlConnection conn = Koneksi.GetConnection())
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT tanggal, shift, id_stok FROM Rb_Stok WHERE CONVERT(date, tanggal) = @tglinput AND shift = @shift", conn);
+                    cmd.Parameters.AddWithValue("@tglinput", tanggalinput);
+                    cmd.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        DialogResult result = MessageBox.Show("Data untuk shift dan tanggal ini sudah pernah dimasukkan, Apakah anda ingin edit datanya?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        if (result == DialogResult.Yes)
+                        {
+                            setdefault();
+                            tampildataedit();
+                            btnsimpan.Text = "Edit Data";
+                            btnsimpan.Enabled = false;
+                            btnhitung.Text = "Hitung Ulang";
+                            btnbatal.Enabled = true;
+                            idmulai = Convert.ToInt32(dr["id_stok"]);
+                        }
+                        else
+                        {
+                        }
+                    }
+                    else
+                    {
+                        simpandata();
+                        btnsimpan.Enabled =false;
+                    }
+                }
+            }
+            else if (btnsimpan.Text == "Edit Data")
+            {
+                editdata();
+                setdefault();
+                btnsimpan.Text = "Simpan Data";
+                btnsimpan.Enabled = false;
+                btnhitung.Text = "Hitung";
+                btnbatal.Enabled = false;
+            }
+        }
+        private void btnbatal_Click(object sender, EventArgs e)
+        {
+            setdefault();
+            btnbatal.Enabled = false;
+            btnsimpan.Enabled = false;
+            btnhitung.Text = "Hitung";
+            btnsimpan.Text = "Simpan Data";
+        }
         private void btncari_Click(object sender, EventArgs e)
         {
             if (!infocari)

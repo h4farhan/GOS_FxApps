@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -114,7 +114,9 @@
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.label14 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnbatal = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Separator6 = new Guna.UI2.WinForms.Guna2Separator();
+            this.label31 = new System.Windows.Forms.Label();
             this.btnhitung = new Guna.UI2.WinForms.Guna2Button();
             this.btnsimpan = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
@@ -126,7 +128,6 @@
             this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label31 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -162,9 +163,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(991, 57);
+            this.panel1.Size = new System.Drawing.Size(1008, 57);
             this.panel1.TabIndex = 1;
             // 
             // label2
@@ -200,12 +201,12 @@
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel1, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 57);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 620F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(991, 620);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1008, 620);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // guna2Panel1
@@ -216,10 +217,10 @@
             this.guna2Panel1.Controls.Add(this.tableLayoutPanel2);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.Location = new System.Drawing.Point(17, 2);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
-            this.guna2Panel1.Size = new System.Drawing.Size(957, 616);
+            this.guna2Panel1.Padding = new System.Windows.Forms.Padding(8);
+            this.guna2Panel1.Size = new System.Drawing.Size(974, 616);
             this.guna2Panel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -231,12 +232,12 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(8, 8);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 599F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(941, 600);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 600F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(958, 600);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel10
@@ -247,14 +248,14 @@
             this.tableLayoutPanel10.Controls.Add(this.guna2Panel5, 0, 2);
             this.tableLayoutPanel10.Controls.Add(this.guna2Panel4, 0, 1);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(472, 2);
-            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(481, 2);
+            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 3;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.90272F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.54864F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.54864F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(467, 596);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(475, 596);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
             // tableLayoutPanel11
@@ -266,12 +267,12 @@
             this.tableLayoutPanel11.Controls.Add(this.guna2Panel13, 0, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel11.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 154F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(463, 156);
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 156F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(471, 156);
             this.tableLayoutPanel11.TabIndex = 0;
             // 
             // guna2Panel14
@@ -282,11 +283,11 @@
             this.guna2Panel14.Controls.Add(this.tableLayoutPanel13);
             this.guna2Panel14.Controls.Add(this.label24);
             this.guna2Panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel14.Location = new System.Drawing.Point(233, 2);
-            this.guna2Panel14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel14.Location = new System.Drawing.Point(237, 2);
+            this.guna2Panel14.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel14.Name = "guna2Panel14";
             this.guna2Panel14.Padding = new System.Windows.Forms.Padding(10, 4, 4, 4);
-            this.guna2Panel14.Size = new System.Drawing.Size(228, 152);
+            this.guna2Panel14.Size = new System.Drawing.Size(232, 152);
             this.guna2Panel14.TabIndex = 1;
             // 
             // tableLayoutPanel13
@@ -298,7 +299,7 @@
             this.tableLayoutPanel13.Controls.Add(this.ttlstoklathee2, 0, 3);
             this.tableLayoutPanel13.Controls.Add(this.label38, 0, 2);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(134, 4);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(138, 4);
             this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 4;
@@ -391,10 +392,10 @@
             this.guna2Panel13.Controls.Add(this.label10);
             this.guna2Panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel13.Location = new System.Drawing.Point(2, 2);
-            this.guna2Panel13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel13.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel13.Name = "guna2Panel13";
             this.guna2Panel13.Padding = new System.Windows.Forms.Padding(10, 4, 4, 4);
-            this.guna2Panel13.Size = new System.Drawing.Size(227, 152);
+            this.guna2Panel13.Size = new System.Drawing.Size(231, 152);
             this.guna2Panel13.TabIndex = 0;
             // 
             // tableLayoutPanel12
@@ -406,7 +407,7 @@
             this.tableLayoutPanel12.Controls.Add(this.ttlstoksawinge2, 0, 3);
             this.tableLayoutPanel12.Controls.Add(this.label34, 0, 2);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(133, 4);
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(137, 4);
             this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 4;
@@ -501,10 +502,10 @@
             this.guna2Panel5.Controls.Add(this.label23);
             this.guna2Panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel5.Location = new System.Drawing.Point(2, 379);
-            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
-            this.guna2Panel5.Size = new System.Drawing.Size(463, 215);
+            this.guna2Panel5.Size = new System.Drawing.Size(471, 215);
             this.guna2Panel5.TabIndex = 3;
             // 
             // tableLayoutPanel6
@@ -516,7 +517,7 @@
             this.tableLayoutPanel6.Controls.Add(this.lble2mm, 0, 3);
             this.tableLayoutPanel6.Controls.Add(this.label28, 0, 2);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(273, 4);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(281, 4);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 4;
@@ -593,7 +594,7 @@
             this.tableLayoutPanel7.Controls.Add(this.lblttle1e2, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.label30, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(367, 4);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(375, 4);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 2;
@@ -657,7 +658,7 @@
             this.txtketerangan.PlaceholderText = "4xxxx";
             this.txtketerangan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtketerangan.SelectedText = "";
-            this.txtketerangan.Size = new System.Drawing.Size(241, 140);
+            this.txtketerangan.Size = new System.Drawing.Size(249, 140);
             this.txtketerangan.TabIndex = 20;
             // 
             // label23
@@ -687,10 +688,10 @@
             this.guna2Panel4.Controls.Add(this.label9);
             this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel4.Location = new System.Drawing.Point(2, 162);
-            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
-            this.guna2Panel4.Size = new System.Drawing.Size(463, 213);
+            this.guna2Panel4.Size = new System.Drawing.Size(471, 213);
             this.guna2Panel4.TabIndex = 2;
             // 
             // guna2Separator5
@@ -700,9 +701,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Separator5.FillThickness = 2;
             this.guna2Separator5.Location = new System.Drawing.Point(18, 42);
-            this.guna2Separator5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Separator5.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Separator5.Name = "guna2Separator5";
-            this.guna2Separator5.Size = new System.Drawing.Size(269, 12);
+            this.guna2Separator5.Size = new System.Drawing.Size(277, 12);
             this.guna2Separator5.TabIndex = 43;
             // 
             // tableLayoutPanel3
@@ -714,7 +715,7 @@
             this.tableLayoutPanel3.Controls.Add(this.lblwaste, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.label11, 0, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(305, 4);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(313, 4);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
@@ -830,7 +831,7 @@
             this.txtsbarkg.Name = "txtsbarkg";
             this.txtsbarkg.PlaceholderText = "4xxxx";
             this.txtsbarkg.SelectedText = "";
-            this.txtsbarkg.Size = new System.Drawing.Size(144, 48);
+            this.txtsbarkg.Size = new System.Drawing.Size(152, 48);
             this.txtsbarkg.TabIndex = 13;
             this.txtsbarkg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -857,7 +858,7 @@
             this.txtsbarmm.Name = "txtsbarmm";
             this.txtsbarmm.PlaceholderText = "4xxxx";
             this.txtsbarmm.SelectedText = "";
-            this.txtsbarmm.Size = new System.Drawing.Size(144, 48);
+            this.txtsbarmm.Size = new System.Drawing.Size(152, 48);
             this.txtsbarmm.TabIndex = 12;
             this.txtsbarmm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -882,12 +883,12 @@
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(466, 596);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(475, 596);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // guna2Panel2
@@ -906,10 +907,10 @@
             this.guna2Panel2.Controls.Add(this.label4);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel2.Location = new System.Drawing.Point(2, 2);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
-            this.guna2Panel2.Size = new System.Drawing.Size(462, 294);
+            this.guna2Panel2.Size = new System.Drawing.Size(471, 294);
             this.guna2Panel2.TabIndex = 0;
             // 
             // tableLayoutPanel9
@@ -921,7 +922,7 @@
             this.tableLayoutPanel9.Controls.Add(this.label13, 0, 0);
             this.tableLayoutPanel9.Controls.Add(this.label26, 0, 2);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(307, 4);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(316, 4);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 4;
@@ -997,9 +998,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Separator4.FillThickness = 2;
             this.guna2Separator4.Location = new System.Drawing.Point(17, 38);
-            this.guna2Separator4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Separator4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Separator4.Name = "guna2Separator4";
-            this.guna2Separator4.Size = new System.Drawing.Size(277, 16);
+            this.guna2Separator4.Size = new System.Drawing.Size(286, 16);
             this.guna2Separator4.TabIndex = 42;
             // 
             // label3
@@ -1061,7 +1062,7 @@
             this.txtpbar.Name = "txtpbar";
             this.txtpbar.PlaceholderText = "4xxxx";
             this.txtpbar.SelectedText = "";
-            this.txtpbar.Size = new System.Drawing.Size(152, 50);
+            this.txtpbar.Size = new System.Drawing.Size(161, 50);
             this.txtpbar.TabIndex = 8;
             this.txtpbar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1088,7 +1089,7 @@
             this.txtkeluar.Name = "txtkeluar";
             this.txtkeluar.PlaceholderText = "4xxxx";
             this.txtkeluar.SelectedText = "";
-            this.txtkeluar.Size = new System.Drawing.Size(152, 50);
+            this.txtkeluar.Size = new System.Drawing.Size(161, 50);
             this.txtkeluar.TabIndex = 7;
             this.txtkeluar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1115,7 +1116,7 @@
             this.txtmasuk.Name = "txtmasuk";
             this.txtmasuk.PlaceholderText = "4xxxx";
             this.txtmasuk.SelectedText = "";
-            this.txtmasuk.Size = new System.Drawing.Size(152, 50);
+            this.txtmasuk.Size = new System.Drawing.Size(161, 50);
             this.txtmasuk.TabIndex = 6;
             this.txtmasuk.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1142,13 +1143,13 @@
             this.tableLayoutPanel5.Controls.Add(this.guna2Panel3, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(2, 300);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 292F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 292F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(462, 294);
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 294F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 294F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(471, 294);
             this.tableLayoutPanel5.TabIndex = 4;
             // 
             // guna2Panel7
@@ -1163,10 +1164,10 @@
             this.guna2Panel7.Controls.Add(this.guna2Separator3);
             this.guna2Panel7.Controls.Add(this.label16);
             this.guna2Panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel7.Location = new System.Drawing.Point(310, 2);
-            this.guna2Panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel7.Location = new System.Drawing.Point(316, 2);
+            this.guna2Panel7.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel7.Name = "guna2Panel7";
-            this.guna2Panel7.Size = new System.Drawing.Size(150, 290);
+            this.guna2Panel7.Size = new System.Drawing.Size(153, 290);
             this.guna2Panel7.TabIndex = 2;
             // 
             // label21
@@ -1204,7 +1205,7 @@
             this.pkeluare2.Name = "pkeluare2";
             this.pkeluare2.PlaceholderText = "4xxxx";
             this.pkeluare2.SelectedText = "";
-            this.pkeluare2.Size = new System.Drawing.Size(119, 47);
+            this.pkeluare2.Size = new System.Drawing.Size(122, 47);
             this.pkeluare2.TabIndex = 19;
             this.pkeluare2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1243,7 +1244,7 @@
             this.pkeluare1.Name = "pkeluare1";
             this.pkeluare1.PlaceholderText = "4xxxx";
             this.pkeluare1.SelectedText = "";
-            this.pkeluare1.Size = new System.Drawing.Size(119, 47);
+            this.pkeluare1.Size = new System.Drawing.Size(122, 47);
             this.pkeluare1.TabIndex = 17;
             this.pkeluare1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1254,9 +1255,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Separator3.FillThickness = 2;
             this.guna2Separator3.Location = new System.Drawing.Point(16, 58);
-            this.guna2Separator3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Separator3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Separator3.Name = "guna2Separator3";
-            this.guna2Separator3.Size = new System.Drawing.Size(119, 19);
+            this.guna2Separator3.Size = new System.Drawing.Size(122, 19);
             this.guna2Separator3.TabIndex = 14;
             // 
             // label16
@@ -1284,10 +1285,10 @@
             this.guna2Panel6.Controls.Add(this.lathee1);
             this.guna2Panel6.Controls.Add(this.label15);
             this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel6.Location = new System.Drawing.Point(156, 2);
-            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel6.Location = new System.Drawing.Point(159, 2);
+            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel6.Name = "guna2Panel6";
-            this.guna2Panel6.Size = new System.Drawing.Size(150, 290);
+            this.guna2Panel6.Size = new System.Drawing.Size(153, 290);
             this.guna2Panel6.TabIndex = 1;
             // 
             // guna2Separator2
@@ -1297,9 +1298,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Separator2.FillThickness = 2;
             this.guna2Separator2.Location = new System.Drawing.Point(16, 58);
-            this.guna2Separator2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Separator2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Separator2.Name = "guna2Separator2";
-            this.guna2Separator2.Size = new System.Drawing.Size(120, 19);
+            this.guna2Separator2.Size = new System.Drawing.Size(123, 19);
             this.guna2Separator2.TabIndex = 13;
             // 
             // label19
@@ -1337,7 +1338,7 @@
             this.lathee2.Name = "lathee2";
             this.lathee2.PlaceholderText = "4xxxx";
             this.lathee2.SelectedText = "";
-            this.lathee2.Size = new System.Drawing.Size(120, 47);
+            this.lathee2.Size = new System.Drawing.Size(123, 47);
             this.lathee2.TabIndex = 15;
             this.lathee2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1376,7 +1377,7 @@
             this.lathee1.Name = "lathee1";
             this.lathee1.PlaceholderText = "4xxxx";
             this.lathee1.SelectedText = "";
-            this.lathee1.Size = new System.Drawing.Size(120, 47);
+            this.lathee1.Size = new System.Drawing.Size(123, 47);
             this.lathee1.TabIndex = 13;
             this.lathee1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1406,9 +1407,9 @@
             this.guna2Panel3.Controls.Add(this.label14);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel3.Location = new System.Drawing.Point(2, 2);
-            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(150, 290);
+            this.guna2Panel3.Size = new System.Drawing.Size(153, 290);
             this.guna2Panel3.TabIndex = 0;
             // 
             // label18
@@ -1446,7 +1447,7 @@
             this.sawinge2.Name = "sawinge2";
             this.sawinge2.PlaceholderText = "4xxxx";
             this.sawinge2.SelectedText = "";
-            this.sawinge2.Size = new System.Drawing.Size(120, 47);
+            this.sawinge2.Size = new System.Drawing.Size(123, 47);
             this.sawinge2.TabIndex = 11;
             this.sawinge2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1485,7 +1486,7 @@
             this.sawinge1.Name = "sawinge1";
             this.sawinge1.PlaceholderText = "4xxxx";
             this.sawinge1.SelectedText = "";
-            this.sawinge1.Size = new System.Drawing.Size(120, 47);
+            this.sawinge1.Size = new System.Drawing.Size(123, 47);
             this.sawinge1.TabIndex = 7;
             this.sawinge1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1496,9 +1497,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Separator1.FillThickness = 2;
             this.guna2Separator1.Location = new System.Drawing.Point(15, 58);
-            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(120, 19);
+            this.guna2Separator1.Size = new System.Drawing.Size(123, 19);
             this.guna2Separator1.TabIndex = 4;
             // 
             // label14
@@ -1516,16 +1517,37 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnbatal);
             this.panel2.Controls.Add(this.guna2Separator6);
             this.panel2.Controls.Add(this.label31);
             this.panel2.Controls.Add(this.btnhitung);
             this.panel2.Controls.Add(this.btnsimpan);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 677);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(991, 84);
+            this.panel2.Size = new System.Drawing.Size(1008, 84);
             this.panel2.TabIndex = 3;
+            // 
+            // btnbatal
+            // 
+            this.btnbatal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnbatal.BorderRadius = 8;
+            this.btnbatal.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnbatal.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnbatal.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnbatal.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnbatal.Enabled = false;
+            this.btnbatal.FillColor = System.Drawing.Color.DarkRed;
+            this.btnbatal.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnbatal.ForeColor = System.Drawing.Color.White;
+            this.btnbatal.Location = new System.Drawing.Point(577, 15);
+            this.btnbatal.Margin = new System.Windows.Forms.Padding(2);
+            this.btnbatal.Name = "btnbatal";
+            this.btnbatal.Size = new System.Drawing.Size(122, 35);
+            this.btnbatal.TabIndex = 42;
+            this.btnbatal.Text = "Batal";
+            this.btnbatal.Click += new System.EventHandler(this.btnbatal_Click);
             // 
             // guna2Separator6
             // 
@@ -1534,10 +1556,23 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Separator6.FillThickness = 2;
             this.guna2Separator6.Location = new System.Drawing.Point(17, 63);
-            this.guna2Separator6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Separator6.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Separator6.Name = "guna2Separator6";
-            this.guna2Separator6.Size = new System.Drawing.Size(957, 8);
+            this.guna2Separator6.Size = new System.Drawing.Size(974, 8);
             this.guna2Separator6.TabIndex = 39;
+            // 
+            // label31
+            // 
+            this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label31.ForeColor = System.Drawing.Color.White;
+            this.label31.Location = new System.Drawing.Point(846, 24);
+            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(19, 19);
+            this.label31.TabIndex = 38;
+            this.label31.Text = ">";
             // 
             // btnhitung
             // 
@@ -1549,8 +1584,8 @@
             this.btnhitung.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnhitung.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnhitung.ForeColor = System.Drawing.Color.White;
-            this.btnhitung.Location = new System.Drawing.Point(698, 15);
-            this.btnhitung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnhitung.Location = new System.Drawing.Point(715, 15);
+            this.btnhitung.Margin = new System.Windows.Forms.Padding(2);
             this.btnhitung.Name = "btnhitung";
             this.btnhitung.Size = new System.Drawing.Size(122, 35);
             this.btnhitung.TabIndex = 37;
@@ -1567,8 +1602,8 @@
             this.btnsimpan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnsimpan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnsimpan.ForeColor = System.Drawing.Color.White;
-            this.btnsimpan.Location = new System.Drawing.Point(852, 15);
-            this.btnsimpan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnsimpan.Location = new System.Drawing.Point(869, 15);
+            this.btnsimpan.Margin = new System.Windows.Forms.Padding(2);
             this.btnsimpan.Name = "btnsimpan";
             this.btnsimpan.Size = new System.Drawing.Size(122, 35);
             this.btnsimpan.TabIndex = 36;
@@ -1584,12 +1619,12 @@
             this.tableLayoutPanel8.Controls.Add(this.guna2Panel9, 1, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 761);
-            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 582F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(991, 582);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1008, 582);
             this.tableLayoutPanel8.TabIndex = 5;
             // 
             // guna2Panel9
@@ -1602,10 +1637,10 @@
             this.guna2Panel9.Controls.Add(this.label32);
             this.guna2Panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel9.Location = new System.Drawing.Point(17, 2);
-            this.guna2Panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel9.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel9.Name = "guna2Panel9";
-            this.guna2Panel9.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
-            this.guna2Panel9.Size = new System.Drawing.Size(957, 578);
+            this.guna2Panel9.Padding = new System.Windows.Forms.Padding(8);
+            this.guna2Panel9.Size = new System.Drawing.Size(974, 578);
             this.guna2Panel9.TabIndex = 0;
             // 
             // dataGridView1
@@ -1615,39 +1650,39 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Black;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.Gray;
             this.dataGridView1.Location = new System.Drawing.Point(8, 105);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(941, 465);
+            this.dataGridView1.Size = new System.Drawing.Size(958, 465);
             this.dataGridView1.TabIndex = 2;
             // 
             // panel3
@@ -1657,9 +1692,9 @@
             this.panel3.Controls.Add(this.txtcari);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(8, 59);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(941, 46);
+            this.panel3.Size = new System.Drawing.Size(958, 46);
             this.panel3.TabIndex = 40;
             // 
             // btncari
@@ -1672,8 +1707,8 @@
             this.btncari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btncari.ForeColor = System.Drawing.Color.White;
-            this.btncari.Location = new System.Drawing.Point(878, 4);
-            this.btncari.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btncari.Location = new System.Drawing.Point(895, 4);
+            this.btncari.Margin = new System.Windows.Forms.Padding(2);
             this.btncari.Name = "btncari";
             this.btncari.Size = new System.Drawing.Size(60, 37);
             this.btncari.TabIndex = 47;
@@ -1691,7 +1726,7 @@
             this.datecari.ForeColor = System.Drawing.Color.White;
             this.datecari.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.datecari.Location = new System.Drawing.Point(2, 4);
-            this.datecari.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.datecari.Margin = new System.Windows.Forms.Padding(2);
             this.datecari.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.datecari.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datecari.Name = "datecari";
@@ -1724,7 +1759,7 @@
             this.txtcari.Name = "txtcari";
             this.txtcari.PlaceholderText = "Shift";
             this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(643, 37);
+            this.txtcari.Size = new System.Drawing.Size(660, 37);
             this.txtcari.TabIndex = 48;
             this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
             // 
@@ -1737,7 +1772,7 @@
             this.label32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label32.Name = "label32";
             this.label32.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
-            this.label32.Size = new System.Drawing.Size(941, 51);
+            this.label32.Size = new System.Drawing.Size(958, 51);
             this.label32.TabIndex = 0;
             this.label32.Text = "STOCK ROUND BAR dan WELDING PIECE 180 MM  ";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1745,23 +1780,10 @@
             // guna2Panel8
             // 
             this.guna2Panel8.Location = new System.Drawing.Point(355, 1347);
-            this.guna2Panel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel8.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel8.Name = "guna2Panel8";
             this.guna2Panel8.Size = new System.Drawing.Size(83, 15);
             this.guna2Panel8.TabIndex = 4;
-            // 
-            // label31
-            // 
-            this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label31.ForeColor = System.Drawing.Color.White;
-            this.label31.Location = new System.Drawing.Point(829, 24);
-            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(19, 19);
-            this.label31.TabIndex = 38;
-            this.label31.Text = ">";
             // 
             // weldingp
             // 
@@ -1769,14 +1791,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.ClientSize = new System.Drawing.Size(1008, 894);
+            this.ClientSize = new System.Drawing.Size(1025, 894);
             this.Controls.Add(this.tableLayoutPanel8);
             this.Controls.Add(this.guna2Panel8);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "weldingp";
             this.Text = "weldingp";
             this.Load += new System.EventHandler(this.weldingp_Load);
@@ -1925,5 +1947,6 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker datecari;
         private Guna.UI2.WinForms.Guna2TextBox txtcari;
         private System.Windows.Forms.Label label31;
+        private Guna.UI2.WinForms.Guna2Button btnbatal;
     }
 }

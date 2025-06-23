@@ -96,7 +96,7 @@
             this.panel1.Controls.Add(this.ControlBoxButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(535, 28);
             this.panel1.TabIndex = 20;
@@ -107,7 +107,7 @@
             this.ControlBoxButton.FillColor = System.Drawing.Color.Transparent;
             this.ControlBoxButton.IconColor = System.Drawing.Color.Red;
             this.ControlBoxButton.Location = new System.Drawing.Point(510, 0);
-            this.ControlBoxButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ControlBoxButton.Margin = new System.Windows.Forms.Padding(2);
             this.ControlBoxButton.Name = "ControlBoxButton";
             this.ControlBoxButton.Size = new System.Drawing.Size(25, 28);
             this.ControlBoxButton.TabIndex = 1;
@@ -145,7 +145,7 @@
             this.btnlogin.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.btnlogin.HoverState.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnlogin.Location = new System.Drawing.Point(200, 275);
-            this.btnlogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnlogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnlogin.Name = "btnlogin";
             this.btnlogin.Size = new System.Drawing.Size(134, 35);
             this.btnlogin.TabIndex = 25;
@@ -158,7 +158,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Separator1.FillThickness = 2;
             this.guna2Separator1.Location = new System.Drawing.Point(9, 26);
-            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Separator1.Name = "guna2Separator1";
             this.guna2Separator1.Size = new System.Drawing.Size(517, 8);
             this.guna2Separator1.TabIndex = 26;
@@ -203,7 +203,7 @@
             this.Controls.Add(this.txtpw);
             this.Controls.Add(this.txtid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "loginform";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "loginform";
