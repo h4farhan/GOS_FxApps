@@ -31,9 +31,9 @@ namespace GOS_FxApps
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -100,6 +100,7 @@ namespace GOS_FxApps
             this.datecari = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btncancel = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -123,7 +124,7 @@ namespace GOS_FxApps
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(735, 46);
             this.panel1.TabIndex = 1;
@@ -157,7 +158,7 @@ namespace GOS_FxApps
             this.panel2.Controls.Add(this.tableLayoutPanel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 46);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(405, 668);
             this.panel2.TabIndex = 2;
@@ -172,7 +173,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel2, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 114F));
@@ -193,7 +194,7 @@ namespace GOS_FxApps
             this.guna2Panel1.Controls.Add(this.txtnomorrod);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.Location = new System.Drawing.Point(17, 2);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(378, 110);
             this.guna2Panel1.TabIndex = 1;
@@ -301,7 +302,7 @@ namespace GOS_FxApps
             this.guna2Panel2.Controls.Add(this.label13);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel2.Location = new System.Drawing.Point(17, 122);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(378, 538);
             this.guna2Panel2.TabIndex = 2;
@@ -320,7 +321,7 @@ namespace GOS_FxApps
             this.guna2Panel5.Controls.Add(this.txte2cst);
             this.guna2Panel5.Controls.Add(this.label20);
             this.guna2Panel5.Location = new System.Drawing.Point(190, 39);
-            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.Size = new System.Drawing.Size(174, 202);
             this.guna2Panel5.TabIndex = 37;
@@ -347,7 +348,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel4.Controls.Add(this.lbltotale2, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.label27, 0, 0);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(99, 9);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.66667F));
@@ -533,7 +534,7 @@ namespace GOS_FxApps
             this.guna2Panel4.Controls.Add(this.txte1ers);
             this.guna2Panel4.Controls.Add(this.label7);
             this.guna2Panel4.Location = new System.Drawing.Point(12, 39);
-            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Size = new System.Drawing.Size(174, 202);
             this.guna2Panel4.TabIndex = 3;
@@ -560,7 +561,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel2.Controls.Add(this.lbltotale1, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label24, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(99, 9);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.44444F));
@@ -682,7 +683,7 @@ namespace GOS_FxApps
             this.guna2Panel3.Controls.Add(this.btnhitung);
             this.guna2Panel3.Controls.Add(this.tableLayoutPanel3);
             this.guna2Panel3.Location = new System.Drawing.Point(12, 425);
-            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(352, 103);
             this.guna2Panel3.TabIndex = 3;
@@ -698,7 +699,7 @@ namespace GOS_FxApps
             this.btncheck.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btncheck.ForeColor = System.Drawing.Color.White;
             this.btncheck.Location = new System.Drawing.Point(230, 18);
-            this.btncheck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btncheck.Margin = new System.Windows.Forms.Padding(2);
             this.btncheck.Name = "btncheck";
             this.btncheck.Size = new System.Drawing.Size(112, 32);
             this.btncheck.TabIndex = 38;
@@ -717,7 +718,7 @@ namespace GOS_FxApps
             this.btnhitung.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnhitung.ForeColor = System.Drawing.Color.White;
             this.btnhitung.Location = new System.Drawing.Point(230, 56);
-            this.btnhitung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnhitung.Margin = new System.Windows.Forms.Padding(2);
             this.btnhitung.Name = "btnhitung";
             this.btnhitung.Size = new System.Drawing.Size(112, 32);
             this.btnhitung.TabIndex = 37;
@@ -734,7 +735,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel3.Controls.Add(this.label22, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.lbltotal, 1, 1);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(7, 3);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.8F));
@@ -1129,11 +1130,12 @@ namespace GOS_FxApps
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btncancel);
             this.panel3.Controls.Add(this.btnsimpan);
             this.panel3.Controls.Add(this.tableLayoutPanel5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(405, 46);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(330, 668);
             this.panel3.TabIndex = 3;
@@ -1149,7 +1151,7 @@ namespace GOS_FxApps
             this.btnsimpan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnsimpan.ForeColor = System.Drawing.Color.White;
             this.btnsimpan.Location = new System.Drawing.Point(197, 612);
-            this.btnsimpan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnsimpan.Margin = new System.Windows.Forms.Padding(2);
             this.btnsimpan.Name = "btnsimpan";
             this.btnsimpan.Size = new System.Drawing.Size(122, 35);
             this.btnsimpan.TabIndex = 36;
@@ -1166,7 +1168,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel5.Controls.Add(this.guna2Panel6, 0, 0);
             this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -1185,7 +1187,7 @@ namespace GOS_FxApps
             this.guna2Panel6.Controls.Add(this.dataGridView1);
             this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel6.Location = new System.Drawing.Point(2, 2);
-            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel6.Name = "guna2Panel6";
             this.guna2Panel6.Size = new System.Drawing.Size(318, 595);
             this.guna2Panel6.TabIndex = 2;
@@ -1201,7 +1203,7 @@ namespace GOS_FxApps
             this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btncari.ForeColor = System.Drawing.Color.White;
             this.btncari.Location = new System.Drawing.Point(247, 16);
-            this.btncari.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btncari.Margin = new System.Windows.Forms.Padding(2);
             this.btncari.Name = "btncari";
             this.btncari.Size = new System.Drawing.Size(60, 37);
             this.btncari.TabIndex = 44;
@@ -1219,7 +1221,7 @@ namespace GOS_FxApps
             this.datecari.ForeColor = System.Drawing.Color.White;
             this.datecari.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.datecari.Location = new System.Drawing.Point(13, 15);
-            this.datecari.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.datecari.Margin = new System.Windows.Forms.Padding(2);
             this.datecari.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.datecari.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datecari.Name = "datecari";
@@ -1266,39 +1268,60 @@ namespace GOS_FxApps
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Black;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.Gray;
             this.dataGridView1.Location = new System.Drawing.Point(13, 58);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(294, 527);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // btncancel
+            // 
+            this.btncancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btncancel.BorderRadius = 8;
+            this.btncancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btncancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btncancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btncancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btncancel.Enabled = false;
+            this.btncancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btncancel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btncancel.ForeColor = System.Drawing.Color.White;
+            this.btncancel.Location = new System.Drawing.Point(71, 612);
+            this.btncancel.Margin = new System.Windows.Forms.Padding(2);
+            this.btncancel.Name = "btncancel";
+            this.btncancel.Size = new System.Drawing.Size(122, 35);
+            this.btncancel.TabIndex = 37;
+            this.btncancel.Text = "Cancel";
+            this.btncancel.Click += new System.EventHandler(this.btncancel_Click);
             // 
             // Perbaikan
             // 
@@ -1310,7 +1333,7 @@ namespace GOS_FxApps
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Perbaikan";
             this.Text = "Perbaikan";
             this.Load += new System.EventHandler(this.Perbaikan_Load);
@@ -1409,5 +1432,6 @@ namespace GOS_FxApps
         private Guna.UI2.WinForms.Guna2Button btncari;
         private Guna.UI2.WinForms.Guna2DateTimePicker datecari;
         private Guna.UI2.WinForms.Guna2TextBox txtcari;
+        private Guna.UI2.WinForms.Guna2Button btncancel;
     }
 }
