@@ -24,7 +24,6 @@ namespace GOS_FxApps
         private int wastekg;
         private int ttle1e2mm;
         bool infocari = false;
-        int noprimary;
         int idmulai;
 
         public class datarows
@@ -112,6 +111,23 @@ namespace GOS_FxApps
             reader.Close();
             conn.Close();
         }
+        private void getdatastokedit()
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT TOP 1 id_stok, bstok from Rb_Stok WHERE id_stok < @id ORDER BY id_stok DESC", conn);
+            cmd.Parameters.AddWithValue("@id", idmulai);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                lblstcokakhir.Text = reader["bstok"].ToString();
+            }
+            else
+            {
+                MessageBox.Show("data null");
+            }
+            reader.Close();
+            conn.Close();
+        }
         private void getdata()
         {
             conn.Open();
@@ -137,7 +153,7 @@ namespace GOS_FxApps
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand("SELECT TOP 1 bstok,wpe1,wpe2,wbe1,wbe2,wastekg from Rb_Stok WHERE id_stok < @id order by id_stok DESC", conn);
-            cmd.Parameters.AddWithValue("@id", noprimary);
+            cmd.Parameters.AddWithValue("@id", idmulai);
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
@@ -168,7 +184,7 @@ namespace GOS_FxApps
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    noprimary = Convert.ToInt32(reader["id_stok"]);
+                    idmulai = Convert.ToInt32(reader["id_stok"]);
                     txtmasuk.Text = reader["bmasuk"].ToString();
                     txtkeluar.Text = reader["bkeluar"].ToString();
                     lblstoksekarang.Text = reader["bstok"].ToString();
@@ -206,7 +222,7 @@ namespace GOS_FxApps
                 conn.Close();
             }
         }
-
+ 
 
         //Kode Kode Kalkulasi
         private int SafeParse(string input)
@@ -242,18 +258,18 @@ namespace GOS_FxApps
 
             int ttlsawinge1 = wpe1 + rbse1 - rble1;
             int ttlsawinge2 = wpe2 + rbse2 - rble2;
-            
+
             int ttle1mm = rbse1 * 155;
             int ttle2mm = rbse2 * 220;
 
             ttle1e2mm = ttle1mm + ttle2mm;
-            
+
             lble1mm.Text = ttle1mm.ToString();
             lble2mm.Text = ttle2mm.ToString();
 
             ttlstoksawinge1.Text = ttlsawinge1.ToString();
             ttlstoksawinge2.Text = ttlsawinge2.ToString();
-            
+
             lblttle1e2.Text = ttle1e2mm.ToString();
         }
         private void hitungrbl()
@@ -261,9 +277,9 @@ namespace GOS_FxApps
             int rble1 = SafeParse(lathee1.Text);
             int rbke1 = SafeParse(pkeluare1.Text);
 
-            int rble2 = SafeParse (lathee2.Text);
+            int rble2 = SafeParse(lathee2.Text);
             int rbke2 = SafeParse(pkeluare2.Text);
-            
+
             int ttllathee1 = wbe1 + rble1 - rbke1;
             int ttllathee2 = wbe2 + rble2 - rbke2;
 
@@ -275,7 +291,7 @@ namespace GOS_FxApps
             int sisarbkg = SafeParse(txtsbarkg.Text);
 
             int panjangrbmm = SafeParse(txtpbar.Text);
-    
+
             int ttlwastekg = wastekg + sisarbkg;
             int ttlwaste = panjangrbmm - ttle1e2mm;
 
@@ -536,7 +552,7 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@ttle1e2", lblttle1e2.Text);
                     cmd.Parameters.AddWithValue("@waste", lblwaste.Text);
                     cmd.Parameters.AddWithValue("@keterangan", txtketerangan.Text);
-                    cmd.Parameters.AddWithValue("@id", noprimary);
+                    cmd.Parameters.AddWithValue("@id", idmulai);
 
                     cmd.ExecuteNonQuery();
 
@@ -589,9 +605,9 @@ namespace GOS_FxApps
             wbe2 = 0;
             wastekg = 0;
             ttle1e2mm = 0;
-            noprimary = 0;
+            idmulai = 0;
         }
-        
+
 
         //Kode Load Form
         private void weldingp_Load(object sender, EventArgs e)
@@ -602,17 +618,18 @@ namespace GOS_FxApps
             datecari.Checked = false;
         }
 
-        
+
         //Kode Kode Button
         private void btnhitung_Click(object sender, EventArgs e)
         {
-            if (btnhitung.Text == "Hitung") {
+            if (btnhitung.Text == "Hitung")
+            {
                 getdata();
                 hitungrb();
                 hitungrbs();
                 hitungrbl();
                 hitungwaste();
-                
+
                 btnsimpan.Enabled = true;
                 btnbatal.Enabled = true;
             }
@@ -625,7 +642,7 @@ namespace GOS_FxApps
                 hitungwaste();
                 btnsimpan.Enabled = true;
                 btnbatal.Enabled = true;
-            }   
+            }
         }
         private void btnsimpan_Click(object sender, EventArgs e)
         {
@@ -660,7 +677,8 @@ namespace GOS_FxApps
                     else
                     {
                         simpandata();
-                        btnsimpan.Enabled =false;
+                        btnsimpan.Enabled = false;
+                        btnbatal.Enabled = false;
                     }
                 }
             }
@@ -677,6 +695,7 @@ namespace GOS_FxApps
         private void btnbatal_Click(object sender, EventArgs e)
         {
             setdefault();
+            getdatastok();
             btnbatal.Enabled = false;
             btnsimpan.Enabled = false;
             btnhitung.Text = "Hitung";
@@ -706,6 +725,43 @@ namespace GOS_FxApps
 
                 txtcari.Text = "";
                 datecari.Checked = false;
+            }
+        }
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                idmulai = Convert.ToInt32(row.Cells["id_stok"].Value);
+                txtmasuk.Text = row.Cells["bmasuk"].Value.ToString();
+                txtkeluar.Text = row.Cells["bkeluar"].Value.ToString();
+                lblstoksekarang.Text = row.Cells["bstok"].Value.ToString();
+                txtpbar.Text = row.Cells["bpanjang"].Value.ToString();
+                txtsbarmm.Text = row.Cells["bsisamm"].Value.ToString();
+                sawinge1.Text = row.Cells["bpe1"].Value.ToString();
+                sawinge2.Text = row.Cells["bpe2"].Value.ToString();
+                lathee1.Text = row.Cells["bbe1"].Value.ToString();
+                lathee2.Text = row.Cells["bbe2"].Value.ToString();
+                pkeluare1.Text = row.Cells["rbkeluare1"].Value.ToString();
+                pkeluare2.Text = row.Cells["rbkeluare2"].Value.ToString();
+                ttlstoksawinge1.Text = row.Cells["wpe1"].Value.ToString();
+                ttlstoksawinge2.Text = row.Cells["wpe2"].Value.ToString();
+                ttlstoklathee1.Text = row.Cells["wbe1"].Value.ToString();
+                ttlstoklathee2.Text = row.Cells["wbe2"].Value.ToString();
+                txtsbarkg.Text = row.Cells["bsisakg"].Value.ToString();
+                lblwastekg.Text = row.Cells["wastekg"].Value.ToString();
+                lble1mm.Text = row.Cells["e1mm"].Value.ToString();
+                lble2mm.Text = row.Cells["e2mm"].Value.ToString();
+                lblttle1e2.Text = row.Cells["ttle1e2"].Value.ToString();
+                lblwaste.Text = row.Cells["waste"].Value.ToString();
+                txtketerangan.Text = row.Cells["keterangan"].Value.ToString();
+
+                getdatastokedit();
+                btnhitung.Text = "Hitung Ulang";
+                btnsimpan.Text = "Edit Data";
+
+                btnbatal.Enabled = true;
             }
         }
     }

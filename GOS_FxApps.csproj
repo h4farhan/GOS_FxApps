@@ -254,12 +254,6 @@
     <Compile Include="editpmaterial.Designer.cs">
       <DependentUpon>editpmaterial.cs</DependentUpon>
     </Compile>
-    <Compile Include="editweldingpiece.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="editweldingpiece.Designer.cs">
-      <DependentUpon>editweldingpiece.cs</DependentUpon>
-    </Compile>
     <Compile Include="formstok.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -349,9 +343,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="editpmaterial.resx">
       <DependentUpon>editpmaterial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="editweldingpiece.resx">
-      <DependentUpon>editweldingpiece.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formstok.resx">
       <DependentUpon>formstok.cs</DependentUpon>
