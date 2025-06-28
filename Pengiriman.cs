@@ -151,6 +151,20 @@ namespace GOS_FxApps
             }
         }
 
+        private void setdefault()
+        {
+            txtrod1.Clear();
+            txtrod2.Clear();
+            txtrod3.Clear();
+            txtrod4.Clear();
+            txtrod5.Clear();
+            txtrod6.Clear();
+            txtrod7.Clear();
+            txtrod8.Clear();
+            txtrod9.Clear();
+            txtrod10.Clear();
+        }
+
         private void AngkaOnly_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -315,6 +329,7 @@ namespace GOS_FxApps
 
                 tampil();
                 MessageBox.Show("Data Berhasil Dikirim!!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                setdefault();
             }
             catch (Exception ex)
             {

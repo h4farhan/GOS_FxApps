@@ -57,7 +57,6 @@ namespace GOS_FxApps
                             this.Hide();
                             MainForm.Instance.setvisibletrue();
                             MainForm.Instance.lbluser.Text = name + " [Operator]";
-                            MainForm.Instance.iconButton6.Visible = false;
                             
                         }
                         else if (level == "Supervisor")

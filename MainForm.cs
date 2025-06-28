@@ -273,14 +273,5 @@ namespace GOS_FxApps {
             SwitchPanel(new editpengiriman());
         }
 
-        private void iconButton6_Click(object sender, EventArgs e)
-        {
-            SwitchPanel(new editweldingpiece());
-        }
-
-        private void iconButton5_Click(object sender, EventArgs e)
-        {
-            SwitchPanel(new editpmaterial());
-        }
     }
 }

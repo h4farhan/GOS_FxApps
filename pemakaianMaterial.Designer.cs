@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.datepemakaian = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtjumlah = new Guna.UI2.WinForms.Guna2TextBox();
             this.cmbnama = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnsimpan = new Guna.UI2.WinForms.Guna2Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
@@ -52,6 +52,7 @@
             this.datecari = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnbatal = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -68,7 +69,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(735, 57);
             this.panel1.TabIndex = 1;
@@ -143,23 +144,23 @@
             this.guna2Panel1.Size = new System.Drawing.Size(376, 609);
             this.guna2Panel1.TabIndex = 2;
             // 
-            // guna2Button2
+            // guna2Button1
             // 
-            this.guna2Button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button2.BorderRadius = 8;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(197, 561);
-            this.guna2Button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(122, 35);
-            this.guna2Button2.TabIndex = 38;
-            this.guna2Button2.Text = "Simpan Data";
-            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Button1.BorderRadius = 8;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(240, 559);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(122, 35);
+            this.guna2Button1.TabIndex = 39;
+            this.guna2Button1.Text = "Tambah Material";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // datepemakaian
             // 
@@ -173,11 +174,11 @@
             this.datepemakaian.ForeColor = System.Drawing.Color.White;
             this.datepemakaian.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.datepemakaian.Location = new System.Drawing.Point(71, 274);
-            this.datepemakaian.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.datepemakaian.Margin = new System.Windows.Forms.Padding(2);
             this.datepemakaian.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.datepemakaian.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datepemakaian.Name = "datepemakaian";
-            this.datepemakaian.Size = new System.Drawing.Size(234, 32);
+            this.datepemakaian.Size = new System.Drawing.Size(235, 36);
             this.datepemakaian.TabIndex = 11;
             this.datepemakaian.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
             // 
@@ -241,7 +242,7 @@
             this.txtjumlah.Name = "txtjumlah";
             this.txtjumlah.PlaceholderText = "4xxxx";
             this.txtjumlah.SelectedText = "";
-            this.txtjumlah.Size = new System.Drawing.Size(234, 32);
+            this.txtjumlah.Size = new System.Drawing.Size(235, 36);
             this.txtjumlah.TabIndex = 7;
             this.txtjumlah.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -261,32 +262,33 @@
             this.cmbnama.ForeColor = System.Drawing.Color.White;
             this.cmbnama.ItemHeight = 30;
             this.cmbnama.Location = new System.Drawing.Point(71, 197);
-            this.cmbnama.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbnama.Margin = new System.Windows.Forms.Padding(2);
             this.cmbnama.Name = "cmbnama";
             this.cmbnama.Size = new System.Drawing.Size(235, 36);
             this.cmbnama.TabIndex = 6;
             // 
-            // guna2Button1
+            // btnsimpan
             // 
-            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button1.BorderRadius = 8;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(240, 559);
-            this.guna2Button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(122, 35);
-            this.guna2Button1.TabIndex = 39;
-            this.guna2Button1.Text = "Tambah Material";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.btnsimpan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnsimpan.BorderRadius = 8;
+            this.btnsimpan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnsimpan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnsimpan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnsimpan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnsimpan.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnsimpan.ForeColor = System.Drawing.Color.White;
+            this.btnsimpan.Location = new System.Drawing.Point(197, 561);
+            this.btnsimpan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnsimpan.Name = "btnsimpan";
+            this.btnsimpan.Size = new System.Drawing.Size(122, 35);
+            this.btnsimpan.TabIndex = 38;
+            this.btnsimpan.Text = "Simpan Data";
+            this.btnsimpan.Click += new System.EventHandler(this.btnsimpan_Click);
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.guna2Button2);
+            this.panel3.Controls.Add(this.btnbatal);
+            this.panel3.Controls.Add(this.btnsimpan);
             this.panel3.Controls.Add(this.tableLayoutPanel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(405, 57);
@@ -340,7 +342,7 @@
             this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btncari.ForeColor = System.Drawing.Color.White;
             this.btncari.Location = new System.Drawing.Point(244, 15);
-            this.btncari.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btncari.Margin = new System.Windows.Forms.Padding(2);
             this.btncari.Name = "btncari";
             this.btncari.Size = new System.Drawing.Size(60, 37);
             this.btncari.TabIndex = 41;
@@ -358,12 +360,12 @@
             this.datecari.ForeColor = System.Drawing.Color.White;
             this.datecari.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.datecari.Location = new System.Drawing.Point(11, 14);
-            this.datecari.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.datecari.Margin = new System.Windows.Forms.Padding(2);
             this.datecari.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.datecari.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datecari.Name = "datecari";
             this.datecari.ShowCheckBox = true;
-            this.datecari.Size = new System.Drawing.Size(154, 39);
+            this.datecari.Size = new System.Drawing.Size(179, 39);
             this.datecari.TabIndex = 43;
             this.datecari.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
             // 
@@ -387,12 +389,12 @@
             this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.icons8_search_50;
             this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
-            this.txtcari.Location = new System.Drawing.Point(170, 14);
+            this.txtcari.Location = new System.Drawing.Point(194, 14);
             this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtcari.Name = "txtcari";
             this.txtcari.PlaceholderText = "Kode Barang";
             this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(70, 39);
+            this.txtcari.Size = new System.Drawing.Size(46, 39);
             this.txtcari.TabIndex = 42;
             // 
             // dataGridView1
@@ -405,40 +407,61 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Black;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.Gray;
             this.dataGridView1.Location = new System.Drawing.Point(11, 59);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(293, 477);
             this.dataGridView1.TabIndex = 39;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // btnbatal
+            // 
+            this.btnbatal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnbatal.BorderRadius = 8;
+            this.btnbatal.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnbatal.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnbatal.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnbatal.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnbatal.Enabled = false;
+            this.btnbatal.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnbatal.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnbatal.ForeColor = System.Drawing.Color.White;
+            this.btnbatal.Location = new System.Drawing.Point(69, 561);
+            this.btnbatal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnbatal.Name = "btnbatal";
+            this.btnbatal.Size = new System.Drawing.Size(122, 35);
+            this.btnbatal.TabIndex = 39;
+            this.btnbatal.Text = "Batal";
+            this.btnbatal.Click += new System.EventHandler(this.btnbatal_Click);
             // 
             // pemakaianMaterial
             // 
@@ -450,7 +473,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "pemakaianMaterial";
             this.Text = "pemakaianMaterial";
             this.Load += new System.EventHandler(this.pemakaianMaterial_Load);
@@ -477,7 +500,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Panel panel3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button btnsimpan;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -491,5 +514,6 @@
         private Guna.UI2.WinForms.Guna2Button btncari;
         private Guna.UI2.WinForms.Guna2DateTimePicker datecari;
         private Guna.UI2.WinForms.Guna2TextBox txtcari;
+        private Guna.UI2.WinForms.Guna2Button btnbatal;
     }
 }

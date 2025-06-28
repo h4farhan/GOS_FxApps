@@ -248,12 +248,6 @@
     <Compile Include="editperbaikan.Designer.cs">
       <DependentUpon>editperbaikan.cs</DependentUpon>
     </Compile>
-    <Compile Include="editpmaterial.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="editpmaterial.Designer.cs">
-      <DependentUpon>editpmaterial.cs</DependentUpon>
-    </Compile>
     <Compile Include="formstok.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -340,9 +334,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="editperbaikan.resx">
       <DependentUpon>editperbaikan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="editpmaterial.resx">
-      <DependentUpon>editpmaterial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formstok.resx">
       <DependentUpon>formstok.cs</DependentUpon>

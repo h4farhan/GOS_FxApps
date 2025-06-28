@@ -19,6 +19,8 @@ namespace GOS_FxApps
         public static pemakaianMaterial instance;
 
         bool infocari = false;
+        int noprimary = 0;
+        int jumlahlama;
 
         public pemakaianMaterial()
         {
@@ -105,6 +107,93 @@ namespace GOS_FxApps
             }
         }
 
+        private void editdata()
+        {
+            string kodeBarang = cmbnama.SelectedValue.ToString();
+            int jumlah = int.Parse(txtjumlah.Text);
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE stok_material SET jumlahStok = jumlahStok + @pakai WHERE kodeBarang = @kode", conn);
+                cmd.Parameters.AddWithValue("@pakai", jumlahlama);
+                cmd.Parameters.AddWithValue("@kode", kodeBarang);
+                cmd.ExecuteNonQuery();
+
+                SqlCommand cmdPakai = new SqlCommand("UPDATE pemakaian_material SET tanggalPemakaian = @tgl, jumlahPemakaian = @jumlah WHERE idPemakaian = @id", conn);
+                cmdPakai.Parameters.AddWithValue("@id", noprimary);
+                cmdPakai.Parameters.AddWithValue("@tgl", datepemakaian.Value);
+                cmdPakai.Parameters.AddWithValue("@jumlah", jumlah);
+                cmdPakai.ExecuteNonQuery();
+
+                SqlCommand cmdUpdateStok = new SqlCommand("UPDATE stok_material SET jumlahStok = jumlahStok - @pakai WHERE kodeBarang = @kode", conn);
+                cmdUpdateStok.Parameters.AddWithValue("@pakai", txtjumlah.Text);
+                cmdUpdateStok.Parameters.AddWithValue("@kode", kodeBarang);
+                cmdUpdateStok.ExecuteNonQuery();
+
+
+                MessageBox.Show("Data pemakaian berhasil diedit.");
+                txtjumlah.Clear();
+                tampil();
+                btnsimpan.Text = "Simpan Data";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ada Kesalahan Mau Edit: " + ex.Message);
+            }
+            finally 
+            { 
+                conn.Close ();
+            }
+        }
+
+        private void simpandata()
+        {
+            string kodeBarang = cmbnama.SelectedValue.ToString();
+            string namaBarang = cmbnama.Text;
+            if (!int.TryParse(txtjumlah.Text, out int jumlahPakai))
+            {
+                MessageBox.Show("Masukkan jumlah yang valid.");
+                return;
+            }
+
+            try
+            {
+                conn.Open();
+                SqlCommand cmdCek = new SqlCommand("SELECT jumlahStok FROM stok_material WHERE kodeBarang = @kode", conn);
+                cmdCek.Parameters.AddWithValue("@kode", kodeBarang);
+                int stokSekarang = Convert.ToInt32(cmdCek.ExecuteScalar());
+
+                if (jumlahPakai > stokSekarang)
+                {
+                    MessageBox.Show("Stok tidak cukup.");
+                    return;
+                }
+                SqlCommand cmdPakai = new SqlCommand("INSERT INTO pemakaian_material (kodeBarang, namaBarang, tanggalPemakaian, jumlahPemakaian) VALUES (@kode, @nama, @tgl, @jumlah)", conn);
+                cmdPakai.Parameters.AddWithValue("@kode", kodeBarang);
+                cmdPakai.Parameters.AddWithValue("@nama", namaBarang);
+                cmdPakai.Parameters.AddWithValue("@tgl", datepemakaian.Value);
+                cmdPakai.Parameters.AddWithValue("@jumlah", jumlahPakai);
+                cmdPakai.ExecuteNonQuery();
+
+                SqlCommand cmdUpdateStok = new SqlCommand("UPDATE stok_material SET jumlahStok = jumlahStok - @pakai WHERE kodeBarang = @kode", conn);
+                cmdUpdateStok.Parameters.AddWithValue("@pakai", jumlahPakai);
+                cmdUpdateStok.Parameters.AddWithValue("@kode", kodeBarang);
+                cmdUpdateStok.ExecuteNonQuery();
+
+                MessageBox.Show("Data pemakaian berhasil ditambahkan.");
+                txtjumlah.Clear();
+                tampil();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             Form frmstok = new formstok();
@@ -148,87 +237,7 @@ namespace GOS_FxApps
             combonama();
             tampil();
             datecari.Checked = false;
-        }
-
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-            string kodeBarang = cmbnama.SelectedValue.ToString();
-            string namaBarang = cmbnama.Text;
-            if (!int.TryParse(txtjumlah.Text, out int jumlahPakai))
-            {
-                MessageBox.Show("Masukkan jumlah yang valid.");
-                return;
-            }
-
-            try
-            {
-                conn.Open();
-
-                SqlCommand cmd = new SqlCommand("SELECT jumlahPemakaian FROM pemakaian_material WHERE kodeBarang = @kode AND tanggalPemakaian = @tgl", conn);
-                cmd.Parameters.AddWithValue("@kode", kodeBarang);
-                cmd.Parameters.AddWithValue("@tgl", datepemakaian.Value.Date);
-
-                bool sudahAda = false;
-                int jumlahSebelumnya = 0;
-
-                using (SqlDataReader dr = cmd.ExecuteReader())
-                {
-                    if (dr.Read())
-                    {
-                        sudahAda = true;
-                        jumlahSebelumnya = Convert.ToInt32(dr["jumlahPemakaian"]);
-                    }
-                }
-
-                SqlCommand cmdCek = new SqlCommand("SELECT jumlahStok FROM stok_material WHERE kodeBarang = @kode", conn);
-                cmdCek.Parameters.AddWithValue("@kode", kodeBarang);
-                int stokSekarang = Convert.ToInt32(cmdCek.ExecuteScalar());
-
-                if (jumlahPakai > stokSekarang)
-                {
-                    MessageBox.Show("Stok tidak cukup.");
-                    return;
-                }
-
-                if (sudahAda)
-                {
-                    SqlCommand cmdUpdatePemakaian = new SqlCommand("UPDATE pemakaian_material SET jumlahPemakaian = jumlahPemakaian + @jumlahBaru WHERE kodeBarang = @kode AND tanggalPemakaian = @tgl", conn);
-                    cmdUpdatePemakaian.Parameters.AddWithValue("@jumlahBaru", jumlahPakai);
-                    cmdUpdatePemakaian.Parameters.AddWithValue("@kode", kodeBarang);
-                    cmdUpdatePemakaian.Parameters.AddWithValue("@tgl", datepemakaian.Value.Date);
-                    cmdUpdatePemakaian.ExecuteNonQuery();
-
-                    MessageBox.Show("Data pemakaian berhasil diperbarui.");
-                }
-                else
-                {
-                    SqlCommand cmdPakai = new SqlCommand("INSERT INTO pemakaian_material (kodeBarang, namaBarang, tanggalPemakaian, jumlahPemakaian) VALUES (@kode, @nama, @tgl, @jumlah)", conn);
-                    cmdPakai.Parameters.AddWithValue("@kode", kodeBarang);
-                    cmdPakai.Parameters.AddWithValue("@nama", namaBarang);
-                    cmdPakai.Parameters.AddWithValue("@tgl", datepemakaian.Value);
-                    cmdPakai.Parameters.AddWithValue("@jumlah", jumlahPakai);
-                    cmdPakai.ExecuteNonQuery();
-
-                    MessageBox.Show("Data pemakaian berhasil ditambahkan.");
-                }
-
-                SqlCommand cmdUpdateStok = new SqlCommand("UPDATE stok_material SET jumlahStok = jumlahStok - @pakai WHERE kodeBarang = @kode", conn);
-                cmdUpdateStok.Parameters.AddWithValue("@pakai", jumlahPakai);
-                cmdUpdateStok.Parameters.AddWithValue("@kode", kodeBarang);
-                cmdUpdateStok.ExecuteNonQuery();
-
-                txtjumlah.Clear();
-                tampil();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan: " + ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
-
+            datepemakaian.Value = DateTime.Now.Date;
         }
 
         private void btncari_Click(object sender, EventArgs e)
@@ -256,6 +265,70 @@ namespace GOS_FxApps
                 txtcari.Text = "";
                 datecari.Checked = false;
             }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                noprimary = Convert.ToInt32(row.Cells["idPemakaian"].Value);
+                cmbnama.SelectedValue = row.Cells["kodeBarang"].Value.ToString();
+                datepemakaian.Value = Convert.ToDateTime(row.Cells["tanggalPemakaian"].Value);
+                txtjumlah.Text = row.Cells["jumlahPemakaian"].Value.ToString();
+                jumlahlama = Convert.ToInt32(row.Cells["jumlahPemakaian"].Value);
+
+                btnsimpan.Text = "Edit Data";
+                btnbatal.Enabled = true;
+            }
+        }
+
+        private void btnsimpan_Click(object sender, EventArgs e)
+        {
+            if(btnsimpan.Text == "Simpan Data")
+            {
+                if (txtjumlah.Text == "") 
+                {
+                    MessageBox.Show("Silahkan isi data dengan benar.");
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.OK)
+                    {
+                        simpandata();
+                    }
+                }
+            }
+            else
+            {
+                if (txtjumlah.Text == "")
+                {
+                    MessageBox.Show("Silahkan isi data dengan benar.");
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.OK)
+                    {
+                        editdata();
+                        btnbatal.Enabled = false;
+                    }
+                }
+            }
+        }
+
+        private void btnbatal_Click(object sender, EventArgs e)
+        {
+            datepemakaian.Value = DateTime.Now.Date;
+            txtjumlah.Clear();
+            jumlahlama = 0;
+            noprimary = 0;
+            btnbatal.Enabled = false;
+            btnsimpan.Text = "Simpan Data";
         }
     }
 }
