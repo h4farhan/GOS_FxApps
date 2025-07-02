@@ -73,7 +73,7 @@ namespace GOS_FxApps
 
         private bool cari()
         {
-            DateTime? tanggal = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
+            DateTime? tanggal = dateeditpengiriman.Checked ? (DateTime?)dateeditpengiriman.Value.Date : null;
             string inputRod = txtcari.Text.Trim();
 
             if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
@@ -215,14 +215,15 @@ namespace GOS_FxApps
                 btncari.Text = "Cari";
 
                 txtcari.Text = "";
-                datecari.Checked = false;
+                dateeditpengiriman.Checked = false;
             }
         }
 
         private void editpengiriman_Load(object sender, EventArgs e)
         {
             tampil();
-            datecari.Checked = false;
+            dateeditpengiriman.Checked = false;
+            dateeditpengiriman.Value = DateTime.Now.Date;
         }
 
         private void btnclear_Click(object sender, EventArgs e)

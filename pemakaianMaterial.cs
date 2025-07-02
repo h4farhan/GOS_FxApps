@@ -330,5 +330,6 @@ namespace GOS_FxApps
             btnbatal.Enabled = false;
             btnsimpan.Text = "Simpan Data";
         }
+
     }
 }

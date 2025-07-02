@@ -67,7 +67,7 @@ namespace GOS_FxApps
 
         private bool cari()
         {
-            DateTime? tanggal = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
+            DateTime? tanggal = dateeditpenerimaan.Checked ? (DateTime?)dateeditpenerimaan.Value.Date : null;
             string inputRod = txtcari.Text.Trim();
 
             if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
@@ -181,7 +181,8 @@ namespace GOS_FxApps
         private void editpenerimaan_Load(object sender, EventArgs e)
         {
             tampil();
-            datecari.Checked = false;
+            dateeditpenerimaan.Checked = false;
+            dateeditpenerimaan.Value = DateTime.Now.Date;
         }
 
         private void btncari_Click(object sender, EventArgs e)
@@ -207,7 +208,7 @@ namespace GOS_FxApps
                 btncari.Text = "Cari";
 
                 txtcari.Text = "";
-                datecari.Checked = false;
+                dateeditpenerimaan.Checked = false;
             }
         }
 

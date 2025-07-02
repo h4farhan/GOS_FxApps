@@ -1763,6 +1763,7 @@
             this.txtcari.Size = new System.Drawing.Size(660, 37);
             this.txtcari.TabIndex = 48;
             this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtcari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label32
             // 

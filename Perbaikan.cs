@@ -32,6 +32,7 @@ namespace GOS_FxApps
         {
             btnsimpan.Enabled = false;
             datecari.Checked = false;
+            datecari.Value = DateTime.Now.Date;
         }
 
         private void tampil()

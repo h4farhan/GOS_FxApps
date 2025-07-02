@@ -616,6 +616,7 @@ namespace GOS_FxApps
             getdatastok();
             tampil();
             datecari.Checked = false;
+            datecari.Value = DateTime.Now.Date;
         }
 
 

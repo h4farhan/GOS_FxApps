@@ -30,7 +30,8 @@ namespace GOS_FxApps
         private void editperbaikan_Load(object sender, EventArgs e)
         {
             tampil();
-            datecari.Checked = false;
+            dateeditperbaikan.Checked = false;
+            dateeditperbaikan.Value = DateTime.Now.Date;
         }
 
         private void tampil()
@@ -78,7 +79,7 @@ namespace GOS_FxApps
 
         private bool cari()
         {
-            DateTime? tanggal = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
+            DateTime? tanggal = dateeditperbaikan.Checked ? (DateTime?)dateeditperbaikan.Value.Date : null;
             string inputRod = txtcari.Text.Trim();
 
             if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
@@ -357,7 +358,7 @@ namespace GOS_FxApps
                 btncari.Text = "Cari";
 
                 txtcari.Text = "";
-                datecari.Checked = false;
+                dateeditperbaikan.Checked = false;
             }
         }
 

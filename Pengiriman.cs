@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using Guna.UI2.WinForms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace GOS_FxApps
 {
@@ -51,6 +52,7 @@ namespace GOS_FxApps
             InitializeComponent();
             tampil();
             datecari.Checked = false;
+            datecari.Value = DateTime.Now.Date;
         }
 
         private void tampil()
@@ -163,6 +165,28 @@ namespace GOS_FxApps
             txtrod8.Clear();
             txtrod9.Clear();
             txtrod10.Clear();
+
+            txtrod1.PlaceholderText = "4xxxx";
+            txtrod2.PlaceholderText = "4xxxx";
+            txtrod3.PlaceholderText = "4xxxx";
+            txtrod4.PlaceholderText = "4xxxx";
+            txtrod5.PlaceholderText = "4xxxx";
+            txtrod6.PlaceholderText = "4xxxx";
+            txtrod7.PlaceholderText = "4xxxx";
+            txtrod8.PlaceholderText = "4xxxx";
+            txtrod9.PlaceholderText = "4xxxx";
+            txtrod10.PlaceholderText = "4xxxx";
+
+            txtrod1.PlaceholderForeColor = Color.FromArgb(193, 200, 207);
+            txtrod2.PlaceholderForeColor = Color.FromArgb(193, 200, 207);
+            txtrod3.PlaceholderForeColor = Color.FromArgb(193, 200, 207);
+            txtrod4.PlaceholderForeColor = Color.FromArgb(193, 200, 207);
+            txtrod5.PlaceholderForeColor = Color.FromArgb(193, 200, 207);
+            txtrod6.PlaceholderForeColor = Color.FromArgb(193, 200, 207);
+            txtrod7.PlaceholderForeColor = Color.FromArgb(193, 200, 207);
+            txtrod8.PlaceholderForeColor = Color.FromArgb(193, 200, 207);
+            txtrod9.PlaceholderForeColor = Color.FromArgb(193, 200, 207);
+            txtrod10.PlaceholderForeColor = Color.FromArgb(193, 200, 207);
         }
 
         private void AngkaOnly_KeyPress(object sender, KeyPressEventArgs e)
@@ -349,6 +373,7 @@ namespace GOS_FxApps
             if (result == DialogResult.OK) 
             { 
                 insertdata(list);
+                return;
             }
             else
             {

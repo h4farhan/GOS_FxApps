@@ -153,12 +153,29 @@ namespace GOS_FxApps
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            formpengiriman();
+            if (cmbpilihdata.SelectedItem == null)
+                return;
+
+            string pilihan = cmbpilihdata.SelectedItem.ToString();
+
+            if (pilihan == "Penerimaan")
+            {
+                formpenerimaan();
+            }
+            else if (pilihan == "Perbaikan")
+            {
+                formperbaikan();
+            }
+            else if (pilihan == "Pengiriman")
+            {
+                formpengiriman();
+            } 
         }
 
         private void printpenerimaan_Load(object sender, EventArgs e)
         {
             datecari.Checked = false;
+            datecari.Value = DateTime.Now.Date;
         }
 
         private void tampilpenerimaan()
@@ -305,7 +322,7 @@ namespace GOS_FxApps
             }
         }
 
-        private bool cari()
+        private bool caripenerimaan()
         {
             DateTime? tanggal1 = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
             DateTime? tanggal2 = datecari.Checked ? (DateTime?)datecari.Value.AddDays(1).Date : null;
@@ -351,40 +368,208 @@ namespace GOS_FxApps
             }
         }
 
+        private bool cariperbaikan()
+        {
+            DateTime? tanggal1 = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
+            DateTime? tanggal2 = datecari.Checked ? (DateTime?)datecari.Value.AddDays(1).Date : null;
+            string shift = cbShift.SelectedItem?.ToString(); 
+
+            if (!tanggal1.HasValue || string.IsNullOrEmpty(shift))
+            {
+                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.");
+                return false;
+            }
+
+            DataTable dt = new DataTable();
+
+            string query = "SELECT * FROM perbaikan_p WHERE tanggal_perbaikan >= @tanggal1 AND tanggal_perbaikan < @tanggal2 AND shift = @shift";
+
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@tanggal1", tanggal1);
+                cmd.Parameters.AddWithValue("@tanggal2", tanggal2);
+                cmd.Parameters.AddWithValue("@shift", shift);
+
+                try
+                {
+                    conn.Open();
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+
+                    dataGridView1.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan saat pencarian: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
+                return dt.Rows.Count > 0;
+            }
+        }
+
+        private bool caripengiriman()
+        {
+            DateTime? tanggal1 = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
+            DateTime? tanggal2 = datecari.Checked ? (DateTime?)datecari.Value.AddDays(1).Date : null;
+            string shift = cbShift.SelectedItem?.ToString();
+
+            if (!tanggal1.HasValue || string.IsNullOrEmpty(shift))
+            {
+                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.");
+                return false;
+            }
+
+            DataTable dt = new DataTable();
+
+            string query = "SELECT * FROM pengiriman WHERE tanggal_pengiriman >= @tanggal1 AND tanggal_pengiriman < @tanggal2 AND shift = @shift";
+
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@tanggal1", tanggal1);
+                cmd.Parameters.AddWithValue("@tanggal2", tanggal2);
+                cmd.Parameters.AddWithValue("@shift", shift);
+
+                try
+                {
+                    conn.Open();
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+
+                    dataGridView1.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan saat pencarian: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
+                return dt.Rows.Count > 0;
+            }
+        }
+
         private void btncari_Click(object sender, EventArgs e)
         {
-            if (!infocari)
+
+            if (cmbpilihdata.SelectedItem == null)
+                return;
+
+            string pilihan = cmbpilihdata.SelectedItem.ToString();
+
+            if (pilihan == "Penerimaan")
             {
-                bool hasilCari = cari();
-                if (hasilCari)
+                if (!infocari)
                 {
-                    infocari = true;
-                    btnprint.Enabled = true;
-                    btncari.Text = "Reset";
+                    bool hasilCari = caripenerimaan();
+                    if (hasilCari)
+                    {
+                        infocari = true;
+                        btnprint.Enabled = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                    else
+                    {
+                        infocari = false;
+                        btncari.Text = "Cari";
+                        jumlahdata();
+                    }
                 }
                 else
                 {
+                    tampilpenerimaan();
                     infocari = false;
                     btncari.Text = "Cari";
+
+                    btnprint.Enabled = false;
+
+                    guna2Panel4.ResetText();
+                    datecari.Checked = false;
+                    jumlahdata();
+                }
+            } 
+            else if (pilihan == "Perbaikan")
+            {
+                if (!infocari)
+                {
+                    bool hasilCari = cariperbaikan();
+                    if (hasilCari)
+                    {
+                        infocari = true;
+                        btnprint.Enabled = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                    else
+                    {
+                        infocari = false;
+                        btncari.Text = "Cari";
+                        jumlahdata();
+                    }
+                }
+                else
+                {
+                    tampilperbaikan();
+                    infocari = false;
+                    btncari.Text = "Cari";
+                    jumlahdata();
+
+                    btnprint.Enabled = false;
+
+                    guna2Panel4.ResetText();
+                    datecari.Checked = false;
                 }
             }
-            else
+            else if (pilihan == "Pengiriman")
             {
-                tampilpenerimaan();
-                infocari = false;
-                btncari.Text = "Cari";
+                if (!infocari)
+                {
+                    bool hasilCari = caripengiriman();
+                    if (hasilCari)
+                    {
+                        infocari = true;
+                        btnprint.Enabled = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                    else
+                    {
+                        infocari = false;
+                        btncari.Text = "Cari";
+                        jumlahdata();
+                    }
+                }
+                else
+                {
+                    tampilpengiriman();
+                    infocari = false;
+                    btncari.Text = "Cari";
+                    jumlahdata();
 
-                btnprint.Enabled = false;
+                    btnprint.Enabled = false;
 
-                guna2Panel4.ResetText();
-                datecari.Checked = false;
+                    guna2Panel4.ResetText();
+                    datecari.Checked = false;
+                }
             }
         }
 
         private void jumlahdata()
         {
             int total = dataGridView1.Rows.Count;
-            //labeljumlahbaris2.Text = "Jumlah data: " + total.ToString();
+            label4.Text = "Jumlah data: " + total.ToString();
         }
 
         private void TambahCancelOption()
@@ -404,21 +589,48 @@ namespace GOS_FxApps
 
             if (pilihan == "Penerimaan")
             {
+                //reset dulu
+                infocari = false;
+                btncari.Text = "Cari";
+                btnprint.Enabled = false;
+                guna2Panel4.ResetText();
+                datecari.Checked = false;
+                paneldata.Visible = false;
+
                 paneldata.Visible = true;
                 tampilpenerimaan();
                 TambahCancelOption();
+                jumlahdata();
             }
             else if (pilihan == "Perbaikan")
             {
+                //reset dulu
+                infocari = false;
+                btncari.Text = "Cari";
+                btnprint.Enabled = false;
+                guna2Panel4.ResetText();
+                datecari.Checked = false;
+                paneldata.Visible = false;
+
                 paneldata.Visible = true;
                 tampilperbaikan();
                 TambahCancelOption();
+                jumlahdata();
             }
             else if (pilihan == "Pengiriman")
             {
+                //reset dulu
+                infocari = false;
+                btncari.Text = "Cari";
+                btnprint.Enabled = false;
+                guna2Panel4.ResetText();
+                datecari.Checked = false;
+                paneldata.Visible = false;
+
                 paneldata.Visible = true;
                 tampilpengiriman();
                 TambahCancelOption();
+                jumlahdata();
             }
             else if (pilihan == "Cancel")
             {
@@ -426,6 +638,11 @@ namespace GOS_FxApps
                 cmbpilihdata.SelectedIndex = -1;
                 dataGridView1.DataSource = null;
             }
+
+        }
+
+        private void datecari_ValueChanged(object sender, EventArgs e)
+        {
 
         }
     }

@@ -25,13 +25,11 @@ namespace GOS_FxApps
             InitializeComponent();
             setdefault();
             tampil();
+            btnsimpan.Enabled = false;
+            datecari.Checked = false;
+            datecari.Value = DateTime.Now.Date;
         }
 
-        private void Penerimaan_Load(object sender, EventArgs e)
-        {
-            btnsimpan.Enabled = false;
-            datecari.Checked = false;   
-        }
 
         private void simpandata()
         {
@@ -45,60 +43,61 @@ namespace GOS_FxApps
                     SqlCommand cmd = new SqlCommand("SELECT nomor_rod FROM penerimaan_s WHERE nomor_rod = @rod", conn);
                     cmd.Parameters.AddWithValue("@rod", txtnomorrod.Text);
 
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    if (dr.Read())
+                    using (SqlDataReader dr = cmd.ExecuteReader())
                     {
-                        MessageBox.Show("Nomor ROD ditable ini sudah ada dan belum diperbaiki.");
+                        if (dr.Read())
+                        {
+                            MessageBox.Show("Nomor ROD ditable ini sudah ada dan belum diperbaiki.");
+                            return;
+                        }
                     }
-                    else
-                    {
-                        SqlCommand cmd1 = new SqlCommand("INSERT INTO penerimaan_s (tanggal_penerimaan,shift,nomor_rod,jenis,stasiun,e1,e2,e3," +
-                            "s,d,b,ba,cr,m,r,c,rl,jumlah) VALUES(getdate(),@shift,@nomorrod,@jenis,@stasiun,@e1,@e2,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah)", conn);
-                        SqlCommand cmd2 = new SqlCommand("INSERT INTO penerimaan_p (tanggal_penerimaan,shift,nomor_rod,jenis,stasiun,e1,e2,e3," +
-                            "s,d,b,ba,cr,m,r,c,rl,jumlah) VALUES(getdate(),@shift,@nomorrod,@jenis,@stasiun,@e1,@e2,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah)", conn);
 
-                        cmd1.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
-                        cmd1.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
-                        cmd1.Parameters.AddWithValue("@jenis", txtjenis.Text);
-                        cmd1.Parameters.AddWithValue("@stasiun", txtstasiun.Text);
-                        cmd1.Parameters.AddWithValue("@e1", txte1.Text);
-                        cmd1.Parameters.AddWithValue("@e2", txte2.Text);
-                        cmd1.Parameters.AddWithValue("@e3", txte3.Text);
-                        cmd1.Parameters.AddWithValue("@s", txts.Text);
-                        cmd1.Parameters.AddWithValue("@d", txtd.Text);
-                        cmd1.Parameters.AddWithValue("@b", txtb.Text);
-                        cmd1.Parameters.AddWithValue("@ba", txtba.Text);
-                        cmd1.Parameters.AddWithValue("@cr", txtcr.Text);
-                        cmd1.Parameters.AddWithValue("@m", txtm.Text);
-                        cmd1.Parameters.AddWithValue("@r", txtr.Text);
-                        cmd1.Parameters.AddWithValue("@c", txtc.Text);
-                        cmd1.Parameters.AddWithValue("@rl", txtrl.Text);
-                        cmd1.Parameters.AddWithValue("@jumlah", lbltotal.Text);
+                    SqlCommand cmd1 = new SqlCommand("INSERT INTO penerimaan_s (tanggal_penerimaan,shift,nomor_rod,jenis,stasiun,e1,e2,e3," +
+                        "s,d,b,ba,cr,m,r,c,rl,jumlah) VALUES(getdate(),@shift,@nomorrod,@jenis,@stasiun,@e1,@e2,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah)", conn);
+                    SqlCommand cmd2 = new SqlCommand("INSERT INTO penerimaan_p (tanggal_penerimaan,shift,nomor_rod,jenis,stasiun,e1,e2,e3," +
+                        "s,d,b,ba,cr,m,r,c,rl,jumlah) VALUES(getdate(),@shift,@nomorrod,@jenis,@stasiun,@e1,@e2,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah)", conn);
 
-                        cmd2.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
-                        cmd2.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
-                        cmd2.Parameters.AddWithValue("@jenis", txtjenis.Text);
-                        cmd2.Parameters.AddWithValue("@stasiun", txtstasiun.Text);
-                        cmd2.Parameters.AddWithValue("@e1", txte1.Text);
-                        cmd2.Parameters.AddWithValue("@e2", txte2.Text);
-                        cmd2.Parameters.AddWithValue("@e3", txte3.Text);
-                        cmd2.Parameters.AddWithValue("@s", txts.Text);
-                        cmd2.Parameters.AddWithValue("@d", txtd.Text);
-                        cmd2.Parameters.AddWithValue("@b", txtb.Text);
-                        cmd2.Parameters.AddWithValue("@ba", txtba.Text);
-                        cmd2.Parameters.AddWithValue("@cr", txtcr.Text);
-                        cmd2.Parameters.AddWithValue("@m", txtm.Text);
-                        cmd2.Parameters.AddWithValue("@r", txtr.Text);
-                        cmd2.Parameters.AddWithValue("@c", txtc.Text);
-                        cmd2.Parameters.AddWithValue("@rl", txtrl.Text);
-                        cmd2.Parameters.AddWithValue("@jumlah", lbltotal.Text);
+                    cmd1.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
+                    cmd1.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
+                    cmd1.Parameters.AddWithValue("@jenis", txtjenis.Text);
+                    cmd1.Parameters.AddWithValue("@stasiun", txtstasiun.Text);
+                    cmd1.Parameters.AddWithValue("@e1", txte1.Text);
+                    cmd1.Parameters.AddWithValue("@e2", txte2.Text);
+                    cmd1.Parameters.AddWithValue("@e3", txte3.Text);
+                    cmd1.Parameters.AddWithValue("@s", txts.Text);
+                    cmd1.Parameters.AddWithValue("@d", txtd.Text);
+                    cmd1.Parameters.AddWithValue("@b", txtb.Text);
+                    cmd1.Parameters.AddWithValue("@ba", txtba.Text);
+                    cmd1.Parameters.AddWithValue("@cr", txtcr.Text);
+                    cmd1.Parameters.AddWithValue("@m", txtm.Text);
+                    cmd1.Parameters.AddWithValue("@r", txtr.Text);
+                    cmd1.Parameters.AddWithValue("@c", txtc.Text);
+                    cmd1.Parameters.AddWithValue("@rl", txtrl.Text);
+                    cmd1.Parameters.AddWithValue("@jumlah", lbltotal.Text);
 
-                        cmd1.ExecuteNonQuery();
-                        cmd2.ExecuteNonQuery();
+                    cmd2.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
+                    cmd2.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
+                    cmd2.Parameters.AddWithValue("@jenis", txtjenis.Text);
+                    cmd2.Parameters.AddWithValue("@stasiun", txtstasiun.Text);
+                    cmd2.Parameters.AddWithValue("@e1", txte1.Text);
+                    cmd2.Parameters.AddWithValue("@e2", txte2.Text);
+                    cmd2.Parameters.AddWithValue("@e3", txte3.Text);
+                    cmd2.Parameters.AddWithValue("@s", txts.Text);
+                    cmd2.Parameters.AddWithValue("@d", txtd.Text);
+                    cmd2.Parameters.AddWithValue("@b", txtb.Text);
+                    cmd2.Parameters.AddWithValue("@ba", txtba.Text);
+                    cmd2.Parameters.AddWithValue("@cr", txtcr.Text);
+                    cmd2.Parameters.AddWithValue("@m", txtm.Text);
+                    cmd2.Parameters.AddWithValue("@r", txtr.Text);
+                    cmd2.Parameters.AddWithValue("@c", txtc.Text);
+                    cmd2.Parameters.AddWithValue("@rl", txtrl.Text);
+                    cmd2.Parameters.AddWithValue("@jumlah", lbltotal.Text);
 
-                        MessageBox.Show("Data Berhasil Disimpan", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        setdefault();
-                    }
+                    cmd1.ExecuteNonQuery();
+                    cmd2.ExecuteNonQuery();
+
+                    MessageBox.Show("Data Berhasil Disimpan", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    setdefault();
                 }
                 else
                 {
@@ -107,7 +106,7 @@ namespace GOS_FxApps
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Data Gagal Dimasukkan" + ex.Message);
+                MessageBox.Show("Data Gagal Dimasukkan nih" + ex.Message);
             }
             finally
             {
@@ -173,7 +172,7 @@ namespace GOS_FxApps
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi Kesalahan Update Data " + ex.Message);
+                MessageBox.Show("Terjadi Kesalahan Update Data nih " + ex.Message);
             }
             finally
             {
@@ -364,7 +363,7 @@ namespace GOS_FxApps
                 else
                 {
                     infocari = false;
-                    btncari.Text = "Cari";
+                    btncari.Text = "Reset";
                 }
             }
             else
