@@ -526,8 +526,8 @@ namespace GOS_FxApps
                 }
                 else
                 {
-                    infocari = false;
-                    btncari.Text = "Cari";
+                    infocari = true;
+                    btncari.Text = "Reset";
                 }
             }
             else

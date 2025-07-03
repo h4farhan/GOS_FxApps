@@ -61,6 +61,59 @@ namespace GOS_FxApps
                 frmrpt.Show();
         }
 
+        private void formPemakaian()
+        {
+            int bulan = datecaripemakaian.Value.Month;     
+            int tahun = datecaripemakaian.Value.Year;
+
+            int jumlahHari = DateTime.DaysInMonth(tahun, bulan);
+
+            string namaFileRDLC = null;
+            switch (jumlahHari)
+            {
+                case 28:
+                    namaFileRDLC = "laporanPemakaian_28.rdlc";
+                    break;
+                case 29:
+                    namaFileRDLC = "laporanPemakaian_29.rdlc";
+                    break;
+                case 30:
+                    namaFileRDLC = "laporanPemakaian_30.rdlc";
+                    break;
+                case 31:
+                    namaFileRDLC = "laporanPemakaian_31.rdlc";
+                    break;
+            }
+
+            var adapter = new GOS_FxApps.DataSet.laporanpemakaianTableAdapters.sp_LaporanPemakaianMaterialTableAdapter();
+            GOS_FxApps.DataSet.laporanpemakaian.sp_LaporanPemakaianMaterialDataTable data = adapter.GetData(bulan, tahun);
+
+            var adapterPengiriman = new GOS_FxApps.DataSet.PengirimanFormTableAdapters.sp_LaporanPengirimanTableAdapter();
+            GOS_FxApps.DataSet.PengirimanForm.sp_LaporanPengirimanDataTable datapengiriman = adapterPengiriman.GetData(bulan, tahun);
+
+            frmrpt = new reportviewr();
+            frmrpt.reportViewer1.Reset();
+            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, namaFileRDLC);
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetlaporanpemakaian", (DataTable)data));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetjumlahpengiriman", (DataTable)datapengiriman));
+
+            ReportParameter[] parameters = new ReportParameter[]
+            {
+        new ReportParameter("bulan", bulan.ToString()),
+        new ReportParameter("tahun", tahun.ToString())
+            };
+
+            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
+            frmrpt.reportViewer1.RefreshReport();
+            frmrpt.Show();
+        }
+
         private void formperbaikan()
         {
             DateTime tanggal1 = datecari.Value.Date;
@@ -169,13 +222,19 @@ namespace GOS_FxApps
             else if (pilihan == "Pengiriman")
             {
                 formpengiriman();
-            } 
+            }
+            else if (pilihan == "Pemakaian Material")
+            {
+                formPemakaian();
+            }
         }
 
         private void printpenerimaan_Load(object sender, EventArgs e)
         {
             datecari.Checked = false;
             datecari.Value = DateTime.Now.Date;
+            datecaripemakaian.Checked = false;
+            datecaripemakaian.Value = DateTime.Now.Date;
         }
 
         private void tampilpenerimaan()
@@ -299,6 +358,31 @@ namespace GOS_FxApps
                 dataGridView1.Columns[22].HeaderText = "Jumlah";
                 dataGridView1.Columns[23].HeaderText = "Tanggal Penerimaan";
                 dataGridView1.Columns[24].HeaderText = "Tanggal Perbaikan";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan: " + ex.Message);
+            }
+        }
+
+        private void tampilpemakaianmaterial()
+        {
+            try
+            {
+                string query = "SELECT * FROM pemakaian_material";
+                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                ad.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].HeaderText = "Kode Barang";
+                dataGridView1.Columns[2].HeaderText = "Nama Barang";
+                dataGridView1.Columns[3].HeaderText = "Tanggal Pemakaian";
+                dataGridView1.Columns[4].HeaderText = "Jumlah Pemakaian";
             }
             catch (Exception ex)
             {
@@ -460,6 +544,44 @@ namespace GOS_FxApps
             }
         }
 
+        private bool caripemakaian()
+        {
+            int bulan = datecaripemakaian.Value.Month;
+            int tahun = datecaripemakaian.Value.Year;
+
+            DataTable dt = new DataTable();
+
+            string query = "SELECT * FROM pemakaian_material WHERE YEAR(tanggalPemakaian) = @year AND MONTH(tanggalPemakaian) = @bulan;";
+
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@year", tahun);
+                cmd.Parameters.AddWithValue("@bulan", bulan);
+
+                try
+                {
+                    conn.Open();
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+
+                    dataGridView1.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan saat pencarian: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
+                return dt.Rows.Count > 0;
+            }
+        }
+
         private void btncari_Click(object sender, EventArgs e)
         {
 
@@ -482,8 +604,8 @@ namespace GOS_FxApps
                     }
                     else
                     {
-                        infocari = false;
-                        btncari.Text = "Cari";
+                        infocari = true;
+                        btncari.Text = "Reset";
                         jumlahdata();
                     }
                 }
@@ -514,8 +636,8 @@ namespace GOS_FxApps
                     }
                     else
                     {
-                        infocari = false;
-                        btncari.Text = "Cari";
+                        infocari = true;
+                        btncari.Text = "Reset";
                         jumlahdata();
                     }
                 }
@@ -546,8 +668,8 @@ namespace GOS_FxApps
                     }
                     else
                     {
-                        infocari = false;
-                        btncari.Text = "Cari";
+                        infocari = true;
+                        btncari.Text = "Reset";
                         jumlahdata();
                     }
                 }
@@ -562,6 +684,38 @@ namespace GOS_FxApps
 
                     guna2Panel4.ResetText();
                     datecari.Checked = false;
+                }
+            }
+            else if (pilihan == "Pemakaian Material")
+            {
+                if (!infocari)
+                {
+                    bool hasilCari = caripemakaian();
+                    if (hasilCari)
+                    {
+                        infocari = true;
+                        btnprint.Enabled = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                    else
+                    {
+                        infocari = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                }
+                else
+                {
+                    tampilpemakaianmaterial();
+                    infocari = false;
+                    btncari.Text = "Cari";
+                    jumlahdata();
+
+                    btnprint.Enabled = false;
+
+                    guna2Panel4.ResetText();
+                    datecaripemakaian.Checked = false;
                 }
             }
         }
@@ -595,9 +749,9 @@ namespace GOS_FxApps
                 btnprint.Enabled = false;
                 guna2Panel4.ResetText();
                 datecari.Checked = false;
-                paneldata.Visible = false;
+                paneldata2.Visible = false;
 
-                paneldata.Visible = true;
+                paneldata2.Visible = true;
                 tampilpenerimaan();
                 TambahCancelOption();
                 jumlahdata();
@@ -610,9 +764,9 @@ namespace GOS_FxApps
                 btnprint.Enabled = false;
                 guna2Panel4.ResetText();
                 datecari.Checked = false;
-                paneldata.Visible = false;
+                paneldata2.Visible = false;
 
-                paneldata.Visible = true;
+                paneldata2.Visible = true;
                 tampilperbaikan();
                 TambahCancelOption();
                 jumlahdata();
@@ -625,16 +779,32 @@ namespace GOS_FxApps
                 btnprint.Enabled = false;
                 guna2Panel4.ResetText();
                 datecari.Checked = false;
-                paneldata.Visible = false;
+                paneldata2.Visible = false;
 
-                paneldata.Visible = true;
+                paneldata2.Visible = true;
                 tampilpengiriman();
+                TambahCancelOption();
+                jumlahdata();
+            }
+            else if (pilihan == "Pemakaian Material")
+            {
+                //reset dulu
+                infocari = false;
+                btncari.Text = "Cari";
+                btnprint.Enabled = false;
+                guna2Panel4.ResetText();
+                datecaripemakaian.Checked = false;
+                paneldata2.Visible = false;
+
+                paneldata1.Visible = true;
+                tampilpemakaianmaterial();
                 TambahCancelOption();
                 jumlahdata();
             }
             else if (pilihan == "Cancel")
             {
-                paneldata.Visible = false;
+                paneldata1.Visible = false;
+                paneldata2.Visible = false;
                 cmbpilihdata.SelectedIndex = -1;
                 dataGridView1.DataSource = null;
             }

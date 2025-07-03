@@ -362,7 +362,7 @@ namespace GOS_FxApps
                 }
                 else
                 {
-                    infocari = false;
+                    infocari = true;
                     btncari.Text = "Reset";
                 }
             }

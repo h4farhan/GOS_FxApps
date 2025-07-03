@@ -212,6 +212,14 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\laporanpemakaian.cs">
+      <DependentUpon>laporanpemakaian.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\laporanpemakaian.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>laporanpemakaian.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\PengirimanForm.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -338,6 +346,18 @@
     <EmbeddedResource Include="formstok.resx">
       <DependentUpon>formstok.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="laporanpemakaian_28.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="laporanpemakaian_29.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="laporanpemakaian_31.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="laporanpemakaian_30.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="loginform.resx">
       <DependentUpon>loginform.cs</DependentUpon>
     </EmbeddedResource>
@@ -390,6 +410,17 @@
     <EmbeddedResource Include="weldingp.resx">
       <DependentUpon>weldingp.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataSet\laporanpemakaian.xsc">
+      <DependentUpon>laporanpemakaian.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\laporanpemakaian.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>laporanpemakaian.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\laporanpemakaian.xss">
+      <DependentUpon>laporanpemakaian.xsd</DependentUpon>
+    </None>
     <None Include="DataSet\PengirimanForm.xsc">
       <DependentUpon>PengirimanForm.xsd</DependentUpon>
     </None>
