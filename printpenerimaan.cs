@@ -202,9 +202,45 @@ namespace GOS_FxApps
             frmrpt.Show();
         }
 
+        private void formwelding()
+        {
+            int bulan = datecaripemakaian.Value.Month;
+            int tahun = datecaripemakaian.Value.Year;
+
+            var adapter = new GOS_FxApps.DataSet.rb_stokTableAdapters.sp_Rb_StokTableAdapter();
+            GOS_FxApps.DataSet.rb_stok.sp_Rb_StokDataTable data = adapter.GetData(bulan, tahun);
+
+            var adapterfirst = new GOS_FxApps.DataSet.rb_stokTableAdapters.Rb_StokTableAdapter();
+            GOS_FxApps.DataSet.rb_stok.Rb_StokDataTable datafirst = adapterfirst.GetData(bulan, tahun);
+
+            MessageBox.Show("Jumlah baris: " + data.Rows.Count.ToString());
+
+            frmrpt = new reportviewr();
+            frmrpt.reportViewer1.Reset();
+            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "Rb_Stok.rdlc");
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetrbstok", (DataTable)data));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetfirstrbstok", (DataTable)datafirst));
+
+            ReportParameter[] parameters = new ReportParameter[]
+            {
+        new ReportParameter("bulan", bulan.ToString()),
+        new ReportParameter("tahun", tahun.ToString())
+            };
+
+            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
+            frmrpt.reportViewer1.RefreshReport();
+            frmrpt.Show();
+        }
+
         private reportviewr frmrpt;
 
-        private void guna2Button2_Click(object sender, EventArgs e)
+        private void guna2Button2_Click(object sender, EventArgs e) 
         {
             if (cmbpilihdata.SelectedItem == null)
                 return;
@@ -222,6 +258,10 @@ namespace GOS_FxApps
             else if (pilihan == "Pengiriman")
             {
                 formpengiriman();
+            }
+            else if (pilihan == "Welding Pieces")
+            {
+                formwelding();
             }
             else if (pilihan == "Pemakaian Material")
             {
@@ -358,6 +398,50 @@ namespace GOS_FxApps
                 dataGridView1.Columns[22].HeaderText = "Jumlah";
                 dataGridView1.Columns[23].HeaderText = "Tanggal Penerimaan";
                 dataGridView1.Columns[24].HeaderText = "Tanggal Perbaikan";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan: " + ex.Message);
+            }
+        }
+
+        private void tampilwelding()
+        {
+            try
+            {
+                string query = "SELECT * FROM Rb_Stok";
+                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                ad.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].HeaderText = "Tanggal";
+                dataGridView1.Columns[2].HeaderText = "Shift";
+                dataGridView1.Columns[3].HeaderText = "RB Masuk";
+                dataGridView1.Columns[4].HeaderText = "RB Keluar";
+                dataGridView1.Columns[5].HeaderText = "Stock";
+                dataGridView1.Columns[6].HeaderText = "Panjang RB (mm)";
+                dataGridView1.Columns[7].HeaderText = "Sisa Potongan RB (mm)";
+                dataGridView1.Columns[8].HeaderText = "RB Sawing E1-155 mm";
+                dataGridView1.Columns[9].HeaderText = "RB Sawing E2-220 mm";
+                dataGridView1.Columns[10].HeaderText = "RB Lathe E1-155 mm";
+                dataGridView1.Columns[11].HeaderText = "RB Lathe E2-220 mm";
+                dataGridView1.Columns[12].HeaderText = "Produksi RB E1-155 mm";
+                dataGridView1.Columns[13].HeaderText = "Produksi RB E2-220 mm";
+                dataGridView1.Columns[14].HeaderText = "Stock WPS E1-155 mm";
+                dataGridView1.Columns[15].HeaderText = "Stock WPS E2-220 mm";
+                dataGridView1.Columns[16].HeaderText = "Stock WPL E1-155 mm";
+                dataGridView1.Columns[17].HeaderText = "Stock WPL E2-220 mm";
+                dataGridView1.Columns[18].HeaderText = "Sisa Potongan RB (Kg)";
+                dataGridView1.Columns[19].HeaderText = "Waste (Kg)";
+                dataGridView1.Columns[20].HeaderText = "E1 (MM)";
+                dataGridView1.Columns[21].HeaderText = "E2 (MM)";
+                dataGridView1.Columns[22].HeaderText = "Total E1&E2";
+                dataGridView1.Columns[23].HeaderText = "Waste";
+                dataGridView1.Columns[24].HeaderText = "Keterangan";
             }
             catch (Exception ex)
             {
@@ -582,6 +666,44 @@ namespace GOS_FxApps
             }
         }
 
+        private bool cariwelding()
+        {
+            int bulan = datecaripemakaian.Value.Month;
+            int tahun = datecaripemakaian.Value.Year;
+
+            DataTable dt = new DataTable();
+
+            string query = "SELECT * FROM Rb_Stok WHERE YEAR(tanggal) = @year AND MONTH(tanggal) = @bulan;";
+
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@year", tahun);
+                cmd.Parameters.AddWithValue("@bulan", bulan);
+
+                try
+                {
+                    conn.Open();
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+
+                    dataGridView1.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan saat pencarian: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
+                return dt.Rows.Count > 0;
+            }
+        }
+
         private void btncari_Click(object sender, EventArgs e)
         {
 
@@ -686,6 +808,38 @@ namespace GOS_FxApps
                     datecari.Checked = false;
                 }
             }
+            else if (pilihan == "Welding Pieces")
+            {
+                if (!infocari)
+                {
+                    bool hasilCari = cariwelding();
+                    if (hasilCari)
+                    {
+                        infocari = true;
+                        btnprint.Enabled = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                    else
+                    {
+                        infocari = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                }
+                else
+                {
+                    tampilwelding();
+                    infocari = false;
+                    btncari.Text = "Cari";
+                    jumlahdata();
+
+                    btnprint.Enabled = false;
+
+                    guna2Panel4.ResetText();
+                    datecaripemakaian.Checked = false;
+                }
+            }
             else if (pilihan == "Pemakaian Material")
             {
                 if (!infocari)
@@ -724,6 +878,7 @@ namespace GOS_FxApps
         {
             int total = dataGridView1.Rows.Count;
             label4.Text = "Jumlah data: " + total.ToString();
+            jlhpanel1.Text = "Jumlah data: " + total.ToString();
         }
 
         private void TambahCancelOption()
@@ -783,6 +938,21 @@ namespace GOS_FxApps
 
                 paneldata2.Visible = true;
                 tampilpengiriman();
+                TambahCancelOption();
+                jumlahdata();
+            }
+            else if (pilihan == "Welding Pieces")
+            {
+                //reset dulu
+                infocari = false;
+                btncari.Text = "Cari";
+                btnprint.Enabled = false;
+                guna2Panel4.ResetText();
+                datecaripemakaian.Checked = false;
+                paneldata2.Visible = false;
+
+                paneldata1.Visible = true;
+                tampilwelding();
                 TambahCancelOption();
                 jumlahdata();
             }

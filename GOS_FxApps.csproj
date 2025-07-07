@@ -238,6 +238,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PerbaikanForm.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\rb_stok.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rb_stok.xsd</DependentUpon>
+    </Compile>
     <Compile Include="editpenerimaan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -401,6 +406,9 @@
     <EmbeddedResource Include="registrasi.resx">
       <DependentUpon>registrasi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Rb_Stok.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="reportviewr.resx">
       <DependentUpon>reportviewr.cs</DependentUpon>
     </EmbeddedResource>
@@ -453,6 +461,17 @@
     </None>
     <None Include="DataSet\PerbaikanForm.xss">
       <DependentUpon>PerbaikanForm.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\rb_stok.xsc">
+      <DependentUpon>rb_stok.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\rb_stok.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rb_stok.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\rb_stok.xss">
+      <DependentUpon>rb_stok.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
