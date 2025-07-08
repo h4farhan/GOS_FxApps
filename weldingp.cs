@@ -106,7 +106,7 @@ namespace GOS_FxApps
             }
             else
             {
-                MessageBox.Show("data null");
+                MessageBox.Show("Data Kosong");
             }
             reader.Close();
             conn.Close();

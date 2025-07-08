@@ -7132,10 +7132,10 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.61049in</Height>
+        <Height>2.49726in</Height>
         <Style />
       </Body>
-      <Width>10.95919in</Width>
+      <Width>10.79037in</Width>
       <Page>
         <PageHeader>
           <Height>2.79808cm</Height>
@@ -7260,16 +7260,6 @@
             </Border>
           </Style>
         </PageHeader>
-        <PageFooter>
-          <Height>1.42061cm</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </PageFooter>
         <PageHeight>21cm</PageHeight>
         <PageWidth>29.7cm</PageWidth>
         <LeftMargin>1cm</LeftMargin>

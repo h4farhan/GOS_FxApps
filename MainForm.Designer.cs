@@ -56,7 +56,6 @@ namespace GOS_FxApps
             this.entryButton = new FontAwesome.Sharp.IconButton();
             this.EditContainer = new System.Windows.Forms.Panel();
             this.iconButton12 = new FontAwesome.Sharp.IconButton();
-            this.iconButton11 = new FontAwesome.Sharp.IconButton();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.iconButton8 = new FontAwesome.Sharp.IconButton();
             this.iconButton9 = new FontAwesome.Sharp.IconButton();
@@ -456,14 +455,13 @@ namespace GOS_FxApps
             // EditContainer
             // 
             this.EditContainer.Controls.Add(this.iconButton12);
-            this.EditContainer.Controls.Add(this.iconButton11);
             this.EditContainer.Controls.Add(this.iconButton7);
             this.EditContainer.Controls.Add(this.iconButton8);
             this.EditContainer.Controls.Add(this.iconButton9);
             this.EditContainer.Controls.Add(this.Editbutton);
             this.EditContainer.Location = new System.Drawing.Point(3, 172);
             this.EditContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.EditContainer.MaximumSize = new System.Drawing.Size(232, 282);
+            this.EditContainer.MaximumSize = new System.Drawing.Size(232, 241);
             this.EditContainer.MinimumSize = new System.Drawing.Size(232, 60);
             this.EditContainer.Name = "EditContainer";
             this.EditContainer.Size = new System.Drawing.Size(232, 60);
@@ -481,7 +479,7 @@ namespace GOS_FxApps
             this.iconButton12.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton12.IconSize = 40;
             this.iconButton12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton12.Location = new System.Drawing.Point(0, 220);
+            this.iconButton12.Location = new System.Drawing.Point(0, 180);
             this.iconButton12.Margin = new System.Windows.Forms.Padding(2);
             this.iconButton12.Name = "iconButton12";
             this.iconButton12.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
@@ -491,29 +489,6 @@ namespace GOS_FxApps
             this.iconButton12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton12.UseVisualStyleBackColor = true;
-            // 
-            // iconButton11
-            // 
-            this.iconButton11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton11.FlatAppearance.BorderSize = 0;
-            this.iconButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton11.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.iconButton11.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.iconButton11.IconChar = FontAwesome.Sharp.IconChar.PlaneArrival;
-            this.iconButton11.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.iconButton11.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton11.IconSize = 40;
-            this.iconButton11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton11.Location = new System.Drawing.Point(0, 180);
-            this.iconButton11.Margin = new System.Windows.Forms.Padding(2);
-            this.iconButton11.Name = "iconButton11";
-            this.iconButton11.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.iconButton11.Size = new System.Drawing.Size(232, 40);
-            this.iconButton11.TabIndex = 8;
-            this.iconButton11.Text = "     Stok Material";
-            this.iconButton11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton11.UseVisualStyleBackColor = true;
             // 
             // iconButton7
             // 
@@ -846,7 +821,7 @@ namespace GOS_FxApps
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel1;
         private FontAwesome.Sharp.IconButton dashboardButton;
-        private Panel entryContainer;
+        public Panel entryContainer;
         private FontAwesome.Sharp.IconButton penerimaanButton1;
         private FontAwesome.Sharp.IconButton entryButton;
         private FontAwesome.Sharp.IconButton iconButton2;
@@ -859,7 +834,6 @@ namespace GOS_FxApps
         private FontAwesome.Sharp.IconButton iconButton9;
         private FontAwesome.Sharp.IconButton Editbutton;
         private FontAwesome.Sharp.IconButton iconButton12;
-        private FontAwesome.Sharp.IconButton iconButton11;
         private System.Windows.Forms.Timer edittimer;
         private Guna.UI2.WinForms.Guna2ControlBox ControlBoxButton;
         private FontAwesome.Sharp.IconButton iconButton7;

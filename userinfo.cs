@@ -47,6 +47,9 @@ namespace GOS_FxApps
             MainForm.Instance.setvisiblefalse();
             MainForm.Instance.SwitchPanel(new Dashboard());
             MainForm.Instance.lbluser.Text = "";
+            MainForm.Instance.entryContainer.Size = MainForm.Instance.defaultentrycontainer;
+            MainForm.Instance.EditContainer.Size = MainForm.Instance.defaulteditcontainer;
+            MainForm.Instance.historycontainer.Size = MainForm.Instance.defaulhistorycontainer;
             this.Close();
         }
         private void userinfo_Load(object sender, EventArgs e)

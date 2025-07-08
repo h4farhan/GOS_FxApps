@@ -173,7 +173,7 @@
             this.datepemakaian.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.datepemakaian.ForeColor = System.Drawing.Color.White;
             this.datepemakaian.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.datepemakaian.Location = new System.Drawing.Point(71, 274);
+            this.datepemakaian.Location = new System.Drawing.Point(73, 286);
             this.datepemakaian.Margin = new System.Windows.Forms.Padding(2);
             this.datepemakaian.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.datepemakaian.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
@@ -188,7 +188,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(68, 327);
+            this.label6.Location = new System.Drawing.Point(70, 339);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(121, 19);
@@ -201,7 +201,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(68, 245);
+            this.label5.Location = new System.Drawing.Point(70, 257);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(124, 19);
@@ -214,7 +214,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(68, 169);
+            this.label4.Location = new System.Drawing.Point(70, 181);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(121, 19);
@@ -237,7 +237,7 @@
             this.txtjumlah.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtjumlah.ForeColor = System.Drawing.Color.White;
             this.txtjumlah.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtjumlah.Location = new System.Drawing.Point(71, 354);
+            this.txtjumlah.Location = new System.Drawing.Point(73, 366);
             this.txtjumlah.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtjumlah.Name = "txtjumlah";
             this.txtjumlah.PlaceholderText = "4xxxx";
@@ -261,7 +261,7 @@
             this.cmbnama.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbnama.ForeColor = System.Drawing.Color.White;
             this.cmbnama.ItemHeight = 30;
-            this.cmbnama.Location = new System.Drawing.Point(71, 197);
+            this.cmbnama.Location = new System.Drawing.Point(73, 209);
             this.cmbnama.Margin = new System.Windows.Forms.Padding(2);
             this.cmbnama.Name = "cmbnama";
             this.cmbnama.Size = new System.Drawing.Size(235, 36);

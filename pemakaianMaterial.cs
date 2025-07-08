@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -210,25 +211,16 @@ namespace GOS_FxApps
 
         public void combonama()
         {
-            try
+            using (SqlConnection conn = Koneksi.GetConnection())
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM stok_material", conn);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                string query = "SELECT * FROM stok_material";
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
                 cmbnama.DataSource = dt;
-                cmbnama.DisplayMember = "namaBarang";
-                cmbnama.ValueMember = "kodeBarang";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Eror Combobox " + ex.Message);
-            }
-            finally
-            { 
-                conn.Close();
+                cmbnama.DisplayMember = "namaBarang"; 
+                cmbnama.ValueMember = "kodeBarang";  
             }
         }
 
@@ -330,6 +322,5 @@ namespace GOS_FxApps
             btnbatal.Enabled = false;
             btnsimpan.Text = "Simpan Data";
         }
-
     }
 }

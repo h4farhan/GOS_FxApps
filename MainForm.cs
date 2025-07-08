@@ -25,7 +25,9 @@ namespace GOS_FxApps {
         
         public bool loginstatus = false;
 
-        private bool infouser = false;
+        public Size defaultentrycontainer;
+        public Size defaulteditcontainer;
+        public Size defaulhistorycontainer;
 
         public MainForm()
         {
@@ -53,6 +55,9 @@ namespace GOS_FxApps {
             {
                 setvisiblefalse();
             }
+            defaulhistorycontainer = historycontainer.Size;
+            defaultentrycontainer = entryContainer.Size;
+            defaulteditcontainer = EditContainer.Size;
         }
 
 
@@ -241,7 +246,6 @@ namespace GOS_FxApps {
             {
                 if (form == null || form.IsDisposed)
                 {
-                    infouser = true;
                     form = new userinfo();
 
                     Point lokasi = iconButton14.PointToScreen(Point.Empty);
@@ -257,7 +261,6 @@ namespace GOS_FxApps {
 
                     form.FormClosed += (s, args) =>
                     {
-                        infouser = false;
                         form = null;
                     };
 
