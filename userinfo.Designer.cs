@@ -30,10 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.lbluser = new System.Windows.Forms.Label();
             this.lbljabatan = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -42,7 +40,6 @@
             this.shadowform = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.radiusform = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -57,25 +54,14 @@
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.UserCheck;
             this.iconPictureBox1.IconColor = System.Drawing.Color.White;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 110;
+            this.iconPictureBox1.IconSize = 111;
             this.iconPictureBox1.Location = new System.Drawing.Point(2, 2);
             this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(119, 110);
+            this.iconPictureBox1.Size = new System.Drawing.Size(119, 111);
             this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.iconPictureBox1.TabIndex = 0;
             this.iconPictureBox1.TabStop = false;
-            // 
-            // guna2ControlBox1
-            // 
-            this.guna2ControlBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.Red;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(331, 0);
-            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(34, 31);
-            this.guna2ControlBox1.TabIndex = 1;
             // 
             // lbluser
             // 
@@ -86,7 +72,7 @@
             this.lbluser.Location = new System.Drawing.Point(2, 0);
             this.lbluser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbluser.Name = "lbluser";
-            this.lbluser.Size = new System.Drawing.Size(238, 53);
+            this.lbluser.Size = new System.Drawing.Size(238, 55);
             this.lbluser.TabIndex = 9;
             this.lbluser.Text = "Halo, Muhammad Zulkarnain Effendy";
             this.lbluser.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -97,29 +83,20 @@
             this.lbljabatan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbljabatan.Font = new System.Drawing.Font("Century Gothic", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbljabatan.ForeColor = System.Drawing.Color.White;
-            this.lbljabatan.Location = new System.Drawing.Point(2, 61);
+            this.lbljabatan.Location = new System.Drawing.Point(2, 63);
             this.lbljabatan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbljabatan.Name = "lbljabatan";
-            this.lbljabatan.Size = new System.Drawing.Size(238, 48);
+            this.lbljabatan.Size = new System.Drawing.Size(238, 49);
             this.lbljabatan.TabIndex = 10;
             this.lbljabatan.Text = "Operator";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.guna2ControlBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(365, 31);
-            this.panel1.TabIndex = 11;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.tableLayoutPanel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 31);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(123, 150);
+            this.panel2.Size = new System.Drawing.Size(123, 151);
             this.panel2.TabIndex = 12;
             // 
             // tableLayoutPanel1
@@ -134,7 +111,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(123, 150);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(123, 151);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panel3
@@ -142,9 +119,9 @@
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.tableLayoutPanel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(123, 31);
+            this.panel3.Location = new System.Drawing.Point(123, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(242, 150);
+            this.panel3.Size = new System.Drawing.Size(242, 151);
             this.panel3.TabIndex = 13;
             // 
             // label2
@@ -173,7 +150,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.21048F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.78953F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(242, 109);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(242, 112);
             this.tableLayoutPanel2.TabIndex = 11;
             // 
             // shadowform
@@ -193,17 +170,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.ClientSize = new System.Drawing.Size(365, 181);
+            this.ClientSize = new System.Drawing.Size(365, 151);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "userinfo";
             this.Text = "userinfo";
             this.Load += new System.EventHandler(this.userinfo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -217,10 +192,8 @@
         #endregion
 
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         public System.Windows.Forms.Label lbluser;
         public System.Windows.Forms.Label lbljabatan;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel3;

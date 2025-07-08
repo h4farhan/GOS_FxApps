@@ -26,8 +26,6 @@ namespace GOS_FxApps
             setdefault();
             tampil();
             btnsimpan.Enabled = false;
-            datecari.Checked = false;
-            datecari.Value = DateTime.Now.Date;
         }
 
 
@@ -414,6 +412,13 @@ namespace GOS_FxApps
             btncancel.Enabled = false;
             btnsimpan.Enabled = false;
             btnhitung.Text = "Hitung";
+        }
+
+        private void Penerimaan_Load(object sender, EventArgs e)
+        {
+
+            datecari.Checked = false;
+            datecari.Value = DateTime.Now.Date;
         }
     }
 }

@@ -25,6 +25,8 @@ namespace GOS_FxApps {
         
         public bool loginstatus = false;
 
+        private bool infouser = false;
+
         public MainForm()
         {
             InitializeComponent();
@@ -231,27 +233,40 @@ namespace GOS_FxApps {
             lbldate.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy  [HH:mm:ss]");
             shiftcontrol();
         }
+
+        private userinfo form = null;
         private void iconButton14_Click(object sender, EventArgs e)
-        {    
+        {
             if (loginstatus == true)
             {
+                if (form == null || form.IsDisposed)
+                {
+                    infouser = true;
+                    form = new userinfo();
 
-                userinfo form = new userinfo();
+                    Point lokasi = iconButton14.PointToScreen(Point.Empty);
 
-                Point lokasi = iconButton14.PointToScreen(Point.Empty);
-                
+                    int formwidth = form.Width;
+                    int formheight = form.Height;
 
-                int formwidth = form.Width;
-                int formheight = form.Height;
-                
+                    int x = lokasi.X + iconButton14.Width - formwidth;
+                    int y = lokasi.Y + iconButton14.Height;
 
-                int x = lokasi.X + iconButton14.Width - formwidth;
-                int y = lokasi.Y + iconButton14.Height;
+                    form.StartPosition = FormStartPosition.Manual;
+                    form.Location = new Point(x, y);
 
-                form.StartPosition = FormStartPosition.Manual;
-                form.Location = new Point(x, y);
-                form.Show();
+                    form.FormClosed += (s, args) =>
+                    {
+                        infouser = false;
+                        form = null;
+                    };
 
+                    form.Show();
+                }
+                else
+                {
+                    form.Close();
+                }
             }
             else
             {

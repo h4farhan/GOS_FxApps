@@ -213,8 +213,6 @@ namespace GOS_FxApps
             var adapterfirst = new GOS_FxApps.DataSet.rb_stokTableAdapters.Rb_StokTableAdapter();
             GOS_FxApps.DataSet.rb_stok.Rb_StokDataTable datafirst = adapterfirst.GetData(bulan, tahun);
 
-            MessageBox.Show("Jumlah baris: " + data.Rows.Count.ToString());
-
             frmrpt = new reportviewr();
             frmrpt.reportViewer1.Reset();
             frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "Rb_Stok.rdlc");
@@ -275,6 +273,7 @@ namespace GOS_FxApps
             datecari.Value = DateTime.Now.Date;
             datecaripemakaian.Checked = false;
             datecaripemakaian.Value = DateTime.Now.Date;
+            datecaripemakaian.ShowUpDown = true;
         }
 
         private void tampilpenerimaan()
