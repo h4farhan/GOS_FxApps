@@ -33,7 +33,9 @@ namespace GOS_FxApps {
             setvisiblefalse();
         }
 
-        private void SwitchPanel(Form panel)
+
+        //kode utama
+        public void SwitchPanel(Form panel)
         {
             panel4.Controls.Clear();
             panel.TopLevel = false;
@@ -41,39 +43,39 @@ namespace GOS_FxApps {
             panel.Dock = DockStyle.Fill;
             panel.Show();
         }
-
-        private void setvisiblefalse()
+        private void MainForm_Load(object sender, EventArgs e)
         {
-            entryContainer.Visible = false;
-            EditContainer.Visible = false;
-            btnHistori.Visible = false; 
-            btnlaporan.Visible = false;
-            historycontainer.Visible = false;
+            SwitchPanel(new Dashboard());
+            Instance = this;
+            if (!loginstatus)
+            {
+                setvisiblefalse();
+            }
         }
 
-        public void setvisibletrue()
-        {
-            entryContainer.Visible = true;
-            EditContainer.Visible = true;
-            btnHistori.Visible = true;
-            btnlaporan.Visible = true;
-            historycontainer.Visible = true;
-        }
 
+        //kode untuk panel samping
         private void HamburgerButton_Click_1(object sender, EventArgs e)
         {
             if (sidebarx)
             {
                 sidebarPanel.Width = sidebarPanel.MaximumSize.Width;
-                sidebarx = false ;
+                sidebarx = false;
             }
             else
             {
                 sidebarPanel.Width = sidebarPanel.MinimumSize.Width;
-                sidebarx = true ;
+                sidebarx = true;
             }
         }
-
+        private void dashboardButton_Click(object sender, EventArgs e)
+        {
+            SwitchPanel(new Dashboard());
+        }
+        private void entryButton_Click(object sender, EventArgs e)
+        {
+            entrytimer.Start();
+        }
         private void entrytimer_Tick(object sender, EventArgs e)
         {
             if (entryprodx)
@@ -97,12 +99,6 @@ namespace GOS_FxApps {
 
             }
         }
-
-        private void entryButton_Click(object sender, EventArgs e)
-        {
-            entrytimer.Start();
-        }
-
         private void edittimer_Tick(object sender, EventArgs e)
         {
             if (editx)
@@ -126,53 +122,95 @@ namespace GOS_FxApps {
 
             }
         }
-
         private void Editbutton_Click(object sender, EventArgs e)
         {
             edittimer.Start();
         }
-
-        private void dashboardButton_Click(object sender, EventArgs e)
-        {
-            SwitchPanel(new Dashboard());
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            SwitchPanel(new Dashboard());
-            Instance = this;
-        }
-
         private void penerimaanButton1_Click(object sender, EventArgs e)
         {
             SwitchPanel(new Penerimaan());
         }
-
         private void iconButton1_Click(object sender, EventArgs e)
         {
             SwitchPanel(new Perbaikan());
         }
-
         private void iconButton2_Click(object sender, EventArgs e)
         {
             SwitchPanel(new Pengiriman());
         }
-
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            SwitchPanel(new weldingp());
+        }
+        private void iconButton4_Click(object sender, EventArgs e)
+        {
+            SwitchPanel(new pemakaianMaterial());
+        }
         private void iconButton9_Click(object sender, EventArgs e)
         {
             SwitchPanel(new editpenerimaan());
         }
-
         private void iconButton8_Click(object sender, EventArgs e)
         {
             SwitchPanel(new editperbaikan());
         }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
+        private void btnlaporan_Click(object sender, EventArgs e)
         {
+            SwitchPanel(new printpenerimaan());
+        }
+        private void iconButton7_Click(object sender, EventArgs e)
+        {
+            SwitchPanel(new editpengiriman());
+        }
+        private void historitimer_Tick(object sender, EventArgs e)
+        {
+            if (historiy)
+            {
+                historycontainer.Height += 10;
+                if (historycontainer.Height >= historycontainer.MaximumSize.Height)
+                {
+                    historitimer.Stop();
+                    historiy = false;
 
+                }
+            }
+            else
+            {
+                historycontainer.Height -= 10;
+                if (historycontainer.Height <= historycontainer.MinimumSize.Height)
+                {
+                    historitimer.Stop();
+                    historiy = true;
+                }
+
+            }
+        }
+        private void btnHistori_Click(object sender, EventArgs e)
+        {
+            historitimer.Start();
         }
 
+
+        //kode fitur terbatas
+        public void setvisiblefalse()
+        {
+            entryContainer.Visible = false;
+            EditContainer.Visible = false;
+            btnHistori.Visible = false; 
+            btnlaporan.Visible = false;
+            historycontainer.Visible = false;
+        }
+        public void setvisibletrue()
+        {
+            entryContainer.Visible = true;
+            EditContainer.Visible = true;
+            btnHistori.Visible = true;
+            btnlaporan.Visible = true;
+            historycontainer.Visible = true;
+        }
+
+       
+        //kode untuk panel atas
         private void shiftcontrol()
         {
             TimeSpan sekarang = DateTime.Now.TimeOfDay;
@@ -188,13 +226,11 @@ namespace GOS_FxApps {
                 lblshift.Text = "3";
             }
         }
-
         private void jam_Tick(object sender, EventArgs e)
         {
             lbldate.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy  [HH:mm:ss]");
             shiftcontrol();
         }
-
         private void iconButton14_Click(object sender, EventArgs e)
         {    
             if (loginstatus == true)
@@ -223,55 +259,5 @@ namespace GOS_FxApps {
                 login.ShowDialog();
             }
         }
-
-        private void iconButton3_Click(object sender, EventArgs e)
-        {
-            SwitchPanel(new weldingp());
-        }
-
-        private void btnlaporan_Click(object sender, EventArgs e)
-        {
-            SwitchPanel(new printpenerimaan());
-        }
-
-        private void historitimer_Tick(object sender, EventArgs e)
-        {
-            if (historiy)
-            {
-                historycontainer.Height += 10;
-                if (historycontainer.Height >= historycontainer.MaximumSize.Height)
-                {
-                    historitimer.Stop();
-                    historiy = false;
-
-                }
-            }
-            else
-            {
-                historycontainer.Height -= 10;
-                if (historycontainer.Height <= historycontainer.MinimumSize.Height)
-                {
-                    historitimer.Stop();
-                    historiy = true;
-                }
-
-            }
-        }
-
-        private void btnHistori_Click(object sender, EventArgs e)
-        {
-            historitimer.Start();
-        }
-
-        private void iconButton4_Click(object sender, EventArgs e)
-        {
-            SwitchPanel(new pemakaianMaterial());
-        }
-
-        private void iconButton7_Click(object sender, EventArgs e)
-        {
-            SwitchPanel(new editpengiriman());
-        }
-
     }
 }

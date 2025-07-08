@@ -30,39 +30,36 @@ namespace GOS_FxApps
         {
             if (txtid.Text == "" || txtpw.Text == "")
             {
-                MessageBox.Show("isi woi");
+                MessageBox.Show("Harap Isi Data Terlebih Dahulu!!");
             }
             else
             {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM [user] WHERE id = @id AND password = @pw", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM users WHERE id = @id AND password = @pw", conn);
                     cmd.Parameters.AddWithValue("@id", txtid.Text);
                     cmd.Parameters.AddWithValue("@pw", txtpw.Text);
                     SqlDataReader dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
-
                         level = dr["lvl"].ToString();
                         name = dr["username"].ToString();
 
                         if (level == "Manajer")
                         {
                             MainForm.Instance.setvisibletrue();
-                            this.Hide();
                             MainForm.Instance.lbluser.Text = name + " [Manajer]";
-
+                            this.Close();
                         }
                         else if (level == "Operator")
-                        {
-                            this.Hide();
+                        { 
                             MainForm.Instance.setvisibletrue();
                             MainForm.Instance.lbluser.Text = name + " [Operator]";
-                            
+                            this.Close();
                         }
                         else if (level == "Supervisor")
-                        {
-                            this.Hide();
+                        {    
                             MainForm.Instance.lbluser.Text = name + " [Supervisor]";
+                            this.Close();
                         } 
                         else if (level == "spare")
                         {
@@ -72,7 +69,7 @@ namespace GOS_FxApps
                     } 
                     else
                     {
-                        MessageBox.Show("Salah Woi");
+                        MessageBox.Show("Id Dan Password Anda Salah, SilahkaN Coba Kembali!!");
                         txtid.Clear();
                         txtpw.Clear();
                     }
@@ -80,5 +77,16 @@ namespace GOS_FxApps
             }
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                txtpw.PasswordChar = '\0';
+            }
+            else
+            {
+                txtpw.PasswordChar = '*';
+            }
+        }
     }
 }
