@@ -77,7 +77,7 @@ namespace GOS_FxApps
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(735, 45);
+            this.panel1.Size = new System.Drawing.Size(735, 58);
             this.panel1.TabIndex = 1;
             // 
             // label2
@@ -85,7 +85,7 @@ namespace GOS_FxApps
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(141, 13);
+            this.label2.Location = new System.Drawing.Point(141, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 25);
             this.label2.TabIndex = 1;
@@ -96,7 +96,7 @@ namespace GOS_FxApps
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.label1.Location = new System.Drawing.Point(17, 16);
+            this.label1.Location = new System.Drawing.Point(17, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 19);
             this.label1.TabIndex = 0;
@@ -106,10 +106,10 @@ namespace GOS_FxApps
             // 
             this.panel2.Controls.Add(this.tableLayoutPanel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 45);
+            this.panel2.Location = new System.Drawing.Point(0, 58);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(405, 669);
+            this.panel2.Size = new System.Drawing.Size(405, 656);
             this.panel2.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -126,7 +126,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 7F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(405, 669);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(405, 656);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // guna2Panel1
@@ -149,7 +149,7 @@ namespace GOS_FxApps
             this.guna2Panel1.Location = new System.Drawing.Point(18, 2);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(376, 658);
+            this.guna2Panel1.Size = new System.Drawing.Size(376, 645);
             this.guna2Panel1.TabIndex = 2;
             // 
             // txtrod10
@@ -418,10 +418,10 @@ namespace GOS_FxApps
             this.panel3.Controls.Add(this.guna2Button2);
             this.panel3.Controls.Add(this.tableLayoutPanel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(405, 45);
+            this.panel3.Location = new System.Drawing.Point(405, 58);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(330, 669);
+            this.panel3.Size = new System.Drawing.Size(330, 656);
             this.panel3.TabIndex = 3;
             // 
             // guna2Button2
@@ -434,7 +434,7 @@ namespace GOS_FxApps
             this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(196, 608);
+            this.guna2Button2.Location = new System.Drawing.Point(196, 595);
             this.guna2Button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(122, 35);
@@ -457,7 +457,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 6F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(330, 605);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(330, 592);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // guna2Panel2
@@ -473,7 +473,7 @@ namespace GOS_FxApps
             this.guna2Panel2.Location = new System.Drawing.Point(3, 2);
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(316, 595);
+            this.guna2Panel2.Size = new System.Drawing.Size(316, 582);
             this.guna2Panel2.TabIndex = 2;
             // 
             // btncari
@@ -584,7 +584,7 @@ namespace GOS_FxApps
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(293, 525);
+            this.dataGridView1.Size = new System.Drawing.Size(293, 512);
             this.dataGridView1.TabIndex = 39;
             // 
             // Pengiriman

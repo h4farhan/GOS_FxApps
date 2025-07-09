@@ -44,7 +44,10 @@ namespace GOS_FxApps
                 dtWithImage.Columns.Add("Kode Barang", typeof(string));
                 dtWithImage.Columns.Add("Nama Barang", typeof(string));
                 dtWithImage.Columns.Add("Jumlah Stok", typeof(int));
-                dtWithImage.Columns.Add("Gambar", typeof(Image));
+                dtWithImage.Columns.Add("Gambar", typeof(Image)); 
+                dtWithImage.Columns.Add("Disimpan", typeof(DateTime));
+                dtWithImage.Columns.Add("Diubah", typeof(DateTime));
+
 
                 foreach (DataRow row in dt.Rows)
                 {
@@ -52,6 +55,8 @@ namespace GOS_FxApps
                     newRow["Kode Barang"] = row["kodeBarang"];
                     newRow["Nama Barang"] = row["namaBarang"];
                     newRow["Jumlah Stok"] = row["jumlahStok"];
+                    newRow["Disimpan"] = row["created_at"];
+                    newRow["Diubah"] = row["updated_at"];
 
                     if (row["Gambar"] != DBNull.Value)
                     {
@@ -119,6 +124,9 @@ namespace GOS_FxApps
                     dtWithImage.Columns.Add("Nama Barang", typeof(string));
                     dtWithImage.Columns.Add("Jumlah Stok", typeof(int));
                     dtWithImage.Columns.Add("Gambar", typeof(Image));
+                    dtWithImage.Columns.Add("Disimpan", typeof(DateTime));
+                    dtWithImage.Columns.Add("Diubah", typeof(DateTime));
+
 
                     foreach (DataRow row in dt.Rows)
                     {
@@ -126,6 +134,8 @@ namespace GOS_FxApps
                         newRow["Kode Barang"] = row["kodeBarang"];
                         newRow["Nama Barang"] = row["namaBarang"];
                         newRow["Jumlah Stok"] = row["jumlahStok"];
+                        newRow["Disimpan"] = row["created_at"];
+                        newRow["Diubah"] = row["updated_at"];
 
                         if (row["Gambar"] != DBNull.Value)
                         {
@@ -218,7 +228,7 @@ namespace GOS_FxApps
                             }
                         }
 
-                        using (SqlCommand cmd = new SqlCommand("INSERT INTO stok_material VALUES(@kodebarang,@namabarang,@stok,@foto)", conn))
+                        using (SqlCommand cmd = new SqlCommand("INSERT INTO stok_material (kodeBarang, namaBarang, jumlahStok, foto, created_at, updated_at) VALUES(@kodebarang,@namabarang,@stok,@foto,GETDATE(),GETDATE())", conn))
                         {
                             cmd.Parameters.AddWithValue("@kodebarang", txtkodebarang.Text);
                             cmd.Parameters.AddWithValue("@namabarang", txtnamabarang.Text);
@@ -256,7 +266,7 @@ namespace GOS_FxApps
             try
             {
                 conn.Open();
-                string query = "UPDATE stok_material SET namaBarang = @namabarang, jumlahStok = @stok, foto = @foto WHERE kodeBarang = @kodebarang";
+                string query = "UPDATE stok_material SET namaBarang = @namabarang, jumlahStok = @stok, foto = @foto, updated_at = GETDATE() WHERE kodeBarang = @kodebarang";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@kodebarang", txtkodebarang.Text);
                 cmd.Parameters.AddWithValue("@namabarang", txtnamabarang.Text);

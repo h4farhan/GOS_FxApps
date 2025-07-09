@@ -46,7 +46,8 @@ namespace GOS_FxApps
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
-               
+                dataGridView1.RowTemplate.Height = 35;
+
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "Tanggal Perbaikan";
                 dataGridView1.Columns[2].HeaderText = "Shift";

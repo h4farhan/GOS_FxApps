@@ -192,10 +192,35 @@ namespace GOS_FxApps {
 
             }
         }
-        private void btnHistori_Click(object sender, EventArgs e)
+        private void btnHistori_Click_1(object sender, EventArgs e)
         {
             historitimer.Start();
         }
+        private void iconButton24_Click(object sender, EventArgs e)
+        {
+            SwitchPanel(new historyPenerimaan());
+        }
+        private void iconButton11_Click(object sender, EventArgs e)
+        {
+            SwitchPanel(new historyPerbaikan());
+        }
+        private void iconButton10_Click(object sender, EventArgs e)
+        {
+            SwitchPanel(new historyPengiriman());
+        }
+        private void iconButton6_Click(object sender, EventArgs e)
+        {
+            SwitchPanel(new historyWelding());
+        }
+        private void iconButton5_Click(object sender, EventArgs e)
+        {
+            SwitchPanel(new historyPemakaianMaterial());
+        }
+        private void iconButton13_Click(object sender, EventArgs e)
+        {
+            SwitchPanel(new historyStokMaterial());
+        }
+
 
 
         //kode fitur terbatas
@@ -276,6 +301,6 @@ namespace GOS_FxApps {
                 Form login = new loginform();
                 login.ShowDialog();
             }
-        }
+        }      
     }
 }

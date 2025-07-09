@@ -286,11 +286,9 @@ namespace GOS_FxApps
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
-
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                dataGridView1.AutoResizeColumnHeadersHeight();
-                dataGridView1.Columns[1].FillWeight = 250;
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.RowTemplate.Height = 35;
 
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "Tanggal Penerimaan";
@@ -335,6 +333,7 @@ namespace GOS_FxApps
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.RowTemplate.Height = 35;
 
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "Tanggal Perbaikan";
@@ -384,6 +383,7 @@ namespace GOS_FxApps
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.RowTemplate.Height = 35;
 
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "Tanggal Pengiriman";
@@ -434,6 +434,7 @@ namespace GOS_FxApps
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.RowTemplate.Height = 35;
 
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "Tanggal";
@@ -485,6 +486,7 @@ namespace GOS_FxApps
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridView1.RowTemplate.Height = 35;
 
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "Kode Barang";

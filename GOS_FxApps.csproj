@@ -267,6 +267,42 @@
     <Compile Include="formstok.Designer.cs">
       <DependentUpon>formstok.cs</DependentUpon>
     </Compile>
+    <Compile Include="historyPemakaianMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="historyPemakaianMaterial.Designer.cs">
+      <DependentUpon>historyPemakaianMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="historyPenerimaan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="historyPenerimaan.Designer.cs">
+      <DependentUpon>historyPenerimaan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="historyPengiriman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="historyPengiriman.Designer.cs">
+      <DependentUpon>historyPengiriman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="historyPerbaikan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="historyPerbaikan.Designer.cs">
+      <DependentUpon>historyPerbaikan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="historyStokMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="historyStokMaterial.Designer.cs">
+      <DependentUpon>historyStokMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="historyWelding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="historyWelding.Designer.cs">
+      <DependentUpon>historyWelding.cs</DependentUpon>
+    </Compile>
     <Compile Include="koneksi.cs" />
     <Compile Include="loginform.cs">
       <SubType>Form</SubType>
@@ -350,6 +386,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formstok.resx">
       <DependentUpon>formstok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="historyPemakaianMaterial.resx">
+      <DependentUpon>historyPemakaianMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="historyPenerimaan.resx">
+      <DependentUpon>historyPenerimaan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="historyPengiriman.resx">
+      <DependentUpon>historyPengiriman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="historyPerbaikan.resx">
+      <DependentUpon>historyPerbaikan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="historyStokMaterial.resx">
+      <DependentUpon>historyStokMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="historyWelding.resx">
+      <DependentUpon>historyWelding.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="laporanpemakaian_28.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
