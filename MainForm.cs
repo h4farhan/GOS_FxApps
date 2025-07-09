@@ -240,8 +240,32 @@ namespace GOS_FxApps {
             btnlaporan.Visible = true;
             historycontainer.Visible = true;
         }
+        public void truemanajer()
+        {
 
-       
+        }
+        public void falsemanajer()
+        {
+
+        }
+        public void trueoperator()
+        {
+
+        }
+        public void falseoperator()
+        {
+
+        }
+        public void truesupervisor()
+        {
+
+        }
+        public void falsesupervisor()
+        {
+
+        }
+
+
         //kode untuk panel atas
         private void shiftcontrol()
         {
