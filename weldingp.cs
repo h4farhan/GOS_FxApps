@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,7 @@ namespace GOS_FxApps
         private int wpe2;
         private int wbe1;
         private int wbe2;
-        private int wastekg;
+        private double wastekg;
         private int ttle1e2mm;
         bool infocari = false;
         int idmulai;
@@ -90,86 +91,156 @@ namespace GOS_FxApps
                 dataGridView1.Columns[23].HeaderText = "Waste";
                 dataGridView1.Columns[24].HeaderText = "Keterangan";
             }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi kesalahan: " + ex.Message);
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void getdatastok()
         {
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT TOP 1 bstok from Rb_Stok order by id_stok DESC;", conn);
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
+            try
             {
-                lblstcokakhir.Text = reader["bstok"].ToString();
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT TOP 1 bstok from Rb_Stok order by id_stok DESC;", conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    lblstcokakhir.Text = reader["bstok"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Data Kosong");
+                }
+                reader.Close();
             }
-            else
+            catch (SqlException)
             {
-                MessageBox.Show("Data Kosong");
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            reader.Close();
-            conn.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally 
+            {
+                conn.Close();
+            }    
         }
         private void getdatastokedit()
         {
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT TOP 1 id_stok, bstok from Rb_Stok WHERE id_stok < @id ORDER BY id_stok DESC", conn);
-            cmd.Parameters.AddWithValue("@id", idmulai);
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
+            try
             {
-                lblstcokakhir.Text = reader["bstok"].ToString();
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT TOP 1 id_stok, bstok from Rb_Stok WHERE id_stok < @id ORDER BY id_stok DESC", conn);
+                cmd.Parameters.AddWithValue("@id", idmulai);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    lblstcokakhir.Text = reader["bstok"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("data null");
+                }
+                reader.Close();
             }
-            else
+            catch (SqlException)
             {
-                MessageBox.Show("data null");
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            reader.Close();
-            conn.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
         private void getdata()
         {
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT TOP 1 bstok,wpe1,wpe2,wbe1,wbe2,wastekg from Rb_Stok order by id_stok DESC;", conn);
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
+            try
             {
-                bstok = Convert.ToInt32(reader["bstok"]);
-                wpe1 = Convert.ToInt32(reader["wpe1"]);
-                wpe2 = Convert.ToInt32(reader["wpe2"]);
-                wbe1 = Convert.ToInt32(reader["wbe1"]);
-                wbe2 = Convert.ToInt32(reader["wbe2"]);
-                wastekg = Convert.ToInt32(reader["wastekg"]);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT TOP 1 bstok,wpe1,wpe2,wbe1,wbe2,wastekg from Rb_Stok order by id_stok DESC;", conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    bstok = Convert.ToInt32(reader["bstok"]);
+                    wpe1 = Convert.ToInt32(reader["wpe1"]);
+                    wpe2 = Convert.ToInt32(reader["wpe2"]);
+                    wbe1 = Convert.ToInt32(reader["wbe1"]);
+                    wbe2 = Convert.ToInt32(reader["wbe2"]);
+                    wastekg = Convert.ToDouble(reader["wastekg"]);
+                }
+                else
+                {
+                    MessageBox.Show("data null");
+                }
+                reader.Close();
             }
-            else
+            catch (SqlException)
             {
-                MessageBox.Show("data null");
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            reader.Close();
-            conn.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }      
         }
         private void getdataedit()
         {
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT TOP 1 bstok,wpe1,wpe2,wbe1,wbe2,wastekg from Rb_Stok WHERE id_stok < @id order by id_stok DESC", conn);
-            cmd.Parameters.AddWithValue("@id", idmulai);
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
+            try
             {
-                bstok = Convert.ToInt32(reader["bstok"]);
-                wpe1 = Convert.ToInt32(reader["wpe1"]);
-                wpe2 = Convert.ToInt32(reader["wpe2"]);
-                wbe1 = Convert.ToInt32(reader["wbe1"]);
-                wbe2 = Convert.ToInt32(reader["wbe2"]);
-                wastekg = Convert.ToInt32(reader["wastekg"]);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT TOP 1 bstok,wpe1,wpe2,wbe1,wbe2,wastekg from Rb_Stok WHERE id_stok < @id order by id_stok DESC", conn);
+                cmd.Parameters.AddWithValue("@id", idmulai);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    bstok = Convert.ToInt32(reader["bstok"]);
+                    wpe1 = Convert.ToInt32(reader["wpe1"]);
+                    wpe2 = Convert.ToInt32(reader["wpe2"]);
+                    wbe1 = Convert.ToInt32(reader["wbe1"]);
+                    wbe2 = Convert.ToInt32(reader["wbe2"]);
+                    wastekg = Convert.ToDouble(reader["wastekg"]);
+                }
+                else
+                {
+                    MessageBox.Show("data null");
+                }
+                reader.Close();
             }
-            else
+            catch (SqlException)
             {
-                MessageBox.Show("data null");
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            reader.Close();
-            conn.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }  
         }
         private void tampildataedit()
         {
@@ -213,9 +284,15 @@ namespace GOS_FxApps
                 }
                 reader.Close();
             }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi kesalahan Tampil: " + ex.Message);
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -292,7 +369,7 @@ namespace GOS_FxApps
 
             int panjangrbmm = SafeParse(txtpbar.Text);
 
-            int ttlwastekg = wastekg + sisarbkg;
+            double ttlwastekg = wastekg + sisarbkg;
             int ttlwaste = panjangrbmm - ttle1e2mm;
 
             lblwastekg.Text = ttlwastekg.ToString();
@@ -300,85 +377,87 @@ namespace GOS_FxApps
         }
         private void update()
         {
-            using (SqlConnection conn = Koneksi.GetConnection())
+            try
             {
-                conn.Open();
-                string query = "SELECT * FROM Rb_Stok WHERE id_stok > @id ORDER BY id_stok ASC";
-                SqlCommand cmd1 = new SqlCommand(query, conn);
-                cmd1.Parameters.AddWithValue("@id", idmulai);
-                SqlDataReader reader = cmd1.ExecuteReader();
-
-                List<datarows> rows = new List<datarows>();
-                while (reader.Read())
+                using (SqlConnection conn = Koneksi.GetConnection())
                 {
-                    rows.Add(new datarows
+                    conn.Open();
+                    string query = "SELECT * FROM Rb_Stok WHERE id_stok > @id ORDER BY id_stok ASC";
+                    SqlCommand cmd1 = new SqlCommand(query, conn);
+                    cmd1.Parameters.AddWithValue("@id", idmulai);
+                    SqlDataReader reader = cmd1.ExecuteReader();
+
+                    List<datarows> rows = new List<datarows>();
+                    while (reader.Read())
                     {
-                        id = Convert.ToInt32(reader["id_stok"]),
-                        dsmasuk = Convert.ToInt32(reader["bmasuk"]),
-                        dskeluar = Convert.ToDouble(reader["bkeluar"]),
-                        dsstok = Convert.ToDouble(reader["bstok"]),
-                        dsmasukpotonge1 = Convert.ToDouble(reader["bpe1"]),
-                        dsmasukpotonge2 = Convert.ToDouble(reader["bpe2"]),
-                        dsmasukbubute1 = Convert.ToDouble(reader["bbe1"]),
-                        dsmasukbubute2 = Convert.ToDouble(reader["bbe2"]),
-                        dsrbkeluare1 = Convert.ToDouble(reader["rbkeluare1"]),
-                        dsrbkeluare2 = Convert.ToDouble(reader["rbkeluare2"]),
-                        dsstokpotonge1 = Convert.ToDouble(reader["wpe1"]),
-                        dsstokpotonge2 = Convert.ToDouble(reader["wpe2"]),
-                        dsstokbubute1 = Convert.ToDouble(reader["wbe1"]),
-                        dsstokbubute2 = Convert.ToDouble(reader["wbe2"]),
-                        dssisapotongkg = Convert.ToDouble(reader["bsisakg"]),
-                        dswastekg = Convert.ToDouble(reader["wastekg"]),
-                    });
-                }
-                reader.Close();
+                        rows.Add(new datarows
+                        {
+                            id = Convert.ToInt32(reader["id_stok"]),
+                            dsmasuk = Convert.ToInt32(reader["bmasuk"]),
+                            dskeluar = Convert.ToDouble(reader["bkeluar"]),
+                            dsstok = Convert.ToDouble(reader["bstok"]),
+                            dsmasukpotonge1 = Convert.ToDouble(reader["bpe1"]),
+                            dsmasukpotonge2 = Convert.ToDouble(reader["bpe2"]),
+                            dsmasukbubute1 = Convert.ToDouble(reader["bbe1"]),
+                            dsmasukbubute2 = Convert.ToDouble(reader["bbe2"]),
+                            dsrbkeluare1 = Convert.ToDouble(reader["rbkeluare1"]),
+                            dsrbkeluare2 = Convert.ToDouble(reader["rbkeluare2"]),
+                            dsstokpotonge1 = Convert.ToDouble(reader["wpe1"]),
+                            dsstokpotonge2 = Convert.ToDouble(reader["wpe2"]),
+                            dsstokbubute1 = Convert.ToDouble(reader["wbe1"]),
+                            dsstokbubute2 = Convert.ToDouble(reader["wbe2"]),
+                            dssisapotongkg = Convert.ToDouble(reader["bsisakg"]),
+                            dswastekg = Convert.ToDouble(reader["wastekg"]),
+                        });
+                    }
+                    reader.Close();
 
-                SqlCommand cmddataedit = new SqlCommand("SELECT TOP 1 * FROM Rb_Stok WHERE id_stok = @id", conn);
-                cmddataedit.Parameters.AddWithValue("@id", idmulai);
-                SqlDataReader dr = cmddataedit.ExecuteReader();
+                    SqlCommand cmddataedit = new SqlCommand("SELECT TOP 1 * FROM Rb_Stok WHERE id_stok = @id", conn);
+                    cmddataedit.Parameters.AddWithValue("@id", idmulai);
+                    SqlDataReader dr = cmddataedit.ExecuteReader();
 
-                double dstok = 0,
-                       dmasukpotonge1 = 0,
-                       dmasukpotonge2 = 0,
-                       dkeluarbubute1 = 0,
-                       dkeluarbubute2 = 0,
-                       drbkeluare1 = 0,
-                       drbkeluare2 = 0,
-                       dstokpotonge1 = 0,
-                       dstokpotonge2 = 0,
-                       dstokbubute1 = 0,
-                       dstokbubute2 = 0,
-                       dsisapotongkg = 0,
-                       dwastekg = 0;
+                    double dstok = 0,
+                           dmasukpotonge1 = 0,
+                           dmasukpotonge2 = 0,
+                           dkeluarbubute1 = 0,
+                           dkeluarbubute2 = 0,
+                           drbkeluare1 = 0,
+                           drbkeluare2 = 0,
+                           dstokpotonge1 = 0,
+                           dstokpotonge2 = 0,
+                           dstokbubute1 = 0,
+                           dstokbubute2 = 0,
+                           dsisapotongkg = 0,
+                           dwastekg = 0;
 
-                if (dr.Read())
-                {
-                    dstok = Convert.ToDouble(dr["bstok"]);
-                    dmasukpotonge1 = Convert.ToDouble(dr["bpe1"]);
-                    dmasukpotonge2 = Convert.ToDouble(dr["bpe2"]);
-                    dkeluarbubute1 = Convert.ToDouble(dr["bbe1"]);
-                    dkeluarbubute2 = Convert.ToDouble(dr["bbe2"]);
-                    drbkeluare1 = Convert.ToDouble(dr["rbkeluare1"]);
-                    drbkeluare2 = Convert.ToDouble(dr["rbkeluare2"]);
-                    dstokpotonge1 = Convert.ToDouble(dr["wpe1"]);
-                    dstokpotonge2 = Convert.ToDouble(dr["wpe2"]);
-                    dstokbubute1 = Convert.ToDouble(dr["wbe1"]);
-                    dstokbubute2 = Convert.ToDouble(dr["wbe2"]);
-                    dsisapotongkg = Convert.ToDouble(dr["bsisakg"]);
-                    dwastekg = Convert.ToDouble(dr["wastekg"]);
-                }
-                dr.Close();
+                    if (dr.Read())
+                    {
+                        dstok = Convert.ToDouble(dr["bstok"]);
+                        dmasukpotonge1 = Convert.ToDouble(dr["bpe1"]);
+                        dmasukpotonge2 = Convert.ToDouble(dr["bpe2"]);
+                        dkeluarbubute1 = Convert.ToDouble(dr["bbe1"]);
+                        dkeluarbubute2 = Convert.ToDouble(dr["bbe2"]);
+                        drbkeluare1 = Convert.ToDouble(dr["rbkeluare1"]);
+                        drbkeluare2 = Convert.ToDouble(dr["rbkeluare2"]);
+                        dstokpotonge1 = Convert.ToDouble(dr["wpe1"]);
+                        dstokpotonge2 = Convert.ToDouble(dr["wpe2"]);
+                        dstokbubute1 = Convert.ToDouble(dr["wbe1"]);
+                        dstokbubute2 = Convert.ToDouble(dr["wbe2"]);
+                        dsisapotongkg = Convert.ToDouble(dr["bsisakg"]);
+                        dwastekg = Convert.ToDouble(dr["wastekg"]);
+                    }
+                    dr.Close();
 
-                foreach (var ds in rows)
-                {
-                    double destok = dstok + ds.dsmasuk - ds.dskeluar;
-                    double destokpotonge1 = dstokpotonge1 + ds.dsmasukpotonge1 - ds.dsmasukbubute1;
-                    double destokpotonge2 = dstokpotonge2 + ds.dsmasukpotonge2 - ds.dsmasukbubute2;
-                    double destokbubute1 = dstokbubute1 + ds.dsmasukbubute1 - ds.dsrbkeluare1;
-                    double destokbubute2 = dstokbubute2 + ds.dsmasukbubute2 - ds.dsrbkeluare2;
-                    double dewastekg = dwastekg + ds.dssisapotongkg;
+                    foreach (var ds in rows)
+                    {
+                        double destok = dstok + ds.dsmasuk - ds.dskeluar;
+                        double destokpotonge1 = dstokpotonge1 + ds.dsmasukpotonge1 - ds.dsmasukbubute1;
+                        double destokpotonge2 = dstokpotonge2 + ds.dsmasukpotonge2 - ds.dsmasukbubute2;
+                        double destokbubute1 = dstokbubute1 + ds.dsmasukbubute1 - ds.dsrbkeluare1;
+                        double destokbubute2 = dstokbubute2 + ds.dsmasukbubute2 - ds.dsrbkeluare2;
+                        double dewastekg = dwastekg + ds.dssisapotongkg;
 
-                    SqlCommand updateCmd = new SqlCommand(@"
+                        SqlCommand updateCmd = new SqlCommand(@"
                                                             UPDATE Rb_Stok SET 
                                                                 bstok = @bstok, 
                                                                 wpe1 = @wpe1, 
@@ -388,23 +467,34 @@ namespace GOS_FxApps
                                                                 wastekg = @wastekg 
                                                             WHERE id_stok = @id", conn);
 
-                    updateCmd.Parameters.AddWithValue("@bstok", destok);
-                    updateCmd.Parameters.AddWithValue("@wpe1", destokpotonge1);
-                    updateCmd.Parameters.AddWithValue("@wpe2", destokpotonge2);
-                    updateCmd.Parameters.AddWithValue("@wbe1", destokbubute1);
-                    updateCmd.Parameters.AddWithValue("@wbe2", destokbubute2);
-                    updateCmd.Parameters.AddWithValue("@wastekg", dewastekg);
-                    updateCmd.Parameters.AddWithValue("@id", ds.id);
+                        updateCmd.Parameters.AddWithValue("@bstok", destok);
+                        updateCmd.Parameters.AddWithValue("@wpe1", destokpotonge1);
+                        updateCmd.Parameters.AddWithValue("@wpe2", destokpotonge2);
+                        updateCmd.Parameters.AddWithValue("@wbe1", destokbubute1);
+                        updateCmd.Parameters.AddWithValue("@wbe2", destokbubute2);
+                        updateCmd.Parameters.AddWithValue("@wastekg", dewastekg);
+                        updateCmd.Parameters.AddWithValue("@id", ds.id);
 
-                    updateCmd.ExecuteNonQuery();
+                        updateCmd.ExecuteNonQuery();
 
-                    dstok = destok;
-                    dstokpotonge1 = destokpotonge1;
-                    dstokpotonge2 = destokpotonge2;
-                    dstokbubute1 = destokbubute1;
-                    dstokbubute2 = destokbubute2;
-                    dwastekg = dewastekg;
+                        dstok = destok;
+                        dstokpotonge1 = destokpotonge1;
+                        dstokpotonge2 = destokpotonge2;
+                        dstokbubute1 = destokbubute1;
+                        dstokbubute2 = destokbubute2;
+                        dwastekg = dewastekg;
+                    }
                 }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -452,9 +542,10 @@ namespace GOS_FxApps
 
                     dataGridView1.DataSource = dt;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    MessageBox.Show("Terjadi kesalahan saat pencarian: " + ex.Message);
+                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -493,7 +584,10 @@ namespace GOS_FxApps
                     cmd1.Parameters.AddWithValue("@wbe1", ttlstoklathee1.Text);
                     cmd1.Parameters.AddWithValue("@wbe2", ttlstoklathee2.Text);
                     cmd1.Parameters.AddWithValue("@bsisakg", txtsbarkg.Text);
-                    cmd1.Parameters.AddWithValue("@wastekg", lblwastekg.Text);
+
+                    wastekg = double.Parse(lblwastekg.Text.Replace(',', '.'), CultureInfo.InvariantCulture);
+                    cmd1.Parameters.AddWithValue("@wastekg", wastekg);
+
                     cmd1.Parameters.AddWithValue("@e1mm", lble1mm.Text);
                     cmd1.Parameters.AddWithValue("@e2mm", lble2mm.Text);
                     cmd1.Parameters.AddWithValue("@ttle1e2", lblttle1e2.Text);
@@ -507,9 +601,10 @@ namespace GOS_FxApps
                     tampil();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Data Gagal Dimasukkan: " + ex.Message);
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -546,7 +641,10 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@wbe1", ttlstoklathee1.Text);
                     cmd.Parameters.AddWithValue("@wbe2", ttlstoklathee2.Text);
                     cmd.Parameters.AddWithValue("@bsisakg", txtsbarkg.Text);
-                    cmd.Parameters.AddWithValue("@wastekg", lblwastekg.Text);
+
+                    wastekg = double.Parse(lblwastekg.Text.Replace(',', '.'), CultureInfo.InvariantCulture);
+                    cmd.Parameters.AddWithValue("@wastekg", wastekg);
+
                     cmd.Parameters.AddWithValue("@e1mm", lble1mm.Text);
                     cmd.Parameters.AddWithValue("@e2mm", lble2mm.Text);
                     cmd.Parameters.AddWithValue("@ttle1e2", lblttle1e2.Text);
@@ -563,9 +661,10 @@ namespace GOS_FxApps
                     tampil();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Terjadi Kesalahan Update Data " + ex.Message);
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

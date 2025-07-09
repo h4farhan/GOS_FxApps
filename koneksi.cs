@@ -17,5 +17,21 @@ namespace GOS_FxApps
             SqlConnection conn = new SqlConnection(connectionString);
             return conn;
         }
+
+        public static bool CekKoneksi()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

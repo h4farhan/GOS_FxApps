@@ -17,8 +17,6 @@ namespace GOS_FxApps
         public string level;
         public string name;
 
-        SqlConnection conn = Koneksi.GetConnection();
-
         public static loginform login;
         public loginform()
         {
@@ -34,46 +32,60 @@ namespace GOS_FxApps
             }
             else
             {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM users WHERE id = @id AND password = @pw", conn);
-                    cmd.Parameters.AddWithValue("@id", txtid.Text);
-                    cmd.Parameters.AddWithValue("@pw", txtpw.Text);
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    if (dr.Read())
+                try
+                {
+                    using (SqlConnection conn = Koneksi.GetConnection())
                     {
-                        level = dr["lvl"].ToString();
-                        name = dr["username"].ToString();
-
-                        if (level == "Manajer")
+                        conn.Open();
+                        SqlCommand cmd = new SqlCommand("SELECT * FROM users WHERE id = @id AND password = @pw", conn);
+                        cmd.Parameters.AddWithValue("@id", txtid.Text);
+                        cmd.Parameters.AddWithValue("@pw", txtpw.Text);
+                        SqlDataReader dr = cmd.ExecuteReader();
+                        if (dr.Read())
                         {
-                            MainForm.Instance.setvisibletrue();
-                            MainForm.Instance.lbluser.Text = name + " [Manajer]";
-                            this.Close();
-                        }
-                        else if (level == "Operator")
-                        { 
-                            MainForm.Instance.setvisibletrue();
-                            MainForm.Instance.lbluser.Text = name + " [Operator]";
-                            this.Close();
-                        }
-                        else if (level == "Supervisor")
-                        {    
-                            MainForm.Instance.lbluser.Text = name + " [Supervisor]";
-                            this.Close();
-                        } 
-                        else if (level == "spare")
-                        {
+                            level = dr["lvl"].ToString();
+                            name = dr["username"].ToString();
 
+                            if (level == "Manajer")
+                            {
+                                MainForm.Instance.setvisibletrue();
+                                MainForm.Instance.lbluser.Text = name + " [Manajer]";
+                                this.Close();
+                            }
+                            else if (level == "Operator")
+                            {
+                                MainForm.Instance.setvisibletrue();
+                                MainForm.Instance.lbluser.Text = name + " [Operator]";
+                                this.Close();
+                            }
+                            else if (level == "Supervisor")
+                            {
+                                MainForm.Instance.lbluser.Text = name + " [Supervisor]";
+                                this.Close();
+                            }
+                            else if (level == "spare")
+                            {
+                            }
+                            MainForm.Instance.loginstatus = true;
                         }
-                    MainForm.Instance.loginstatus = true;
-                    } 
-                    else
-                    {
-                        MessageBox.Show("Id Dan Password Anda Salah, SilahkaN Coba Kembali!!");
-                        txtid.Clear();
-                        txtpw.Clear();
-                    }
-             conn.Close();
+                        else
+                        {
+                            MessageBox.Show("Id Dan Password Anda Salah!!");
+                            txtid.Clear();
+                            txtpw.Clear();
+                        }
+                    }  
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

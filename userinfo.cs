@@ -24,22 +24,35 @@ namespace GOS_FxApps
 
         private void profil()
         {
-            string iduser = loginform.login.txtid.Text.Trim();
-
-            using (SqlConnection conn = Koneksi.GetConnection())
+            try
             {
-                string query = "SELECT * FROM users WHERE id = @iduser";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@iduser", iduser);
+                string iduser = loginform.login.txtid.Text.Trim();
 
-                conn.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
+                using (SqlConnection conn = Koneksi.GetConnection())
                 {
-                    lbluser.Text = "Halo, " + dr["username"].ToString();
-                    lbljabatan.Text = dr["lvl"].ToString();
+                    string query = "SELECT * FROM users WHERE id = @iduser";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@iduser", iduser);
+
+                    conn.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        lbluser.Text = "Halo, " + dr["username"].ToString();
+                        lbljabatan.Text = dr["lvl"].ToString();
+                    }
                 }
             }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }  
         }
         private void label2_Click(object sender, EventArgs e)
         {

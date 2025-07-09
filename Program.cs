@@ -16,6 +16,14 @@ namespace GOS_FxApps
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            if (!Koneksi.CekKoneksi())
+            {
+                MessageBox.Show("Jaringan anda tidak tersedia!!.",
+                                "Koneksi Terputus",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
             Application.Run(new MainForm());
         }
     }

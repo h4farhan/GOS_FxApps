@@ -26,7 +26,6 @@ namespace GOS_FxApps
         private void formstok_Load(object sender, EventArgs e)
         {
             tampil();
-            btndelete.Enabled = false;
             btnupdate.Enabled = false;
         }
 
@@ -86,9 +85,15 @@ namespace GOS_FxApps
                 dataGridView1.DefaultCellStyle.Padding = new Padding(5);
                 dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi kesalahan: " + ex.Message);
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -153,9 +158,15 @@ namespace GOS_FxApps
                     dataGridView1.DefaultCellStyle.Padding = new Padding(5);
                     dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Terjadi kesalahan saat pencarian: " + ex.Message);
+                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -163,7 +174,6 @@ namespace GOS_FxApps
                 }
             }
         }
-
 
         private void setdefault()
         {
@@ -177,7 +187,7 @@ namespace GOS_FxApps
 
         private void btnsimpan_Click(object sender, EventArgs e)
         {
-            if (txtkodebarang.Text == "" || txtnamabarang.Text == "" || txtstok.Text == "")
+            if (txtkodebarang.Text == "" || txtnamabarang.Text == "" || txtstok.Text == "" || imageBytes == null)
             {
                 MessageBox.Show("Data Harus Diisi Dengan Lengkap.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -187,7 +197,6 @@ namespace GOS_FxApps
                 {
                     txtkodebarang.Enabled = true;
                     btnupdate.Enabled = false;
-                    btndelete.Enabled = false;
                     btnsimpan.Text = "Simpan";
                     setdefault();
                 }
@@ -223,9 +232,15 @@ namespace GOS_FxApps
                         tampil();
                         pemakaianMaterial.instance.combonama();
                     }
+                    catch (SqlException)
+                    {
+                        MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                            "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Data Gagal Dimasukkan " + ex.Message);
+                        MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                        "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     finally
                     {
@@ -234,32 +249,6 @@ namespace GOS_FxApps
                 }
             }
             
-        }
-
-        private void btndelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("DELETE stok_material WHERE kodeBarang = @kodebarang", conn);
-                cmd.Parameters.AddWithValue("@kodebarang", txtkodebarang.Text);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Data Berhasil Dihapus", "Success.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                setdefault();
-                tampil();
-                pemakaianMaterial.instance.combonama();
-                btnupdate.Enabled = false;
-                btndelete.Enabled = false;
-                btnsimpan.Text = "Simpan";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Data Gagal Dihapus " + ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
         }
 
         private void btnupdate_Click(object sender, EventArgs e)
@@ -279,12 +268,17 @@ namespace GOS_FxApps
                 tampil();
                 pemakaianMaterial.instance.combonama();
                 btnupdate.Enabled = false;
-                btndelete.Enabled = false;
                 btnsimpan.Text = "Simpan";
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal mengupdate data: " + ex.Message);
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -326,7 +320,6 @@ namespace GOS_FxApps
 
                 txtkodebarang.Enabled = false;
                 btnupdate.Enabled = true;
-                btndelete.Enabled = true;
                 btnsimpan.Text = "Cancel";
             }
         }
