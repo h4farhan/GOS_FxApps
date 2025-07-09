@@ -193,8 +193,8 @@ namespace GOS_FxApps
         private void editpenerimaan_Load(object sender, EventArgs e)
         {
             tampil();
-            dateeditpenerimaan.Checked = false;
             dateeditpenerimaan.Value = DateTime.Now.Date;
+            dateeditpenerimaan.Checked = false;
         }
 
         private void btncari_Click(object sender, EventArgs e)

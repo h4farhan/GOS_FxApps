@@ -440,9 +440,8 @@ namespace GOS_FxApps
 
         private void Penerimaan_Load(object sender, EventArgs e)
         {
-
-            datecari.Checked = false;
             datecari.Value = DateTime.Now.Date;
+            datecari.Checked = false;
         }
     }
 }

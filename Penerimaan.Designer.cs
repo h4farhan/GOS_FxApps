@@ -940,7 +940,6 @@ namespace GOS_FxApps
             this.datecari.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.datecari.BorderRadius = 5;
             this.datecari.BorderThickness = 2;
-            this.datecari.Checked = true;
             this.datecari.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.datecari.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.datecari.ForeColor = System.Drawing.Color.White;

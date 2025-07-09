@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using Microsoft.Reporting.Map.WebForms.BingMaps;
 using Microsoft.Reporting.WinForms;
 
 namespace GOS_FxApps
@@ -723,6 +724,12 @@ namespace GOS_FxApps
         {
             int bulan = datecaripemakaian.Value.Month;
             int tahun = datecaripemakaian.Value.Year;
+
+            if (!datecaripemakaian.Checked == false)
+            {
+                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.");
+                return false;
+            }
 
             DataTable dt = new DataTable();
 

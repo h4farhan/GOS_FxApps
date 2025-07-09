@@ -51,8 +51,8 @@ namespace GOS_FxApps
         {
             InitializeComponent();
             tampil();
-            datecari.Checked = false;
             datecari.Value = DateTime.Now.Date;
+            datecari.Checked = false;
         }
 
         private void tampil()

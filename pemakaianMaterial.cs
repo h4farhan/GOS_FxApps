@@ -265,6 +265,7 @@ namespace GOS_FxApps
         {
             combonama();
             tampil();
+            datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
             datepemakaian.Value = DateTime.Now.Date;
         }

@@ -30,8 +30,8 @@ namespace GOS_FxApps
         private void editperbaikan_Load(object sender, EventArgs e)
         {
             tampil();
-            dateeditperbaikan.Checked = false;
             dateeditperbaikan.Value = DateTime.Now.Date;
+            dateeditperbaikan.Checked = false;  
         }
 
         private void tampil()

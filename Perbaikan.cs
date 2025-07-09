@@ -31,8 +31,8 @@ namespace GOS_FxApps
         private void Perbaikan_Load(object sender, EventArgs e)
         {
             btnsimpan.Enabled = false;
-            datecari.Checked = false;
             datecari.Value = DateTime.Now.Date;
+            datecari.Checked = false;
         }
 
         private void tampil()

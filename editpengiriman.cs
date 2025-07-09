@@ -234,8 +234,8 @@ namespace GOS_FxApps
         private void editpengiriman_Load(object sender, EventArgs e)
         {
             tampil();
-            dateeditpengiriman.Checked = false;
             dateeditpengiriman.Value = DateTime.Now.Date;
+            dateeditpengiriman.Checked = false;  
         }
 
         private void btnclear_Click(object sender, EventArgs e)
