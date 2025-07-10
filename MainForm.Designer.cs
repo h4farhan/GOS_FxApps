@@ -120,10 +120,10 @@ namespace GOS_FxApps
             // 
             this.panel4.BackColor = System.Drawing.Color.Black;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(236, 80);
+            this.panel4.Location = new System.Drawing.Point(238, 80);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(985, 647);
+            this.panel4.Size = new System.Drawing.Size(983, 647);
             this.panel4.TabIndex = 3;
             // 
             // headerPanel
@@ -135,10 +135,10 @@ namespace GOS_FxApps
             this.headerPanel.Controls.Add(this.lbldate);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.headerPanel.Location = new System.Drawing.Point(236, 30);
+            this.headerPanel.Location = new System.Drawing.Point(238, 30);
             this.headerPanel.Margin = new System.Windows.Forms.Padding(2);
             this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(985, 50);
+            this.headerPanel.Size = new System.Drawing.Size(983, 50);
             this.headerPanel.TabIndex = 3;
             // 
             // panel3
@@ -147,7 +147,7 @@ namespace GOS_FxApps
             this.panel3.Controls.Add(this.lbluser);
             this.panel3.Controls.Add(this.iconButton14);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(628, 0);
+            this.panel3.Location = new System.Drawing.Point(626, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(353, 46);
             this.panel3.TabIndex = 8;
@@ -246,10 +246,10 @@ namespace GOS_FxApps
             this.sidebarPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebarPanel.Location = new System.Drawing.Point(0, 30);
             this.sidebarPanel.Margin = new System.Windows.Forms.Padding(2);
-            this.sidebarPanel.MaximumSize = new System.Drawing.Size(236, 0);
+            this.sidebarPanel.MaximumSize = new System.Drawing.Size(238, 0);
             this.sidebarPanel.MinimumSize = new System.Drawing.Size(45, 0);
             this.sidebarPanel.Name = "sidebarPanel";
-            this.sidebarPanel.Size = new System.Drawing.Size(236, 697);
+            this.sidebarPanel.Size = new System.Drawing.Size(238, 697);
             this.sidebarPanel.TabIndex = 1;
             // 
             // flowLayoutPanel1
@@ -265,7 +265,7 @@ namespace GOS_FxApps
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 262);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(236, 435);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(238, 435);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // panel1
@@ -811,7 +811,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(236, 212);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(238, 212);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // pictureBox1
@@ -821,7 +821,7 @@ namespace GOS_FxApps
             this.pictureBox1.Location = new System.Drawing.Point(52, 2);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(182, 146);
+            this.pictureBox1.Size = new System.Drawing.Size(184, 146);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -834,7 +834,7 @@ namespace GOS_FxApps
             this.label2.Location = new System.Drawing.Point(52, 150);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 62);
+            this.label2.Size = new System.Drawing.Size(184, 62);
             this.label2.TabIndex = 2;
             this.label2.Text = "PT\r\nGENTANUSA GEMILANG";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -852,7 +852,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(236, 50);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(238, 50);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // HamburgerButton
@@ -881,7 +881,7 @@ namespace GOS_FxApps
             this.label1.Location = new System.Drawing.Point(52, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(182, 50);
+            this.label1.Size = new System.Drawing.Size(184, 50);
             this.label1.TabIndex = 1;
             this.label1.Text = "Powered by :\r\nPT Digital Transformasi Industri";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
