@@ -220,8 +220,7 @@ namespace GOS_FxApps {
         {
             SwitchPanel(new historyStokMaterial());
         }
-
-
+        
 
         //kode fitur terbatas
         public void setvisiblefalse()
