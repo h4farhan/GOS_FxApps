@@ -41,6 +41,7 @@ namespace GOS_FxApps
                 dt.Columns["foto"].ColumnName = "Gambar";
 
                 DataTable dtWithImage = new DataTable();
+                dtWithImage.Columns.Add("No", typeof(int));
                 dtWithImage.Columns.Add("Kode Barang", typeof(string));
                 dtWithImage.Columns.Add("Nama Barang", typeof(string));
                 dtWithImage.Columns.Add("Jumlah Stok", typeof(int));
@@ -48,10 +49,11 @@ namespace GOS_FxApps
                 dtWithImage.Columns.Add("Disimpan", typeof(DateTime));
                 dtWithImage.Columns.Add("Diubah", typeof(DateTime));
 
-
+                int no = 1;
                 foreach (DataRow row in dt.Rows)
                 {
                     DataRow newRow = dtWithImage.NewRow();
+                    newRow["No"] = no++;
                     newRow["Kode Barang"] = row["kodeBarang"];
                     newRow["Nama Barang"] = row["namaBarang"];
                     newRow["Jumlah Stok"] = row["jumlahStok"];
@@ -83,6 +85,8 @@ namespace GOS_FxApps
                 {
                     row.Height = 100;
                 }
+
+                dataGridView1.Columns["No"].Width = 50;
 
                 DataGridViewImageColumn imageCol = (DataGridViewImageColumn)dataGridView1.Columns["Gambar"];
                 imageCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
@@ -120,6 +124,7 @@ namespace GOS_FxApps
                     dt.Columns["foto"].ColumnName = "Gambar";
 
                     DataTable dtWithImage = new DataTable();
+                    dtWithImage.Columns.Add("No", typeof(int));
                     dtWithImage.Columns.Add("Kode Barang", typeof(string));
                     dtWithImage.Columns.Add("Nama Barang", typeof(string));
                     dtWithImage.Columns.Add("Jumlah Stok", typeof(int));
@@ -127,10 +132,11 @@ namespace GOS_FxApps
                     dtWithImage.Columns.Add("Disimpan", typeof(DateTime));
                     dtWithImage.Columns.Add("Diubah", typeof(DateTime));
 
-
+                    int no = 1;
                     foreach (DataRow row in dt.Rows)
                     {
                         DataRow newRow = dtWithImage.NewRow();
+                        newRow["No"] = no++;
                         newRow["Kode Barang"] = row["kodeBarang"];
                         newRow["Nama Barang"] = row["namaBarang"];
                         newRow["Jumlah Stok"] = row["jumlahStok"];
@@ -161,6 +167,8 @@ namespace GOS_FxApps
                     {
                         row.Height = 100;
                     }
+
+                    dataGridView1.Columns["No"].Width = 50;
 
                     DataGridViewImageColumn imageCol = (DataGridViewImageColumn)dataGridView1.Columns["Gambar"];
                     imageCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
