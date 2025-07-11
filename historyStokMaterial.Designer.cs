@@ -121,9 +121,9 @@
             this.txtcari.Location = new System.Drawing.Point(11, 91);
             this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtcari.Name = "txtcari";
-            this.txtcari.PlaceholderText = "Kode Barang";
+            this.txtcari.PlaceholderText = "Kode Barang atau Nama Barang";
             this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(240, 39);
+            this.txtcari.Size = new System.Drawing.Size(284, 39);
             this.txtcari.TabIndex = 56;
             this.txtcari.TextChanged += new System.EventHandler(this.txtcari_TextChanged);
             // 

@@ -65,6 +65,7 @@ namespace GOS_FxApps
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
                 dataGridView1.RowTemplate.Height = 35;
+                dataGridView1.ReadOnly = true;
 
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "Tanggal";
@@ -504,10 +505,11 @@ namespace GOS_FxApps
         private bool cari()
         {
             DateTime? tanggal = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
+            bool shiftValid = cbShift.SelectedIndex > 0;
 
-            if (!tanggal.HasValue && cbShift.SelectedIndex == -1)
+            if (!tanggal.HasValue && !shiftValid)
             {
-                MessageBox.Show("Silakan isi tanggal atau shift untuk melakukan pencarian.");
+                MessageBox.Show("Silakan isi Tanggal atau Shift untuk melakukan pencarian.");
                 return false;
             }
 
@@ -824,12 +826,13 @@ namespace GOS_FxApps
                 infocari = false;
                 btncari.Text = "Cari";
 
-                cbShift.StartIndex = -1;
+                cbShift.StartIndex = 0;
                 datecari.Checked = false;
             }
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (MainForm.Instance.role != "Manajer") return;
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];

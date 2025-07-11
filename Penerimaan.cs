@@ -201,6 +201,7 @@ namespace GOS_FxApps
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
                 dataGridView1.RowTemplate.Height = 35;
+                dataGridView1.ReadOnly = true;
 
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "Tanggal Penerimaan";
@@ -236,7 +237,13 @@ namespace GOS_FxApps
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            if(btnsimpan.Text == "Update Data")
+            if (txtnomorrod.Text == "" || txtjenis.Text == "" || txtstasiun.Text == "")
+            {
+                MessageBox.Show("Data Tidak Boleh Kosong");
+                return;
+            }
+
+            if (btnsimpan.Text == "Update Data")
             {
                 editdata();
                 setdefault();
@@ -286,31 +293,30 @@ namespace GOS_FxApps
             return int.TryParse(tb.Text, out int result) ? result : 0;
         }
 
+        private void hitung()
+        {
+            int angka1 = SafeParse(txte1);
+            int angka2 = SafeParse(txte2);
+            int angka3 = SafeParse(txte3);
+            int angka4 = SafeParse(txts);
+            int angka5 = SafeParse(txtd);
+            int angka6 = SafeParse(txtb);
+            int angka7 = SafeParse(txtba);
+            int angka8 = SafeParse(txtcr);
+            int angka9 = SafeParse(txtm);
+            int angka10 = SafeParse(txtr);
+            int angka11 = SafeParse(txtc);
+            int angka12 = SafeParse(txtrl);
+
+            int hasil = angka1 + angka2 + angka3 + angka4 + angka5 + angka6 + angka7 + angka8 + angka9 + angka10 + angka11 + angka12;
+            lbltotal.Text = hasil.ToString();
+            btnsimpan.Enabled = true;
+            btncancel.Enabled = true;
+        }
+
         private void btnhitung_Click(object sender, EventArgs e)
         {
-                if (txtnomorrod.Text == "" || txtjenis.Text == "" || txtstasiun.Text == "")
-                {
-                    MessageBox.Show("Data Tidak Boleh Kosong");
-                }
-                else
-                {
-                    int angka1 = SafeParse(txte1);
-                    int angka2 = SafeParse(txte2);
-                    int angka3 = SafeParse(txte3);
-                    int angka4 = SafeParse(txts);
-                    int angka5 = SafeParse(txtd);
-                    int angka6 = SafeParse(txtb);
-                    int angka7 = SafeParse(txtba);
-                    int angka8 = SafeParse(txtcr);
-                    int angka9 = SafeParse(txtm);
-                    int angka10 = SafeParse(txtr);
-                    int angka11 = SafeParse(txtc);
-                    int angka12 = SafeParse(txtrl);
-
-                    int hasil = angka1 + angka2 + angka3 + angka4 + angka5 + angka6 + angka7 + angka8 + angka9 + angka10 + angka11 + angka12;
-                    lbltotal.Text = hasil.ToString();
-                    btnsimpan.Enabled = true;
-                } 
+               
         }
 
         private bool cari()
@@ -444,6 +450,66 @@ namespace GOS_FxApps
         {
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
+        }
+
+        private void txtrl_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txte2_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txte3_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txts_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtd_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtb_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtba_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtcr_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtm_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtr_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtc_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txte1_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
         }
     }
 }

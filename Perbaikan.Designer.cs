@@ -31,9 +31,9 @@ namespace GOS_FxApps
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,6 +46,7 @@ namespace GOS_FxApps
             this.txtnomorrod = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label25 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.lbltotale2 = new System.Windows.Forms.Label();
@@ -58,6 +59,7 @@ namespace GOS_FxApps
             this.label20 = new System.Windows.Forms.Label();
             this.txtr = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label21 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lbltotale1 = new System.Windows.Forms.Label();
@@ -101,8 +103,6 @@ namespace GOS_FxApps
             this.datecari = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -329,6 +329,18 @@ namespace GOS_FxApps
             this.guna2Panel5.Size = new System.Drawing.Size(174, 209);
             this.guna2Panel5.TabIndex = 37;
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Segoe UI Semibold", 6.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.Silver;
+            this.label25.Location = new System.Drawing.Point(8, 32);
+            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(53, 12);
+            this.label25.TabIndex = 58;
+            this.label25.Text = "*Wajib diisi";
+            // 
             // label28
             // 
             this.label28.AutoSize = true;
@@ -424,6 +436,7 @@ namespace GOS_FxApps
             this.txte2ers.SelectedText = "";
             this.txte2ers.Size = new System.Drawing.Size(47, 41);
             this.txte2ers.TabIndex = 39;
+            this.txte2ers.TextChanged += new System.EventHandler(this.txte2ers_TextChanged);
             this.txte2ers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // txte2cstub
@@ -449,6 +462,7 @@ namespace GOS_FxApps
             this.txte2cstub.SelectedText = "";
             this.txte2cstub.Size = new System.Drawing.Size(47, 41);
             this.txte2cstub.TabIndex = 35;
+            this.txte2cstub.TextChanged += new System.EventHandler(this.txte2cstub_TextChanged);
             this.txte2cstub.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label19
@@ -486,6 +500,7 @@ namespace GOS_FxApps
             this.txte2cst.SelectedText = "";
             this.txte2cst.Size = new System.Drawing.Size(47, 41);
             this.txte2cst.TabIndex = 33;
+            this.txte2cst.TextChanged += new System.EventHandler(this.txte2cst_TextChanged);
             this.txte2cst.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label20
@@ -523,6 +538,7 @@ namespace GOS_FxApps
             this.txtr.SelectedText = "";
             this.txtr.Size = new System.Drawing.Size(47, 41);
             this.txtr.TabIndex = 56;
+            this.txtr.TextChanged += new System.EventHandler(this.txtr_TextChanged);
             this.txtr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // guna2Panel4
@@ -542,6 +558,18 @@ namespace GOS_FxApps
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Size = new System.Drawing.Size(174, 209);
             this.guna2Panel4.TabIndex = 3;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI Semibold", 6.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.Silver;
+            this.label21.Location = new System.Drawing.Point(6, 32);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(53, 12);
+            this.label21.TabIndex = 57;
+            this.label21.Text = "*Wajib diisi";
             // 
             // label8
             // 
@@ -626,6 +654,7 @@ namespace GOS_FxApps
             this.txte1est.SelectedText = "";
             this.txte1est.Size = new System.Drawing.Size(47, 41);
             this.txte1est.TabIndex = 35;
+            this.txte1est.TextChanged += new System.EventHandler(this.txte1est_TextChanged);
             this.txte1est.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label4
@@ -663,6 +692,7 @@ namespace GOS_FxApps
             this.txte1ers.SelectedText = "";
             this.txte1ers.Size = new System.Drawing.Size(47, 41);
             this.txte1ers.TabIndex = 33;
+            this.txte1ers.TextChanged += new System.EventHandler(this.txte1ers_TextChanged);
             this.txte1ers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label7
@@ -727,6 +757,7 @@ namespace GOS_FxApps
             this.btnhitung.Size = new System.Drawing.Size(112, 32);
             this.btnhitung.TabIndex = 37;
             this.btnhitung.Text = "Hitung";
+            this.btnhitung.Visible = false;
             this.btnhitung.Click += new System.EventHandler(this.btnhitung_Click);
             // 
             // tableLayoutPanel3
@@ -798,6 +829,7 @@ namespace GOS_FxApps
             this.txtc.SelectedText = "";
             this.txtc.Size = new System.Drawing.Size(47, 41);
             this.txtc.TabIndex = 55;
+            this.txtc.TextChanged += new System.EventHandler(this.txtc_TextChanged);
             this.txtc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label16
@@ -859,6 +891,7 @@ namespace GOS_FxApps
             this.txts.SelectedText = "";
             this.txts.Size = new System.Drawing.Size(47, 41);
             this.txts.TabIndex = 44;
+            this.txts.TextChanged += new System.EventHandler(this.txts_TextChanged);
             this.txts.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label17
@@ -896,6 +929,7 @@ namespace GOS_FxApps
             this.txtd.SelectedText = "";
             this.txtd.Size = new System.Drawing.Size(47, 41);
             this.txtd.TabIndex = 43;
+            this.txtd.TextChanged += new System.EventHandler(this.txtd_TextChanged);
             this.txtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // txtrl
@@ -921,6 +955,7 @@ namespace GOS_FxApps
             this.txtrl.SelectedText = "";
             this.txtrl.Size = new System.Drawing.Size(47, 41);
             this.txtrl.TabIndex = 51;
+            this.txtrl.TextChanged += new System.EventHandler(this.txtrl_TextChanged);
             this.txtrl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label15
@@ -982,6 +1017,7 @@ namespace GOS_FxApps
             this.txtba.SelectedText = "";
             this.txtba.Size = new System.Drawing.Size(47, 41);
             this.txtba.TabIndex = 50;
+            this.txtba.TextChanged += new System.EventHandler(this.txtba_TextChanged);
             this.txtba.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // txtm
@@ -1007,6 +1043,7 @@ namespace GOS_FxApps
             this.txtm.SelectedText = "";
             this.txtm.Size = new System.Drawing.Size(47, 41);
             this.txtm.TabIndex = 45;
+            this.txtm.TextChanged += new System.EventHandler(this.txtm_TextChanged);
             this.txtm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // txte3
@@ -1032,6 +1069,7 @@ namespace GOS_FxApps
             this.txte3.SelectedText = "";
             this.txte3.Size = new System.Drawing.Size(47, 41);
             this.txte3.TabIndex = 38;
+            this.txte3.TextChanged += new System.EventHandler(this.txte3_TextChanged);
             this.txte3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label11
@@ -1069,6 +1107,7 @@ namespace GOS_FxApps
             this.txtcr.SelectedText = "";
             this.txtcr.Size = new System.Drawing.Size(47, 41);
             this.txtcr.TabIndex = 49;
+            this.txtcr.TextChanged += new System.EventHandler(this.txtcr_TextChanged);
             this.txtcr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label14
@@ -1118,6 +1157,7 @@ namespace GOS_FxApps
             this.txtb.SelectedText = "";
             this.txtb.Size = new System.Drawing.Size(47, 41);
             this.txtb.TabIndex = 39;
+            this.txtb.TextChanged += new System.EventHandler(this.txtb_TextChanged);
             this.txtb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label13
@@ -1293,64 +1333,40 @@ namespace GOS_FxApps
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Black;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.Gray;
             this.dataGridView1.Location = new System.Drawing.Point(13, 58);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(294, 527);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI Semibold", 6.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.Silver;
-            this.label21.Location = new System.Drawing.Point(6, 32);
-            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(53, 12);
-            this.label21.TabIndex = 57;
-            this.label21.Text = "*Wajib diisi";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Segoe UI Semibold", 6.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.Silver;
-            this.label25.Location = new System.Drawing.Point(8, 32);
-            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(53, 12);
-            this.label25.TabIndex = 58;
-            this.label25.Text = "*Wajib diisi";
             // 
             // Perbaikan
             // 

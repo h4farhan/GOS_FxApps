@@ -16,8 +16,6 @@ namespace GOS_FxApps
 
         SqlConnection conn = Koneksi.GetConnection();
 
-        bool infocari = false;
-
         public historyPerbaikan()
         {
             InitializeComponent();
@@ -34,6 +32,7 @@ namespace GOS_FxApps
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
                 dataGridView1.RowTemplate.Height = 35;
+                dataGridView1.ReadOnly = true;
 
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "Tanggal Perbaikan";
@@ -76,10 +75,11 @@ namespace GOS_FxApps
         {
             DateTime? tanggal = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
             string inputRod = txtcari.Text.Trim();
+            bool shiftValid = cbShift.SelectedIndex > 0;
 
-            if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
+            if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod) && !shiftValid)
             {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.");
+                MessageBox.Show("Silakan isi tanggal, nomor ROD, atau shift untuk melakukan pencarian.", "Warning");
                 return false;
             }
 
@@ -101,6 +101,12 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@rod", Convert.ToInt32(inputRod));
                 }
 
+                if (shiftValid)
+                {
+                    query += " AND shift = @shift";
+                    cmd.Parameters.AddWithValue("@shift", cbShift.SelectedItem.ToString());
+                }
+
                 cmd.CommandText = query;
                 cmd.Connection = conn;
 
@@ -110,6 +116,7 @@ namespace GOS_FxApps
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dt);
+                        btnreset.Enabled = true;
                     }
 
                     dataGridView1.DataSource = dt;
@@ -141,29 +148,16 @@ namespace GOS_FxApps
 
         private void btncari_Click(object sender, EventArgs e)
         {
-            if (!infocari)
-            {
-                bool hasilCari = cari();
-                if (hasilCari)
-                {
-                    infocari = true;
-                    btncari.Text = "Reset";
-                }
-                else
-                {
-                    infocari = true;
-                    btncari.Text = "Reset";
-                }
-            }
-            else
-            {
-                tampil();
-                infocari = false;
-                btncari.Text = "Cari";
+            cari();
+        }
 
-                txtcari.Text = "";
-                datecari.Checked = false;
-            }
+        private void btnreset_Click(object sender, EventArgs e)
+        {
+            tampil();
+            cbShift.SelectedIndex = 0;
+            txtcari.Text = "";
+            datecari.Checked = false;
+            btnreset.Enabled = false;
         }
     }
 }

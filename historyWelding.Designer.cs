@@ -38,8 +38,8 @@
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btncari = new Guna.UI2.WinForms.Guna2Button();
-            this.label27 = new System.Windows.Forms.Label();
             this.cbShift = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnreset = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -168,26 +168,13 @@
             this.btncari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btncari.ForeColor = System.Drawing.Color.White;
-            this.btncari.Location = new System.Drawing.Point(664, 83);
+            this.btncari.Location = new System.Drawing.Point(593, 83);
             this.btncari.Margin = new System.Windows.Forms.Padding(2);
             this.btncari.Name = "btncari";
             this.btncari.Size = new System.Drawing.Size(60, 37);
             this.btncari.TabIndex = 54;
             this.btncari.Text = "Cari";
             this.btncari.Click += new System.EventHandler(this.btncari_Click);
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.label27.Location = new System.Drawing.Point(200, 91);
-            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(50, 20);
-            this.label27.TabIndex = 59;
-            this.label27.Text = "Shift :";
-            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cbShift
             // 
@@ -203,14 +190,34 @@
             this.cbShift.ForeColor = System.Drawing.Color.White;
             this.cbShift.ItemHeight = 30;
             this.cbShift.Items.AddRange(new object[] {
+            "Shift",
             "1",
             "2",
             "3"});
-            this.cbShift.Location = new System.Drawing.Point(254, 83);
+            this.cbShift.Location = new System.Drawing.Point(195, 83);
             this.cbShift.Margin = new System.Windows.Forms.Padding(2);
             this.cbShift.Name = "cbShift";
             this.cbShift.Size = new System.Drawing.Size(126, 36);
+            this.cbShift.StartIndex = 0;
             this.cbShift.TabIndex = 58;
+            // 
+            // btnreset
+            // 
+            this.btnreset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnreset.BorderRadius = 8;
+            this.btnreset.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnreset.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnreset.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnreset.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnreset.Enabled = false;
+            this.btnreset.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnreset.ForeColor = System.Drawing.Color.White;
+            this.btnreset.Location = new System.Drawing.Point(658, 83);
+            this.btnreset.Name = "btnreset";
+            this.btnreset.Size = new System.Drawing.Size(66, 37);
+            this.btnreset.TabIndex = 62;
+            this.btnreset.Text = "Reset";
+            this.btnreset.Click += new System.EventHandler(this.btnreset_Click);
             // 
             // historyWelding
             // 
@@ -218,7 +225,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.ClientSize = new System.Drawing.Size(735, 677);
-            this.Controls.Add(this.label27);
+            this.Controls.Add(this.btnreset);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cbShift);
             this.Controls.Add(this.datecari);
@@ -233,7 +240,6 @@
             this.guna2Panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -246,7 +252,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private System.Windows.Forms.DataGridView dataGridView1;
         private Guna.UI2.WinForms.Guna2Button btncari;
-        private System.Windows.Forms.Label label27;
         private Guna.UI2.WinForms.Guna2ComboBox cbShift;
+        private Guna.UI2.WinForms.Guna2Button btnreset;
     }
 }

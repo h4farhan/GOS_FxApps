@@ -17,7 +17,6 @@ namespace GOS_FxApps
     {
         private DateTime tanggalpenerimaan;
         SqlConnection conn = Koneksi.GetConnection();
-        private bool infocheck = false;
         bool infocari = false;
         int noprimary;
 
@@ -47,6 +46,7 @@ namespace GOS_FxApps
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
                 dataGridView1.RowTemplate.Height = 35;
+                dataGridView1.ReadOnly = true;
 
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "Tanggal Perbaikan";
@@ -399,44 +399,48 @@ namespace GOS_FxApps
             }
         }
 
+        private void hitung()
+        {
+            int angka1 = SafeParse(txte1ers);
+            int angka2 = SafeParse(txte1est);
+            int hasile1 = angka1 + angka2;
+            lbltotale1.Text = hasile1.ToString();
+
+            int angka3 = SafeParse(txte2ers);
+            int angka4 = SafeParse(txte2cst);
+            int angka5 = SafeParse(txte2cstub);
+            int hasile2 = angka3 + angka4 + angka5;
+            lbltotale2.Text = hasile2.ToString();
+
+            int angka6 = SafeParse(txte3);
+            int angka7 = SafeParse(txts);
+            int angka8 = SafeParse(txtd);
+            int angka9 = SafeParse(txtb);
+            int angka10 = SafeParse(txtba);
+            int angka11 = SafeParse(txtcr);
+            int angka12 = SafeParse(txtm);
+            int angka13 = SafeParse(txtr);
+            int angka14 = SafeParse(txtc);
+            int angka15 = SafeParse(txtrl);
+
+            int hasil = angka1 + angka2 + angka3 + angka4 + angka5 + angka6 + angka7 + angka8 + angka9 + angka10 + angka11 + angka12 + angka13 + angka14 + angka15;
+            lbltotal.Text = hasil.ToString();
+            btnsimpan.Enabled = true;
+        }
+
         private void btnhitung_Click(object sender, EventArgs e)
         {
-            if (txtnomorrod.Text == "" || txtjenis.Text == "")
-            {
-                MessageBox.Show("Data Tidak Boleh Kosong");
-            }
-            else
-            {
-                int angka1 = SafeParse(txte1ers);
-                int angka2 = SafeParse(txte1est);
-                int hasile1 = angka1 + angka2;
-                lbltotale1.Text = hasile1.ToString();
-
-                int angka3 = SafeParse(txte2ers);
-                int angka4 = SafeParse(txte2cst);
-                int angka5 = SafeParse(txte2cstub);
-                int hasile2 = angka3 + angka4 + angka5;
-                lbltotale2.Text = hasile2.ToString();
-
-                int angka6 = SafeParse(txte3);
-                int angka7 = SafeParse(txts);
-                int angka8 = SafeParse(txtd);
-                int angka9 = SafeParse(txtb);
-                int angka10 = SafeParse(txtba);
-                int angka11 = SafeParse(txtcr);
-                int angka12 = SafeParse(txtm);
-                int angka13 = SafeParse(txtr);
-                int angka14 = SafeParse(txtc);
-                int angka15 = SafeParse(txtrl);
-
-                int hasil = angka1 + angka2 + angka3 + angka4 + angka5 + angka6 + angka7 + angka8 + angka9 + angka10 + angka11 + angka12 + angka13 + angka14 + angka15;
-                lbltotal.Text = hasil.ToString();
-                btnsimpan.Enabled = true;
-            }
+            
         }
 
         private void btnsimpan_Click(object sender, EventArgs e)
         {
+            if (txtnomorrod.Text == "" || txtjenis.Text == "")
+            {
+                MessageBox.Show("Nomro ROD Dan Jenis Tidak Boleh Kosong");
+                return;
+            }
+
             if (btnsimpan.Text == "Update Data")
             {
                 editdata();
@@ -454,28 +458,15 @@ namespace GOS_FxApps
                 setdefault();
                 setfalse();
                 txtnomorrod.Enabled = true;
-                btncheck.Text = "Check Data";
                 btncheck.FillColor = Color.FromArgb(94, 148, 255);
-                infocheck = false;
                 btnsimpan.Enabled = false;
+                btncancel.Enabled = false;
+                btncheck.Enabled= true;
             }
         }
 
         private void btncheck_Click(object sender, EventArgs e)
-
         {
-            if (infocheck == true)
-            {
-                setdefault();
-                setfalse();
-                txtnomorrod.Enabled = true;
-                btncheck.Text = "Check Data";
-                btncheck.FillColor = Color.FromArgb (94, 148, 255);
-                infocheck = false;
-            }
-            else
-            {
-
                 string nomorRod = txtnomorrod.Text;
 
                 using (SqlConnection conn = Koneksi.GetConnection())
@@ -508,11 +499,9 @@ namespace GOS_FxApps
                                 txtrl.Text = reader["rl"].ToString();
                                 tanggalpenerimaan = Convert.ToDateTime(reader["tanggal_penerimaan"]);
                                 settrue();
-                                btncheck.Text = "Batal";
-                                btncheck.FillColor = Color.Red;
-                                infocheck = true;
                                 txtnomorrod.Enabled = false;
-
+                                btncancel.Enabled = true;
+                                btncheck.Enabled = false;
                             }
                             else
                             {
@@ -537,14 +526,10 @@ namespace GOS_FxApps
                         {
                             conn.Close();
                         }
-
                     }
-                }
-                
-                
-            }
+                }      
         }
-
+        
         private void btncari_Click(object sender, EventArgs e)
         {
             if (!infocari)
@@ -574,6 +559,7 @@ namespace GOS_FxApps
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (MainForm.Instance.role != "Manajer") return;
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
@@ -616,6 +602,83 @@ namespace GOS_FxApps
             btnsimpan.Text = "Simpan Data";
             txtnomorrod.Enabled = true;
             btncheck .Enabled = true;
+            btnsimpan.Enabled = false;
+            btncheck.Enabled= true;
+        }
+
+        private void txtrl_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txte1est_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txte2ers_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txte2cst_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txte2cstub_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txte3_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txts_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtd_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtb_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtba_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtcr_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtm_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtr_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtc_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txte1ers_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
         }
     }
 }

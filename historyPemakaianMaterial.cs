@@ -16,8 +16,6 @@ namespace GOS_FxApps
 
         SqlConnection conn = Koneksi.GetConnection();
 
-        bool infocari = false;
-
         public historyPemakaianMaterial()
         {
             InitializeComponent();
@@ -36,6 +34,7 @@ namespace GOS_FxApps
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridView1.RowTemplate.Height = 35;
+                dataGridView1.ReadOnly = true;
 
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "Kode Barang";
@@ -93,6 +92,7 @@ namespace GOS_FxApps
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dt);
+                        btnreset.Enabled = true;
                     }
 
                     dataGridView1.DataSource = dt;
@@ -117,29 +117,7 @@ namespace GOS_FxApps
 
         private void btncari_Click(object sender, EventArgs e)
         {
-            if (!infocari)
-            {
-                bool hasilCari = cari();
-                if (hasilCari)
-                {
-                    infocari = true;
-                    btncari.Text = "Reset";
-                }
-                else
-                {
-                    infocari = true;
-                    btncari.Text = "Reset";
-                }
-            }
-            else
-            {
-                tampil();
-                infocari = false;
-                btncari.Text = "Cari";
-
-                txtcari.Text = "";
-                datecari.Checked = false;
-            }
+            cari();
         }
 
         private void historyPemakaianMaterial_Load(object sender, EventArgs e)
@@ -147,6 +125,14 @@ namespace GOS_FxApps
             tampil();
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
+        }
+
+        private void btnreset_Click(object sender, EventArgs e)
+        {
+            tampil();
+            txtcari.Text = "";
+            datecari.Checked = false;
+            btnreset.Enabled = false;
         }
     }
 }

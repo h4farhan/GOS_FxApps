@@ -73,6 +73,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns["No"].FillWeight = 20;
                 dataGridView1.RowTemplate.Height = 100;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.ReadOnly = true;
 
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {

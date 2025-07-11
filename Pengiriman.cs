@@ -67,6 +67,7 @@ namespace GOS_FxApps
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
                 dataGridView1.RowTemplate.Height = 35;
+                dataGridView1.ReadOnly = true;
 
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "Tanggal Pengiriman";
@@ -212,7 +213,15 @@ namespace GOS_FxApps
 
         private void TextBox_Validating(object sender, CancelEventArgs e)
         {
-            Guna2TextBox txt = (Guna2TextBox)sender; 
+            Guna2TextBox txt = (Guna2TextBox)sender;
+
+            if (string.IsNullOrWhiteSpace(txt.Text))
+            {
+                txt.Clear();
+                txt.PlaceholderText = "4xxxx";
+                txt.PlaceholderForeColor = Color.FromArgb(193, 200, 207);
+                return;
+            }
 
             using (SqlConnection conn = Koneksi.GetConnection())
             {
@@ -399,6 +408,17 @@ namespace GOS_FxApps
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
+            Guna2TextBox[] txtRods = { txtrod1, txtrod2, txtrod3, txtrod4, txtrod5,
+                           txtrod6, txtrod7, txtrod8, txtrod9, txtrod10 };
+
+            bool adaIsi = txtRods.Any(t => !string.IsNullOrWhiteSpace(t.Text));
+
+            if (!adaIsi)
+            {
+                MessageBox.Show("Isilah salah satu Nomor ROD yang ingin dikirim terlebih dahulu", "Warning");
+                return;
+            }
+
             DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
             if (result == DialogResult.OK) 
@@ -438,5 +458,6 @@ namespace GOS_FxApps
                 datecari.Checked = false;
             }
         }
+
     }
 }

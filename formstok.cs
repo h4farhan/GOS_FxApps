@@ -81,6 +81,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns["No"].FillWeight = 50;
                 dataGridView1.RowTemplate.Height = 100;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.ReadOnly = true;
 
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
@@ -162,6 +163,7 @@ namespace GOS_FxApps
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     dataGridView1.Columns["No"].FillWeight = 50;
                     dataGridView1.RowTemplate.Height = 100;
+                    dataGridView1.ReadOnly = true;
 
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
