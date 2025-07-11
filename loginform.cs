@@ -50,21 +50,32 @@ namespace GOS_FxApps
                             {
                                 MainForm.Instance.setvisibletrue();
                                 MainForm.Instance.lbluser.Text = name + " [Manajer]";
+                                MainForm.Instance.role = "Manajer";
                                 this.Close();
                             }
-                            else if (level == "Operator")
+                            else if (level == "Admin")
+                            {
+                                MainForm.Instance.trueadmin();
+                                MainForm.Instance.lbluser.Text = name + " [Admin]";
+                                this.Close();
+                            }
+                            else if (level == "Operator Gudang")
                             {
                                 MainForm.Instance.setvisibletrue();
-                                MainForm.Instance.lbluser.Text = name + " [Operator]";
+                                MainForm.Instance.lbluser.Text = name + " [Operator Gudang]";
                                 this.Close();
                             }
-                            else if (level == "Supervisor")
+                            else if (level == "Operator Perbaikan")
                             {
-                                MainForm.Instance.lbluser.Text = name + " [Supervisor]";
+                                MainForm.Instance.trueoperatorperbaikan();
+                                MainForm.Instance.lbluser.Text = name + " [Operator Perbaikan]";
                                 this.Close();
                             }
-                            else if (level == "spare")
+                            else if (level == "Operator Penerimaan/Pengiriman")
                             {
+                                MainForm.Instance.trueoperatorpenerimaan();
+                                MainForm.Instance.lbluser.Text = name + " [Operator Penerimaan/Pengiriman]";
+                                this.Close();
                             }
                             MainForm.Instance.loginstatus = true;
                         }

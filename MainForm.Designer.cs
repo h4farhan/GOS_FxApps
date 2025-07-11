@@ -143,13 +143,12 @@ namespace GOS_FxApps
             // 
             // panel3
             // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.lbluser);
             this.panel3.Controls.Add(this.iconButton14);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(626, 0);
+            this.panel3.Location = new System.Drawing.Point(461, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(353, 46);
+            this.panel3.Size = new System.Drawing.Size(518, 46);
             this.panel3.TabIndex = 8;
             // 
             // lbluser
@@ -160,7 +159,7 @@ namespace GOS_FxApps
             this.lbluser.Location = new System.Drawing.Point(0, 0);
             this.lbluser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbluser.Name = "lbluser";
-            this.lbluser.Size = new System.Drawing.Size(300, 42);
+            this.lbluser.Size = new System.Drawing.Size(469, 46);
             this.lbluser.TabIndex = 8;
             this.lbluser.Text = "Robert Danuarta [Manajer]";
             this.lbluser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -177,10 +176,10 @@ namespace GOS_FxApps
             this.iconButton14.IconColor = System.Drawing.Color.Aqua;
             this.iconButton14.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton14.IconSize = 40;
-            this.iconButton14.Location = new System.Drawing.Point(300, 0);
+            this.iconButton14.Location = new System.Drawing.Point(469, 0);
             this.iconButton14.Margin = new System.Windows.Forms.Padding(2);
             this.iconButton14.Name = "iconButton14";
-            this.iconButton14.Size = new System.Drawing.Size(49, 42);
+            this.iconButton14.Size = new System.Drawing.Size(49, 46);
             this.iconButton14.TabIndex = 7;
             this.iconButton14.UseVisualStyleBackColor = false;
             this.iconButton14.Click += new System.EventHandler(this.iconButton14_Click);

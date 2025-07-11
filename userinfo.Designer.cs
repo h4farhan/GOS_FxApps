@@ -35,6 +35,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lbltambahakun = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.shadowform = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
@@ -48,7 +49,7 @@
             // 
             // iconPictureBox1
             // 
-            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.iconPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.iconPictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.UserCheck;
@@ -116,6 +117,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.lbltambahakun);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.tableLayoutPanel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -123,6 +125,20 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(242, 151);
             this.panel3.TabIndex = 13;
+            // 
+            // lbltambahakun
+            // 
+            this.lbltambahakun.AutoSize = true;
+            this.lbltambahakun.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbltambahakun.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltambahakun.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbltambahakun.Location = new System.Drawing.Point(94, 122);
+            this.lbltambahakun.Name = "lbltambahakun";
+            this.lbltambahakun.Size = new System.Drawing.Size(86, 16);
+            this.lbltambahakun.TabIndex = 13;
+            this.lbltambahakun.Text = "Tambah Akun";
+            this.lbltambahakun.Visible = false;
+            this.lbltambahakun.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -169,7 +185,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.ClientSize = new System.Drawing.Size(365, 151);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -201,5 +217,6 @@
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2BorderlessForm shadowform;
         private Guna.UI2.WinForms.Guna2Elipse radiusform;
+        public System.Windows.Forms.Label lbltambahakun;
     }
 }

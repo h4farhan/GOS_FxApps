@@ -70,6 +70,7 @@ namespace GOS_FxApps
 
                 dataGridView1.DataSource = dtWithImage;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridView1.Columns["No"].FillWeight = 20;
                 dataGridView1.RowTemplate.Height = 100;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
 
@@ -77,8 +78,6 @@ namespace GOS_FxApps
                 {
                     row.Height = 100;
                 }
-
-                dataGridView1.Columns["No"].Width = 30;
 
                 DataGridViewImageColumn imageCol = (DataGridViewImageColumn)dataGridView1.Columns["Gambar"];
                 imageCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
@@ -153,6 +152,7 @@ namespace GOS_FxApps
 
                     dataGridView1.DataSource = dtWithImage;
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dataGridView1.Columns["No"].FillWeight = 20;
                     dataGridView1.RowTemplate.Height = 100;
                     dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
 
@@ -160,8 +160,6 @@ namespace GOS_FxApps
                     {
                         row.Height = 100;
                     }
-
-                    dataGridView1.Columns["No"].Width = 30;
 
                     DataGridViewImageColumn imageCol = (DataGridViewImageColumn)dataGridView1.Columns["Gambar"];
                     imageCol.ImageLayout = DataGridViewImageCellLayout.Zoom;

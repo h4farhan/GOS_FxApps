@@ -39,7 +39,7 @@ namespace GOS_FxApps
                     if (dr.Read())
                     {
                         lbluser.Text = "Halo, " + dr["username"].ToString();
-                        lbljabatan.Text = dr["lvl"].ToString();
+                        lbljabatan.Text = "[" + dr["lvl"].ToString() + "]";
                     }
                 }
             }
@@ -54,20 +54,38 @@ namespace GOS_FxApps
                                 "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }  
         }
+
         private void label2_Click(object sender, EventArgs e)
         {
             MainForm.Instance.loginstatus = false;
             MainForm.Instance.setvisiblefalse();
+
             MainForm.Instance.SwitchPanel(new Dashboard());
             MainForm.Instance.lbluser.Text = "";
             MainForm.Instance.entryContainer.Size = MainForm.Instance.defaultentrycontainer;
             MainForm.Instance.EditContainer.Size = MainForm.Instance.defaulteditcontainer;
             MainForm.Instance.historycontainer.Size = MainForm.Instance.defaulhistorycontainer;
+            MainForm.Instance.role = null;
             this.Close();
         }
         private void userinfo_Load(object sender, EventArgs e)
         {
             profil(); 
+            if (lbljabatan.Text == "[Manajer]")
+            {
+                lbltambahakun.Visible = true;
+            }
+            else
+            {
+                lbltambahakun.Visible = false;
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Form regis = new registrasi();
+            regis.Show();
+            this.Close();
         }
     }
 }

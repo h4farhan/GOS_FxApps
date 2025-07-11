@@ -29,6 +29,8 @@ namespace GOS_FxApps {
         public Size defaulteditcontainer;
         public Size defaulhistorycontainer;
 
+        public string role = null;
+
         public MainForm()
         {
             InitializeComponent();
@@ -36,7 +38,6 @@ namespace GOS_FxApps {
             lbluser.Text = "";
             setvisiblefalse();
         }
-
 
         //kode utama
         public void SwitchPanel(Form panel)
@@ -247,19 +248,35 @@ namespace GOS_FxApps {
         {
 
         }
-        public void trueoperator()
+        public void trueadmin()
         {
 
         }
-        public void falseoperator()
+        public void falseadmin()
         {
 
         }
-        public void truesupervisor()
+        public void trueoperatorgudang()
         {
 
         }
-        public void falsesupervisor()
+        public void falseoperatorgudang()
+        {
+
+        }
+        public void trueoperatorperbaikan()
+        {
+
+        }
+        public void falseoperatorperbaikan()
+        {
+
+        }
+        public void trueoperatorpenerimaan()
+        {
+
+        }
+        public void falseoperatorpenerimaan()
         {
 
         }

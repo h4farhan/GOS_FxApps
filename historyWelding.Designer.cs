@@ -38,7 +38,8 @@
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btncari = new Guna.UI2.WinForms.Guna2Button();
-            this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.cbShift = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel1.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -175,31 +176,41 @@
             this.btncari.Text = "Cari";
             this.btncari.Click += new System.EventHandler(this.btncari_Click);
             // 
-            // txtcari
+            // label27
             // 
-            this.txtcari.BorderRadius = 5;
-            this.txtcari.BorderThickness = 2;
-            this.txtcari.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtcari.DefaultText = "";
-            this.txtcari.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtcari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtcari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcari.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcari.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.txtcari.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcari.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtcari.ForeColor = System.Drawing.Color.White;
-            this.txtcari.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.icons8_search_50;
-            this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
-            this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
-            this.txtcari.Location = new System.Drawing.Point(195, 82);
-            this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtcari.Name = "txtcari";
-            this.txtcari.PlaceholderText = "Shift";
-            this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(221, 39);
-            this.txtcari.TabIndex = 55;
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.label27.Location = new System.Drawing.Point(200, 91);
+            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(50, 20);
+            this.label27.TabIndex = 59;
+            this.label27.Text = "Shift :";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cbShift
+            // 
+            this.cbShift.BackColor = System.Drawing.Color.Transparent;
+            this.cbShift.BorderRadius = 5;
+            this.cbShift.BorderThickness = 2;
+            this.cbShift.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbShift.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbShift.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.cbShift.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbShift.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbShift.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbShift.ForeColor = System.Drawing.Color.White;
+            this.cbShift.ItemHeight = 30;
+            this.cbShift.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.cbShift.Location = new System.Drawing.Point(254, 83);
+            this.cbShift.Margin = new System.Windows.Forms.Padding(2);
+            this.cbShift.Name = "cbShift";
+            this.cbShift.Size = new System.Drawing.Size(126, 36);
+            this.cbShift.TabIndex = 58;
             // 
             // historyWelding
             // 
@@ -207,11 +218,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.ClientSize = new System.Drawing.Size(735, 677);
+            this.Controls.Add(this.label27);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.cbShift);
             this.Controls.Add(this.datecari);
             this.Controls.Add(this.guna2Panel4);
             this.Controls.Add(this.btncari);
-            this.Controls.Add(this.txtcari);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "historyWelding";
             this.Text = "historyWelding";
@@ -221,6 +233,7 @@
             this.guna2Panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -233,6 +246,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private System.Windows.Forms.DataGridView dataGridView1;
         private Guna.UI2.WinForms.Guna2Button btncari;
-        private Guna.UI2.WinForms.Guna2TextBox txtcari;
+        private System.Windows.Forms.Label label27;
+        private Guna.UI2.WinForms.Guna2ComboBox cbShift;
     }
 }

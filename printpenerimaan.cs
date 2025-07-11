@@ -683,6 +683,12 @@ namespace GOS_FxApps
             int bulan = datecaripemakaian.Value.Month;
             int tahun = datecaripemakaian.Value.Year;
 
+            if (datecaripemakaian.Checked == false)
+            {
+                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.");
+                return false;
+            }
+
             DataTable dt = new DataTable();
 
             string query = "SELECT * FROM pemakaian_material WHERE YEAR(tanggalPemakaian) = @year AND MONTH(tanggalPemakaian) = @bulan;";
@@ -727,7 +733,7 @@ namespace GOS_FxApps
             int bulan = datecaripemakaian.Value.Month;
             int tahun = datecaripemakaian.Value.Year;
 
-            if (!datecaripemakaian.Checked == false)
+            if (datecaripemakaian.Checked == false)
             {
                 MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.");
                 return false;

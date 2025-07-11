@@ -504,28 +504,27 @@ namespace GOS_FxApps
         private bool cari()
         {
             DateTime? tanggal = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
-            string shift = txtcari.Text.Trim();
 
-            if (!tanggal.HasValue && string.IsNullOrEmpty(shift))
+            if (!tanggal.HasValue && cbShift.SelectedIndex == -1)
             {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.");
+                MessageBox.Show("Silakan isi tanggal atau shift untuk melakukan pencarian.");
                 return false;
             }
 
             DataTable dt = new DataTable();
-
             string query = "SELECT * FROM Rb_Stok WHERE 1=1";
 
             using (SqlCommand cmd = new SqlCommand())
             {
                 if (tanggal.HasValue)
                 {
-                    query += "AND CAST(tanggal AS DATE) = @tgl";
+                    query += " AND CAST(tanggal AS DATE) = @tgl";
                     cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
                 }
 
-                if (!string.IsNullOrEmpty(shift))
+                if (cbShift.SelectedIndex != -1) 
                 {
+                    string shift = cbShift.SelectedItem.ToString();
                     query += " AND shift = @shift";
                     cmd.Parameters.AddWithValue("@shift", Convert.ToInt32(shift));
                 }
@@ -552,6 +551,7 @@ namespace GOS_FxApps
                 {
                     conn.Close();
                 }
+
                 return dt.Rows.Count > 0;
             }
         }
@@ -824,7 +824,7 @@ namespace GOS_FxApps
                 infocari = false;
                 btncari.Text = "Cari";
 
-                txtcari.Text = "";
+                cbShift.StartIndex = -1;
                 datecari.Checked = false;
             }
         }
