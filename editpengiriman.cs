@@ -261,40 +261,38 @@ namespace GOS_FxApps
             return int.TryParse(tb.Text, out int result) ? result : 0;
         }
 
+        private void hitung()
+        {
+            int angka1 = SafeParse(txte1ers);
+            int angka2 = SafeParse(txte1est);
+            int hasile1 = angka1 + angka2;
+            lbltotale1.Text = hasile1.ToString();
+
+            int angka3 = SafeParse(txte2ers);
+            int angka4 = SafeParse(txte2cst);
+            int angka5 = SafeParse(txte2cstub);
+            int hasile2 = angka3 + angka4 + angka5;
+            lbltotale2.Text = hasile2.ToString();
+
+            int angka6 = SafeParse(txte3);
+            int angka7 = SafeParse(txts);
+            int angka8 = SafeParse(txtd);
+            int angka9 = SafeParse(txtb);
+            int angka10 = SafeParse(txtba);
+            int angka11 = SafeParse(txtcr);
+            int angka12 = SafeParse(txtm);
+            int angka13 = SafeParse(txtr);
+            int angka14 = SafeParse(txtc);
+            int angka15 = SafeParse(txtrl);
+
+            int hasil = angka1 + angka2 + angka3 + angka4 + angka5 + angka6 + angka7 + angka8 + angka9 + angka10 + angka11 + angka12 + angka13 + angka14 + angka15;
+            lbltotalupdate.Text = hasil.ToString();
+            btnupdate.Enabled = true;
+        }
+
         private void btnhitung_Click(object sender, EventArgs e)
         {
-            if (txtnomorrod.Text == "" || txtjenis.Text == "")
-            {
-                MessageBox.Show("Data Tidak Boleh Kosong");
-            }
-            else
-            {
-                int angka1 = SafeParse(txte1ers);
-                int angka2 = SafeParse(txte1est);
-                int hasile1 = angka1 + angka2;
-                lbltotale1.Text = hasile1.ToString();
-
-                int angka3 = SafeParse(txte2ers);
-                int angka4 = SafeParse(txte2cst);
-                int angka5 = SafeParse(txte2cstub);
-                int hasile2 = angka3 + angka4 + angka5;
-                lbltotale2.Text = hasile2.ToString();
-
-                int angka6 = SafeParse(txte3);
-                int angka7 = SafeParse(txts);
-                int angka8 = SafeParse(txtd);
-                int angka9 = SafeParse(txtb);
-                int angka10 = SafeParse(txtba);
-                int angka11 = SafeParse(txtcr);
-                int angka12 = SafeParse(txtm);
-                int angka13 = SafeParse(txtr);
-                int angka14 = SafeParse(txtc);
-                int angka15 = SafeParse(txtrl);
-
-                int hasil = angka1 + angka2 + angka3 + angka4 + angka5 + angka6 + angka7 + angka8 + angka9 + angka10 + angka11 + angka12 + angka13 + angka14 + angka15;
-                lbltotalupdate.Text = hasil.ToString();
-                btnupdate.Enabled = true;
-            }
+            
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -337,6 +335,11 @@ namespace GOS_FxApps
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
+            if (txtnomorrod.Text == "" || txtjenis.Text == "")
+            {
+                MessageBox.Show("Normor ROD dan Jenis Tidak Boleh Kosong");
+                return;
+            }
             try
             {
                 DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -419,6 +422,86 @@ namespace GOS_FxApps
             {
                 conn.Close();
             }
+        }
+
+        private void txtrl_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txte1ers_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txte2ers_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txte2cst_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txte2cstub_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txts_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtd_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txte3_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtba_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtcr_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtb_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtr_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtc_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtm_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txte1est_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
         }
     }
 }

@@ -278,35 +278,38 @@ namespace GOS_FxApps
             return int.TryParse(tb.Text, out int result) ? result : 0;
         }
 
+        private void hitung()
+        {
+            int angka1 = SafeParse(txte1);
+            int angka2 = SafeParse(txte2);
+            int angka3 = SafeParse(txte3);
+            int angka4 = SafeParse(txts);
+            int angka5 = SafeParse(txtd);
+            int angka6 = SafeParse(txtb);
+            int angka7 = SafeParse(txtba);
+            int angka8 = SafeParse(txtcr);
+            int angka9 = SafeParse(txtm);
+            int angka10 = SafeParse(txtr);
+            int angka11 = SafeParse(txtc);
+            int angka12 = SafeParse(txtrl);
+
+            int hasil = angka1 + angka2 + angka3 + angka4 + angka5 + angka6 + angka7 + angka8 + angka9 + angka10 + angka11 + angka12;
+            lbltotalupdate.Text = hasil.ToString();
+            btnupdate.Enabled = true;
+        }
+
         private void btnhitung_Click(object sender, EventArgs e)
         {
-            if (txtnomorrod.Text == "" || txtjenis.Text == "" || txtstasiun.Text == "")
-            {
-                MessageBox.Show("Data Tidak Boleh Kosong");
-            }
-            else
-            {
-                int angka1 = SafeParse(txte1);
-                int angka2 = SafeParse(txte2);
-                int angka3 = SafeParse(txte3);
-                int angka4 = SafeParse(txts);
-                int angka5 = SafeParse(txtd);
-                int angka6 = SafeParse(txtb);
-                int angka7 = SafeParse(txtba);
-                int angka8 = SafeParse(txtcr);
-                int angka9 = SafeParse(txtm);
-                int angka10 = SafeParse(txtr);
-                int angka11 = SafeParse(txtc);
-                int angka12 = SafeParse(txtrl);
-
-                int hasil = angka1 + angka2 + angka3 + angka4 + angka5 + angka6 + angka7 + angka8 + angka9 + angka10 + angka11 + angka12;
-                lbltotalupdate.Text = hasil.ToString();
-                btnupdate.Enabled = true;
-            }
         }
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
+            if (txtnomorrod.Text == "" || txtjenis.Text == "" || txtstasiun.Text == "")
+            {
+                MessageBox.Show("Nomor ROD, Jenis, dan Stasiun Tidak Boleh Kosong");
+                return; 
+            }
+
             try
             {
                 DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -379,6 +382,66 @@ namespace GOS_FxApps
             { 
                 conn.Close();
             }
+        }
+
+        private void txtrl_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txte2_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txte3_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txts_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtba_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtcr_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtd_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtb_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtm_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtr_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtc_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txte1_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
         }
     }
 }
