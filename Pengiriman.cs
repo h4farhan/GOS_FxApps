@@ -94,6 +94,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[22].HeaderText = "Jumlah";
                 dataGridView1.Columns[23].HeaderText = "Tanggal Penerimaan";
                 dataGridView1.Columns[24].HeaderText = "Tanggal Perbaikan";
+                dataGridView1.Columns[25].HeaderText = "Diubah";
             }
             catch (SqlException)
             {
@@ -264,9 +265,9 @@ namespace GOS_FxApps
         {
             string query = @"INSERT INTO pengiriman (tanggal_pengiriman, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah,
                                 e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, s, d, b, ba, cr, m, r, c, rl, jumlah, tanggal_penerimaan,
-                                tanggal_perbaikan)
+                                tanggal_perbaikan,updated_at)
                                 VALUES (getdate(), @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16, @17, @18, @19, @20,
-                                @21, @22, @23, @24)";
+                                @21, @22, @23, @24, getdate())";
 
             SqlConnection conn = Koneksi.GetConnection();
 

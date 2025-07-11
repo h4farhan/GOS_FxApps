@@ -61,6 +61,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[16].HeaderText = "C";
                 dataGridView1.Columns[17].HeaderText = "RL";
                 dataGridView1.Columns[18].HeaderText = "Jumlah";
+                dataGridView1.Columns[19].HeaderText = "Diubah";
             }
             catch (SqlException)
             {
@@ -318,7 +319,7 @@ namespace GOS_FxApps
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("UPDATE penerimaan_p SET jenis = @jenis, stasiun = @stasiun, e1 = @e1, e2 = @e2, e3 = @e3, s = @s, d = @d," +
-                        "b = @b, ba = @ba, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah WHERE no = @no ", conn);
+                        "b = @b, ba = @ba, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = getdate() WHERE no = @no", conn);
                     //SqlCommand cmd2 = new SqlCommand("INSERT INTO histori_penerimaan (tanggal_penerimaan,shift,nomor_rod,jenis,stasiun,e1,e2,e3," +
                     //    "s,d,b,ba,cr,m,r,c,rl,jumlah) VALUES(@tanggal,@shift,@nomorrod,@jenis,@stasiun,@e1,@e2,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah)", conn);
 

@@ -66,6 +66,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[22].HeaderText = "Jumlah";
                 dataGridView1.Columns[23].HeaderText = "Tanggal Penerimaan";
                 dataGridView1.Columns[23].HeaderText = "Tanggal Perbaikan";
+                dataGridView1.Columns[24].HeaderText = "Diubah";
             }
             catch (SqlException)
             {
@@ -348,7 +349,7 @@ namespace GOS_FxApps
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("UPDATE pengiriman SET jenis = @jenis, e1_ers = @e1ers, e1_est = @e1est, e1_jumlah = @e1jumlah, e2_ers = @e2ers, e2_cst = @e2cst, e2_cstub = @e2cstub, e2_jumlah = @e2jumlah," +
-                        "e3 = @e3, s = @s, d = @d, b = @b, ba = @ba, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah WHERE no = @no ", conn);
+                        "e3 = @e3, s = @s, d = @d, b = @b, ba = @ba, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = getdate() WHERE no = @no ", conn);
 
                     //SqlCommand cmd2 = new SqlCommand("INSERT INTO histori_perbaikan (shift,nomor_rod,jenis,e1_ers,e1_est,e1_jumlah,e2_ers,e2_cst,e2_cstub,e2_jumlah," +
                     //    "e3,s,d,b,ba,cr,m,r,c,rl,jumlah,tanggal_perbaikan,tanggal_penerimaan) VALUES(@shift,@nomorrod,@jenis,@e1ers,@e1est,@e1jumlah,@e2ers,@e2cst,@e2cstub,@e2jumlah,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah,@tanggalpenerimaan,@tanggalperbaikan)", conn);

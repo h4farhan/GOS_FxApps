@@ -310,6 +310,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[16].HeaderText = "C";
                 dataGridView1.Columns[17].HeaderText = "RL";
                 dataGridView1.Columns[18].HeaderText = "Jumlah";
+                dataGridView1.Columns["updated_at"].Visible = false;
             }
             catch (SqlException)
             {
@@ -361,6 +362,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[21].HeaderText = "RL";
                 dataGridView1.Columns[22].HeaderText = "Jumlah";
                 dataGridView1.Columns[23].HeaderText = "Tanggal Penerimaan";
+                dataGridView1.Columns["updated_at"].Visible = false;
             }
             catch (SqlException)
             {
@@ -413,6 +415,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[22].HeaderText = "Jumlah";
                 dataGridView1.Columns[23].HeaderText = "Tanggal Penerimaan";
                 dataGridView1.Columns[24].HeaderText = "Tanggal Perbaikan";
+                dataGridView1.Columns["updated_at"].Visible = false;
             }
             catch (SqlException)
             {
@@ -465,6 +468,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[22].HeaderText = "Total E1&E2";
                 dataGridView1.Columns[23].HeaderText = "Waste";
                 dataGridView1.Columns[24].HeaderText = "Keterangan";
+                dataGridView1.Columns["updated_at"].Visible = false;
             }
             catch (SqlException)
             {
@@ -498,6 +502,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[2].HeaderText = "Nama Barang";
                 dataGridView1.Columns[3].HeaderText = "Tanggal Pemakaian";
                 dataGridView1.Columns[4].HeaderText = "Jumlah Pemakaian";
+                dataGridView1.Columns["updated_at"].Visible = false;
             }
             catch (SqlException)
             {

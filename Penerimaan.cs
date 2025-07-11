@@ -50,9 +50,9 @@ namespace GOS_FxApps
                     }
 
                     SqlCommand cmd1 = new SqlCommand("INSERT INTO penerimaan_s (tanggal_penerimaan,shift,nomor_rod,jenis,stasiun,e1,e2,e3," +
-                        "s,d,b,ba,cr,m,r,c,rl,jumlah) VALUES(getdate(),@shift,@nomorrod,@jenis,@stasiun,@e1,@e2,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah)", conn);
+                        "s,d,b,ba,cr,m,r,c,rl,jumlah,updated_at) VALUES(getdate(),@shift,@nomorrod,@jenis,@stasiun,@e1,@e2,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah,getdate())", conn);
                     SqlCommand cmd2 = new SqlCommand("INSERT INTO penerimaan_p (tanggal_penerimaan,shift,nomor_rod,jenis,stasiun,e1,e2,e3," +
-                        "s,d,b,ba,cr,m,r,c,rl,jumlah) VALUES(getdate(),@shift,@nomorrod,@jenis,@stasiun,@e1,@e2,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah)", conn);
+                        "s,d,b,ba,cr,m,r,c,rl,jumlah,updated_at) VALUES(getdate(),@shift,@nomorrod,@jenis,@stasiun,@e1,@e2,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah,getdate())", conn);
 
                     cmd1.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
                     cmd1.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
@@ -127,9 +127,9 @@ namespace GOS_FxApps
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("UPDATE penerimaan_s SET nomor_rod = @nomorrod, jenis = @jenis, stasiun = @stasiun, e1 = @e1, e2 = @e2, e3 = @e3, s = @s, d = @d," +
-                        "b = @b, ba = @ba, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah WHERE no = @no ", conn);
+                        "b = @b, ba = @ba, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = getdate() WHERE no = @no ", conn);
                     SqlCommand cmd2 = new SqlCommand("UPDATE penerimaan_p SET nomor_rod = @nomorrod, jenis = @jenis, stasiun = @stasiun, e1 = @e1, e2 = @e2, e3 = @e3, s = @s, d = @d," +
-                        "b = @b, ba = @ba, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah WHERE no = @no ", conn);
+                        "b = @b, ba = @ba, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = getdate() WHERE no = @no ", conn);
 
                     cmd.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
                     cmd.Parameters.AddWithValue("@jenis", txtjenis.Text);
@@ -222,6 +222,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[16].HeaderText = "C";
                 dataGridView1.Columns[17].HeaderText = "RL";
                 dataGridView1.Columns[18].HeaderText = "Jumlah";
+                dataGridView1.Columns[19].HeaderText = "Diubah";
             }
             catch (SqlException)
             {
@@ -257,6 +258,7 @@ namespace GOS_FxApps
                 simpandata();
                 tampil();
                 btnsimpan.Enabled = false;
+                btncancel.Enabled= false;
             }
         }
 

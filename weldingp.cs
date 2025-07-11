@@ -92,6 +92,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[22].HeaderText = "Total E1&E2";
                 dataGridView1.Columns[23].HeaderText = "Waste";
                 dataGridView1.Columns[24].HeaderText = "Keterangan";
+                dataGridView1.Columns[25].HeaderText = "Diubah";
             }
             catch (SqlException)
             {
@@ -466,7 +467,8 @@ namespace GOS_FxApps
                                                                 wpe2 = @wpe2, 
                                                                 wbe1 = @wbe1, 
                                                                 wbe2 = @wbe2, 
-                                                                wastekg = @wastekg 
+                                                                wastekg = @wastekg,
+                                                                updated_at = getdate()
                                                             WHERE id_stok = @id", conn);
 
                         updateCmd.Parameters.AddWithValue("@bstok", destok);
@@ -567,8 +569,8 @@ namespace GOS_FxApps
                 {
                     conn.Open();
                     SqlCommand cmd1 = new SqlCommand("INSERT INTO Rb_Stok (tanggal,shift,bmasuk,bkeluar,bstok,bpanjang,bsisamm,bpe1,bpe2,bbe1,bbe2,rbkeluare1,rbkeluare2," +
-                        "wpe1,wpe2,wbe1,wbe2,bsisakg,wastekg,e1mm,e2mm,ttle1e2,waste,keterangan) VALUES(GETDATE(),@shift,@bmasuk,@bkeluar,@bstok,@bpanjang,@bsisamm,@bpe1,@bpe2," +
-                        "@bbe1,@bbe2,@rbkeluare1,@rbkeluare2,@wpe1,@wpe2,@wbe1,@wbe2,@bsisakg,@wastekg,@e1mm,@e2mm,@ttle1e2,@waste,@keterangan)", conn);
+                        "wpe1,wpe2,wbe1,wbe2,bsisakg,wastekg,e1mm,e2mm,ttle1e2,waste,keterangan,updated_at) VALUES(GETDATE(),@shift,@bmasuk,@bkeluar,@bstok,@bpanjang,@bsisamm,@bpe1,@bpe2," +
+                        "@bbe1,@bbe2,@rbkeluare1,@rbkeluare2,@wpe1,@wpe2,@wbe1,@wbe2,@bsisakg,@wastekg,@e1mm,@e2mm,@ttle1e2,@waste,@keterangan,getdate())", conn);
 
                     cmd1.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
                     cmd1.Parameters.AddWithValue("@bmasuk", txtmasuk.Text);
@@ -626,7 +628,7 @@ namespace GOS_FxApps
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("UPDATE Rb_Stok SET bmasuk = @bmasuk, bkeluar = @bkeluar, bstok = @bstok, bpanjang = @bpanjang, bsisamm = @bsisamm, bpe1 = @bpe1, bpe2 = @bpe2, bbe1 = @bbe1," +
                         "bbe2 = @bbe2, rbkeluare1 = @rbkeluare1, rbkeluare2 = @rbkeluare2, wpe1 = @wpe1, wpe2 = @wpe2, wbe1 = @wbe1, wbe2 = @wbe2, bsisakg = @bsisakg, wastekg = @wastekg, e1mm = @e1mm, e2mm = @e2mm," +
-                        "ttle1e2 = @ttle1e2, waste = @waste, keterangan = @keterangan WHERE id_stok = @id", conn);
+                        "ttle1e2 = @ttle1e2, waste = @waste, keterangan = @keterangan, updated_at = getdate() WHERE id_stok = @id", conn);
 
                     cmd.Parameters.AddWithValue("@bmasuk", txtmasuk.Text);
                     cmd.Parameters.AddWithValue("@bkeluar", txtkeluar.Text);

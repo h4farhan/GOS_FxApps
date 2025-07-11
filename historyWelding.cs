@@ -60,6 +60,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[22].HeaderText = "Total E1&E2";
                 dataGridView1.Columns[23].HeaderText = "Waste";
                 dataGridView1.Columns[24].HeaderText = "Keterangan";
+                dataGridView1.Columns[25].HeaderText = "Diubah";
             }
             catch (SqlException)
             {

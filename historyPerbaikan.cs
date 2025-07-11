@@ -58,6 +58,8 @@ namespace GOS_FxApps
                 dataGridView1.Columns[21].HeaderText = "RL";
                 dataGridView1.Columns[22].HeaderText = "Jumlah";
                 dataGridView1.Columns[23].HeaderText = "Tanggal Penerimaan";
+                dataGridView1.Columns[24].HeaderText = "Diubah";
+
             }
             catch (SqlException)
             {

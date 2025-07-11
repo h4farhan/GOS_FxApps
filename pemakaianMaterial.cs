@@ -49,6 +49,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[2].HeaderText = "Nama Barang";
                 dataGridView1.Columns[3].HeaderText = "Tanggal Pemakaian";
                 dataGridView1.Columns[4].HeaderText = "Jumlah Pemakaian";
+                dataGridView1.Columns[5].HeaderText = "Diubah";
             }
             catch (SqlException)
             {
@@ -134,13 +135,13 @@ namespace GOS_FxApps
                 cmd.Parameters.AddWithValue("@kode", kodeBarang);
                 cmd.ExecuteNonQuery();
 
-                SqlCommand cmdPakai = new SqlCommand("UPDATE pemakaian_material SET tanggalPemakaian = @tgl, jumlahPemakaian = @jumlah WHERE idPemakaian = @id", conn);
+                SqlCommand cmdPakai = new SqlCommand("UPDATE pemakaian_material SET tanggalPemakaian = @tgl, jumlahPemakaian = @jumlah, updated_at = getdate() WHERE idPemakaian = @id", conn);
                 cmdPakai.Parameters.AddWithValue("@id", noprimary);
                 cmdPakai.Parameters.AddWithValue("@tgl", datepemakaian.Value);
                 cmdPakai.Parameters.AddWithValue("@jumlah", jumlah);
                 cmdPakai.ExecuteNonQuery();
 
-                SqlCommand cmdUpdateStok = new SqlCommand("UPDATE stok_material SET jumlahStok = jumlahStok - @pakai WHERE kodeBarang = @kode", conn);
+                SqlCommand cmdUpdateStok = new SqlCommand("UPDATE stok_material SET jumlahStok = jumlahStok - @pakai, updated_at = getdate() WHERE kodeBarang = @kode", conn);
                 cmdUpdateStok.Parameters.AddWithValue("@pakai", txtjumlah.Text);
                 cmdUpdateStok.Parameters.AddWithValue("@kode", kodeBarang);
                 cmdUpdateStok.ExecuteNonQuery();
@@ -189,14 +190,14 @@ namespace GOS_FxApps
                     MessageBox.Show("Stok tidak cukup.");
                     return;
                 }
-                SqlCommand cmdPakai = new SqlCommand("INSERT INTO pemakaian_material (kodeBarang, namaBarang, tanggalPemakaian, jumlahPemakaian) VALUES (@kode, @nama, @tgl, @jumlah)", conn);
+                SqlCommand cmdPakai = new SqlCommand("INSERT INTO pemakaian_material (kodeBarang, namaBarang, tanggalPemakaian, jumlahPemakaian, updated_at) VALUES (@kode, @nama, @tgl, @jumlah, getdate())", conn);
                 cmdPakai.Parameters.AddWithValue("@kode", kodeBarang);
                 cmdPakai.Parameters.AddWithValue("@nama", namaBarang);
                 cmdPakai.Parameters.AddWithValue("@tgl", datepemakaian.Value);
                 cmdPakai.Parameters.AddWithValue("@jumlah", jumlahPakai);
                 cmdPakai.ExecuteNonQuery();
 
-                SqlCommand cmdUpdateStok = new SqlCommand("UPDATE stok_material SET jumlahStok = jumlahStok - @pakai WHERE kodeBarang = @kode", conn);
+                SqlCommand cmdUpdateStok = new SqlCommand("UPDATE stok_material SET jumlahStok = jumlahStok - @pakai, updated_at = getdate() WHERE kodeBarang = @kode", conn);
                 cmdUpdateStok.Parameters.AddWithValue("@pakai", jumlahPakai);
                 cmdUpdateStok.Parameters.AddWithValue("@kode", kodeBarang);
                 cmdUpdateStok.ExecuteNonQuery();
