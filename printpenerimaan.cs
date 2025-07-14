@@ -237,6 +237,34 @@ namespace GOS_FxApps
             frmrpt.Show();
         }
 
+        private void formlaporanharian()
+        {
+            int bulan = datecaripemakaian.Value.Month;
+            int tahun = datecaripemakaian.Value.Year;
+
+            var adapter = new GOS_FxApps.DataSet.PerbaikanFormTableAdapters.sp_Laporan_HarianTableAdapter();
+            GOS_FxApps.DataSet.PerbaikanForm.sp_Laporan_HarianDataTable data = adapter.GetData(bulan, tahun);
+
+            frmrpt = new reportviewr();
+            frmrpt.reportViewer1.Reset();
+            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "produksiharian.rdlc");
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetharian", (DataTable)data));
+
+            ReportParameter[] parameters = new ReportParameter[]
+            {
+        new ReportParameter("bulan", bulan.ToString()),
+        new ReportParameter("tahun", tahun.ToString())
+            };
+
+            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
+            frmrpt.reportViewer1.RefreshReport();
+            frmrpt.Show();
+        }
+
         private reportviewr frmrpt;
 
         private void guna2Button2_Click(object sender, EventArgs e) 
@@ -265,6 +293,10 @@ namespace GOS_FxApps
             else if (pilihan == "Pemakaian Material")
             {
                 formPemakaian();
+            }
+            else if (pilihan == "Laporan Harian")
+            {
+                formlaporanharian();
             }
         }
 
@@ -787,6 +819,55 @@ namespace GOS_FxApps
             }
         }
 
+        private bool carilaporanharian()
+        {
+            int bulan = datecaripemakaian.Value.Month;
+            int tahun = datecaripemakaian.Value.Year;
+
+            if (datecaripemakaian.Checked == false)
+            {
+                MessageBox.Show("Silakan isi tanggal untuk melakukan pencarian.");
+                return false;
+            }
+
+            DataTable dt = new DataTable();
+
+            string query = "SELECT * FROM perbaikan_p WHERE YEAR(tanggal_perbaikan) = @year AND MONTH(tanggal_perbaikan) = @bulan;";
+
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@year", tahun);
+                cmd.Parameters.AddWithValue("@bulan", bulan);
+
+                try
+                {
+                    conn.Open();
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+
+                    dataGridView1.DataSource = dt;
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                return dt.Rows.Count > 0;
+            }
+        }
+
         private void btncari_Click(object sender, EventArgs e)
         {
 
@@ -955,6 +1036,38 @@ namespace GOS_FxApps
                     datecaripemakaian.Checked = false;
                 }
             }
+            else if (pilihan == "Laporan Harian")
+            {
+                if (!infocari)
+                {
+                    bool hasilCari = carilaporanharian();
+                    if (hasilCari)
+                    {
+                        infocari = true;
+                        btnprint.Enabled = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                    else
+                    {
+                        infocari = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                }
+                else
+                {
+                    tampilperbaikan();
+                    infocari = false;
+                    btncari.Text = "Cari";
+                    jumlahdata();
+
+                    btnprint.Enabled = false;
+
+                    guna2Panel4.ResetText();
+                    datecari.Checked = false;
+                }
+            }
         }
 
         private void jumlahdata()
@@ -1056,6 +1169,22 @@ namespace GOS_FxApps
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
                 tampilpemakaianmaterial();
+                TambahCancelOption();
+                jumlahdata();
+            }
+            else if (pilihan == "Laporan Harian")
+            {
+                //reset dulu
+                infocari = false;
+                btncari.Text = "Cari";
+                btnprint.Enabled = false;
+                guna2Panel4.ResetText();
+                datecaripemakaian.Checked = false;
+                paneldata2.Visible = false;
+
+                paneldata1.Visible = true;
+                btncari.Enabled = true;
+                tampilperbaikan();
                 TambahCancelOption();
                 jumlahdata();
             }

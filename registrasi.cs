@@ -44,7 +44,7 @@ namespace GOS_FxApps
                     }
                     dr.Close();
 
-                    SqlCommand cmd = new SqlCommand("INSERT INTO users (id, username, password, lvl) VALUES (@id, @username, @password, @lvl)", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO users (id, username, password, lvl, updated_at) VALUES (@id, @username, @password, @lvl, getdate())", conn);
                     cmd.Parameters.AddWithValue("@id", txtid.Text);
                     cmd.Parameters.AddWithValue("@username", txtusername.Text);
                     cmd.Parameters.AddWithValue("@password", txtpass.Text);

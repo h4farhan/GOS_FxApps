@@ -447,6 +447,9 @@
     <EmbeddedResource Include="printpenerimaan.resx">
       <DependentUpon>printpenerimaan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="produksiharian.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
