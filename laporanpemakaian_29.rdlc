@@ -170,7 +170,7 @@
         <rd:TableAdapterName>sp_LaporanPemakaianMaterialTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="datasetjumlahpengiriman">
+    <DataSet Name="datasetjumlahperbaikan">
       <Query>
         <DataSourceName>PengirimanForm</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -310,12 +310,12 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>PengirimanForm</rd:DataSetName>
-        <rd:SchemaPath>E:\GitHub\GOS_FxApps\DataSet\PengirimanForm.xsd</rd:SchemaPath>
-        <rd:TableName>sp_LaporanPengiriman</rd:TableName>
+        <rd:DataSetName>PerbaikanForm</rd:DataSetName>
+        <rd:SchemaPath>E:\GitHub\GOS_FxApps\DataSet\PerbaikanForm.xsd</rd:SchemaPath>
+        <rd:TableName>sp_LaporanPerbaikan</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>sp_LaporanPengirimanTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>sp_LaporanPerbaikanTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -481,7 +481,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -516,7 +516,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -5584,14 +5584,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox394">
+                        <Textbox Name="Textbox165">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom1.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom1.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -5604,7 +5604,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox394</rd:DefaultName>
+                          <rd:DefaultName>Textbox165</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -5621,14 +5621,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="namaKolom2">
+                        <Textbox Name="Textbox166">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom2.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom2.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -5641,7 +5641,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>namaKolom2</rd:DefaultName>
+                          <rd:DefaultName>Textbox166</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -5658,14 +5658,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox396">
+                        <Textbox Name="Textbox167">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom3.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom3.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -5678,7 +5678,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox396</rd:DefaultName>
+                          <rd:DefaultName>Textbox167</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -5695,14 +5695,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox397">
+                        <Textbox Name="Textbox168">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom4.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom4.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -5715,7 +5715,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox397</rd:DefaultName>
+                          <rd:DefaultName>Textbox168</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -5732,14 +5732,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox398">
+                        <Textbox Name="Textbox169">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom5.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom5.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -5752,7 +5752,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox398</rd:DefaultName>
+                          <rd:DefaultName>Textbox169</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -5769,14 +5769,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox399">
+                        <Textbox Name="Textbox170">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom6.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom6.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -5789,7 +5789,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox399</rd:DefaultName>
+                          <rd:DefaultName>Textbox170</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -5806,14 +5806,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox400">
+                        <Textbox Name="Textbox171">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom7.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom7.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -5826,7 +5826,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox400</rd:DefaultName>
+                          <rd:DefaultName>Textbox171</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -5843,14 +5843,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox401">
+                        <Textbox Name="Textbox172">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom8.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom8.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -5863,7 +5863,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox401</rd:DefaultName>
+                          <rd:DefaultName>Textbox172</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -5880,14 +5880,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox402">
+                        <Textbox Name="Textbox173">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom9.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom9.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -5900,7 +5900,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox402</rd:DefaultName>
+                          <rd:DefaultName>Textbox173</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -5917,14 +5917,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox403">
+                        <Textbox Name="Textbox174">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom10.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom10.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -5937,7 +5937,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox403</rd:DefaultName>
+                          <rd:DefaultName>Textbox174</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -5954,14 +5954,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox404">
+                        <Textbox Name="Textbox175">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom11.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom11.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -5974,7 +5974,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox404</rd:DefaultName>
+                          <rd:DefaultName>Textbox175</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -5991,14 +5991,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox405">
+                        <Textbox Name="Textbox176">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom12.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom12.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6011,7 +6011,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox405</rd:DefaultName>
+                          <rd:DefaultName>Textbox176</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -6028,14 +6028,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox406">
+                        <Textbox Name="Textbox177">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom13.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom13.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6048,7 +6048,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox406</rd:DefaultName>
+                          <rd:DefaultName>Textbox177</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -6065,14 +6065,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox407">
+                        <Textbox Name="Textbox178">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom14.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom14.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6085,7 +6085,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox407</rd:DefaultName>
+                          <rd:DefaultName>Textbox178</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -6102,14 +6102,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox408">
+                        <Textbox Name="Textbox179">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom15.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom15.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6122,7 +6122,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox408</rd:DefaultName>
+                          <rd:DefaultName>Textbox179</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -6139,14 +6139,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox409">
+                        <Textbox Name="Textbox180">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom16.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom16.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6159,7 +6159,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox409</rd:DefaultName>
+                          <rd:DefaultName>Textbox180</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -6176,14 +6176,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox410">
+                        <Textbox Name="Textbox181">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom17.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom17.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6196,7 +6196,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox410</rd:DefaultName>
+                          <rd:DefaultName>Textbox181</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -6213,14 +6213,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox411">
+                        <Textbox Name="Textbox182">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom18.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom18.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6233,7 +6233,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox411</rd:DefaultName>
+                          <rd:DefaultName>Textbox182</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -6250,14 +6250,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox412">
+                        <Textbox Name="Textbox183">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom19.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom18.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6270,7 +6270,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox412</rd:DefaultName>
+                          <rd:DefaultName>Textbox183</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -6287,14 +6287,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox413">
+                        <Textbox Name="Textbox184">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom20.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom20.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6307,7 +6307,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox413</rd:DefaultName>
+                          <rd:DefaultName>Textbox184</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -6324,14 +6324,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox414">
+                        <Textbox Name="Textbox185">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom21.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom21.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6344,7 +6344,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox414</rd:DefaultName>
+                          <rd:DefaultName>Textbox185</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -6361,14 +6361,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox415">
+                        <Textbox Name="Textbox186">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom22.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom22.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6381,7 +6381,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox415</rd:DefaultName>
+                          <rd:DefaultName>Textbox186</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -6398,14 +6398,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox416">
+                        <Textbox Name="Textbox187">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom23.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom23.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6418,7 +6418,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox416</rd:DefaultName>
+                          <rd:DefaultName>Textbox187</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -6435,14 +6435,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox417">
+                        <Textbox Name="Textbox188">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom24.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom24.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6455,7 +6455,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox417</rd:DefaultName>
+                          <rd:DefaultName>Textbox188</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -6472,14 +6472,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox418">
+                        <Textbox Name="Textbox189">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom25.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom25.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6492,7 +6492,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox418</rd:DefaultName>
+                          <rd:DefaultName>Textbox189</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -6509,14 +6509,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox419">
+                        <Textbox Name="Textbox190">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom26.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom26.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6529,7 +6529,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox419</rd:DefaultName>
+                          <rd:DefaultName>Textbox190</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -6546,14 +6546,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox420">
+                        <Textbox Name="Textbox191">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom27.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom27.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6566,7 +6566,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox420</rd:DefaultName>
+                          <rd:DefaultName>Textbox191</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -6583,14 +6583,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox421">
+                        <Textbox Name="Textbox192">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom28.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom28.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6603,7 +6603,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox421</rd:DefaultName>
+                          <rd:DefaultName>Textbox192</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -6620,14 +6620,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox422">
+                        <Textbox Name="Textbox193">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom29.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom29.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6640,7 +6640,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox422</rd:DefaultName>
+                          <rd:DefaultName>Textbox193</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -6657,14 +6657,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox424">
+                        <Textbox Name="Textbox194">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Total.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!Total.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -6677,7 +6677,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox424</rd:DefaultName>
+                          <rd:DefaultName>Textbox194</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -6743,7 +6743,7 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>datasetjumlahpengiriman</DataSetName>
+            <DataSetName>datasetjumlahperbaikan</DataSetName>
             <Top>1.60645cm</Top>
             <Left>0.36366cm</Left>
             <Height>1.2cm</Height>

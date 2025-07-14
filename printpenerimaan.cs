@@ -89,8 +89,8 @@ namespace GOS_FxApps
             var adapter = new GOS_FxApps.DataSet.laporanpemakaianTableAdapters.sp_LaporanPemakaianMaterialTableAdapter();
             GOS_FxApps.DataSet.laporanpemakaian.sp_LaporanPemakaianMaterialDataTable data = adapter.GetData(bulan, tahun);
 
-            var adapterPengiriman = new GOS_FxApps.DataSet.PengirimanFormTableAdapters.sp_LaporanPengirimanTableAdapter();
-            GOS_FxApps.DataSet.PengirimanForm.sp_LaporanPengirimanDataTable datapengiriman = adapterPengiriman.GetData(bulan, tahun);
+            var adapterperbaikan = new GOS_FxApps.DataSet.PerbaikanFormTableAdapters.sp_LaporanPerbaikanTableAdapter();
+            GOS_FxApps.DataSet.PerbaikanForm.sp_LaporanPerbaikanDataTable dataperbaikan = adapterperbaikan.GetData(bulan, tahun);
 
             frmrpt = new reportviewr();
             frmrpt.reportViewer1.Reset();
@@ -102,7 +102,7 @@ namespace GOS_FxApps
                 new ReportDataSource("datasetlaporanpemakaian", (DataTable)data));
 
             frmrpt.reportViewer1.LocalReport.DataSources.Add(
-                new ReportDataSource("datasetjumlahpengiriman", (DataTable)datapengiriman));
+                new ReportDataSource("datasetjumlahperbaikan", (DataTable)dataperbaikan));
 
             ReportParameter[] parameters = new ReportParameter[]
             {
@@ -265,6 +265,65 @@ namespace GOS_FxApps
             frmrpt.Show();
         }
 
+        private void formactual()
+        {
+            int bulan = datecaripemakaian.Value.Month;
+            int tahun = datecaripemakaian.Value.Year;
+
+            int jumlahHari = DateTime.DaysInMonth(tahun, bulan);
+
+            string namaFileRDLC = null;
+            switch (jumlahHari)
+            {
+                case 28:
+                    namaFileRDLC = "actual_28.rdlc";
+                    break;
+                case 29:
+                    namaFileRDLC = "actual_29.rdlc";
+                    break;
+                case 30:
+                    namaFileRDLC = "actual_30.rdlc";
+                    break;
+                case 31:
+                    namaFileRDLC = "actual_31.rdlc";
+                    break;
+            }
+
+            var adapteractual = new GOS_FxApps.DataSet.actualTableAdapters.sp_LaporanActualTableAdapter();
+            GOS_FxApps.DataSet.actual.sp_LaporanActualDataTable dataactual = adapteractual.GetData(bulan, tahun);
+
+            var adapterperbaikan = new GOS_FxApps.DataSet.actualTableAdapters.sp_LaporanShiftPerbaikanTableAdapter();
+            GOS_FxApps.DataSet.actual.sp_LaporanShiftPerbaikanDataTable dataperbaikan = adapterperbaikan.GetData(bulan, tahun);
+
+            var adapterpenerimaan = new GOS_FxApps.DataSet.actualTableAdapters.sp_LaporanShiftPenerimaanTableAdapter();
+            GOS_FxApps.DataSet.actual.sp_LaporanShiftPenerimaanDataTable datapenerimaan = adapterpenerimaan.GetData(bulan, tahun);
+
+            frmrpt = new reportviewr();
+            frmrpt.reportViewer1.Reset();
+            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, namaFileRDLC);
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetactual", (DataTable)dataactual));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetshiftperbaikan", (DataTable)dataperbaikan));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetshiftpenerimaan", (DataTable)datapenerimaan));
+
+            ReportParameter[] parameters = new ReportParameter[]
+            {
+        new ReportParameter("bulan", bulan.ToString()),
+        new ReportParameter("tahun", tahun.ToString())
+            };
+
+            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
+            frmrpt.reportViewer1.RefreshReport();
+            frmrpt.Show();
+        }
+
         private reportviewr frmrpt;
 
         private void guna2Button2_Click(object sender, EventArgs e) 
@@ -290,13 +349,17 @@ namespace GOS_FxApps
             {
                 formwelding();
             }
-            else if (pilihan == "Pemakaian Material")
+            else if (pilihan == "Hasil Produksi & Pemakaian Material")
             {
                 formPemakaian();
             }
-            else if (pilihan == "Laporan Harian")
+            else if (pilihan == "Summary Data for Anode ROD Repair")
             {
                 formlaporanharian();
+            }
+            else if (pilihan == "Actual Quantity for Repaired ROD Assy")
+            {
+                formactual();
             }
         }
 
@@ -868,6 +931,55 @@ namespace GOS_FxApps
             }
         }
 
+        private bool cariactual()
+        {
+            int bulan = datecaripemakaian.Value.Month;
+            int tahun = datecaripemakaian.Value.Year;
+
+            if (datecaripemakaian.Checked == false)
+            {
+                MessageBox.Show("Silakan isi tanggal untuk melakukan pencarian.");
+                return false;
+            }
+
+            DataTable dt = new DataTable();
+
+            string query = "SELECT * FROM perbaikan_p WHERE YEAR(tanggal_perbaikan) = @year AND MONTH(tanggal_perbaikan) = @bulan;";
+
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@year", tahun);
+                cmd.Parameters.AddWithValue("@bulan", bulan);
+
+                try
+                {
+                    conn.Open();
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+
+                    dataGridView1.DataSource = dt;
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                return dt.Rows.Count > 0;
+            }
+        }
+
         private void btncari_Click(object sender, EventArgs e)
         {
 
@@ -1004,7 +1116,7 @@ namespace GOS_FxApps
                     datecaripemakaian.Checked = false;
                 }
             }
-            else if (pilihan == "Pemakaian Material")
+            else if (pilihan == "Hasil Produksi & Pemakaian Material")
             {
                 if (!infocari)
                 {
@@ -1036,11 +1148,43 @@ namespace GOS_FxApps
                     datecaripemakaian.Checked = false;
                 }
             }
-            else if (pilihan == "Laporan Harian")
+            else if (pilihan == "Summary Data for Anode ROD Repair")
             {
                 if (!infocari)
                 {
                     bool hasilCari = carilaporanharian();
+                    if (hasilCari)
+                    {
+                        infocari = true;
+                        btnprint.Enabled = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                    else
+                    {
+                        infocari = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                }
+                else
+                {
+                    tampilperbaikan();
+                    infocari = false;
+                    btncari.Text = "Cari";
+                    jumlahdata();
+
+                    btnprint.Enabled = false;
+
+                    guna2Panel4.ResetText();
+                    datecari.Checked = false;
+                }
+            }
+            else if (pilihan == "Actual Quantity for Repaired ROD Assy")
+            {
+                if (!infocari)
+                {
+                    bool hasilCari = cariactual();
                     if (hasilCari)
                     {
                         infocari = true;
@@ -1156,7 +1300,7 @@ namespace GOS_FxApps
                 TambahCancelOption();
                 jumlahdata();
             }
-            else if (pilihan == "Pemakaian Material")
+            else if (pilihan == "Hasil Produksi & Pemakaian Material")
             {
                 //reset dulu
                 infocari = false;
@@ -1172,7 +1316,23 @@ namespace GOS_FxApps
                 TambahCancelOption();
                 jumlahdata();
             }
-            else if (pilihan == "Laporan Harian")
+            else if (pilihan == "Summary Data for Anode ROD Repair")
+            {
+                //reset dulu
+                infocari = false;
+                btncari.Text = "Cari";
+                btnprint.Enabled = false;
+                guna2Panel4.ResetText();
+                datecaripemakaian.Checked = false;
+                paneldata2.Visible = false;
+
+                paneldata1.Visible = true;
+                btncari.Enabled = true;
+                tampilperbaikan();
+                TambahCancelOption();
+                jumlahdata();
+            }
+            else if (pilihan == "Actual Quantity for Repaired ROD Assy")
             {
                 //reset dulu
                 infocari = false;

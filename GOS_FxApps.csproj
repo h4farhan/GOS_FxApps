@@ -212,6 +212,11 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\actual.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>actual.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\laporanpemakaian.cs">
       <DependentUpon>laporanpemakaian.xsd</DependentUpon>
     </Compile>
@@ -372,6 +377,9 @@
     <Compile Include="weldingp.Designer.cs">
       <DependentUpon>weldingp.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="actual_31.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -475,6 +483,17 @@
     <EmbeddedResource Include="weldingp.resx">
       <DependentUpon>weldingp.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataSet\actual.xsc">
+      <DependentUpon>actual.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\actual.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>actual.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\actual.xss">
+      <DependentUpon>actual.xsd</DependentUpon>
+    </None>
     <None Include="DataSet\laporanpemakaian.xsc">
       <DependentUpon>laporanpemakaian.xsd</DependentUpon>
     </None>

@@ -48,7 +48,6 @@ namespace GOS_FxApps
 
                             if (level == "Manajer")
                             {
-                                MainForm.Instance.setvisibletrue();
                                 MainForm.Instance.truemanajer();
                                 MainForm.Instance.lbluser.Text = name + " [Manajer]";
                                 MainForm.Instance.role = "Manajer";
@@ -56,28 +55,24 @@ namespace GOS_FxApps
                             }
                             else if (level == "Admin")
                             {
-                                MainForm.Instance.setvisibletrue();
                                 MainForm.Instance.trueadmin();
                                 MainForm.Instance.lbluser.Text = name + " [Admin]";
                                 this.Close();
                             }
                             else if (level == "Operator Gudang")
                             {
-                                MainForm.Instance.setvisibletrue();
                                 MainForm.Instance.trueoperatorgudang();
                                 MainForm.Instance.lbluser.Text = name + " [Operator Gudang]";
                                 this.Close();
                             }
                             else if (level == "Operator Perbaikan")
                             {
-                                MainForm.Instance.setvisibletrue();
                                 MainForm.Instance.trueoperatorperbaikan();
                                 MainForm.Instance.lbluser.Text = name + " [Operator Perbaikan]";
                                 this.Close();
                             }
                             else if (level == "Operator Penerimaan/Pengiriman")
                             {
-                                MainForm.Instance.setvisibletrue();
                                 MainForm.Instance.trueoperatorpenerimaan();
                                 MainForm.Instance.lbluser.Text = name + " [Operator Penerimaan/Pengiriman]";
                                 this.Close();

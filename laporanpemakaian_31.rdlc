@@ -170,7 +170,7 @@
         <rd:TableAdapterName>sp_LaporanPemakaianMaterialTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="datasetjumlahpengiriman">
+    <DataSet Name="datasetjumlahperbaikan">
       <Query>
         <DataSourceName>PengirimanForm</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -310,12 +310,12 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>PengirimanForm</rd:DataSetName>
-        <rd:SchemaPath>E:\GitHub\GOS_FxApps\DataSet\PengirimanForm.xsd</rd:SchemaPath>
-        <rd:TableName>sp_LaporanPengiriman</rd:TableName>
+        <rd:DataSetName>PerbaikanForm</rd:DataSetName>
+        <rd:SchemaPath>E:\GitHub\GOS_FxApps\DataSet\PerbaikanForm.xsd</rd:SchemaPath>
+        <rd:TableName>sp_LaporanPerbaikan</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>sp_LaporanPengirimanTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>sp_LaporanPerbaikanTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -487,7 +487,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -503,6 +503,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -522,7 +523,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -538,6 +539,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -5891,7 +5893,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom1.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom1.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -5928,7 +5930,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom2.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom2.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -5965,7 +5967,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom3.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom3.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6002,7 +6004,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom4.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom4.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6039,7 +6041,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom5.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom5.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6076,7 +6078,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom6.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom6.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6113,7 +6115,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom7.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom7.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6150,7 +6152,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom8.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom8.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6187,7 +6189,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom9.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom9.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6224,7 +6226,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom10.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom10.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6261,7 +6263,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom11.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom11.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6298,7 +6300,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom12.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom12.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6335,7 +6337,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom13.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom13.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6372,7 +6374,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom14.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom14.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6409,7 +6411,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom15.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom15.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6446,7 +6448,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom16.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom16.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6483,7 +6485,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom17.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom17.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6520,7 +6522,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom18.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom18.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6557,7 +6559,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom19.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom19.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6594,7 +6596,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom20.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom20.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6631,7 +6633,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom21.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom21.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6668,7 +6670,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom22.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom22.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6705,7 +6707,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom23.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom23.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6742,7 +6744,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom24.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom24.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6779,7 +6781,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom25.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom25.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6816,7 +6818,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom26.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom26.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6853,7 +6855,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom27.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom27.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6890,7 +6892,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom28.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom28.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6927,7 +6929,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom29.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom29.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6964,7 +6966,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom30.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom30.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -7001,7 +7003,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!kolom30.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!kolom30.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -7038,7 +7040,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Total.Value, "datasetjumlahpengiriman")</Value>
+                                  <Value>=Sum(Fields!Total.Value, "datasetjumlahperbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -7119,7 +7121,7 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>datasetjumlahpengiriman</DataSetName>
+            <DataSetName>datasetjumlahperbaikan</DataSetName>
             <Top>1.60645cm</Top>
             <Left>0.36366cm</Left>
             <Height>1.2cm</Height>

@@ -227,12 +227,11 @@ namespace GOS_FxApps {
         public void setvisiblefalse()
         {
             entryContainer.Visible = false;
-            EditContainer.Visible = false;
-            btnHistori.Visible = false; 
+            EditContainer.Visible = false; 
             btnlaporan.Visible = false;
             historycontainer.Visible = false;
         }
-        public void setvisibletrue()
+        public void truemanajer()
         {
             entryContainer.Visible = true;
             EditContainer.Visible = true;
@@ -240,45 +239,46 @@ namespace GOS_FxApps {
             btnlaporan.Visible = true;
             historycontainer.Visible = true;
         }
-        public void truemanajer()
-        {
-
-        }
-        public void falsemanajer()
-        {
-
-        }
         public void trueadmin()
         {
-
-        }
-        public void falseadmin()
-        {
-
+            btnlaporan.Visible=true;
+            historycontainer.Visible= true;
         }
         public void trueoperatorgudang()
         {
+            penerimaanButton1.Visible=false;
+            iconButton1.Visible=false;
+            iconButton2.Visible=false;
 
-        }
-        public void falseoperatorgudang()
-        {
-
+            entryContainer.Visible = true;
+            entryContainer.MaximumSize = new Size(232, 160);
+            iconButton3.Visible=true;
+            iconButton4.Visible=true;
+            btnlaporan.Visible=true;
         }
         public void trueoperatorperbaikan()
         {
+            penerimaanButton1.Visible = false;
+            iconButton2.Visible=false;
+            iconButton3.Visible = false;
+            iconButton4.Visible = false;
 
-        }
-        public void falseoperatorperbaikan()
-        {
-
+            entryContainer.Visible = true;
+            entryContainer.MaximumSize = new Size(232, 113);    
+            iconButton1.Visible=true;
+            btnlaporan.Visible=true;
         }
         public void trueoperatorpenerimaan()
         {
+            iconButton1.Visible=false;
+            iconButton3.Visible = false;
+            iconButton4.Visible=false;
 
-        }
-        public void falseoperatorpenerimaan()
-        {
-
+            entryContainer.Visible=true;
+            entryContainer.MaximumSize = new Size(232, 149);
+            penerimaanButton1.Visible = true;
+            iconButton2.Visible=true;
+            btnlaporan.Visible = true;
         }
 
 

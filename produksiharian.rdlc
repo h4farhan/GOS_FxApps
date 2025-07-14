@@ -17,6 +17,10 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
+        <Field Name="nomor_urut">
+          <DataField>nomor_urut</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
         <Field Name="tanggal_perbaikan">
           <DataField>tanggal_perbaikan</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -984,14 +988,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox42">
+                        <Textbox Name="nomor_urut">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Rownumber(Nothing)</Value>
+                                  <Value>=Fields!nomor_urut.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1002,7 +1006,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox42</rd:DefaultName>
+                          <rd:DefaultName>nomor_urut</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1782,7 +1786,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!e1_jumlah.Value)</Value>
+                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total", Fields!e1_jumlah.Value, 0))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1818,7 +1822,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!e2_jumlah.Value)</Value>
+                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total", Fields!e2_jumlah.Value, 0))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1854,7 +1858,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!e3.Value)</Value>
+                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total", Fields!e3.Value, 0))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1890,7 +1894,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!s.Value)</Value>
+                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total", Fields!s.Value, 0))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1926,7 +1930,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!d.Value)</Value>
+                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total", Fields!d.Value, 0))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1962,7 +1966,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!b.Value)</Value>
+                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total", Fields!b.Value, 0))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1998,7 +2002,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!ba.Value)</Value>
+                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total", Fields!ba.Value, 0))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2034,7 +2038,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!cr.Value)</Value>
+                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total", Fields!cr.Value, 0))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2070,7 +2074,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!m.Value)</Value>
+                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total", Fields!m.Value, 0))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2106,7 +2110,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!r.Value)</Value>
+                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total", Fields!r.Value, 0))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2142,7 +2146,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!c.Value)</Value>
+                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total", Fields!c.Value, 0))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2178,7 +2182,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!rl.Value)</Value>
+                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total", Fields!rl.Value, 0))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2214,7 +2218,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!jumlah.Value)</Value>
+                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total", Fields!jumlah.Value, 0))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2239,6 +2243,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
