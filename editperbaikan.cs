@@ -38,7 +38,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM perbaikan_p";
+                string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, ba, ba1, cr, m, r, c, rl, jumlah, tanggal_penerimaan, updated_at FROM perbaikan_p";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -61,18 +61,20 @@ namespace GOS_FxApps
                 dataGridView1.Columns[10].HeaderText = "E2 Cstub";
                 dataGridView1.Columns[11].HeaderText = "E2 Jumlah";
                 dataGridView1.Columns[12].HeaderText = "E3";
-                dataGridView1.Columns[13].HeaderText = "S";
-                dataGridView1.Columns[14].HeaderText = "D";
-                dataGridView1.Columns[15].HeaderText = "B";
-                dataGridView1.Columns[16].HeaderText = "BA";
-                dataGridView1.Columns[17].HeaderText = "CR";
-                dataGridView1.Columns[18].HeaderText = "M";
-                dataGridView1.Columns[19].HeaderText = "R";
-                dataGridView1.Columns[20].HeaderText = "C";
-                dataGridView1.Columns[21].HeaderText = "RL";
-                dataGridView1.Columns[22].HeaderText = "Jumlah";
-                dataGridView1.Columns[23].HeaderText = "Tanggal Penerimaan";
-                dataGridView1.Columns[24].HeaderText = "Diubah";
+                dataGridView1.Columns[13].HeaderText = "E4";
+                dataGridView1.Columns[14].HeaderText = "S";
+                dataGridView1.Columns[15].HeaderText = "D";
+                dataGridView1.Columns[16].HeaderText = "B";
+                dataGridView1.Columns[17].HeaderText = "BA";
+                dataGridView1.Columns[18].HeaderText = "BA-1";
+                dataGridView1.Columns[19].HeaderText = "CR";
+                dataGridView1.Columns[20].HeaderText = "M";
+                dataGridView1.Columns[21].HeaderText = "R";
+                dataGridView1.Columns[22].HeaderText = "C";
+                dataGridView1.Columns[23].HeaderText = "RL";
+                dataGridView1.Columns[24].HeaderText = "Jumlah";
+                dataGridView1.Columns[25].HeaderText = "Tanggal Penerimaan";
+                dataGridView1.Columns[26].HeaderText = "Diubah";
             }
             catch (SqlException)
             {
@@ -158,9 +160,11 @@ namespace GOS_FxApps
             txte2cst.Clear();
             txte2cstub.Clear();
             txte3.Clear();
+            txte4.Clear();
             txts.Clear();
             txtd.Clear();
             txtb.Clear();
+            txtba1.Clear();
             txtba.Clear();
             txtcr.Clear();
             txtm.Clear();
@@ -182,9 +186,11 @@ namespace GOS_FxApps
             txte2cst.Enabled = true;
             txte2cstub.Enabled = true;
             txte3.Enabled = true;
+            txte4.Enabled = true;
             txts.Enabled = true;
             txtd.Enabled = true;
             txtb.Enabled = true;
+            txtba1.Enabled = true;
             txtba.Enabled = true;
             txtcr.Enabled = true;
             txtm.Enabled = true;
@@ -202,10 +208,13 @@ namespace GOS_FxApps
             txte2cst.Enabled = false;
             txte2cstub.Enabled = false;
             txte3.Enabled = false;
+            txte4.Enabled = false;
             txts.Enabled = false;
             txtd.Enabled = false;
             txtb.Enabled = false;
+            txtba1.Enabled = false;
             txtba.Enabled = false;
+            lbl.Enabled = false;
             txtcr.Enabled = false;
             txtm.Enabled = false;
             txtr.Enabled = false;
@@ -228,7 +237,7 @@ namespace GOS_FxApps
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("UPDATE perbaikan_p SET jenis = @jenis, e1_ers = @e1ers, e1_est = @e1est, e1_jumlah = @e1jumlah, e2_ers = @e2ers, e2_cst = @e2cst, e2_cstub = @e2cstub, e2_jumlah = @e2jumlah," +
-                        "e3 = @e3, s = @s, d = @d, b = @b, ba = @ba, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = getdate() WHERE no = @no ", conn);
+                        "e3 = @e3, e4 = @e4, s = @s, d = @d, b = @b, ba = @ba, ba1 = @ba1, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = getdate() WHERE no = @no ", conn);
 
                     //SqlCommand cmd2 = new SqlCommand("INSERT INTO histori_perbaikan (shift,nomor_rod,jenis,e1_ers,e1_est,e1_jumlah,e2_ers,e2_cst,e2_cstub,e2_jumlah," +
                     //    "e3,s,d,b,ba,cr,m,r,c,rl,jumlah,tanggal_perbaikan,tanggal_penerimaan) VALUES(@shift,@nomorrod,@jenis,@e1ers,@e1est,@e1jumlah,@e2ers,@e2cst,@e2cstub,@e2jumlah,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah,@tanggalpenerimaan,@tanggalperbaikan)", conn);
@@ -242,10 +251,12 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@e2cstub", txte2cstub.Text);
                     cmd.Parameters.AddWithValue("@e2jumlah", lbltotale2.Text);
                     cmd.Parameters.AddWithValue("@e3", txte3.Text);
+                    cmd.Parameters.AddWithValue("@e4", txte4.Text);
                     cmd.Parameters.AddWithValue("@s", txts.Text);
                     cmd.Parameters.AddWithValue("@d", txtd.Text);
                     cmd.Parameters.AddWithValue("@b", txtb.Text);
-                    cmd.Parameters.AddWithValue("@ba", txtba.Text);
+                    cmd.Parameters.AddWithValue("@ba", txtb.Text);
+                    cmd.Parameters.AddWithValue("@ba1", txtba1.Text);
                     cmd.Parameters.AddWithValue("@cr", txtcr.Text);
                     cmd.Parameters.AddWithValue("@m", txtm.Text);
                     cmd.Parameters.AddWithValue("@r", txtr.Text);
@@ -357,11 +368,13 @@ namespace GOS_FxApps
                 txte2cst.Text = row.Cells["e2_cst"].Value.ToString();             
                 txte2cstub.Text = row.Cells["e2_cstub"].Value.ToString();             
                 lbltotale2.Text = row.Cells["e2_jumlah"].Value.ToString();
-                txte3.Text = row.Cells["e3"].Value.ToString();             
+                txte3.Text = row.Cells["e3"].Value.ToString();          
+                txte4.Text = row.Cells["e4"].Value.ToString();          
                 txts.Text = row.Cells["s"].Value.ToString();              
                 txtd.Text = row.Cells["d"].Value.ToString();               
                 txtb.Text = row.Cells["b"].Value.ToString();               
                 txtba.Text = row.Cells["ba"].Value.ToString();              
+                txtba1.Text = row.Cells["ba1"].Value.ToString();              
                 txtcr.Text = row.Cells["cr"].Value.ToString();               
                 txtm.Text = row.Cells["m"].Value.ToString();               
                 txtr.Text = row.Cells["r"].Value.ToString();               
@@ -406,14 +419,16 @@ namespace GOS_FxApps
             int angka7 = SafeParse(txts);
             int angka8 = SafeParse(txtd);
             int angka9 = SafeParse(txtb);
-            int angka10 = SafeParse(txtba);
+            int angka10 = SafeParse(txtba1);
             int angka11 = SafeParse(txtcr);
             int angka12 = SafeParse(txtm);
             int angka13 = SafeParse(txtr);
             int angka14 = SafeParse(txtc);
             int angka15 = SafeParse(txtrl);
+            int angka16 = SafeParse(txtba);
+            int angka17 = SafeParse(txte4);
 
-            int hasil = angka1 + angka2 + angka3 + angka4 + angka5 + angka6 + angka7 + angka8 + angka9 + angka10 + angka11 + angka12 + angka13 + angka14 + angka15;
+            int hasil = angka1 + angka2 + angka3 + angka4 + angka5 + angka6 + angka7 + angka8 + angka9 + angka10 + angka11 + angka12 + angka13 + angka14 + angka15 + angka16 + angka17;
             lbltotalupdate.Text = hasil.ToString();
             btnupdate.Enabled = true;
         }
@@ -498,6 +513,16 @@ namespace GOS_FxApps
         }
 
         private void txte1ers_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtba_TextChanged_1(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txte4_TextChanged(object sender, EventArgs e)
         {
             hitung();
         }

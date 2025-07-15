@@ -172,6 +172,7 @@
             this.guna2Panel4.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.guna2Panel4.Size = new System.Drawing.Size(988, 827);
             this.guna2Panel4.TabIndex = 36;
+            this.guna2Panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel4_Paint);
             // 
             // paneldata2
             // 

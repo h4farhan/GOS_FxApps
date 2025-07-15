@@ -89,8 +89,8 @@
                           <rd:DefaultName>Textbox14</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
@@ -120,8 +120,8 @@
                           <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
@@ -162,7 +162,7 @@
             <Style>
               <Border>
                 <Style>Solid</Style>
-                <Width>0.25pt</Width>
+                <Width>2pt</Width>
               </Border>
             </Style>
           </Tablix>
@@ -194,7 +194,7 @@
                 <Style>
                   <Border>
                     <Style>Solid</Style>
-                    <Width>0.25pt</Width>
+                    <Width>1.25pt</Width>
                   </Border>
                   <VerticalAlign>Middle</VerticalAlign>
                   <PaddingLeft>2pt</PaddingLeft>
@@ -231,7 +231,7 @@
                 <Style>
                   <Border>
                     <Style>Solid</Style>
-                    <Width>0.25pt</Width>
+                    <Width>1.25pt</Width>
                   </Border>
                   <VerticalAlign>Middle</VerticalAlign>
                   <PaddingLeft>2pt</PaddingLeft>
@@ -268,7 +268,7 @@
                 <Style>
                   <Border>
                     <Style>Solid</Style>
-                    <Width>0.25pt</Width>
+                    <Width>1.25pt</Width>
                   </Border>
                   <VerticalAlign>Middle</VerticalAlign>
                   <PaddingLeft>2pt</PaddingLeft>
@@ -303,7 +303,7 @@
                 <Style>
                   <Border>
                     <Style>Solid</Style>
-                    <Width>0.25pt</Width>
+                    <Width>1.25pt</Width>
                   </Border>
                   <VerticalAlign>Middle</VerticalAlign>
                   <PaddingLeft>2pt</PaddingLeft>
@@ -339,7 +339,7 @@
                 <Style>
                   <Border>
                     <Style>Solid</Style>
-                    <Width>0.25pt</Width>
+                    <Width>1.25pt</Width>
                   </Border>
                   <VerticalAlign>Middle</VerticalAlign>
                   <PaddingLeft>2pt</PaddingLeft>
@@ -375,7 +375,7 @@
                 <Style>
                   <Border>
                     <Style>Solid</Style>
-                    <Width>0.25pt</Width>
+                    <Width>1.25pt</Width>
                   </Border>
                   <VerticalAlign>Middle</VerticalAlign>
                   <PaddingLeft>2pt</PaddingLeft>
@@ -411,7 +411,7 @@
                 <Style>
                   <Border>
                     <Style>Solid</Style>
-                    <Width>0.25pt</Width>
+                    <Width>1.25pt</Width>
                   </Border>
                   <VerticalAlign>Middle</VerticalAlign>
                   <PaddingLeft>2pt</PaddingLeft>
@@ -447,7 +447,7 @@
                 <Style>
                   <Border>
                     <Style>Solid</Style>
-                    <Width>0.25pt</Width>
+                    <Width>1.25pt</Width>
                   </Border>
                   <VerticalAlign>Middle</VerticalAlign>
                   <PaddingLeft>2pt</PaddingLeft>
@@ -483,7 +483,7 @@
                 <Style>
                   <Border>
                     <Style>Solid</Style>
-                    <Width>0.25pt</Width>
+                    <Width>1.25pt</Width>
                   </Border>
                   <VerticalAlign>Middle</VerticalAlign>
                   <PaddingLeft>2pt</PaddingLeft>
@@ -519,7 +519,7 @@
                 <Style>
                   <Border>
                     <Style>Solid</Style>
-                    <Width>0.25pt</Width>
+                    <Width>1.25pt</Width>
                   </Border>
                   <VerticalAlign>Middle</VerticalAlign>
                   <PaddingLeft>2pt</PaddingLeft>
@@ -555,7 +555,7 @@
                 <Style>
                   <Border>
                     <Style>Solid</Style>
-                    <Width>0.25pt</Width>
+                    <Width>1.25pt</Width>
                   </Border>
                   <VerticalAlign>Middle</VerticalAlign>
                   <PaddingLeft>2pt</PaddingLeft>
@@ -574,7 +574,7 @@
             <Style>
               <Border>
                 <Style>Solid</Style>
-                <Width>0.25pt</Width>
+                <Width>2pt</Width>
               </Border>
             </Style>
           </Rectangle>
@@ -615,8 +615,8 @@
                           <rd:DefaultName>Textbox14</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
@@ -646,8 +646,8 @@
                           <rd:DefaultName>Textbox4</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
@@ -690,7 +690,7 @@
             <Style>
               <Border>
                 <Style>Solid</Style>
-                <Width>0.25pt</Width>
+                <Width>2pt</Width>
               </Border>
             </Style>
           </Tablix>
@@ -731,8 +731,8 @@
                           <rd:DefaultName>Textbox14</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
@@ -762,8 +762,8 @@
                           <rd:DefaultName>Textbox2</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
@@ -812,7 +812,7 @@
             <Style>
               <Border>
                 <Style>Solid</Style>
-                <Width>0.25pt</Width>
+                <Width>2pt</Width>
               </Border>
             </Style>
           </Tablix>
@@ -859,8 +859,8 @@
                           <rd:DefaultName>Textbox14</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
@@ -890,8 +890,8 @@
                           <rd:DefaultName>Textbox3</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
@@ -921,8 +921,8 @@
                           <rd:DefaultName>Textbox50</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
@@ -952,9 +952,8 @@
                           <rd:DefaultName>Textbox54</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
-                              <Width>0.25pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
@@ -1005,7 +1004,7 @@
             <Style>
               <Border>
                 <Style>Solid</Style>
-                <Width>0.25pt</Width>
+                <Width>2pt</Width>
               </Border>
             </Style>
           </Tablix>
@@ -1029,6 +1028,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>2pt</Width>
                     </Border>
                   </Style>
                 </Line>
@@ -1041,6 +1041,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>2pt</Width>
                     </Border>
                   </Style>
                 </Line>
@@ -1053,6 +1054,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>2pt</Width>
                     </Border>
                   </Style>
                 </Line>
@@ -1064,6 +1066,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>2pt</Width>
                     </Border>
                   </Style>
                 </Line>
@@ -1075,6 +1078,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>2pt</Width>
                     </Border>
                   </Style>
                 </Line>
@@ -1086,6 +1090,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>2pt</Width>
                     </Border>
                   </Style>
                 </Line>
@@ -1259,6 +1264,7 @@
                         <TextRun>
                           <Value>PT GNG</Value>
                           <Style>
+                            <FontSize>9pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
@@ -1269,15 +1275,16 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox5</rd:DefaultName>
-                  <Top>3.66266cm</Top>
-                  <Left>1.77473cm</Left>
-                  <Height>0.69268cm</Height>
-                  <Width>1.50594cm</Width>
+                  <Top>3.49798cm</Top>
+                  <Left>1.66623cm</Left>
+                  <Height>0.85736cm</Height>
+                  <Width>1.72028cm</Width>
                   <ZIndex>11</ZIndex>
                   <Style>
                     <Border>
                       <Style>None</Style>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -1304,15 +1311,16 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox5</rd:DefaultName>
-                  <Top>3.67437cm</Top>
-                  <Left>3.52762cm</Left>
-                  <Height>0.69268cm</Height>
-                  <Width>1.50594cm</Width>
+                  <Top>3.49798cm</Top>
+                  <Left>3.45706cm</Left>
+                  <Height>0.86907cm</Height>
+                  <Width>1.73689cm</Width>
                   <ZIndex>12</ZIndex>
                   <Style>
                     <Border>
                       <Style>None</Style>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -1328,6 +1336,7 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
+                  <Width>2pt</Width>
                 </Border>
               </Style>
             </Rectangle>
@@ -1389,7 +1398,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>PENERIMAAN TANGKAI ANODA</Value>
+                      <Value>PENGIRIMAN TANGKAI ANODA</Value>
                       <Style>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -1424,7 +1433,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Tanggal      </Value>
+                      <Value>Hari/Tanggal     </Value>
                       <Style>
                         <FontWeight>Normal</FontWeight>
                       </Style>
@@ -1434,10 +1443,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>2.75175cm</Top>
+              <Top>2.92814cm</Top>
               <Left>0.30903cm</Left>
               <Height>0.70583cm</Height>
-              <Width>2.12605cm</Width>
+              <Width>2.55824cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -1456,7 +1465,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Shift</Value>
+                      <Value>Shift/Tim</Value>
                       <Style>
                         <FontWeight>Normal</FontWeight>
                       </Style>
@@ -1469,7 +1478,7 @@
               <Top>3.63397cm</Top>
               <Left>0.30903cm</Left>
               <Height>0.70583cm</Height>
-              <Width>2.12605cm</Width>
+              <Width>2.55824cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -1488,7 +1497,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Tim             </Value>
+                      <Value xml:space="preserve">          </Value>
                       <Style>
                         <FontWeight>Normal</FontWeight>
                       </Style>
@@ -1503,6 +1512,9 @@
               <Height>0.70583cm</Height>
               <Width>2.12605cm</Width>
               <ZIndex>5</ZIndex>
+              <Visibility>
+                <Hidden>true</Hidden>
+              </Visibility>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1526,7 +1538,7 @@
                       </Style>
                     </TextRun>
                     <TextRun>
-                      <Value>=First(Fields!shift.Value, "DataSetPengiriman")</Value>
+                      <Value>=Parameters!shift.Value &amp; " / " &amp; Parameters!tim.Value</Value>
                       <Style>
                         <FontWeight>Normal</FontWeight>
                       </Style>
@@ -1537,7 +1549,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>3.63397cm</Top>
-              <Left>2.47036cm</Left>
+              <Left>3.10536cm</Left>
               <Height>0.70583cm</Height>
               <Width>5.51963cm</Width>
               <ZIndex>6</ZIndex>
@@ -1564,7 +1576,15 @@
                       </Style>
                     </TextRun>
                     <TextRun>
-                      <Value>=Format(First(Fields!tanggal_pengiriman.Value, "DataSetPengiriman"), "dd-MM-yyyy")</Value>
+                      <Value>=Switch(
+    Weekday(First(Fields!tanggal_pengiriman.Value, "DataSetPengiriman")) = 1, "Minggu",
+    Weekday(First(Fields!tanggal_pengiriman.Value, "DataSetPengiriman")) = 2, "Senin",
+    Weekday(First(Fields!tanggal_pengiriman.Value, "DataSetPengiriman")) = 3, "Selasa",
+    Weekday(First(Fields!tanggal_pengiriman.Value, "DataSetPengiriman")) = 4, "Rabu",
+    Weekday(First(Fields!tanggal_pengiriman.Value, "DataSetPengiriman")) = 5, "Kamis",
+    Weekday(First(Fields!tanggal_pengiriman.Value, "DataSetPengiriman")) = 6, "Jumat",
+    Weekday(First(Fields!tanggal_pengiriman.Value, "DataSetPengiriman")) = 7, "Sabtu"
+) &amp; " / " &amp; Format(First(Fields!tanggal_pengiriman.Value, "DataSetPengiriman"), "dd-MM-yyyy")</Value>
                       <Style>
                         <FontWeight>Normal</FontWeight>
                         <Format>D</Format>
@@ -1575,8 +1595,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>2.75175cm</Top>
-              <Left>2.47036cm</Left>
+              <Top>2.92814cm</Top>
+              <Left>3.10536cm</Left>
               <Height>0.70583cm</Height>
               <Width>5.51963cm</Width>
               <ZIndex>7</ZIndex>
@@ -1597,13 +1617,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>: </Value>
-                      <Style>
-                        <FontWeight>Normal</FontWeight>
-                      </Style>
-                    </TextRun>
-                    <TextRun>
-                      <Value>=Parameters!tim.Value</Value>
+                      <Value />
                       <Style>
                         <FontWeight>Normal</FontWeight>
                       </Style>
@@ -1613,11 +1627,14 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>4.44563cm</Top>
+              <Top>4.51619cm</Top>
               <Left>2.43508cm</Left>
               <Height>0.70583cm</Height>
               <Width>5.51963cm</Width>
               <ZIndex>8</ZIndex>
+              <Visibility>
+                <Hidden>true</Hidden>
+              </Visibility>
               <Style>
                 <Border>
                   <Style>None</Style>
