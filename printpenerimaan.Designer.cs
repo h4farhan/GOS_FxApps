@@ -183,10 +183,10 @@
             this.paneldata2.Controls.Add(this.label7);
             this.paneldata2.Controls.Add(this.label8);
             this.paneldata2.Controls.Add(this.txttim);
-            this.paneldata2.Location = new System.Drawing.Point(0, 15);
+            this.paneldata2.Location = new System.Drawing.Point(11, 15);
             this.paneldata2.Margin = new System.Windows.Forms.Padding(2);
             this.paneldata2.Name = "paneldata2";
-            this.paneldata2.Size = new System.Drawing.Size(746, 73);
+            this.paneldata2.Size = new System.Drawing.Size(735, 73);
             this.paneldata2.TabIndex = 56;
             this.paneldata2.Visible = false;
             // 
@@ -386,10 +386,10 @@
             this.paneldata1.BorderRadius = 15;
             this.paneldata1.Controls.Add(this.jlhpanel1);
             this.paneldata1.Controls.Add(this.datecaripemakaian);
-            this.paneldata1.Location = new System.Drawing.Point(0, 15);
+            this.paneldata1.Location = new System.Drawing.Point(11, 15);
             this.paneldata1.Margin = new System.Windows.Forms.Padding(2);
             this.paneldata1.Name = "paneldata1";
-            this.paneldata1.Size = new System.Drawing.Size(528, 73);
+            this.paneldata1.Size = new System.Drawing.Size(517, 73);
             this.paneldata1.TabIndex = 57;
             this.paneldata1.Visible = false;
             // 

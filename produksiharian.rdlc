@@ -2243,7 +2243,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -2849,6 +2848,9 @@
               <Left>9.83474cm</Left>
               <Height>4.06785cm</Height>
               <Width>8.79249cm</Width>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
