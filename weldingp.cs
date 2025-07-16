@@ -57,7 +57,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM Rb_Stok";
+                string query = "SELECT * FROM Rb_Stok ORDER BY tanggal DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -151,7 +151,7 @@ namespace GOS_FxApps
                 }
                 else
                 {
-                    MessageBox.Show("data null");
+                    MessageBox.Show("Data Pertama Tidak Bisa Diedit!!");
                 }
                 reader.Close();
             }
@@ -162,7 +162,7 @@ namespace GOS_FxApps
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                MessageBox.Show("Terjadi kesalahan sistem: " + ex.Message,
                                 "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
@@ -188,7 +188,7 @@ namespace GOS_FxApps
                 }
                 else
                 {
-                    MessageBox.Show("data null");
+                    MessageBox.Show("Data Kosong");
                 }
                 reader.Close();
             }
@@ -226,7 +226,7 @@ namespace GOS_FxApps
                 }
                 else
                 {
-                    MessageBox.Show("data null");
+                    MessageBox.Show("Data Pertama Tidak Bisa Diedit!!");
                 }
                 reader.Close();
             }
@@ -837,6 +837,8 @@ namespace GOS_FxApps
             if (MainForm.Instance.role != "Manajer") return;
             if (e.RowIndex >= 0)
             {
+                getdatastokedit();
+
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
                 idmulai = Convert.ToInt32(row.Cells["id_stok"].Value);
@@ -863,7 +865,6 @@ namespace GOS_FxApps
                 lblwaste.Text = row.Cells["waste"].Value.ToString();
                 txtketerangan.Text = row.Cells["keterangan"].Value.ToString();
 
-                getdatastokedit();
                 btnhitung.Text = "Hitung Ulang";
                 btnsimpan.Text = "Edit Data";
 

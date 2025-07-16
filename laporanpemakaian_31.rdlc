@@ -434,7 +434,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.81167cm</Height>
+                  <Height>0.57354cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -460,6 +460,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -468,6 +469,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -495,6 +497,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -531,6 +534,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -567,6 +571,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -575,6 +580,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -602,6 +608,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -610,6 +617,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -637,6 +645,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -645,6 +654,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -672,6 +682,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -680,6 +691,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -707,6 +719,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -715,6 +728,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -742,6 +756,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -750,6 +765,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -777,6 +793,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -785,6 +802,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -812,6 +830,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -820,6 +839,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -847,6 +867,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -855,6 +876,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -882,6 +904,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -890,6 +913,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -917,6 +941,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -925,6 +950,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -952,6 +978,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -960,6 +987,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -987,6 +1015,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -995,6 +1024,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1022,6 +1052,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1030,6 +1061,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1057,6 +1089,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1065,6 +1098,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1092,6 +1126,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1100,6 +1135,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1127,6 +1163,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1135,6 +1172,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1162,6 +1200,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1170,6 +1209,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1197,6 +1237,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1205,6 +1246,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1232,6 +1274,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1240,6 +1283,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1267,6 +1311,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1275,6 +1320,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1302,6 +1348,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1310,6 +1357,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1337,6 +1385,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1345,6 +1394,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1372,6 +1422,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1380,6 +1431,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1407,6 +1459,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1415,6 +1468,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1442,6 +1496,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1450,6 +1505,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1477,6 +1533,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1485,6 +1542,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1512,6 +1570,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1520,6 +1579,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1547,6 +1607,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1555,6 +1616,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1582,6 +1644,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1590,6 +1653,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1617,6 +1681,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1625,6 +1690,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1652,6 +1718,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1660,6 +1727,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -1713,9 +1781,9 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>datasetlaporanpemakaian</DataSetName>
-            <Top>5.53137cm</Top>
-            <Left>0.41041cm</Left>
-            <Height>0.81167cm</Height>
+            <Top>5.11503cm</Top>
+            <Left>0.36376cm</Left>
+            <Height>0.57354cm</Height>
             <Width>26.99713cm</Width>
             <Style>
               <Border>
@@ -3017,8 +3085,8 @@
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>4.01179cm</Top>
-            <Left>0.41041cm</Left>
+            <Top>3.59545cm</Top>
+            <Left>0.36376cm</Left>
             <Height>1.51958cm</Height>
             <Width>26.99713cm</Width>
             <ZIndex>1</ZIndex>
@@ -3047,8 +3115,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox153</rd:DefaultName>
-            <Top>3.23541cm</Top>
-            <Left>0.4176cm</Left>
+            <Top>2.81907cm</Top>
+            <Left>0.37095cm</Left>
             <Height>0.6cm</Height>
             <Width>8.18073cm</Width>
             <ZIndex>2</ZIndex>
@@ -3084,7 +3152,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox44</rd:DefaultName>
                 <Height>1.51957cm</Height>
-                <Width>0.72729cm</Width>
+                <Width>0.72358cm</Width>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -3116,9 +3184,9 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox44</rd:DefaultName>
-                <Left>0.72729cm</Left>
+                <Left>0.72358cm</Left>
                 <Height>1.51957cm</Height>
-                <Width>3.39958cm</Width>
+                <Width>3.39145cm</Width>
                 <ZIndex>1</ZIndex>
                 <Style>
                   <Border>
@@ -3151,9 +3219,9 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox44</rd:DefaultName>
-                <Left>4.12687cm</Left>
+                <Left>4.11503cm</Left>
                 <Height>0.61809cm</Height>
-                <Width>4.06104cm</Width>
+                <Width>4.07288cm</Width>
                 <ZIndex>2</ZIndex>
                 <Style>
                   <Border>
@@ -4337,9 +4405,9 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox44</rd:DefaultName>
                 <Top>0.61809cm</Top>
-                <Left>4.12687cm</Left>
+                <Left>4.11503cm</Left>
                 <Height>0.90148cm</Height>
-                <Width>4.06105cm</Width>
+                <Width>4.07289cm</Width>
                 <ZIndex>35</ZIndex>
                 <Style>
                   <Border>
@@ -4514,7 +4582,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.54708cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -5777,7 +5845,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.54708cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -7124,7 +7192,7 @@
             <DataSetName>datasetjumlahperbaikan</DataSetName>
             <Top>1.60645cm</Top>
             <Left>0.36366cm</Left>
-            <Height>1.2cm</Height>
+            <Height>1.09417cm</Height>
             <Width>26.99737cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
@@ -7134,7 +7202,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.49726in</Height>
+        <Height>2.33279in</Height>
         <Style />
       </Body>
       <Width>10.79037in</Width>

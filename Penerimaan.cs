@@ -193,7 +193,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM penerimaan_s";
+                string query = "SELECT * FROM penerimaan_s ORDER BY tanggal_penerimaan DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);

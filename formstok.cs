@@ -33,7 +33,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM stok_material";
+                string query = "SELECT * FROM stok_material ORDER BY created_at DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);

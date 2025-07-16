@@ -1034,6 +1034,8 @@ namespace GOS_FxApps.DataSet {
             
             private global::System.Data.DataColumn columnjumlah;
             
+            private global::System.Data.DataColumn columne4;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public sp_Laporan_HarianDataTable() {
@@ -1253,6 +1255,14 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn e4Column {
+                get {
+                    return this.columne4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1311,7 +1321,8 @@ namespace GOS_FxApps.DataSet {
                         int r, 
                         int c, 
                         int rl, 
-                        int jumlah) {
+                        int jumlah, 
+                        int e4) {
                 sp_Laporan_HarianRow rowsp_Laporan_HarianRow = ((sp_Laporan_HarianRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nomor_urut,
@@ -1336,7 +1347,8 @@ namespace GOS_FxApps.DataSet {
                         r,
                         c,
                         rl,
-                        jumlah};
+                        jumlah,
+                        e4};
                 rowsp_Laporan_HarianRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_Laporan_HarianRow);
                 return rowsp_Laporan_HarianRow;
@@ -1382,6 +1394,7 @@ namespace GOS_FxApps.DataSet {
                 this.columnc = base.Columns["c"];
                 this.columnrl = base.Columns["rl"];
                 this.columnjumlah = base.Columns["jumlah"];
+                this.columne4 = base.Columns["e4"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1433,6 +1446,8 @@ namespace GOS_FxApps.DataSet {
                 base.Columns.Add(this.columnrl);
                 this.columnjumlah = new global::System.Data.DataColumn("jumlah", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnjumlah);
+                this.columne4 = new global::System.Data.DataColumn("e4", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columne4);
                 this.columnnomor_urut.ReadOnly = true;
                 this.columntanggal_perbaikan.ReadOnly = true;
                 this.columntanggal_perbaikan.MaxLength = 4000;
@@ -1460,6 +1475,7 @@ namespace GOS_FxApps.DataSet {
                 this.columnc.ReadOnly = true;
                 this.columnrl.ReadOnly = true;
                 this.columnjumlah.ReadOnly = true;
+                this.columne4.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3458,6 +3474,22 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int e4 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Laporan_Harian.e4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'e4\' in table \'sp_Laporan_Harian\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Laporan_Harian.e4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isnomor_urutNull() {
                 return this.IsNull(this.tablesp_Laporan_Harian.nomor_urutColumn);
             }
@@ -3730,6 +3762,18 @@ namespace GOS_FxApps.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetjumlahNull() {
                 this[this.tablesp_Laporan_Harian.jumlahColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Ise4Null() {
+                return this.IsNull(this.tablesp_Laporan_Harian.e4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Sete4Null() {
+                this[this.tablesp_Laporan_Harian.e4Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -6311,6 +6355,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
             tableMapping.ColumnMappings.Add("c", "c");
             tableMapping.ColumnMappings.Add("rl", "rl");
             tableMapping.ColumnMappings.Add("jumlah", "jumlah");
+            tableMapping.ColumnMappings.Add("e4", "e4");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

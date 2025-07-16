@@ -46,6 +46,14 @@ namespace GOS_FxApps
             this.sidebarPanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dashboardButton = new FontAwesome.Sharp.IconButton();
+            this.entryContainer = new System.Windows.Forms.Panel();
+            this.iconButton4 = new FontAwesome.Sharp.IconButton();
+            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.penerimaanButton1 = new FontAwesome.Sharp.IconButton();
+            this.entryButton = new FontAwesome.Sharp.IconButton();
             this.EditContainer = new System.Windows.Forms.Panel();
             this.iconButton12 = new FontAwesome.Sharp.IconButton();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
@@ -71,26 +79,18 @@ namespace GOS_FxApps
             this.edittimer = new System.Windows.Forms.Timer(this.components);
             this.jam = new System.Windows.Forms.Timer(this.components);
             this.historitimer = new System.Windows.Forms.Timer(this.components);
-            this.entryButton = new FontAwesome.Sharp.IconButton();
-            this.entryContainer = new System.Windows.Forms.Panel();
-            this.dashboardButton = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.penerimaanButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.titlePanel.SuspendLayout();
             this.headerPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.sidebarPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.entryContainer.SuspendLayout();
             this.EditContainer.SuspendLayout();
             this.historycontainer.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            this.entryContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // titlePanel
@@ -155,7 +155,7 @@ namespace GOS_FxApps
             // 
             this.lbluser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbluser.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbluser.ForeColor = System.Drawing.Color.IndianRed;
+            this.lbluser.ForeColor = System.Drawing.Color.White;
             this.lbluser.Location = new System.Drawing.Point(0, 0);
             this.lbluser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbluser.Name = "lbluser";
@@ -274,6 +274,187 @@ namespace GOS_FxApps
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(232, 38);
             this.panel1.TabIndex = 0;
+            // 
+            // dashboardButton
+            // 
+            this.dashboardButton.FlatAppearance.BorderSize = 0;
+            this.dashboardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dashboardButton.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dashboardButton.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dashboardButton.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
+            this.dashboardButton.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.dashboardButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dashboardButton.IconSize = 40;
+            this.dashboardButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dashboardButton.Location = new System.Drawing.Point(2, 44);
+            this.dashboardButton.Margin = new System.Windows.Forms.Padding(2);
+            this.dashboardButton.Name = "dashboardButton";
+            this.dashboardButton.Size = new System.Drawing.Size(232, 60);
+            this.dashboardButton.TabIndex = 1;
+            this.dashboardButton.Text = "     Dashboard";
+            this.dashboardButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dashboardButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.dashboardButton.UseVisualStyleBackColor = true;
+            this.dashboardButton.Click += new System.EventHandler(this.dashboardButton_Click);
+            // 
+            // entryContainer
+            // 
+            this.entryContainer.Controls.Add(this.iconButton4);
+            this.entryContainer.Controls.Add(this.iconButton3);
+            this.entryContainer.Controls.Add(this.iconButton2);
+            this.entryContainer.Controls.Add(this.iconButton1);
+            this.entryContainer.Controls.Add(this.penerimaanButton1);
+            this.entryContainer.Controls.Add(this.entryButton);
+            this.entryContainer.Location = new System.Drawing.Point(2, 108);
+            this.entryContainer.Margin = new System.Windows.Forms.Padding(2);
+            this.entryContainer.MaximumSize = new System.Drawing.Size(232, 280);
+            this.entryContainer.MinimumSize = new System.Drawing.Size(232, 60);
+            this.entryContainer.Name = "entryContainer";
+            this.entryContainer.Size = new System.Drawing.Size(232, 60);
+            this.entryContainer.TabIndex = 2;
+            // 
+            // iconButton4
+            // 
+            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton4.FlatAppearance.BorderSize = 0;
+            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton4.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.iconButton4.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.Warehouse;
+            this.iconButton4.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton4.IconSize = 40;
+            this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton4.Location = new System.Drawing.Point(0, 220);
+            this.iconButton4.Margin = new System.Windows.Forms.Padding(2);
+            this.iconButton4.Name = "iconButton4";
+            this.iconButton4.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
+            this.iconButton4.Size = new System.Drawing.Size(232, 60);
+            this.iconButton4.TabIndex = 7;
+            this.iconButton4.Text = "     Pemakaian \r\n     Material";
+            this.iconButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton4.UseVisualStyleBackColor = true;
+            this.iconButton4.Click += new System.EventHandler(this.iconButton4_Click);
+            // 
+            // iconButton3
+            // 
+            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton3.FlatAppearance.BorderSize = 0;
+            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton3.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.iconButton3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Wind;
+            this.iconButton3.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton3.IconSize = 40;
+            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton3.Location = new System.Drawing.Point(0, 180);
+            this.iconButton3.Margin = new System.Windows.Forms.Padding(2);
+            this.iconButton3.Name = "iconButton3";
+            this.iconButton3.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
+            this.iconButton3.Size = new System.Drawing.Size(232, 40);
+            this.iconButton3.TabIndex = 6;
+            this.iconButton3.Text = "     Welding Pieces";
+            this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton3.UseVisualStyleBackColor = true;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.iconButton2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.PlaneDeparture;
+            this.iconButton2.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 40;
+            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton2.Location = new System.Drawing.Point(0, 140);
+            this.iconButton2.Margin = new System.Windows.Forms.Padding(2);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
+            this.iconButton2.Size = new System.Drawing.Size(232, 40);
+            this.iconButton2.TabIndex = 5;
+            this.iconButton2.Text = "     Pengiriman";
+            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton2.UseVisualStyleBackColor = true;
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.iconButton1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Toolbox;
+            this.iconButton1.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 40;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(0, 100);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(2);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
+            this.iconButton1.Size = new System.Drawing.Size(232, 40);
+            this.iconButton1.TabIndex = 4;
+            this.iconButton1.Text = "     Perbaikan";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
+            // penerimaanButton1
+            // 
+            this.penerimaanButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.penerimaanButton1.FlatAppearance.BorderSize = 0;
+            this.penerimaanButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.penerimaanButton1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.penerimaanButton1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.penerimaanButton1.IconChar = FontAwesome.Sharp.IconChar.PlaneArrival;
+            this.penerimaanButton1.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.penerimaanButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.penerimaanButton1.IconSize = 40;
+            this.penerimaanButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.penerimaanButton1.Location = new System.Drawing.Point(0, 60);
+            this.penerimaanButton1.Margin = new System.Windows.Forms.Padding(2);
+            this.penerimaanButton1.Name = "penerimaanButton1";
+            this.penerimaanButton1.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
+            this.penerimaanButton1.Size = new System.Drawing.Size(232, 40);
+            this.penerimaanButton1.TabIndex = 3;
+            this.penerimaanButton1.Text = "     Penerimaan";
+            this.penerimaanButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.penerimaanButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.penerimaanButton1.UseVisualStyleBackColor = true;
+            this.penerimaanButton1.Click += new System.EventHandler(this.penerimaanButton1_Click);
+            // 
+            // entryButton
+            // 
+            this.entryButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.entryButton.FlatAppearance.BorderSize = 0;
+            this.entryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.entryButton.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.entryButton.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.entryButton.IconChar = FontAwesome.Sharp.IconChar.FileDownload;
+            this.entryButton.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.entryButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.entryButton.IconSize = 40;
+            this.entryButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.entryButton.Location = new System.Drawing.Point(0, 0);
+            this.entryButton.Margin = new System.Windows.Forms.Padding(2);
+            this.entryButton.Name = "entryButton";
+            this.entryButton.Size = new System.Drawing.Size(232, 60);
+            this.entryButton.TabIndex = 2;
+            this.entryButton.Text = "     Form Entry Data ";
+            this.entryButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.entryButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.entryButton.UseVisualStyleBackColor = true;
+            this.entryButton.Click += new System.EventHandler(this.entryButton_Click);
             // 
             // EditContainer
             // 
@@ -725,187 +906,6 @@ namespace GOS_FxApps
             this.historitimer.Interval = 10;
             this.historitimer.Tick += new System.EventHandler(this.historitimer_Tick);
             // 
-            // entryButton
-            // 
-            this.entryButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.entryButton.FlatAppearance.BorderSize = 0;
-            this.entryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.entryButton.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.entryButton.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.entryButton.IconChar = FontAwesome.Sharp.IconChar.FileDownload;
-            this.entryButton.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.entryButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.entryButton.IconSize = 40;
-            this.entryButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.entryButton.Location = new System.Drawing.Point(0, 0);
-            this.entryButton.Margin = new System.Windows.Forms.Padding(2);
-            this.entryButton.Name = "entryButton";
-            this.entryButton.Size = new System.Drawing.Size(232, 60);
-            this.entryButton.TabIndex = 2;
-            this.entryButton.Text = "     Form Entry Data ";
-            this.entryButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.entryButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.entryButton.UseVisualStyleBackColor = true;
-            this.entryButton.Click += new System.EventHandler(this.entryButton_Click);
-            // 
-            // entryContainer
-            // 
-            this.entryContainer.Controls.Add(this.iconButton4);
-            this.entryContainer.Controls.Add(this.iconButton3);
-            this.entryContainer.Controls.Add(this.iconButton2);
-            this.entryContainer.Controls.Add(this.iconButton1);
-            this.entryContainer.Controls.Add(this.penerimaanButton1);
-            this.entryContainer.Controls.Add(this.entryButton);
-            this.entryContainer.Location = new System.Drawing.Point(2, 108);
-            this.entryContainer.Margin = new System.Windows.Forms.Padding(2);
-            this.entryContainer.MaximumSize = new System.Drawing.Size(232, 280);
-            this.entryContainer.MinimumSize = new System.Drawing.Size(232, 60);
-            this.entryContainer.Name = "entryContainer";
-            this.entryContainer.Size = new System.Drawing.Size(232, 60);
-            this.entryContainer.TabIndex = 2;
-            // 
-            // dashboardButton
-            // 
-            this.dashboardButton.FlatAppearance.BorderSize = 0;
-            this.dashboardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dashboardButton.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dashboardButton.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dashboardButton.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
-            this.dashboardButton.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.dashboardButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dashboardButton.IconSize = 40;
-            this.dashboardButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dashboardButton.Location = new System.Drawing.Point(2, 44);
-            this.dashboardButton.Margin = new System.Windows.Forms.Padding(2);
-            this.dashboardButton.Name = "dashboardButton";
-            this.dashboardButton.Size = new System.Drawing.Size(232, 60);
-            this.dashboardButton.TabIndex = 1;
-            this.dashboardButton.Text = "     Dashboard";
-            this.dashboardButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dashboardButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.dashboardButton.UseVisualStyleBackColor = true;
-            this.dashboardButton.Click += new System.EventHandler(this.dashboardButton_Click);
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.iconButton1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Toolbox;
-            this.iconButton1.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 40;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(0, 100);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(2);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.iconButton1.Size = new System.Drawing.Size(232, 40);
-            this.iconButton1.TabIndex = 4;
-            this.iconButton1.Text = "     Perbaikan";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
-            // 
-            // penerimaanButton1
-            // 
-            this.penerimaanButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.penerimaanButton1.FlatAppearance.BorderSize = 0;
-            this.penerimaanButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.penerimaanButton1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.penerimaanButton1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.penerimaanButton1.IconChar = FontAwesome.Sharp.IconChar.PlaneArrival;
-            this.penerimaanButton1.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.penerimaanButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.penerimaanButton1.IconSize = 40;
-            this.penerimaanButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.penerimaanButton1.Location = new System.Drawing.Point(0, 60);
-            this.penerimaanButton1.Margin = new System.Windows.Forms.Padding(2);
-            this.penerimaanButton1.Name = "penerimaanButton1";
-            this.penerimaanButton1.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.penerimaanButton1.Size = new System.Drawing.Size(232, 40);
-            this.penerimaanButton1.TabIndex = 3;
-            this.penerimaanButton1.Text = "     Penerimaan";
-            this.penerimaanButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.penerimaanButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.penerimaanButton1.UseVisualStyleBackColor = true;
-            this.penerimaanButton1.Click += new System.EventHandler(this.penerimaanButton1_Click);
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.iconButton2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.PlaneDeparture;
-            this.iconButton2.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 40;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(0, 140);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(2);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.iconButton2.Size = new System.Drawing.Size(232, 40);
-            this.iconButton2.TabIndex = 5;
-            this.iconButton2.Text = "     Pengiriman";
-            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = true;
-            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
-            // 
-            // iconButton3
-            // 
-            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton3.FlatAppearance.BorderSize = 0;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.iconButton3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Wind;
-            this.iconButton3.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 40;
-            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(0, 180);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(2);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.iconButton3.Size = new System.Drawing.Size(232, 40);
-            this.iconButton3.TabIndex = 6;
-            this.iconButton3.Text = "     Welding Pieces";
-            this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton3.UseVisualStyleBackColor = true;
-            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
-            // 
-            // iconButton4
-            // 
-            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton4.FlatAppearance.BorderSize = 0;
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.iconButton4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.Warehouse;
-            this.iconButton4.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 40;
-            this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton4.Location = new System.Drawing.Point(0, 220);
-            this.iconButton4.Margin = new System.Windows.Forms.Padding(2);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.iconButton4.Size = new System.Drawing.Size(232, 60);
-            this.iconButton4.TabIndex = 7;
-            this.iconButton4.Text = "     Pemakaian \r\n     Material";
-            this.iconButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton4.UseVisualStyleBackColor = true;
-            this.iconButton4.Click += new System.EventHandler(this.iconButton4_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -928,12 +928,12 @@ namespace GOS_FxApps
             this.panel2.ResumeLayout(false);
             this.sidebarPanel.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.entryContainer.ResumeLayout(false);
             this.EditContainer.ResumeLayout(false);
             this.historycontainer.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.entryContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
