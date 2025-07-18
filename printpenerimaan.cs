@@ -376,7 +376,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM penerimaan_p";
+                string query = "SELECT * FROM penerimaan_p ORDER BY tanggal_penerimaan DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -423,7 +423,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, ba, ba1, cr, m, r, c, rl, jumlah, tanggal_penerimaan, updated_at FROM perbaikan_p";
+                string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, ba, ba1, cr, m, r, c, rl, jumlah, tanggal_penerimaan, updated_at FROM perbaikan_p ORDER BY tanggal_perbaikan DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -477,7 +477,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM pengiriman";
+                string query = "SELECT * FROM pengiriman ORDER BY tanggal_pengiriman DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -530,7 +530,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM Rb_Stok";
+                string query = "SELECT * FROM Rb_Stok ORDER BY tanggal DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -583,7 +583,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM pemakaian_material";
+                string query = "SELECT * FROM pemakaian_material ORDER BY tanggalPemakaian DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -633,7 +633,7 @@ namespace GOS_FxApps
         {
             DateTime? tanggal1 = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
             DateTime? tanggal2 = datecari.Checked ? (DateTime?)datecari.Value.AddDays(1).Date : null;
-            string shift = cbShift.SelectedItem ?.ToString(); // ambil nilai teks shift
+            string shift = cbShift.SelectedItem ?.ToString();
 
             if (!tanggal1.HasValue || string.IsNullOrEmpty(shift))
             {

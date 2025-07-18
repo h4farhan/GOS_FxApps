@@ -32,6 +32,7 @@ namespace GOS_FxApps
             btnsimpan.Enabled = false;
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
+            txtnomorrod.Focus();
         }
 
         private void tampil()
@@ -453,6 +454,7 @@ namespace GOS_FxApps
         }
 
         private void btnsimpan_Click(object sender, EventArgs e)
+
         {
             if (txtnomorrod.Text == "" || txtjenis.Text == "")
             {
@@ -470,6 +472,7 @@ namespace GOS_FxApps
                 btnsimpan.Text = "Simpan Data";
                 btncheck.Enabled = true;
                 txtnomorrod.Enabled = true;
+                txtnomorrod.Focus();
             }
             else
             {
@@ -477,6 +480,7 @@ namespace GOS_FxApps
                 setdefault();
                 setfalse();
                 txtnomorrod.Enabled = true;
+                txtnomorrod.Focus();
                 btncheck.FillColor = Color.FromArgb(94, 148, 255);
                 btnsimpan.Enabled = false;
                 btncancel.Enabled = false;
@@ -518,6 +522,7 @@ namespace GOS_FxApps
                                 txtrl.Text = reader["rl"].ToString();
                                 tanggalpenerimaan = Convert.ToDateTime(reader["tanggal_penerimaan"]);
                                 settrue();
+                                txtjenis.Focus();
                                 txtnomorrod.Enabled = false;
                                 btncancel.Enabled = true;
                                 btncheck.Enabled = false;
@@ -625,6 +630,7 @@ namespace GOS_FxApps
             btncheck .Enabled = true;
             btnsimpan.Enabled = false;
             btncheck.Enabled= true;
+            txtnomorrod.Focus();
         }
 
         private void txtrl_TextChanged(object sender, EventArgs e)
@@ -711,5 +717,16 @@ namespace GOS_FxApps
         {
             hitung();
         }
+
+        private void txtnomorrod_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; 
+                btncheck.PerformClick();   
+            
+        }
+
     }
+}
 }

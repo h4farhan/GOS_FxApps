@@ -50,7 +50,7 @@ namespace GOS_FxApps
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                MessageBox.Show("Terjadi kesalahan sistem: " + ex.Message,
                                 "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

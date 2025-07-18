@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -506,7 +506,8 @@
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
             this.guna2Panel5.Size = new System.Drawing.Size(471, 215);
-            this.guna2Panel5.TabIndex = 3;
+            this.guna2Panel5.TabIndex = 5;
+            this.guna2Panel5.TabStop = true;
             // 
             // tableLayoutPanel6
             // 
@@ -659,7 +660,7 @@
             this.txtketerangan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtketerangan.SelectedText = "";
             this.txtketerangan.Size = new System.Drawing.Size(249, 140);
-            this.txtketerangan.TabIndex = 20;
+            this.txtketerangan.TabIndex = 0;
             // 
             // label23
             // 
@@ -692,7 +693,8 @@
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
             this.guna2Panel4.Size = new System.Drawing.Size(471, 213);
-            this.guna2Panel4.TabIndex = 2;
+            this.guna2Panel4.TabIndex = 4;
+            this.guna2Panel4.TabStop = true;
             // 
             // guna2Separator5
             // 
@@ -832,7 +834,7 @@
             this.txtsbarkg.PlaceholderText = "4xxxx";
             this.txtsbarkg.SelectedText = "";
             this.txtsbarkg.Size = new System.Drawing.Size(152, 48);
-            this.txtsbarkg.TabIndex = 13;
+            this.txtsbarkg.TabIndex = 1;
             this.txtsbarkg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // txtsbarmm
@@ -859,7 +861,7 @@
             this.txtsbarmm.PlaceholderText = "4xxxx";
             this.txtsbarmm.SelectedText = "";
             this.txtsbarmm.Size = new System.Drawing.Size(152, 48);
-            this.txtsbarmm.TabIndex = 12;
+            this.txtsbarmm.TabIndex = 0;
             this.txtsbarmm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label9
@@ -912,6 +914,7 @@
             this.guna2Panel2.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
             this.guna2Panel2.Size = new System.Drawing.Size(471, 294);
             this.guna2Panel2.TabIndex = 0;
+            this.guna2Panel2.TabStop = true;
             // 
             // tableLayoutPanel9
             // 
@@ -1063,7 +1066,7 @@
             this.txtpbar.PlaceholderText = "4xxxx";
             this.txtpbar.SelectedText = "";
             this.txtpbar.Size = new System.Drawing.Size(161, 50);
-            this.txtpbar.TabIndex = 8;
+            this.txtpbar.TabIndex = 2;
             this.txtpbar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // txtkeluar
@@ -1090,7 +1093,7 @@
             this.txtkeluar.PlaceholderText = "4xxxx";
             this.txtkeluar.SelectedText = "";
             this.txtkeluar.Size = new System.Drawing.Size(161, 50);
-            this.txtkeluar.TabIndex = 7;
+            this.txtkeluar.TabIndex = 1;
             this.txtkeluar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // txtmasuk
@@ -1117,7 +1120,7 @@
             this.txtmasuk.PlaceholderText = "4xxxx";
             this.txtmasuk.SelectedText = "";
             this.txtmasuk.Size = new System.Drawing.Size(161, 50);
-            this.txtmasuk.TabIndex = 6;
+            this.txtmasuk.TabIndex = 0;
             this.txtmasuk.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label4
@@ -1168,7 +1171,8 @@
             this.guna2Panel7.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel7.Name = "guna2Panel7";
             this.guna2Panel7.Size = new System.Drawing.Size(153, 290);
-            this.guna2Panel7.TabIndex = 2;
+            this.guna2Panel7.TabIndex = 3;
+            this.guna2Panel7.TabStop = true;
             // 
             // label21
             // 
@@ -1206,7 +1210,7 @@
             this.pkeluare2.PlaceholderText = "4xxxx";
             this.pkeluare2.SelectedText = "";
             this.pkeluare2.Size = new System.Drawing.Size(122, 47);
-            this.pkeluare2.TabIndex = 19;
+            this.pkeluare2.TabIndex = 1;
             this.pkeluare2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label22
@@ -1245,7 +1249,7 @@
             this.pkeluare1.PlaceholderText = "4xxxx";
             this.pkeluare1.SelectedText = "";
             this.pkeluare1.Size = new System.Drawing.Size(122, 47);
-            this.pkeluare1.TabIndex = 17;
+            this.pkeluare1.TabIndex = 0;
             this.pkeluare1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // guna2Separator3
@@ -1289,7 +1293,8 @@
             this.guna2Panel6.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel6.Name = "guna2Panel6";
             this.guna2Panel6.Size = new System.Drawing.Size(153, 290);
-            this.guna2Panel6.TabIndex = 1;
+            this.guna2Panel6.TabIndex = 2;
+            this.guna2Panel6.TabStop = true;
             // 
             // guna2Separator2
             // 
@@ -1339,7 +1344,7 @@
             this.lathee2.PlaceholderText = "4xxxx";
             this.lathee2.SelectedText = "";
             this.lathee2.Size = new System.Drawing.Size(123, 47);
-            this.lathee2.TabIndex = 15;
+            this.lathee2.TabIndex = 1;
             this.lathee2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label20
@@ -1378,7 +1383,7 @@
             this.lathee1.PlaceholderText = "4xxxx";
             this.lathee1.SelectedText = "";
             this.lathee1.Size = new System.Drawing.Size(123, 47);
-            this.lathee1.TabIndex = 13;
+            this.lathee1.TabIndex = 0;
             this.lathee1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label15
@@ -1410,7 +1415,8 @@
             this.guna2Panel3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(153, 290);
-            this.guna2Panel3.TabIndex = 0;
+            this.guna2Panel3.TabIndex = 1;
+            this.guna2Panel3.TabStop = true;
             // 
             // label18
             // 
@@ -1448,7 +1454,7 @@
             this.sawinge2.PlaceholderText = "4xxxx";
             this.sawinge2.SelectedText = "";
             this.sawinge2.Size = new System.Drawing.Size(123, 47);
-            this.sawinge2.TabIndex = 11;
+            this.sawinge2.TabIndex = 1;
             this.sawinge2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label17
@@ -1487,7 +1493,7 @@
             this.sawinge1.PlaceholderText = "4xxxx";
             this.sawinge1.SelectedText = "";
             this.sawinge1.Size = new System.Drawing.Size(123, 47);
-            this.sawinge1.TabIndex = 7;
+            this.sawinge1.TabIndex = 0;
             this.sawinge1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // guna2Separator1
@@ -1527,7 +1533,8 @@
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1008, 84);
-            this.panel2.TabIndex = 3;
+            this.panel2.TabIndex = 6;
+            this.panel2.TabStop = true;
             // 
             // btnbatal
             // 
@@ -1545,7 +1552,7 @@
             this.btnbatal.Margin = new System.Windows.Forms.Padding(2);
             this.btnbatal.Name = "btnbatal";
             this.btnbatal.Size = new System.Drawing.Size(122, 35);
-            this.btnbatal.TabIndex = 42;
+            this.btnbatal.TabIndex = 2;
             this.btnbatal.Text = "Batal";
             this.btnbatal.Click += new System.EventHandler(this.btnbatal_Click);
             // 
@@ -1588,7 +1595,7 @@
             this.btnhitung.Margin = new System.Windows.Forms.Padding(2);
             this.btnhitung.Name = "btnhitung";
             this.btnhitung.Size = new System.Drawing.Size(122, 35);
-            this.btnhitung.TabIndex = 37;
+            this.btnhitung.TabIndex = 0;
             this.btnhitung.Text = "Hitung";
             this.btnhitung.Click += new System.EventHandler(this.btnhitung_Click);
             // 
@@ -1606,7 +1613,7 @@
             this.btnsimpan.Margin = new System.Windows.Forms.Padding(2);
             this.btnsimpan.Name = "btnsimpan";
             this.btnsimpan.Size = new System.Drawing.Size(122, 35);
-            this.btnsimpan.TabIndex = 36;
+            this.btnsimpan.TabIndex = 1;
             this.btnsimpan.Text = "Simpan Data";
             this.btnsimpan.Click += new System.EventHandler(this.btnsimpan_Click);
             // 
@@ -1625,7 +1632,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 582F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(1008, 582);
-            this.tableLayoutPanel8.TabIndex = 5;
+            this.tableLayoutPanel8.TabIndex = 10;
             // 
             // guna2Panel9
             // 
@@ -1641,7 +1648,8 @@
             this.guna2Panel9.Name = "guna2Panel9";
             this.guna2Panel9.Padding = new System.Windows.Forms.Padding(8);
             this.guna2Panel9.Size = new System.Drawing.Size(974, 578);
-            this.guna2Panel9.TabIndex = 0;
+            this.guna2Panel9.TabIndex = 7;
+            this.guna2Panel9.TabStop = true;
             // 
             // dataGridView1
             // 
@@ -1650,40 +1658,40 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Black;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.Gray;
             this.dataGridView1.Location = new System.Drawing.Point(8, 105);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(958, 465);
-            this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // panel3
@@ -1696,7 +1704,8 @@
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(958, 46);
-            this.panel3.TabIndex = 40;
+            this.panel3.TabIndex = 0;
+            this.panel3.TabStop = true;
             // 
             // cbShift
             // 
@@ -1721,7 +1730,7 @@
             this.cbShift.Name = "cbShift";
             this.cbShift.Size = new System.Drawing.Size(126, 36);
             this.cbShift.StartIndex = 0;
-            this.cbShift.TabIndex = 56;
+            this.cbShift.TabIndex = 1;
             // 
             // btncari
             // 
@@ -1737,7 +1746,7 @@
             this.btncari.Margin = new System.Windows.Forms.Padding(2);
             this.btncari.Name = "btncari";
             this.btncari.Size = new System.Drawing.Size(60, 37);
-            this.btncari.TabIndex = 47;
+            this.btncari.TabIndex = 2;
             this.btncari.Text = "Cari";
             this.btncari.Click += new System.EventHandler(this.btncari_Click);
             // 
@@ -1758,7 +1767,7 @@
             this.datecari.Name = "datecari";
             this.datecari.ShowCheckBox = true;
             this.datecari.Size = new System.Drawing.Size(225, 37);
-            this.datecari.TabIndex = 49;
+            this.datecari.TabIndex = 0;
             this.datecari.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
             // 
             // label32

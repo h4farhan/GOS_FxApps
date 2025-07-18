@@ -44,7 +44,7 @@ namespace GOS_FxApps
                     {
                         if (dr.Read())
                         {
-                            MessageBox.Show("Nomor ROD ditable ini sudah ada dan belum diperbaiki.");
+                            MessageBox.Show("Nomor ROD ditable ini sudah ada dan belum diperbaiki.", "Warning");
                             return;
                         }
                     }
@@ -240,7 +240,7 @@ namespace GOS_FxApps
         {
             if (txtnomorrod.Text == "" || txtjenis.Text == "" || txtstasiun.Text == "")
             {
-                MessageBox.Show("Data Tidak Boleh Kosong");
+                MessageBox.Show("Nomor ROD, Jenis dan Stasiun Tidak Boleh Kosong", "Warning");
                 return;
             }
 
@@ -252,6 +252,7 @@ namespace GOS_FxApps
                 btncancel.Enabled = false;
                 btnsimpan.Enabled = false;
                 btnhitung.Text = "Hitung";
+                txtnomorrod.Focus();
             }
             else
             {
@@ -259,6 +260,7 @@ namespace GOS_FxApps
                 tampil();
                 btnsimpan.Enabled = false;
                 btncancel.Enabled= false;
+                txtnomorrod.Focus();
             }
         }
 
@@ -328,7 +330,7 @@ namespace GOS_FxApps
 
             if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
             {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.");
+                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.","Warning");
                 return false;
             }
 
@@ -452,6 +454,7 @@ namespace GOS_FxApps
         {
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
+            txtnomorrod.Focus();
         }
 
         private void txtrl_TextChanged(object sender, EventArgs e)
@@ -510,6 +513,11 @@ namespace GOS_FxApps
         }
 
         private void txte1_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtrl_TextChanged_1(object sender, EventArgs e)
         {
             hitung();
         }

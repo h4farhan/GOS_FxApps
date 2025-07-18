@@ -49,10 +49,7 @@ namespace GOS_FxApps
 
         public Pengiriman()
         {
-            InitializeComponent();
-            tampil();
-            datecari.Value = DateTime.Now.Date;
-            datecari.Checked = false;
+            InitializeComponent();            
         }
 
         private void tampil()
@@ -460,5 +457,13 @@ namespace GOS_FxApps
             }
         }
 
+        private void Pengiriman_Load(object sender, EventArgs e)
+        {
+            tampil();
+            datecari.Value = DateTime.Now.Date;
+            datecari.Checked = false;
+            txtrod1.Focus();
+            txtrod1.Focus();
+        }
     }
 }

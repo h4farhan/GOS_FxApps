@@ -721,6 +721,7 @@ namespace GOS_FxApps
             tampil();
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
+            txtmasuk.Focus();
         }
 
 
@@ -784,6 +785,7 @@ namespace GOS_FxApps
                         simpandata();
                         btnsimpan.Enabled = false;
                         btnbatal.Enabled = false;
+                        txtmasuk.Focus();
                     }
                 }
             }
