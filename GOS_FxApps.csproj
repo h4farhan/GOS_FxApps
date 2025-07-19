@@ -217,6 +217,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>actual.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\kondisi.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>kondisi.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\laporanpemakaian.cs">
       <DependentUpon>laporanpemakaian.xsd</DependentUpon>
     </Compile>
@@ -422,7 +427,7 @@
     <EmbeddedResource Include="historyWelding.resx">
       <DependentUpon>historyWelding.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="kondisi.rdlc" />
+    <EmbeddedResource Include="kondisi_31.rdlc" />
     <EmbeddedResource Include="laporanpemakaian_28.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -503,6 +508,17 @@
     </None>
     <None Include="DataSet\actual.xss">
       <DependentUpon>actual.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\kondisi.xsc">
+      <DependentUpon>kondisi.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\kondisi.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>kondisi.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\kondisi.xss">
+      <DependentUpon>kondisi.xsd</DependentUpon>
     </None>
     <None Include="DataSet\laporanpemakaian.xsc">
       <DependentUpon>laporanpemakaian.xsd</DependentUpon>

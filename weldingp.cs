@@ -137,7 +137,7 @@ namespace GOS_FxApps
                 conn.Close();
             }    
         }
-        private void getdatastokedit()
+        private bool getdatastokedit()
         {
             try
             {
@@ -148,22 +148,27 @@ namespace GOS_FxApps
                 if (reader.Read())
                 {
                     lblstcokakhir.Text = reader["bstok"].ToString();
+                    reader.Close();
+                    return true;
                 }
                 else
                 {
-                    MessageBox.Show("Data Pertama Tidak Bisa Diedit!!");
+                    reader.Close();
+                    MessageBox.Show("Data Pertama Tidak Bisa Diedit!!", "Warning");
+                    return false;
                 }
-                reader.Close();
             }
             catch (SqlException)
             {
                 MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
                                     "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Terjadi kesalahan sistem: " + ex.Message,
                                 "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
             finally
             {
@@ -839,11 +844,12 @@ namespace GOS_FxApps
             if (MainForm.Instance.role != "Manajer") return;
             if (e.RowIndex >= 0)
             {
-                getdatastokedit();
-
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
                 idmulai = Convert.ToInt32(row.Cells["id_stok"].Value);
+
+                if (!getdatastokedit()) return;
+
                 txtmasuk.Text = row.Cells["bmasuk"].Value.ToString();
                 txtkeluar.Text = row.Cells["bkeluar"].Value.ToString();
                 lblstoksekarang.Text = row.Cells["bstok"].Value.ToString();

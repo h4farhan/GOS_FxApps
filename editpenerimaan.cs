@@ -255,6 +255,7 @@ namespace GOS_FxApps
                 lbltotalsebelum.Text = row.Cells["jumlah"].Value.ToString();
                 settrue();
                 btnclear.Enabled = true;
+                txtjenis.Focus();
             }
         }
 

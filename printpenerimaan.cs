@@ -1357,6 +1357,7 @@ namespace GOS_FxApps
                 paneldata2.Visible = false;
                 cmbpilihdata.SelectedIndex = -1;
                 dataGridView1.DataSource = null;
+                cmbpilihdata.Items.Remove("Cancel");
             }
 
         }

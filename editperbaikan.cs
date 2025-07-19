@@ -386,6 +386,7 @@ namespace GOS_FxApps
                 settrue();
 
                 btnclear.Enabled = true;
+                txtjenis.Focus();
             }
         }
 
