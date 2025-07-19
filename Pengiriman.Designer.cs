@@ -31,9 +31,9 @@ namespace GOS_FxApps
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,6 +59,7 @@ namespace GOS_FxApps
             this.datecari = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnclear = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -167,13 +168,14 @@ namespace GOS_FxApps
             this.txtrod10.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtrod10.ForeColor = System.Drawing.Color.White;
             this.txtrod10.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod10.Location = new System.Drawing.Point(91, 492);
+            this.txtrod10.Location = new System.Drawing.Point(51, 492);
             this.txtrod10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod10.Name = "txtrod10";
             this.txtrod10.PlaceholderText = "4xxxx";
             this.txtrod10.SelectedText = "";
-            this.txtrod10.Size = new System.Drawing.Size(202, 41);
+            this.txtrod10.Size = new System.Drawing.Size(282, 41);
             this.txtrod10.TabIndex = 9;
+            this.txtrod10.TextChanged += new System.EventHandler(this.txtrod10_TextChanged);
             this.txtrod10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             this.txtrod10.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
@@ -192,13 +194,14 @@ namespace GOS_FxApps
             this.txtrod9.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtrod9.ForeColor = System.Drawing.Color.White;
             this.txtrod9.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod9.Location = new System.Drawing.Point(91, 443);
+            this.txtrod9.Location = new System.Drawing.Point(51, 443);
             this.txtrod9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod9.Name = "txtrod9";
             this.txtrod9.PlaceholderText = "4xxxx";
             this.txtrod9.SelectedText = "";
-            this.txtrod9.Size = new System.Drawing.Size(202, 41);
+            this.txtrod9.Size = new System.Drawing.Size(282, 41);
             this.txtrod9.TabIndex = 8;
+            this.txtrod9.TextChanged += new System.EventHandler(this.txtrod9_TextChanged);
             this.txtrod9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             this.txtrod9.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
@@ -217,13 +220,14 @@ namespace GOS_FxApps
             this.txtrod8.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtrod8.ForeColor = System.Drawing.Color.White;
             this.txtrod8.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod8.Location = new System.Drawing.Point(91, 394);
+            this.txtrod8.Location = new System.Drawing.Point(51, 394);
             this.txtrod8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod8.Name = "txtrod8";
             this.txtrod8.PlaceholderText = "4xxxx";
             this.txtrod8.SelectedText = "";
-            this.txtrod8.Size = new System.Drawing.Size(202, 41);
+            this.txtrod8.Size = new System.Drawing.Size(282, 41);
             this.txtrod8.TabIndex = 7;
+            this.txtrod8.TextChanged += new System.EventHandler(this.txtrod8_TextChanged);
             this.txtrod8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             this.txtrod8.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
@@ -242,13 +246,14 @@ namespace GOS_FxApps
             this.txtrod7.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtrod7.ForeColor = System.Drawing.Color.White;
             this.txtrod7.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod7.Location = new System.Drawing.Point(91, 345);
+            this.txtrod7.Location = new System.Drawing.Point(51, 345);
             this.txtrod7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod7.Name = "txtrod7";
             this.txtrod7.PlaceholderText = "4xxxx";
             this.txtrod7.SelectedText = "";
-            this.txtrod7.Size = new System.Drawing.Size(202, 41);
+            this.txtrod7.Size = new System.Drawing.Size(282, 41);
             this.txtrod7.TabIndex = 6;
+            this.txtrod7.TextChanged += new System.EventHandler(this.txtrod7_TextChanged);
             this.txtrod7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             this.txtrod7.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
@@ -267,13 +272,14 @@ namespace GOS_FxApps
             this.txtrod6.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtrod6.ForeColor = System.Drawing.Color.White;
             this.txtrod6.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod6.Location = new System.Drawing.Point(91, 297);
+            this.txtrod6.Location = new System.Drawing.Point(51, 297);
             this.txtrod6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod6.Name = "txtrod6";
             this.txtrod6.PlaceholderText = "4xxxx";
             this.txtrod6.SelectedText = "";
-            this.txtrod6.Size = new System.Drawing.Size(202, 41);
+            this.txtrod6.Size = new System.Drawing.Size(282, 41);
             this.txtrod6.TabIndex = 5;
+            this.txtrod6.TextChanged += new System.EventHandler(this.txtrod6_TextChanged);
             this.txtrod6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             this.txtrod6.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
@@ -292,13 +298,14 @@ namespace GOS_FxApps
             this.txtrod5.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtrod5.ForeColor = System.Drawing.Color.White;
             this.txtrod5.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod5.Location = new System.Drawing.Point(91, 248);
+            this.txtrod5.Location = new System.Drawing.Point(51, 248);
             this.txtrod5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod5.Name = "txtrod5";
             this.txtrod5.PlaceholderText = "4xxxx";
             this.txtrod5.SelectedText = "";
-            this.txtrod5.Size = new System.Drawing.Size(202, 41);
+            this.txtrod5.Size = new System.Drawing.Size(282, 41);
             this.txtrod5.TabIndex = 4;
+            this.txtrod5.TextChanged += new System.EventHandler(this.txtrod5_TextChanged);
             this.txtrod5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             this.txtrod5.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
@@ -317,13 +324,14 @@ namespace GOS_FxApps
             this.txtrod4.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtrod4.ForeColor = System.Drawing.Color.White;
             this.txtrod4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod4.Location = new System.Drawing.Point(91, 199);
+            this.txtrod4.Location = new System.Drawing.Point(51, 199);
             this.txtrod4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod4.Name = "txtrod4";
             this.txtrod4.PlaceholderText = "4xxxx";
             this.txtrod4.SelectedText = "";
-            this.txtrod4.Size = new System.Drawing.Size(202, 41);
+            this.txtrod4.Size = new System.Drawing.Size(282, 41);
             this.txtrod4.TabIndex = 3;
+            this.txtrod4.TextChanged += new System.EventHandler(this.txtrod4_TextChanged);
             this.txtrod4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             this.txtrod4.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
@@ -342,13 +350,14 @@ namespace GOS_FxApps
             this.txtrod3.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtrod3.ForeColor = System.Drawing.Color.White;
             this.txtrod3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod3.Location = new System.Drawing.Point(91, 150);
+            this.txtrod3.Location = new System.Drawing.Point(51, 150);
             this.txtrod3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod3.Name = "txtrod3";
             this.txtrod3.PlaceholderText = "4xxxx";
             this.txtrod3.SelectedText = "";
-            this.txtrod3.Size = new System.Drawing.Size(202, 41);
+            this.txtrod3.Size = new System.Drawing.Size(282, 41);
             this.txtrod3.TabIndex = 2;
+            this.txtrod3.TextChanged += new System.EventHandler(this.txtrod3_TextChanged);
             this.txtrod3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             this.txtrod3.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
@@ -367,13 +376,14 @@ namespace GOS_FxApps
             this.txtrod2.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtrod2.ForeColor = System.Drawing.Color.White;
             this.txtrod2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod2.Location = new System.Drawing.Point(91, 102);
+            this.txtrod2.Location = new System.Drawing.Point(51, 102);
             this.txtrod2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod2.Name = "txtrod2";
             this.txtrod2.PlaceholderText = "4xxxx";
             this.txtrod2.SelectedText = "";
-            this.txtrod2.Size = new System.Drawing.Size(202, 41);
+            this.txtrod2.Size = new System.Drawing.Size(282, 41);
             this.txtrod2.TabIndex = 1;
+            this.txtrod2.TextChanged += new System.EventHandler(this.txtrod2_TextChanged);
             this.txtrod2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             this.txtrod2.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
@@ -403,18 +413,20 @@ namespace GOS_FxApps
             this.txtrod1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtrod1.ForeColor = System.Drawing.Color.White;
             this.txtrod1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod1.Location = new System.Drawing.Point(91, 53);
+            this.txtrod1.Location = new System.Drawing.Point(51, 53);
             this.txtrod1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod1.Name = "txtrod1";
             this.txtrod1.PlaceholderText = "4xxxx";
             this.txtrod1.SelectedText = "";
-            this.txtrod1.Size = new System.Drawing.Size(202, 41);
+            this.txtrod1.Size = new System.Drawing.Size(282, 41);
             this.txtrod1.TabIndex = 0;
+            this.txtrod1.TextChanged += new System.EventHandler(this.txtrod1_TextChanged);
             this.txtrod1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             this.txtrod1.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnclear);
             this.panel3.Controls.Add(this.guna2Button2);
             this.panel3.Controls.Add(this.tableLayoutPanel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -432,6 +444,7 @@ namespace GOS_FxApps
             this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.Enabled = false;
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
             this.guna2Button2.Location = new System.Drawing.Point(196, 595);
@@ -553,39 +566,59 @@ namespace GOS_FxApps
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Black;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.Gray;
             this.dataGridView1.Location = new System.Drawing.Point(11, 59);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(293, 512);
             this.dataGridView1.TabIndex = 3;
+            // 
+            // btnclear
+            // 
+            this.btnclear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnclear.BorderRadius = 8;
+            this.btnclear.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnclear.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnclear.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnclear.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnclear.Enabled = false;
+            this.btnclear.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnclear.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnclear.ForeColor = System.Drawing.Color.White;
+            this.btnclear.Location = new System.Drawing.Point(69, 595);
+            this.btnclear.Margin = new System.Windows.Forms.Padding(2);
+            this.btnclear.Name = "btnclear";
+            this.btnclear.Size = new System.Drawing.Size(122, 35);
+            this.btnclear.TabIndex = 2;
+            this.btnclear.Text = "Clear";
+            this.btnclear.Click += new System.EventHandler(this.btnclear_Click);
             // 
             // Pengiriman
             // 
@@ -642,5 +675,6 @@ namespace GOS_FxApps
         private Guna.UI2.WinForms.Guna2Button btncari;
         private Guna.UI2.WinForms.Guna2DateTimePicker datecari;
         private Guna.UI2.WinForms.Guna2TextBox txtcari;
+        private Guna.UI2.WinForms.Guna2Button btnclear;
     }
 }

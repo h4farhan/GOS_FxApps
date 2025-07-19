@@ -427,7 +427,9 @@
     <EmbeddedResource Include="historyWelding.resx">
       <DependentUpon>historyWelding.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="kondisi_31.rdlc" />
+    <EmbeddedResource Include="kondisi_31.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="laporanpemakaian_28.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>

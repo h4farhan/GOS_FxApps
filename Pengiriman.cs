@@ -199,6 +199,8 @@ namespace GOS_FxApps
             txtrod8.PlaceholderForeColor = Color.FromArgb(193, 200, 207);
             txtrod9.PlaceholderForeColor = Color.FromArgb(193, 200, 207);
             txtrod10.PlaceholderForeColor = Color.FromArgb(193, 200, 207);
+            btnclear.Enabled = false;
+            guna2Button2.Enabled = false;
         }
 
         private void AngkaOnly_KeyPress(object sender, KeyPressEventArgs e)
@@ -237,7 +239,7 @@ namespace GOS_FxApps
                     else
                     {
                         txt.Clear();
-                        txt.PlaceholderText = "Data Tidak Ditemukan";
+                        txt.PlaceholderText = "Data tidak ditemukan di Perbaikan";
                         txt.PlaceholderForeColor = Color.Red;
                     }
                 }
@@ -382,9 +384,9 @@ namespace GOS_FxApps
                 cmd3.Parameters.AddWithValue("@j", txtrod10.Text);
                 
                 cmd3.ExecuteNonQuery();
-
-                tampil();
+                
                 MessageBox.Show("Data Berhasil Dikirim!!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tampil();
                 setdefault();
             }
             catch (SqlException)
@@ -464,6 +466,73 @@ namespace GOS_FxApps
             datecari.Checked = false;
             txtrod1.Focus();
             txtrod1.Focus();
+        }
+
+        private void btnclear_Click(object sender, EventArgs e)
+        {
+            setdefault();
+            btnclear.Enabled = false;
+            guna2Button2.Enabled = false;
+        }
+
+        private void txtrod1_TextChanged(object sender, EventArgs e)
+        {
+            btnclear.Enabled = true;
+            guna2Button2.Enabled = true;
+        }
+
+        private void txtrod9_TextChanged(object sender, EventArgs e)
+        {
+            btnclear.Enabled = true;
+            guna2Button2.Enabled = true;
+        }
+
+        private void txtrod8_TextChanged(object sender, EventArgs e)
+        {
+            btnclear.Enabled = true;
+            guna2Button2.Enabled = true;
+        }
+
+        private void txtrod7_TextChanged(object sender, EventArgs e)
+        {
+            btnclear.Enabled = true;
+            guna2Button2.Enabled = true;
+        }
+
+        private void txtrod6_TextChanged(object sender, EventArgs e)
+        {
+            btnclear.Enabled = true;
+            guna2Button2.Enabled = true;
+        }
+
+        private void txtrod5_TextChanged(object sender, EventArgs e)
+        {
+            btnclear.Enabled = true;
+            guna2Button2.Enabled = true;
+        }
+
+        private void txtrod4_TextChanged(object sender, EventArgs e)
+        {
+            btnclear.Enabled = true;
+            guna2Button2.Enabled = true;
+        }
+
+        private void txtrod3_TextChanged(object sender, EventArgs e)
+        {
+            btnclear.Enabled = true;
+            guna2Button2.Enabled = true;
+        }
+
+        private void txtrod2_TextChanged(object sender, EventArgs e)
+        {
+            btnclear.Enabled = true;
+            guna2Button2.Enabled = true;
+        }
+
+        private void txtrod10_TextChanged(object sender, EventArgs e)
+        {
+            btnclear.Enabled = true;
+            guna2Button2.Enabled = true;
         }
     }
 }
