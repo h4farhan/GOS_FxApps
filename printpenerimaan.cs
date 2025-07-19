@@ -34,7 +34,7 @@ namespace GOS_FxApps
 
                 if (string.IsNullOrEmpty(tim))
                 {
-                    MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu");
+                    MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu", "Warning");
                     return;
                 }
 
@@ -124,7 +124,7 @@ namespace GOS_FxApps
 
             if (string.IsNullOrEmpty(tim))
             {
-                MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu");
+                MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu", "Warning");
                 return;
             }
 
@@ -161,7 +161,7 @@ namespace GOS_FxApps
 
             if (string.IsNullOrEmpty(tim))
             {
-                MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu");
+                MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu", "Warning");
                 return;
             }
 
@@ -637,7 +637,7 @@ namespace GOS_FxApps
 
             if (!tanggal1.HasValue || string.IsNullOrEmpty(shift))
             {
-                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.");
+                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.", "Warning");
                 return false;
             }
 
@@ -689,7 +689,7 @@ namespace GOS_FxApps
 
             if (!tanggal1.HasValue || string.IsNullOrEmpty(shift))
             {
-                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.");
+                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.", "Warning");
                 return false;
             }
 
@@ -741,7 +741,7 @@ namespace GOS_FxApps
 
             if (!tanggal1.HasValue || string.IsNullOrEmpty(shift))
             {
-                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.");
+                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.", "Warning");
                 return false;
             }
 
@@ -792,7 +792,7 @@ namespace GOS_FxApps
 
             if (datecaripemakaian.Checked == false)
             {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.");
+                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Warning");
                 return false;
             }
 
@@ -842,7 +842,7 @@ namespace GOS_FxApps
 
             if (datecaripemakaian.Checked == false)
             {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.");
+                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Warning");
                 return false;
             }
 
@@ -891,7 +891,7 @@ namespace GOS_FxApps
 
             if (datecaripemakaian.Checked == false)
             {
-                MessageBox.Show("Silakan isi tanggal untuk melakukan pencarian.");
+                MessageBox.Show("Silakan isi tanggal untuk melakukan pencarian.", "Warning");
                 return false;
             }
 
@@ -940,7 +940,7 @@ namespace GOS_FxApps
 
             if (datecaripemakaian.Checked == false)
             {
-                MessageBox.Show("Silakan isi tanggal untuk melakukan pencarian.");
+                MessageBox.Show("Silakan isi tanggal untuk melakukan pencarian.", "Warning");
                 return false;
             }
 

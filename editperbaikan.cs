@@ -95,7 +95,7 @@ namespace GOS_FxApps
 
             if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
             {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.");
+                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Warning");
                 return false;
             }
 
@@ -226,7 +226,7 @@ namespace GOS_FxApps
         {
             if (txtnomorrod.Text == "" || txtjenis.Text == "")
             {
-                MessageBox.Show("Nomor ROD dan Jenis Tidak Boleh Kosong");
+                MessageBox.Show("Nomor ROD dan Jenis Tidak Boleh Kosong", "Warning");
                 return;
             }
             try

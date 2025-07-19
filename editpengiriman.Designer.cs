@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -221,7 +221,7 @@
             this.txtjenis.PlaceholderText = "Axxxx";
             this.txtjenis.SelectedText = "";
             this.txtjenis.Size = new System.Drawing.Size(202, 41);
-            this.txtjenis.TabIndex = 9;
+            this.txtjenis.TabIndex = 1;
             // 
             // label3
             // 
@@ -269,7 +269,7 @@
             this.txtnomorrod.PlaceholderText = "4xxxx";
             this.txtnomorrod.SelectedText = "";
             this.txtnomorrod.Size = new System.Drawing.Size(202, 41);
-            this.txtnomorrod.TabIndex = 5;
+            this.txtnomorrod.TabIndex = 0;
             this.txtnomorrod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // guna2Panel2
@@ -389,6 +389,7 @@
             this.btnclear.Name = "btnclear";
             this.btnclear.Size = new System.Drawing.Size(112, 32);
             this.btnclear.TabIndex = 40;
+            this.btnclear.TabStop = false;
             this.btnclear.Text = "Clear";
             this.btnclear.Click += new System.EventHandler(this.btnclear_Click);
             // 
@@ -474,7 +475,8 @@
             this.guna2Panel5.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.Size = new System.Drawing.Size(174, 202);
-            this.guna2Panel5.TabIndex = 37;
+            this.guna2Panel5.TabIndex = 4;
+            this.guna2Panel5.TabStop = true;
             // 
             // label28
             // 
@@ -570,7 +572,7 @@
             this.txte2ers.PlaceholderText = "";
             this.txte2ers.SelectedText = "";
             this.txte2ers.Size = new System.Drawing.Size(47, 41);
-            this.txte2ers.TabIndex = 39;
+            this.txte2ers.TabIndex = 2;
             this.txte2ers.TextChanged += new System.EventHandler(this.txte2ers_TextChanged);
             this.txte2ers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -596,7 +598,7 @@
             this.txte2cstub.PlaceholderText = "";
             this.txte2cstub.SelectedText = "";
             this.txte2cstub.Size = new System.Drawing.Size(47, 41);
-            this.txte2cstub.TabIndex = 35;
+            this.txte2cstub.TabIndex = 4;
             this.txte2cstub.TextChanged += new System.EventHandler(this.txte2cstub_TextChanged);
             this.txte2cstub.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -634,7 +636,7 @@
             this.txte2cst.PlaceholderText = "";
             this.txte2cst.SelectedText = "";
             this.txte2cst.Size = new System.Drawing.Size(47, 41);
-            this.txte2cst.TabIndex = 33;
+            this.txte2cst.TabIndex = 3;
             this.txte2cst.TextChanged += new System.EventHandler(this.txte2cst_TextChanged);
             this.txte2cst.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -672,7 +674,7 @@
             this.txtr.PlaceholderText = "";
             this.txtr.SelectedText = "";
             this.txtr.Size = new System.Drawing.Size(47, 41);
-            this.txtr.TabIndex = 56;
+            this.txtr.TabIndex = 12;
             this.txtr.TextChanged += new System.EventHandler(this.txtr_TextChanged);
             this.txtr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -775,7 +777,7 @@
             this.txte1est.PlaceholderText = "";
             this.txte1est.SelectedText = "";
             this.txte1est.Size = new System.Drawing.Size(47, 41);
-            this.txte1est.TabIndex = 35;
+            this.txte1est.TabIndex = 1;
             this.txte1est.TextChanged += new System.EventHandler(this.txte1est_TextChanged);
             this.txte1est.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -813,7 +815,7 @@
             this.txte1ers.PlaceholderText = "";
             this.txte1ers.SelectedText = "";
             this.txte1ers.Size = new System.Drawing.Size(47, 41);
-            this.txte1ers.TabIndex = 33;
+            this.txte1ers.TabIndex = 0;
             this.txte1ers.TextChanged += new System.EventHandler(this.txte1ers_TextChanged);
             this.txte1ers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -851,7 +853,7 @@
             this.txtc.PlaceholderText = "";
             this.txtc.SelectedText = "";
             this.txtc.Size = new System.Drawing.Size(47, 41);
-            this.txtc.TabIndex = 55;
+            this.txtc.TabIndex = 13;
             this.txtc.TextChanged += new System.EventHandler(this.txtc_TextChanged);
             this.txtc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -913,7 +915,7 @@
             this.txts.PlaceholderText = "";
             this.txts.SelectedText = "";
             this.txts.Size = new System.Drawing.Size(47, 41);
-            this.txts.TabIndex = 44;
+            this.txts.TabIndex = 6;
             this.txts.TextChanged += new System.EventHandler(this.txts_TextChanged);
             this.txts.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -951,7 +953,7 @@
             this.txtd.PlaceholderText = "";
             this.txtd.SelectedText = "";
             this.txtd.Size = new System.Drawing.Size(47, 41);
-            this.txtd.TabIndex = 43;
+            this.txtd.TabIndex = 7;
             this.txtd.TextChanged += new System.EventHandler(this.txtd_TextChanged);
             this.txtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -977,7 +979,7 @@
             this.txtrl.PlaceholderText = "";
             this.txtrl.SelectedText = "";
             this.txtrl.Size = new System.Drawing.Size(47, 41);
-            this.txtrl.TabIndex = 51;
+            this.txtrl.TabIndex = 14;
             this.txtrl.TextChanged += new System.EventHandler(this.txtrl_TextChanged);
             this.txtrl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1039,7 +1041,7 @@
             this.txtba.PlaceholderText = "";
             this.txtba.SelectedText = "";
             this.txtba.Size = new System.Drawing.Size(47, 41);
-            this.txtba.TabIndex = 50;
+            this.txtba.TabIndex = 9;
             this.txtba.TextChanged += new System.EventHandler(this.txtba_TextChanged);
             this.txtba.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1065,7 +1067,7 @@
             this.txtm.PlaceholderText = "";
             this.txtm.SelectedText = "";
             this.txtm.Size = new System.Drawing.Size(47, 41);
-            this.txtm.TabIndex = 45;
+            this.txtm.TabIndex = 11;
             this.txtm.TextChanged += new System.EventHandler(this.txtm_TextChanged);
             this.txtm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1091,7 +1093,7 @@
             this.txte3.PlaceholderText = "";
             this.txte3.SelectedText = "";
             this.txte3.Size = new System.Drawing.Size(47, 41);
-            this.txte3.TabIndex = 38;
+            this.txte3.TabIndex = 5;
             this.txte3.TextChanged += new System.EventHandler(this.txte3_TextChanged);
             this.txte3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1129,7 +1131,7 @@
             this.txtcr.PlaceholderText = "";
             this.txtcr.SelectedText = "";
             this.txtcr.Size = new System.Drawing.Size(47, 41);
-            this.txtcr.TabIndex = 49;
+            this.txtcr.TabIndex = 10;
             this.txtcr.TextChanged += new System.EventHandler(this.txtcr_TextChanged);
             this.txtcr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1179,7 +1181,7 @@
             this.txtb.PlaceholderText = "";
             this.txtb.SelectedText = "";
             this.txtb.Size = new System.Drawing.Size(47, 41);
-            this.txtb.TabIndex = 39;
+            this.txtb.TabIndex = 8;
             this.txtb.TextChanged += new System.EventHandler(this.txtb_TextChanged);
             this.txtb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1221,7 +1223,7 @@
             this.btnupdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnupdate.Name = "btnupdate";
             this.btnupdate.Size = new System.Drawing.Size(122, 35);
-            this.btnupdate.TabIndex = 36;
+            this.btnupdate.TabIndex = 0;
             this.btnupdate.Text = "Update Data";
             this.btnupdate.Click += new System.EventHandler(this.btnupdate_Click);
             // 
@@ -1273,7 +1275,7 @@
             this.btncari.Margin = new System.Windows.Forms.Padding(2);
             this.btncari.Name = "btncari";
             this.btncari.Size = new System.Drawing.Size(60, 37);
-            this.btncari.TabIndex = 41;
+            this.btncari.TabIndex = 2;
             this.btncari.Text = "Cari";
             this.btncari.Click += new System.EventHandler(this.btncari_Click);
             // 
@@ -1294,7 +1296,7 @@
             this.dateeditpengiriman.Name = "dateeditpengiriman";
             this.dateeditpengiriman.ShowCheckBox = true;
             this.dateeditpengiriman.Size = new System.Drawing.Size(178, 39);
-            this.dateeditpengiriman.TabIndex = 43;
+            this.dateeditpengiriman.TabIndex = 0;
             this.dateeditpengiriman.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
             // 
             // txtcari
@@ -1323,7 +1325,7 @@
             this.txtcari.PlaceholderText = "Nomor ROD";
             this.txtcari.SelectedText = "";
             this.txtcari.Size = new System.Drawing.Size(48, 39);
-            this.txtcari.TabIndex = 42;
+            this.txtcari.TabIndex = 1;
             this.txtcari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // dataGridView1
@@ -1336,39 +1338,39 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Black;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.Gray;
             this.dataGridView1.Location = new System.Drawing.Point(13, 58);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(294, 613);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // editpengiriman

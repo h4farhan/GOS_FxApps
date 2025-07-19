@@ -516,7 +516,7 @@ namespace GOS_FxApps
 
             if (!tanggal.HasValue && !shiftValid)
             {
-                MessageBox.Show("Silakan isi Tanggal atau Shift untuk melakukan pencarian.");
+                MessageBox.Show("Silakan isi Tanggal atau Shift untuk melakukan pencarian.", "Warning");
                 return false;
             }
 

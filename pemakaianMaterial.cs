@@ -70,7 +70,7 @@ namespace GOS_FxApps
 
             if (!tanggal.HasValue && string.IsNullOrEmpty(kodeBarang))
             {
-                MessageBox.Show("Silakan isi Tanggal atau Kode Barang untuk melakukan pencarian.");
+                MessageBox.Show("Silakan isi Tanggal atau Kode Barang untuk melakukan pencarian.", "Warning");
                 return false;
             }
 
@@ -324,7 +324,7 @@ namespace GOS_FxApps
             {
                 if (txtjumlah.Text == "") 
                 {
-                    MessageBox.Show("Silahkan isi data dengan benar.");
+                    MessageBox.Show("Lengkapi data terlebih dahulu dengan benar.", "Warning");
                 }
                 else
                 {
