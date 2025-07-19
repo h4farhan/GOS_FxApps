@@ -28,7 +28,7 @@ namespace GOS_FxApps
         {
             if (txtid.Text == "" || txtpw.Text == "")
             {
-                MessageBox.Show("Harap Isi Data Terlebih Dahulu!!");
+                MessageBox.Show("Harap Isi Data Terlebih Dahulu!!", "Warning");
             }
             else
             {
@@ -81,7 +81,7 @@ namespace GOS_FxApps
                         }
                         else
                         {
-                            MessageBox.Show("Id Dan Password Anda Salah!!");
+                            MessageBox.Show("Id Dan Password Anda Salah!!", "Warning");
                             txtid.Clear();
                             txtpw.Clear();
                         }
