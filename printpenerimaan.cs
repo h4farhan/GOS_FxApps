@@ -355,8 +355,8 @@ namespace GOS_FxApps
             //var adapterperbaikan = new GOS_FxApps.DataSet.actualTableAdapters.sp_LaporanShiftPerbaikanTableAdapter();
             //GOS_FxApps.DataSet.actual.sp_LaporanShiftPerbaikanDataTable dataperbaikan = adapterperbaikan.GetData(bulan, tahun);
 
-            //var adapterpenerimaan = new GOS_FxApps.DataSet.actualTableAdapters.sp_LaporanShiftPenerimaanTableAdapter();
-            //GOS_FxApps.DataSet.actual.sp_LaporanShiftPenerimaanDataTable datapenerimaan = adapterpenerimaan.GetData(bulan, tahun);
+            var adapterpenerimaan = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanShiftPenerimaanTableAdapter();
+            GOS_FxApps.DataSet.kondisi.sp_LaporanShiftPenerimaanDataTable datapenerimaan = adapterpenerimaan.GetData(bulan, tahun);
 
             frmrpt = new reportviewr();
             frmrpt.reportViewer1.Reset();
@@ -368,10 +368,10 @@ namespace GOS_FxApps
                 new ReportDataSource("datasetkondisiperbaikan", (DataTable)datakondisi));
 
             //frmrpt.reportViewer1.LocalReport.DataSources.Add(
-            //    new ReportDataSource("datasetshiftperbaikan", (DataTable)dataperbaikan));
+            //    new ReportDataSource("datasetkondisishiftperbaikan", (DataTable)dataperbaikan));
 
-            //frmrpt.reportViewer1.LocalReport.DataSources.Add(
-            //    new ReportDataSource("datasetshiftpenerimaan", (DataTable)datapenerimaan));
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetkondisishiftpenerimaan", (DataTable)datapenerimaan));
 
             ReportParameter[] parameters = new ReportParameter[]
             {

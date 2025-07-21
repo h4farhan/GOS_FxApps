@@ -1063,7 +1063,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!tanggal_penerimaan.Value</Value>
+                                  <Value>=Format(Fields!tanggal_perbaikan.Value, "dd-MM-yyyy")</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <Format>d</Format>
