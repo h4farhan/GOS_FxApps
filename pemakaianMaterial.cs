@@ -33,7 +33,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM pemakaian_material ORDER BY tanggalPemakaian DESC";
+                string query = "SELECT * FROM pemakaian_material ORDER BY tanggalPemakaian DESC, updated_at DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -147,7 +147,7 @@ namespace GOS_FxApps
                 cmdUpdateStok.ExecuteNonQuery();
 
 
-                MessageBox.Show("Data pemakaian berhasil diedit.");
+                MessageBox.Show("Data pemakaian berhasil diedit.", "Warning");
                 txtjumlah.Clear();
                 tampil();
                 btnsimpan.Text = "Simpan Data";
@@ -202,7 +202,7 @@ namespace GOS_FxApps
                 cmdUpdateStok.Parameters.AddWithValue("@kode", kodeBarang);
                 cmdUpdateStok.ExecuteNonQuery();
 
-                MessageBox.Show("Data pemakaian berhasil ditambahkan.");
+                MessageBox.Show("Data pemakaian berhasil ditambahkan.", "Warning");
                 txtjumlah.Clear();
                 tampil();
             }
@@ -249,7 +249,11 @@ namespace GOS_FxApps
 
                     cmbnama.DataSource = dt;
                     cmbnama.DisplayMember = "namaBarang"; 
-                    cmbnama.ValueMember = "kodeBarang";  
+                    cmbnama.ValueMember = "kodeBarang";
+
+                    cmbnama.SelectedIndexChanged -= cmbnama_SelectedIndexChanged;
+                    cmbnama.SelectedIndex = -1;
+                    cmbnama.SelectedIndexChanged += cmbnama_SelectedIndexChanged;
                 }
             }
             catch (SqlException)
@@ -267,6 +271,7 @@ namespace GOS_FxApps
         private void pemakaianMaterial_Load(object sender, EventArgs e)
         {
             combonama();
+            cmbnama.SelectedIndex = -1;
             tampil();
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
@@ -333,6 +338,8 @@ namespace GOS_FxApps
                     if (result == DialogResult.OK)
                     {
                         simpandata();
+                        combonama(); 
+                        picture1.Image = null;
                     }
                 }
             }
@@ -350,6 +357,8 @@ namespace GOS_FxApps
                     {
                         editdata();
                         btnbatal.Enabled = false;
+                        combonama(); 
+                        picture1.Image = null;
                     }
                 }
             }
@@ -360,9 +369,60 @@ namespace GOS_FxApps
             datepemakaian.Value = DateTime.Now.Date;
             txtjumlah.Clear();
             jumlahlama = 0;
-            noprimary = 0;
-            btnbatal.Enabled = false;
+            noprimary = 0;  
             btnsimpan.Text = "Simpan Data";
+            combonama();
+            picture1.Image = null;
+            btnsimpan.Enabled = false;
+            btnbatal.Enabled = false;
+        }
+
+        private void cmbnama_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbnama.SelectedValue == null || cmbnama.SelectedValue == DBNull.Value)
+            {
+                picture1.Image = null;
+                return;
+            }
+
+            string kodeBarang = cmbnama.SelectedValue.ToString();
+
+            try
+            {
+                using (SqlConnection conn = Koneksi.GetConnection())
+                {
+                    string query = "SELECT foto FROM stok_material WHERE kodeBarang = @kodeBarang";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@kodeBarang", kodeBarang);
+
+                    conn.Open();
+                    object result = cmd.ExecuteScalar();
+                    if (result != DBNull.Value && result != null)
+                    {
+                        byte[] imgData = (byte[])result;
+                        using (MemoryStream ms = new MemoryStream(imgData))
+                        {
+                            picture1.Image = Image.FromStream(ms);
+                            btnbatal.Enabled = true;
+                            btnsimpan.Enabled = true;
+                        }
+                    }
+                    else
+                    {
+                        picture1.Image = null; 
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

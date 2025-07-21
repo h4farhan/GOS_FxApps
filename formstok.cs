@@ -249,6 +249,7 @@ namespace GOS_FxApps
                         setdefault();
                         tampil();
                         pemakaianMaterial.instance.combonama();
+                        pemakaianMaterial.instance.picture1.Image = null;
                     }
                     catch (SqlException)
                     {
@@ -285,6 +286,7 @@ namespace GOS_FxApps
                 setdefault();  
                 tampil();
                 pemakaianMaterial.instance.combonama();
+                pemakaianMaterial.instance.picture1.Image = null;
                 btnupdate.Enabled = false;
                 btnsimpan.Text = "Simpan";
             }
