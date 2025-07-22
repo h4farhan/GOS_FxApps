@@ -358,6 +358,9 @@ namespace GOS_FxApps
             var adapterpenerimaan = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanShiftPenerimaanTableAdapter();
             GOS_FxApps.DataSet.kondisi.sp_LaporanShiftPenerimaanDataTable datapenerimaan = adapterpenerimaan.GetData(bulan, tahun);
 
+            var adapterbutt = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanKondisiButtRatioTableAdapter();
+            GOS_FxApps.DataSet.kondisi.sp_LaporanKondisiButtRatioDataTable databutt = adapterbutt.GetData(bulan, tahun);
+
             frmrpt = new reportviewr();
             frmrpt.reportViewer1.Reset();
             frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, namaFileRDLC);
@@ -372,6 +375,9 @@ namespace GOS_FxApps
 
             frmrpt.reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetkondisishiftpenerimaan", (DataTable)datapenerimaan));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetkondisibuttratio", (DataTable)databutt));
 
             ReportParameter[] parameters = new ReportParameter[]
             {
