@@ -352,14 +352,17 @@ namespace GOS_FxApps
             var adapterkondisi = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanKondisiPerbaikanTableAdapter();
             GOS_FxApps.DataSet.kondisi.sp_LaporanKondisiPerbaikanDataTable datakondisi = adapterkondisi.GetData(bulan, tahun);
 
-            //var adapterperbaikan = new GOS_FxApps.DataSet.actualTableAdapters.sp_LaporanShiftPerbaikanTableAdapter();
-            //GOS_FxApps.DataSet.actual.sp_LaporanShiftPerbaikanDataTable dataperbaikan = adapterperbaikan.GetData(bulan, tahun);
+            var adapterperbaikan = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanShiftPerbaikanTableAdapter();
+            GOS_FxApps.DataSet.kondisi.sp_LaporanShiftPerbaikanDataTable dataperbaikan = adapterperbaikan.GetData(bulan, tahun);
 
             var adapterpenerimaan = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanShiftPenerimaanTableAdapter();
             GOS_FxApps.DataSet.kondisi.sp_LaporanShiftPenerimaanDataTable datapenerimaan = adapterpenerimaan.GetData(bulan, tahun);
 
             var adapterbutt = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanKondisiButtRatioTableAdapter();
             GOS_FxApps.DataSet.kondisi.sp_LaporanKondisiButtRatioDataTable databutt = adapterbutt.GetData(bulan, tahun);
+
+            var adapterman = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanKondisiManPowerTableAdapter();
+            GOS_FxApps.DataSet.kondisi.sp_LaporanKondisiManPowerDataTable dataman = adapterman.GetData(bulan, tahun);
 
             frmrpt = new reportviewr();
             frmrpt.reportViewer1.Reset();
@@ -370,14 +373,17 @@ namespace GOS_FxApps
             frmrpt.reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetkondisiperbaikan", (DataTable)datakondisi));
 
-            //frmrpt.reportViewer1.LocalReport.DataSources.Add(
-            //    new ReportDataSource("datasetkondisishiftperbaikan", (DataTable)dataperbaikan));
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetkondisishiftperbaikan", (DataTable)dataperbaikan));
 
             frmrpt.reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetkondisishiftpenerimaan", (DataTable)datapenerimaan));
 
             frmrpt.reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetkondisibuttratio", (DataTable)databutt));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetkondisimanpower", (DataTable)dataman));
 
             ReportParameter[] parameters = new ReportParameter[]
             {
