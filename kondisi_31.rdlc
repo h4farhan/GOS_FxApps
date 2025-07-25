@@ -22459,10 +22459,11 @@ Val(ReportItems!Textbox279.Value)</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Sum(Fields!kolom1.Value, "datasetkondisiperbaikan")/Sum(Fields!kolom1.Value, "datasetkondisimanpower")</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>9pt</FontSize>
+                                    <Format>#,0.0;(#,0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -22495,7 +22496,7 @@ Val(ReportItems!Textbox279.Value)</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Sum(Fields!kolom2.Value, "datasetkondisiperbaikan")/Sum(Fields!kolom2.Value, "datasetkondisimanpower")</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -22531,7 +22532,7 @@ Val(ReportItems!Textbox279.Value)</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Sum(Fields!kolom3.Value, "datasetkondisiperbaikan")/Sum(Fields!kolom3.Value, "datasetkondisimanpower")</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -22567,7 +22568,7 @@ Val(ReportItems!Textbox279.Value)</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Sum(Fields!kolom4.Value, "datasetkondisiperbaikan")/Sum(Fields!kolom4.Value, "datasetkondisimanpower")</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -22603,7 +22604,7 @@ Val(ReportItems!Textbox279.Value)</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Sum(Fields!kolom5.Value, "datasetkondisiperbaikan")/Sum(Fields!kolom5.Value, "datasetkondisimanpower")</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -22639,7 +22640,7 @@ Val(ReportItems!Textbox279.Value)</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Sum(Fields!kolom6.Value, "datasetkondisiperbaikan")/Sum(Fields!kolom6.Value, "datasetkondisimanpower")</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -22675,7 +22676,7 @@ Val(ReportItems!Textbox279.Value)</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Sum(Fields!kolom7.Value, "datasetkondisiperbaikan")/Sum(Fields!kolom7.Value, "datasetkondisimanpower")</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -22700,6 +22701,7 @@ Val(ReportItems!Textbox279.Value)</Value>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -22963,10 +22965,11 @@ Val(ReportItems!Textbox279.Value)</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Sum(Fields!kolom15.Value, "datasetkondisiperbaikan")/Sum(Fields!kolom15.Value, "datasetkondisimanpower")</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>9pt</FontSize>
+                                    <Format>#,0.0;(#,0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
