@@ -113,6 +113,10 @@
           <DataField>e4</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="ba1">
+          <DataField>ba1</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>PerbaikanForm</rd:DataSetName>
@@ -292,7 +296,7 @@
                 <rd:DefaultName>Textbox302</rd:DefaultName>
                 <Left>6.52584cm</Left>
                 <Height>0.6cm</Height>
-                <Width>8.05363cm</Width>
+                <Width>8.93477cm</Width>
                 <ZIndex>3</ZIndex>
                 <Style>
                   <Border>
@@ -480,7 +484,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox302</rd:DefaultName>
                 <Top>0.6cm</Top>
-                <Left>11.48192cm</Left>
+                <Left>12.36306cm</Left>
                 <Height>0.81916cm</Height>
                 <Width>0.61951cm</Width>
                 <ZIndex>8</ZIndex>
@@ -632,7 +636,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox302</rd:DefaultName>
                 <Top>0.6cm</Top>
-                <Left>13.95996cm</Left>
+                <Left>14.8411cm</Left>
                 <Height>0.81916cm</Height>
                 <Width>0.61951cm</Width>
                 <ZIndex>12</ZIndex>
@@ -670,7 +674,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox302</rd:DefaultName>
                 <Top>0.6cm</Top>
-                <Left>13.34045cm</Left>
+                <Left>14.22159cm</Left>
                 <Height>0.81916cm</Height>
                 <Width>0.61951cm</Width>
                 <ZIndex>13</ZIndex>
@@ -708,7 +712,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox302</rd:DefaultName>
                 <Top>0.6cm</Top>
-                <Left>12.72094cm</Left>
+                <Left>13.60208cm</Left>
                 <Height>0.81916cm</Height>
                 <Width>0.61951cm</Width>
                 <ZIndex>14</ZIndex>
@@ -746,84 +750,10 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox302</rd:DefaultName>
                 <Top>0.6cm</Top>
-                <Left>12.10143cm</Left>
+                <Left>12.98257cm</Left>
                 <Height>0.81916cm</Height>
                 <Width>0.61951cm</Width>
                 <ZIndex>15</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>Solid</Style>
-                    <Width>2pt</Width>
-                  </Border>
-                  <VerticalAlign>Middle</VerticalAlign>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-              <Textbox Name="Textbox315">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>Total</Value>
-                        <Style>
-                          <FontFamily>Segoe UI</FontFamily>
-                          <FontSize>8pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox302</rd:DefaultName>
-                <Left>14.57947cm</Left>
-                <Height>1.41916cm</Height>
-                <Width>1.86222cm</Width>
-                <ZIndex>16</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>Solid</Style>
-                    <Width>2pt</Width>
-                  </Border>
-                  <VerticalAlign>Middle</VerticalAlign>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-              <Textbox Name="Textbox318">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>REMARKS</Value>
-                        <Style>
-                          <FontFamily>Segoe UI</FontFamily>
-                          <FontSize>8pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox302</rd:DefaultName>
-                <Left>16.44169cm</Left>
-                <Height>1.41916cm</Height>
-                <Width>2.59369cm</Width>
-                <ZIndex>17</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -860,7 +790,7 @@
                 <Left>2.14351cm</Left>
                 <Height>1.41916cm</Height>
                 <Width>0.9055cm</Width>
-                <ZIndex>18</ZIndex>
+                <ZIndex>16</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -898,7 +828,119 @@
                 <Left>8.38436cm</Left>
                 <Height>0.81916cm</Height>
                 <Width>0.61951cm</Width>
+                <ZIndex>17</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                    <Width>2pt</Width>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox317">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>BA-1</Value>
+                        <Style>
+                          <FontFamily>Segoe UI</FontFamily>
+                          <FontSize>8pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox302</rd:DefaultName>
+                <Top>0.6cm</Top>
+                <Left>11.49742cm</Left>
+                <Height>0.81916cm</Height>
+                <Width>0.86564cm</Width>
+                <ZIndex>18</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                    <Width>2pt</Width>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox318">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>REMARKS</Value>
+                        <Style>
+                          <FontFamily>Segoe UI</FontFamily>
+                          <FontSize>8pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox302</rd:DefaultName>
+                <Left>17.32283cm</Left>
+                <Height>1.41916cm</Height>
+                <Width>2.59368cm</Width>
                 <ZIndex>19</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                    <Width>2pt</Width>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox315">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Total</Value>
+                        <Style>
+                          <FontFamily>Segoe UI</FontFamily>
+                          <FontSize>8pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox302</rd:DefaultName>
+                <Left>15.46061cm</Left>
+                <Height>1.41916cm</Height>
+                <Width>1.86222cm</Width>
+                <ZIndex>20</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -914,9 +956,9 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.07469cm</Top>
-            <Left>0.83086cm</Left>
+            <Left>0.51336cm</Left>
             <Height>1.41916cm</Height>
-            <Width>19.03538cm</Width>
+            <Width>19.91652cm</Width>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -962,6 +1004,9 @@
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.61951cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.88114cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.61951cm</Width>
@@ -1537,6 +1582,54 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>ba</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>1.25pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "2pt", "1,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "2pt", "1,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "2pt", "1,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "2pt", "1,25pt")</Width>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="ba1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!ba1.Value</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>=IIf(Fields!nomor_rod.Value = "Total", "Bold", "Normal")</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>ba1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -2268,6 +2361,42 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="Textbox3">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!ba1.Value)</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox3</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>2pt</Width>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="Textbox151">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -2542,6 +2671,7 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -2556,9 +2686,9 @@
             </TablixRowHierarchy>
             <DataSetName>datasetharian</DataSetName>
             <Top>1.49385cm</Top>
-            <Left>0.83086cm</Left>
+            <Left>0.51336cm</Left>
             <Height>1.15118cm</Height>
-            <Width>19.03538cm</Width>
+            <Width>19.91652cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -2571,7 +2701,7 @@
         <Height>2.73564cm</Height>
         <Style />
       </Body>
-      <Width>21cm</Width>
+      <Width>21.01142cm</Width>
       <Page>
         <PageHeader>
           <Height>2.76469cm</Height>
@@ -3090,7 +3220,7 @@
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>0.07056cm</Top>
-              <Left>11.07376cm</Left>
+              <Left>11.63739cm</Left>
               <Height>4.06785cm</Height>
               <Width>8.79249cm</Width>
               <Visibility>

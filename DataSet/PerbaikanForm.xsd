@@ -268,6 +268,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
               <Mapping SourceColumn="rl" DataSetColumn="rl" />
               <Mapping SourceColumn="jumlah" DataSetColumn="jumlah" />
               <Mapping SourceColumn="e4" DataSetColumn="e4" />
+              <Mapping SourceColumn="ba1" DataSetColumn="ba1" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -370,8 +371,8 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
               <xs:element name="rl" msprop:Generator_ColumnPropNameInTable="rlColumn" msprop:Generator_ColumnPropNameInRow="rl" msprop:Generator_UserColumnName="rl" msprop:Generator_ColumnVarNameInTable="columnrl" type="xs:int" minOccurs="0" />
               <xs:element name="jumlah" msprop:Generator_ColumnPropNameInTable="jumlahColumn" msprop:Generator_ColumnPropNameInRow="jumlah" msprop:Generator_UserColumnName="jumlah" msprop:Generator_ColumnVarNameInTable="columnjumlah" type="xs:int" minOccurs="0" />
               <xs:element name="tanggal_penerimaan" msprop:Generator_ColumnPropNameInTable="tanggal_penerimaanColumn" msprop:Generator_ColumnPropNameInRow="tanggal_penerimaan" msprop:Generator_UserColumnName="tanggal_penerimaan" msprop:Generator_ColumnVarNameInTable="columntanggal_penerimaan" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="ba1" msprop:Generator_UserColumnName="ba1" msprop:Generator_ColumnPropNameInTable="ba1Column" msprop:Generator_ColumnPropNameInRow="ba1" msprop:Generator_ColumnVarNameInTable="columnba1" type="xs:int" minOccurs="0" />
-              <xs:element name="e4" msprop:Generator_UserColumnName="e4" msprop:Generator_ColumnPropNameInTable="e4Column" msprop:Generator_ColumnPropNameInRow="e4" msprop:Generator_ColumnVarNameInTable="columne4" type="xs:int" minOccurs="0" />
+              <xs:element name="ba1" msprop:Generator_ColumnPropNameInTable="ba1Column" msprop:Generator_ColumnPropNameInRow="ba1" msprop:Generator_UserColumnName="ba1" msprop:Generator_ColumnVarNameInTable="columnba1" type="xs:int" minOccurs="0" />
+              <xs:element name="e4" msprop:Generator_ColumnPropNameInTable="e4Column" msprop:Generator_ColumnPropNameInRow="e4" msprop:Generator_UserColumnName="e4" msprop:Generator_ColumnVarNameInTable="columne4" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -425,7 +426,8 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
               <xs:element name="c" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="cColumn" msprop:Generator_ColumnPropNameInRow="c" msprop:Generator_UserColumnName="c" msprop:Generator_ColumnVarNameInTable="columnc" type="xs:int" minOccurs="0" />
               <xs:element name="rl" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="rlColumn" msprop:Generator_ColumnPropNameInRow="rl" msprop:Generator_UserColumnName="rl" msprop:Generator_ColumnVarNameInTable="columnrl" type="xs:int" minOccurs="0" />
               <xs:element name="jumlah" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="jumlahColumn" msprop:Generator_ColumnPropNameInRow="jumlah" msprop:Generator_UserColumnName="jumlah" msprop:Generator_ColumnVarNameInTable="columnjumlah" type="xs:int" minOccurs="0" />
-              <xs:element name="e4" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="e4" msprop:Generator_ColumnPropNameInTable="e4Column" msprop:Generator_ColumnVarNameInTable="columne4" msprop:Generator_UserColumnName="e4" type="xs:int" minOccurs="0" />
+              <xs:element name="e4" msdata:ReadOnly="true" msprop:Generator_UserColumnName="e4" msprop:Generator_ColumnPropNameInTable="e4Column" msprop:Generator_ColumnPropNameInRow="e4" msprop:Generator_ColumnVarNameInTable="columne4" type="xs:int" minOccurs="0" />
+              <xs:element name="ba1" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="ba1" msprop:Generator_ColumnPropNameInTable="ba1Column" msprop:Generator_ColumnVarNameInTable="columnba1" msprop:Generator_UserColumnName="ba1" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
