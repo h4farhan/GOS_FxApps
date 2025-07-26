@@ -236,6 +236,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>laporanpemakaian.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\PengirimanForm.cs">
+      <DependentUpon>PengirimanForm.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\PengirimanForm.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -248,6 +251,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PenerimaanForm.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\PerbaikanForm.cs">
+      <DependentUpon>PerbaikanForm.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSet\PerbaikanForm.Designer.cs">
       <AutoGen>True</AutoGen>

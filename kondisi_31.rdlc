@@ -26374,11 +26374,15 @@ Val(ReportItems!Textbox279.Value)</Value>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
+            <DataSetName>datasetkondisiperbaikan</DataSetName>
             <Top>12.43534cm</Top>
             <Left>0.05746cm</Left>
             <Height>1.09367cm</Height>
             <Width>39.75911cm</Width>
             <ZIndex>6</ZIndex>
+            <Visibility>
+              <Hidden>true</Hidden>
+            </Visibility>
             <Style>
               <Border>
                 <Style>Solid</Style>

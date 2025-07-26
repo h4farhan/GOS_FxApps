@@ -375,6 +375,8 @@ namespace GOS_FxApps.DataSet {
             
             private global::System.Data.DataColumn columne3;
             
+            private global::System.Data.DataColumn columne4;
+            
             private global::System.Data.DataColumn columns;
             
             private global::System.Data.DataColumn columnd;
@@ -382,6 +384,8 @@ namespace GOS_FxApps.DataSet {
             private global::System.Data.DataColumn columnb;
             
             private global::System.Data.DataColumn columnba;
+            
+            private global::System.Data.DataColumn columnba1;
             
             private global::System.Data.DataColumn columncr;
             
@@ -396,10 +400,6 @@ namespace GOS_FxApps.DataSet {
             private global::System.Data.DataColumn columnjumlah;
             
             private global::System.Data.DataColumn columntanggal_penerimaan;
-            
-            private global::System.Data.DataColumn columnba1;
-            
-            private global::System.Data.DataColumn columne4;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -540,6 +540,14 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn e4Column {
+                get {
+                    return this.columne4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn sColumn {
                 get {
                     return this.columns;
@@ -567,6 +575,14 @@ namespace GOS_FxApps.DataSet {
             public global::System.Data.DataColumn baColumn {
                 get {
                     return this.columnba;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ba1Column {
+                get {
+                    return this.columnba1;
                 }
             }
             
@@ -628,22 +644,6 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ba1Column {
-                get {
-                    return this.columnba1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn e4Column {
-                get {
-                    return this.columne4;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -692,19 +692,19 @@ namespace GOS_FxApps.DataSet {
                         int e2_cstub, 
                         int e2_jumlah, 
                         int e3, 
+                        int e4, 
                         int s, 
                         int d, 
                         int b, 
                         int ba, 
+                        int ba1, 
                         int cr, 
                         int m, 
                         int r, 
                         int c, 
                         int rl, 
                         int jumlah, 
-                        System.DateTime tanggal_penerimaan, 
-                        int ba1, 
-                        int e4) {
+                        System.DateTime tanggal_penerimaan) {
                 perbaikan_pRow rowperbaikan_pRow = ((perbaikan_pRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -720,19 +720,19 @@ namespace GOS_FxApps.DataSet {
                         e2_cstub,
                         e2_jumlah,
                         e3,
+                        e4,
                         s,
                         d,
                         b,
                         ba,
+                        ba1,
                         cr,
                         m,
                         r,
                         c,
                         rl,
                         jumlah,
-                        tanggal_penerimaan,
-                        ba1,
-                        e4};
+                        tanggal_penerimaan};
                 rowperbaikan_pRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowperbaikan_pRow);
                 return rowperbaikan_pRow;
@@ -775,10 +775,12 @@ namespace GOS_FxApps.DataSet {
                 this.columne2_cstub = base.Columns["e2_cstub"];
                 this.columne2_jumlah = base.Columns["e2_jumlah"];
                 this.columne3 = base.Columns["e3"];
+                this.columne4 = base.Columns["e4"];
                 this.columns = base.Columns["s"];
                 this.columnd = base.Columns["d"];
                 this.columnb = base.Columns["b"];
                 this.columnba = base.Columns["ba"];
+                this.columnba1 = base.Columns["ba1"];
                 this.columncr = base.Columns["cr"];
                 this.columnm = base.Columns["m"];
                 this.columnr = base.Columns["r"];
@@ -786,8 +788,6 @@ namespace GOS_FxApps.DataSet {
                 this.columnrl = base.Columns["rl"];
                 this.columnjumlah = base.Columns["jumlah"];
                 this.columntanggal_penerimaan = base.Columns["tanggal_penerimaan"];
-                this.columnba1 = base.Columns["ba1"];
-                this.columne4 = base.Columns["e4"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -819,6 +819,8 @@ namespace GOS_FxApps.DataSet {
                 base.Columns.Add(this.columne2_jumlah);
                 this.columne3 = new global::System.Data.DataColumn("e3", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columne3);
+                this.columne4 = new global::System.Data.DataColumn("e4", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columne4);
                 this.columns = new global::System.Data.DataColumn("s", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columns);
                 this.columnd = new global::System.Data.DataColumn("d", typeof(int), null, global::System.Data.MappingType.Element);
@@ -827,6 +829,8 @@ namespace GOS_FxApps.DataSet {
                 base.Columns.Add(this.columnb);
                 this.columnba = new global::System.Data.DataColumn("ba", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnba);
+                this.columnba1 = new global::System.Data.DataColumn("ba1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnba1);
                 this.columncr = new global::System.Data.DataColumn("cr", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncr);
                 this.columnm = new global::System.Data.DataColumn("m", typeof(int), null, global::System.Data.MappingType.Element);
@@ -841,10 +845,6 @@ namespace GOS_FxApps.DataSet {
                 base.Columns.Add(this.columnjumlah);
                 this.columntanggal_penerimaan = new global::System.Data.DataColumn("tanggal_penerimaan", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntanggal_penerimaan);
-                this.columnba1 = new global::System.Data.DataColumn("ba1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnba1);
-                this.columne4 = new global::System.Data.DataColumn("e4", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columne4);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnno}, true));
                 this.columnno.AutoIncrement = true;
@@ -853,8 +853,8 @@ namespace GOS_FxApps.DataSet {
                 this.columnno.AllowDBNull = false;
                 this.columnno.ReadOnly = true;
                 this.columnno.Unique = true;
-                this.columnshift.MaxLength = 10;
-                this.columnjenis.MaxLength = 10;
+                this.columnshift.MaxLength = 5;
+                this.columnjenis.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1014,6 +1014,8 @@ namespace GOS_FxApps.DataSet {
             
             private global::System.Data.DataColumn columne3;
             
+            private global::System.Data.DataColumn columne4;
+            
             private global::System.Data.DataColumn columns;
             
             private global::System.Data.DataColumn columnd;
@@ -1021,6 +1023,8 @@ namespace GOS_FxApps.DataSet {
             private global::System.Data.DataColumn columnb;
             
             private global::System.Data.DataColumn columnba;
+            
+            private global::System.Data.DataColumn columnba1;
             
             private global::System.Data.DataColumn columncr;
             
@@ -1033,10 +1037,6 @@ namespace GOS_FxApps.DataSet {
             private global::System.Data.DataColumn columnrl;
             
             private global::System.Data.DataColumn columnjumlah;
-            
-            private global::System.Data.DataColumn columne4;
-            
-            private global::System.Data.DataColumn columnba1;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1177,6 +1177,14 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn e4Column {
+                get {
+                    return this.columne4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn sColumn {
                 get {
                     return this.columns;
@@ -1204,6 +1212,14 @@ namespace GOS_FxApps.DataSet {
             public global::System.Data.DataColumn baColumn {
                 get {
                     return this.columnba;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ba1Column {
+                get {
+                    return this.columnba1;
                 }
             }
             
@@ -1252,22 +1268,6 @@ namespace GOS_FxApps.DataSet {
             public global::System.Data.DataColumn jumlahColumn {
                 get {
                     return this.columnjumlah;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn e4Column {
-                get {
-                    return this.columne4;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ba1Column {
-                get {
-                    return this.columnba1;
                 }
             }
             
@@ -1322,18 +1322,18 @@ namespace GOS_FxApps.DataSet {
                         int e2_cstub, 
                         int e2_jumlah, 
                         int e3, 
+                        int e4, 
                         int s, 
                         int d, 
                         int b, 
                         int ba, 
+                        int ba1, 
                         int cr, 
                         int m, 
                         int r, 
                         int c, 
                         int rl, 
-                        int jumlah, 
-                        int e4, 
-                        int ba1) {
+                        int jumlah) {
                 sp_Laporan_HarianRow rowsp_Laporan_HarianRow = ((sp_Laporan_HarianRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nomor_urut,
@@ -1349,18 +1349,18 @@ namespace GOS_FxApps.DataSet {
                         e2_cstub,
                         e2_jumlah,
                         e3,
+                        e4,
                         s,
                         d,
                         b,
                         ba,
+                        ba1,
                         cr,
                         m,
                         r,
                         c,
                         rl,
-                        jumlah,
-                        e4,
-                        ba1};
+                        jumlah};
                 rowsp_Laporan_HarianRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_Laporan_HarianRow);
                 return rowsp_Laporan_HarianRow;
@@ -1396,18 +1396,18 @@ namespace GOS_FxApps.DataSet {
                 this.columne2_cstub = base.Columns["e2_cstub"];
                 this.columne2_jumlah = base.Columns["e2_jumlah"];
                 this.columne3 = base.Columns["e3"];
+                this.columne4 = base.Columns["e4"];
                 this.columns = base.Columns["s"];
                 this.columnd = base.Columns["d"];
                 this.columnb = base.Columns["b"];
                 this.columnba = base.Columns["ba"];
+                this.columnba1 = base.Columns["ba1"];
                 this.columncr = base.Columns["cr"];
                 this.columnm = base.Columns["m"];
                 this.columnr = base.Columns["r"];
                 this.columnc = base.Columns["c"];
                 this.columnrl = base.Columns["rl"];
                 this.columnjumlah = base.Columns["jumlah"];
-                this.columne4 = base.Columns["e4"];
-                this.columnba1 = base.Columns["ba1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1439,6 +1439,8 @@ namespace GOS_FxApps.DataSet {
                 base.Columns.Add(this.columne2_jumlah);
                 this.columne3 = new global::System.Data.DataColumn("e3", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columne3);
+                this.columne4 = new global::System.Data.DataColumn("e4", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columne4);
                 this.columns = new global::System.Data.DataColumn("s", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columns);
                 this.columnd = new global::System.Data.DataColumn("d", typeof(int), null, global::System.Data.MappingType.Element);
@@ -1447,6 +1449,8 @@ namespace GOS_FxApps.DataSet {
                 base.Columns.Add(this.columnb);
                 this.columnba = new global::System.Data.DataColumn("ba", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnba);
+                this.columnba1 = new global::System.Data.DataColumn("ba1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnba1);
                 this.columncr = new global::System.Data.DataColumn("cr", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncr);
                 this.columnm = new global::System.Data.DataColumn("m", typeof(int), null, global::System.Data.MappingType.Element);
@@ -1459,19 +1463,15 @@ namespace GOS_FxApps.DataSet {
                 base.Columns.Add(this.columnrl);
                 this.columnjumlah = new global::System.Data.DataColumn("jumlah", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnjumlah);
-                this.columne4 = new global::System.Data.DataColumn("e4", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columne4);
-                this.columnba1 = new global::System.Data.DataColumn("ba1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnba1);
                 this.columnnomor_urut.ReadOnly = true;
                 this.columntanggal_perbaikan.ReadOnly = true;
                 this.columntanggal_perbaikan.MaxLength = 4000;
                 this.columnshift.ReadOnly = true;
-                this.columnshift.MaxLength = 10;
+                this.columnshift.MaxLength = 5;
                 this.columnnomor_rod.ReadOnly = true;
                 this.columnnomor_rod.MaxLength = 50;
                 this.columnjenis.ReadOnly = true;
-                this.columnjenis.MaxLength = 10;
+                this.columnjenis.MaxLength = 20;
                 this.columne1_ers.ReadOnly = true;
                 this.columne1_est.ReadOnly = true;
                 this.columne1_jumlah.ReadOnly = true;
@@ -1480,18 +1480,18 @@ namespace GOS_FxApps.DataSet {
                 this.columne2_cstub.ReadOnly = true;
                 this.columne2_jumlah.ReadOnly = true;
                 this.columne3.ReadOnly = true;
+                this.columne4.ReadOnly = true;
                 this.columns.ReadOnly = true;
                 this.columnd.ReadOnly = true;
                 this.columnb.ReadOnly = true;
                 this.columnba.ReadOnly = true;
+                this.columnba1.ReadOnly = true;
                 this.columncr.ReadOnly = true;
                 this.columnm.ReadOnly = true;
                 this.columnr.ReadOnly = true;
                 this.columnc.ReadOnly = true;
                 this.columnrl.ReadOnly = true;
                 this.columnjumlah.ReadOnly = true;
-                this.columne4.ReadOnly = true;
-                this.columnba1.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2599,6 +2599,22 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int e4 {
+                get {
+                    try {
+                        return ((int)(this[this.tableperbaikan_p.e4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'e4\' in table \'perbaikan_p\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableperbaikan_p.e4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int s {
                 get {
                     try {
@@ -2658,6 +2674,22 @@ namespace GOS_FxApps.DataSet {
                 }
                 set {
                     this[this.tableperbaikan_p.baColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ba1 {
+                get {
+                    try {
+                        return ((int)(this[this.tableperbaikan_p.ba1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ba1\' in table \'perbaikan_p\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableperbaikan_p.ba1Column] = value;
                 }
             }
             
@@ -2770,38 +2802,6 @@ namespace GOS_FxApps.DataSet {
                 }
                 set {
                     this[this.tableperbaikan_p.tanggal_penerimaanColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ba1 {
-                get {
-                    try {
-                        return ((int)(this[this.tableperbaikan_p.ba1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ba1\' in table \'perbaikan_p\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableperbaikan_p.ba1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int e4 {
-                get {
-                    try {
-                        return ((int)(this[this.tableperbaikan_p.e4Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'e4\' in table \'perbaikan_p\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableperbaikan_p.e4Column] = value;
                 }
             }
             
@@ -2951,6 +2951,18 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Ise4Null() {
+                return this.IsNull(this.tableperbaikan_p.e4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Sete4Null() {
+                this[this.tableperbaikan_p.e4Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IssNull() {
                 return this.IsNull(this.tableperbaikan_p.sColumn);
             }
@@ -2995,6 +3007,18 @@ namespace GOS_FxApps.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetbaNull() {
                 this[this.tableperbaikan_p.baColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isba1Null() {
+                return this.IsNull(this.tableperbaikan_p.ba1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setba1Null() {
+                this[this.tableperbaikan_p.ba1Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3079,30 +3103,6 @@ namespace GOS_FxApps.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Settanggal_penerimaanNull() {
                 this[this.tableperbaikan_p.tanggal_penerimaanColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isba1Null() {
-                return this.IsNull(this.tableperbaikan_p.ba1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setba1Null() {
-                this[this.tableperbaikan_p.ba1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Ise4Null() {
-                return this.IsNull(this.tableperbaikan_p.e4Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Sete4Null() {
-                this[this.tableperbaikan_p.e4Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -3330,6 +3330,22 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int e4 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Laporan_Harian.e4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'e4\' in table \'sp_Laporan_Harian\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Laporan_Harian.e4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int s {
                 get {
                     try {
@@ -3389,6 +3405,22 @@ namespace GOS_FxApps.DataSet {
                 }
                 set {
                     this[this.tablesp_Laporan_Harian.baColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ba1 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Laporan_Harian.ba1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ba1\' in table \'sp_Laporan_Harian\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Laporan_Harian.ba1Column] = value;
                 }
             }
             
@@ -3485,38 +3517,6 @@ namespace GOS_FxApps.DataSet {
                 }
                 set {
                     this[this.tablesp_Laporan_Harian.jumlahColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int e4 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_Laporan_Harian.e4Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'e4\' in table \'sp_Laporan_Harian\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_Laporan_Harian.e4Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ba1 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_Laporan_Harian.ba1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ba1\' in table \'sp_Laporan_Harian\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_Laporan_Harian.ba1Column] = value;
                 }
             }
             
@@ -3678,6 +3678,18 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Ise4Null() {
+                return this.IsNull(this.tablesp_Laporan_Harian.e4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Sete4Null() {
+                this[this.tablesp_Laporan_Harian.e4Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IssNull() {
                 return this.IsNull(this.tablesp_Laporan_Harian.sColumn);
             }
@@ -3722,6 +3734,18 @@ namespace GOS_FxApps.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetbaNull() {
                 this[this.tablesp_Laporan_Harian.baColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isba1Null() {
+                return this.IsNull(this.tablesp_Laporan_Harian.ba1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setba1Null() {
+                this[this.tablesp_Laporan_Harian.ba1Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3794,30 +3818,6 @@ namespace GOS_FxApps.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetjumlahNull() {
                 this[this.tablesp_Laporan_Harian.jumlahColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Ise4Null() {
-                return this.IsNull(this.tablesp_Laporan_Harian.e4Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Sete4Null() {
-                this[this.tablesp_Laporan_Harian.e4Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isba1Null() {
-                return this.IsNull(this.tablesp_Laporan_Harian.ba1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setba1Null() {
-                this[this.tablesp_Laporan_Harian.ba1Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -5000,10 +5000,12 @@ namespace GOS_FxApps.DataSet.PerbaikanFormTableAdapters {
             tableMapping.ColumnMappings.Add("e2_cstub", "e2_cstub");
             tableMapping.ColumnMappings.Add("e2_jumlah", "e2_jumlah");
             tableMapping.ColumnMappings.Add("e3", "e3");
+            tableMapping.ColumnMappings.Add("e4", "e4");
             tableMapping.ColumnMappings.Add("s", "s");
             tableMapping.ColumnMappings.Add("d", "d");
             tableMapping.ColumnMappings.Add("b", "b");
             tableMapping.ColumnMappings.Add("ba", "ba");
+            tableMapping.ColumnMappings.Add("ba1", "ba1");
             tableMapping.ColumnMappings.Add("cr", "cr");
             tableMapping.ColumnMappings.Add("m", "m");
             tableMapping.ColumnMappings.Add("r", "r");
@@ -5011,8 +5013,6 @@ namespace GOS_FxApps.DataSet.PerbaikanFormTableAdapters {
             tableMapping.ColumnMappings.Add("rl", "rl");
             tableMapping.ColumnMappings.Add("jumlah", "jumlah");
             tableMapping.ColumnMappings.Add("tanggal_penerimaan", "tanggal_penerimaan");
-            tableMapping.ColumnMappings.Add("ba1", "ba1");
-            tableMapping.ColumnMappings.Add("e4", "e4");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -5046,11 +5046,11 @@ namespace GOS_FxApps.DataSet.PerbaikanFormTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tanggal_perbaikan", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tanggal_perbaikan", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_shift", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_shift", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_shift", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nomor_rod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nomor_rod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nomor_rod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nomor_rod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_jenis", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jenis", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_jenis", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jenis", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_jenis", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jenis", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_e1_ers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "e1_ers", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_e1_ers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "e1_ers", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_e1_est", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "e1_est", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -5099,9 +5099,9 @@ namespace GOS_FxApps.DataSet.PerbaikanFormTableAdapters {
 SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, ba, ba1, cr, m, r, c, rl, jumlah, tanggal_penerimaan FROM perbaikan_p WHERE (no = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal_perbaikan", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shift", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shift", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nomor_rod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nomor_rod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@jenis", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jenis", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@jenis", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jenis", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@e1_ers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "e1_ers", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@e1_est", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "e1_est", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@e1_jumlah", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "e1_jumlah", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5161,9 +5161,9 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
                 "an FROM perbaikan_p WHERE (no = @no)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal_perbaikan", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shift", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shift", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nomor_rod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nomor_rod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@jenis", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jenis", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@jenis", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jenis", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@e1_ers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "e1_ers", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@e1_est", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "e1_est", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@e1_jumlah", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "e1_jumlah", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5189,11 +5189,11 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tanggal_perbaikan", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tanggal_perbaikan", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_shift", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_shift", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_shift", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nomor_rod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nomor_rod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nomor_rod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nomor_rod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_jenis", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jenis", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_jenis", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jenis", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_jenis", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jenis", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_e1_ers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "e1_ers", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_e1_ers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "e1_ers", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_e1_est", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "e1_est", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -5243,7 +5243,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::GOS_FxApps.Properties.Settings.Default.gos_appsConnectionString;
+            this._connection.ConnectionString = global::GOS_FxApps.Properties.Settings.Default.gos_appsConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5256,7 +5256,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal1", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal2", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shift", global::System.Data.SqlDbType.NChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shift", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5366,7 +5366,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
                     global::System.Nullable<int> Original_e2_cstub, 
                     global::System.Nullable<int> Original_e2_jumlah, 
                     global::System.Nullable<int> Original_e3, 
-                    int Original_e4, 
+                    global::System.Nullable<int> Original_e4, 
                     global::System.Nullable<int> Original_s, 
                     global::System.Nullable<int> Original_d, 
                     global::System.Nullable<int> Original_b, 
@@ -5476,8 +5476,14 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
                 this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
-            this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[26].Value = ((int)(Original_e4));
+            if ((Original_e4.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((int)(Original_e4.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
             if ((Original_s.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[28].Value = ((int)(Original_s.Value));
@@ -5607,7 +5613,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
                     global::System.Nullable<int> e2_cstub, 
                     global::System.Nullable<int> e2_jumlah, 
                     global::System.Nullable<int> e3, 
-                    int e4, 
+                    global::System.Nullable<int> e4, 
                     global::System.Nullable<int> s, 
                     global::System.Nullable<int> d, 
                     global::System.Nullable<int> b, 
@@ -5692,7 +5698,12 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
             else {
                 this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
-            this.Adapter.InsertCommand.Parameters[12].Value = ((int)(e4));
+            if ((e4.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((int)(e4.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
             if ((s.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[13].Value = ((int)(s.Value));
             }
@@ -5798,7 +5809,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
                     global::System.Nullable<int> e2_cstub, 
                     global::System.Nullable<int> e2_jumlah, 
                     global::System.Nullable<int> e3, 
-                    int e4, 
+                    global::System.Nullable<int> e4, 
                     global::System.Nullable<int> s, 
                     global::System.Nullable<int> d, 
                     global::System.Nullable<int> b, 
@@ -5824,7 +5835,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
                     global::System.Nullable<int> Original_e2_cstub, 
                     global::System.Nullable<int> Original_e2_jumlah, 
                     global::System.Nullable<int> Original_e3, 
-                    int Original_e4, 
+                    global::System.Nullable<int> Original_e4, 
                     global::System.Nullable<int> Original_s, 
                     global::System.Nullable<int> Original_d, 
                     global::System.Nullable<int> Original_b, 
@@ -5910,7 +5921,12 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
             else {
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(e4));
+            if ((e4.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(e4.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
             if ((s.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(s.Value));
             }
@@ -6080,8 +6096,14 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
                 this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[51].Value = ((int)(Original_e4));
+            if ((Original_e4.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((int)(Original_e4.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
+            }
             if ((Original_s.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[53].Value = ((int)(Original_s.Value));
@@ -6212,7 +6234,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
                     global::System.Nullable<int> e2_cstub, 
                     global::System.Nullable<int> e2_jumlah, 
                     global::System.Nullable<int> e3, 
-                    int e4, 
+                    global::System.Nullable<int> e4, 
                     global::System.Nullable<int> s, 
                     global::System.Nullable<int> d, 
                     global::System.Nullable<int> b, 
@@ -6238,7 +6260,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
                     global::System.Nullable<int> Original_e2_cstub, 
                     global::System.Nullable<int> Original_e2_jumlah, 
                     global::System.Nullable<int> Original_e3, 
-                    int Original_e4, 
+                    global::System.Nullable<int> Original_e4, 
                     global::System.Nullable<int> Original_s, 
                     global::System.Nullable<int> Original_d, 
                     global::System.Nullable<int> Original_b, 
@@ -6389,18 +6411,18 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
             tableMapping.ColumnMappings.Add("e2_cstub", "e2_cstub");
             tableMapping.ColumnMappings.Add("e2_jumlah", "e2_jumlah");
             tableMapping.ColumnMappings.Add("e3", "e3");
+            tableMapping.ColumnMappings.Add("e4", "e4");
             tableMapping.ColumnMappings.Add("s", "s");
             tableMapping.ColumnMappings.Add("d", "d");
             tableMapping.ColumnMappings.Add("b", "b");
             tableMapping.ColumnMappings.Add("ba", "ba");
+            tableMapping.ColumnMappings.Add("ba1", "ba1");
             tableMapping.ColumnMappings.Add("cr", "cr");
             tableMapping.ColumnMappings.Add("m", "m");
             tableMapping.ColumnMappings.Add("r", "r");
             tableMapping.ColumnMappings.Add("c", "c");
             tableMapping.ColumnMappings.Add("rl", "rl");
             tableMapping.ColumnMappings.Add("jumlah", "jumlah");
-            tableMapping.ColumnMappings.Add("e4", "e4");
-            tableMapping.ColumnMappings.Add("ba1", "ba1");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -6408,7 +6430,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::GOS_FxApps.Properties.Settings.Default.gos_appsConnectionString;
+            this._connection.ConnectionString = global::GOS_FxApps.Properties.Settings.Default.gos_appsConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6634,7 +6656,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::GOS_FxApps.Properties.Settings.Default.gos_appsConnectionString;
+            this._connection.ConnectionString = global::GOS_FxApps.Properties.Settings.Default.gos_appsConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
