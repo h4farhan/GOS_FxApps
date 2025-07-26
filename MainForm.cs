@@ -249,6 +249,7 @@ namespace GOS_FxApps {
             penerimaanButton1.Visible=false;
             iconButton1.Visible=false;
             iconButton2.Visible=false;
+            iconButton15.Visible=false;
 
             entryContainer.Visible = true;
             entryContainer.MaximumSize = new Size(232, 160);
@@ -262,6 +263,7 @@ namespace GOS_FxApps {
             iconButton2.Visible=false;
             iconButton3.Visible = false;
             iconButton4.Visible = false;
+            iconButton15.Visible = false;
 
             entryContainer.Visible = true;
             entryContainer.MaximumSize = new Size(232, 113);    
@@ -273,6 +275,7 @@ namespace GOS_FxApps {
             iconButton1.Visible=false;
             iconButton3.Visible = false;
             iconButton4.Visible=false;
+            iconButton15.Visible = false;
 
             entryContainer.Visible=true;
             entryContainer.MaximumSize = new Size(232, 149);
@@ -341,6 +344,11 @@ namespace GOS_FxApps {
                 Form login = new loginform();
                 login.ShowDialog();
             }
-        }      
+        }
+
+        private void iconButton15_Click(object sender, EventArgs e)
+        {
+            SwitchPanel(new formbuttman());
+        }
     }
 }

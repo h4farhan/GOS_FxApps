@@ -516,7 +516,7 @@ namespace GOS_FxApps
 
             if (!tanggal.HasValue && !shiftValid)
             {
-                MessageBox.Show("Silakan isi Tanggal atau Shift untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan isi tanggal atau shift untuk melakukan pencarian.", "Warning");
                 return false;
             }
 
@@ -531,11 +531,10 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
                 }
 
-                if (cbShift.SelectedIndex != -1) 
+                if (shiftValid)
                 {
-                    string shift = cbShift.SelectedItem.ToString();
                     query += " AND shift = @shift";
-                    cmd.Parameters.AddWithValue("@shift", Convert.ToInt32(shift));
+                    cmd.Parameters.AddWithValue("@shift", cbShift.SelectedItem.ToString());
                 }
 
                 cmd.CommandText = query;
