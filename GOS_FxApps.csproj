@@ -271,6 +271,12 @@
     <Compile Include="editperbaikan.Designer.cs">
       <DependentUpon>editperbaikan.cs</DependentUpon>
     </Compile>
+    <Compile Include="formbuttman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formbuttman.Designer.cs">
+      <DependentUpon>formbuttman.cs</DependentUpon>
+    </Compile>
     <Compile Include="formstok.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -405,6 +411,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="editperbaikan.resx">
       <DependentUpon>editperbaikan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formbuttman.resx">
+      <DependentUpon>formbuttman.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formstok.resx">
       <DependentUpon>formstok.cs</DependentUpon>

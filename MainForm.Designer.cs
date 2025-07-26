@@ -79,6 +79,7 @@ namespace GOS_FxApps
             this.edittimer = new System.Windows.Forms.Timer(this.components);
             this.jam = new System.Windows.Forms.Timer(this.components);
             this.historitimer = new System.Windows.Forms.Timer(this.components);
+            this.iconButton15 = new FontAwesome.Sharp.IconButton();
             this.titlePanel.SuspendLayout();
             this.headerPanel.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -299,6 +300,7 @@ namespace GOS_FxApps
             // 
             // entryContainer
             // 
+            this.entryContainer.Controls.Add(this.iconButton15);
             this.entryContainer.Controls.Add(this.iconButton4);
             this.entryContainer.Controls.Add(this.iconButton3);
             this.entryContainer.Controls.Add(this.iconButton2);
@@ -307,7 +309,7 @@ namespace GOS_FxApps
             this.entryContainer.Controls.Add(this.entryButton);
             this.entryContainer.Location = new System.Drawing.Point(2, 108);
             this.entryContainer.Margin = new System.Windows.Forms.Padding(2);
-            this.entryContainer.MaximumSize = new System.Drawing.Size(232, 280);
+            this.entryContainer.MaximumSize = new System.Drawing.Size(232, 345);
             this.entryContainer.MinimumSize = new System.Drawing.Size(232, 60);
             this.entryContainer.Name = "entryContainer";
             this.entryContainer.Size = new System.Drawing.Size(232, 60);
@@ -906,6 +908,30 @@ namespace GOS_FxApps
             this.historitimer.Interval = 10;
             this.historitimer.Tick += new System.EventHandler(this.historitimer_Tick);
             // 
+            // iconButton15
+            // 
+            this.iconButton15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton15.FlatAppearance.BorderSize = 0;
+            this.iconButton15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton15.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.iconButton15.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton15.IconChar = FontAwesome.Sharp.IconChar.Wind;
+            this.iconButton15.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton15.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton15.IconSize = 40;
+            this.iconButton15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton15.Location = new System.Drawing.Point(0, 280);
+            this.iconButton15.Margin = new System.Windows.Forms.Padding(2);
+            this.iconButton15.Name = "iconButton15";
+            this.iconButton15.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
+            this.iconButton15.Size = new System.Drawing.Size(232, 57);
+            this.iconButton15.TabIndex = 8;
+            this.iconButton15.Text = "     Butt Ratio dan\r\n     Man Power";
+            this.iconButton15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton15.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton15.UseVisualStyleBackColor = true;
+            this.iconButton15.Click += new System.EventHandler(this.iconButton15_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -986,5 +1012,6 @@ namespace GOS_FxApps
         public FontAwesome.Sharp.IconButton iconButton3;
         public FontAwesome.Sharp.IconButton iconButton2;
         public FontAwesome.Sharp.IconButton penerimaanButton1;
+        public FontAwesome.Sharp.IconButton iconButton15;
     }
 }
