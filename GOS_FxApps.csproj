@@ -212,10 +212,16 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\actual.cs">
+      <DependentUpon>actual.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\actual.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>actual.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\kondisi.cs">
+      <DependentUpon>kondisi.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSet\kondisi.Designer.cs">
       <AutoGen>True</AutoGen>
