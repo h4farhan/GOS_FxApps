@@ -48,6 +48,7 @@ namespace GOS_FxApps
             this.panel1 = new System.Windows.Forms.Panel();
             this.dashboardButton = new FontAwesome.Sharp.IconButton();
             this.entryContainer = new System.Windows.Forms.Panel();
+            this.iconButton15 = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
@@ -79,7 +80,6 @@ namespace GOS_FxApps
             this.edittimer = new System.Windows.Forms.Timer(this.components);
             this.jam = new System.Windows.Forms.Timer(this.components);
             this.historitimer = new System.Windows.Forms.Timer(this.components);
-            this.iconButton15 = new FontAwesome.Sharp.IconButton();
             this.titlePanel.SuspendLayout();
             this.headerPanel.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -314,6 +314,30 @@ namespace GOS_FxApps
             this.entryContainer.Name = "entryContainer";
             this.entryContainer.Size = new System.Drawing.Size(232, 60);
             this.entryContainer.TabIndex = 2;
+            // 
+            // iconButton15
+            // 
+            this.iconButton15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton15.FlatAppearance.BorderSize = 0;
+            this.iconButton15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton15.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.iconButton15.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton15.IconChar = FontAwesome.Sharp.IconChar.Wind;
+            this.iconButton15.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton15.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton15.IconSize = 40;
+            this.iconButton15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton15.Location = new System.Drawing.Point(0, 280);
+            this.iconButton15.Margin = new System.Windows.Forms.Padding(2);
+            this.iconButton15.Name = "iconButton15";
+            this.iconButton15.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
+            this.iconButton15.Size = new System.Drawing.Size(232, 57);
+            this.iconButton15.TabIndex = 8;
+            this.iconButton15.Text = "     Butt Ratio dan\r\n     Man Power";
+            this.iconButton15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton15.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton15.UseVisualStyleBackColor = true;
+            this.iconButton15.Click += new System.EventHandler(this.iconButton15_Click);
             // 
             // iconButton4
             // 
@@ -907,30 +931,6 @@ namespace GOS_FxApps
             // 
             this.historitimer.Interval = 10;
             this.historitimer.Tick += new System.EventHandler(this.historitimer_Tick);
-            // 
-            // iconButton15
-            // 
-            this.iconButton15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton15.FlatAppearance.BorderSize = 0;
-            this.iconButton15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton15.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.iconButton15.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.iconButton15.IconChar = FontAwesome.Sharp.IconChar.Wind;
-            this.iconButton15.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.iconButton15.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton15.IconSize = 40;
-            this.iconButton15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton15.Location = new System.Drawing.Point(0, 280);
-            this.iconButton15.Margin = new System.Windows.Forms.Padding(2);
-            this.iconButton15.Name = "iconButton15";
-            this.iconButton15.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.iconButton15.Size = new System.Drawing.Size(232, 57);
-            this.iconButton15.TabIndex = 8;
-            this.iconButton15.Text = "     Butt Ratio dan\r\n     Man Power";
-            this.iconButton15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton15.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton15.UseVisualStyleBackColor = true;
-            this.iconButton15.Click += new System.EventHandler(this.iconButton15_Click);
             // 
             // MainForm
             // 

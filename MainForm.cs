@@ -233,7 +233,14 @@ namespace GOS_FxApps {
         }
         public void truemanajer()
         {
+            entryContainer.MaximumSize = new Size(232, 345);
             entryContainer.Visible = true;
+            penerimaanButton1.Visible = true;
+            iconButton1.Visible = true;
+            iconButton2.Visible = true;
+            iconButton3.Visible = true;
+            iconButton4.Visible = true;
+            iconButton15.Visible = true;
             EditContainer.Visible = true;
             btnHistori.Visible = true;
             btnlaporan.Visible = true;

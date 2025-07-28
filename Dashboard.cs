@@ -49,10 +49,15 @@ namespace GOS_FxApps
                 label3.Text = jumlah3.ToString();
                 
             }
-            catch (Exception)
+            catch (SqlException)
             {
                 MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -94,10 +99,15 @@ namespace GOS_FxApps
                     }
                 }
             }
-            catch (Exception)
+            catch (SqlException)
             {
                 MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
                                     "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally 
             { 
@@ -163,10 +173,15 @@ namespace GOS_FxApps
                     }
                 }
             }
-            catch (Exception)
+            catch (SqlException)
             {
                 MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
                                     "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

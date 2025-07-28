@@ -16,7 +16,7 @@ namespace GOS_FxApps
         SqlConnection conn = Koneksi.GetConnection();
 
         bool infocari = false;
-        int noprimary;
+        int noprimary = 0;
 
         public formbuttman()
         {
@@ -117,15 +117,29 @@ namespace GOS_FxApps
             try
             {
                 conn.Open();
+                //using (SqlCommand cmdcekkode = new SqlCommand("SELECT tanggal,shift FROM kondisiROD WHERE tanggal = @tgl AND shift = @shift", conn))
+                //{
+                //    cmdcekkode.Parameters.AddWithValue("@tgl", date.Value);
+                //    cmdcekkode.Parameters.AddWithValue("@shift", cmbshift.SelectedItem);
+                //    using (SqlDataReader dr = cmdcekkode.ExecuteReader())
+                //    {
+                //        if (dr.Read())
+                //        {
+                //            MessageBox.Show("Data di Tanggal dan di Shift ini sudah ada", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //            btnsimpan.Text = "Simpan Data";
+                //            return;
+                //        }
+                //    }
+                //}
                 SqlCommand cmd = new SqlCommand("UPDATE kondisiROD SET tanggal = @tgl, shift = @shift, butt_ratio = @butt, man_power = @man, updated_at = GETDATE() WHERE no = @no", conn);
                 cmd.Parameters.AddWithValue("@no", noprimary);
                 cmd.Parameters.AddWithValue("@tgl", date.Value);
-                cmd.Parameters.AddWithValue("@shift", cbShift.SelectedItem);
+                cmd.Parameters.AddWithValue("@shift", Convert.ToInt32(cmbshift.SelectedItem));
                 cmd.Parameters.AddWithValue("@butt", txtbutt.Text);
                 cmd.Parameters.AddWithValue("@man", txtman.Text);
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Data pemakaian berhasil diedit.", "Warning");
+                MessageBox.Show("Data berhasil diedit.", "Warning");
                 tampil();
                 btnsimpan.Text = "Simpan Data";
             }
@@ -276,6 +290,8 @@ namespace GOS_FxApps
             setdefault();
             btnbatal.Enabled=false;
             btnsimpan.Enabled=false;
+            btnsimpan.Text = "Simpan Data";
+            noprimary = 0;
         }
 
         private void cmbshift_SelectedIndexChanged(object sender, EventArgs e)
@@ -294,6 +310,23 @@ namespace GOS_FxApps
         {
             btnbatal.Enabled = true;
             btnsimpan.Enabled = true;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (MainForm.Instance.role != "Manajer") return;
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                noprimary = Convert.ToInt32(row.Cells["no"].Value);
+                date.Value = Convert.ToDateTime(row.Cells["tanggal"].Value);
+                cmbshift.SelectedItem = row.Cells["shift"].Value.ToString();
+                txtbutt.Text = row.Cells["butt_ratio"].Value.ToString();
+                txtman.Text = row.Cells["man_power"].Value.ToString();
+                btnsimpan.Text = "Edit Data";
+                btnbatal.Enabled = true;
+            }
         }
     }
 }

@@ -37,6 +37,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtman = new Guna.UI2.WinForms.Guna2TextBox();
             this.date = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,12 +50,10 @@
             this.btnsimpan = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.cbShift = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btncari = new Guna.UI2.WinForms.Guna2Button();
             this.datecari = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtman = new Guna.UI2.WinForms.Guna2TextBox();
-            this.cbShift = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -145,6 +145,45 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(376, 609);
             this.guna2Panel1.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(63, 391);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 19);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Man Power";
+            // 
+            // txtman
+            // 
+            this.txtman.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtman.BorderRadius = 5;
+            this.txtman.BorderThickness = 2;
+            this.txtman.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtman.DefaultText = "";
+            this.txtman.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtman.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtman.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtman.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtman.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.txtman.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtman.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtman.ForeColor = System.Drawing.Color.White;
+            this.txtman.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtman.Location = new System.Drawing.Point(66, 418);
+            this.txtman.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtman.Name = "txtman";
+            this.txtman.PlaceholderText = "4xxxx";
+            this.txtman.SelectedText = "";
+            this.txtman.Size = new System.Drawing.Size(235, 36);
+            this.txtman.TabIndex = 12;
+            this.txtman.TextChanged += new System.EventHandler(this.txtman_TextChanged);
+            this.txtman.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // date
             // 
@@ -342,6 +381,31 @@
             this.guna2Panel2.Size = new System.Drawing.Size(391, 547);
             this.guna2Panel2.TabIndex = 2;
             // 
+            // cbShift
+            // 
+            this.cbShift.BackColor = System.Drawing.Color.Transparent;
+            this.cbShift.BorderRadius = 5;
+            this.cbShift.BorderThickness = 2;
+            this.cbShift.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbShift.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbShift.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.cbShift.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbShift.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbShift.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbShift.ForeColor = System.Drawing.Color.White;
+            this.cbShift.ItemHeight = 30;
+            this.cbShift.Items.AddRange(new object[] {
+            "Shift",
+            "1",
+            "2",
+            "3"});
+            this.cbShift.Location = new System.Drawing.Point(194, 15);
+            this.cbShift.Margin = new System.Windows.Forms.Padding(2);
+            this.cbShift.Name = "cbShift";
+            this.cbShift.Size = new System.Drawing.Size(121, 36);
+            this.cbShift.StartIndex = 0;
+            this.cbShift.TabIndex = 44;
+            // 
             // btncari
             // 
             this.btncari.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -424,70 +488,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(368, 477);
             this.dataGridView1.TabIndex = 39;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(63, 391);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 19);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Man Power";
-            // 
-            // txtman
-            // 
-            this.txtman.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtman.BorderRadius = 5;
-            this.txtman.BorderThickness = 2;
-            this.txtman.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtman.DefaultText = "";
-            this.txtman.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtman.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtman.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtman.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtman.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.txtman.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtman.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtman.ForeColor = System.Drawing.Color.White;
-            this.txtman.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtman.Location = new System.Drawing.Point(66, 418);
-            this.txtman.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtman.Name = "txtman";
-            this.txtman.PlaceholderText = "4xxxx";
-            this.txtman.SelectedText = "";
-            this.txtman.Size = new System.Drawing.Size(235, 36);
-            this.txtman.TabIndex = 12;
-            this.txtman.TextChanged += new System.EventHandler(this.txtman_TextChanged);
-            this.txtman.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
-            // 
-            // cbShift
-            // 
-            this.cbShift.BackColor = System.Drawing.Color.Transparent;
-            this.cbShift.BorderRadius = 5;
-            this.cbShift.BorderThickness = 2;
-            this.cbShift.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbShift.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbShift.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.cbShift.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbShift.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbShift.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbShift.ForeColor = System.Drawing.Color.White;
-            this.cbShift.ItemHeight = 30;
-            this.cbShift.Items.AddRange(new object[] {
-            "Shift",
-            "1",
-            "2",
-            "3"});
-            this.cbShift.Location = new System.Drawing.Point(194, 15);
-            this.cbShift.Margin = new System.Windows.Forms.Padding(2);
-            this.cbShift.Name = "cbShift";
-            this.cbShift.Size = new System.Drawing.Size(121, 36);
-            this.cbShift.StartIndex = 0;
-            this.cbShift.TabIndex = 44;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // formbuttman
             // 
