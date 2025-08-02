@@ -189,6 +189,7 @@
             this.txtman.Size = new System.Drawing.Size(235, 36);
             this.txtman.TabIndex = 12;
             this.txtman.TextChanged += new System.EventHandler(this.txtman_TextChanged);
+            this.txtman.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txtman.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // date
@@ -275,6 +276,7 @@
             this.txtbutt.Size = new System.Drawing.Size(235, 36);
             this.txtbutt.TabIndex = 7;
             this.txtbutt.TextChanged += new System.EventHandler(this.txtbutt_TextChanged);
+            this.txtbutt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txtbutt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // cmbshift
@@ -301,6 +303,7 @@
             this.cmbshift.Size = new System.Drawing.Size(235, 36);
             this.cmbshift.TabIndex = 6;
             this.cmbshift.SelectedIndexChanged += new System.EventHandler(this.cmbshift_SelectedIndexChanged);
+            this.cmbshift.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // panel3
             // 

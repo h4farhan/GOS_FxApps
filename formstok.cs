@@ -72,7 +72,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM stok_material ORDER BY updated_at DESC";
+                string query = "SELECT * FROM stok_material ORDER BY crated_at DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -91,6 +91,7 @@ namespace GOS_FxApps
                 dtWithImage.Columns.Add("Gambar", typeof(Image)); 
                 dtWithImage.Columns.Add("Disimpan", typeof(DateTime));
                 dtWithImage.Columns.Add("Diubah", typeof(DateTime));
+                dtWithImage.Columns.Add("Remaks", typeof(string));
 
                 int no = 1;
                 foreach (DataRow row in dt.Rows)
@@ -106,6 +107,7 @@ namespace GOS_FxApps
                     newRow["Min Stok"] = row["min_stok"];
                     newRow["Disimpan"] = row["created_at"];
                     newRow["Diubah"] = row["updated_at"];
+                    newRow["Remaks"] = row["remaks"];
 
                     if (row["Gambar"] != DBNull.Value)
                     {
@@ -182,6 +184,7 @@ namespace GOS_FxApps
                     dtWithImage.Columns.Add("Gambar", typeof(Image));
                     dtWithImage.Columns.Add("Disimpan", typeof(DateTime));
                     dtWithImage.Columns.Add("Diubah", typeof(DateTime));
+                    dtWithImage.Columns.Add("Remaks", typeof(string));
 
                     int no = 1;
                     foreach (DataRow row in dt.Rows)
@@ -197,6 +200,7 @@ namespace GOS_FxApps
                         newRow["Min Stok"] = row["min_stok"];
                         newRow["Disimpan"] = row["created_at"];
                         newRow["Diubah"] = row["updated_at"];
+                        newRow["Remaks"] = row["remaks"];
 
                         if (row["Gambar"] != DBNull.Value)
                         {
@@ -275,7 +279,7 @@ namespace GOS_FxApps
                 {
                     if (txtkodebarang.Text == "" || txtnamabarang.Text == "" || cmbtipematerial.SelectedIndex == -1)
                     {
-                        MessageBox.Show("Data Harus Diisi Dengan Lengkap.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Kode Barang, Nama Barang Dan Tipe Material Harus Diisi Dengan Lengkap.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
@@ -300,14 +304,16 @@ namespace GOS_FxApps
                                 }
 
                             using (SqlCommand cmd = new SqlCommand(
-                                                                "INSERT INTO stok_material (kodeBarang, namaBarang, spesifikasi, uom, type, min_stok, foto, created_at, updated_at) " +
-                                                                "VALUES(@kodebarang,@namabarang,@spesifikasi,@uom,@type,@min_stok,@foto,@tanggal,@diubah)", conn))
+                                                                "INSERT INTO stok_material (kodeBarang, namaBarang, spesifikasi, uom, type, min_stok, foto, created_at, updated_at, remaks) " +
+                                                                "VALUES(@kodebarang,@namabarang,@spesifikasi,@uom,@type,@min_stok,@foto,@tanggal,@diuba,@remaks)", conn))
                             {
                                 cmd.Parameters.AddWithValue("@kodebarang", txtkodebarang.Text);
                                 cmd.Parameters.AddWithValue("@namabarang", txtnamabarang.Text);
+                                cmd.Parameters.AddWithValue("@jumlahS   tok", 0);
                                 cmd.Parameters.AddWithValue("@spesifikasi", txtspesifikasi.Text);
                                 cmd.Parameters.AddWithValue("@uom", txtuom.Text);
                                 cmd.Parameters.AddWithValue("@type", cmbtipematerial.SelectedItem.ToString());
+                                cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
 
                                 if (string.IsNullOrWhiteSpace(txtminstok.Text))
                                     cmd.Parameters.AddWithValue("@min_stok", 0);
@@ -356,7 +362,7 @@ namespace GOS_FxApps
         {
                 if (txtnamabarang.Text == "" || cmbtipematerial.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Data Harus Diisi Dengan Lengkap.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Nama Barang Dan Tipe Material Harus Diisi Dengan Lengkap.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -367,13 +373,14 @@ namespace GOS_FxApps
                         try
                         {
                             conn.Open();
-                            string query = "UPDATE stok_material SET namaBarang = @namabarang, spesifikasi = @spesifikasi, uom = @uom, type = @type, min_stok = @min_stok, foto = @foto, updated_at = @diubah WHERE kodeBarang = @kodebarang";
+                            string query = "UPDATE stok_material SET namaBarang = @namabarang, spesifikasi = @spesifikasi, uom = @uom, type = @type, min_stok = @min_stok, foto = @foto, updated_at = @diubah, remaks = @remaks WHERE kodeBarang = @kodebarang";
                             SqlCommand cmd = new SqlCommand(query, conn);
                             cmd.Parameters.AddWithValue("@kodebarang", txtkodebarang.Text);
                             cmd.Parameters.AddWithValue("@namabarang", txtnamabarang.Text);
                             cmd.Parameters.AddWithValue("@spesifikasi", txtspesifikasi.Text);
                             cmd.Parameters.AddWithValue("@uom", txtuom.Text);
                             cmd.Parameters.AddWithValue("@type", cmbtipematerial.SelectedItem.ToString());
+                            cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
 
                             if (string.IsNullOrWhiteSpace(txtminstok.Text))
                                 cmd.Parameters.AddWithValue("@min_stok", 0);

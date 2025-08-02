@@ -66,7 +66,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM users ORDER BY updated_at DESC";
+                string query = "SELECT * FROM users ORDER BY created_at DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);

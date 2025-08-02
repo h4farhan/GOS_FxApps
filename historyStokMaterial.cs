@@ -63,6 +63,7 @@ namespace GOS_FxApps
                 dtWithImage.Columns.Add("Gambar", typeof(Image));
                 dtWithImage.Columns.Add("Disimpan", typeof(DateTime));
                 dtWithImage.Columns.Add("Diubah", typeof(DateTime));
+                dtWithImage.Columns.Add("Remaks", typeof(string));
 
                 int no = 1;
                 foreach (DataRow row in dt.Rows)
@@ -74,6 +75,7 @@ namespace GOS_FxApps
                     newRow["Jumlah Stok"] = row["jumlahStok"];
                     newRow["Disimpan"] = row["created_at"];
                     newRow["Diubah"] = row["updated_at"];
+                    newRow["Remaks"] = row["remaks"];
 
                     if (row["Gambar"] != DBNull.Value)
                     {
@@ -146,6 +148,7 @@ namespace GOS_FxApps
                     dtWithImage.Columns.Add("Gambar", typeof(Image));
                     dtWithImage.Columns.Add("Disimpan", typeof(DateTime));
                     dtWithImage.Columns.Add("Diubah", typeof(DateTime));
+                    dtWithImage.Columns.Add("Remaks", typeof(string));
 
                     int no = 1;
                     foreach (DataRow row in dt.Rows)
@@ -157,6 +160,7 @@ namespace GOS_FxApps
                         newRow["Jumlah Stok"] = row["jumlahStok"];
                         newRow["Disimpan"] = row["created_at"];
                         newRow["Diubah"] = row["updated_at"];
+                        newRow["Remaks"] = row["remaks"];
 
                         if (row["Gambar"] != DBNull.Value)
                         {

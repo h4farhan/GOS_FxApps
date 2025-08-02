@@ -210,6 +210,7 @@ namespace GOS_FxApps
 
         private void settrue()
         {
+            txtnomorrod.Enabled = true;
             txtjenis.Enabled = true;
             txte1ers.Enabled = true;
             txte1est.Enabled = true;
@@ -254,65 +255,221 @@ namespace GOS_FxApps
             txtrl.Enabled = false;
         }
 
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnupdate.PerformClick();
+            }
+        }
+
+        private void hurufbesar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.KeyChar = char.ToUpper(e.KeyChar);
+            }
+        }
+
         private void btnupdate_Click(object sender, EventArgs e)
         {
-            if (txtnomorrod.Text == "" || txtjenis.Text == "")
+            if (txtjenis.Text == "")
             {
-                MessageBox.Show("Nomor ROD dan Jenis Tidak Boleh Kosong", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Jenis Tidak Boleh Kosong", "Peringatan",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            SqlTransaction trans = null;
+
             try
             {
-                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Peringatan", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?",
+                                                      "Konfirmasi",
+                                                      MessageBoxButtons.OKCancel,
+                                                      MessageBoxIcon.Warning);
 
-                if (result == DialogResult.OK)
+                if (result != DialogResult.OK) return;
+
+                conn.Open();
+                trans = conn.BeginTransaction();
+
+                // === UPDATE perbaikan_p ===
+                SqlCommand cmd1 = new SqlCommand(@"
+            UPDATE perbaikan_p 
+            SET nomor_rod = @nomorrod, jenis=@jenis, e1_ers=@e1ers, e1_est=@e1est, e1_jumlah=@e1jumlah,
+                e2_ers=@e2ers, e2_cst=@e2cst, e2_cstub=@e2cstub, e2_jumlah=@e2jumlah,
+                e3=@e3, e4=@e4, s=@s, d=@d, b=@b, bac=@bac, nba=@nba, ba=@ba, ba1=@ba1,
+                cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah, updated_at=@diubah
+            WHERE no=@no", conn, trans);
+
+                cmd1.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
+                cmd1.Parameters.AddWithValue("@jenis", txtjenis.Text);
+                cmd1.Parameters.AddWithValue("@e1ers", txte1ers.Text);
+                cmd1.Parameters.AddWithValue("@e1est", txte1est.Text);
+                cmd1.Parameters.AddWithValue("@e1jumlah", lbltotale1.Text);
+                cmd1.Parameters.AddWithValue("@e2ers", txte2ers.Text);
+                cmd1.Parameters.AddWithValue("@e2cst", txte2cst.Text);
+                cmd1.Parameters.AddWithValue("@e2cstub", txte2cstub.Text);
+                cmd1.Parameters.AddWithValue("@e2jumlah", lbltotale2.Text);
+                cmd1.Parameters.AddWithValue("@e3", txte3.Text);
+                cmd1.Parameters.AddWithValue("@e4", txte4.Text);
+                cmd1.Parameters.AddWithValue("@s", txts.Text);
+                cmd1.Parameters.AddWithValue("@d", txtd.Text);
+                cmd1.Parameters.AddWithValue("@b", txtb.Text);
+                cmd1.Parameters.AddWithValue("@bac", txtbac.Text);
+                cmd1.Parameters.AddWithValue("@nba", txtnba.Text);
+                cmd1.Parameters.AddWithValue("@ba", lbltotalba.Text);
+                cmd1.Parameters.AddWithValue("@ba1", txtba1.Text);
+                cmd1.Parameters.AddWithValue("@cr", txtcr.Text);
+                cmd1.Parameters.AddWithValue("@m", txtm.Text);
+                cmd1.Parameters.AddWithValue("@r", txtr.Text);
+                cmd1.Parameters.AddWithValue("@c", txtc.Text);
+                cmd1.Parameters.AddWithValue("@rl", txtrl.Text);
+                cmd1.Parameters.AddWithValue("@jumlah", lbltotalupdate.Text);
+                cmd1.Parameters.AddWithValue("@no", noprimary);
+                cmd1.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                cmd1.ExecuteNonQuery();
+
+                SqlCommand log1 = new SqlCommand(
+                    "INSERT INTO perbaikan_e SELECT * FROM perbaikan_p WHERE no=@no",
+                    conn, trans);
+                log1.Parameters.AddWithValue("@no", noprimary);
+                log1.ExecuteNonQuery();
+
+                // === UPDATE perbaikan_s jika ada ===
+                SqlCommand cek2 = new SqlCommand(
+                    "SELECT COUNT(*) FROM perbaikan_s WHERE no=@no", conn, trans);
+                cek2.Parameters.AddWithValue("@no", noprimary);
+                int ada2 = (int)cek2.ExecuteScalar();
+
+                if (ada2 > 0)
                 {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("UPDATE perbaikan_p SET jenis = @jenis, e1_ers = @e1ers, e1_est = @e1est, e1_jumlah = @e1jumlah, e2_ers = @e2ers, e2_cst = @e2cst, e2_cstub = @e2cstub, e2_jumlah = @e2jumlah," +
-                        "e3 = @e3, e4 = @e4, s = @s, d = @d, b = @b, bac = @bac, nba = @nba, ba = @ba, ba1 = @ba1, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = @diubah WHERE no = @no ", conn);
+                    SqlCommand cmd2 = new SqlCommand(@"
+                UPDATE perbaikan_s 
+                SET nomor_rod = @nomorrod, jenis=@jenis, e1_ers=@e1ers, e1_est=@e1est, e1_jumlah=@e1jumlah,
+                    e2_ers=@e2ers, e2_cst=@e2cst, e2_cstub=@e2cstub, e2_jumlah=@e2jumlah,
+                    e3=@e3, e4=@e4, s=@s, d=@d, b=@b, bac=@bac, nba=@nba, ba=@ba, ba1=@ba1,
+                    cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah, updated_at=@diubah
+                WHERE no=@no", conn, trans);
 
-                    cmd.Parameters.AddWithValue("@jenis", txtjenis.Text);
-                    cmd.Parameters.AddWithValue("@e1ers", txte1ers.Text);
-                    cmd.Parameters.AddWithValue("@e1est", txte1est.Text);
-                    cmd.Parameters.AddWithValue("@e1jumlah", lbltotale1.Text);
-                    cmd.Parameters.AddWithValue("@e2ers", txte2ers.Text);
-                    cmd.Parameters.AddWithValue("@e2cst", txte2cst.Text);
-                    cmd.Parameters.AddWithValue("@e2cstub", txte2cstub.Text);
-                    cmd.Parameters.AddWithValue("@e2jumlah", lbltotale2.Text);
-                    cmd.Parameters.AddWithValue("@e3", txte3.Text);
-                    cmd.Parameters.AddWithValue("@e4", txte4.Text);
-                    cmd.Parameters.AddWithValue("@s", txts.Text);
-                    cmd.Parameters.AddWithValue("@d", txtd.Text);
-                    cmd.Parameters.AddWithValue("@b", txtb.Text);
-                    cmd.Parameters.AddWithValue("@bac", txtbac.Text);
-                    cmd.Parameters.AddWithValue("@nba", txtnba.Text);
-                    cmd.Parameters.AddWithValue("@ba", lbltotalba.Text);
-                    cmd.Parameters.AddWithValue("@ba1", txtba1.Text);
-                    cmd.Parameters.AddWithValue("@cr", txtcr.Text);
-                    cmd.Parameters.AddWithValue("@m", txtm.Text);
-                    cmd.Parameters.AddWithValue("@r", txtr.Text);
-                    cmd.Parameters.AddWithValue("@c", txtc.Text);
-                    cmd.Parameters.AddWithValue("@rl", txtrl.Text);
-                    cmd.Parameters.AddWithValue("@jumlah", lbltotalupdate.Text);
-                    cmd.Parameters.AddWithValue("@no", noprimary);
-                    cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                    cmd2.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
+                    cmd2.Parameters.AddWithValue("@jenis", txtjenis.Text);
+                    cmd2.Parameters.AddWithValue("@e1ers", txte1ers.Text);
+                    cmd2.Parameters.AddWithValue("@e1est", txte1est.Text);
+                    cmd2.Parameters.AddWithValue("@e1jumlah", lbltotale1.Text);
+                    cmd2.Parameters.AddWithValue("@e2ers", txte2ers.Text);
+                    cmd2.Parameters.AddWithValue("@e2cst", txte2cst.Text);
+                    cmd2.Parameters.AddWithValue("@e2cstub", txte2cstub.Text);
+                    cmd2.Parameters.AddWithValue("@e2jumlah", lbltotale2.Text);
+                    cmd2.Parameters.AddWithValue("@e3", txte3.Text);
+                    cmd2.Parameters.AddWithValue("@e4", txte4.Text);
+                    cmd2.Parameters.AddWithValue("@s", txts.Text);
+                    cmd2.Parameters.AddWithValue("@d", txtd.Text);
+                    cmd2.Parameters.AddWithValue("@b", txtb.Text);
+                    cmd2.Parameters.AddWithValue("@bac", txtbac.Text);
+                    cmd2.Parameters.AddWithValue("@nba", txtnba.Text);
+                    cmd2.Parameters.AddWithValue("@ba", lbltotalba.Text);
+                    cmd2.Parameters.AddWithValue("@ba1", txtba1.Text);
+                    cmd2.Parameters.AddWithValue("@cr", txtcr.Text);
+                    cmd2.Parameters.AddWithValue("@m", txtm.Text);
+                    cmd2.Parameters.AddWithValue("@r", txtr.Text);
+                    cmd2.Parameters.AddWithValue("@c", txtc.Text);
+                    cmd2.Parameters.AddWithValue("@rl", txtrl.Text);
+                    cmd2.Parameters.AddWithValue("@jumlah", lbltotalupdate.Text);
+                    cmd2.Parameters.AddWithValue("@no", noprimary);
+                    cmd2.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
 
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Data Berhasil Diedit", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    setdefault();
-                    tampil();
-                    btnupdate.Enabled = false;
-                    btnclear.Enabled = false;
-                    setfalse();
+                    cmd2.ExecuteNonQuery();
                 }
+                else
+                {
+                    MessageBox.Show("Perbaikan_s tidak ditemukan");
+                }
+
+                //UPDATE penerimaan_p jika ada
+                SqlCommand cek3 = new SqlCommand(
+                    "SELECT COUNT(*) FROM penerimaan_p WHERE no=@no", conn, trans);
+                cek3.Parameters.AddWithValue("@no", noprimary);
+                int ada3 = (int)cek3.ExecuteScalar();
+
+                if (ada3 > 0)
+                {
+                    SqlCommand cmd3 = new SqlCommand(@"
+                UPDATE penerimaan_p
+                SET nomor_rod=@nomorrod, jenis=@jenis, remaks=@remaks, updated_at=@diubah
+                WHERE no=@no", conn, trans);
+
+                    cmd3.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
+                    cmd3.Parameters.AddWithValue("@jenis", txtjenis.Text);
+                    cmd3.Parameters.AddWithValue("@remaks", loginform.login.name);
+                    cmd3.Parameters.AddWithValue("@no", noprimary);
+                    cmd3.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                    cmd3.ExecuteNonQuery();
+
+                    SqlCommand log3 = new SqlCommand(
+                        "INSERT INTO penerimaan_e SELECT * FROM penerimaan_p WHERE no=@no",
+                        conn, trans);
+                    log3.Parameters.AddWithValue("@no", noprimary);
+                    log3.ExecuteNonQuery();
+                }
+                else
+                {
+                    MessageBox.Show("Penerimaan_p tidak ditemukan");
+                }
+
+                //UPDATE pengiriman jika ada
+                SqlCommand cek5 = new SqlCommand(
+                    "SELECT COUNT(*) FROM pengiriman WHERE no=@no", conn, trans);
+                cek5.Parameters.AddWithValue("@no", noprimary);
+                int ada5 = (int)cek5.ExecuteScalar();
+
+                if (ada5 > 0)
+                {
+                    SqlCommand cmd5 = new SqlCommand(@"
+                UPDATE pengiriman 
+                SET nomor_rod=@nomorrod, remaks=@remaks, updated_at=@diubah
+                WHERE no=@no", conn, trans);
+
+                    cmd5.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
+                    cmd5.Parameters.AddWithValue("@remaks", loginform.login.name);
+                    cmd5.Parameters.AddWithValue("@no", noprimary);
+                    cmd5.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                    cmd5.ExecuteNonQuery();
+
+                    SqlCommand log5 = new SqlCommand(
+                        "INSERT INTO pengiriman_e SELECT * FROM pengiriman WHERE no=@no",
+                        conn, trans);
+                    log5.Parameters.AddWithValue("@no", noprimary);
+                    log5.ExecuteNonQuery();
+                }
+                else
+                {
+                    MessageBox.Show("Pengiriman tidak ditemukan");
+                }
+
+                //Commit transaksi
+                trans.Commit();
+
+                MessageBox.Show("Data berhasil diperbarui.",
+                                "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                setdefault();
+                tampil();
+                btnupdate.Enabled = false;
+                btnclear.Enabled = false;
+                setfalse();
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (trans != null) trans.Rollback();
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif." + ex.Message,
+                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
+                if (trans != null) trans.Rollback();
                 MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
                                 "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

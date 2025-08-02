@@ -20,7 +20,7 @@ namespace GOS_FxApps
         SqlConnection conn = Koneksi.GetConnection();
 
         Guna.UI2.WinForms.Guna2TextBox[] txtrods;
-
+        int noprimary;
         public class Perbaikan
         {
             public int? NomorRod { get; set; }
@@ -70,7 +70,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl, jumlah, tanggal_penerimaan, updated_at FROM perbaikan_s ORDER BY tanggal_perbaikan DESC";
+                string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl, jumlah, tanggal_penerimaan, updated_at, remaks FROM perbaikan_s ORDER BY tanggal_perbaikan DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -109,6 +109,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[26].HeaderText = "Jumlah";
                 dataGridView1.Columns[27].HeaderText = "Tanggal Penerimaan";
                 dataGridView1.Columns[28].HeaderText = "Diubah";
+                dataGridView1.Columns[29].HeaderText = "Remaks";
             }
             catch (SqlException)
             {
@@ -320,8 +321,11 @@ namespace GOS_FxApps
                 return;
             }
 
-            string queryInsert = @"INSERT INTO pengiriman (tanggal_pengiriman, shift, nomor_rod, updated_at) 
-                           VALUES (@tanggal, @shift, @nomor_rod, @diubah)";
+            string queryInsertp = @"INSERT INTO pengiriman (no, tanggal_pengiriman, shift, nomor_rod, updated_at, remaks) 
+                           VALUES (@no, @tanggal, @shift, @nomor_rod, @diubah, @remaks)";
+
+            string queryInsertm = @"INSERT INTO pengiriman_m (no, tanggal_pengiriman, shift, nomor_rod, updated_at, remaks) 
+                           VALUES (@no, @tanggal, @shift, @nomor_rod, @diubah, @remaks)";
 
             try
             {
@@ -329,14 +333,27 @@ namespace GOS_FxApps
 
                 foreach (var item in list)
                 {
-                    using (SqlCommand cmd2 = new SqlCommand(queryInsert, conn))
+                    using (SqlCommand cmdp = new SqlCommand(queryInsertp, conn))
                     {
-                        cmd2.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
-                        cmd2.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
-                        cmd2.Parameters.AddWithValue("@nomor_rod", item.NomorRod ?? (object)DBNull.Value);
-                        cmd2.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                        cmdp.Parameters.AddWithValue("@no", noprimary);
+                        cmdp.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
+                        cmdp.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
+                        cmdp.Parameters.AddWithValue("@nomor_rod", item.NomorRod ?? (object)DBNull.Value);
+                        cmdp.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                        cmdp.Parameters.AddWithValue("@remaks", loginform.login.name);
 
-                        cmd2.ExecuteNonQuery();
+                        cmdp.ExecuteNonQuery();
+                    }
+                    using (SqlCommand cmdm = new SqlCommand(queryInsertm, conn))
+                    {
+                        cmdm.Parameters.AddWithValue("@no", noprimary);
+                        cmdm.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
+                        cmdm.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
+                        cmdm.Parameters.AddWithValue("@nomor_rod", item.NomorRod ?? (object)DBNull.Value);
+                        cmdm.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                        cmdm.Parameters.AddWithValue("@remaks", loginform.login.name);
+
+                        cmdm.ExecuteNonQuery();
                     }
                 }
 
@@ -412,6 +429,8 @@ namespace GOS_FxApps
             if (result == DialogResult.OK)
             {
                 insertdata();
+                btnclear.Enabled = false;
+                guna2Button2.Enabled = false;
             }
         }
 
@@ -498,6 +517,7 @@ namespace GOS_FxApps
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 string value = row.Cells["nomor_rod"].Value.ToString();
+                noprimary = Convert.ToInt32(row.Cells["no"].Value);
 
                 foreach (var txt in txtrods)
                 {

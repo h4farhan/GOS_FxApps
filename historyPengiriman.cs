@@ -64,6 +64,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[2].HeaderText = "Shift";
                 dataGridView1.Columns[3].HeaderText = "Nomor ROD";
                 dataGridView1.Columns[4].HeaderText = "Diubah";
+                dataGridView1.Columns[5].HeaderText = "Remaks";
             }
             catch (SqlException)
             {

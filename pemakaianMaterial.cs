@@ -56,7 +56,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT idPemakaian, kodeBarang, namaBarang, type, tanggalPemakaian, jumlahPemakaian, updated_at FROM pemakaian_material ORDER BY tanggalPemakaian DESC, updated_at DESC";
+                string query = "SELECT idPemakaian, kodeBarang, namaBarang, type, tanggalPemakaian, jumlahPemakaian, updated_at, remaks FROM pemakaian_material ORDER BY tanggalPemakaian DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -74,6 +74,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[4].HeaderText = "Tanggal Pemakaian";
                 dataGridView1.Columns[5].HeaderText = "Jumlah Pemakaian";
                 dataGridView1.Columns[6].HeaderText = "Diubah";
+                dataGridView1.Columns[7].HeaderText = "Remaks";
             }
             catch (SqlException)
             {
@@ -161,11 +162,12 @@ namespace GOS_FxApps
                 cmd.Parameters.AddWithValue("@kode", kodeBarang);
                 cmd.ExecuteNonQuery();
 
-                SqlCommand cmdPakai = new SqlCommand("UPDATE pemakaian_material SET tanggalPemakaian = @tgl, jumlahPemakaian = @jumlah, updated_at = @diubah WHERE idPemakaian = @id", conn);
+                SqlCommand cmdPakai = new SqlCommand("UPDATE pemakaian_material SET tanggalPemakaian = @tgl, jumlahPemakaian = @jumlah, updated_at = @diubah, remaks = @remaks WHERE idPemakaian = @id", conn);
                 cmdPakai.Parameters.AddWithValue("@id", noprimary);
                 cmdPakai.Parameters.AddWithValue("@tgl", datepemakaian.Value);
                 cmdPakai.Parameters.AddWithValue("@jumlah", jumlah);
                 cmdPakai.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                cmdPakai.Parameters.AddWithValue("@remaks", loginform.login.name);
                 cmdPakai.ExecuteNonQuery();
 
                 SqlCommand cmdUpdateStok = new SqlCommand("UPDATE stok_material SET jumlahStok = jumlahStok - @pakai, updated_at = @diubah WHERE kodeBarang = @kode", conn);
@@ -221,13 +223,14 @@ namespace GOS_FxApps
                     txtjumlah.Clear();
                     return;
                 }
-                SqlCommand cmdPakai = new SqlCommand("INSERT INTO pemakaian_material (kodeBarang, namaBarang, type, tanggalPemakaian, jumlahPemakaian, updated_at) VALUES (@kode, @nama, @type, @tgl, @jumlah, @diubah)", conn);
+                SqlCommand cmdPakai = new SqlCommand("INSERT INTO pemakaian_material (kodeBarang, namaBarang, type, tanggalPemakaian, jumlahPemakaian, updated_at, remaks) VALUES (@kode, @nama, @type, @tgl, @jumlah, @diubah, @remaks)", conn);
                 cmdPakai.Parameters.AddWithValue("@kode", kodeBarang);
                 cmdPakai.Parameters.AddWithValue("@nama", namaBarang);
                 cmdPakai.Parameters.AddWithValue("@type", txttipe.Text);
                 cmdPakai.Parameters.AddWithValue("@tgl", datepemakaian.Value);
                 cmdPakai.Parameters.AddWithValue("@jumlah", jumlahPakai);
                 cmdPakai.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                cmdPakai.Parameters.AddWithValue("@remaks", loginform.login.name);
                 cmdPakai.ExecuteNonQuery();
 
                 SqlCommand cmdUpdateStok = new SqlCommand("UPDATE stok_material SET jumlahStok = jumlahStok - @pakai, updated_at = @diubah WHERE kodeBarang = @kode", conn);
@@ -356,11 +359,20 @@ namespace GOS_FxApps
             }
         }
 
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnsimpan.PerformClick();
+            }
+        }
+
         private void btnsimpan_Click(object sender, EventArgs e)
         {
             if(btnsimpan.Text == "Simpan Data")
             {
-                if (txtjumlah.Text == "") 
+                if (txtjumlah.Text == "" || cmbnama.SelectedIndex == -1) 
                 {
                     MessageBox.Show("Lengkapi data terlebih dahulu dengan benar.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -384,7 +396,7 @@ namespace GOS_FxApps
             }
             else
             {
-                if (txtjumlah.Text == "")
+                if (txtjumlah.Text == "" || cmbnama.SelectedIndex == -1 )
                 {
                     MessageBox.Show("Lengkapi data terlebih dahulu dengan benar.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }

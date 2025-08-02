@@ -44,8 +44,8 @@ namespace GOS_FxApps
 
                         if (dr.Read())
                         {
-                            string level = dr["lvl"].ToString();
-                            string name = dr["username"].ToString();
+                            level = dr["lvl"].ToString();
+                            name = dr["username"].ToString();
 
                             switch (level)
                             {

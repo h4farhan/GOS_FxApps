@@ -50,7 +50,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT no,tanggal,shift,butt_ratio,man_power,updated_at FROM kondisiROD ORDER BY tanggal DESC, updated_at DESC";
+                string query = "SELECT no,tanggal,shift,butt_ratio,man_power,updated_at,remaks FROM kondisiROD ORDER BY tanggal DESC, updated_at DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -67,6 +67,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[3].HeaderText = "Butt Ratio";
                 dataGridView1.Columns[4].HeaderText = "Man Power";
                 dataGridView1.Columns[5].HeaderText = "Diubah";
+                dataGridView1.Columns[6].HeaderText = "Remaks";
             }
             catch (SqlException)
             {
@@ -142,11 +143,12 @@ namespace GOS_FxApps
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE kondisiROD SET butt_ratio = @butt, man_power = @man, updated_at = @diubah WHERE no = @no", conn);
+                SqlCommand cmd = new SqlCommand("UPDATE kondisiROD SET butt_ratio = @butt, man_power = @man, updated_at = @diubah, remaks = @remaks WHERE no = @no", conn);
                 cmd.Parameters.AddWithValue("@no", noprimary);
                 cmd.Parameters.AddWithValue("@butt", txtbutt.Text);
                 cmd.Parameters.AddWithValue("@man", txtman.Text);
                 cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Data Berhasil Diedit.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -189,13 +191,14 @@ namespace GOS_FxApps
                     }
                 }
 
-                using (SqlCommand cmd = new SqlCommand("INSERT INTO kondisiROD (tanggal, shift, butt_ratio, man_power, updated_at) VALUES(@tgl,@shift,@butt,@man,@diubah)", conn))
+                using (SqlCommand cmd = new SqlCommand("INSERT INTO kondisiROD (tanggal, shift, butt_ratio, man_power, updated_at, remaks) VALUES(@tgl,@shift,@butt,@man,@diubah,@remaks)", conn))
                 {
                     cmd.Parameters.AddWithValue("@tgl", date.Value);
                     cmd.Parameters.AddWithValue("@shift", cmbshift.SelectedItem);
                     cmd.Parameters.AddWithValue("@butt", txtbutt.Text);
                     cmd.Parameters.AddWithValue("@man", txtman.Text);
                     cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                    cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
                     cmd.ExecuteNonQuery();
                 }
 
@@ -260,6 +263,15 @@ namespace GOS_FxApps
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnsimpan.PerformClick();
             }
         }
 

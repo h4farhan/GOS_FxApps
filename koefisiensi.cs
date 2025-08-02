@@ -383,6 +383,15 @@ namespace GOS_FxApps
                 }
         }
 
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnsimpanmaterial.PerformClick();
+            }
+        }
+
         private void btnsimpanmaterial_Click(object sender, EventArgs e)
         {
             if (cmbmaterial.SelectedIndex == -1 || txtspesifikasi.Text == "" || txtuom.Text == "" || txttipe.Text == "")

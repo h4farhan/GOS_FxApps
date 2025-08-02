@@ -31,9 +31,9 @@ namespace GOS_FxApps
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -246,6 +246,8 @@ namespace GOS_FxApps
             this.txtjenis.SelectedText = "";
             this.txtjenis.Size = new System.Drawing.Size(202, 41);
             this.txtjenis.TabIndex = 1;
+            this.txtjenis.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+            this.txtjenis.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             // 
             // label3
             // 
@@ -295,6 +297,7 @@ namespace GOS_FxApps
             this.txtnomorrod.SelectedText = "";
             this.txtnomorrod.Size = new System.Drawing.Size(202, 41);
             this.txtnomorrod.TabIndex = 0;
+            this.txtnomorrod.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txtnomorrod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // guna2Panel2
@@ -454,6 +457,7 @@ namespace GOS_FxApps
             this.txtbac.Size = new System.Drawing.Size(47, 41);
             this.txtbac.TabIndex = 1;
             this.txtbac.TextChanged += new System.EventHandler(this.txtbac_TextChanged);
+            this.txtbac.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label35
             // 
@@ -506,6 +510,7 @@ namespace GOS_FxApps
             this.txtnba.Size = new System.Drawing.Size(47, 41);
             this.txtnba.TabIndex = 0;
             this.txtnba.TextChanged += new System.EventHandler(this.txtnba_TextChanged);
+            this.txtnba.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // txtm
             // 
@@ -532,6 +537,7 @@ namespace GOS_FxApps
             this.txtm.Size = new System.Drawing.Size(47, 41);
             this.txtm.TabIndex = 72;
             this.txtm.TextChanged += new System.EventHandler(this.txtm_TextChanged);
+            this.txtm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // txte3
             // 
@@ -558,6 +564,7 @@ namespace GOS_FxApps
             this.txte3.Size = new System.Drawing.Size(47, 41);
             this.txte3.TabIndex = 64;
             this.txte3.TextChanged += new System.EventHandler(this.txte3_TextChanged);
+            this.txte3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // txtc
             // 
@@ -584,6 +591,7 @@ namespace GOS_FxApps
             this.txtc.Size = new System.Drawing.Size(47, 41);
             this.txtc.TabIndex = 74;
             this.txtc.TextChanged += new System.EventHandler(this.txtc_TextChanged);
+            this.txtc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // txtr
             // 
@@ -610,6 +618,7 @@ namespace GOS_FxApps
             this.txtr.Size = new System.Drawing.Size(47, 41);
             this.txtr.TabIndex = 73;
             this.txtr.TextChanged += new System.EventHandler(this.txtr_TextChanged);
+            this.txtr.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label11
             // 
@@ -649,6 +658,7 @@ namespace GOS_FxApps
             this.txtba1.Size = new System.Drawing.Size(47, 41);
             this.txtba1.TabIndex = 70;
             this.txtba1.TextChanged += new System.EventHandler(this.txtba1_TextChanged);
+            this.txtba1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // txtcr
             // 
@@ -675,6 +685,7 @@ namespace GOS_FxApps
             this.txtcr.Size = new System.Drawing.Size(47, 41);
             this.txtcr.TabIndex = 71;
             this.txtcr.TextChanged += new System.EventHandler(this.txtcr_TextChanged);
+            this.txtcr.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // guna2Panel5
             // 
@@ -807,6 +818,7 @@ namespace GOS_FxApps
             this.txte2ers.Size = new System.Drawing.Size(47, 41);
             this.txte2ers.TabIndex = 0;
             this.txte2ers.TextChanged += new System.EventHandler(this.txte2ers_TextChanged);
+            this.txte2ers.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // txte2cstub
             // 
@@ -833,6 +845,7 @@ namespace GOS_FxApps
             this.txte2cstub.Size = new System.Drawing.Size(47, 41);
             this.txte2cstub.TabIndex = 2;
             this.txte2cstub.TextChanged += new System.EventHandler(this.txte2cstub_TextChanged);
+            this.txte2cstub.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label19
             // 
@@ -871,6 +884,7 @@ namespace GOS_FxApps
             this.txte2cst.Size = new System.Drawing.Size(47, 41);
             this.txte2cst.TabIndex = 1;
             this.txte2cst.TextChanged += new System.EventHandler(this.txte2cst_TextChanged);
+            this.txte2cst.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label20
             // 
@@ -1012,6 +1026,7 @@ namespace GOS_FxApps
             this.txte1est.Size = new System.Drawing.Size(47, 41);
             this.txte1est.TabIndex = 1;
             this.txte1est.TextChanged += new System.EventHandler(this.txte1est_TextChanged);
+            this.txte1est.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label7
             // 
@@ -1050,6 +1065,7 @@ namespace GOS_FxApps
             this.txte1ers.Size = new System.Drawing.Size(47, 41);
             this.txte1ers.TabIndex = 0;
             this.txte1ers.TextChanged += new System.EventHandler(this.txte1ers_TextChanged_1);
+            this.txte1ers.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label9
             // 
@@ -1192,6 +1208,7 @@ namespace GOS_FxApps
             this.txts.Size = new System.Drawing.Size(47, 41);
             this.txts.TabIndex = 67;
             this.txts.TextChanged += new System.EventHandler(this.txts_TextChanged);
+            this.txts.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // txtrl
             // 
@@ -1218,6 +1235,7 @@ namespace GOS_FxApps
             this.txtrl.Size = new System.Drawing.Size(47, 41);
             this.txtrl.TabIndex = 75;
             this.txtrl.TextChanged += new System.EventHandler(this.txtrl_TextChanged);
+            this.txtrl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // txte4
             // 
@@ -1244,6 +1262,7 @@ namespace GOS_FxApps
             this.txte4.Size = new System.Drawing.Size(47, 41);
             this.txte4.TabIndex = 66;
             this.txte4.TextChanged += new System.EventHandler(this.txte4_TextChanged);
+            this.txte4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // txtd
             // 
@@ -1270,6 +1289,7 @@ namespace GOS_FxApps
             this.txtd.Size = new System.Drawing.Size(47, 41);
             this.txtd.TabIndex = 68;
             this.txtd.TextChanged += new System.EventHandler(this.txtd_TextChanged);
+            this.txtd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label32
             // 
@@ -1322,6 +1342,7 @@ namespace GOS_FxApps
             this.txtb.Size = new System.Drawing.Size(47, 41);
             this.txtb.TabIndex = 69;
             this.txtb.TextChanged += new System.EventHandler(this.txtb_TextChanged);
+            this.txtb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // guna2Panel3
             // 
@@ -1614,36 +1635,36 @@ namespace GOS_FxApps
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.Gray;
             this.dataGridView1.Location = new System.Drawing.Point(13, 58);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(294, 613);

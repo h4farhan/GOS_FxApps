@@ -340,6 +340,7 @@ namespace GOS_FxApps
             this.txtr.Size = new System.Drawing.Size(47, 41);
             this.txtr.TabIndex = 9;
             this.txtr.TextChanged += new System.EventHandler(this.txtr_TextChanged);
+            this.txtr.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txtr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // txtc
@@ -366,6 +367,7 @@ namespace GOS_FxApps
             this.txtc.Size = new System.Drawing.Size(47, 41);
             this.txtc.TabIndex = 10;
             this.txtc.TextChanged += new System.EventHandler(this.txtc_TextChanged);
+            this.txtc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txtc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label16
@@ -416,6 +418,7 @@ namespace GOS_FxApps
             this.txtrl.Size = new System.Drawing.Size(47, 41);
             this.txtrl.TabIndex = 11;
             this.txtrl.TextChanged += new System.EventHandler(this.txtrl_TextChanged);
+            this.txtrl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txtrl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label18
@@ -454,6 +457,7 @@ namespace GOS_FxApps
             this.txtba.Size = new System.Drawing.Size(47, 41);
             this.txtba.TabIndex = 6;
             this.txtba.TextChanged += new System.EventHandler(this.txtba_TextChanged);
+            this.txtba.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txtba.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // txtcr
@@ -480,6 +484,7 @@ namespace GOS_FxApps
             this.txtcr.Size = new System.Drawing.Size(47, 41);
             this.txtcr.TabIndex = 7;
             this.txtcr.TextChanged += new System.EventHandler(this.txtcr_TextChanged);
+            this.txtcr.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txtcr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label13
@@ -530,6 +535,7 @@ namespace GOS_FxApps
             this.txtm.Size = new System.Drawing.Size(47, 41);
             this.txtm.TabIndex = 8;
             this.txtm.TextChanged += new System.EventHandler(this.txtm_TextChanged);
+            this.txtm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txtm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label15
@@ -568,6 +574,7 @@ namespace GOS_FxApps
             this.txts.Size = new System.Drawing.Size(47, 41);
             this.txts.TabIndex = 3;
             this.txts.TextChanged += new System.EventHandler(this.txts_TextChanged);
+            this.txts.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txts.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // txtd
@@ -594,6 +601,7 @@ namespace GOS_FxApps
             this.txtd.Size = new System.Drawing.Size(47, 41);
             this.txtd.TabIndex = 4;
             this.txtd.TextChanged += new System.EventHandler(this.txtd_TextChanged);
+            this.txtd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label10
@@ -644,6 +652,7 @@ namespace GOS_FxApps
             this.txtb.Size = new System.Drawing.Size(47, 41);
             this.txtb.TabIndex = 5;
             this.txtb.TextChanged += new System.EventHandler(this.txtb_TextChanged);
+            this.txtb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txtb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label12
@@ -682,6 +691,7 @@ namespace GOS_FxApps
             this.txte3.Size = new System.Drawing.Size(47, 41);
             this.txte3.TabIndex = 2;
             this.txte3.TextChanged += new System.EventHandler(this.txte3_TextChanged);
+            this.txte3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txte3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // txte2
@@ -708,6 +718,7 @@ namespace GOS_FxApps
             this.txte2.Size = new System.Drawing.Size(47, 41);
             this.txte2.TabIndex = 1;
             this.txte2.TextChanged += new System.EventHandler(this.txte2_TextChanged);
+            this.txte2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txte2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label7
@@ -758,6 +769,7 @@ namespace GOS_FxApps
             this.txte1.Size = new System.Drawing.Size(47, 41);
             this.txte1.TabIndex = 0;
             this.txte1.TextChanged += new System.EventHandler(this.txte1_TextChanged);
+            this.txte1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txte1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label5
@@ -828,6 +840,7 @@ namespace GOS_FxApps
             this.txtjenis.SelectedText = "";
             this.txtjenis.Size = new System.Drawing.Size(202, 41);
             this.txtjenis.TabIndex = 1;
+            this.txtjenis.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label3
             // 
@@ -877,6 +890,7 @@ namespace GOS_FxApps
             this.txtstasiun.SelectedText = "";
             this.txtstasiun.Size = new System.Drawing.Size(202, 41);
             this.txtstasiun.TabIndex = 2;
+            this.txtstasiun.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label4
             // 
@@ -914,6 +928,7 @@ namespace GOS_FxApps
             this.txtnomorrod.SelectedText = "";
             this.txtnomorrod.Size = new System.Drawing.Size(202, 41);
             this.txtnomorrod.TabIndex = 0;
+            this.txtnomorrod.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txtnomorrod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // btnclear
