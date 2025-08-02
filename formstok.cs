@@ -72,7 +72,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM stok_material ORDER BY crated_at DESC";
+                string query = "SELECT * FROM stok_material ORDER BY created_at DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -143,9 +143,9 @@ namespace GOS_FxApps
                 dataGridView1.DefaultCellStyle.Padding = new Padding(5);
                 dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif." + ex.Message,
                                     "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
