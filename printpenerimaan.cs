@@ -446,6 +446,19 @@ namespace GOS_FxApps
             datecaripemakaian.Checked = false;
             datecaripemakaian.Value = DateTime.Now.Date;
             datecaripemakaian.ShowUpDown = true;
+            cmbpilihdata.SelectedIndex = 0;
+            infocari = false;
+            btncari.Text = "Cari";
+            btnprint.Enabled = false;
+            guna2Panel4.ResetText();
+            datecari.Checked = false;
+            paneldata2.Visible = false;
+
+            paneldata2.Visible = true;
+            btncari.Enabled = true;
+            tampilpenerimaan();
+            TambahCancelOption();
+            jumlahdata();
         }
 
         private void tampilpenerimaan()
@@ -558,7 +571,7 @@ namespace GOS_FxApps
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
@@ -567,28 +580,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[1].HeaderText = "Tanggal Pengiriman";
                 dataGridView1.Columns[2].HeaderText = "Shift";
                 dataGridView1.Columns[3].HeaderText = "Nomor ROD";
-                dataGridView1.Columns[4].HeaderText = "Jenis";
-                dataGridView1.Columns[5].HeaderText = "E1 Ers";
-                dataGridView1.Columns[6].HeaderText = "E1 Est";
-                dataGridView1.Columns[7].HeaderText = "E1 Jumlah";
-                dataGridView1.Columns[8].HeaderText = "E2 Ers";
-                dataGridView1.Columns[9].HeaderText = "E2 Cst";
-                dataGridView1.Columns[10].HeaderText = "E2 Cstub";
-                dataGridView1.Columns[11].HeaderText = "E2 Jumlah";
-                dataGridView1.Columns[12].HeaderText = "E3";
-                dataGridView1.Columns[13].HeaderText = "S";
-                dataGridView1.Columns[14].HeaderText = "D";
-                dataGridView1.Columns[15].HeaderText = "B";
-                dataGridView1.Columns[16].HeaderText = "BA";
-                dataGridView1.Columns[17].HeaderText = "CR";
-                dataGridView1.Columns[18].HeaderText = "M";
-                dataGridView1.Columns[19].HeaderText = "R";
-                dataGridView1.Columns[20].HeaderText = "C";
-                dataGridView1.Columns[21].HeaderText = "RL";
-                dataGridView1.Columns[22].HeaderText = "Jumlah";
-                dataGridView1.Columns[23].HeaderText = "Tanggal Penerimaan";
-                dataGridView1.Columns[24].HeaderText = "Tanggal Perbaikan";
-                dataGridView1.Columns["updated_at"].Visible = false;
+                dataGridView1.Columns[4].HeaderText = "Diubah";
             }
             catch (SqlException)
             {

@@ -166,10 +166,7 @@ namespace GOS_FxApps {
         {
             SwitchPanel(new printpenerimaan());
         }
-        private void iconButton7_Click(object sender, EventArgs e)
-        {
-            SwitchPanel(new editpengiriman());
-        }
+
         private void historitimer_Tick(object sender, EventArgs e)
         {
             if (historiy)

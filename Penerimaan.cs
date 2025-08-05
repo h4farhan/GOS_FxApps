@@ -521,5 +521,23 @@ namespace GOS_FxApps
         {
             hitung();
         }
+
+        private void txtnomorrod_TextChanged(object sender, EventArgs e)
+        {
+            btnsimpan.Enabled = true;
+            btncancel.Enabled = true;
+        }
+
+        private void txtjenis_TextChanged(object sender, EventArgs e)
+        {
+            btnsimpan.Enabled = true;
+            btncancel.Enabled = true;
+        }
+
+        private void txtstasiun_TextChanged(object sender, EventArgs e)
+        {
+            btnsimpan.Enabled = true;
+            btncancel.Enabled = true;
+        }
     }
 }

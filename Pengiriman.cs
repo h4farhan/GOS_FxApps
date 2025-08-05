@@ -19,44 +19,40 @@ namespace GOS_FxApps
         SqlConnection conn = Koneksi.GetConnection();
 
         bool infocari = false;
+        Guna.UI2.WinForms.Guna2TextBox[] txtrods;
 
         public class Perbaikan
         {
             public DateTime? TanggalPerbaikan { get; set; }
             public string Shift { get; set; }
             public int? NomorRod { get; set; }
-            public string Jenis { get; set; }
-            public int? E1_Ers { get; set; }
-            public int? E1_Est { get; set; }
-            public int? E1_Jumlah { get; set; }
-            public int? E2_Ers { get; set; }
-            public int? E2_Cst { get; set; }
-            public int? E2_Cstub { get; set; }
-            public int? E2_Jumlah { get; set; }
-            public int? E3 { get; set; }
-            public int? S { get; set; }
-            public int? D { get; set; }
-            public int? B { get; set; }
-            public int? Ba { get; set; }
-            public int? Cr { get; set; }
-            public int? M { get; set; }
-            public int? R { get; set; }
-            public int? C { get; set; }
-            public int? Rl { get; set; }
-            public int? Jumlah { get; set; }
-            public DateTime? TanggalPenerimaan { get; set; }
+
+            public Perbaikan() { }
+
+            public Perbaikan(DateTime? tanggalPerbaikan, string shift, int? nomorRod)
+            {
+                TanggalPerbaikan = tanggalPerbaikan;
+                Shift = shift;
+                NomorRod = nomorRod;
+            }
         }
+
 
         public Pengiriman()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            txtrods = new Guna.UI2.WinForms.Guna2TextBox[]
+            {
+                txtrod1, txtrod2, txtrod3, txtrod4, txtrod5,
+                txtrod6, txtrod7, txtrod8, txtrod9, txtrod10
+            };
         }
 
         private void tampil()
         {
             try
             {
-                string query = "SELECT * FROM pengiriman ORDER BY tanggal_pengiriman DESC";
+                string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, ba, ba1, cr, m, r, c, rl, jumlah, tanggal_penerimaan, updated_at FROM perbaikan_s ORDER BY tanggal_perbaikan DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -67,7 +63,7 @@ namespace GOS_FxApps
                 dataGridView1.ReadOnly = true;
 
                 dataGridView1.Columns[0].Visible = false;
-                dataGridView1.Columns[1].HeaderText = "Tanggal Pengiriman";
+                dataGridView1.Columns[1].HeaderText = "Tanggal Perbaikan";
                 dataGridView1.Columns[2].HeaderText = "Shift";
                 dataGridView1.Columns[3].HeaderText = "Nomor ROD";
                 dataGridView1.Columns[4].HeaderText = "Jenis";
@@ -79,19 +75,20 @@ namespace GOS_FxApps
                 dataGridView1.Columns[10].HeaderText = "E2 Cstub";
                 dataGridView1.Columns[11].HeaderText = "E2 Jumlah";
                 dataGridView1.Columns[12].HeaderText = "E3";
-                dataGridView1.Columns[13].HeaderText = "S";
-                dataGridView1.Columns[14].HeaderText = "D";
-                dataGridView1.Columns[15].HeaderText = "B";
-                dataGridView1.Columns[16].HeaderText = "BA";
-                dataGridView1.Columns[17].HeaderText = "CR";
-                dataGridView1.Columns[18].HeaderText = "M";
-                dataGridView1.Columns[19].HeaderText = "R";
-                dataGridView1.Columns[20].HeaderText = "C";
-                dataGridView1.Columns[21].HeaderText = "RL";
-                dataGridView1.Columns[22].HeaderText = "Jumlah";
-                dataGridView1.Columns[23].HeaderText = "Tanggal Penerimaan";
-                dataGridView1.Columns[24].HeaderText = "Tanggal Perbaikan";
-                dataGridView1.Columns[25].HeaderText = "Diubah";
+                dataGridView1.Columns[13].HeaderText = "E4";
+                dataGridView1.Columns[14].HeaderText = "S";
+                dataGridView1.Columns[15].HeaderText = "D";
+                dataGridView1.Columns[16].HeaderText = "B";
+                dataGridView1.Columns[17].HeaderText = "BA";
+                dataGridView1.Columns[18].HeaderText = "BA-1";
+                dataGridView1.Columns[19].HeaderText = "CR";
+                dataGridView1.Columns[20].HeaderText = "M";
+                dataGridView1.Columns[21].HeaderText = "R";
+                dataGridView1.Columns[22].HeaderText = "C";
+                dataGridView1.Columns[23].HeaderText = "RL";
+                dataGridView1.Columns[24].HeaderText = "Jumlah";
+                dataGridView1.Columns[25].HeaderText = "Tanggal Penerimaan";
+                dataGridView1.Columns[26].HeaderText = "Diubah";
             }
             catch (SqlException)
             {
@@ -118,13 +115,13 @@ namespace GOS_FxApps
 
             DataTable dt = new DataTable();
 
-            string query = "SELECT * FROM pengiriman WHERE 1=1";
+            string query = "SELECT * FROM perbaikan_s WHERE 1=1";
 
             using (SqlCommand cmd = new SqlCommand())
             {
                 if (tanggal.HasValue)
                 {
-                    query += "AND CAST(tanggal_pengiriman AS DATE) = @tgl";
+                    query += "AND CAST(tanggal_perbaikan AS DATE) = @tgl";
                     cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
                 }
 
@@ -199,8 +196,6 @@ namespace GOS_FxApps
             txtrod8.PlaceholderForeColor = Color.FromArgb(193, 200, 207);
             txtrod9.PlaceholderForeColor = Color.FromArgb(193, 200, 207);
             txtrod10.PlaceholderForeColor = Color.FromArgb(193, 200, 207);
-            btnclear.Enabled = false;
-            guna2Button2.Enabled = false;
         }
 
         private void AngkaOnly_KeyPress(object sender, KeyPressEventArgs e)
@@ -260,19 +255,15 @@ namespace GOS_FxApps
             }
         }
 
-        private void insertdata(List<Perbaikan> data)
+        private void insertdata()
         {
-            string query = @"INSERT INTO pengiriman (tanggal_pengiriman, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah,
-                                e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, s, d, b, ba, cr, m, r, c, rl, jumlah, tanggal_penerimaan,
-                                tanggal_perbaikan,updated_at)
-                                VALUES (getdate(), @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16, @17, @18, @19, @20,
-                                @21, @22, @23, @24, getdate())";
+            List<Perbaikan> list = new List<Perbaikan>();
 
             SqlConnection conn = Koneksi.GetConnection();
 
-            SqlCommand cmd1 = new SqlCommand("SELECT tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, " +
-                "e2_ers, e2_cst, e2_cstub, e2_jumlah,e3, s, d, b, ba, cr, m, r, c, rl,jumlah, tanggal_penerimaan  " +
-                "FROM perbaikan_s WHERE nomor_rod IN (@A, @B, @C, @D, @E, @F, @G, @H, @I, @J)", conn);
+            SqlCommand cmd1 = new SqlCommand(
+                "SELECT tanggal_perbaikan, shift, nomor_rod FROM perbaikan_s WHERE nomor_rod IN (@A,@B,@C,@D,@E,@F,@G,@H,@I,@J)", conn);
+
             cmd1.Parameters.AddWithValue("@A", txtrod1.Text);
             cmd1.Parameters.AddWithValue("@B", txtrod2.Text);
             cmd1.Parameters.AddWithValue("@C", txtrod3.Text);
@@ -287,112 +278,86 @@ namespace GOS_FxApps
             try
             {
                 conn.Open();
-                SqlDataReader reader = cmd1.ExecuteReader();
-                while (reader.Read())
+                using (SqlDataReader reader = cmd1.ExecuteReader())
                 {
-                    list.Add(new Perbaikan
+                    while (reader.Read())
                     {
-                        TanggalPerbaikan = reader["tanggal_perbaikan"] as DateTime?,
-                        Shift = reader["shift"].ToString().Trim(),
-                        NomorRod = reader["nomor_rod"] as int?,
-                        Jenis = reader["jenis"].ToString().Trim(),
-                        E1_Ers = reader["e1_ers"] as int?,
-                        E1_Est = reader["e1_est"] as int?,
-                        E1_Jumlah = reader["e1_jumlah"] as int?,
-                        E2_Ers = reader["e2_ers"] as int?,
-                        E2_Cst = reader["e2_cst"] as int?,
-                        E2_Cstub = reader["e2_cstub"] as int?,
-                        E2_Jumlah = reader["e2_jumlah"] as int?,
-                        E3 = reader["e3"] as int?,
-                        S = reader["s"] as int?,
-                        D = reader["d"] as int?,
-                        B = reader["b"] as int?,
-                        Ba = reader["ba"] as int?,
-                        Cr = reader["cr"] as int?,
-                        M = reader["m"] as int?,
-                        R = reader["r"] as int?,
-                        C = reader["c"] as int?,
-                        Rl = reader["rl"] as int?,
-                        Jumlah = reader["jumlah"] as int?,
-                        TanggalPenerimaan = reader["tanggal_penerimaan"] as DateTime?
-                    });
+                        list.Add(new Perbaikan
+                        {
+                            TanggalPerbaikan = reader["tanggal_perbaikan"] == DBNull.Value ? null : (DateTime?)Convert.ToDateTime(reader["tanggal_perbaikan"]),
+                            Shift = reader["shift"].ToString().Trim(),
+                            NomorRod = reader["nomor_rod"] == DBNull.Value ? null : (int?)Convert.ToInt32(reader["nomor_rod"])
+                        });
+                    }
                 }
-
             }
             catch (SqlException)
             {
                 MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
                                 "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             finally
             {
                 conn.Close();
             }
+
+            if (list.Count == 0)
+            {
+                MessageBox.Show("Tidak ada data yang cocok dengan nomor ROD.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string queryInsert = @"INSERT INTO pengiriman (tanggal_pengiriman, shift, nomor_rod, updated_at) 
+                           VALUES (GETDATE(), @shift, @nomor_rod, GETDATE())";
+
             try
             {
-
                 conn.Open();
 
-                foreach (var item in data)
+                foreach (var item in list)
                 {
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (SqlCommand cmd2 = new SqlCommand(queryInsert, conn))
                     {
-                        cmd.Parameters.AddWithValue("@2", MainForm.Instance.lblshift.Text);
-                        cmd.Parameters.AddWithValue("@3", item.NomorRod ?? (object)DBNull.Value);
-                        cmd.Parameters.AddWithValue("@4", item.Jenis ?? "");
-                        cmd.Parameters.AddWithValue("@5", item.E1_Ers ?? 0);
-                        cmd.Parameters.AddWithValue("@6", item.E1_Est ?? 0);
-                        cmd.Parameters.AddWithValue("@7", item.E1_Jumlah ?? 0);
-                        cmd.Parameters.AddWithValue("@8", item.E2_Ers ?? 0);
-                        cmd.Parameters.AddWithValue("@9", item.E2_Cst ?? 0);
-                        cmd.Parameters.AddWithValue("@10", item.E2_Cstub ?? 0);
-                        cmd.Parameters.AddWithValue("@11", item.E2_Jumlah ?? 0);
-                        cmd.Parameters.AddWithValue("@12", item.E3 ?? 0);
-                        cmd.Parameters.AddWithValue("@13", item.S ?? 0);
-                        cmd.Parameters.AddWithValue("@14", item.D ?? 0);
-                        cmd.Parameters.AddWithValue("@15", item.B ?? 0);
-                        cmd.Parameters.AddWithValue("@16", item.Ba ?? 0);
-                        cmd.Parameters.AddWithValue("@17", item.Cr ?? 0);
-                        cmd.Parameters.AddWithValue("@18", item.M ?? 0);
-                        cmd.Parameters.AddWithValue("@19", item.R ?? 0);
-                        cmd.Parameters.AddWithValue("@20", item.C ?? 0);
-                        cmd.Parameters.AddWithValue("@21", item.Rl ?? 0);
-                        cmd.Parameters.AddWithValue("@22", item.Jumlah ?? 0);
-                        cmd.Parameters.AddWithValue("@23", item.TanggalPenerimaan);
-                        cmd.Parameters.AddWithValue("@24", item.TanggalPerbaikan);
+                        cmd2.Parameters.AddWithValue("@shift", item.Shift);
+                        cmd2.Parameters.AddWithValue("@nomor_rod", item.NomorRod ?? (object)DBNull.Value);
 
-                        cmd.ExecuteNonQuery();
+                        cmd2.ExecuteNonQuery();
                     }
-                    
                 }
-                SqlCommand cmd3 = new SqlCommand("DELETE FROM perbaikan_s WHERE nomor_rod IN (@a, @b, @c, @d, @e, @f, " +
-                    "@g, @h, @i, @j)", conn);
-                cmd3.Parameters.AddWithValue("@a", txtrod1.Text);
-                cmd3.Parameters.AddWithValue("@b", txtrod2.Text);
-                cmd3.Parameters.AddWithValue("@c", txtrod3.Text);
-                cmd3.Parameters.AddWithValue("@d", txtrod4.Text);
-                cmd3.Parameters.AddWithValue("@e", txtrod5.Text);
-                cmd3.Parameters.AddWithValue("@f", txtrod6.Text);
-                cmd3.Parameters.AddWithValue("@g", txtrod7.Text);
-                cmd3.Parameters.AddWithValue("@h", txtrod8.Text);
-                cmd3.Parameters.AddWithValue("@i", txtrod9.Text);
-                cmd3.Parameters.AddWithValue("@j", txtrod10.Text);
-                
-                cmd3.ExecuteNonQuery();
-                
-                MessageBox.Show("Data Berhasil Dikirim!!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                using (SqlCommand cmd3 = new SqlCommand(
+                    "DELETE FROM perbaikan_s WHERE nomor_rod IN (@a,@b,@c,@d,@e,@f,@g,@h,@i,@j)", conn))
+                {
+                    cmd3.Parameters.AddWithValue("@a", txtrod1.Text);
+                    cmd3.Parameters.AddWithValue("@b", txtrod2.Text);
+                    cmd3.Parameters.AddWithValue("@c", txtrod3.Text);
+                    cmd3.Parameters.AddWithValue("@d", txtrod4.Text);
+                    cmd3.Parameters.AddWithValue("@e", txtrod5.Text);
+                    cmd3.Parameters.AddWithValue("@f", txtrod6.Text);
+                    cmd3.Parameters.AddWithValue("@g", txtrod7.Text);
+                    cmd3.Parameters.AddWithValue("@h", txtrod8.Text);
+                    cmd3.Parameters.AddWithValue("@i", txtrod9.Text);
+                    cmd3.Parameters.AddWithValue("@j", txtrod10.Text);
+
+                    cmd3.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Data Berhasil Dikirim!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 tampil();
                 setdefault();
             }
             catch (SqlException)
             {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.\n",
+                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
@@ -403,33 +368,34 @@ namespace GOS_FxApps
             {
                 conn.Close();
             }
-
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            Guna2TextBox[] txtRods = { txtrod1, txtrod2, txtrod3, txtrod4, txtrod5,
-                           txtrod6, txtrod7, txtrod8, txtrod9, txtrod10 };
+            Guna2TextBox[] txtRods = {
+        txtrod1, txtrod2, txtrod3, txtrod4, txtrod5,
+        txtrod6, txtrod7, txtrod8, txtrod9, txtrod10
+    };
 
             bool adaIsi = txtRods.Any(t => !string.IsNullOrWhiteSpace(t.Text));
 
             if (!adaIsi)
             {
-                MessageBox.Show("Isilah salah satu Nomor ROD yang ingin dikirim terlebih dahulu", "Warning");
+                MessageBox.Show("Isilah salah satu Nomor ROD yang ingin dikirim terlebih dahulu", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show(
+                "Apakah Anda yakin dengan data Anda?",
+                "Konfirmasi",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Warning
+            );
 
-            if (result == DialogResult.OK) 
-            { 
-                insertdata(list);
-                return;
-            }
-            else
+            if (result == DialogResult.OK)
             {
-
-            }                
+                insertdata();
+            }
         }
 
         private void btncari_Click(object sender, EventArgs e)
@@ -473,6 +439,7 @@ namespace GOS_FxApps
             setdefault();
             btnclear.Enabled = false;
             guna2Button2.Enabled = false;
+            dataGridView1.ClearSelection();
         }
 
         private void txtrod1_TextChanged(object sender, EventArgs e)
@@ -534,5 +501,34 @@ namespace GOS_FxApps
             btnclear.Enabled = true;
             guna2Button2.Enabled = true;
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                string value = row.Cells["nomor_rod"].Value.ToString();
+
+                foreach (var txt in txtrods)
+                {
+                    if (txt.Text == value)
+                    {
+                        MessageBox.Show("Nomor ROD ini sudah dimasukkan sebelumnya!", "Warning");
+                        return;
+                    }
+                }
+
+                for (int i = 0; i < txtrods.Length; i++)
+                {
+                    if (string.IsNullOrWhiteSpace(txtrods[i].Text))
+                    {
+                        txtrods[i].Text = value;
+                        return;
+                    }
+                }
+                MessageBox.Show("Maksimal pengiriman hanya 10 ROD. Kirim terlebih dahulu dan coba lagi.", "Warning");
+            }
+        }
+
     }
 }

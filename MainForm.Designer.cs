@@ -57,7 +57,6 @@ namespace GOS_FxApps
             this.entryButton = new FontAwesome.Sharp.IconButton();
             this.EditContainer = new System.Windows.Forms.Panel();
             this.iconButton12 = new FontAwesome.Sharp.IconButton();
-            this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.iconButton8 = new FontAwesome.Sharp.IconButton();
             this.iconButton9 = new FontAwesome.Sharp.IconButton();
             this.Editbutton = new FontAwesome.Sharp.IconButton();
@@ -485,13 +484,12 @@ namespace GOS_FxApps
             // EditContainer
             // 
             this.EditContainer.Controls.Add(this.iconButton12);
-            this.EditContainer.Controls.Add(this.iconButton7);
             this.EditContainer.Controls.Add(this.iconButton8);
             this.EditContainer.Controls.Add(this.iconButton9);
             this.EditContainer.Controls.Add(this.Editbutton);
             this.EditContainer.Location = new System.Drawing.Point(3, 172);
             this.EditContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.EditContainer.MaximumSize = new System.Drawing.Size(232, 241);
+            this.EditContainer.MaximumSize = new System.Drawing.Size(232, 203);
             this.EditContainer.MinimumSize = new System.Drawing.Size(232, 60);
             this.EditContainer.Name = "EditContainer";
             this.EditContainer.Size = new System.Drawing.Size(232, 60);
@@ -509,7 +507,7 @@ namespace GOS_FxApps
             this.iconButton12.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton12.IconSize = 40;
             this.iconButton12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton12.Location = new System.Drawing.Point(0, 180);
+            this.iconButton12.Location = new System.Drawing.Point(0, 140);
             this.iconButton12.Margin = new System.Windows.Forms.Padding(2);
             this.iconButton12.Name = "iconButton12";
             this.iconButton12.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
@@ -519,30 +517,6 @@ namespace GOS_FxApps
             this.iconButton12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton12.UseVisualStyleBackColor = true;
-            // 
-            // iconButton7
-            // 
-            this.iconButton7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton7.FlatAppearance.BorderSize = 0;
-            this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton7.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.iconButton7.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.PlaneDeparture;
-            this.iconButton7.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton7.IconSize = 40;
-            this.iconButton7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton7.Location = new System.Drawing.Point(0, 140);
-            this.iconButton7.Margin = new System.Windows.Forms.Padding(2);
-            this.iconButton7.Name = "iconButton7";
-            this.iconButton7.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.iconButton7.Size = new System.Drawing.Size(232, 40);
-            this.iconButton7.TabIndex = 5;
-            this.iconButton7.Text = "     Pengiriman";
-            this.iconButton7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton7.UseVisualStyleBackColor = true;
-            this.iconButton7.Click += new System.EventHandler(this.iconButton7_Click);
             // 
             // iconButton8
             // 
@@ -985,7 +959,6 @@ namespace GOS_FxApps
         private FontAwesome.Sharp.IconButton iconButton12;
         private System.Windows.Forms.Timer edittimer;
         private Guna.UI2.WinForms.Guna2ControlBox ControlBoxButton;
-        private FontAwesome.Sharp.IconButton iconButton7;
         private Label lbldate;
         private System.Windows.Forms.Timer jam;
         private Timer historitimer;

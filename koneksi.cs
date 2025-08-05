@@ -9,11 +9,14 @@ namespace GOS_FxApps
 {
     public static class Koneksi
     {
-        private static readonly string connectionString = "Data Source=mssql-200073-0.cloudclusters.net,16370;Initial Catalog=gos_apps;Persist Security Info=True;" +
-            "User ID=DTIAdmin;Password=%Tii2025%;Encrypt=True;TrustServerCertificate=True;";
+        //private static readonly string connectionString = "Data Source=mssql-200073-0.cloudclusters.net,16370;Initial Catalog=gos_apps;Persist Security Info=True;" +
+        //    "User ID=DTIAdmin;Password=%Tii2025%;Encrypt=True;TrustServerCertificate=True;";
 
-        //private static readonly string connectionString = "Data Source=TII_NB2_1122;Initial Catalog=gos_apps;Persist Security Info=True;" +
+        //private static readonly string connectionString = "Data Source=192.168.1.25,1433;Initial Catalog=gos_apps;Persist Security Info=True;" +
         //    "User ID=sa;Password=%tii2025%;TrustServerCertificate=True;";
+
+        private static readonly string connectionString = "Data Source=TII_NB2_1122;Initial Catalog=gos_apps;Persist Security Info=True;" +
+            "User ID=sa;Password=%tii2025%;TrustServerCertificate=True;";
 
         public static SqlConnection GetConnection()
         {

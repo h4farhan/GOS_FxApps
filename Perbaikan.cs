@@ -24,18 +24,128 @@ namespace GOS_FxApps
         {
             InitializeComponent();
             setdefault();
-            tampil();
+            tampilperbaikan();
+            tampilpenerimaan();
         }
 
         private void Perbaikan_Load(object sender, EventArgs e)
         {
             btnsimpan.Enabled = false;
-            datecari.Value = DateTime.Now.Date;
-            datecari.Checked = false;
+            datecariperbaikan.Value = DateTime.Now.Date;
+            datecariperbaikan.Checked = false;
+            datecaripenerimaan.Value = DateTime.Now.Date;
+            datecaripenerimaan.Checked = false;
             txtnomorrod.Focus();
         }
 
-        private void tampil()
+        private void tampilpenerimaan()
+        {
+            try
+            {
+                string query = "SELECT * FROM penerimaan_s ORDER BY tanggal_penerimaan DESC";
+                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                ad.Fill(dt);
+                dataGridView2.DataSource = dt;
+                dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridView2.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView2.RowTemplate.Height = 35;
+                dataGridView2.ReadOnly = true;
+
+                dataGridView2.Columns[0].Visible = false;
+                dataGridView2.Columns[1].HeaderText = "Tanggal Penerimaan";
+                dataGridView2.Columns[2].HeaderText = "Shift";
+                dataGridView2.Columns[3].HeaderText = "Nomor ROD";
+                dataGridView2.Columns[4].HeaderText = "Jenis";
+                dataGridView2.Columns[5].HeaderText = "Stasiun";
+                dataGridView2.Columns[6].HeaderText = "E1";
+                dataGridView2.Columns[7].HeaderText = "E2";
+                dataGridView2.Columns[8].HeaderText = "E3";
+                dataGridView2.Columns[9].HeaderText = "S";
+                dataGridView2.Columns[10].HeaderText = "D";
+                dataGridView2.Columns[11].HeaderText = "B";
+                dataGridView2.Columns[12].HeaderText = "BA";
+                dataGridView2.Columns[13].HeaderText = "CR";
+                dataGridView2.Columns[14].HeaderText = "M";
+                dataGridView2.Columns[15].HeaderText = "R";
+                dataGridView2.Columns[16].HeaderText = "C";
+                dataGridView2.Columns[17].HeaderText = "RL";
+                dataGridView2.Columns[18].HeaderText = "Jumlah";
+                dataGridView2.Columns[19].HeaderText = "Diubah";
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool caripenerimaan()
+        {
+            DateTime? tanggal = datecaripenerimaan.Checked ? (DateTime?)datecaripenerimaan.Value.Date : null;
+            string inputRod = txtcaripenerimaan.Text.Trim();
+
+            if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
+            {
+                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Warning");
+                return false;
+            }
+
+            DataTable dt = new DataTable();
+
+            string query = "SELECT * FROM penerimaan_s WHERE 1=1";
+
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                if (tanggal.HasValue)
+                {
+                    query += "AND CAST(tanggal_penerimaan AS DATE) = @tgl";
+                    cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
+                }
+
+                if (!string.IsNullOrEmpty(inputRod))
+                {
+                    query += " AND nomor_rod = @rod";
+                    cmd.Parameters.AddWithValue("@rod", Convert.ToInt32(inputRod));
+                }
+
+                cmd.CommandText = query;
+                cmd.Connection = conn;
+
+                try
+                {
+                    conn.Open();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+
+                    dataGridView2.DataSource = dt;
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                return dt.Rows.Count > 0;
+            }
+        }
+
+        private void tampilperbaikan()
         {
             try
             {
@@ -89,10 +199,10 @@ namespace GOS_FxApps
             }
         }
 
-        private bool cari()
+        private bool cariperbaikan()
         {
-            DateTime? tanggal = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
-            string inputRod = txtcari.Text.Trim();
+            DateTime? tanggal = datecariperbaikan.Checked ? (DateTime?)datecariperbaikan.Value.Date : null;
+            string inputRod = txtcariperbaikan.Text.Trim();
 
             if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
             {
@@ -152,6 +262,7 @@ namespace GOS_FxApps
         private void setdefault()
         {
             txtnomorrod.Clear();
+            txtnomorrod.Clear();
             txtjenis.Clear();
             txte1ers.Clear();
             txte1est.Clear();
@@ -195,7 +306,6 @@ namespace GOS_FxApps
             txtr.Enabled = true;
             txtc.Enabled = true;
             txtrl.Enabled = true;
-            btnhitung.Enabled = true;
         }
 
         private void setfalse()
@@ -218,7 +328,6 @@ namespace GOS_FxApps
             txtr.Enabled = false;
             txtc.Enabled = false;
             txtrl.Enabled = false;
-            btnhitung.Enabled = false;
         }
 
         private void AngkaOnly_KeyPress(object sender, KeyPressEventArgs e)
@@ -307,7 +416,8 @@ namespace GOS_FxApps
                     cmd2.ExecuteNonQuery();
 
                     MessageBox.Show("Data Berhasil Disimpan", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    tampil();
+                    tampilperbaikan();
+                    tampilpenerimaan();
                 }
                 else
                 {
@@ -398,7 +508,7 @@ namespace GOS_FxApps
                     cmd.ExecuteNonQuery();
                     cmd2.ExecuteNonQuery();
                     MessageBox.Show("Data Berhasil Diupdate", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    tampil();
+                    tampilperbaikan();
                 }
             }
             catch (SqlException ex)
@@ -465,119 +575,50 @@ namespace GOS_FxApps
             if (btnsimpan.Text == "Update Data")
             {
                 editdata();
+                txtnomorrod.Enabled = true;
                 setdefault();
+                txtnomorrod.Enabled = false;
                 setfalse();
                 btncancel.Enabled = false;
                 btnsimpan.Enabled = false;
                 btnsimpan.Text = "Simpan Data";
-                btncheck.Enabled = true;
-                txtnomorrod.Enabled = true;
-                txtnomorrod.Focus();
             }
             else
             {
                 simpandata();
-                setdefault();
-                setfalse();
                 txtnomorrod.Enabled = true;
-                txtnomorrod.Focus();
-                btncheck.FillColor = Color.FromArgb(94, 148, 255);
+                setdefault();
+                txtnomorrod.Enabled = false;
+                setfalse();
                 btnsimpan.Enabled = false;
                 btncancel.Enabled = false;
-                btncheck.Enabled= true;
             }
-        }
-
-        private void btncheck_Click(object sender, EventArgs e)
-        {
-                string nomorRod = txtnomorrod.Text;
-
-                using (SqlConnection conn = Koneksi.GetConnection())
-                {
-                    string query = "SELECT * FROM penerimaan_s WHERE nomor_rod = @nomor_rod";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@nomor_rod", nomorRod);
-
-                        try
-                        {
-                            conn.Open();
-                            SqlDataReader reader = cmd.ExecuteReader();
-
-                            if (reader.Read())
-                            {
-                                txtjenis.Text = reader["jenis"].ToString();
-                                lbltotale1.Text = reader["e1"].ToString();
-                                lbltotale2.Text = reader["e2"].ToString();
-                                txte3.Text = reader["e3"].ToString();
-                                txts.Text = reader["s"].ToString();
-                                txtd.Text = reader["d"].ToString();
-                                txtb.Text = reader["b"].ToString();
-                                txtba.Text = reader["ba"].ToString();
-                                txtcr.Text = reader["cr"].ToString();
-                                txtm.Text = reader["m"].ToString();
-                                txtr.Text = reader["r"].ToString();
-                                txtc.Text = reader["c"].ToString();
-                                txtrl.Text = reader["rl"].ToString();
-                                tanggalpenerimaan = Convert.ToDateTime(reader["tanggal_penerimaan"]);
-                                settrue();
-                                txtjenis.Focus();
-                                txtnomorrod.Enabled = false;
-                                btncancel.Enabled = true;
-                                btncheck.Enabled = false;
-                            }
-                            else
-                            {
-                                MessageBox.Show("Nomor ROD tidak ditemukan.", "Warning");
-                                setdefault();
-                                setfalse();
-                            }
-
-                            reader.Close();
-                        }
-                        catch (SqlException)
-                        {
-                            MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                            "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        finally
-                        {
-                            conn.Close();
-                        }
-                    }
-                }      
         }
         
         private void btncari_Click(object sender, EventArgs e)
         {
             if (!infocari)
             {
-                bool hasilCari = cari();
+                bool hasilCari = cariperbaikan();
                 if (hasilCari)
                 {
                     infocari = true;
-                    btncari.Text = "Reset";
+                    btncariperbaikan.Text = "Reset";
                 }
                 else
                 {
                     infocari = true;
-                    btncari.Text = "Reset";
+                    btncariperbaikan.Text = "Reset";
                 }
             }
             else
             {
-                tampil();
+                tampilperbaikan();
                 infocari = false;
-                btncari.Text = "Cari";
+                btncariperbaikan.Text = "Cari";
 
-                txtcari.Text = "";
-                datecari.Checked = false;
+                txtcariperbaikan.Text = "";
+                datecariperbaikan.Checked = false;
             }
         }
 
@@ -615,22 +656,20 @@ namespace GOS_FxApps
                 btncancel.Enabled = true;
                 btnsimpan.Text = "Update Data";
                 txtnomorrod.Enabled = false;
-                btncheck.Enabled = false;
-                btnhitung.Text = "Hitung Ulang";
             }
         }
 
         private void btncancel_Click(object sender, EventArgs e)
         {
+            txtnomorrod.Enabled = true;
             setdefault();
+            txtnomorrod.Enabled = false;
             setfalse();
             btncancel.Enabled = false;
             btnsimpan.Text = "Simpan Data";
-            txtnomorrod.Enabled = true;
-            btncheck .Enabled = true;
             btnsimpan.Enabled = false;
-            btncheck.Enabled= true;
-            txtnomorrod.Focus();
+            dataGridView1.ClearSelection();
+            dataGridView2.ClearSelection();
         }
 
         private void txtrl_TextChanged(object sender, EventArgs e)
@@ -723,10 +762,64 @@ namespace GOS_FxApps
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true; 
-                btncheck.PerformClick();   
             
         }
 
     }
-}
+
+        private void btncaripenerimaan_Click(object sender, EventArgs e)
+        {
+            if (!infocari)
+            {
+                bool hasilCari = caripenerimaan();
+                if (hasilCari)
+                {
+                    infocari = true;
+                    btncaripenerimaan.Text = "Reset";
+                }
+                else
+                {
+                    infocari = true;
+                    btncaripenerimaan.Text = "Reset";
+                }
+            }
+            else
+            {
+                tampilpenerimaan();
+                infocari = false;
+                btncaripenerimaan.Text = "Cari";
+
+                txtcaripenerimaan.Text = "";
+                datecaripenerimaan.Checked = false;
+            }
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView2.Rows[e.RowIndex];
+
+                tanggalpenerimaan = Convert.ToDateTime(row.Cells["tanggal_penerimaan"].Value);
+                txtnomorrod.Text = row.Cells["nomor_rod"].Value.ToString();
+                txtjenis.Text = row.Cells["jenis"].Value.ToString();
+                txte1ers.Text = row.Cells["e1"].Value.ToString();
+                txte2ers.Text = row.Cells["e2"].Value.ToString();
+                txte3.Text = row.Cells["e3"].Value.ToString();
+                txts.Text = row.Cells["s"].Value.ToString();
+                txtd.Text = row.Cells["d"].Value.ToString();
+                txtb.Text = row.Cells["b"].Value.ToString();
+                txtba.Text = row.Cells["ba"].Value.ToString();
+                txtcr.Text = row.Cells["cr"].Value.ToString();
+                txtm.Text = row.Cells["m"].Value.ToString();
+                txtr.Text = row.Cells["r"].Value.ToString();
+                txtc.Text = row.Cells["c"].Value.ToString();
+                txtrl.Text = row.Cells["rl"].Value.ToString();
+                lbltotal.Text = row.Cells["jumlah"].Value.ToString();
+                settrue();
+                btncancel.Enabled = true;
+
+            }
+        }
+    }
 }
