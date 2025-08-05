@@ -45,5 +45,17 @@ namespace GOS_FxApps.Properties {
                 return ((string)(this["gos_appsConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=mssql-200510-0.cloudclusters.net,19998;Initial Catalog=gos_apps;Persi" +
+            "st Security Info=True;User ID=DTIAdmin;Password=%Tii2025%;TrustServerCertificate" +
+            "=True")]
+        public string gos_apps {
+            get {
+                return ((string)(this["gos_apps"]));
+            }
+        }
     }
 }

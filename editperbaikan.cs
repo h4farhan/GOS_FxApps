@@ -237,7 +237,7 @@ namespace GOS_FxApps
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("UPDATE perbaikan_p SET jenis = @jenis, e1_ers = @e1ers, e1_est = @e1est, e1_jumlah = @e1jumlah, e2_ers = @e2ers, e2_cst = @e2cst, e2_cstub = @e2cstub, e2_jumlah = @e2jumlah," +
-                        "e3 = @e3, e4 = @e4, s = @s, d = @d, b = @b, ba = @ba, ba1 = @ba1, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = getdate() WHERE no = @no ", conn);
+                        "e3 = @e3, e4 = @e4, s = @s, d = @d, b = @b, ba = @ba, ba1 = @ba1, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = @diubah WHERE no = @no ", conn);
 
                     //SqlCommand cmd2 = new SqlCommand("INSERT INTO histori_perbaikan (shift,nomor_rod,jenis,e1_ers,e1_est,e1_jumlah,e2_ers,e2_cst,e2_cstub,e2_jumlah," +
                     //    "e3,s,d,b,ba,cr,m,r,c,rl,jumlah,tanggal_perbaikan,tanggal_penerimaan) VALUES(@shift,@nomorrod,@jenis,@e1ers,@e1est,@e1jumlah,@e2ers,@e2cst,@e2cstub,@e2jumlah,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah,@tanggalpenerimaan,@tanggalperbaikan)", conn);
@@ -264,6 +264,7 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@rl", txtrl.Text);
                     cmd.Parameters.AddWithValue("@jumlah", lbltotalupdate.Text);
                     cmd.Parameters.AddWithValue("@no", noprimary);
+                    cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
 
                     //cmd2.Parameters.AddWithValue("@shift", shift);
                     //cmd2.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);

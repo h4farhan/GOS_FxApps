@@ -1517,12 +1517,19 @@ namespace GOS_FxApps
             }
             else if (pilihan == "Cancel")
             {
-                btncari.Enabled = false;
-                paneldata1.Visible = false;
+                cmbpilihdata.SelectedIndex = 0;
+                infocari = false;
+                btncari.Text = "Cari";
+                btnprint.Enabled = false;
+                guna2Panel4.ResetText();
+                datecari.Checked = false;
                 paneldata2.Visible = false;
-                cmbpilihdata.SelectedIndex = -1;
-                dataGridView1.DataSource = null;
-                cmbpilihdata.Items.Remove("Cancel");
+
+                paneldata2.Visible = true;
+                btncari.Enabled = true;
+                tampilpenerimaan();
+                TambahCancelOption();
+                jumlahdata();
             }
 
         }

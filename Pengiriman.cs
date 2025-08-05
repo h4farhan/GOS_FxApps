@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using Guna.UI2.WinForms;
 using static System.Net.Mime.MediaTypeNames;
+using System.Management.Instrumentation;
 
 namespace GOS_FxApps
 {
@@ -23,16 +24,12 @@ namespace GOS_FxApps
 
         public class Perbaikan
         {
-            public DateTime? TanggalPerbaikan { get; set; }
-            public string Shift { get; set; }
             public int? NomorRod { get; set; }
 
             public Perbaikan() { }
 
-            public Perbaikan(DateTime? tanggalPerbaikan, string shift, int? nomorRod)
+            public Perbaikan(int? nomorRod)
             {
-                TanggalPerbaikan = tanggalPerbaikan;
-                Shift = shift;
                 NomorRod = nomorRod;
             }
         }
@@ -262,7 +259,7 @@ namespace GOS_FxApps
             SqlConnection conn = Koneksi.GetConnection();
 
             SqlCommand cmd1 = new SqlCommand(
-                "SELECT tanggal_perbaikan, shift, nomor_rod FROM perbaikan_s WHERE nomor_rod IN (@A,@B,@C,@D,@E,@F,@G,@H,@I,@J)", conn);
+                "SELECT nomor_rod FROM perbaikan_s WHERE nomor_rod IN (@A,@B,@C,@D,@E,@F,@G,@H,@I,@J)", conn);
 
             cmd1.Parameters.AddWithValue("@A", txtrod1.Text);
             cmd1.Parameters.AddWithValue("@B", txtrod2.Text);
@@ -284,8 +281,6 @@ namespace GOS_FxApps
                     {
                         list.Add(new Perbaikan
                         {
-                            TanggalPerbaikan = reader["tanggal_perbaikan"] == DBNull.Value ? null : (DateTime?)Convert.ToDateTime(reader["tanggal_perbaikan"]),
-                            Shift = reader["shift"].ToString().Trim(),
                             NomorRod = reader["nomor_rod"] == DBNull.Value ? null : (int?)Convert.ToInt32(reader["nomor_rod"])
                         });
                     }
@@ -315,7 +310,7 @@ namespace GOS_FxApps
             }
 
             string queryInsert = @"INSERT INTO pengiriman (tanggal_pengiriman, shift, nomor_rod, updated_at) 
-                           VALUES (GETDATE(), @shift, @nomor_rod, GETDATE())";
+                           VALUES (@tanggal, @shift, @nomor_rod, @diubah)";
 
             try
             {
@@ -325,8 +320,10 @@ namespace GOS_FxApps
                 {
                     using (SqlCommand cmd2 = new SqlCommand(queryInsert, conn))
                     {
-                        cmd2.Parameters.AddWithValue("@shift", item.Shift);
+                        cmd2.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
+                        cmd2.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
                         cmd2.Parameters.AddWithValue("@nomor_rod", item.NomorRod ?? (object)DBNull.Value);
+                        cmd2.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
 
                         cmd2.ExecuteNonQuery();
                     }

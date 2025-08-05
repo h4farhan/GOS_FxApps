@@ -236,12 +236,14 @@ namespace GOS_FxApps
                             }
                         }
 
-                        using (SqlCommand cmd = new SqlCommand("INSERT INTO stok_material (kodeBarang, namaBarang, jumlahStok, foto, created_at, updated_at) VALUES(@kodebarang,@namabarang,@stok,@foto,GETDATE(),GETDATE())", conn))
+                        using (SqlCommand cmd = new SqlCommand("INSERT INTO stok_material (kodeBarang, namaBarang, jumlahStok, foto, created_at, updated_at) VALUES(@kodebarang,@namabarang,@stok,@foto,@tanggal,@diubah)", conn))
                         {
                             cmd.Parameters.AddWithValue("@kodebarang", txtkodebarang.Text);
                             cmd.Parameters.AddWithValue("@namabarang", txtnamabarang.Text);
                             cmd.Parameters.AddWithValue("@stok", txtstok.Text);
                             cmd.Parameters.AddWithValue("@foto", imageBytes);
+                            cmd.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
+                            cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                             cmd.ExecuteNonQuery();
                         }
 
@@ -250,6 +252,8 @@ namespace GOS_FxApps
                         tampil();
                         pemakaianMaterial.instance.combonama();
                         pemakaianMaterial.instance.picture1.Image = null;
+                        pemakaianMaterial.instance.btnbatal.Enabled = false;
+                        pemakaianMaterial.instance.btnsimpan.Enabled = false;
                     }
                     catch (SqlException)
                     {
@@ -275,12 +279,13 @@ namespace GOS_FxApps
             try
             {
                 conn.Open();
-                string query = "UPDATE stok_material SET namaBarang = @namabarang, jumlahStok = @stok, foto = @foto, updated_at = GETDATE() WHERE kodeBarang = @kodebarang";
+                string query = "UPDATE stok_material SET namaBarang = @namabarang, jumlahStok = @stok, foto = @foto, updated_at = @diubah WHERE kodeBarang = @kodebarang";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@kodebarang", txtkodebarang.Text);
                 cmd.Parameters.AddWithValue("@namabarang", txtnamabarang.Text);
                 cmd.Parameters.AddWithValue("@stok", txtstok.Text);
                 cmd.Parameters.AddWithValue("@foto", imageBytes);
+                cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Data Berhasil Diupdate", "Success.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 setdefault();  

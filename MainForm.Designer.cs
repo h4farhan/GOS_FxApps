@@ -959,7 +959,7 @@ namespace GOS_FxApps
         private FontAwesome.Sharp.IconButton iconButton12;
         private System.Windows.Forms.Timer edittimer;
         private Guna.UI2.WinForms.Guna2ControlBox ControlBoxButton;
-        private Label lbldate;
+        public Label lbldate;
         private System.Windows.Forms.Timer jam;
         private Timer historitimer;
         public FontAwesome.Sharp.IconButton btnlaporan;

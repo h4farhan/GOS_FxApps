@@ -533,7 +533,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Panel panel3;
-        private Guna.UI2.WinForms.Guna2Button btnsimpan;
+        public Guna.UI2.WinForms.Guna2Button btnsimpan;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -547,7 +547,7 @@
         private Guna.UI2.WinForms.Guna2Button btncari;
         private Guna.UI2.WinForms.Guna2DateTimePicker datecari;
         private Guna.UI2.WinForms.Guna2TextBox txtcari;
-        private Guna.UI2.WinForms.Guna2Button btnbatal;
+        public Guna.UI2.WinForms.Guna2Button btnbatal;
         private System.Windows.Forms.Label label3;
         public Guna.UI2.WinForms.Guna2PictureBox picture1;
     }

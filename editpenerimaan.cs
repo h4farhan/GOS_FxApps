@@ -320,7 +320,7 @@ namespace GOS_FxApps
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("UPDATE penerimaan_p SET jenis = @jenis, stasiun = @stasiun, e1 = @e1, e2 = @e2, e3 = @e3, s = @s, d = @d," +
-                        "b = @b, ba = @ba, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = getdate() WHERE no = @no", conn);
+                        "b = @b, ba = @ba, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = @diubah WHERE no = @no", conn);
                     //SqlCommand cmd2 = new SqlCommand("INSERT INTO histori_penerimaan (tanggal_penerimaan,shift,nomor_rod,jenis,stasiun,e1,e2,e3," +
                     //    "s,d,b,ba,cr,m,r,c,rl,jumlah) VALUES(@tanggal,@shift,@nomorrod,@jenis,@stasiun,@e1,@e2,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah)", conn);
 
@@ -340,6 +340,7 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@rl", txtrl.Text);
                     cmd.Parameters.AddWithValue("@jumlah", lbltotalupdate.Text);
                     cmd.Parameters.AddWithValue("@no", noprimary);
+                    cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
 
                     //cmd2.Parameters.AddWithValue("@tanggal", tanggalpenerimaan);
                     //cmd2.Parameters.AddWithValue("@shift", shift);

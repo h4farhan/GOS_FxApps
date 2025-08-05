@@ -573,9 +573,10 @@ namespace GOS_FxApps
                 {
                     conn.Open();
                     SqlCommand cmd1 = new SqlCommand("INSERT INTO Rb_Stok (tanggal,shift,bmasuk,bkeluar,bstok,bpanjang,bsisamm,bpe1,bpe2,bbe1,bbe2,rbkeluare1,rbkeluare2," +
-                        "wpe1,wpe2,wbe1,wbe2,bsisakg,wastekg,e1mm,e2mm,ttle1e2,waste,keterangan,updated_at) VALUES(GETDATE(),@shift,@bmasuk,@bkeluar,@bstok,@bpanjang,@bsisamm,@bpe1,@bpe2," +
-                        "@bbe1,@bbe2,@rbkeluare1,@rbkeluare2,@wpe1,@wpe2,@wbe1,@wbe2,@bsisakg,@wastekg,@e1mm,@e2mm,@ttle1e2,@waste,@keterangan,getdate())", conn);
+                        "wpe1,wpe2,wbe1,wbe2,bsisakg,wastekg,e1mm,e2mm,ttle1e2,waste,keterangan,updated_at) VALUES(@tanggal,@shift,@bmasuk,@bkeluar,@bstok,@bpanjang,@bsisamm,@bpe1,@bpe2," +
+                        "@bbe1,@bbe2,@rbkeluare1,@rbkeluare2,@wpe1,@wpe2,@wbe1,@wbe2,@bsisakg,@wastekg,@e1mm,@e2mm,@ttle1e2,@waste,@keterangan,@diubah)", conn);
 
+                    cmd1.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
                     cmd1.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
                     cmd1.Parameters.AddWithValue("@bmasuk", txtmasuk.Text);
                     cmd1.Parameters.AddWithValue("@bkeluar", txtkeluar.Text);
@@ -602,6 +603,7 @@ namespace GOS_FxApps
                     cmd1.Parameters.AddWithValue("@ttle1e2", lblttle1e2.Text);
                     cmd1.Parameters.AddWithValue("@waste", lblwaste.Text);
                     cmd1.Parameters.AddWithValue("@keterangan", txtketerangan.Text);
+                    cmd1.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
 
                     cmd1.ExecuteNonQuery();
 
@@ -632,7 +634,7 @@ namespace GOS_FxApps
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("UPDATE Rb_Stok SET bmasuk = @bmasuk, bkeluar = @bkeluar, bstok = @bstok, bpanjang = @bpanjang, bsisamm = @bsisamm, bpe1 = @bpe1, bpe2 = @bpe2, bbe1 = @bbe1," +
                         "bbe2 = @bbe2, rbkeluare1 = @rbkeluare1, rbkeluare2 = @rbkeluare2, wpe1 = @wpe1, wpe2 = @wpe2, wbe1 = @wbe1, wbe2 = @wbe2, bsisakg = @bsisakg, wastekg = @wastekg, e1mm = @e1mm, e2mm = @e2mm," +
-                        "ttle1e2 = @ttle1e2, waste = @waste, keterangan = @keterangan, updated_at = getdate() WHERE id_stok = @id", conn);
+                        "ttle1e2 = @ttle1e2, waste = @waste, keterangan = @keterangan, updated_at = @diubah WHERE id_stok = @id", conn);
 
                     cmd.Parameters.AddWithValue("@bmasuk", txtmasuk.Text);
                     cmd.Parameters.AddWithValue("@bkeluar", txtkeluar.Text);
@@ -660,6 +662,7 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@waste", lblwaste.Text);
                     cmd.Parameters.AddWithValue("@keterangan", txtketerangan.Text);
                     cmd.Parameters.AddWithValue("@id", idmulai);
+                    cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
 
                     cmd.ExecuteNonQuery();
 
