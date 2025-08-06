@@ -821,7 +821,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel3.Controls.Add(this.label22, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.lbltotal, 1, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(7, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(7, 6);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;

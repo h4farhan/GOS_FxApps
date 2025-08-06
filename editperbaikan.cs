@@ -435,10 +435,6 @@ namespace GOS_FxApps
             btnupdate.Enabled = true;
         }
 
-        private void btnhitung_Click(object sender, EventArgs e)
-        {
-        }
-
         private void txtrl_TextChanged(object sender, EventArgs e)
         {
             hitung();

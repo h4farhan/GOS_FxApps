@@ -300,9 +300,7 @@ namespace GOS_FxApps
             btnupdate.Enabled = true;
         }
 
-        private void btnhitung_Click(object sender, EventArgs e)
-        {
-        }
+        
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
