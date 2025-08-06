@@ -50,10 +50,11 @@ namespace GOS_FxApps
                     }
 
                     SqlCommand cmd1 = new SqlCommand("INSERT INTO penerimaan_s (tanggal_penerimaan,shift,nomor_rod,jenis,stasiun,e1,e2,e3," +
-                        "s,d,b,ba,cr,m,r,c,rl,jumlah,updated_at) VALUES(getdate(),@shift,@nomorrod,@jenis,@stasiun,@e1,@e2,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah,getdate())", conn);
+                        "s,d,b,ba,cr,m,r,c,rl,jumlah,updated_at) VALUES(@tanggal_penerimaan,@shift,@nomorrod,@jenis,@stasiun,@e1,@e2,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah,@diubah)", conn);
                     SqlCommand cmd2 = new SqlCommand("INSERT INTO penerimaan_p (tanggal_penerimaan,shift,nomor_rod,jenis,stasiun,e1,e2,e3," +
-                        "s,d,b,ba,cr,m,r,c,rl,jumlah,updated_at) VALUES(getdate(),@shift,@nomorrod,@jenis,@stasiun,@e1,@e2,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah,getdate())", conn);
+                        "s,d,b,ba,cr,m,r,c,rl,jumlah,updated_at) VALUES(@tanggal_penerimaan,@shift,@nomorrod,@jenis,@stasiun,@e1,@e2,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah,@diubah)", conn);
 
+                    cmd1.Parameters.AddWithValue("@tanggal_penerimaan", MainForm.Instance.tanggal);
                     cmd1.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
                     cmd1.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
                     cmd1.Parameters.AddWithValue("@jenis", txtjenis.Text);
@@ -71,7 +72,9 @@ namespace GOS_FxApps
                     cmd1.Parameters.AddWithValue("@c", txtc.Text);
                     cmd1.Parameters.AddWithValue("@rl", txtrl.Text);
                     cmd1.Parameters.AddWithValue("@jumlah", lbltotal.Text);
+                    cmd1.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
 
+                    cmd2.Parameters.AddWithValue("@tanggal_penerimaan", MainForm.Instance.tanggal);
                     cmd2.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
                     cmd2.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
                     cmd2.Parameters.AddWithValue("@jenis", txtjenis.Text);
@@ -89,6 +92,7 @@ namespace GOS_FxApps
                     cmd2.Parameters.AddWithValue("@c", txtc.Text);
                     cmd2.Parameters.AddWithValue("@rl", txtrl.Text);
                     cmd2.Parameters.AddWithValue("@jumlah", lbltotal.Text);
+                    cmd2.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
 
                     cmd1.ExecuteNonQuery();
                     cmd2.ExecuteNonQuery();
@@ -127,9 +131,9 @@ namespace GOS_FxApps
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("UPDATE penerimaan_s SET nomor_rod = @nomorrod, jenis = @jenis, stasiun = @stasiun, e1 = @e1, e2 = @e2, e3 = @e3, s = @s, d = @d," +
-                        "b = @b, ba = @ba, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = getdate() WHERE no = @no ", conn);
+                        "b = @b, ba = @ba, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = @diubah WHERE no = @no ", conn);
                     SqlCommand cmd2 = new SqlCommand("UPDATE penerimaan_p SET nomor_rod = @nomorrod, jenis = @jenis, stasiun = @stasiun, e1 = @e1, e2 = @e2, e3 = @e3, s = @s, d = @d," +
-                        "b = @b, ba = @ba, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = getdate() WHERE no = @no ", conn);
+                        "b = @b, ba = @ba, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = @diubah WHERE no = @no ", conn);
 
                     cmd.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
                     cmd.Parameters.AddWithValue("@jenis", txtjenis.Text);
@@ -148,6 +152,7 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@rl", txtrl.Text);
                     cmd.Parameters.AddWithValue("@jumlah", lbltotal.Text);
                     cmd.Parameters.AddWithValue("@no", noprimary);
+                    cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
 
                     cmd2.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
                     cmd2.Parameters.AddWithValue("@jenis", txtjenis.Text);
@@ -166,6 +171,7 @@ namespace GOS_FxApps
                     cmd2.Parameters.AddWithValue("@rl", txtrl.Text);
                     cmd2.Parameters.AddWithValue("@jumlah", lbltotal.Text);
                     cmd2.Parameters.AddWithValue("@no", noprimary);
+                    cmd2.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
 
                     cmd.ExecuteNonQuery();
                     cmd2.ExecuteNonQuery();

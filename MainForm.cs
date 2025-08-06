@@ -31,6 +31,8 @@ namespace GOS_FxApps {
 
         public string role = null;
 
+        public DateTime tanggal;
+
         public MainForm()
         {
             InitializeComponent();
@@ -308,6 +310,7 @@ namespace GOS_FxApps {
         private void jam_Tick(object sender, EventArgs e)
         {
             lbldate.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy  [HH:mm:ss]");
+            tanggal = DateTime.Now;
             shiftcontrol();
         }
 

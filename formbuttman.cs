@@ -117,29 +117,14 @@ namespace GOS_FxApps
             try
             {
                 conn.Open();
-                //using (SqlCommand cmdcekkode = new SqlCommand("SELECT tanggal,shift FROM kondisiROD WHERE tanggal = @tgl AND shift = @shift", conn))
-                //{
-                //    cmdcekkode.Parameters.AddWithValue("@tgl", date.Value);
-                //    cmdcekkode.Parameters.AddWithValue("@shift", cmbshift.SelectedItem);
-                //    using (SqlDataReader dr = cmdcekkode.ExecuteReader())
-                //    {
-                //        if (dr.Read())
-                //        {
-                //            MessageBox.Show("Data di Tanggal dan di Shift ini sudah ada", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //            btnsimpan.Text = "Simpan Data";
-                //            return;
-                //        }
-                //    }
-                //}
-                SqlCommand cmd = new SqlCommand("UPDATE kondisiROD SET tanggal = @tgl, shift = @shift, butt_ratio = @butt, man_power = @man, updated_at = GETDATE() WHERE no = @no", conn);
+                SqlCommand cmd = new SqlCommand("UPDATE kondisiROD SET butt_ratio = @butt, man_power = @man, updated_at = @diubah WHERE no = @no", conn);
                 cmd.Parameters.AddWithValue("@no", noprimary);
-                cmd.Parameters.AddWithValue("@tgl", date.Value);
-                cmd.Parameters.AddWithValue("@shift", Convert.ToInt32(cmbshift.SelectedItem));
                 cmd.Parameters.AddWithValue("@butt", txtbutt.Text);
                 cmd.Parameters.AddWithValue("@man", txtman.Text);
+                cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Data berhasil diedit.", "Warning");
+                MessageBox.Show("Data berhasil diedit.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tampil();
                 btnsimpan.Text = "Simpan Data";
             }
@@ -179,12 +164,13 @@ namespace GOS_FxApps
                     }
                 }
 
-                using (SqlCommand cmd = new SqlCommand("INSERT INTO kondisiROD (tanggal, shift, butt_ratio, man_power, updated_at) VALUES(@tgl,@shift,@butt,@man,GETDATE())", conn))
+                using (SqlCommand cmd = new SqlCommand("INSERT INTO kondisiROD (tanggal, shift, butt_ratio, man_power, updated_at) VALUES(@tgl,@shift,@butt,@man,@diubah)", conn))
                 {
                     cmd.Parameters.AddWithValue("@tgl", date.Value);
                     cmd.Parameters.AddWithValue("@shift", cmbshift.SelectedItem);
                     cmd.Parameters.AddWithValue("@butt", txtbutt.Text);
                     cmd.Parameters.AddWithValue("@man", txtman.Text);
+                    cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                     cmd.ExecuteNonQuery();
                 }
 
@@ -195,6 +181,34 @@ namespace GOS_FxApps
             catch (SqlException ex)
             {
                 MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif." + ex.Message,
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void hapusdata()
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("DELETE FROM kondisiROD WHERE no = @no", conn);
+                cmd.Parameters.AddWithValue("@no", noprimary);
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Data berhasil dihapus.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tampil();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
                                     "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
@@ -236,14 +250,14 @@ namespace GOS_FxApps
             {
                 simpandata();
                 setdefault();
-                btnbatal.Enabled = false;
+                btndelete.Enabled = false;
                 btnsimpan.Enabled = false;
             }
             else if (btnsimpan.Text == "Edit Data")
             {
                 editdata();
                 setdefault();
-                btnbatal.Enabled = false;
+                btndelete.Enabled = false;
                 btnsimpan.Enabled = false;
                 noprimary = 0;
             }
@@ -285,30 +299,21 @@ namespace GOS_FxApps
             }
         }
 
-        private void btnbatal_Click(object sender, EventArgs e)
-        {
-            setdefault();
-            btnbatal.Enabled=false;
-            btnsimpan.Enabled=false;
-            btnsimpan.Text = "Simpan Data";
-            noprimary = 0;
-        }
-
         private void cmbshift_SelectedIndexChanged(object sender, EventArgs e)
         {
-            btnbatal.Enabled = true;
+            btndelete.Enabled = true;
             btnsimpan.Enabled = true;
         }
 
         private void txtman_TextChanged(object sender, EventArgs e)
         {
-            btnbatal.Enabled = true;
+            btndelete.Enabled = true;
             btnsimpan.Enabled = true;
         }
 
         private void txtbutt_TextChanged(object sender, EventArgs e)
         {
-            btnbatal.Enabled = true;
+            btndelete.Enabled = true;
             btnsimpan.Enabled = true;
         }
 
@@ -324,8 +329,55 @@ namespace GOS_FxApps
                 cmbshift.SelectedItem = row.Cells["shift"].Value.ToString();
                 txtbutt.Text = row.Cells["butt_ratio"].Value.ToString();
                 txtman.Text = row.Cells["man_power"].Value.ToString();
+                date.Enabled = false;
+                cmbshift.Enabled = false;
                 btnsimpan.Text = "Edit Data";
-                btnbatal.Enabled = true;
+                btndelete.Enabled = true;
+                btndelete.Text = "Hapus Data";
+                btnbatal.Visible = true;
+            }
+        }
+
+        private void btnbatal_Click_1(object sender, EventArgs e)
+        {
+            setdefault();
+            btnsimpan.Text = "Simpan Data";
+            btnsimpan.Enabled = false;
+            btndelete.Text = "Batal";
+            btndelete.Enabled = false;
+            btnbatal.Visible = false;
+            date.Enabled = true;
+            cmbshift.Enabled = true;
+            noprimary = 0;
+        }
+
+        private void btndelete_Click(object sender, EventArgs e)
+        {
+            if (btndelete.Text == "Hapus Data")
+            {
+                hapusdata();
+                btnsimpan.Text = "Simpan Data";
+                setdefault();
+                btnsimpan.Text = "Simpan Data";
+                btnsimpan.Enabled = false;
+                btndelete.Text = "Batal";
+                btndelete.Enabled = false;
+                btnbatal.Visible = false;
+                date.Enabled = true;
+                cmbshift.Enabled = true;
+                noprimary = 0;
+            }
+            else
+            {
+                setdefault();
+                btnsimpan.Text = "Simpan Data";
+                btnsimpan.Enabled = false;
+                btndelete.Text = "Batal";
+                btndelete.Enabled = false;
+                btnbatal.Visible = false;
+                date.Enabled = true;
+                cmbshift.Enabled = true;
+                noprimary = 0;
             }
         }
     }
