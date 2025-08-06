@@ -76,6 +76,10 @@
           <DataField>e3</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="e4">
+          <DataField>e4</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="s">
           <DataField>s</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -90,6 +94,10 @@
         </Field>
         <Field Name="ba">
           <DataField>ba</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ba1">
+          <DataField>ba1</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="cr">
@@ -119,14 +127,6 @@
         <Field Name="tanggal_penerimaan">
           <DataField>tanggal_penerimaan</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="ba1">
-          <DataField>ba1</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="e4">
-          <DataField>e4</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

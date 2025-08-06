@@ -271,12 +271,6 @@
     <Compile Include="editpenerimaan.Designer.cs">
       <DependentUpon>editpenerimaan.cs</DependentUpon>
     </Compile>
-    <Compile Include="editpengiriman.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="editpengiriman.Designer.cs">
-      <DependentUpon>editpengiriman.cs</DependentUpon>
-    </Compile>
     <Compile Include="editperbaikan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -418,9 +412,6 @@
     <EmbeddedResource Include="editpenerimaan.resx">
       <DependentUpon>editpenerimaan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="editpengiriman.resx">
-      <DependentUpon>editpengiriman.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="editperbaikan.resx">
       <DependentUpon>editperbaikan.cs</DependentUpon>
     </EmbeddedResource>
@@ -472,15 +463,15 @@
     <EmbeddedResource Include="pemakaianMaterial.resx">
       <DependentUpon>pemakaianMaterial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pengiriman.rdlc">
+    <Content Include="Pengiriman.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Perbaikan.rdlc">
+    </Content>
+    <Content Include="Perbaikan.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Penerimaan.rdlc">
+    </Content>
+    <Content Include="Penerimaan.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
     <EmbeddedResource Include="Penerimaan.resx">
       <DependentUpon>Penerimaan.cs</DependentUpon>
     </EmbeddedResource>
@@ -493,9 +484,9 @@
     <EmbeddedResource Include="printpenerimaan.resx">
       <DependentUpon>printpenerimaan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="produksiharian.rdlc">
+    <Content Include="produksiharian.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -509,9 +500,9 @@
     <EmbeddedResource Include="registrasi.resx">
       <DependentUpon>registrasi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rb_Stok.rdlc">
+    <Content Include="Rb_Stok.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
     <EmbeddedResource Include="reportviewr.resx">
       <DependentUpon>reportviewr.cs</DependentUpon>
     </EmbeddedResource>
