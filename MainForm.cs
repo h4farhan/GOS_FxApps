@@ -33,6 +33,69 @@ namespace GOS_FxApps {
 
         public DateTime tanggal;
 
+        private void ResetButtonColors()
+        {
+            dashboardButton.FillColor = Color.White;
+            dashboardButton.ForeColor = Color.Black;
+
+            entryButton.FillColor = Color.White;
+            entryButton.ForeColor = Color.Black;
+
+            penerimaanButton1.FillColor = Color.White;
+            penerimaanButton1.ForeColor = Color.Black;
+
+            iconButton1.FillColor = Color.White;
+            iconButton1.ForeColor = Color.Black;
+
+            iconButton2.FillColor = Color.White;
+            iconButton2.ForeColor = Color.Black;
+
+            iconButton3.FillColor = Color.White;
+            iconButton3.ForeColor = Color.Black;
+
+            iconButton4.FillColor = Color.White;
+            iconButton4.ForeColor = Color.Black;
+
+            iconButton15.FillColor = Color.White;
+            iconButton15.ForeColor = Color.Black;
+
+            Editbutton.FillColor = Color.White;
+            Editbutton.ForeColor = Color.Black;
+
+            iconButton9.FillColor = Color.White;
+            iconButton9.ForeColor = Color.Black;
+
+            iconButton8.FillColor = Color.White;
+            iconButton8.ForeColor = Color.Black;
+
+            iconButton12.FillColor = Color.White;
+            iconButton12.ForeColor = Color.Black;
+
+            btnlaporan.FillColor = Color.White;
+            btnlaporan.ForeColor = Color.Black;
+
+            btnHistori.FillColor = Color.White;
+            btnHistori.ForeColor = Color.Black;
+
+            iconButton24.FillColor = Color.White;
+            iconButton24.ForeColor = Color.Black;
+
+            iconButton11.FillColor = Color.White;
+            iconButton11.ForeColor = Color.Black;
+
+            iconButton10.FillColor = Color.White;
+            iconButton10.ForeColor = Color.Black;
+
+            iconButton6.FillColor = Color.White;
+            iconButton6.ForeColor = Color.Black;
+
+            iconButton5.FillColor = Color.White;
+            iconButton5.ForeColor = Color.Black;
+
+            iconButton13.FillColor = Color.White;
+            iconButton13.ForeColor = Color.Black;
+        }
+
         public MainForm()
         {
             InitializeComponent();
@@ -53,6 +116,8 @@ namespace GOS_FxApps {
         private void MainForm_Load(object sender, EventArgs e)
         {
             SwitchPanel(new Dashboard());
+            dashboardButton.FillColor = Color.FromArgb(52, 52, 57);
+            dashboardButton.ForeColor = Color.White;
             Instance = this;
             if (!loginstatus)
             {
@@ -63,8 +128,6 @@ namespace GOS_FxApps {
             defaulteditcontainer = EditContainer.Size;
         }
 
-
-        //kode untuk panel samping
         private void HamburgerButton_Click_1(object sender, EventArgs e)
         {
             if (sidebarx)
@@ -77,15 +140,7 @@ namespace GOS_FxApps {
                 sidebarPanel.Width = sidebarPanel.MinimumSize.Width;
                 sidebarx = true;
             }
-        }
-        private void dashboardButton_Click(object sender, EventArgs e)
-        {
-            SwitchPanel(new Dashboard());
-        }
-        private void entryButton_Click(object sender, EventArgs e)
-        {
-            entrytimer.Start();
-        }
+        }   
         private void entrytimer_Tick(object sender, EventArgs e)
         {
             if (entryprodx)
@@ -131,44 +186,7 @@ namespace GOS_FxApps {
                 }
 
             }
-        }
-        private void Editbutton_Click(object sender, EventArgs e)
-        {
-            edittimer.Start();
-        }
-        private void penerimaanButton1_Click(object sender, EventArgs e)
-        {
-            SwitchPanel(new Penerimaan());
-        }
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-            SwitchPanel(new Perbaikan());
-        }
-        private void iconButton2_Click(object sender, EventArgs e)
-        {
-            SwitchPanel(new Pengiriman());
-        }
-        private void iconButton3_Click(object sender, EventArgs e)
-        {
-            SwitchPanel(new weldingp());
-        }
-        private void iconButton4_Click(object sender, EventArgs e)
-        {
-            SwitchPanel(new pemakaianMaterial());
-        }
-        private void iconButton9_Click(object sender, EventArgs e)
-        {
-            SwitchPanel(new editpenerimaan());
-        }
-        private void iconButton8_Click(object sender, EventArgs e)
-        {
-            SwitchPanel(new editperbaikan());
-        }
-        private void btnlaporan_Click(object sender, EventArgs e)
-        {
-            SwitchPanel(new printpenerimaan());
-        }
-
+        }  
         private void historitimer_Tick(object sender, EventArgs e)
         {
             if (historiy)
@@ -192,35 +210,158 @@ namespace GOS_FxApps {
 
             }
         }
-        private void btnHistori_Click_1(object sender, EventArgs e)
+        private void dashboardButton_Click_1(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+
+            dashboardButton.FillColor = Color.FromArgb(64, 64, 64);
+            dashboardButton.ForeColor = Color.White;
+
+            SwitchPanel(new Dashboard());
+        }
+
+        private void entryButton_Click_1(object sender, EventArgs e)
+        {
+            entrytimer.Start();
+        }
+        private void penerimaanButton1_Click_1(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            penerimaanButton1.FillColor = Color.FromArgb(64, 64, 64);
+            penerimaanButton1.ForeColor = Color.White;
+
+            SwitchPanel(new Penerimaan());
+        }
+        private void iconButton1_Click_1(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            iconButton1.FillColor = Color.FromArgb(64, 64, 64);
+            iconButton1.ForeColor = Color.White;
+
+            SwitchPanel(new Perbaikan());
+        }
+        private void iconButton2_Click_1(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            iconButton2.FillColor = Color.FromArgb(64, 64, 64);
+            iconButton2.ForeColor = Color.White;
+
+            SwitchPanel(new Pengiriman());
+        }
+        private void iconButton3_Click_1(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            iconButton3.FillColor = Color.FromArgb(64, 64, 64);
+            iconButton3.ForeColor = Color.White;
+
+            SwitchPanel(new weldingp());
+        }
+        private void iconButton4_Click_1(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            iconButton4.FillColor = Color.FromArgb(64, 64, 64);
+            iconButton4.ForeColor = Color.White;
+
+            SwitchPanel(new pemakaianMaterial());
+        }
+        private void iconButton15_Click_1(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            iconButton15.FillColor = Color.FromArgb(64, 64, 64);
+            iconButton15.ForeColor = Color.White;
+            SwitchPanel(new formbuttman());
+        }
+
+        private void Editbutton_Click_1(object sender, EventArgs e)
+        {
+            edittimer.Start();
+        }
+        private void iconButton9_Click_1(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            iconButton9.FillColor = Color.FromArgb(64, 64, 64);
+            iconButton9.ForeColor = Color.White;
+
+            SwitchPanel(new editpenerimaan());
+        }
+        private void iconButton8_Click_1(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            iconButton8.FillColor = Color.FromArgb(64, 64, 64);
+            iconButton8.ForeColor = Color.White;
+
+            SwitchPanel(new editperbaikan());
+        }
+        private void iconButton12_Click(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            iconButton12.FillColor = Color.FromArgb(64, 64, 64);
+            iconButton12.ForeColor = Color.White;
+            //ini jangan lupa
+        }
+
+        private void btnlaporan_Click_1(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            btnlaporan.FillColor = Color.FromArgb(64, 64, 64);
+            btnlaporan.ForeColor = Color.White;
+
+            SwitchPanel(new printpenerimaan());
+        }
+
+        private void btnHistori_Click(object sender, EventArgs e)
         {
             historitimer.Start();
         }
-        private void iconButton24_Click(object sender, EventArgs e)
+        private void iconButton24_Click_1(object sender, EventArgs e)
         {
+            ResetButtonColors();
+            iconButton24.FillColor = Color.FromArgb(64, 64, 64);
+            iconButton24.ForeColor = Color.White;
+
             SwitchPanel(new historyPenerimaan());
         }
-        private void iconButton11_Click(object sender, EventArgs e)
+        private void iconButton11_Click_1(object sender, EventArgs e)
         {
+            ResetButtonColors();
+            iconButton11.FillColor = Color.FromArgb(64, 64, 64);
+            iconButton11.ForeColor = Color.White;
+
             SwitchPanel(new historyPerbaikan());
         }
-        private void iconButton10_Click(object sender, EventArgs e)
+        private void iconButton10_Click_1(object sender, EventArgs e)
         {
+            ResetButtonColors();
+            iconButton10.FillColor = Color.FromArgb(64, 64, 64);
+            iconButton10.ForeColor = Color.White;
+
             SwitchPanel(new historyPengiriman());
         }
-        private void iconButton6_Click(object sender, EventArgs e)
+        private void iconButton6_Click_1(object sender, EventArgs e)
         {
+            ResetButtonColors();
+            iconButton6.FillColor = Color.FromArgb(64, 64, 64);
+            iconButton6.ForeColor = Color.White;
+
             SwitchPanel(new historyWelding());
         }
-        private void iconButton5_Click(object sender, EventArgs e)
+        private void iconButton5_Click_1(object sender, EventArgs e)
         {
+            ResetButtonColors();
+            iconButton5.FillColor = Color.FromArgb(64, 64, 64);
+            iconButton5.ForeColor = Color.White;
+
             SwitchPanel(new historyPemakaianMaterial());
         }
-        private void iconButton13_Click(object sender, EventArgs e)
+        private void iconButton13_Click_1(object sender, EventArgs e)
         {
+            ResetButtonColors();
+            iconButton13.FillColor = Color.FromArgb(64, 64, 64);
+            iconButton13.ForeColor = Color.White;
+
             SwitchPanel(new historyStokMaterial());
         }
-        
+
 
         //kode fitur terbatas
         public void setvisiblefalse()
@@ -351,11 +492,6 @@ namespace GOS_FxApps {
                 Form login = new loginform();
                 login.ShowDialog();
             }
-        }
-
-        private void iconButton15_Click(object sender, EventArgs e)
-        {
-            SwitchPanel(new formbuttman());
         }
     }
 }

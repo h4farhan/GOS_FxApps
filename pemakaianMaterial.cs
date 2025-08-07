@@ -39,7 +39,7 @@ namespace GOS_FxApps
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
@@ -70,7 +70,7 @@ namespace GOS_FxApps
 
             if (!tanggal.HasValue && string.IsNullOrEmpty(kodeBarang))
             {
-                MessageBox.Show("Silakan isi Tanggal atau Kode Barang untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan isi Tanggal atau Kode Barang untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -149,7 +149,7 @@ namespace GOS_FxApps
                 cmdUpdateStok.ExecuteNonQuery();
 
 
-                MessageBox.Show("Data pemakaian berhasil diedit.", "Warning");
+                MessageBox.Show("Data Berhasil Diedit", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtjumlah.Clear();
                 tampil();
                 btnsimpan.Text = "Simpan Data";
@@ -176,7 +176,7 @@ namespace GOS_FxApps
             string namaBarang = cmbnama.Text;
             if (!int.TryParse(txtjumlah.Text, out int jumlahPakai))
             {
-                MessageBox.Show("Masukkan jumlah yang valid.");
+                MessageBox.Show("Masukkan jumlah yang valid.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -206,7 +206,7 @@ namespace GOS_FxApps
                 cmdUpdateStok.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                 cmdUpdateStok.ExecuteNonQuery();
 
-                MessageBox.Show("Data pemakaian berhasil ditambahkan.", "Warning");
+                MessageBox.Show("Data pemakaian berhasil ditambahkan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtjumlah.Clear();
                 tampil();
             }
@@ -333,11 +333,11 @@ namespace GOS_FxApps
             {
                 if (txtjumlah.Text == "") 
                 {
-                    MessageBox.Show("Lengkapi data terlebih dahulu dengan benar.", "Warning");
+                    MessageBox.Show("Lengkapi data terlebih dahulu dengan benar.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
                     if (result == DialogResult.OK)
                     {
@@ -353,11 +353,11 @@ namespace GOS_FxApps
             {
                 if (txtjumlah.Text == "")
                 {
-                    MessageBox.Show("Silahkan isi data dengan benar.");
+                    MessageBox.Show("Lengkapi data terlebih dahulu dengan benar.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
                     if (result == DialogResult.OK)
                     {

@@ -30,7 +30,7 @@ namespace GOS_FxApps
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
 
@@ -82,7 +82,7 @@ namespace GOS_FxApps
 
             if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod) && !shiftValid)
             {
-                MessageBox.Show("Silakan isi tanggal, nomor ROD, atau shift untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan isi tanggal, nomor ROD, atau shift untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 

@@ -63,7 +63,7 @@ namespace GOS_FxApps
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
 
@@ -516,7 +516,7 @@ namespace GOS_FxApps
 
             if (!tanggal.HasValue && !shiftValid)
             {
-                MessageBox.Show("Silakan isi tanggal atau shift untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan isi tanggal atau shift untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -567,7 +567,7 @@ namespace GOS_FxApps
         {
             try
             {
-                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.OK)
                 {
@@ -607,7 +607,7 @@ namespace GOS_FxApps
 
                     cmd1.ExecuteNonQuery();
 
-                    MessageBox.Show("Data Berhasil Disimpan", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Data Berhasil Disimpan", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     setdefault();
                     tampil();
                 }
@@ -627,7 +627,7 @@ namespace GOS_FxApps
         {
             try
             {
-                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.OK)
                 {
@@ -668,7 +668,7 @@ namespace GOS_FxApps
 
                     update();
 
-                    MessageBox.Show("Data Berhasil Diupdate", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Data Berhasil Diedit", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     setdefault();
                     tampil();
                 }
@@ -772,7 +772,7 @@ namespace GOS_FxApps
                     SqlDataReader dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
-                        DialogResult result = MessageBox.Show("Data untuk shift dan tanggal ini sudah pernah dimasukkan, Apakah anda ingin edit datanya?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        DialogResult result = MessageBox.Show("Data untuk shift dan tanggal ini sudah pernah dimasukkan, Apakah anda ingin edit datanya?", "Informasi", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                         if (result == DialogResult.Yes)
                         {
                             setdefault();
@@ -881,5 +881,6 @@ namespace GOS_FxApps
                 btnbatal.Enabled = true;
             }
         }
+
     }
 }

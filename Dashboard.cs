@@ -120,7 +120,7 @@ namespace GOS_FxApps
             series.ChartType = SeriesChartType.Column;
             series.IsXValueIndexed = true;
             series.IsValueShownAsLabel = true;
-            series.LabelForeColor = Color.Gainsboro;
+            series.LabelForeColor = Color.Black;
 
             series.Points.AddXY("Roundbar Stock", rbStock);
             series.Points.AddXY("Rounbar Sawing E1", rbSawinge1);
@@ -132,15 +132,15 @@ namespace GOS_FxApps
             series.Points.AddXY("Welding Pieces Lathe E1", wplathee1);
             series.Points.AddXY("Welding Pieces Lathe E2", wplathee2);
 
-            series.Points[0].Color = Color.Red;
-            series.Points[1].Color = Color.Lime;
-            series.Points[2].Color = Color.Lime;
-            series.Points[3].Color = Color.Aqua;
-            series.Points[4].Color = Color.Aqua;
-            series.Points[5].Color = Color.Orange;
-            series.Points[6].Color = Color.Orange;
-            series.Points[7].Color = Color.Violet;
-            series.Points[8].Color = Color.Violet;
+            series.Points[0].Color = Color.SeaGreen;
+            series.Points[1].Color = Color.SeaGreen;
+            series.Points[2].Color = Color.SeaGreen;
+            series.Points[3].Color = Color.SeaGreen;
+            series.Points[4].Color = Color.SeaGreen;
+            series.Points[5].Color = Color.SeaGreen;
+            series.Points[6].Color = Color.SeaGreen;
+            series.Points[7].Color = Color.SeaGreen;
+            series.Points[8].Color = Color.SeaGreen;
 
             chartRoundbar.Series.Add(series);
 
@@ -154,7 +154,7 @@ namespace GOS_FxApps
             Series series = new Series("Stock Material");
             series.ChartType = SeriesChartType.Column;
             series.IsValueShownAsLabel = true;
-            series.LabelForeColor = Color.Gainsboro;
+            series.LabelForeColor = Color.Black;
 
             try
             {
@@ -188,11 +188,10 @@ namespace GOS_FxApps
                 conn.Close();
             }
 
-            series.Color = Color.Red;
+            series.Color = Color.FromArgb(244, 67, 53);
             chartUssageMaterial.Series.Add(series);
             chartUssageMaterial.ChartAreas[0].AxisX.Interval = 1;
-            chartUssageMaterial.ChartAreas[0].AxisX.Title = "Nama Barang";
-            chartUssageMaterial.ChartAreas[0].AxisY.Title = "Jumlah Stok";
         }
+
     }
 }

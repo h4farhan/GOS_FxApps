@@ -38,7 +38,7 @@ namespace GOS_FxApps
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
 
@@ -82,7 +82,7 @@ namespace GOS_FxApps
 
             if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
             {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Peringatan");
                 return false; 
             }
 
@@ -306,13 +306,13 @@ namespace GOS_FxApps
         {
             if (txtnomorrod.Text == "" || txtjenis.Text == "" || txtstasiun.Text == "")
             {
-                MessageBox.Show("Nomor ROD, Jenis, dan Stasiun Tidak Boleh Kosong", "Warning");
+                MessageBox.Show("Nomor ROD, Jenis, dan Stasiun Tidak Boleh Kosong", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return; 
             }
 
             try
             {
-                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Peringatan", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.OK)
                 {
@@ -361,7 +361,7 @@ namespace GOS_FxApps
 
                     cmd.ExecuteNonQuery();
                     //cmd2.ExecuteNonQuery();
-                    MessageBox.Show("Data Berhasil Diupdate", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Data Berhasil Diedit", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     setdefault();
                     tampil();
                     btnupdate.Enabled = false;

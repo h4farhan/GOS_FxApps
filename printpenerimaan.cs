@@ -35,7 +35,7 @@ namespace GOS_FxApps
 
                 if (string.IsNullOrEmpty(tim))
                 {
-                    MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu", "Warning");
+                    MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -125,7 +125,7 @@ namespace GOS_FxApps
 
             if (string.IsNullOrEmpty(tim))
             {
-                MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu", "Warning");
+                MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -162,7 +162,7 @@ namespace GOS_FxApps
 
             if (string.IsNullOrEmpty(tim))
             {
-                MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu", "Warning");
+                MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -471,7 +471,7 @@ namespace GOS_FxApps
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
 
@@ -518,7 +518,7 @@ namespace GOS_FxApps
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
 
@@ -572,7 +572,7 @@ namespace GOS_FxApps
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
 
@@ -604,7 +604,7 @@ namespace GOS_FxApps
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
 
@@ -657,7 +657,7 @@ namespace GOS_FxApps
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
@@ -705,7 +705,7 @@ namespace GOS_FxApps
 
             if (!tanggal1.HasValue || string.IsNullOrEmpty(shift))
             {
-                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -757,7 +757,7 @@ namespace GOS_FxApps
 
             if (!tanggal1.HasValue || string.IsNullOrEmpty(shift))
             {
-                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -809,7 +809,7 @@ namespace GOS_FxApps
 
             if (!tanggal1.HasValue || string.IsNullOrEmpty(shift))
             {
-                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -860,7 +860,7 @@ namespace GOS_FxApps
 
             if (datecaripemakaian.Checked == false)
             {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -910,7 +910,7 @@ namespace GOS_FxApps
 
             if (datecaripemakaian.Checked == false)
             {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -959,7 +959,7 @@ namespace GOS_FxApps
 
             if (datecaripemakaian.Checked == false)
             {
-                MessageBox.Show("Silakan isi tanggal untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan isi tanggal untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -1008,7 +1008,7 @@ namespace GOS_FxApps
 
             if (datecaripemakaian.Checked == false)
             {
-                MessageBox.Show("Silakan isi tanggal untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan isi tanggal untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -1057,7 +1057,7 @@ namespace GOS_FxApps
 
             if (datecaripemakaian.Checked == false)
             {
-                MessageBox.Show("Silakan isi tanggal untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan isi tanggal untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -1374,9 +1374,9 @@ namespace GOS_FxApps
 
         private void TambahCancelOption()
         {
-            if (!cmbpilihdata.Items.Contains("Cancel"))
+            if (!cmbpilihdata.Items.Contains("Batal"))
             {
-                cmbpilihdata.Items.Add("Cancel");
+                cmbpilihdata.Items.Add("Batal");
             }
         }
 
@@ -1515,7 +1515,7 @@ namespace GOS_FxApps
                 TambahCancelOption();
                 jumlahdata();
             }
-            else if (pilihan == "Cancel")
+            else if (pilihan == "Batal")
             {
                 cmbpilihdata.SelectedIndex = 0;
                 infocari = false;

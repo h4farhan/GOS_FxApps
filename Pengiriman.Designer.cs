@@ -72,6 +72,7 @@ namespace GOS_FxApps
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -85,7 +86,7 @@ namespace GOS_FxApps
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(141, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 25);
@@ -96,7 +97,7 @@ namespace GOS_FxApps
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(17, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 19);
@@ -105,6 +106,7 @@ namespace GOS_FxApps
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.tableLayoutPanel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 58);
@@ -132,6 +134,7 @@ namespace GOS_FxApps
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.guna2Panel1.BorderRadius = 15;
             this.guna2Panel1.BorderThickness = 2;
@@ -147,6 +150,7 @@ namespace GOS_FxApps
             this.guna2Panel1.Controls.Add(this.label3);
             this.guna2Panel1.Controls.Add(this.txtrod1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel1.FillColor = System.Drawing.Color.White;
             this.guna2Panel1.Location = new System.Drawing.Point(18, 2);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel1.Name = "guna2Panel1";
@@ -155,6 +159,7 @@ namespace GOS_FxApps
             // 
             // txtrod10
             // 
+            this.txtrod10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtrod10.BorderRadius = 5;
             this.txtrod10.BorderThickness = 2;
             this.txtrod10.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -163,14 +168,14 @@ namespace GOS_FxApps
             this.txtrod10.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtrod10.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtrod10.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtrod10.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrod10.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrod10.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtrod10.ForeColor = System.Drawing.Color.White;
+            this.txtrod10.ForeColor = System.Drawing.Color.Black;
             this.txtrod10.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrod10.Location = new System.Drawing.Point(51, 492);
             this.txtrod10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod10.Name = "txtrod10";
+            this.txtrod10.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.txtrod10.PlaceholderText = "4xxxx";
             this.txtrod10.SelectedText = "";
             this.txtrod10.Size = new System.Drawing.Size(282, 41);
@@ -181,6 +186,7 @@ namespace GOS_FxApps
             // 
             // txtrod9
             // 
+            this.txtrod9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtrod9.BorderRadius = 5;
             this.txtrod9.BorderThickness = 2;
             this.txtrod9.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -189,14 +195,14 @@ namespace GOS_FxApps
             this.txtrod9.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtrod9.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtrod9.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtrod9.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrod9.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrod9.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtrod9.ForeColor = System.Drawing.Color.White;
+            this.txtrod9.ForeColor = System.Drawing.Color.Black;
             this.txtrod9.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrod9.Location = new System.Drawing.Point(51, 443);
             this.txtrod9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod9.Name = "txtrod9";
+            this.txtrod9.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.txtrod9.PlaceholderText = "4xxxx";
             this.txtrod9.SelectedText = "";
             this.txtrod9.Size = new System.Drawing.Size(282, 41);
@@ -207,6 +213,7 @@ namespace GOS_FxApps
             // 
             // txtrod8
             // 
+            this.txtrod8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtrod8.BorderRadius = 5;
             this.txtrod8.BorderThickness = 2;
             this.txtrod8.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -215,14 +222,14 @@ namespace GOS_FxApps
             this.txtrod8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtrod8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtrod8.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtrod8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrod8.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrod8.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtrod8.ForeColor = System.Drawing.Color.White;
+            this.txtrod8.ForeColor = System.Drawing.Color.Black;
             this.txtrod8.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrod8.Location = new System.Drawing.Point(51, 394);
             this.txtrod8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod8.Name = "txtrod8";
+            this.txtrod8.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.txtrod8.PlaceholderText = "4xxxx";
             this.txtrod8.SelectedText = "";
             this.txtrod8.Size = new System.Drawing.Size(282, 41);
@@ -233,6 +240,7 @@ namespace GOS_FxApps
             // 
             // txtrod7
             // 
+            this.txtrod7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtrod7.BorderRadius = 5;
             this.txtrod7.BorderThickness = 2;
             this.txtrod7.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -241,14 +249,14 @@ namespace GOS_FxApps
             this.txtrod7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtrod7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtrod7.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtrod7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrod7.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrod7.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtrod7.ForeColor = System.Drawing.Color.White;
+            this.txtrod7.ForeColor = System.Drawing.Color.Black;
             this.txtrod7.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrod7.Location = new System.Drawing.Point(51, 345);
             this.txtrod7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod7.Name = "txtrod7";
+            this.txtrod7.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.txtrod7.PlaceholderText = "4xxxx";
             this.txtrod7.SelectedText = "";
             this.txtrod7.Size = new System.Drawing.Size(282, 41);
@@ -259,6 +267,7 @@ namespace GOS_FxApps
             // 
             // txtrod6
             // 
+            this.txtrod6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtrod6.BorderRadius = 5;
             this.txtrod6.BorderThickness = 2;
             this.txtrod6.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -267,14 +276,14 @@ namespace GOS_FxApps
             this.txtrod6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtrod6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtrod6.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtrod6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrod6.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrod6.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtrod6.ForeColor = System.Drawing.Color.White;
+            this.txtrod6.ForeColor = System.Drawing.Color.Black;
             this.txtrod6.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrod6.Location = new System.Drawing.Point(51, 297);
             this.txtrod6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod6.Name = "txtrod6";
+            this.txtrod6.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.txtrod6.PlaceholderText = "4xxxx";
             this.txtrod6.SelectedText = "";
             this.txtrod6.Size = new System.Drawing.Size(282, 41);
@@ -285,6 +294,7 @@ namespace GOS_FxApps
             // 
             // txtrod5
             // 
+            this.txtrod5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtrod5.BorderRadius = 5;
             this.txtrod5.BorderThickness = 2;
             this.txtrod5.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -293,14 +303,14 @@ namespace GOS_FxApps
             this.txtrod5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtrod5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtrod5.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtrod5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrod5.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrod5.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtrod5.ForeColor = System.Drawing.Color.White;
+            this.txtrod5.ForeColor = System.Drawing.Color.Black;
             this.txtrod5.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrod5.Location = new System.Drawing.Point(51, 248);
             this.txtrod5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod5.Name = "txtrod5";
+            this.txtrod5.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.txtrod5.PlaceholderText = "4xxxx";
             this.txtrod5.SelectedText = "";
             this.txtrod5.Size = new System.Drawing.Size(282, 41);
@@ -311,6 +321,7 @@ namespace GOS_FxApps
             // 
             // txtrod4
             // 
+            this.txtrod4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtrod4.BorderRadius = 5;
             this.txtrod4.BorderThickness = 2;
             this.txtrod4.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -319,14 +330,14 @@ namespace GOS_FxApps
             this.txtrod4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtrod4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtrod4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtrod4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrod4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrod4.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtrod4.ForeColor = System.Drawing.Color.White;
+            this.txtrod4.ForeColor = System.Drawing.Color.Black;
             this.txtrod4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrod4.Location = new System.Drawing.Point(51, 199);
             this.txtrod4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod4.Name = "txtrod4";
+            this.txtrod4.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.txtrod4.PlaceholderText = "4xxxx";
             this.txtrod4.SelectedText = "";
             this.txtrod4.Size = new System.Drawing.Size(282, 41);
@@ -337,6 +348,7 @@ namespace GOS_FxApps
             // 
             // txtrod3
             // 
+            this.txtrod3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtrod3.BorderRadius = 5;
             this.txtrod3.BorderThickness = 2;
             this.txtrod3.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -345,14 +357,14 @@ namespace GOS_FxApps
             this.txtrod3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtrod3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtrod3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtrod3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrod3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrod3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtrod3.ForeColor = System.Drawing.Color.White;
+            this.txtrod3.ForeColor = System.Drawing.Color.Black;
             this.txtrod3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrod3.Location = new System.Drawing.Point(51, 150);
             this.txtrod3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod3.Name = "txtrod3";
+            this.txtrod3.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.txtrod3.PlaceholderText = "4xxxx";
             this.txtrod3.SelectedText = "";
             this.txtrod3.Size = new System.Drawing.Size(282, 41);
@@ -363,6 +375,7 @@ namespace GOS_FxApps
             // 
             // txtrod2
             // 
+            this.txtrod2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtrod2.BorderRadius = 5;
             this.txtrod2.BorderThickness = 2;
             this.txtrod2.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -371,14 +384,14 @@ namespace GOS_FxApps
             this.txtrod2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtrod2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtrod2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtrod2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrod2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrod2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtrod2.ForeColor = System.Drawing.Color.White;
+            this.txtrod2.ForeColor = System.Drawing.Color.Black;
             this.txtrod2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrod2.Location = new System.Drawing.Point(51, 102);
             this.txtrod2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod2.Name = "txtrod2";
+            this.txtrod2.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.txtrod2.PlaceholderText = "4xxxx";
             this.txtrod2.SelectedText = "";
             this.txtrod2.Size = new System.Drawing.Size(282, 41);
@@ -391,7 +404,7 @@ namespace GOS_FxApps
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.Location = new System.Drawing.Point(100, 17);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(184, 21);
@@ -400,6 +413,7 @@ namespace GOS_FxApps
             // 
             // txtrod1
             // 
+            this.txtrod1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtrod1.BorderRadius = 5;
             this.txtrod1.BorderThickness = 2;
             this.txtrod1.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -408,14 +422,14 @@ namespace GOS_FxApps
             this.txtrod1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtrod1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtrod1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtrod1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtrod1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrod1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtrod1.ForeColor = System.Drawing.Color.White;
+            this.txtrod1.ForeColor = System.Drawing.Color.Black;
             this.txtrod1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtrod1.Location = new System.Drawing.Point(51, 53);
             this.txtrod1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod1.Name = "txtrod1";
+            this.txtrod1.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.txtrod1.PlaceholderText = "4xxxx";
             this.txtrod1.SelectedText = "";
             this.txtrod1.Size = new System.Drawing.Size(282, 41);
@@ -426,6 +440,7 @@ namespace GOS_FxApps
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel3.Controls.Add(this.btnclear);
             this.panel3.Controls.Add(this.guna2Button2);
             this.panel3.Controls.Add(this.tableLayoutPanel2);
@@ -453,7 +468,7 @@ namespace GOS_FxApps
             this.btnclear.Name = "btnclear";
             this.btnclear.Size = new System.Drawing.Size(122, 35);
             this.btnclear.TabIndex = 2;
-            this.btnclear.Text = "Clear";
+            this.btnclear.Text = "Batal";
             this.btnclear.Click += new System.EventHandler(this.btnclear_Click);
             // 
             // guna2Button2
@@ -465,6 +480,7 @@ namespace GOS_FxApps
             this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button2.Enabled = false;
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
             this.guna2Button2.Location = new System.Drawing.Point(196, 595);
@@ -503,6 +519,7 @@ namespace GOS_FxApps
             this.guna2Panel2.Controls.Add(this.txtcari);
             this.guna2Panel2.Controls.Add(this.dataGridView1);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel2.FillColor = System.Drawing.Color.White;
             this.guna2Panel2.Location = new System.Drawing.Point(3, 2);
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel2.Name = "guna2Panel2";
@@ -529,13 +546,13 @@ namespace GOS_FxApps
             // 
             // datecari
             // 
-            this.datecari.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.datecari.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.datecari.BorderRadius = 5;
             this.datecari.BorderThickness = 2;
             this.datecari.Checked = true;
-            this.datecari.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.datecari.FillColor = System.Drawing.Color.White;
             this.datecari.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.datecari.ForeColor = System.Drawing.Color.White;
+            this.datecari.ForeColor = System.Drawing.Color.Black;
             this.datecari.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.datecari.Location = new System.Drawing.Point(11, 16);
             this.datecari.Margin = new System.Windows.Forms.Padding(2);
@@ -551,6 +568,7 @@ namespace GOS_FxApps
             // 
             this.txtcari.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtcari.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtcari.BorderRadius = 5;
             this.txtcari.BorderThickness = 2;
             this.txtcari.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -559,7 +577,6 @@ namespace GOS_FxApps
             this.txtcari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtcari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtcari.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcari.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.txtcari.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtcari.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtcari.ForeColor = System.Drawing.Color.White;
@@ -570,6 +587,7 @@ namespace GOS_FxApps
             this.txtcari.Location = new System.Drawing.Point(193, 16);
             this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtcari.Name = "txtcari";
+            this.txtcari.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.txtcari.PlaceholderText = "Nomor ROD";
             this.txtcari.SelectedText = "";
             this.txtcari.Size = new System.Drawing.Size(47, 39);
@@ -579,11 +597,12 @@ namespace GOS_FxApps
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Black;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -596,11 +615,11 @@ namespace GOS_FxApps
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
@@ -616,6 +635,7 @@ namespace GOS_FxApps
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(293, 512);
             this.dataGridView1.TabIndex = 3;

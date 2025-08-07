@@ -80,7 +80,7 @@ namespace GOS_FxApps
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridView1.Columns["No"].FillWeight = 50;
                 dataGridView1.RowTemplate.Height = 100;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.ReadOnly = true;
 
                 foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -207,11 +207,11 @@ namespace GOS_FxApps
         {
             if (txtkodebarang.Text == "" || txtnamabarang.Text == "" || txtstok.Text == "" || imageBytes == null)
             {
-                MessageBox.Show("Data Harus Diisi Dengan Lengkap.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Data Harus Diisi Dengan Lengkap.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                if (btnsimpan.Text == "Cancel")
+                if (btnsimpan.Text == "Batal")
                 {
                     txtkodebarang.Enabled = true;
                     btnupdate.Enabled = false;
@@ -230,7 +230,7 @@ namespace GOS_FxApps
                             {
                                 if (dr.Read())
                                 {
-                                    MessageBox.Show("Kode Sudah Dipakai Material Lain", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    MessageBox.Show("Kode Sudah Dipakai Material Lain", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     return;
                                 }
                             }
@@ -247,7 +247,7 @@ namespace GOS_FxApps
                             cmd.ExecuteNonQuery();
                         }
 
-                        MessageBox.Show("Data Berhasil Disimpan.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Data Berhasil Disimpan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         setdefault();
                         tampil();
                         pemakaianMaterial.instance.combonama();
@@ -287,7 +287,7 @@ namespace GOS_FxApps
                 cmd.Parameters.AddWithValue("@foto", imageBytes);
                 cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Data Berhasil Diupdate", "Success.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Data Berhasil Diedit", "Sukses.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 setdefault();  
                 tampil();
                 pemakaianMaterial.instance.combonama();
@@ -345,7 +345,7 @@ namespace GOS_FxApps
 
                 txtkodebarang.Enabled = false;
                 btnupdate.Enabled = true;
-                btnsimpan.Text = "Cancel";
+                btnsimpan.Text = "Batal";
             }
         }
 

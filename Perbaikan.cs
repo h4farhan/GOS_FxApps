@@ -48,7 +48,7 @@ namespace GOS_FxApps
                 ad.Fill(dt);
                 dataGridView2.DataSource = dt;
                 dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView2.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView2.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView2.RowTemplate.Height = 35;
                 dataGridView2.ReadOnly = true;
 
@@ -92,7 +92,7 @@ namespace GOS_FxApps
 
             if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
             {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -155,7 +155,7 @@ namespace GOS_FxApps
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
 
@@ -206,7 +206,7 @@ namespace GOS_FxApps
 
             if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
             {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -347,7 +347,7 @@ namespace GOS_FxApps
         {
             try
             {
-                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.OK)
                 {
@@ -419,7 +419,7 @@ namespace GOS_FxApps
                     cmd1.ExecuteNonQuery();
                     cmd2.ExecuteNonQuery();
 
-                    MessageBox.Show("Data Berhasil Disimpan", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Data Berhasil Disimpan", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     tampilperbaikan();
                     tampilpenerimaan();
                 }
@@ -449,7 +449,7 @@ namespace GOS_FxApps
         {
             try
             {
-                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.OK)
                 {
@@ -513,7 +513,7 @@ namespace GOS_FxApps
 
                     cmd.ExecuteNonQuery();
                     cmd2.ExecuteNonQuery();
-                    MessageBox.Show("Data Berhasil Diupdate", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Data Berhasil Diedit", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     tampilperbaikan();
                 }
             }
@@ -574,11 +574,11 @@ namespace GOS_FxApps
         {
             if (txtnomorrod.Text == "" || txtjenis.Text == "")
             {
-                MessageBox.Show("Nomro ROD Dan Jenis Tidak Boleh Kosong");
+                MessageBox.Show("Jenis Tidak Boleh Kosong", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (btnsimpan.Text == "Update Data")
+            if (btnsimpan.Text == "Edit Data")
             {
                 editdata();
                 txtnomorrod.Enabled = true;
@@ -660,7 +660,7 @@ namespace GOS_FxApps
                 lbltotal.Text = row.Cells["jumlah"].Value.ToString();
                 settrue();
                 btncancel.Enabled = true;
-                btnsimpan.Text = "Update Data";
+                btnsimpan.Text = "Edit Data";
                 txtnomorrod.Enabled = false;
             }
         }
@@ -827,5 +827,6 @@ namespace GOS_FxApps
 
             }
         }
+
     }
 }

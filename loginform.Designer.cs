@@ -54,17 +54,17 @@
             this.txtid.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtid.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtid.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtid.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.txtid.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(36)))));
             this.txtid.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtid.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtid.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.txtid.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtid.Location = new System.Drawing.Point(144, 155);
+            this.txtid.Location = new System.Drawing.Point(71, 166);
             this.txtid.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtid.Name = "txtid";
             this.txtid.PlaceholderText = "";
             this.txtid.SelectedText = "";
-            this.txtid.Size = new System.Drawing.Size(246, 35);
+            this.txtid.Size = new System.Drawing.Size(282, 35);
             this.txtid.TabIndex = 0;
             this.txtid.TextOffset = new System.Drawing.Point(10, 0);
             // 
@@ -78,18 +78,18 @@
             this.txtpw.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtpw.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtpw.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtpw.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.txtpw.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(36)))));
             this.txtpw.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtpw.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtpw.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.txtpw.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtpw.Location = new System.Drawing.Point(144, 224);
+            this.txtpw.Location = new System.Drawing.Point(71, 235);
             this.txtpw.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtpw.Name = "txtpw";
             this.txtpw.PasswordChar = '*';
             this.txtpw.PlaceholderText = "";
             this.txtpw.SelectedText = "";
-            this.txtpw.Size = new System.Drawing.Size(246, 35);
+            this.txtpw.Size = new System.Drawing.Size(282, 35);
             this.txtpw.TabIndex = 1;
             this.txtpw.TextOffset = new System.Drawing.Point(10, 0);
             // 
@@ -100,7 +100,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(535, 28);
+            this.panel1.Size = new System.Drawing.Size(433, 28);
             this.panel1.TabIndex = 20;
             // 
             // ControlBoxButton
@@ -108,7 +108,7 @@
             this.ControlBoxButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.ControlBoxButton.FillColor = System.Drawing.Color.Transparent;
             this.ControlBoxButton.IconColor = System.Drawing.Color.Red;
-            this.ControlBoxButton.Location = new System.Drawing.Point(510, 0);
+            this.ControlBoxButton.Location = new System.Drawing.Point(408, 0);
             this.ControlBoxButton.Margin = new System.Windows.Forms.Padding(2);
             this.ControlBoxButton.Name = "ControlBoxButton";
             this.ControlBoxButton.Size = new System.Drawing.Size(25, 28);
@@ -116,7 +116,7 @@
             // 
             // lgn
             // 
-            this.lgn.BorderRadius = 10;
+            this.lgn.BorderRadius = 20;
             this.lgn.TargetControl = this;
             // 
             // label1
@@ -124,7 +124,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(193, 68);
+            this.label1.Location = new System.Drawing.Point(138, 79);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(149, 33);
@@ -146,10 +146,10 @@
             this.btnlogin.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.btnlogin.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.btnlogin.HoverState.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnlogin.Location = new System.Drawing.Point(200, 305);
+            this.btnlogin.Location = new System.Drawing.Point(129, 325);
             this.btnlogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnlogin.Name = "btnlogin";
-            this.btnlogin.Size = new System.Drawing.Size(134, 35);
+            this.btnlogin.Size = new System.Drawing.Size(166, 35);
             this.btnlogin.TabIndex = 25;
             this.btnlogin.Text = "Login";
             this.btnlogin.Click += new System.EventHandler(this.btnlogin_Click_1);
@@ -162,7 +162,7 @@
             this.guna2Separator1.Location = new System.Drawing.Point(9, 26);
             this.guna2Separator1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(517, 8);
+            this.guna2Separator1.Size = new System.Drawing.Size(415, 8);
             this.guna2Separator1.TabIndex = 26;
             // 
             // label4
@@ -170,7 +170,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(142, 129);
+            this.label4.Location = new System.Drawing.Point(71, 140);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 18);
@@ -182,7 +182,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Location = new System.Drawing.Point(142, 200);
+            this.label5.Location = new System.Drawing.Point(71, 211);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 18);
@@ -194,7 +194,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(145, 266);
+            this.checkBox1.Location = new System.Drawing.Point(71, 277);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(112, 18);
             this.checkBox1.TabIndex = 27;
@@ -206,7 +206,6 @@
             // 
             this.shadowform.ContainerControl = this;
             this.shadowform.DockIndicatorTransparencyValue = 0.6D;
-            this.shadowform.ShadowColor = System.Drawing.Color.White;
             this.shadowform.TransparentWhileDrag = true;
             // 
             // loginform
@@ -214,8 +213,8 @@
             this.AcceptButton = this.btnlogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.ClientSize = new System.Drawing.Size(535, 392);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(36)))));
+            this.ClientSize = new System.Drawing.Size(433, 439);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.guna2Separator1);
             this.Controls.Add(this.btnlogin);
