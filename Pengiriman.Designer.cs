@@ -100,9 +100,9 @@ namespace GOS_FxApps
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(17, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 19);
+            this.label1.Size = new System.Drawing.Size(123, 19);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Form Entry Data  >";
+            this.label1.Text = "Form Entry Data  /";
             // 
             // panel2
             // 
