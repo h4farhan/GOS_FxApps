@@ -223,7 +223,6 @@
             this.datecari.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.datecari.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datecari.Name = "datecari";
-            this.datecari.ShowCheckBox = true;
             this.datecari.Size = new System.Drawing.Size(214, 41);
             this.datecari.TabIndex = 46;
             this.datecari.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
@@ -430,7 +429,6 @@
             this.datecaripemakaian.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.datecaripemakaian.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datecaripemakaian.Name = "datecaripemakaian";
-            this.datecaripemakaian.ShowCheckBox = true;
             this.datecaripemakaian.Size = new System.Drawing.Size(214, 41);
             this.datecaripemakaian.TabIndex = 57;
             this.datecaripemakaian.Value = new System.DateTime(2025, 5, 20, 0, 0, 0, 0);

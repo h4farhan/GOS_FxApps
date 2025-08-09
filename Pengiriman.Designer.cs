@@ -579,9 +579,9 @@ namespace GOS_FxApps
             this.txtcari.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtcari.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtcari.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtcari.ForeColor = System.Drawing.Color.White;
+            this.txtcari.ForeColor = System.Drawing.Color.Black;
             this.txtcari.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.icons8_search_50;
+            this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.search;
             this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
             this.txtcari.Location = new System.Drawing.Point(193, 16);
@@ -592,6 +592,7 @@ namespace GOS_FxApps
             this.txtcari.SelectedText = "";
             this.txtcari.Size = new System.Drawing.Size(47, 39);
             this.txtcari.TabIndex = 1;
+            this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
             this.txtcari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // dataGridView1

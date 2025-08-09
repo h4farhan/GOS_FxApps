@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 using Microsoft.Reporting.Map.WebForms.BingMaps;
 
 namespace GOS_FxApps
@@ -47,7 +47,7 @@ namespace GOS_FxApps
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
                 dataGridView2.DataSource = dt;
-                dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
                 dataGridView2.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView2.RowTemplate.Height = 35;
                 dataGridView2.ReadOnly = true;

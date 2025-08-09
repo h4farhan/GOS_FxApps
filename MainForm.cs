@@ -33,66 +33,57 @@ namespace GOS_FxApps {
 
         public DateTime tanggal;
 
-        private void ResetButtonColors()
+        public void ResetButtonColors()
         {
             dashboardButton.FillColor = Color.White;
             dashboardButton.ForeColor = Color.Black;
 
-            entryButton.FillColor = Color.White;
-            entryButton.ForeColor = Color.Black;
-
-            penerimaanButton1.FillColor = Color.White;
+            penerimaanButton1.FillColor = Color.Transparent;
             penerimaanButton1.ForeColor = Color.Black;
 
-            iconButton1.FillColor = Color.White;
+            iconButton1.FillColor = Color.Transparent;
             iconButton1.ForeColor = Color.Black;
 
-            iconButton2.FillColor = Color.White;
+            iconButton2.FillColor = Color.Transparent;
             iconButton2.ForeColor = Color.Black;
 
-            iconButton3.FillColor = Color.White;
+            iconButton3.FillColor = Color.Transparent;
             iconButton3.ForeColor = Color.Black;
 
-            iconButton4.FillColor = Color.White;
+            iconButton4.FillColor = Color.Transparent;
             iconButton4.ForeColor = Color.Black;
 
-            iconButton15.FillColor = Color.White;
+            iconButton15.FillColor = Color.Transparent;
             iconButton15.ForeColor = Color.Black;
 
-            Editbutton.FillColor = Color.White;
-            Editbutton.ForeColor = Color.Black;
-
-            iconButton9.FillColor = Color.White;
+            iconButton9.FillColor = Color.Transparent;
             iconButton9.ForeColor = Color.Black;
 
-            iconButton8.FillColor = Color.White;
+            iconButton8.FillColor = Color.Transparent;
             iconButton8.ForeColor = Color.Black;
 
-            iconButton12.FillColor = Color.White;
+            iconButton12.FillColor = Color.Transparent;
             iconButton12.ForeColor = Color.Black;
 
             btnlaporan.FillColor = Color.White;
             btnlaporan.ForeColor = Color.Black;
 
-            btnHistori.FillColor = Color.White;
-            btnHistori.ForeColor = Color.Black;
-
-            iconButton24.FillColor = Color.White;
+            iconButton24.FillColor = Color.Transparent;
             iconButton24.ForeColor = Color.Black;
 
-            iconButton11.FillColor = Color.White;
+            iconButton11.FillColor = Color.Transparent;
             iconButton11.ForeColor = Color.Black;
 
-            iconButton10.FillColor = Color.White;
+            iconButton10.FillColor = Color.Transparent;
             iconButton10.ForeColor = Color.Black;
 
-            iconButton6.FillColor = Color.White;
+            iconButton6.FillColor = Color.Transparent;
             iconButton6.ForeColor = Color.Black;
 
-            iconButton5.FillColor = Color.White;
+            iconButton5.FillColor = Color.Transparent;
             iconButton5.ForeColor = Color.Black;
 
-            iconButton13.FillColor = Color.White;
+            iconButton13.FillColor = Color.Transparent;
             iconButton13.ForeColor = Color.Black;
         }
 
@@ -150,7 +141,8 @@ namespace GOS_FxApps {
                 {
                     entrytimer.Stop();
                     entryprodx = false;
-
+                    entryButton.FillColor = Color.Gray;
+                    entryButton.ForeColor = Color.White;
                 }
             }
             else
@@ -160,6 +152,8 @@ namespace GOS_FxApps {
                 {
                     entrytimer.Stop();
                     entryprodx = true;
+                    entryButton.FillColor = Color.White;
+                    entryButton.ForeColor = Color.Black;
                 }
 
             }
@@ -173,7 +167,8 @@ namespace GOS_FxApps {
                 {
                     edittimer.Stop();
                     editx = false;
-
+                    Editbutton.FillColor = Color.Gray;
+                    Editbutton.ForeColor = Color.White;
                 }
             }
             else
@@ -183,6 +178,8 @@ namespace GOS_FxApps {
                 {
                     edittimer.Stop();
                     editx = true;
+                    Editbutton.FillColor = Color.White;
+                    Editbutton.ForeColor = Color.Black;
                 }
 
             }
@@ -196,7 +193,8 @@ namespace GOS_FxApps {
                 {
                     historitimer.Stop();
                     historiy = false;
-
+                    btnHistori.FillColor = Color.Gray;
+                    btnHistori.ForeColor = Color.White;
                 }
             }
             else
@@ -206,6 +204,8 @@ namespace GOS_FxApps {
                 {
                     historitimer.Stop();
                     historiy = true;
+                    btnHistori.FillColor = Color.White;
+                    btnHistori.ForeColor = Color.Black;
                 }
 
             }
@@ -373,7 +373,7 @@ namespace GOS_FxApps {
         }
         public void truemanajer()
         {
-            entryContainer.MaximumSize = new Size(232, 345);
+            entryContainer.MaximumSize = new Size(232, 297);
             entryContainer.Visible = true;
             penerimaanButton1.Visible = true;
             iconButton1.Visible = true;
@@ -399,7 +399,8 @@ namespace GOS_FxApps {
             iconButton15.Visible=false;
 
             entryContainer.Visible = true;
-            entryContainer.MaximumSize = new Size(232, 160);
+            entryContainer.MaximumSize = new Size(232, 135);
+            Dashboard.Instance.btntiga.Visible=true;
             iconButton3.Visible=true;
             iconButton4.Visible=true;
             btnlaporan.Visible=true;
@@ -413,7 +414,7 @@ namespace GOS_FxApps {
             iconButton15.Visible = false;
 
             entryContainer.Visible = true;
-            entryContainer.MaximumSize = new Size(232, 113);    
+            entryContainer.MaximumSize = new Size(232, 95);    
             iconButton1.Visible=true;
             btnlaporan.Visible=true;
         }
@@ -425,7 +426,7 @@ namespace GOS_FxApps {
             iconButton15.Visible = false;
 
             entryContainer.Visible=true;
-            entryContainer.MaximumSize = new Size(232, 149);
+            entryContainer.MaximumSize = new Size(232, 135);
             penerimaanButton1.Visible = true;
             iconButton2.Visible=true;
             btnlaporan.Visible = true;

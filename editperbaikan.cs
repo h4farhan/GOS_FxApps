@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 
 namespace GOS_FxApps
 {

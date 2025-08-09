@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,6 +45,7 @@ namespace GOS_FxApps
                 dtWithImage.Columns.Add("Kode Barang", typeof(string));
                 dtWithImage.Columns.Add("Nama Barang", typeof(string));
                 dtWithImage.Columns.Add("Jumlah Stok", typeof(int));
+                dtWithImage.Columns.Add("Min Stok", typeof(int));
                 dtWithImage.Columns.Add("Gambar", typeof(Image)); 
                 dtWithImage.Columns.Add("Disimpan", typeof(DateTime));
                 dtWithImage.Columns.Add("Diubah", typeof(DateTime));
@@ -57,6 +58,7 @@ namespace GOS_FxApps
                     newRow["Kode Barang"] = row["kodeBarang"];
                     newRow["Nama Barang"] = row["namaBarang"];
                     newRow["Jumlah Stok"] = row["jumlahStok"];
+                    newRow["Min Stok"] = row["min_stok"];
                     newRow["Disimpan"] = row["created_at"];
                     newRow["Diubah"] = row["updated_at"];
 
@@ -128,6 +130,7 @@ namespace GOS_FxApps
                     dtWithImage.Columns.Add("Kode Barang", typeof(string));
                     dtWithImage.Columns.Add("Nama Barang", typeof(string));
                     dtWithImage.Columns.Add("Jumlah Stok", typeof(int));
+                    dtWithImage.Columns.Add("Min Stok", typeof(int));
                     dtWithImage.Columns.Add("Gambar", typeof(Image));
                     dtWithImage.Columns.Add("Disimpan", typeof(DateTime));
                     dtWithImage.Columns.Add("Diubah", typeof(DateTime));
@@ -140,6 +143,7 @@ namespace GOS_FxApps
                         newRow["Kode Barang"] = row["kodeBarang"];
                         newRow["Nama Barang"] = row["namaBarang"];
                         newRow["Jumlah Stok"] = row["jumlahStok"];
+                        newRow["Min Stok"] = row["min_stok"];
                         newRow["Disimpan"] = row["created_at"];
                         newRow["Diubah"] = row["updated_at"];
 
@@ -198,6 +202,7 @@ namespace GOS_FxApps
             txtkodebarang.Enabled = true;
             txtkodebarang.Clear();
             txtstok.Clear();
+            txtminstok.Clear();
             txtnamabarang.Clear();
             imageBytes = null;
             picturebox.Image = null;
@@ -205,7 +210,7 @@ namespace GOS_FxApps
 
         private void btnsimpan_Click(object sender, EventArgs e)
         {
-            if (txtkodebarang.Text == "" || txtnamabarang.Text == "" || txtstok.Text == "" || imageBytes == null)
+            if (txtkodebarang.Text == "" || txtnamabarang.Text == "" || txtstok.Text == "" || txtminstok.Text == "" || imageBytes == null)
             {
                 MessageBox.Show("Data Harus Diisi Dengan Lengkap.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -236,11 +241,12 @@ namespace GOS_FxApps
                             }
                         }
 
-                        using (SqlCommand cmd = new SqlCommand("INSERT INTO stok_material (kodeBarang, namaBarang, jumlahStok, foto, created_at, updated_at) VALUES(@kodebarang,@namabarang,@stok,@foto,@tanggal,@diubah)", conn))
+                        using (SqlCommand cmd = new SqlCommand("INSERT INTO stok_material (kodeBarang, namaBarang, jumlahStok, min_stok, foto, created_at, updated_at) VALUES(@kodebarang,@namabarang,@stok,@min_stok,@foto,@tanggal,@diubah)", conn))
                         {
                             cmd.Parameters.AddWithValue("@kodebarang", txtkodebarang.Text);
                             cmd.Parameters.AddWithValue("@namabarang", txtnamabarang.Text);
                             cmd.Parameters.AddWithValue("@stok", txtstok.Text);
+                            cmd.Parameters.AddWithValue("@min_stok", txtminstok.Text);
                             cmd.Parameters.AddWithValue("@foto", imageBytes);
                             cmd.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
                             cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
@@ -279,11 +285,12 @@ namespace GOS_FxApps
             try
             {
                 conn.Open();
-                string query = "UPDATE stok_material SET namaBarang = @namabarang, jumlahStok = @stok, foto = @foto, updated_at = @diubah WHERE kodeBarang = @kodebarang";
+                string query = "UPDATE stok_material SET namaBarang = @namabarang, jumlahStok = @stok, min_stok = @min_stok, foto = @foto, updated_at = @diubah WHERE kodeBarang = @kodebarang";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@kodebarang", txtkodebarang.Text);
                 cmd.Parameters.AddWithValue("@namabarang", txtnamabarang.Text);
                 cmd.Parameters.AddWithValue("@stok", txtstok.Text);
+                cmd.Parameters.AddWithValue("@min_stok", txtminstok.Text);
                 cmd.Parameters.AddWithValue("@foto", imageBytes);
                 cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                 cmd.ExecuteNonQuery();
@@ -294,6 +301,8 @@ namespace GOS_FxApps
                 pemakaianMaterial.instance.picture1.Image = null;
                 btnupdate.Enabled = false;
                 btnsimpan.Text = "Simpan";
+                pemakaianMaterial.instance.btnbatal.Enabled = false;
+                pemakaianMaterial.instance.btnsimpan.Enabled = false;
             }
             catch (SqlException)
             {
@@ -321,6 +330,7 @@ namespace GOS_FxApps
                 txtkodebarang.Text = row.Cells["Kode Barang"].Value.ToString();
                 txtnamabarang.Text = row.Cells["Nama Barang"].Value.ToString();
                 txtstok.Text = row.Cells["Jumlah Stok"].Value.ToString();
+                txtminstok.Text = row.Cells["Min Stok"].Value.ToString();
 
                 Image img = row.Cells["Gambar"].Value as Image;
                 if (img != null)

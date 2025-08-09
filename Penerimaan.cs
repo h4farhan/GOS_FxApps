@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 
 namespace GOS_FxApps
 {
@@ -204,7 +204,7 @@ namespace GOS_FxApps
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;

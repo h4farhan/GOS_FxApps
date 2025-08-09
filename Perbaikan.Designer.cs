@@ -31,6 +31,7 @@ namespace GOS_FxApps
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Perbaikan));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -411,7 +412,8 @@ namespace GOS_FxApps
             // 
             // guna2Panel5
             // 
-            this.guna2Panel5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.guna2Panel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel5.BorderColor = System.Drawing.Color.Gainsboro;
             this.guna2Panel5.BorderRadius = 15;
             this.guna2Panel5.BorderThickness = 2;
             this.guna2Panel5.Controls.Add(this.label25);
@@ -423,6 +425,7 @@ namespace GOS_FxApps
             this.guna2Panel5.Controls.Add(this.label19);
             this.guna2Panel5.Controls.Add(this.txte2cst);
             this.guna2Panel5.Controls.Add(this.label20);
+            this.guna2Panel5.FillColor = System.Drawing.Color.White;
             this.guna2Panel5.Location = new System.Drawing.Point(190, 35);
             this.guna2Panel5.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel5.Name = "guna2Panel5";
@@ -462,14 +465,14 @@ namespace GOS_FxApps
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel4.Controls.Add(this.lbltotale2, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.label27, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(99, 9);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(105, 9);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.54054F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.45946F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(73, 191);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(61, 191);
             this.tableLayoutPanel4.TabIndex = 40;
             // 
             // lbltotale2
@@ -481,7 +484,7 @@ namespace GOS_FxApps
             this.lbltotale2.Location = new System.Drawing.Point(2, 115);
             this.lbltotale2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbltotale2.Name = "lbltotale2";
-            this.lbltotale2.Size = new System.Drawing.Size(69, 76);
+            this.lbltotale2.Size = new System.Drawing.Size(57, 76);
             this.lbltotale2.TabIndex = 3;
             this.lbltotale2.Text = "-";
             this.lbltotale2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -496,7 +499,7 @@ namespace GOS_FxApps
             this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label27.Name = "label27";
             this.label27.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.label27.Size = new System.Drawing.Size(69, 115);
+            this.label27.Size = new System.Drawing.Size(57, 115);
             this.label27.TabIndex = 2;
             this.label27.Text = "Jumlah";
             this.label27.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -647,7 +650,8 @@ namespace GOS_FxApps
             // 
             // guna2Panel4
             // 
-            this.guna2Panel4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.guna2Panel4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel4.BorderColor = System.Drawing.Color.Gainsboro;
             this.guna2Panel4.BorderRadius = 15;
             this.guna2Panel4.BorderThickness = 2;
             this.guna2Panel4.Controls.Add(this.label21);
@@ -657,6 +661,7 @@ namespace GOS_FxApps
             this.guna2Panel4.Controls.Add(this.label4);
             this.guna2Panel4.Controls.Add(this.txte1ers);
             this.guna2Panel4.Controls.Add(this.label7);
+            this.guna2Panel4.FillColor = System.Drawing.Color.White;
             this.guna2Panel4.Location = new System.Drawing.Point(12, 35);
             this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel4.Name = "guna2Panel4";
@@ -696,14 +701,14 @@ namespace GOS_FxApps
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel2.Controls.Add(this.lbltotale1, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label24, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(99, 9);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(105, 9);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61.25655F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.74345F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(73, 191);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(61, 191);
             this.tableLayoutPanel2.TabIndex = 37;
             // 
             // lbltotale1
@@ -715,7 +720,7 @@ namespace GOS_FxApps
             this.lbltotale1.Location = new System.Drawing.Point(2, 117);
             this.lbltotale1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbltotale1.Name = "lbltotale1";
-            this.lbltotale1.Size = new System.Drawing.Size(69, 74);
+            this.lbltotale1.Size = new System.Drawing.Size(57, 74);
             this.lbltotale1.TabIndex = 3;
             this.lbltotale1.Text = "-";
             this.lbltotale1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -730,7 +735,7 @@ namespace GOS_FxApps
             this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label24.Name = "label24";
             this.label24.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.label24.Size = new System.Drawing.Size(69, 117);
+            this.label24.Size = new System.Drawing.Size(57, 117);
             this.label24.TabIndex = 2;
             this.label24.Text = "Jumlah";
             this.label24.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -816,10 +821,12 @@ namespace GOS_FxApps
             // guna2Panel3
             // 
             this.guna2Panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Panel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel3.BorderColor = System.Drawing.Color.Gainsboro;
             this.guna2Panel3.BorderRadius = 15;
             this.guna2Panel3.BorderThickness = 2;
             this.guna2Panel3.Controls.Add(this.tableLayoutPanel3);
+            this.guna2Panel3.FillColor = System.Drawing.Color.White;
             this.guna2Panel3.Location = new System.Drawing.Point(12, 425);
             this.guna2Panel3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel3.Name = "guna2Panel3";
@@ -1391,9 +1398,9 @@ namespace GOS_FxApps
             this.txtcariperbaikan.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtcariperbaikan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtcariperbaikan.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtcariperbaikan.ForeColor = System.Drawing.Color.White;
+            this.txtcariperbaikan.ForeColor = System.Drawing.Color.Black;
             this.txtcariperbaikan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcariperbaikan.IconLeft = global::GOS_FxApps.Properties.Resources.icons8_search_50;
+            this.txtcariperbaikan.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtcariperbaikan.IconLeft")));
             this.txtcariperbaikan.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.txtcariperbaikan.IconLeftSize = new System.Drawing.Size(15, 15);
             this.txtcariperbaikan.Location = new System.Drawing.Point(195, 15);
@@ -1404,6 +1411,7 @@ namespace GOS_FxApps
             this.txtcariperbaikan.SelectedText = "";
             this.txtcariperbaikan.Size = new System.Drawing.Size(48, 39);
             this.txtcariperbaikan.TabIndex = 1;
+            this.txtcariperbaikan.TextOffset = new System.Drawing.Point(5, 0);
             this.txtcariperbaikan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // dataGridView1
@@ -1523,9 +1531,9 @@ namespace GOS_FxApps
             this.txtcaripenerimaan.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtcaripenerimaan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtcaripenerimaan.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtcaripenerimaan.ForeColor = System.Drawing.Color.White;
+            this.txtcaripenerimaan.ForeColor = System.Drawing.Color.Black;
             this.txtcaripenerimaan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcaripenerimaan.IconLeft = global::GOS_FxApps.Properties.Resources.icons8_search_50;
+            this.txtcaripenerimaan.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtcaripenerimaan.IconLeft")));
             this.txtcaripenerimaan.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.txtcaripenerimaan.IconLeftSize = new System.Drawing.Size(15, 15);
             this.txtcaripenerimaan.Location = new System.Drawing.Point(195, 15);
@@ -1536,6 +1544,7 @@ namespace GOS_FxApps
             this.txtcaripenerimaan.SelectedText = "";
             this.txtcaripenerimaan.Size = new System.Drawing.Size(48, 39);
             this.txtcaripenerimaan.TabIndex = 1;
+            this.txtcaripenerimaan.TextOffset = new System.Drawing.Point(5, 0);
             // 
             // dataGridView2
             // 

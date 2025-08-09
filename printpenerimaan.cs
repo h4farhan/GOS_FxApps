@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GOS_FxApps.DataSet;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 using Microsoft.Reporting.Map.WebForms.BingMaps;
 using Microsoft.Reporting.WinForms;
 
@@ -703,9 +703,9 @@ namespace GOS_FxApps
             DateTime? tanggal2 = datecari.Checked ? (DateTime?)datecari.Value.AddDays(1).Date : null;
             string shift = cbShift.SelectedItem ?.ToString();
 
-            if (!tanggal1.HasValue || string.IsNullOrEmpty(shift))
+            if (string.IsNullOrEmpty(shift))
             {
-                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Silakan pilih shift untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -755,9 +755,9 @@ namespace GOS_FxApps
             DateTime? tanggal2 = datecari.Checked ? (DateTime?)datecari.Value.AddDays(1).Date : null;
             string shift = cbShift.SelectedItem?.ToString(); 
 
-            if (!tanggal1.HasValue || string.IsNullOrEmpty(shift))
+            if (string.IsNullOrEmpty(shift))
             {
-                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Silakan pilih shift untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -807,9 +807,9 @@ namespace GOS_FxApps
             DateTime? tanggal2 = datecari.Checked ? (DateTime?)datecari.Value.AddDays(1).Date : null;
             string shift = cbShift.SelectedItem?.ToString();
 
-            if (!tanggal1.HasValue || string.IsNullOrEmpty(shift))
+            if (string.IsNullOrEmpty(shift))
             {
-                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Silakan pilih shift untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -858,12 +858,6 @@ namespace GOS_FxApps
             int bulan = datecaripemakaian.Value.Month;
             int tahun = datecaripemakaian.Value.Year;
 
-            if (datecaripemakaian.Checked == false)
-            {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
             DataTable dt = new DataTable();
 
             string query = "SELECT * FROM pemakaian_material WHERE YEAR(tanggalPemakaian) = @year AND MONTH(tanggalPemakaian) = @bulan;";
@@ -908,12 +902,6 @@ namespace GOS_FxApps
             int bulan = datecaripemakaian.Value.Month;
             int tahun = datecaripemakaian.Value.Year;
 
-            if (datecaripemakaian.Checked == false)
-            {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
             DataTable dt = new DataTable();
 
             string query = "SELECT * FROM Rb_Stok WHERE YEAR(tanggal) = @year AND MONTH(tanggal) = @bulan;";
@@ -956,12 +944,6 @@ namespace GOS_FxApps
         {
             int bulan = datecaripemakaian.Value.Month;
             int tahun = datecaripemakaian.Value.Year;
-
-            if (datecaripemakaian.Checked == false)
-            {
-                MessageBox.Show("Silakan isi tanggal untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
 
             DataTable dt = new DataTable();
 
@@ -1006,12 +988,6 @@ namespace GOS_FxApps
             int bulan = datecaripemakaian.Value.Month;
             int tahun = datecaripemakaian.Value.Year;
 
-            if (datecaripemakaian.Checked == false)
-            {
-                MessageBox.Show("Silakan isi tanggal untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
             DataTable dt = new DataTable();
 
             string query = "SELECT * FROM perbaikan_p WHERE YEAR(tanggal_perbaikan) = @year AND MONTH(tanggal_perbaikan) = @bulan;";
@@ -1054,12 +1030,6 @@ namespace GOS_FxApps
         {
             int bulan = datecaripemakaian.Value.Month;
             int tahun = datecaripemakaian.Value.Year;
-
-            if (datecaripemakaian.Checked == false)
-            {
-                MessageBox.Show("Silakan isi tanggal untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
 
             DataTable dt = new DataTable();
 

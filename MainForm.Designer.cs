@@ -35,11 +35,14 @@ namespace GOS_FxApps
             this.titlePanel = new System.Windows.Forms.Panel();
             this.ControlBoxButton = new Guna.UI2.WinForms.Guna2ControlBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.EditContainer = new Guna.UI2.WinForms.Guna2Panel();
-            this.iconButton12 = new Guna.UI2.WinForms.Guna2Button();
-            this.iconButton8 = new Guna.UI2.WinForms.Guna2Button();
-            this.iconButton9 = new Guna.UI2.WinForms.Guna2Button();
-            this.Editbutton = new Guna.UI2.WinForms.Guna2Button();
+            this.historycontainer = new Guna.UI2.WinForms.Guna2Panel();
+            this.iconButton13 = new Guna.UI2.WinForms.Guna2Button();
+            this.iconButton5 = new Guna.UI2.WinForms.Guna2Button();
+            this.iconButton6 = new Guna.UI2.WinForms.Guna2Button();
+            this.iconButton10 = new Guna.UI2.WinForms.Guna2Button();
+            this.iconButton11 = new Guna.UI2.WinForms.Guna2Button();
+            this.iconButton24 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnHistori = new Guna.UI2.WinForms.Guna2Button();
             this.headerPanel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbluser = new System.Windows.Forms.Label();
@@ -63,7 +66,7 @@ namespace GOS_FxApps
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dashboardButton = new Guna.UI2.WinForms.Guna2Button();
-            this.entryContainer = new System.Windows.Forms.Panel();
+            this.entryContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.iconButton15 = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton4 = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton3 = new Guna.UI2.WinForms.Guna2Button();
@@ -71,17 +74,15 @@ namespace GOS_FxApps
             this.iconButton1 = new Guna.UI2.WinForms.Guna2Button();
             this.penerimaanButton1 = new Guna.UI2.WinForms.Guna2Button();
             this.entryButton = new Guna.UI2.WinForms.Guna2Button();
+            this.EditContainer = new Guna.UI2.WinForms.Guna2Panel();
+            this.iconButton12 = new Guna.UI2.WinForms.Guna2Button();
+            this.iconButton8 = new Guna.UI2.WinForms.Guna2Button();
+            this.iconButton9 = new Guna.UI2.WinForms.Guna2Button();
+            this.Editbutton = new Guna.UI2.WinForms.Guna2Button();
             this.btnlaporan = new Guna.UI2.WinForms.Guna2Button();
-            this.historycontainer = new System.Windows.Forms.Panel();
-            this.iconButton13 = new Guna.UI2.WinForms.Guna2Button();
-            this.iconButton5 = new Guna.UI2.WinForms.Guna2Button();
-            this.iconButton6 = new Guna.UI2.WinForms.Guna2Button();
-            this.iconButton10 = new Guna.UI2.WinForms.Guna2Button();
-            this.iconButton11 = new Guna.UI2.WinForms.Guna2Button();
-            this.iconButton24 = new Guna.UI2.WinForms.Guna2Button();
-            this.btnHistori = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.titlePanel.SuspendLayout();
-            this.EditContainer.SuspendLayout();
+            this.historycontainer.SuspendLayout();
             this.headerPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -92,12 +93,13 @@ namespace GOS_FxApps
             this.guna2Panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.entryContainer.SuspendLayout();
-            this.historycontainer.SuspendLayout();
+            this.EditContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // titlePanel
             // 
             this.titlePanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.titlePanel.Controls.Add(this.guna2ControlBox1);
             this.titlePanel.Controls.Add(this.ControlBoxButton);
             this.titlePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.titlePanel.Location = new System.Drawing.Point(0, 0);
@@ -111,10 +113,10 @@ namespace GOS_FxApps
             this.ControlBoxButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.ControlBoxButton.FillColor = System.Drawing.Color.Transparent;
             this.ControlBoxButton.IconColor = System.Drawing.Color.Red;
-            this.ControlBoxButton.Location = new System.Drawing.Point(1196, 0);
+            this.ControlBoxButton.Location = new System.Drawing.Point(1176, 0);
             this.ControlBoxButton.Margin = new System.Windows.Forms.Padding(2);
             this.ControlBoxButton.Name = "ControlBoxButton";
-            this.ControlBoxButton.Size = new System.Drawing.Size(25, 30);
+            this.ControlBoxButton.Size = new System.Drawing.Size(45, 30);
             this.ControlBoxButton.TabIndex = 0;
             // 
             // panel4
@@ -127,90 +129,191 @@ namespace GOS_FxApps
             this.panel4.Size = new System.Drawing.Size(967, 647);
             this.panel4.TabIndex = 3;
             // 
-            // EditContainer
+            // historycontainer
             // 
-            this.EditContainer.Controls.Add(this.iconButton12);
-            this.EditContainer.Controls.Add(this.iconButton8);
-            this.EditContainer.Controls.Add(this.iconButton9);
-            this.EditContainer.Controls.Add(this.Editbutton);
-            this.EditContainer.Location = new System.Drawing.Point(6, 142);
-            this.EditContainer.MaximumSize = new System.Drawing.Size(231, 203);
-            this.EditContainer.MinimumSize = new System.Drawing.Size(231, 55);
-            this.EditContainer.Name = "EditContainer";
-            this.EditContainer.Size = new System.Drawing.Size(231, 55);
-            this.EditContainer.TabIndex = 13;
+            this.historycontainer.BackColor = System.Drawing.Color.Transparent;
+            this.historycontainer.BorderRadius = 8;
+            this.historycontainer.Controls.Add(this.iconButton13);
+            this.historycontainer.Controls.Add(this.iconButton5);
+            this.historycontainer.Controls.Add(this.iconButton6);
+            this.historycontainer.Controls.Add(this.iconButton10);
+            this.historycontainer.Controls.Add(this.iconButton11);
+            this.historycontainer.Controls.Add(this.iconButton24);
+            this.historycontainer.Controls.Add(this.btnHistori);
+            this.historycontainer.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.historycontainer.Location = new System.Drawing.Point(6, 264);
+            this.historycontainer.MaximumSize = new System.Drawing.Size(232, 308);
+            this.historycontainer.MinimumSize = new System.Drawing.Size(232, 55);
+            this.historycontainer.Name = "historycontainer";
+            this.historycontainer.Size = new System.Drawing.Size(232, 55);
+            this.historycontainer.TabIndex = 14;
             // 
-            // iconButton12
+            // iconButton13
             // 
-            this.iconButton12.BorderRadius = 8;
-            this.iconButton12.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton12.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton12.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.iconButton12.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.iconButton12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton12.FillColor = System.Drawing.Color.White;
-            this.iconButton12.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.iconButton12.ForeColor = System.Drawing.Color.Black;
-            this.iconButton12.Location = new System.Drawing.Point(0, 140);
-            this.iconButton12.Name = "iconButton12";
-            this.iconButton12.Size = new System.Drawing.Size(231, 60);
-            this.iconButton12.TabIndex = 17;
-            this.iconButton12.Text = "Koefisiensi Material";
-            this.iconButton12.Click += new System.EventHandler(this.iconButton12_Click);
+            this.iconButton13.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton13.BorderRadius = 5;
+            this.iconButton13.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton13.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton13.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.iconButton13.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.iconButton13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton13.FillColor = System.Drawing.Color.Transparent;
+            this.iconButton13.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.iconButton13.ForeColor = System.Drawing.Color.Black;
+            this.iconButton13.Image = global::GOS_FxApps.Properties.Resources.material_management;
+            this.iconButton13.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton13.ImageSize = new System.Drawing.Size(35, 35);
+            this.iconButton13.Location = new System.Drawing.Point(0, 255);
+            this.iconButton13.Name = "iconButton13";
+            this.iconButton13.Size = new System.Drawing.Size(232, 50);
+            this.iconButton13.TabIndex = 20;
+            this.iconButton13.Text = "Stok Material";
+            this.iconButton13.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton13.TextOffset = new System.Drawing.Point(5, 0);
+            this.iconButton13.Click += new System.EventHandler(this.iconButton13_Click_1);
             // 
-            // iconButton8
+            // iconButton5
             // 
-            this.iconButton8.BorderRadius = 8;
-            this.iconButton8.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton8.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.iconButton8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.iconButton8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton8.FillColor = System.Drawing.Color.White;
-            this.iconButton8.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.iconButton8.ForeColor = System.Drawing.Color.Black;
-            this.iconButton8.Location = new System.Drawing.Point(0, 100);
-            this.iconButton8.Name = "iconButton8";
-            this.iconButton8.Size = new System.Drawing.Size(231, 40);
-            this.iconButton8.TabIndex = 16;
-            this.iconButton8.Text = "Perbaikan";
-            this.iconButton8.Click += new System.EventHandler(this.iconButton8_Click_1);
+            this.iconButton5.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton5.BorderRadius = 5;
+            this.iconButton5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.iconButton5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.iconButton5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton5.FillColor = System.Drawing.Color.Transparent;
+            this.iconButton5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.iconButton5.ForeColor = System.Drawing.Color.Black;
+            this.iconButton5.Image = global::GOS_FxApps.Properties.Resources.recycled_material;
+            this.iconButton5.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton5.ImageSize = new System.Drawing.Size(30, 30);
+            this.iconButton5.Location = new System.Drawing.Point(0, 215);
+            this.iconButton5.Name = "iconButton5";
+            this.iconButton5.Size = new System.Drawing.Size(232, 40);
+            this.iconButton5.TabIndex = 19;
+            this.iconButton5.Text = "Pemakaian Material";
+            this.iconButton5.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton5.TextOffset = new System.Drawing.Point(5, 0);
+            this.iconButton5.Click += new System.EventHandler(this.iconButton5_Click_1);
             // 
-            // iconButton9
+            // iconButton6
             // 
-            this.iconButton9.BorderRadius = 8;
-            this.iconButton9.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton9.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton9.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.iconButton9.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.iconButton9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton9.FillColor = System.Drawing.Color.White;
-            this.iconButton9.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.iconButton9.ForeColor = System.Drawing.Color.Black;
-            this.iconButton9.Location = new System.Drawing.Point(0, 60);
-            this.iconButton9.Name = "iconButton9";
-            this.iconButton9.Size = new System.Drawing.Size(231, 40);
-            this.iconButton9.TabIndex = 15;
-            this.iconButton9.Text = "Penerimaan";
-            this.iconButton9.Click += new System.EventHandler(this.iconButton9_Click_1);
+            this.iconButton6.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton6.BorderRadius = 5;
+            this.iconButton6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.iconButton6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.iconButton6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton6.FillColor = System.Drawing.Color.Transparent;
+            this.iconButton6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.iconButton6.ForeColor = System.Drawing.Color.Black;
+            this.iconButton6.Image = global::GOS_FxApps.Properties.Resources.welding_machine;
+            this.iconButton6.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton6.ImageSize = new System.Drawing.Size(30, 30);
+            this.iconButton6.Location = new System.Drawing.Point(0, 175);
+            this.iconButton6.Name = "iconButton6";
+            this.iconButton6.Size = new System.Drawing.Size(232, 40);
+            this.iconButton6.TabIndex = 18;
+            this.iconButton6.Text = "Welding Pieces";
+            this.iconButton6.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton6.TextOffset = new System.Drawing.Point(5, 0);
+            this.iconButton6.Click += new System.EventHandler(this.iconButton6_Click_1);
             // 
-            // Editbutton
+            // iconButton10
             // 
-            this.Editbutton.BorderRadius = 8;
-            this.Editbutton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Editbutton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Editbutton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Editbutton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Editbutton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Editbutton.FillColor = System.Drawing.Color.White;
-            this.Editbutton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Editbutton.ForeColor = System.Drawing.Color.Black;
-            this.Editbutton.Location = new System.Drawing.Point(0, 0);
-            this.Editbutton.Name = "Editbutton";
-            this.Editbutton.Size = new System.Drawing.Size(231, 60);
-            this.Editbutton.TabIndex = 14;
-            this.Editbutton.Text = "Form Edit Data";
-            this.Editbutton.Click += new System.EventHandler(this.Editbutton_Click_1);
+            this.iconButton10.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton10.BorderRadius = 5;
+            this.iconButton10.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton10.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton10.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.iconButton10.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.iconButton10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton10.FillColor = System.Drawing.Color.Transparent;
+            this.iconButton10.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.iconButton10.ForeColor = System.Drawing.Color.Black;
+            this.iconButton10.Image = global::GOS_FxApps.Properties.Resources.delivery;
+            this.iconButton10.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton10.ImageSize = new System.Drawing.Size(30, 30);
+            this.iconButton10.Location = new System.Drawing.Point(0, 135);
+            this.iconButton10.Name = "iconButton10";
+            this.iconButton10.Size = new System.Drawing.Size(232, 40);
+            this.iconButton10.TabIndex = 17;
+            this.iconButton10.Text = "Pengiriman";
+            this.iconButton10.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton10.TextOffset = new System.Drawing.Point(5, 0);
+            this.iconButton10.Click += new System.EventHandler(this.iconButton10_Click_1);
+            // 
+            // iconButton11
+            // 
+            this.iconButton11.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton11.BorderRadius = 5;
+            this.iconButton11.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton11.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton11.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.iconButton11.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.iconButton11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton11.FillColor = System.Drawing.Color.Transparent;
+            this.iconButton11.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.iconButton11.ForeColor = System.Drawing.Color.Black;
+            this.iconButton11.Image = global::GOS_FxApps.Properties.Resources.tool_box;
+            this.iconButton11.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton11.ImageSize = new System.Drawing.Size(30, 30);
+            this.iconButton11.Location = new System.Drawing.Point(0, 95);
+            this.iconButton11.Name = "iconButton11";
+            this.iconButton11.Size = new System.Drawing.Size(232, 40);
+            this.iconButton11.TabIndex = 16;
+            this.iconButton11.Text = "Perbaikan";
+            this.iconButton11.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton11.TextOffset = new System.Drawing.Point(5, 0);
+            this.iconButton11.Click += new System.EventHandler(this.iconButton11_Click_1);
+            // 
+            // iconButton24
+            // 
+            this.iconButton24.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton24.BorderRadius = 5;
+            this.iconButton24.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton24.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton24.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.iconButton24.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.iconButton24.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton24.FillColor = System.Drawing.Color.Transparent;
+            this.iconButton24.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.iconButton24.ForeColor = System.Drawing.Color.Black;
+            this.iconButton24.Image = global::GOS_FxApps.Properties.Resources.delivery_service1;
+            this.iconButton24.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton24.ImageSize = new System.Drawing.Size(30, 30);
+            this.iconButton24.Location = new System.Drawing.Point(0, 55);
+            this.iconButton24.Name = "iconButton24";
+            this.iconButton24.Size = new System.Drawing.Size(232, 40);
+            this.iconButton24.TabIndex = 15;
+            this.iconButton24.Text = "Penerimaan";
+            this.iconButton24.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton24.TextOffset = new System.Drawing.Point(5, 0);
+            this.iconButton24.Click += new System.EventHandler(this.iconButton24_Click_1);
+            // 
+            // btnHistori
+            // 
+            this.btnHistori.BorderRadius = 5;
+            this.btnHistori.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnHistori.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnHistori.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnHistori.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnHistori.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHistori.FillColor = System.Drawing.Color.White;
+            this.btnHistori.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnHistori.ForeColor = System.Drawing.Color.Black;
+            this.btnHistori.Image = global::GOS_FxApps.Properties.Resources.history;
+            this.btnHistori.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnHistori.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnHistori.Location = new System.Drawing.Point(0, 0);
+            this.btnHistori.Name = "btnHistori";
+            this.btnHistori.Size = new System.Drawing.Size(232, 55);
+            this.btnHistori.TabIndex = 14;
+            this.btnHistori.Text = "Riwayat Data";
+            this.btnHistori.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnHistori.TextOffset = new System.Drawing.Point(5, 0);
+            this.btnHistori.Click += new System.EventHandler(this.btnHistori_Click);
             // 
             // headerPanel
             // 
@@ -447,7 +550,7 @@ namespace GOS_FxApps
             this.sidebarPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebarPanel.Location = new System.Drawing.Point(0, 30);
             this.sidebarPanel.MaximumSize = new System.Drawing.Size(254, 0);
-            this.sidebarPanel.MinimumSize = new System.Drawing.Size(65, 0);
+            this.sidebarPanel.MinimumSize = new System.Drawing.Size(60, 0);
             this.sidebarPanel.Name = "sidebarPanel";
             this.sidebarPanel.RowCount = 2;
             this.sidebarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -498,16 +601,22 @@ namespace GOS_FxApps
             this.dashboardButton.FillColor = System.Drawing.Color.White;
             this.dashboardButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dashboardButton.ForeColor = System.Drawing.Color.Black;
+            this.dashboardButton.Image = global::GOS_FxApps.Properties.Resources.dashboard;
+            this.dashboardButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.dashboardButton.ImageSize = new System.Drawing.Size(30, 30);
             this.dashboardButton.Location = new System.Drawing.Point(6, 20);
             this.dashboardButton.Name = "dashboardButton";
             this.dashboardButton.Size = new System.Drawing.Size(231, 55);
             this.dashboardButton.TabIndex = 13;
             this.dashboardButton.Text = "Dashboard";
+            this.dashboardButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.dashboardButton.TextOffset = new System.Drawing.Point(5, 0);
             this.dashboardButton.Click += new System.EventHandler(this.dashboardButton_Click_1);
             // 
             // entryContainer
             // 
             this.entryContainer.BackColor = System.Drawing.Color.Transparent;
+            this.entryContainer.BorderRadius = 8;
             this.entryContainer.Controls.Add(this.iconButton15);
             this.entryContainer.Controls.Add(this.iconButton4);
             this.entryContainer.Controls.Add(this.iconButton3);
@@ -515,12 +624,13 @@ namespace GOS_FxApps
             this.entryContainer.Controls.Add(this.iconButton1);
             this.entryContainer.Controls.Add(this.penerimaanButton1);
             this.entryContainer.Controls.Add(this.entryButton);
+            this.entryContainer.FillColor = System.Drawing.Color.WhiteSmoke;
             this.entryContainer.Location = new System.Drawing.Point(6, 81);
-            this.entryContainer.MaximumSize = new System.Drawing.Size(231, 299);
+            this.entryContainer.MaximumSize = new System.Drawing.Size(231, 297);
             this.entryContainer.MinimumSize = new System.Drawing.Size(231, 55);
             this.entryContainer.Name = "entryContainer";
             this.entryContainer.Size = new System.Drawing.Size(231, 55);
-            this.entryContainer.TabIndex = 13;
+            this.entryContainer.TabIndex = 15;
             // 
             // iconButton15
             // 
@@ -530,14 +640,19 @@ namespace GOS_FxApps
             this.iconButton15.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.iconButton15.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.iconButton15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton15.FillColor = System.Drawing.Color.White;
+            this.iconButton15.FillColor = System.Drawing.Color.Transparent;
             this.iconButton15.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.iconButton15.ForeColor = System.Drawing.Color.Black;
+            this.iconButton15.Image = global::GOS_FxApps.Properties.Resources.corporate;
+            this.iconButton15.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton15.ImageSize = new System.Drawing.Size(30, 30);
             this.iconButton15.Location = new System.Drawing.Point(0, 255);
             this.iconButton15.Name = "iconButton15";
             this.iconButton15.Size = new System.Drawing.Size(231, 40);
             this.iconButton15.TabIndex = 19;
             this.iconButton15.Text = "Butt Ratio dan Man Power";
+            this.iconButton15.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton15.TextOffset = new System.Drawing.Point(5, 0);
             this.iconButton15.Click += new System.EventHandler(this.iconButton15_Click_1);
             // 
             // iconButton4
@@ -548,14 +663,19 @@ namespace GOS_FxApps
             this.iconButton4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.iconButton4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.iconButton4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton4.FillColor = System.Drawing.Color.White;
+            this.iconButton4.FillColor = System.Drawing.Color.Transparent;
             this.iconButton4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.iconButton4.ForeColor = System.Drawing.Color.Black;
+            this.iconButton4.Image = global::GOS_FxApps.Properties.Resources.recycled_material;
+            this.iconButton4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton4.ImageSize = new System.Drawing.Size(30, 30);
             this.iconButton4.Location = new System.Drawing.Point(0, 215);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Size = new System.Drawing.Size(231, 40);
             this.iconButton4.TabIndex = 18;
-            this.iconButton4.Text = "     Pemakaian Material";
+            this.iconButton4.Text = "Pemakaian Material";
+            this.iconButton4.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton4.TextOffset = new System.Drawing.Point(5, 0);
             this.iconButton4.Click += new System.EventHandler(this.iconButton4_Click_1);
             // 
             // iconButton3
@@ -566,14 +686,19 @@ namespace GOS_FxApps
             this.iconButton3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.iconButton3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.iconButton3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton3.FillColor = System.Drawing.Color.White;
+            this.iconButton3.FillColor = System.Drawing.Color.Transparent;
             this.iconButton3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.iconButton3.ForeColor = System.Drawing.Color.Black;
+            this.iconButton3.Image = global::GOS_FxApps.Properties.Resources.welding_machine;
+            this.iconButton3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton3.ImageSize = new System.Drawing.Size(30, 30);
             this.iconButton3.Location = new System.Drawing.Point(0, 175);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(231, 40);
             this.iconButton3.TabIndex = 20;
             this.iconButton3.Text = "Welding Pieces";
+            this.iconButton3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton3.TextOffset = new System.Drawing.Point(5, 0);
             this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click_1);
             // 
             // iconButton2
@@ -584,14 +709,19 @@ namespace GOS_FxApps
             this.iconButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.iconButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.iconButton2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton2.FillColor = System.Drawing.Color.White;
+            this.iconButton2.FillColor = System.Drawing.Color.Transparent;
             this.iconButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.iconButton2.ForeColor = System.Drawing.Color.Black;
+            this.iconButton2.Image = global::GOS_FxApps.Properties.Resources.delivery;
+            this.iconButton2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton2.ImageSize = new System.Drawing.Size(30, 30);
             this.iconButton2.Location = new System.Drawing.Point(0, 135);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(231, 40);
             this.iconButton2.TabIndex = 17;
             this.iconButton2.Text = "Pengiriman";
+            this.iconButton2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton2.TextOffset = new System.Drawing.Point(5, 0);
             this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click_1);
             // 
             // iconButton1
@@ -602,14 +732,19 @@ namespace GOS_FxApps
             this.iconButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.iconButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton1.FillColor = System.Drawing.Color.White;
+            this.iconButton1.FillColor = System.Drawing.Color.Transparent;
             this.iconButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.iconButton1.ForeColor = System.Drawing.Color.Black;
+            this.iconButton1.Image = global::GOS_FxApps.Properties.Resources.tool_box;
+            this.iconButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton1.ImageSize = new System.Drawing.Size(30, 30);
             this.iconButton1.Location = new System.Drawing.Point(0, 95);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(231, 40);
             this.iconButton1.TabIndex = 16;
             this.iconButton1.Text = "Perbaikan";
+            this.iconButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton1.TextOffset = new System.Drawing.Point(5, 0);
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click_1);
             // 
             // penerimaanButton1
@@ -620,14 +755,19 @@ namespace GOS_FxApps
             this.penerimaanButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.penerimaanButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.penerimaanButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.penerimaanButton1.FillColor = System.Drawing.Color.White;
+            this.penerimaanButton1.FillColor = System.Drawing.Color.Transparent;
             this.penerimaanButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.penerimaanButton1.ForeColor = System.Drawing.Color.Black;
+            this.penerimaanButton1.Image = global::GOS_FxApps.Properties.Resources.delivery_service;
+            this.penerimaanButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.penerimaanButton1.ImageSize = new System.Drawing.Size(30, 30);
             this.penerimaanButton1.Location = new System.Drawing.Point(0, 55);
             this.penerimaanButton1.Name = "penerimaanButton1";
             this.penerimaanButton1.Size = new System.Drawing.Size(231, 40);
             this.penerimaanButton1.TabIndex = 15;
             this.penerimaanButton1.Text = "Penerimaan";
+            this.penerimaanButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.penerimaanButton1.TextOffset = new System.Drawing.Point(5, 0);
             this.penerimaanButton1.Click += new System.EventHandler(this.penerimaanButton1_Click_1);
             // 
             // entryButton
@@ -641,12 +781,124 @@ namespace GOS_FxApps
             this.entryButton.FillColor = System.Drawing.Color.White;
             this.entryButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.entryButton.ForeColor = System.Drawing.Color.Black;
+            this.entryButton.Image = global::GOS_FxApps.Properties.Resources.data_entry;
+            this.entryButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.entryButton.ImageSize = new System.Drawing.Size(30, 30);
             this.entryButton.Location = new System.Drawing.Point(0, 0);
             this.entryButton.Name = "entryButton";
             this.entryButton.Size = new System.Drawing.Size(231, 55);
             this.entryButton.TabIndex = 14;
             this.entryButton.Text = "Form Entry Data";
+            this.entryButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.entryButton.TextOffset = new System.Drawing.Point(5, 0);
             this.entryButton.Click += new System.EventHandler(this.entryButton_Click_1);
+            // 
+            // EditContainer
+            // 
+            this.EditContainer.BorderRadius = 8;
+            this.EditContainer.Controls.Add(this.iconButton12);
+            this.EditContainer.Controls.Add(this.iconButton8);
+            this.EditContainer.Controls.Add(this.iconButton9);
+            this.EditContainer.Controls.Add(this.Editbutton);
+            this.EditContainer.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.EditContainer.Location = new System.Drawing.Point(6, 142);
+            this.EditContainer.MaximumSize = new System.Drawing.Size(231, 178);
+            this.EditContainer.MinimumSize = new System.Drawing.Size(231, 55);
+            this.EditContainer.Name = "EditContainer";
+            this.EditContainer.Size = new System.Drawing.Size(231, 55);
+            this.EditContainer.TabIndex = 14;
+            // 
+            // iconButton12
+            // 
+            this.iconButton12.BorderRadius = 8;
+            this.iconButton12.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton12.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton12.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.iconButton12.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.iconButton12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton12.FillColor = System.Drawing.Color.Transparent;
+            this.iconButton12.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.iconButton12.ForeColor = System.Drawing.Color.Black;
+            this.iconButton12.Image = global::GOS_FxApps.Properties.Resources.optimization;
+            this.iconButton12.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton12.ImageSize = new System.Drawing.Size(30, 30);
+            this.iconButton12.Location = new System.Drawing.Point(0, 135);
+            this.iconButton12.Name = "iconButton12";
+            this.iconButton12.Size = new System.Drawing.Size(231, 40);
+            this.iconButton12.TabIndex = 17;
+            this.iconButton12.Text = "Koefisiensi Material";
+            this.iconButton12.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton12.TextOffset = new System.Drawing.Point(5, 0);
+            this.iconButton12.Click += new System.EventHandler(this.iconButton12_Click);
+            // 
+            // iconButton8
+            // 
+            this.iconButton8.BorderRadius = 8;
+            this.iconButton8.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton8.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.iconButton8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.iconButton8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton8.FillColor = System.Drawing.Color.Transparent;
+            this.iconButton8.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.iconButton8.ForeColor = System.Drawing.Color.Black;
+            this.iconButton8.Image = global::GOS_FxApps.Properties.Resources.tool_box;
+            this.iconButton8.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton8.ImageSize = new System.Drawing.Size(30, 30);
+            this.iconButton8.Location = new System.Drawing.Point(0, 95);
+            this.iconButton8.Name = "iconButton8";
+            this.iconButton8.Size = new System.Drawing.Size(231, 40);
+            this.iconButton8.TabIndex = 16;
+            this.iconButton8.Text = "Perbaikan";
+            this.iconButton8.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton8.TextOffset = new System.Drawing.Point(5, 0);
+            this.iconButton8.Click += new System.EventHandler(this.iconButton8_Click_1);
+            // 
+            // iconButton9
+            // 
+            this.iconButton9.BorderRadius = 8;
+            this.iconButton9.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton9.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton9.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.iconButton9.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.iconButton9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton9.FillColor = System.Drawing.Color.Transparent;
+            this.iconButton9.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.iconButton9.ForeColor = System.Drawing.Color.Black;
+            this.iconButton9.Image = global::GOS_FxApps.Properties.Resources.delivery_service1;
+            this.iconButton9.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton9.ImageSize = new System.Drawing.Size(30, 30);
+            this.iconButton9.Location = new System.Drawing.Point(0, 55);
+            this.iconButton9.Name = "iconButton9";
+            this.iconButton9.Size = new System.Drawing.Size(231, 40);
+            this.iconButton9.TabIndex = 15;
+            this.iconButton9.Text = "Penerimaan";
+            this.iconButton9.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton9.TextOffset = new System.Drawing.Point(5, 0);
+            this.iconButton9.Click += new System.EventHandler(this.iconButton9_Click_1);
+            // 
+            // Editbutton
+            // 
+            this.Editbutton.BorderRadius = 8;
+            this.Editbutton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Editbutton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Editbutton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Editbutton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Editbutton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Editbutton.FillColor = System.Drawing.Color.White;
+            this.Editbutton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Editbutton.ForeColor = System.Drawing.Color.Black;
+            this.Editbutton.Image = global::GOS_FxApps.Properties.Resources.edit_tools;
+            this.Editbutton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.Editbutton.ImageSize = new System.Drawing.Size(30, 30);
+            this.Editbutton.Location = new System.Drawing.Point(0, 0);
+            this.Editbutton.Name = "Editbutton";
+            this.Editbutton.Size = new System.Drawing.Size(231, 55);
+            this.Editbutton.TabIndex = 14;
+            this.Editbutton.Text = "Form Edit Data";
+            this.Editbutton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.Editbutton.TextOffset = new System.Drawing.Point(5, 0);
+            this.Editbutton.Click += new System.EventHandler(this.Editbutton_Click_1);
             // 
             // btnlaporan
             // 
@@ -658,154 +910,29 @@ namespace GOS_FxApps
             this.btnlaporan.FillColor = System.Drawing.Color.White;
             this.btnlaporan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnlaporan.ForeColor = System.Drawing.Color.Black;
+            this.btnlaporan.Image = global::GOS_FxApps.Properties.Resources.pdf;
+            this.btnlaporan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnlaporan.ImageSize = new System.Drawing.Size(30, 30);
             this.btnlaporan.Location = new System.Drawing.Point(6, 203);
             this.btnlaporan.Name = "btnlaporan";
             this.btnlaporan.Size = new System.Drawing.Size(231, 55);
             this.btnlaporan.TabIndex = 14;
             this.btnlaporan.Text = "Laporan";
+            this.btnlaporan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnlaporan.TextOffset = new System.Drawing.Point(5, 0);
             this.btnlaporan.Click += new System.EventHandler(this.btnlaporan_Click_1);
             // 
-            // historycontainer
+            // guna2ControlBox1
             // 
-            this.historycontainer.Controls.Add(this.iconButton13);
-            this.historycontainer.Controls.Add(this.iconButton5);
-            this.historycontainer.Controls.Add(this.iconButton6);
-            this.historycontainer.Controls.Add(this.iconButton10);
-            this.historycontainer.Controls.Add(this.iconButton11);
-            this.historycontainer.Controls.Add(this.iconButton24);
-            this.historycontainer.Controls.Add(this.btnHistori);
-            this.historycontainer.Location = new System.Drawing.Point(6, 264);
-            this.historycontainer.MaximumSize = new System.Drawing.Size(232, 306);
-            this.historycontainer.MinimumSize = new System.Drawing.Size(232, 55);
-            this.historycontainer.Name = "historycontainer";
-            this.historycontainer.Size = new System.Drawing.Size(232, 55);
-            this.historycontainer.TabIndex = 13;
-            // 
-            // iconButton13
-            // 
-            this.iconButton13.BorderRadius = 5;
-            this.iconButton13.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton13.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton13.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.iconButton13.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.iconButton13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton13.FillColor = System.Drawing.Color.White;
-            this.iconButton13.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.iconButton13.ForeColor = System.Drawing.Color.Black;
-            this.iconButton13.Location = new System.Drawing.Point(0, 255);
-            this.iconButton13.Name = "iconButton13";
-            this.iconButton13.Size = new System.Drawing.Size(232, 40);
-            this.iconButton13.TabIndex = 20;
-            this.iconButton13.Text = "Stok Material";
-            this.iconButton13.Click += new System.EventHandler(this.iconButton13_Click_1);
-            // 
-            // iconButton5
-            // 
-            this.iconButton5.BorderRadius = 5;
-            this.iconButton5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.iconButton5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.iconButton5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton5.FillColor = System.Drawing.Color.White;
-            this.iconButton5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.iconButton5.ForeColor = System.Drawing.Color.Black;
-            this.iconButton5.Location = new System.Drawing.Point(0, 215);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(232, 40);
-            this.iconButton5.TabIndex = 19;
-            this.iconButton5.Text = "Pemakaian Material";
-            this.iconButton5.Click += new System.EventHandler(this.iconButton5_Click_1);
-            // 
-            // iconButton6
-            // 
-            this.iconButton6.BorderRadius = 5;
-            this.iconButton6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.iconButton6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.iconButton6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton6.FillColor = System.Drawing.Color.White;
-            this.iconButton6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.iconButton6.ForeColor = System.Drawing.Color.Black;
-            this.iconButton6.Location = new System.Drawing.Point(0, 175);
-            this.iconButton6.Name = "iconButton6";
-            this.iconButton6.Size = new System.Drawing.Size(232, 40);
-            this.iconButton6.TabIndex = 18;
-            this.iconButton6.Text = "Welding Pieces";
-            this.iconButton6.Click += new System.EventHandler(this.iconButton6_Click_1);
-            // 
-            // iconButton10
-            // 
-            this.iconButton10.BorderRadius = 5;
-            this.iconButton10.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton10.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton10.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.iconButton10.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.iconButton10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton10.FillColor = System.Drawing.Color.White;
-            this.iconButton10.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.iconButton10.ForeColor = System.Drawing.Color.Black;
-            this.iconButton10.Location = new System.Drawing.Point(0, 135);
-            this.iconButton10.Name = "iconButton10";
-            this.iconButton10.Size = new System.Drawing.Size(232, 40);
-            this.iconButton10.TabIndex = 17;
-            this.iconButton10.Text = "Pengiriman";
-            this.iconButton10.Click += new System.EventHandler(this.iconButton10_Click_1);
-            // 
-            // iconButton11
-            // 
-            this.iconButton11.BorderRadius = 5;
-            this.iconButton11.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton11.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton11.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.iconButton11.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.iconButton11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton11.FillColor = System.Drawing.Color.White;
-            this.iconButton11.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.iconButton11.ForeColor = System.Drawing.Color.Black;
-            this.iconButton11.Location = new System.Drawing.Point(0, 95);
-            this.iconButton11.Name = "iconButton11";
-            this.iconButton11.Size = new System.Drawing.Size(232, 40);
-            this.iconButton11.TabIndex = 16;
-            this.iconButton11.Text = "Perbaikan";
-            this.iconButton11.Click += new System.EventHandler(this.iconButton11_Click_1);
-            // 
-            // iconButton24
-            // 
-            this.iconButton24.BorderRadius = 5;
-            this.iconButton24.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton24.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton24.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.iconButton24.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.iconButton24.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton24.FillColor = System.Drawing.Color.White;
-            this.iconButton24.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.iconButton24.ForeColor = System.Drawing.Color.Black;
-            this.iconButton24.Location = new System.Drawing.Point(0, 55);
-            this.iconButton24.Name = "iconButton24";
-            this.iconButton24.Size = new System.Drawing.Size(232, 40);
-            this.iconButton24.TabIndex = 15;
-            this.iconButton24.Text = "Penerimaan";
-            this.iconButton24.Click += new System.EventHandler(this.iconButton24_Click_1);
-            // 
-            // btnHistori
-            // 
-            this.btnHistori.BorderRadius = 5;
-            this.btnHistori.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnHistori.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnHistori.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnHistori.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnHistori.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnHistori.FillColor = System.Drawing.Color.White;
-            this.btnHistori.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnHistori.ForeColor = System.Drawing.Color.Black;
-            this.btnHistori.Location = new System.Drawing.Point(0, 0);
-            this.btnHistori.Name = "btnHistori";
-            this.btnHistori.Size = new System.Drawing.Size(232, 55);
-            this.btnHistori.TabIndex = 14;
-            this.btnHistori.Text = "Riwayat Data";
-            this.btnHistori.Click += new System.EventHandler(this.btnHistori_Click);
+            this.guna2ControlBox1.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.Black;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1137, 0);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Size = new System.Drawing.Size(39, 30);
+            this.guna2ControlBox1.TabIndex = 1;
             // 
             // MainForm
             // 
@@ -824,7 +951,7 @@ namespace GOS_FxApps
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.titlePanel.ResumeLayout(false);
-            this.EditContainer.ResumeLayout(false);
+            this.historycontainer.ResumeLayout(false);
             this.headerPanel.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -835,7 +962,7 @@ namespace GOS_FxApps
             this.guna2Panel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.entryContainer.ResumeLayout(false);
-            this.historycontainer.ResumeLayout(false);
+            this.EditContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -865,9 +992,8 @@ namespace GOS_FxApps
         private Label lblinfo;
         private TableLayoutPanel sidebarPanel;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2Button dashboardButton;
+        public Guna.UI2.WinForms.Guna2Button dashboardButton;
         private FlowLayoutPanel flowLayoutPanel1;
-        public Panel entryContainer;
         private Guna.UI2.WinForms.Guna2Button entryButton;
         private Guna.UI2.WinForms.Guna2Button iconButton15;
         private Guna.UI2.WinForms.Guna2Button iconButton4;
@@ -875,13 +1001,11 @@ namespace GOS_FxApps
         private Guna.UI2.WinForms.Guna2Button iconButton1;
         private Guna.UI2.WinForms.Guna2Button penerimaanButton1;
         private Guna.UI2.WinForms.Guna2Button iconButton3;
-        public Guna.UI2.WinForms.Guna2Panel EditContainer;
         private Guna.UI2.WinForms.Guna2Button iconButton12;
         private Guna.UI2.WinForms.Guna2Button iconButton8;
         private Guna.UI2.WinForms.Guna2Button iconButton9;
         private Guna.UI2.WinForms.Guna2Button Editbutton;
         private Guna.UI2.WinForms.Guna2Button btnlaporan;
-        public Panel historycontainer;
         private Guna.UI2.WinForms.Guna2Button iconButton13;
         private Guna.UI2.WinForms.Guna2Button iconButton5;
         private Guna.UI2.WinForms.Guna2Button iconButton6;
@@ -889,5 +1013,9 @@ namespace GOS_FxApps
         private Guna.UI2.WinForms.Guna2Button iconButton11;
         private Guna.UI2.WinForms.Guna2Button iconButton24;
         private Guna.UI2.WinForms.Guna2Button btnHistori;
+        public Guna.UI2.WinForms.Guna2Panel entryContainer;
+        public Guna.UI2.WinForms.Guna2Panel EditContainer;
+        public Guna.UI2.WinForms.Guna2Panel historycontainer;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
     }
 }

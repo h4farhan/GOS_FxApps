@@ -106,6 +106,7 @@
             // txtcari
             // 
             this.txtcari.BackColor = System.Drawing.Color.Transparent;
+            this.txtcari.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtcari.BorderRadius = 5;
             this.txtcari.BorderThickness = 2;
             this.txtcari.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -118,7 +119,7 @@
             this.txtcari.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtcari.ForeColor = System.Drawing.Color.Black;
             this.txtcari.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.icons8_search_50;
+            this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.search;
             this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
             this.txtcari.Location = new System.Drawing.Point(11, 91);
@@ -129,6 +130,7 @@
             this.txtcari.SelectedText = "";
             this.txtcari.Size = new System.Drawing.Size(284, 39);
             this.txtcari.TabIndex = 56;
+            this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
             this.txtcari.TextChanged += new System.EventHandler(this.txtcari_TextChanged);
             // 
             // panel1
