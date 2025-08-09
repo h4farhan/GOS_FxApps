@@ -655,6 +655,7 @@ namespace GOS_FxApps
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Pengiriman";
             this.Text = "Pengiriman";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Pengiriman_FormClosing);
             this.Load += new System.EventHandler(this.Pengiriman_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

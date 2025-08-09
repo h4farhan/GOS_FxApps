@@ -25,8 +25,33 @@ namespace GOS_FxApps
 
         private void formstok_Load(object sender, EventArgs e)
         {
+            SqlDependency.Start(Koneksi.GetConnectionString());
             tampil();
             btnupdate.Enabled = false;
+            registertampil();
+        }
+
+        private void registertampil()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.stok_material", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampil();
+                            registertampil();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
         }
 
         private void tampil()
@@ -385,6 +410,11 @@ namespace GOS_FxApps
                     imageBytes = File.ReadAllBytes(openFileDialog.FileName);
                 }
             }
+        }
+
+        private void formstok_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SqlDependency.Stop(Koneksi.GetConnectionString());
         }
     }
 }

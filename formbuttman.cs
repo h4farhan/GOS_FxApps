@@ -23,6 +23,29 @@ namespace GOS_FxApps
             InitializeComponent();
         }
 
+        private void registertampil()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.kondisiROD", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampil();
+                            registertampil();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
         private void tampil()
         {
             try
@@ -266,10 +289,12 @@ namespace GOS_FxApps
 
         private void formbuttman_Load(object sender, EventArgs e)
         {
+            SqlDependency.Start(Koneksi.GetConnectionString());
             tampil();
             date.Value = DateTime.Now.Date;
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
+            registertampil();
         }
 
         private void btncari_Click(object sender, EventArgs e)
@@ -379,6 +404,11 @@ namespace GOS_FxApps
                 cmbshift.Enabled = true;
                 noprimary = 0;
             }
+        }
+
+        private void formbuttman_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SqlDependency.Stop(Koneksi.GetConnectionString());
         }
     }
 }

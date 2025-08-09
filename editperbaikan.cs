@@ -27,11 +27,36 @@ namespace GOS_FxApps
             InitializeComponent();
         }
 
+        private void registertampil()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.perbaikan_p", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampil();
+                            registertampil();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
         private void editperbaikan_Load(object sender, EventArgs e)
         {
+            SqlDependency.Start(Koneksi.GetConnectionString());
             tampil();
             dateeditperbaikan.Value = DateTime.Now.Date;
-            dateeditperbaikan.Checked = false;  
+            dateeditperbaikan.Checked = false;
+            registertampil();
         }
 
         private void tampil()
@@ -523,6 +548,11 @@ namespace GOS_FxApps
         private void txte4_TextChanged(object sender, EventArgs e)
         {
             hitung();
+        }
+
+        private void editperbaikan_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SqlDependency.Start(Koneksi.GetConnectionString());
         }
     }
 }

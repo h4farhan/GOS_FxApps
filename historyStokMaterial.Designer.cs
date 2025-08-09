@@ -181,6 +181,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "historyStokMaterial";
             this.Text = "historyStokMaterial";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.historyStokMaterial_FormClosing);
             this.Load += new System.EventHandler(this.historyStokMaterial_Load);
             this.guna2Panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

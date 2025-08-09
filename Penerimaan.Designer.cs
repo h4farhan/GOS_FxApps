@@ -83,8 +83,8 @@ namespace GOS_FxApps
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.datecari = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.btncari = new Guna.UI2.WinForms.Guna2Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -994,6 +994,37 @@ namespace GOS_FxApps
             this.btncari.Text = "Cari";
             this.btncari.Click += new System.EventHandler(this.btncari_Click);
             // 
+            // txtcari
+            // 
+            this.txtcari.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtcari.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcari.BorderRadius = 5;
+            this.txtcari.BorderThickness = 2;
+            this.txtcari.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtcari.DefaultText = "";
+            this.txtcari.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtcari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtcari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcari.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcari.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcari.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtcari.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtcari.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.search;
+            this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
+            this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
+            this.txtcari.Location = new System.Drawing.Point(195, 15);
+            this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtcari.Name = "txtcari";
+            this.txtcari.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcari.PlaceholderText = "Nomor Rod";
+            this.txtcari.SelectedText = "";
+            this.txtcari.Size = new System.Drawing.Size(46, 39);
+            this.txtcari.TabIndex = 1;
+            this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtcari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -1040,37 +1071,6 @@ namespace GOS_FxApps
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // txtcari
-            // 
-            this.txtcari.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtcari.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcari.BorderRadius = 5;
-            this.txtcari.BorderThickness = 2;
-            this.txtcari.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtcari.DefaultText = "";
-            this.txtcari.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtcari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtcari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcari.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcari.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcari.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtcari.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtcari.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.search;
-            this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
-            this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
-            this.txtcari.Location = new System.Drawing.Point(195, 15);
-            this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtcari.Name = "txtcari";
-            this.txtcari.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcari.PlaceholderText = "Nomor Rod";
-            this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(46, 39);
-            this.txtcari.TabIndex = 1;
-            this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
-            this.txtcari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
-            // 
             // Penerimaan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1084,6 +1084,7 @@ namespace GOS_FxApps
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Penerimaan";
             this.Text = "Penerimaan";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Penerimaan_FormClosing);
             this.Load += new System.EventHandler(this.Penerimaan_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

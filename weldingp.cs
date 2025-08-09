@@ -307,7 +307,29 @@ namespace GOS_FxApps
                 conn.Close();
             }
         }
- 
+        private void registerperbaikan()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.perbaikan_s", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampil();
+                            registerperbaikan();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
 
         //Kode Kode Kalkulasi
         private int SafeParse(string input)
@@ -723,12 +745,14 @@ namespace GOS_FxApps
         //Kode Load Form
         private void weldingp_Load(object sender, EventArgs e)
         {
+            SqlDependency.Start(Koneksi.GetConnectionString());
             btnsimpan.Enabled = false;
             getdatastok();
             tampil();
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
             txtmasuk.Focus();
+            registerperbaikan();
         }
 
 
@@ -882,5 +906,9 @@ namespace GOS_FxApps
             }
         }
 
+        private void weldingp_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SqlDependency.Stop(Koneksi.GetConnectionString());
+        }
     }
 }

@@ -28,6 +28,29 @@ namespace GOS_FxApps
             btnsimpan.Enabled = false;
         }
 
+        private void registertampil()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.penerimaan_s", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampil();
+                            registertampil();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
         private void simpandata()
         {
             try
@@ -456,9 +479,11 @@ namespace GOS_FxApps
 
         private void Penerimaan_Load(object sender, EventArgs e)
         {
+            SqlDependency.Start(Koneksi.GetConnectionString());
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
             txtnomorrod.Focus();
+            registertampil();
         }
 
         private void txtrl_TextChanged(object sender, EventArgs e)
@@ -544,5 +569,9 @@ namespace GOS_FxApps
             btncancel.Enabled = true;
         }
 
+        private void Penerimaan_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SqlDependency.Stop(Koneksi.GetConnectionString());
+        }
     }
 }

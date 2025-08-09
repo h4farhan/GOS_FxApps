@@ -34,6 +34,29 @@ namespace GOS_FxApps
             dataGridView1.ClearSelection();
         }
 
+        private void registertampil()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.setmid_Rb", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampil();
+                            registertampil();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
         private void tampil()
         {
             try
@@ -170,6 +193,17 @@ namespace GOS_FxApps
         private void btnbatal_Click(object sender, EventArgs e)
         {
             setdefault();
+        }
+
+        private void setmin_rb_Load(object sender, EventArgs e)
+        {
+            SqlDependency.Start(Koneksi.GetConnectionString());
+            registertampil();
+        }
+        
+        private void setmin_rb_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SqlDependency.Stop(Koneksi.GetConnectionString());
         }
     }
 }

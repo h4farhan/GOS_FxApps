@@ -21,6 +21,29 @@ namespace GOS_FxApps
             InitializeComponent();
         }
 
+        private void registertampil()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.Rb_Stok", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampil();
+                            registertampil();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
         private void tampil()
         {
             try
@@ -137,9 +160,11 @@ namespace GOS_FxApps
 
         private void historyWelding_Load(object sender, EventArgs e)
         {
+            SqlDependency.Start(Koneksi.GetConnectionString());
             tampil();
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
+            registertampil();
         }
 
         private void btnreset_Click(object sender, EventArgs e)
@@ -150,5 +175,9 @@ namespace GOS_FxApps
             btnreset.Enabled = false;
         }
 
+        private void historyWelding_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SqlDependency.Start(Koneksi.GetConnectionString());
+        }
     }
 }

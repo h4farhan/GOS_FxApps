@@ -443,6 +443,7 @@
             this.Name = "formstok";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "`";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formstok_FormClosing);
             this.Load += new System.EventHandler(this.formstok_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

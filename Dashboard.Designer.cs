@@ -432,7 +432,7 @@ namespace GOS_FxApps
             this.btntiga.Location = new System.Drawing.Point(593, 0);
             this.btntiga.Name = "btntiga";
             this.btntiga.PressedColor = System.Drawing.Color.Transparent;
-            this.btntiga.Size = new System.Drawing.Size(40, 5);
+            this.btntiga.Size = new System.Drawing.Size(40, 13);
             this.btntiga.TabIndex = 6;
             this.btntiga.Visible = false;
             this.btntiga.Click += new System.EventHandler(this.btntiga_Click);

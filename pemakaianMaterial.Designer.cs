@@ -519,6 +519,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "pemakaianMaterial";
             this.Text = "pemakaianMaterial";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.pemakaianMaterial_FormClosing);
             this.Load += new System.EventHandler(this.pemakaianMaterial_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -28,14 +28,63 @@ namespace GOS_FxApps
             tampilpenerimaan();
         }
 
+        private void registertampilpenerimaan()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.penerimaan_s", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampilpenerimaan();
+                            registertampilpenerimaan();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
+        private void registertampilperbaikan()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.perbaikan_s", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampilperbaikan();
+                            registertampilperbaikan();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
         private void Perbaikan_Load(object sender, EventArgs e)
         {
+            SqlDependency.Start(Koneksi.GetConnectionString());
             btnsimpan.Enabled = false;
             datecariperbaikan.Value = DateTime.Now.Date;
             datecariperbaikan.Checked = false;
             datecaripenerimaan.Value = DateTime.Now.Date;
             datecaripenerimaan.Checked = false;
             txtnomorrod.Focus();
+            registertampilpenerimaan();
+            registertampilperbaikan();
         }
 
         private void tampilpenerimaan()
@@ -564,11 +613,6 @@ namespace GOS_FxApps
             btnsimpan.Enabled = true;
         }
 
-        private void btnhitung_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnsimpan_Click(object sender, EventArgs e)
 
         {
@@ -828,5 +872,9 @@ namespace GOS_FxApps
             }
         }
 
+        private void Perbaikan_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SqlDependency.Stop(Koneksi.GetConnectionString());
+        }
     }
 }

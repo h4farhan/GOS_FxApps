@@ -326,6 +326,8 @@
             this.Name = "setmin_rb";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "setmin_rb";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.setmin_rb_FormClosing);
+            this.Load += new System.EventHandler(this.setmin_rb_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.titlePanel.ResumeLayout(false);

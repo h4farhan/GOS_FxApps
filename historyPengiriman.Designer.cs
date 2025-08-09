@@ -269,6 +269,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "historyPengiriman";
             this.Text = "historyPengiriman";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.historyPengiriman_FormClosing);
             this.Load += new System.EventHandler(this.historyPengiriman_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

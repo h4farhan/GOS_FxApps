@@ -29,6 +29,29 @@ namespace GOS_FxApps
             instance = this;
         }
 
+        private void registertampil()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.pemakaian_material", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampil();
+                            registertampil();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
         private void tampil()
         {
             try
@@ -274,6 +297,7 @@ namespace GOS_FxApps
 
         private void pemakaianMaterial_Load(object sender, EventArgs e)
         {
+            SqlDependency.Start(Koneksi.GetConnectionString());
             combonama();
             cmbnama.SelectedIndex = -1;
             tampil();
@@ -431,6 +455,11 @@ namespace GOS_FxApps
                 MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
                                 "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void pemakaianMaterial_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SqlDependency.Stop(Koneksi.GetConnectionString());
         }
     }
 }

@@ -269,6 +269,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "historyPerbaikan";
             this.Text = "historyPerbaikan";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.historyPerbaikan_FormClosing);
             this.Load += new System.EventHandler(this.historyPerbaikan_Load);
             this.guna2Panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

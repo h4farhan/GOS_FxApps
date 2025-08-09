@@ -533,6 +533,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "formbuttman";
             this.Text = "formbuttman";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formbuttman_FormClosing);
             this.Load += new System.EventHandler(this.formbuttman_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

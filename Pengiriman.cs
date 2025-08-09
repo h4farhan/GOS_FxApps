@@ -34,7 +34,6 @@ namespace GOS_FxApps
             }
         }
 
-
         public Pengiriman()
         {
             InitializeComponent();
@@ -43,6 +42,29 @@ namespace GOS_FxApps
                 txtrod1, txtrod2, txtrod3, txtrod4, txtrod5,
                 txtrod6, txtrod7, txtrod8, txtrod9, txtrod10
             };
+        }
+
+        private void registertampil()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.pengiriman", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampil();
+                            registertampil();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
         }
 
         private void tampil()
@@ -424,11 +446,13 @@ namespace GOS_FxApps
 
         private void Pengiriman_Load(object sender, EventArgs e)
         {
+            SqlDependency.Start(Koneksi.GetConnectionString());
             tampil();
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
             txtrod1.Focus();
             txtrod1.Focus();
+            registertampil();
         }
 
         private void btnclear_Click(object sender, EventArgs e)
@@ -527,5 +551,9 @@ namespace GOS_FxApps
             }
         }
 
+        private void Pengiriman_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SqlDependency.Stop(Koneksi.GetConnectionString());
+        }
     }
 }

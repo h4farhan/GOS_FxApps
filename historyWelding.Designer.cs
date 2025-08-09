@@ -238,6 +238,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "historyWelding";
             this.Text = "historyWelding";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.historyWelding_FormClosing);
             this.Load += new System.EventHandler(this.historyWelding_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

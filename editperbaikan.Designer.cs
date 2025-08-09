@@ -1472,6 +1472,7 @@ namespace GOS_FxApps
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "editperbaikan";
             this.Text = "editperbaikan";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.editperbaikan_FormClosing);
             this.Load += new System.EventHandler(this.editperbaikan_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

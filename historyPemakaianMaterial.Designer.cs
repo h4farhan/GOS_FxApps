@@ -243,6 +243,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "historyPemakaianMaterial";
             this.Text = "historyPemakaianMaterial";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.historyPemakaianMaterial_FormClosing);
             this.Load += new System.EventHandler(this.historyPemakaianMaterial_Load);
             this.guna2Panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

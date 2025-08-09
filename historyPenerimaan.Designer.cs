@@ -268,6 +268,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "historyPenerimaan";
             this.Text = "historyPenerimaan";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.historyPenerimaan_FormClosing);
             this.Load += new System.EventHandler(this.historyPenerimaan_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
