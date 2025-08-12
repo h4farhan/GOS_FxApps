@@ -39,7 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.shadowform = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.radiusform = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -172,14 +171,10 @@
             // 
             // shadowform
             // 
+            this.shadowform.BorderRadius = 10;
             this.shadowform.ContainerControl = this;
             this.shadowform.DockIndicatorTransparencyValue = 0.6D;
             this.shadowform.TransparentWhileDrag = true;
-            // 
-            // radiusform
-            // 
-            this.radiusform.BorderRadius = 5;
-            this.radiusform.TargetControl = this;
             // 
             // userinfo
             // 
@@ -216,7 +211,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2BorderlessForm shadowform;
-        private Guna.UI2.WinForms.Guna2Elipse radiusform;
         public System.Windows.Forms.Label lbltambahakun;
     }
 }

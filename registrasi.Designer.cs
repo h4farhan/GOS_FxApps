@@ -41,7 +41,6 @@
             this.cmblevel = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ControlBoxButton = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.regis = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.shadowform = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.panel1.SuspendLayout();
@@ -243,19 +242,15 @@
             this.ControlBoxButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.ControlBoxButton.FillColor = System.Drawing.Color.Transparent;
             this.ControlBoxButton.IconColor = System.Drawing.Color.Red;
-            this.ControlBoxButton.Location = new System.Drawing.Point(710, 0);
+            this.ControlBoxButton.Location = new System.Drawing.Point(692, 0);
             this.ControlBoxButton.Margin = new System.Windows.Forms.Padding(2);
             this.ControlBoxButton.Name = "ControlBoxButton";
-            this.ControlBoxButton.Size = new System.Drawing.Size(25, 34);
+            this.ControlBoxButton.Size = new System.Drawing.Size(43, 34);
             this.ControlBoxButton.TabIndex = 1;
-            // 
-            // regis
-            // 
-            this.regis.BorderRadius = 10;
-            this.regis.TargetControl = this;
             // 
             // shadowform
             // 
+            this.shadowform.BorderRadius = 20;
             this.shadowform.ContainerControl = this;
             this.shadowform.DockIndicatorTransparencyValue = 0.6D;
             this.shadowform.ShadowColor = System.Drawing.Color.White;
@@ -315,7 +310,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cmblevel;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2ControlBox ControlBoxButton;
-        private Guna.UI2.WinForms.Guna2Elipse regis;
         private Guna.UI2.WinForms.Guna2BorderlessForm shadowform;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
     }

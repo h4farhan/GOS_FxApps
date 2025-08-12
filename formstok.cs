@@ -311,7 +311,7 @@ namespace GOS_FxApps
             try
             {
                 conn.Open();
-                string query = "UPDATE stok_material SET namaBarang = @namabarang, jumlahStok = @stok, min_stok = @min_stok, foto = @foto, updated_at = @diubah WHERE kodeBarang = @kodebarang";
+                string query = "UPDATE stok_material SET namaBarang = @namabarang, jumlahStok = jumlahStok + @stok, min_stok = @min_stok, foto = @foto, updated_at = @diubah WHERE kodeBarang = @kodebarang";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@kodebarang", txtkodebarang.Text);
                 cmd.Parameters.AddWithValue("@namabarang", txtnamabarang.Text);

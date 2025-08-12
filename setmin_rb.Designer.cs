@@ -90,10 +90,10 @@
             this.ControlBoxButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.ControlBoxButton.FillColor = System.Drawing.Color.Transparent;
             this.ControlBoxButton.IconColor = System.Drawing.Color.Red;
-            this.ControlBoxButton.Location = new System.Drawing.Point(968, 0);
+            this.ControlBoxButton.Location = new System.Drawing.Point(941, 0);
             this.ControlBoxButton.Margin = new System.Windows.Forms.Padding(2);
             this.ControlBoxButton.Name = "ControlBoxButton";
-            this.ControlBoxButton.Size = new System.Drawing.Size(25, 24);
+            this.ControlBoxButton.Size = new System.Drawing.Size(52, 24);
             this.ControlBoxButton.TabIndex = 0;
             // 
             // label1

@@ -60,17 +60,37 @@ namespace GOS_FxApps
                 if (result == DialogResult.OK)
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT nomor_rod FROM penerimaan_s WHERE nomor_rod = @rod", conn);
-                    cmd.Parameters.AddWithValue("@rod", txtnomorrod.Text);
+                    string query = @"
+                                    SELECT 'penerimaan_s' AS sumber, nomor_rod 
+                                    FROM penerimaan_s 
+                                    WHERE nomor_rod = @rod
+                                    UNION
+                                    SELECT 'perbaikan_p' AS sumber, nomor_rod 
+                                    FROM perbaikan_p 
+                                    WHERE nomor_rod = @rod";
 
-                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        if (dr.Read())
+                        cmd.Parameters.AddWithValue("@rod", txtnomorrod.Text);
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
                         {
-                            MessageBox.Show("Nomor ROD ditable ini sudah ada dan belum diperbaiki.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;
+                            if (dr.Read())
+                            {
+                                string sumber = dr["sumber"].ToString();
+                                string pesan;
+
+                                if (sumber == "penerimaan_s")
+                                    pesan = "Nomor ROD ini sudah ada di data penerimaan dan belum diperbaiki.";
+                                else
+                                    pesan = "Nomor ROD ini sudah ada di data perbaikan dan belum dikirim.";
+
+                                MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
                         }
                     }
+
 
                     SqlCommand cmd1 = new SqlCommand("INSERT INTO penerimaan_s (tanggal_penerimaan,shift,nomor_rod,jenis,stasiun,e1,e2,e3," +
                         "s,d,b,ba,cr,m,r,c,rl,jumlah,updated_at) VALUES(@tanggal_penerimaan,@shift,@nomorrod,@jenis,@stasiun,@e1,@e2,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah,@diubah)", conn);

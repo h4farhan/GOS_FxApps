@@ -33,7 +33,6 @@
             this.txtpw = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ControlBoxButton = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.lgn = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.btnlogin = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
@@ -108,16 +107,11 @@
             this.ControlBoxButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.ControlBoxButton.FillColor = System.Drawing.Color.Transparent;
             this.ControlBoxButton.IconColor = System.Drawing.Color.Red;
-            this.ControlBoxButton.Location = new System.Drawing.Point(408, 0);
+            this.ControlBoxButton.Location = new System.Drawing.Point(397, 0);
             this.ControlBoxButton.Margin = new System.Windows.Forms.Padding(2);
             this.ControlBoxButton.Name = "ControlBoxButton";
-            this.ControlBoxButton.Size = new System.Drawing.Size(25, 28);
+            this.ControlBoxButton.Size = new System.Drawing.Size(36, 28);
             this.ControlBoxButton.TabIndex = 1;
-            // 
-            // lgn
-            // 
-            this.lgn.BorderRadius = 20;
-            this.lgn.TargetControl = this;
             // 
             // label1
             // 
@@ -204,6 +198,7 @@
             // 
             // shadowform
             // 
+            this.shadowform.BorderRadius = 20;
             this.shadowform.ContainerControl = this;
             this.shadowform.DockIndicatorTransparencyValue = 0.6D;
             this.shadowform.TransparentWhileDrag = true;
@@ -241,7 +236,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtpw;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2ControlBox ControlBoxButton;
-        private Guna.UI2.WinForms.Guna2Elipse lgn;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button btnlogin;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;

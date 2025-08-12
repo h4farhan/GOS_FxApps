@@ -843,8 +843,8 @@ namespace GOS_FxApps
 
         private bool caripenerimaan()
         {
-            DateTime? tanggal1 = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
-            DateTime? tanggal2 = datecari.Checked ? (DateTime?)datecari.Value.AddDays(1).Date : null;
+            DateTime tanggal1 = datecari.Value.Date;
+            DateTime tanggal2 = datecari.Value.AddDays(1).Date;
             string shift = cbShift.SelectedItem ?.ToString();
 
             if (string.IsNullOrEmpty(shift))
@@ -874,9 +874,9 @@ namespace GOS_FxApps
 
                     dataGridView1.DataSource = dt;
                 }
-                catch (SqlException)
+                catch (SqlException ex)
                 {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif." + ex.Message,
                                         "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
@@ -895,8 +895,8 @@ namespace GOS_FxApps
 
         private bool cariperbaikan()
         {
-            DateTime? tanggal1 = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
-            DateTime? tanggal2 = datecari.Checked ? (DateTime?)datecari.Value.AddDays(1).Date : null;
+            DateTime tanggal1 = datecari.Value.Date;
+            DateTime tanggal2 = datecari.Value.AddDays(1).Date;
             string shift = cbShift.SelectedItem?.ToString(); 
 
             if (string.IsNullOrEmpty(shift))
@@ -947,8 +947,8 @@ namespace GOS_FxApps
 
         private bool caripengiriman()
         {
-            DateTime? tanggal1 = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
-            DateTime? tanggal2 = datecari.Checked ? (DateTime?)datecari.Value.AddDays(1).Date : null;
+            DateTime tanggal1 = datecari.Value.Date;
+            DateTime tanggal2 = datecari.Value.AddDays(1).Date;
             string shift = cbShift.SelectedItem?.ToString();
 
             if (string.IsNullOrEmpty(shift))

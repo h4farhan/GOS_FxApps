@@ -212,7 +212,7 @@ namespace GOS_FxApps
 
                 if (jumlahPakai > stokSekarang)
                 {
-                    MessageBox.Show("Stok tidak cukup.");
+                    MessageBox.Show("Stok Material tidak cukup.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 SqlCommand cmdPakai = new SqlCommand("INSERT INTO pemakaian_material (kodeBarang, namaBarang, tanggalPemakaian, jumlahPemakaian, updated_at) VALUES (@kode, @nama, @tgl, @jumlah, @diubah)", conn);
@@ -414,6 +414,7 @@ namespace GOS_FxApps
             if (cmbnama.SelectedValue == null || cmbnama.SelectedValue == DBNull.Value)
             {
                 picture1.Image = null;
+                txtstoksaatini.Clear();
                 return;
             }
 
@@ -422,33 +423,45 @@ namespace GOS_FxApps
             try
             {
                 using (SqlConnection conn = Koneksi.GetConnection())
+                using (SqlCommand cmd = new SqlCommand(
+                    "SELECT foto, jumlahStok FROM stok_material WHERE kodeBarang = @kodeBarang", conn))
                 {
-                    string query = "SELECT foto FROM stok_material WHERE kodeBarang = @kodeBarang";
-                    SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@kodeBarang", kodeBarang);
 
                     conn.Open();
-                    object result = cmd.ExecuteScalar();
-                    if (result != DBNull.Value && result != null)
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        byte[] imgData = (byte[])result;
-                        using (MemoryStream ms = new MemoryStream(imgData))
+                        if (reader.Read())
                         {
-                            picture1.Image = Image.FromStream(ms);
-                            btnbatal.Enabled = true;
-                            btnsimpan.Enabled = true;
+                            txtstoksaatini.Text = reader["jumlahStok"]?.ToString();
+
+                            if (reader["foto"] != DBNull.Value)
+                            {
+                                byte[] imgData = (byte[])reader["foto"];
+                                using (MemoryStream ms = new MemoryStream(imgData))
+                                {
+                                    picture1.Image = Image.FromStream(ms);
+                                }
+                                btnbatal.Enabled = true;
+                                btnsimpan.Enabled = true;
+                            }
+                            else
+                            {
+                                picture1.Image = null;
+                            }
                         }
-                    }
-                    else
-                    {
-                        picture1.Image = null; 
+                        else
+                        {
+                            txtstoksaatini.Clear();
+                            picture1.Image = null;
+                        }
                     }
                 }
             }
             catch (SqlException)
             {
                 MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
