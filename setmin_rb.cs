@@ -37,7 +37,7 @@ namespace GOS_FxApps
         private void registertampil()
         {
             using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.setmid_Rb", conn))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.setmin_Rb", conn))
             {
                 cmd.Notification = null;
                 var dep = new SqlDependency(cmd);

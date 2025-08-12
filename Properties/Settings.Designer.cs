@@ -57,5 +57,16 @@ namespace GOS_FxApps.Properties {
                 return ((string)(this["gos_apps"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.1.64;Initial Catalog=gos_apps;User ID=sa;Password=%tii2025%;T" +
+            "rustServerCertificate=True")]
+        public string gos_appsserver {
+            get {
+                return ((string)(this["gos_appsserver"]));
+            }
+        }
     }
 }

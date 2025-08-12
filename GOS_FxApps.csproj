@@ -466,6 +466,15 @@
     <EmbeddedResource Include="historyWelding.resx">
       <DependentUpon>historyWelding.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="kondisi_28.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="kondisi_29.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="kondisi_30.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="kondisi_31.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>

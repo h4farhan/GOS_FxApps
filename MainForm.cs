@@ -87,6 +87,18 @@ namespace GOS_FxApps {
             iconButton13.ForeColor = Color.Black;
         }
 
+        public void ResetColorContainer()
+        {
+            entryButton.FillColor = Color.White;
+            entryButton.ForeColor = Color.Black;
+
+            Editbutton.FillColor = Color.White;
+            Editbutton.ForeColor = Color.Black;
+
+            btnHistori.FillColor = Color.White;
+            btnHistori.ForeColor = Color.Black;
+        }
+
         public MainForm()
         {
             InitializeComponent();

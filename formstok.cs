@@ -231,6 +231,8 @@ namespace GOS_FxApps
             txtnamabarang.Clear();
             imageBytes = null;
             picturebox.Image = null;
+            btnsimpan.Text = "Simpan";
+            btnsimpan.FillColor = Color.FromArgb(76, 175, 80);
         }
 
         private void btnsimpan_Click(object sender, EventArgs e)
@@ -245,7 +247,6 @@ namespace GOS_FxApps
                 {
                     txtkodebarang.Enabled = true;
                     btnupdate.Enabled = false;
-                    btnsimpan.Text = "Simpan";
                     setdefault();
                 }
                 else
@@ -381,6 +382,7 @@ namespace GOS_FxApps
                 txtkodebarang.Enabled = false;
                 btnupdate.Enabled = true;
                 btnsimpan.Text = "Batal";
+                btnsimpan.FillColor = Color.Red;
             }
         }
 

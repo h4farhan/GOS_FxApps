@@ -484,6 +484,18 @@ namespace GOS_FxApps
             var adapterman = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanKondisiManPowerTableAdapter();
             GOS_FxApps.DataSet.kondisi.sp_LaporanKondisiManPowerDataTable dataman = adapterman.GetData(bulan, tahun);
 
+            var adapterreject = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanRejectBATableAdapter();
+            GOS_FxApps.DataSet.kondisi.sp_LaporanRejectBADataTable datareject = adapterreject.GetData(bulan, tahun);
+
+            var adapterstokreguler = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanStokRegulerTableAdapter();
+            GOS_FxApps.DataSet.kondisi.sp_LaporanStokRegulerDataTable datastokreguler = adapterstokreguler.GetData(bulan, tahun);
+
+            var adapterstok = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanKondisiStokTableAdapter();
+            GOS_FxApps.DataSet.kondisi.sp_LaporanKondisiStokDataTable datastok = adapterstok.GetData(bulan, tahun);
+
+            var adapterstokrepair = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanKondisiStokRepairTableAdapter();
+            GOS_FxApps.DataSet.kondisi.sp_LaporanKondisiStokRepairDataTable datastokrepair = adapterstokrepair.GetData(bulan, tahun);
+
             frmrpt = new reportviewr();
             frmrpt.reportViewer1.Reset();
             frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, namaFileRDLC);
@@ -504,6 +516,18 @@ namespace GOS_FxApps
 
             frmrpt.reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetkondisimanpower", (DataTable)dataman));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetkondisirejectba", (DataTable)datareject));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("dastasetkondisistokreguler", (DataTable)datastokreguler));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetkondisistok", (DataTable)datastok));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetkondisistokrepair", (DataTable)datastokrepair));
 
             ReportParameter[] parameters = new ReportParameter[]
             {

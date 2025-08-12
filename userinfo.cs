@@ -60,6 +60,7 @@ namespace GOS_FxApps
             MainForm.Instance.loginstatus = false;
             MainForm.Instance.setvisiblefalse();
             MainForm.Instance.ResetButtonColors();
+            MainForm.Instance.ResetColorContainer();
 
             MainForm.Instance.SwitchPanel(new Dashboard());
             MainForm.Instance.dashboardButton.FillColor = Color.FromArgb(52, 52, 57);
