@@ -11,6 +11,8 @@ using GOS_FxApps.DataSet;
 using System.Data.SqlClient;
 using Microsoft.Reporting.Map.WebForms.BingMaps;
 using Microsoft.Reporting.WinForms;
+using Guna.UI2.WinForms;
+using DrawingPoint = System.Drawing.Point;
 
 namespace GOS_FxApps
 {
@@ -1647,6 +1649,79 @@ namespace GOS_FxApps
             }
 
         }
+
+        private void datecaripemakaian_MouseDown(object sender, MouseEventArgs e)
+        {
+            using (Form pickerForm = new Form())
+            {
+                pickerForm.StartPosition = FormStartPosition.Manual;
+                pickerForm.FormBorderStyle = FormBorderStyle.FixedDialog;
+                pickerForm.ControlBox = false;
+                pickerForm.Size = new Size(250, 200);
+                pickerForm.Text = "Pilih Bulan & Tahun";
+
+                var screenPos = datecaripemakaian.PointToScreen(DrawingPoint.Empty);
+                pickerForm.Location = new DrawingPoint(screenPos.X, screenPos.Y + datecaripemakaian.Height);
+
+                var cmbBulan = new Guna2ComboBox
+                {
+                    Font = new Font("Segoe UI", 11F),
+                    Left = 10,
+                    Top = 10,
+                    Width = 200,
+                    BorderRadius = 6,
+                    ForeColor = Color.Black,
+                    DropDownStyle = ComboBoxStyle.DropDownList,
+                    BorderColor = Color.FromArgb(64, 64, 64),
+                    BorderThickness = 2,
+                };
+                string[] bulan = {
+                                    "01 - Januari", "02 - Februari", "03 - Maret", "04 - April", "05 - Mei", "06 - Juni",
+                                    "07 - Juli", "08 - Agustus", "09 - September", "10 - Oktober", "11 - November", "12 - Desember"
+                                };
+                cmbBulan.Items.AddRange(bulan);
+                cmbBulan.SelectedIndex = datecaripemakaian.Value.Month - 1;
+
+                var numTahun = new Guna2NumericUpDown
+                {
+                    Font = new Font("Segoe UI", 11F),
+                    Left = 10,
+                    Top = 55,
+                    Width = 200,
+                    BorderRadius = 6,
+                    Minimum = 1900,
+                    Maximum = 2100,
+                    ForeColor = Color.Black,
+                    Value = datecaripemakaian.Value.Year,
+                    BorderColor = Color.FromArgb(64, 64, 64),
+                    BorderThickness = 2,
+                };
+
+                var btnOK = new Guna2Button
+                {
+                    Text = "OK",
+                    Font = new Font("Segoe UI", 10F),
+                    Left = 10,
+                    Top = 110,
+                    Width = 80,
+                    Height = 35,
+                    BorderRadius = 6,
+                    FillColor = Color.FromArgb(53, 53, 58)
+                };
+                btnOK.Click += (s, ev) =>
+                {
+                    datecaripemakaian.Value = new DateTime((int)numTahun.Value, cmbBulan.SelectedIndex + 1, 1);
+                    pickerForm.DialogResult = DialogResult.OK;
+                };
+
+                pickerForm.Controls.Add(cmbBulan);
+                pickerForm.Controls.Add(numTahun);
+                pickerForm.Controls.Add(btnOK);
+
+                pickerForm.ShowDialog();
+            }
+        }
+
     }
 }
 
