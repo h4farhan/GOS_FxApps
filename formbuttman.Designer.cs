@@ -430,10 +430,10 @@
             "1",
             "2",
             "3"});
-            this.cbShift.Location = new System.Drawing.Point(194, 15);
+            this.cbShift.Location = new System.Drawing.Point(225, 15);
             this.cbShift.Margin = new System.Windows.Forms.Padding(2);
             this.cbShift.Name = "cbShift";
-            this.cbShift.Size = new System.Drawing.Size(121, 36);
+            this.cbShift.Size = new System.Drawing.Size(90, 36);
             this.cbShift.StartIndex = 0;
             this.cbShift.TabIndex = 44;
             // 
@@ -471,7 +471,7 @@
             this.datecari.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datecari.Name = "datecari";
             this.datecari.ShowCheckBox = true;
-            this.datecari.Size = new System.Drawing.Size(179, 39);
+            this.datecari.Size = new System.Drawing.Size(210, 39);
             this.datecari.TabIndex = 43;
             this.datecari.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
             // 

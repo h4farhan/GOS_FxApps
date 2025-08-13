@@ -174,6 +174,7 @@ namespace GOS_FxApps
 
                 MessageBox.Show("Data Berhasil Diedit", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtjumlah.Clear();
+                lblstoksaatini.Text = "Stok Saat Ini : -";
                 tampil();
                 btnsimpan.Text = "Simpan Data";
             }
@@ -213,6 +214,7 @@ namespace GOS_FxApps
                 if (jumlahPakai > stokSekarang)
                 {
                     MessageBox.Show("Stok Material tidak cukup.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtjumlah.Clear();
                     return;
                 }
                 SqlCommand cmdPakai = new SqlCommand("INSERT INTO pemakaian_material (kodeBarang, namaBarang, tanggalPemakaian, jumlahPemakaian, updated_at) VALUES (@kode, @nama, @tgl, @jumlah, @diubah)", conn);
@@ -231,6 +233,7 @@ namespace GOS_FxApps
 
                 MessageBox.Show("Data pemakaian berhasil ditambahkan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtjumlah.Clear();
+                lblstoksaatini.Text = "Stok Saat Ini: -";
                 tampil();
             }
             catch (SqlException)
@@ -366,7 +369,8 @@ namespace GOS_FxApps
                     if (result == DialogResult.OK)
                     {
                         simpandata();
-                        combonama(); 
+                        combonama();
+                        lblstoksaatini.Text = "Stok Saat Ini: -";
                         picture1.Image = null;
                         btnbatal.Enabled = false;
                         btnsimpan.Enabled = false;
@@ -387,7 +391,8 @@ namespace GOS_FxApps
                     {
                         editdata();
                         btnbatal.Enabled = false;
-                        combonama(); 
+                        combonama();
+                        lblstoksaatini.Text = "Stok Saat Ini: -";
                         picture1.Image = null;
                         btnbatal.Enabled = false;
                         btnsimpan.Enabled = false;
@@ -404,6 +409,7 @@ namespace GOS_FxApps
             noprimary = 0;  
             btnsimpan.Text = "Simpan Data";
             combonama();
+            lblstoksaatini.Text = "Stok Saat Ini: -";
             picture1.Image = null;
             btnsimpan.Enabled = false;
             btnbatal.Enabled = false;
@@ -411,68 +417,69 @@ namespace GOS_FxApps
 
         private void cmbnama_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbnama.SelectedValue == null || cmbnama.SelectedValue == DBNull.Value)
+            if (cmbnama.SelectedIndex == -1 || cmbnama.SelectedValue == null || cmbnama.SelectedValue == DBNull.Value)
             {
                 picture1.Image = null;
-                txtstoksaatini.Clear();
+                lblstoksaatini.Text = "Stok Saat Ini : -";
                 return;
             }
 
             string kodeBarang = cmbnama.SelectedValue.ToString();
 
-            try
-            {
-                using (SqlConnection conn = Koneksi.GetConnection())
-                using (SqlCommand cmd = new SqlCommand(
-                    "SELECT foto, jumlahStok FROM stok_material WHERE kodeBarang = @kodeBarang", conn))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@kodeBarang", kodeBarang);
-
-                    conn.Open();
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    using (SqlConnection conn = Koneksi.GetConnection())
+                    using (SqlCommand cmd = new SqlCommand(
+                        "SELECT foto, jumlahStok FROM stok_material WHERE kodeBarang = @kodeBarang", conn))
                     {
-                        if (reader.Read())
-                        {
-                            txtstoksaatini.Text = reader["jumlahStok"]?.ToString();
+                        cmd.Parameters.AddWithValue("@kodeBarang", kodeBarang);
 
-                            if (reader["foto"] != DBNull.Value)
+                        conn.Open();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
                             {
-                                byte[] imgData = (byte[])reader["foto"];
-                                using (MemoryStream ms = new MemoryStream(imgData))
+                                lblstoksaatini.Text = "Stok Saat Ini: " + reader["jumlahStok"]?.ToString();
+
+                                if (reader["foto"] != DBNull.Value)
                                 {
-                                    picture1.Image = Image.FromStream(ms);
+                                    byte[] imgData = (byte[])reader["foto"];
+                                    using (MemoryStream ms = new MemoryStream(imgData))
+                                    {
+                                        picture1.Image = Image.FromStream(ms);
+                                    }
+                                    btnbatal.Enabled = true;
+                                    btnsimpan.Enabled = true;
                                 }
-                                btnbatal.Enabled = true;
-                                btnsimpan.Enabled = true;
+                                else
+                                {
+                                    picture1.Image = null;
+                                }
                             }
                             else
                             {
+                                lblstoksaatini.Text = "Stok Saat Ini : -";
                                 picture1.Image = null;
                             }
                         }
-                        else
-                        {
-                            txtstoksaatini.Clear();
-                            picture1.Image = null;
-                        }
                     }
                 }
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
         }
 
         private void pemakaianMaterial_FormClosing(object sender, FormClosingEventArgs e)
         {
             SqlDependency.Stop(Koneksi.GetConnectionString());
         }
+
     }
 }

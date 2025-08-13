@@ -97,7 +97,7 @@
             this.datecari.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datecari.Name = "datecari";
             this.datecari.ShowCheckBox = true;
-            this.datecari.Size = new System.Drawing.Size(180, 41);
+            this.datecari.Size = new System.Drawing.Size(196, 41);
             this.datecari.TabIndex = 56;
             this.datecari.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
             // 
@@ -197,7 +197,7 @@
             "1",
             "2",
             "3"});
-            this.cbShift.Location = new System.Drawing.Point(195, 83);
+            this.cbShift.Location = new System.Drawing.Point(211, 83);
             this.cbShift.Margin = new System.Windows.Forms.Padding(2);
             this.cbShift.Name = "cbShift";
             this.cbShift.Size = new System.Drawing.Size(126, 36);

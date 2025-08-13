@@ -253,7 +253,6 @@
             this.shadowform.BorderRadius = 20;
             this.shadowform.ContainerControl = this;
             this.shadowform.DockIndicatorTransparencyValue = 0.6D;
-            this.shadowform.ShadowColor = System.Drawing.Color.White;
             this.shadowform.TransparentWhileDrag = true;
             // 
             // guna2Separator1

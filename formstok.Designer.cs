@@ -347,11 +347,12 @@
             // 
             // picturebox
             // 
+            this.picturebox.BorderRadius = 5;
             this.picturebox.FillColor = System.Drawing.Color.DimGray;
             this.picturebox.ImageRotate = 0F;
             this.picturebox.Location = new System.Drawing.Point(518, 97);
             this.picturebox.Name = "picturebox";
-            this.picturebox.Size = new System.Drawing.Size(147, 178);
+            this.picturebox.Size = new System.Drawing.Size(159, 178);
             this.picturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picturebox.TabIndex = 46;
             this.picturebox.TabStop = false;

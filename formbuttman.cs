@@ -275,6 +275,8 @@ namespace GOS_FxApps
                 setdefault();
                 btndelete.Enabled = false;
                 btnsimpan.Enabled = false;
+                date.Enabled = true;
+                cmbshift.Enabled = true;
             }
             else if (btnsimpan.Text == "Edit Data")
             {
@@ -283,6 +285,8 @@ namespace GOS_FxApps
                 btndelete.Enabled = false;
                 btnsimpan.Enabled = false;
                 noprimary = 0;
+                date.Enabled = true;
+                cmbshift.Enabled = true;
             }
 
         }

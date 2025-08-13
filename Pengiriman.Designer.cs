@@ -561,7 +561,7 @@ namespace GOS_FxApps
             this.datecari.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datecari.Name = "datecari";
             this.datecari.ShowCheckBox = true;
-            this.datecari.Size = new System.Drawing.Size(178, 39);
+            this.datecari.Size = new System.Drawing.Size(204, 39);
             this.datecari.TabIndex = 0;
             this.datecari.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
             // 
@@ -585,13 +585,13 @@ namespace GOS_FxApps
             this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.search;
             this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
-            this.txtcari.Location = new System.Drawing.Point(193, 16);
+            this.txtcari.Location = new System.Drawing.Point(219, 16);
             this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtcari.Name = "txtcari";
             this.txtcari.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.txtcari.PlaceholderText = "Nomor ROD";
             this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(47, 39);
+            this.txtcari.Size = new System.Drawing.Size(21, 39);
             this.txtcari.TabIndex = 1;
             this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
             this.txtcari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);

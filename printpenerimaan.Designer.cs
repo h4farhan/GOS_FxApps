@@ -187,10 +187,10 @@
             this.paneldata2.Controls.Add(this.label7);
             this.paneldata2.Controls.Add(this.label8);
             this.paneldata2.Controls.Add(this.txttim);
-            this.paneldata2.Location = new System.Drawing.Point(6, 15);
+            this.paneldata2.Location = new System.Drawing.Point(11, 25);
             this.paneldata2.Margin = new System.Windows.Forms.Padding(2);
             this.paneldata2.Name = "paneldata2";
-            this.paneldata2.Size = new System.Drawing.Size(740, 73);
+            this.paneldata2.Size = new System.Drawing.Size(735, 73);
             this.paneldata2.TabIndex = 56;
             this.paneldata2.Visible = false;
             // 
@@ -199,7 +199,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(505, 24);
+            this.label4.Location = new System.Drawing.Point(524, 24);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(181, 20);
@@ -222,7 +222,7 @@
             this.datecari.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.datecari.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datecari.Name = "datecari";
-            this.datecari.Size = new System.Drawing.Size(214, 41);
+            this.datecari.Size = new System.Drawing.Size(237, 41);
             this.datecari.TabIndex = 46;
             this.datecari.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
             // 
@@ -243,7 +243,7 @@
             "1",
             "2",
             "3"});
-            this.cbShift.Location = new System.Drawing.Point(278, 16);
+            this.cbShift.Location = new System.Drawing.Point(305, 16);
             this.cbShift.Margin = new System.Windows.Forms.Padding(2);
             this.cbShift.Name = "cbShift";
             this.cbShift.Size = new System.Drawing.Size(86, 36);
@@ -254,7 +254,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(228, 24);
+            this.label7.Location = new System.Drawing.Point(255, 24);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(50, 20);
@@ -267,7 +267,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(376, 24);
+            this.label8.Location = new System.Drawing.Point(395, 24);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(44, 20);
@@ -290,7 +290,7 @@
             this.txttim.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txttim.ForeColor = System.Drawing.Color.Black;
             this.txttim.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txttim.Location = new System.Drawing.Point(422, 20);
+            this.txttim.Location = new System.Drawing.Point(441, 20);
             this.txttim.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txttim.Name = "txttim";
             this.txttim.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -312,7 +312,7 @@
             this.btnprint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(58)))));
             this.btnprint.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnprint.ForeColor = System.Drawing.Color.White;
-            this.btnprint.Location = new System.Drawing.Point(894, 32);
+            this.btnprint.Location = new System.Drawing.Point(894, 42);
             this.btnprint.Margin = new System.Windows.Forms.Padding(2);
             this.btnprint.Name = "btnprint";
             this.btnprint.Size = new System.Drawing.Size(81, 38);
@@ -331,7 +331,7 @@
             this.btncari.Enabled = false;
             this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btncari.ForeColor = System.Drawing.Color.White;
-            this.btncari.Location = new System.Drawing.Point(816, 32);
+            this.btncari.Location = new System.Drawing.Point(816, 42);
             this.btncari.Margin = new System.Windows.Forms.Padding(2);
             this.btncari.Name = "btncari";
             this.btncari.Size = new System.Drawing.Size(73, 38);
@@ -391,7 +391,7 @@
             this.paneldata1.BorderRadius = 15;
             this.paneldata1.Controls.Add(this.jlhpanel1);
             this.paneldata1.Controls.Add(this.datecaripemakaian);
-            this.paneldata1.Location = new System.Drawing.Point(11, 15);
+            this.paneldata1.Location = new System.Drawing.Point(11, 25);
             this.paneldata1.Margin = new System.Windows.Forms.Padding(2);
             this.paneldata1.Name = "paneldata1";
             this.paneldata1.Size = new System.Drawing.Size(517, 73);
@@ -403,7 +403,7 @@
             this.jlhpanel1.AutoSize = true;
             this.jlhpanel1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.jlhpanel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.jlhpanel1.Location = new System.Drawing.Point(246, 26);
+            this.jlhpanel1.Location = new System.Drawing.Point(266, 26);
             this.jlhpanel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.jlhpanel1.Name = "jlhpanel1";
             this.jlhpanel1.Size = new System.Drawing.Size(172, 20);
@@ -427,7 +427,7 @@
             this.datecaripemakaian.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.datecaripemakaian.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datecaripemakaian.Name = "datecaripemakaian";
-            this.datecaripemakaian.Size = new System.Drawing.Size(214, 41);
+            this.datecaripemakaian.Size = new System.Drawing.Size(242, 41);
             this.datecaripemakaian.TabIndex = 57;
             this.datecaripemakaian.Value = new System.DateTime(2025, 5, 20, 0, 0, 0, 0);
             // 

@@ -165,7 +165,7 @@ namespace GOS_FxApps
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE setmin_Rb SET namaTampilan = @nama, min_stok = @min_stok WHERE kode = @kode", conn);
+                SqlCommand cmd = new SqlCommand("UPDATE setmin_Rb SET namaTampilan = @nama, min_stok = @min_stok, updated_at = GETDATE() WHERE kode = @kode", conn);
                 cmd.Parameters.AddWithValue("@kode", kodeprimary);
                 cmd.Parameters.AddWithValue("@nama", txtnamatampilan.Text);
                 cmd.Parameters.AddWithValue("@min_stok", txtminstok.Text);

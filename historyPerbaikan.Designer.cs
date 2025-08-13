@@ -62,7 +62,7 @@
             this.datecari.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datecari.Name = "datecari";
             this.datecari.ShowCheckBox = true;
-            this.datecari.Size = new System.Drawing.Size(180, 41);
+            this.datecari.Size = new System.Drawing.Size(196, 41);
             this.datecari.TabIndex = 51;
             this.datecari.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
             // 
@@ -163,13 +163,13 @@
             this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.search;
             this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
-            this.txtcari.Location = new System.Drawing.Point(195, 82);
+            this.txtcari.Location = new System.Drawing.Point(211, 82);
             this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtcari.Name = "txtcari";
             this.txtcari.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtcari.PlaceholderText = "Nomor Rod";
             this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(221, 39);
+            this.txtcari.Size = new System.Drawing.Size(215, 39);
             this.txtcari.TabIndex = 50;
             this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
             // 
@@ -227,7 +227,7 @@
             "1",
             "2",
             "3"});
-            this.cbShift.Location = new System.Drawing.Point(420, 83);
+            this.cbShift.Location = new System.Drawing.Point(430, 83);
             this.cbShift.Margin = new System.Windows.Forms.Padding(2);
             this.cbShift.Name = "cbShift";
             this.cbShift.Size = new System.Drawing.Size(86, 36);
