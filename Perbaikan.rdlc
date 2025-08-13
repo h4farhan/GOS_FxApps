@@ -138,6 +138,70 @@
         <rd:TableAdapterName>perbaikan_pTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
+    <DataSet Name="datasetjumlahperbaikan2">
+      <Query>
+        <DataSourceName>PerbaikanForm</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="E">
+          <DataField>E</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="S">
+          <DataField>S</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="D">
+          <DataField>D</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="B">
+          <DataField>B</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="BA">
+          <DataField>BA</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="BA_1">
+          <DataField>BA_1</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CR">
+          <DataField>CR</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="M">
+          <DataField>M</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="R">
+          <DataField>R</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="C">
+          <DataField>C</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="RL">
+          <DataField>RL</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Total">
+          <DataField>Total</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>PerbaikanForm</rd:DataSetName>
+        <rd:SchemaPath>E:\GitHub\GOS_FxApps\DataSet\PerbaikanForm.xsd</rd:SchemaPath>
+        <rd:TableName>jumlahperbaikan2</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>jumlahperbaikan2TableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
@@ -1156,7 +1220,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1195,7 +1259,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1232,7 +1296,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1269,7 +1333,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1306,7 +1370,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1343,7 +1407,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1380,7 +1444,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1417,7 +1481,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1454,7 +1518,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1491,7 +1555,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1528,7 +1592,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1565,7 +1629,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1602,7 +1666,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1639,7 +1703,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1676,7 +1740,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1713,7 +1777,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1750,7 +1814,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1787,7 +1851,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1824,7 +1888,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1861,7 +1925,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1898,7 +1962,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1935,7 +1999,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1971,7 +2035,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2007,7 +2071,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>1.25pt</Width>
+                              <Width>2pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -3896,7 +3960,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>5.51cm</Height>
+          <Height>5.76225cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -3921,9 +3985,9 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.3175cm</Top>
-              <Left>0.91549cm</Left>
-              <Height>0.47841cm</Height>
+              <Top>0.11257cm</Top>
+              <Left>0.82476cm</Left>
+              <Height>1.00655cm</Height>
               <Width>4.53617cm</Width>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -3957,10 +4021,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.3175cm</Top>
-              <Left>5.45166cm</Left>
+              <Top>0.11257cm</Top>
+              <Left>5.36093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>2.10438cm</Width>
               <ZIndex>1</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -3994,10 +4058,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.3175cm</Top>
-              <Left>6.07117cm</Left>
+              <Top>0.11257cm</Top>
+              <Left>7.46093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>3.07472cm</Width>
               <ZIndex>2</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4031,10 +4095,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.3175cm</Top>
-              <Left>8.54921cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Top>0.11257cm</Top>
+              <Left>12.63127cm</Left>
+              <Height>1.00656cm</Height>
+              <Width>0.7cm</Width>
               <ZIndex>3</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4068,10 +4132,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.3175cm</Top>
-              <Left>9.16872cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Top>0.11257cm</Top>
+              <Left>13.33127cm</Left>
+              <Height>1.00656cm</Height>
+              <Width>0.7cm</Width>
               <ZIndex>4</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4105,10 +4169,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.3175cm</Top>
-              <Left>6.69068cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Top>0.11257cm</Top>
+              <Left>10.53127cm</Left>
+              <Height>1.00656cm</Height>
+              <Width>0.7cm</Width>
               <ZIndex>5</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4142,10 +4206,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.3175cm</Top>
-              <Left>7.9297cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Top>0.11257cm</Top>
+              <Left>11.93127cm</Left>
+              <Height>1.00656cm</Height>
+              <Width>0.7cm</Width>
               <ZIndex>6</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4179,10 +4243,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.3175cm</Top>
-              <Left>9.78823cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Top>0.11257cm</Top>
+              <Left>14.03251cm</Left>
+              <Height>1.00656cm</Height>
+              <Width>0.7cm</Width>
               <ZIndex>7</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4216,10 +4280,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.3175cm</Top>
-              <Left>11.18385cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Top>0.11257cm</Top>
+              <Left>15.50862cm</Left>
+              <Height>1.00656cm</Height>
+              <Width>0.7cm</Width>
               <ZIndex>8</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4253,10 +4317,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.3175cm</Top>
-              <Left>13.04238cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Top>0.11257cm</Top>
+              <Left>17.60862cm</Left>
+              <Height>1.00656cm</Height>
+              <Width>0.7cm</Width>
               <ZIndex>9</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4290,10 +4354,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.3175cm</Top>
-              <Left>13.66189cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Top>0.11257cm</Top>
+              <Left>18.30862cm</Left>
+              <Height>1.00656cm</Height>
+              <Width>0.7cm</Width>
               <ZIndex>10</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4327,10 +4391,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.3175cm</Top>
-              <Left>11.80336cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Top>0.11257cm</Top>
+              <Left>16.20862cm</Left>
+              <Height>1.00656cm</Height>
+              <Width>0.7cm</Width>
               <ZIndex>11</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4364,10 +4428,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.3175cm</Top>
-              <Left>12.42287cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Top>0.11257cm</Top>
+              <Left>16.90862cm</Left>
+              <Height>1.00656cm</Height>
+              <Width>0.7cm</Width>
               <ZIndex>12</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4387,7 +4451,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Jumlah</Value>
+                      <Value>Jlh</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4401,10 +4465,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.3175cm</Top>
-              <Left>14.2814cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>1.70347cm</Width>
+              <Top>0.11257cm</Top>
+              <Left>19.00862cm</Left>
+              <Height>1.00656cm</Height>
+              <Width>0.94864cm</Width>
               <ZIndex>13</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4438,8 +4502,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.76737cm</Top>
-              <Left>0.91549cm</Left>
+              <Top>1.11913cm</Top>
+              <Left>0.82038cm</Left>
               <Height>1.43523cm</Height>
               <Width>3.05117cm</Width>
               <ZIndex>14</ZIndex>
@@ -4461,7 +4525,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!e1_ers.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4475,10 +4539,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.76737cm</Top>
-              <Left>5.45166cm</Left>
+              <Top>1.11913cm</Top>
+              <Left>5.35655cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>15</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4498,7 +4562,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!e1_est.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4512,10 +4576,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.76737cm</Top>
-              <Left>6.07117cm</Left>
+              <Top>1.11913cm</Top>
+              <Left>6.05655cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>16</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4535,7 +4599,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!d.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4549,10 +4613,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.76737cm</Top>
-              <Left>8.54921cm</Left>
+              <Top>1.11914cm</Top>
+              <Left>12.63127cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>17</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4572,7 +4636,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!b.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4586,10 +4650,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.76737cm</Top>
-              <Left>9.16872cm</Left>
+              <Top>1.11914cm</Top>
+              <Left>13.33127cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>18</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4609,7 +4673,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!e3.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4623,10 +4687,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.76737cm</Top>
-              <Left>6.69068cm</Left>
+              <Top>1.11914cm</Top>
+              <Left>10.53127cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>19</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4646,7 +4710,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!s.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4660,10 +4724,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.76737cm</Top>
-              <Left>7.9297cm</Left>
+              <Top>1.11914cm</Top>
+              <Left>11.93127cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>20</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4683,7 +4747,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!ba.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4697,10 +4761,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.76737cm</Top>
-              <Left>9.78823cm</Left>
+              <Top>1.11914cm</Top>
+              <Left>14.03251cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>21</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4720,7 +4784,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!cr.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4734,10 +4798,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.76737cm</Top>
-              <Left>11.18385cm</Left>
+              <Top>1.11914cm</Top>
+              <Left>15.50862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>22</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4757,7 +4821,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!c.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4771,10 +4835,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.76737cm</Top>
-              <Left>13.04238cm</Left>
+              <Top>1.11914cm</Top>
+              <Left>17.60862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>23</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4794,7 +4858,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!rl.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4808,10 +4872,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.76737cm</Top>
-              <Left>13.66189cm</Left>
+              <Top>1.11914cm</Top>
+              <Left>18.30862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>24</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4831,7 +4895,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!m.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4845,10 +4909,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.76737cm</Top>
-              <Left>11.80336cm</Left>
+              <Top>1.11914cm</Top>
+              <Left>16.20862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>25</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4868,7 +4932,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!r.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4882,10 +4946,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.76737cm</Top>
-              <Left>12.42287cm</Left>
+              <Top>1.11914cm</Top>
+              <Left>16.90862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>26</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4905,7 +4969,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!jumlah.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4919,10 +4983,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.76737cm</Top>
-              <Left>14.2814cm</Left>
+              <Top>1.11914cm</Top>
+              <Left>19.00862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>1.70347cm</Width>
+              <Width>0.94864cm</Width>
               <ZIndex>27</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4956,8 +5020,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.2026cm</Top>
-              <Left>0.91549cm</Left>
+              <Top>2.55436cm</Top>
+              <Left>0.82038cm</Left>
               <Height>0.47841cm</Height>
               <Width>4.53617cm</Width>
               <ZIndex>28</ZIndex>
@@ -4993,10 +5057,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.2026cm</Top>
-              <Left>5.45166cm</Left>
+              <Top>2.55436cm</Top>
+              <Left>5.35655cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>29</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5030,10 +5094,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.2026cm</Top>
-              <Left>6.07117cm</Left>
+              <Top>2.55436cm</Top>
+              <Left>6.05655cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>30</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5067,10 +5131,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.2026cm</Top>
-              <Left>8.54921cm</Left>
+              <Top>2.55437cm</Top>
+              <Left>12.63127cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>31</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5104,10 +5168,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.2026cm</Top>
-              <Left>9.16872cm</Left>
+              <Top>2.55437cm</Top>
+              <Left>13.33127cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>32</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5141,10 +5205,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.2026cm</Top>
-              <Left>6.69068cm</Left>
+              <Top>2.55437cm</Top>
+              <Left>10.53127cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>33</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5178,10 +5242,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.2026cm</Top>
-              <Left>7.9297cm</Left>
+              <Top>2.55437cm</Top>
+              <Left>11.93127cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>34</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5215,10 +5279,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.2026cm</Top>
-              <Left>9.78823cm</Left>
+              <Top>2.55437cm</Top>
+              <Left>14.03251cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>35</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5252,10 +5316,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.2026cm</Top>
-              <Left>11.18385cm</Left>
+              <Top>2.55437cm</Top>
+              <Left>15.50862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>36</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5289,10 +5353,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.2026cm</Top>
-              <Left>13.04238cm</Left>
+              <Top>2.55437cm</Top>
+              <Left>17.60862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>37</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5326,10 +5390,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.2026cm</Top>
-              <Left>13.66189cm</Left>
+              <Top>2.55437cm</Top>
+              <Left>18.30862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>38</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5363,10 +5427,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.2026cm</Top>
-              <Left>11.80336cm</Left>
+              <Top>2.55437cm</Top>
+              <Left>16.20862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>39</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5400,10 +5464,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.2026cm</Top>
-              <Left>12.42287cm</Left>
+              <Top>2.55437cm</Top>
+              <Left>16.90862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>40</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5437,10 +5501,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.2026cm</Top>
-              <Left>14.2814cm</Left>
+              <Top>2.55437cm</Top>
+              <Left>19.00862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>1.70347cm</Width>
+              <Width>0.94864cm</Width>
               <ZIndex>41</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5474,8 +5538,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.76737cm</Top>
-              <Left>3.96666cm</Left>
+              <Top>1.11913cm</Top>
+              <Left>3.87155cm</Left>
               <Height>0.47841cm</Height>
               <Width>1.485cm</Width>
               <ZIndex>42</ZIndex>
@@ -5497,7 +5561,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!e1_ers.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5511,10 +5575,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.24578cm</Top>
-              <Left>5.45166cm</Left>
+              <Top>1.59754cm</Top>
+              <Left>5.35655cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>43</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5534,7 +5598,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!e1_est.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5548,10 +5612,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.24578cm</Top>
-              <Left>6.07117cm</Left>
+              <Top>1.59754cm</Top>
+              <Left>6.05655cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>44</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5571,7 +5635,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!d.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5585,10 +5649,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.24578cm</Top>
-              <Left>8.54921cm</Left>
+              <Top>1.59755cm</Top>
+              <Left>12.63127cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>45</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5608,7 +5672,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!b.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5622,10 +5686,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.24578cm</Top>
-              <Left>9.16872cm</Left>
+              <Top>1.59755cm</Top>
+              <Left>13.33127cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>46</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5645,7 +5709,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!e3.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5659,10 +5723,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.24578cm</Top>
-              <Left>6.69068cm</Left>
+              <Top>1.59755cm</Top>
+              <Left>10.53127cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>47</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5682,7 +5746,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!s.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5696,10 +5760,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.24578cm</Top>
-              <Left>7.9297cm</Left>
+              <Top>1.59755cm</Top>
+              <Left>11.93127cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>48</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5719,7 +5783,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!ba.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5733,10 +5797,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.24578cm</Top>
-              <Left>9.78823cm</Left>
+              <Top>1.59755cm</Top>
+              <Left>14.03251cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>49</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5756,7 +5820,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!cr.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5770,10 +5834,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.24578cm</Top>
-              <Left>11.18385cm</Left>
+              <Top>1.59755cm</Top>
+              <Left>15.50862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>50</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5793,7 +5857,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!c.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5807,10 +5871,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.24578cm</Top>
-              <Left>13.04238cm</Left>
+              <Top>1.59755cm</Top>
+              <Left>17.60862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>51</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5830,7 +5894,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!rl.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5844,10 +5908,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.24578cm</Top>
-              <Left>13.66189cm</Left>
+              <Top>1.59755cm</Top>
+              <Left>18.30862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>52</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5867,7 +5931,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!m.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5881,10 +5945,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.24578cm</Top>
-              <Left>11.80336cm</Left>
+              <Top>1.59755cm</Top>
+              <Left>16.20862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>53</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5904,7 +5968,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!r.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5918,10 +5982,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.24578cm</Top>
-              <Left>12.42287cm</Left>
+              <Top>1.59755cm</Top>
+              <Left>16.90862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>54</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5941,7 +6005,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!jumlah.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5955,10 +6019,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.24578cm</Top>
-              <Left>14.2814cm</Left>
+              <Top>1.59755cm</Top>
+              <Left>19.00862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>1.70347cm</Width>
+              <Width>0.94864cm</Width>
               <ZIndex>55</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5992,8 +6056,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.24578cm</Top>
-              <Left>3.96666cm</Left>
+              <Top>1.59754cm</Top>
+              <Left>3.87155cm</Left>
               <Height>0.47841cm</Height>
               <Width>1.485cm</Width>
               <ZIndex>56</ZIndex>
@@ -6015,7 +6079,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!e1_ers.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6029,10 +6093,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.72419cm</Top>
-              <Left>5.45166cm</Left>
+              <Top>2.07595cm</Top>
+              <Left>5.35655cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>57</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6052,7 +6116,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!e1_est.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6066,10 +6130,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.72419cm</Top>
-              <Left>6.07117cm</Left>
+              <Top>2.07595cm</Top>
+              <Left>6.05655cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>58</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6089,7 +6153,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!d.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6103,10 +6167,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.72419cm</Top>
-              <Left>8.54921cm</Left>
+              <Top>2.07596cm</Top>
+              <Left>12.63127cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>59</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6126,7 +6190,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!b.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6140,10 +6204,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.72419cm</Top>
-              <Left>9.16872cm</Left>
+              <Top>2.07596cm</Top>
+              <Left>13.33127cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>60</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6163,7 +6227,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!e3.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6177,10 +6241,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.72419cm</Top>
-              <Left>6.69068cm</Left>
+              <Top>2.07596cm</Top>
+              <Left>10.53127cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>61</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6200,7 +6264,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!s.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6214,10 +6278,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.72419cm</Top>
-              <Left>7.9297cm</Left>
+              <Top>2.07596cm</Top>
+              <Left>11.93127cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>62</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6237,7 +6301,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!ba.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6251,10 +6315,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.72419cm</Top>
-              <Left>9.78823cm</Left>
+              <Top>2.07596cm</Top>
+              <Left>14.03251cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>63</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6274,7 +6338,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!cr.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6288,10 +6352,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.72419cm</Top>
-              <Left>11.18385cm</Left>
+              <Top>2.07596cm</Top>
+              <Left>15.50862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>64</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6311,7 +6375,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!c.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6325,10 +6389,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.72419cm</Top>
-              <Left>13.04238cm</Left>
+              <Top>2.07596cm</Top>
+              <Left>17.60862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>65</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6348,7 +6412,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!rl.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6362,10 +6426,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.72419cm</Top>
-              <Left>13.66189cm</Left>
+              <Top>2.07596cm</Top>
+              <Left>18.30862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>66</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6385,7 +6449,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!m.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6399,10 +6463,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.72419cm</Top>
-              <Left>11.80336cm</Left>
+              <Top>2.07596cm</Top>
+              <Left>16.20862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>67</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6422,7 +6486,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!r.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6436,10 +6500,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.72419cm</Top>
-              <Left>12.42287cm</Left>
+              <Top>2.07596cm</Top>
+              <Left>16.90862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>68</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6459,7 +6523,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!jumlah.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6473,10 +6537,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.72419cm</Top>
-              <Left>14.2814cm</Left>
+              <Top>2.07596cm</Top>
+              <Left>19.00862cm</Left>
               <Height>0.47841cm</Height>
-              <Width>1.70347cm</Width>
+              <Width>0.94864cm</Width>
               <ZIndex>69</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6510,8 +6574,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.72419cm</Top>
-              <Left>3.96666cm</Left>
+              <Top>2.07595cm</Top>
+              <Left>3.87155cm</Left>
               <Height>0.47841cm</Height>
               <Width>1.485cm</Width>
               <ZIndex>70</ZIndex>
@@ -6547,8 +6611,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.89772cm</Top>
-              <Left>0.91549cm</Left>
+              <Top>3.1739cm</Top>
+              <Left>0.82476cm</Left>
               <Height>0.47841cm</Height>
               <Width>4.53617cm</Width>
               <ZIndex>71</ZIndex>
@@ -6584,10 +6648,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.89772cm</Top>
-              <Left>5.45166cm</Left>
+              <Top>3.1739cm</Top>
+              <Left>5.36093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>72</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6621,10 +6685,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.89772cm</Top>
-              <Left>6.07117cm</Left>
+              <Top>3.1739cm</Top>
+              <Left>6.06093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>73</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6658,8 +6722,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.89772cm</Top>
-              <Left>7.9297cm</Left>
+              <Top>3.1739cm</Top>
+              <Left>8.16093cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.76062cm</Width>
               <ZIndex>74</ZIndex>
@@ -6695,10 +6759,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.89772cm</Top>
-              <Left>9.46643cm</Left>
+              <Top>3.1739cm</Top>
+              <Left>9.6989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>75</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6732,10 +6796,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.89772cm</Top>
-              <Left>6.69068cm</Left>
+              <Top>3.1739cm</Top>
+              <Left>6.76093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>76</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6769,10 +6833,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.89772cm</Top>
-              <Left>7.31019cm</Left>
+              <Top>3.1739cm</Top>
+              <Left>7.46093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>77</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6806,10 +6870,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.89772cm</Top>
-              <Left>10.08594cm</Left>
+              <Top>3.1739cm</Top>
+              <Left>10.3989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>78</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6843,10 +6907,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.89772cm</Top>
-              <Left>10.70545cm</Left>
+              <Top>3.1739cm</Top>
+              <Left>11.0989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>79</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6880,10 +6944,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.89772cm</Top>
-              <Left>12.56398cm</Left>
+              <Top>3.1739cm</Top>
+              <Left>13.19898cm</Left>
               <Height>0.47841cm</Height>
-              <Width>1.41541cm</Width>
+              <Width>1.6cm</Width>
               <ZIndex>80</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6917,10 +6981,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.89772cm</Top>
-              <Left>11.32496cm</Left>
+              <Top>3.1739cm</Top>
+              <Left>11.7989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>81</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6954,48 +7018,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.89772cm</Top>
-              <Left>11.94447cm</Left>
+              <Top>3.1739cm</Top>
+              <Left>12.4989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
+              <Width>0.7cm</Width>
               <ZIndex>82</ZIndex>
-              <Visibility>
-                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>Solid</Style>
-                  <Width>1.25pt</Width>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox131">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Butt</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.89772cm</Top>
-              <Left>13.97939cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>1.52708cm</Width>
-              <ZIndex>83</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7028,11 +7055,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.37613cm</Top>
-              <Left>0.91549cm</Left>
+              <Top>3.65231cm</Top>
+              <Left>0.82476cm</Left>
               <Height>1.43523cm</Height>
               <Width>3.05117cm</Width>
-              <ZIndex>84</ZIndex>
+              <ZIndex>83</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7051,7 +7078,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!E.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7065,11 +7092,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.37613cm</Top>
-              <Left>5.45166cm</Left>
+              <Top>3.65231cm</Top>
+              <Left>5.36093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>85</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>84</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7088,7 +7115,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!S.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7102,11 +7129,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.37613cm</Top>
-              <Left>6.07117cm</Left>
+              <Top>3.65231cm</Top>
+              <Left>6.06093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>86</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>85</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7125,7 +7152,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!BA.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7139,11 +7166,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.37613cm</Top>
-              <Left>7.9297cm</Left>
+              <Top>3.65231cm</Top>
+              <Left>8.16093cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.76062cm</Width>
-              <ZIndex>87</ZIndex>
+              <ZIndex>86</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7162,7 +7189,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!CR.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7176,11 +7203,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.37613cm</Top>
-              <Left>9.46643cm</Left>
+              <Top>3.65231cm</Top>
+              <Left>9.6989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>88</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>87</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7199,7 +7226,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!D.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7213,11 +7240,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.37613cm</Top>
-              <Left>6.69068cm</Left>
+              <Top>3.65231cm</Top>
+              <Left>6.76093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>89</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>88</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7236,7 +7263,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!B.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7250,11 +7277,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.37613cm</Top>
-              <Left>7.31019cm</Left>
+              <Top>3.65231cm</Top>
+              <Left>7.46093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>90</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>89</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7273,7 +7300,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!M.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7287,11 +7314,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.37613cm</Top>
-              <Left>10.08594cm</Left>
+              <Top>3.65231cm</Top>
+              <Left>10.3989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>91</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>90</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7310,7 +7337,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!R.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7324,11 +7351,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.37613cm</Top>
-              <Left>10.70545cm</Left>
+              <Top>3.65231cm</Top>
+              <Left>11.0989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>92</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>91</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7361,11 +7388,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.37613cm</Top>
-              <Left>12.56398cm</Left>
+              <Top>3.65231cm</Top>
+              <Left>13.19898cm</Left>
               <Height>0.47841cm</Height>
-              <Width>1.41541cm</Width>
-              <ZIndex>93</ZIndex>
+              <Width>0.8cm</Width>
+              <ZIndex>92</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7384,7 +7411,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!C.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7398,11 +7425,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.37613cm</Top>
-              <Left>11.32496cm</Left>
+              <Top>3.65231cm</Top>
+              <Left>11.7989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>94</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>93</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7421,7 +7448,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!RL.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7435,11 +7462,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.37613cm</Top>
-              <Left>11.94447cm</Left>
+              <Top>3.65231cm</Top>
+              <Left>12.4989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>95</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>94</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7472,11 +7499,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.37613cm</Top>
-              <Left>13.97939cm</Left>
+              <Top>3.65231cm</Top>
+              <Left>13.99898cm</Left>
               <Height>0.47841cm</Height>
-              <Width>1.52708cm</Width>
-              <ZIndex>96</ZIndex>
+              <Width>0.8cm</Width>
+              <ZIndex>95</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7509,11 +7536,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.81136cm</Top>
-              <Left>0.91549cm</Left>
+              <Top>5.08754cm</Top>
+              <Left>0.82476cm</Left>
               <Height>0.47841cm</Height>
               <Width>4.53617cm</Width>
-              <ZIndex>97</ZIndex>
+              <ZIndex>96</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7546,11 +7573,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.81136cm</Top>
-              <Left>5.45166cm</Left>
+              <Top>5.08754cm</Top>
+              <Left>5.36093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>98</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>97</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7583,11 +7610,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.81136cm</Top>
-              <Left>6.07117cm</Left>
+              <Top>5.08754cm</Top>
+              <Left>6.06093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>99</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>98</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7620,11 +7647,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.81136cm</Top>
-              <Left>7.9297cm</Left>
+              <Top>5.08754cm</Top>
+              <Left>8.16093cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.76062cm</Width>
-              <ZIndex>100</ZIndex>
+              <ZIndex>99</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7657,11 +7684,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.81136cm</Top>
-              <Left>9.46643cm</Left>
+              <Top>5.08754cm</Top>
+              <Left>9.6989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>101</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>100</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7694,11 +7721,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.81136cm</Top>
-              <Left>6.69068cm</Left>
+              <Top>5.08754cm</Top>
+              <Left>6.76093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>102</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>101</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7731,11 +7758,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.81136cm</Top>
-              <Left>7.31019cm</Left>
+              <Top>5.08754cm</Top>
+              <Left>7.46093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>103</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>102</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7768,11 +7795,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.81136cm</Top>
-              <Left>10.08594cm</Left>
+              <Top>5.08754cm</Top>
+              <Left>10.3989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>104</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>103</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7805,11 +7832,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.81136cm</Top>
-              <Left>10.70545cm</Left>
+              <Top>5.08754cm</Top>
+              <Left>11.0989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>105</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>104</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7842,11 +7869,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.81136cm</Top>
-              <Left>12.56398cm</Left>
+              <Top>5.08754cm</Top>
+              <Left>13.19898cm</Left>
               <Height>0.47841cm</Height>
-              <Width>1.41541cm</Width>
-              <ZIndex>106</ZIndex>
+              <Width>0.8cm</Width>
+              <ZIndex>105</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7879,11 +7906,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.81136cm</Top>
-              <Left>11.32496cm</Left>
+              <Top>5.08754cm</Top>
+              <Left>11.7989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>107</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>106</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7916,11 +7943,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.81136cm</Top>
-              <Left>11.94447cm</Left>
+              <Top>5.08754cm</Top>
+              <Left>12.4989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>108</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>107</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7953,11 +7980,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.81136cm</Top>
-              <Left>13.97939cm</Left>
+              <Top>5.08754cm</Top>
+              <Left>13.99898cm</Left>
               <Height>0.47841cm</Height>
-              <Width>1.52708cm</Width>
-              <ZIndex>109</ZIndex>
+              <Width>0.8cm</Width>
+              <ZIndex>108</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -7990,11 +8017,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.37613cm</Top>
-              <Left>3.96666cm</Left>
+              <Top>3.65231cm</Top>
+              <Left>3.87593cm</Left>
               <Height>0.47841cm</Height>
               <Width>1.485cm</Width>
-              <ZIndex>110</ZIndex>
+              <ZIndex>109</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8013,7 +8040,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!E.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8027,11 +8054,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.85454cm</Top>
-              <Left>5.45166cm</Left>
+              <Top>4.13072cm</Top>
+              <Left>5.36093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>111</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>110</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8050,7 +8077,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!S.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8064,11 +8091,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.85454cm</Top>
-              <Left>6.07117cm</Left>
+              <Top>4.13072cm</Top>
+              <Left>6.06093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>112</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>111</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8087,7 +8114,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!BA.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8101,11 +8128,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.85454cm</Top>
-              <Left>7.9297cm</Left>
+              <Top>4.13072cm</Top>
+              <Left>8.16093cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.76062cm</Width>
-              <ZIndex>113</ZIndex>
+              <ZIndex>112</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8124,7 +8151,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!CR.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8138,11 +8165,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.85454cm</Top>
-              <Left>9.46643cm</Left>
+              <Top>4.13072cm</Top>
+              <Left>9.6989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>114</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>113</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8161,7 +8188,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!D.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8175,11 +8202,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.85454cm</Top>
-              <Left>6.69068cm</Left>
+              <Top>4.13072cm</Top>
+              <Left>6.76093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>115</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>114</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8198,7 +8225,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!B.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8212,11 +8239,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.85454cm</Top>
-              <Left>7.31019cm</Left>
+              <Top>4.13072cm</Top>
+              <Left>7.46093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>116</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>115</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8235,7 +8262,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!M.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8249,11 +8276,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.85454cm</Top>
-              <Left>10.08594cm</Left>
+              <Top>4.13072cm</Top>
+              <Left>10.3989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>117</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>116</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8272,7 +8299,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!R.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8286,11 +8313,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.85454cm</Top>
-              <Left>10.70545cm</Left>
+              <Top>4.13072cm</Top>
+              <Left>11.0989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>118</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>117</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8323,11 +8350,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.85454cm</Top>
-              <Left>12.56398cm</Left>
+              <Top>4.13072cm</Top>
+              <Left>13.19898cm</Left>
               <Height>0.47841cm</Height>
-              <Width>1.41541cm</Width>
-              <ZIndex>119</ZIndex>
+              <Width>0.8cm</Width>
+              <ZIndex>118</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8346,7 +8373,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!C.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8360,11 +8387,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.85454cm</Top>
-              <Left>11.32496cm</Left>
+              <Top>4.13072cm</Top>
+              <Left>11.7989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>120</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>119</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8383,7 +8410,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!RL.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8397,11 +8424,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.85454cm</Top>
-              <Left>11.94447cm</Left>
+              <Top>4.13072cm</Top>
+              <Left>12.4989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>121</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>120</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8434,11 +8461,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.85454cm</Top>
-              <Left>13.97939cm</Left>
+              <Top>4.13072cm</Top>
+              <Left>13.99898cm</Left>
               <Height>0.47841cm</Height>
-              <Width>1.52708cm</Width>
-              <ZIndex>122</ZIndex>
+              <Width>0.8cm</Width>
+              <ZIndex>121</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8471,11 +8498,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.85454cm</Top>
-              <Left>3.96666cm</Left>
+              <Top>4.13072cm</Top>
+              <Left>3.87593cm</Left>
               <Height>0.47841cm</Height>
               <Width>1.485cm</Width>
-              <ZIndex>123</ZIndex>
+              <ZIndex>122</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8494,7 +8521,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!E.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8508,11 +8535,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.33295cm</Top>
-              <Left>5.45166cm</Left>
+              <Top>4.60913cm</Top>
+              <Left>5.36093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>124</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>123</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8531,7 +8558,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!S.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8545,11 +8572,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.33295cm</Top>
-              <Left>6.07117cm</Left>
+              <Top>4.60913cm</Top>
+              <Left>6.06093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>125</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>124</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8568,7 +8595,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!BA.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8582,11 +8609,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.33295cm</Top>
-              <Left>7.9297cm</Left>
+              <Top>4.60913cm</Top>
+              <Left>8.16093cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.76062cm</Width>
-              <ZIndex>126</ZIndex>
+              <ZIndex>125</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8605,7 +8632,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!CR.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8619,11 +8646,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.33295cm</Top>
-              <Left>9.46643cm</Left>
+              <Top>4.60913cm</Top>
+              <Left>9.6989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>127</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>126</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8642,7 +8669,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!D.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8656,11 +8683,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.33295cm</Top>
-              <Left>6.69068cm</Left>
+              <Top>4.60913cm</Top>
+              <Left>6.76093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>128</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>127</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8679,7 +8706,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!B.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8693,11 +8720,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.33295cm</Top>
-              <Left>7.31019cm</Left>
+              <Top>4.60913cm</Top>
+              <Left>7.46093cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>129</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>128</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8716,7 +8743,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!M.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8730,11 +8757,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.33295cm</Top>
-              <Left>10.08594cm</Left>
+              <Top>4.60913cm</Top>
+              <Left>10.3989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>130</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>129</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8753,7 +8780,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!R.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8767,11 +8794,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.33295cm</Top>
-              <Left>10.70545cm</Left>
+              <Top>4.60913cm</Top>
+              <Left>11.0989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>131</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>130</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8804,11 +8831,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.33295cm</Top>
-              <Left>12.56398cm</Left>
+              <Top>4.60913cm</Top>
+              <Left>13.19898cm</Left>
               <Height>0.47841cm</Height>
-              <Width>1.41541cm</Width>
-              <ZIndex>132</ZIndex>
+              <Width>0.8cm</Width>
+              <ZIndex>131</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8827,7 +8854,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!C.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8841,11 +8868,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.33295cm</Top>
-              <Left>11.32496cm</Left>
+              <Top>4.60913cm</Top>
+              <Left>11.7989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>133</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>132</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8864,7 +8891,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!RL.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8878,11 +8905,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.33295cm</Top>
-              <Left>11.94447cm</Left>
+              <Top>4.60913cm</Top>
+              <Left>12.4989cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>134</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>133</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8915,11 +8942,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.33295cm</Top>
-              <Left>13.97939cm</Left>
+              <Top>4.60913cm</Top>
+              <Left>13.99898cm</Left>
               <Height>0.47841cm</Height>
-              <Width>1.52708cm</Width>
-              <ZIndex>135</ZIndex>
+              <Width>0.8cm</Width>
+              <ZIndex>134</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8952,11 +8979,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.33295cm</Top>
-              <Left>3.96666cm</Left>
+              <Top>4.60913cm</Top>
+              <Left>3.87593cm</Left>
               <Height>0.47841cm</Height>
               <Width>1.485cm</Width>
-              <ZIndex>136</ZIndex>
+              <ZIndex>135</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8989,11 +9016,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.3175cm</Top>
-              <Left>10.40774cm</Left>
-              <Height>0.47841cm</Height>
+              <Top>0.11257cm</Top>
+              <Left>14.73251cm</Left>
+              <Height>1.00656cm</Height>
               <Width>0.77611cm</Width>
-              <ZIndex>137</ZIndex>
+              <ZIndex>136</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9012,7 +9039,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!ba1.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9026,11 +9053,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.76737cm</Top>
-              <Left>10.40774cm</Left>
+              <Top>1.11914cm</Top>
+              <Left>14.73251cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.77611cm</Width>
-              <ZIndex>138</ZIndex>
+              <ZIndex>137</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9063,11 +9090,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.2026cm</Top>
-              <Left>10.40774cm</Left>
+              <Top>2.55437cm</Top>
+              <Left>14.73251cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.77611cm</Width>
-              <ZIndex>139</ZIndex>
+              <ZIndex>138</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9086,7 +9113,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!ba1.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9100,11 +9127,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.24578cm</Top>
-              <Left>10.40774cm</Left>
+              <Top>1.59755cm</Top>
+              <Left>14.73251cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.77611cm</Width>
-              <ZIndex>140</ZIndex>
+              <ZIndex>139</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9123,7 +9150,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!ba1.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9137,11 +9164,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.72419cm</Top>
-              <Left>10.40774cm</Left>
+              <Top>2.07596cm</Top>
+              <Left>14.73251cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.77611cm</Width>
-              <ZIndex>141</ZIndex>
+              <ZIndex>140</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9174,11 +9201,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.89772cm</Top>
-              <Left>8.69032cm</Left>
+              <Top>3.1739cm</Top>
+              <Left>8.92279cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.77611cm</Width>
-              <ZIndex>142</ZIndex>
+              <ZIndex>141</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9197,7 +9224,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!BA_1.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9211,11 +9238,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.37613cm</Top>
-              <Left>8.69032cm</Left>
+              <Top>3.65231cm</Top>
+              <Left>8.92279cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.77611cm</Width>
-              <ZIndex>143</ZIndex>
+              <ZIndex>142</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9248,11 +9275,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.81136cm</Top>
-              <Left>8.69032cm</Left>
+              <Top>5.08754cm</Top>
+              <Left>8.92279cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.77611cm</Width>
-              <ZIndex>144</ZIndex>
+              <ZIndex>143</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9271,7 +9298,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!BA_1.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9285,11 +9312,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.85454cm</Top>
-              <Left>8.69032cm</Left>
+              <Top>4.13072cm</Top>
+              <Left>8.92279cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.77611cm</Width>
-              <ZIndex>145</ZIndex>
+              <ZIndex>144</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9308,7 +9335,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!BA_1.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9322,11 +9349,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.33295cm</Top>
-              <Left>8.69032cm</Left>
+              <Top>4.60913cm</Top>
+              <Left>8.92279cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.77611cm</Width>
-              <ZIndex>146</ZIndex>
+              <ZIndex>145</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9359,11 +9386,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.3175cm</Top>
-              <Left>7.31019cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>147</ZIndex>
+              <Top>0.11257cm</Top>
+              <Left>11.23127cm</Left>
+              <Height>1.00656cm</Height>
+              <Width>0.7cm</Width>
+              <ZIndex>146</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9382,7 +9409,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!e4.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9396,11 +9423,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.76737cm</Top>
-              <Left>7.31019cm</Left>
+              <Top>1.11914cm</Top>
+              <Left>11.23127cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>148</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>147</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9433,11 +9460,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.2026cm</Top>
-              <Left>7.31019cm</Left>
+              <Top>2.55437cm</Top>
+              <Left>11.23127cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>149</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>148</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9456,7 +9483,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!e4.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9470,11 +9497,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.24578cm</Top>
-              <Left>7.31019cm</Left>
+              <Top>1.59755cm</Top>
+              <Left>11.23127cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>150</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>149</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9493,7 +9520,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!e4.Value, "DataSetPerbaikan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9507,11 +9534,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.72419cm</Top>
-              <Left>7.31019cm</Left>
+              <Top>2.07596cm</Top>
+              <Left>11.23127cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.61951cm</Width>
-              <ZIndex>151</ZIndex>
+              <Width>0.7cm</Width>
+              <ZIndex>150</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9630,11 +9657,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox200</rd:DefaultName>
-              <Top>2.55942cm</Top>
-              <Left>16.16126cm</Left>
-              <Height>2.73035cm</Height>
-              <Width>4.24944cm</Width>
-              <ZIndex>152</ZIndex>
+              <Top>3.1739cm</Top>
+              <Left>15.01258cm</Left>
+              <Height>2.39205cm</Height>
+              <Width>4.15463cm</Width>
+              <ZIndex>151</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -9643,6 +9670,1005 @@
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>
                 <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox58">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Ers</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>0.59098cm</Top>
+              <Left>5.35655cm</Left>
+              <Height>0.52814cm</Height>
+              <Width>0.70438cm</Width>
+              <ZIndex>152</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox131">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Est</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>0.59098cm</Top>
+              <Left>6.05217cm</Left>
+              <Height>0.52814cm</Height>
+              <Width>0.70438cm</Width>
+              <ZIndex>153</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox192">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Jlh</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>0.59098cm</Top>
+              <Left>6.76093cm</Left>
+              <Height>0.52814cm</Height>
+              <Width>0.70438cm</Width>
+              <ZIndex>154</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox196">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!e1_jumlah.Value, "DataSetPerbaikan"), "")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>1.11913cm</Top>
+              <Left>6.76531cm</Left>
+              <Height>0.47841cm</Height>
+              <Width>0.7cm</Width>
+              <ZIndex>155</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox197">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value />
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>2.55436cm</Top>
+              <Left>6.76531cm</Left>
+              <Height>0.47841cm</Height>
+              <Width>0.7cm</Width>
+              <ZIndex>156</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox198">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!e1_jumlah.Value, "DataSetPerbaikan"), "")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>1.59754cm</Top>
+              <Left>6.76531cm</Left>
+              <Height>0.47841cm</Height>
+              <Width>0.7cm</Width>
+              <ZIndex>157</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox199">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!e1_jumlah.Value, "DataSetPerbaikan"), "")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>2.07595cm</Top>
+              <Left>6.76531cm</Left>
+              <Height>0.47841cm</Height>
+              <Width>0.7cm</Width>
+              <ZIndex>158</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox201">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!e2_ers.Value, "DataSetPerbaikan"), "")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>1.11914cm</Top>
+              <Left>7.46531cm</Left>
+              <Height>0.47841cm</Height>
+              <Width>0.7cm</Width>
+              <ZIndex>159</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox202">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!e2_cst.Value, "DataSetPerbaikan"), "")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>1.11914cm</Top>
+              <Left>8.16531cm</Left>
+              <Height>0.47841cm</Height>
+              <Width>0.7cm</Width>
+              <ZIndex>160</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox203">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value />
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>2.55437cm</Top>
+              <Left>7.46531cm</Left>
+              <Height>0.47841cm</Height>
+              <Width>0.7cm</Width>
+              <ZIndex>161</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox204">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value />
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>2.55437cm</Top>
+              <Left>8.16531cm</Left>
+              <Height>0.47841cm</Height>
+              <Width>0.7cm</Width>
+              <ZIndex>162</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox205">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!e2_ers.Value, "DataSetPerbaikan"), "")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>1.59755cm</Top>
+              <Left>7.46531cm</Left>
+              <Height>0.47841cm</Height>
+              <Width>0.7cm</Width>
+              <ZIndex>163</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox206">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!e2_cst.Value, "DataSetPerbaikan"), "")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>1.59755cm</Top>
+              <Left>8.16531cm</Left>
+              <Height>0.47841cm</Height>
+              <Width>0.7cm</Width>
+              <ZIndex>164</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox207">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!e2_ers.Value, "DataSetPerbaikan"), "")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>2.07596cm</Top>
+              <Left>7.46531cm</Left>
+              <Height>0.47841cm</Height>
+              <Width>0.7cm</Width>
+              <ZIndex>165</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox208">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!e2_cst.Value, "DataSetPerbaikan"), "")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>2.07596cm</Top>
+              <Left>8.16531cm</Left>
+              <Height>0.47841cm</Height>
+              <Width>0.7cm</Width>
+              <ZIndex>166</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox209">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Ers</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>0.59099cm</Top>
+              <Left>7.46531cm</Left>
+              <Height>0.52814cm</Height>
+              <Width>0.70438cm</Width>
+              <ZIndex>167</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox210">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Cst</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>0.59099cm</Top>
+              <Left>8.16093cm</Left>
+              <Height>0.52814cm</Height>
+              <Width>0.70438cm</Width>
+              <ZIndex>168</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox211">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Cstub</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>0.59099cm</Top>
+              <Left>8.86969cm</Left>
+              <Height>0.52814cm</Height>
+              <Width>0.96392cm</Width>
+              <ZIndex>169</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox212">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!e2_cstub.Value, "DataSetPerbaikan"), "")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>1.11914cm</Top>
+              <Left>8.87407cm</Left>
+              <Height>0.47841cm</Height>
+              <Width>0.95954cm</Width>
+              <ZIndex>170</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox213">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value />
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>2.55437cm</Top>
+              <Left>8.87407cm</Left>
+              <Height>0.47841cm</Height>
+              <Width>0.95954cm</Width>
+              <ZIndex>171</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox214">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!e2_cstub.Value, "DataSetPerbaikan"), "")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>1.59755cm</Top>
+              <Left>8.87407cm</Left>
+              <Height>0.47841cm</Height>
+              <Width>0.95954cm</Width>
+              <ZIndex>172</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox215">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!e2_cstub.Value, "DataSetPerbaikan"), "")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>2.07596cm</Top>
+              <Left>8.87407cm</Left>
+              <Height>0.47841cm</Height>
+              <Width>0.95954cm</Width>
+              <ZIndex>173</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox216">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Jlh</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>0.591cm</Top>
+              <Left>9.82689cm</Left>
+              <Height>0.52814cm</Height>
+              <Width>0.70438cm</Width>
+              <ZIndex>174</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox217">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!e2_jumlah.Value, "DataSetPerbaikan"), "")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>1.11915cm</Top>
+              <Left>9.83127cm</Left>
+              <Height>0.47841cm</Height>
+              <Width>0.7cm</Width>
+              <ZIndex>175</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox218">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value />
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>2.55438cm</Top>
+              <Left>9.83127cm</Left>
+              <Height>0.47841cm</Height>
+              <Width>0.7cm</Width>
+              <ZIndex>176</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox219">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!e2_jumlah.Value, "DataSetPerbaikan"), "")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>1.59756cm</Top>
+              <Left>9.83127cm</Left>
+              <Height>0.47841cm</Height>
+              <Width>0.7cm</Width>
+              <ZIndex>177</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox220">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!e2_jumlah.Value, "DataSetPerbaikan"), "")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Medium</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>2.07597cm</Top>
+              <Left>9.83127cm</Left>
+              <Height>0.47841cm</Height>
+              <Width>0.7cm</Width>
+              <ZIndex>178</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.25pt</Width>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
               </Style>
             </Textbox>
           </ReportItems>

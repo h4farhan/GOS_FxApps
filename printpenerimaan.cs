@@ -164,6 +164,9 @@ namespace GOS_FxApps
                 var adapter = new GOS_FxApps.DataSet.PenerimaanFormTableAdapters.penerimaan_sTableAdapter();
                 GOS_FxApps.DataSet.PenerimaanForm.penerimaan_sDataTable data = adapter.GetData(tanggal1, tanggal2, shift);
 
+                var adapter2 = new GOS_FxApps.DataSet.PenerimaanFormTableAdapters.jumlahpenerimaan2TableAdapter();
+                GOS_FxApps.DataSet.PenerimaanForm.jumlahpenerimaan2DataTable data2 = adapter2.GetData(tanggal1, tanggal2, shift);
+
                 frmrpt = new reportviewr();
                 frmrpt.reportViewer1.Reset();
                 frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "penerimaan.rdlc");
@@ -171,8 +174,10 @@ namespace GOS_FxApps
                 frmrpt.reportViewer1.LocalReport.DataSources.Clear();
                 frmrpt.reportViewer1.LocalReport.DataSources.Add(
                     new ReportDataSource("DataSetPenerimaan", (DataTable)data));
+                frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                        new ReportDataSource("datasetjumlahpenerimaan2", (DataTable)data2));
 
-                ReportParameter[] parameters = new ReportParameter[]
+            ReportParameter[] parameters = new ReportParameter[]
                 {
             new ReportParameter("tanggal1", tanggal1.ToString("yyyy-MM-dd")),
             new ReportParameter("tanggal2", tanggal2.ToString("yyyy-MM-dd")),
@@ -254,6 +259,9 @@ namespace GOS_FxApps
             var adapter = new GOS_FxApps.DataSet.PerbaikanFormTableAdapters.perbaikan_pTableAdapter();
             GOS_FxApps.DataSet.PerbaikanForm.perbaikan_pDataTable data = adapter.GetData(tanggal1, tanggal2, shift);
 
+            var adapter2 = new GOS_FxApps.DataSet.PerbaikanFormTableAdapters.jumlahperbaikan2TableAdapter();
+            GOS_FxApps.DataSet.PerbaikanForm.jumlahperbaikan2DataTable data2 = adapter2.GetData(tanggal1, tanggal2, shift);
+
             frmrpt = new reportviewr();
             frmrpt.reportViewer1.Reset();
             frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "Perbaikan.rdlc");
@@ -261,6 +269,9 @@ namespace GOS_FxApps
             frmrpt.reportViewer1.LocalReport.DataSources.Clear();
             frmrpt.reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("DataSetPerbaikan", (DataTable)data));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetjumlahperbaikan2", (DataTable)data2));
 
             ReportParameter[] parameters = new ReportParameter[]
             {
