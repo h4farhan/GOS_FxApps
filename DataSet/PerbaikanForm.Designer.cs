@@ -5019,7 +5019,7 @@ namespace GOS_FxApps.DataSet.PerbaikanFormTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::GOS_FxApps.Properties.Settings.Default.gos_apps;
+            this._connection.ConnectionString = global::GOS_FxApps.Properties.Settings.Default.gos_appsserver;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5245,7 +5245,7 @@ namespace GOS_FxApps.DataSet.PerbaikanFormTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::GOS_FxApps.Properties.Settings.Default.gos_apps;
+            this._connection.ConnectionString = global::GOS_FxApps.Properties.Settings.Default.gos_appsserver;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5687,7 +5687,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::GOS_FxApps.Properties.Settings.Default.gos_apps;
+            this._connection.ConnectionString = global::GOS_FxApps.Properties.Settings.Default.gos_appsserver;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

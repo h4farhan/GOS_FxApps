@@ -2218,7 +2218,7 @@ namespace GOS_FxApps.DataSet.laporanpemakaianTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::GOS_FxApps.Properties.Settings.Default.gos_apps;
+            this._connection.ConnectionString = global::GOS_FxApps.Properties.Settings.Default.gos_appsserver;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
