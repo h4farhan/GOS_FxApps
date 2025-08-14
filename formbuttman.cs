@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 
 namespace GOS_FxApps
 {
@@ -23,6 +23,29 @@ namespace GOS_FxApps
             InitializeComponent();
         }
 
+        private void registertampil()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.kondisiROD", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampil();
+                            registertampil();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
         private void tampil()
         {
             try
@@ -33,7 +56,7 @@ namespace GOS_FxApps
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
@@ -64,7 +87,7 @@ namespace GOS_FxApps
 
             if (!tanggal.HasValue && !shiftValid)
             {
-                MessageBox.Show("Silakan isi tanggal atau shift untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan isi tanggal atau shift untuk melakukan pencarian.", "Peringatan");
                 return false;
             }
 
@@ -124,7 +147,7 @@ namespace GOS_FxApps
                 cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Data berhasil diedit.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Data Berhasil Diedit.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tampil();
                 btnsimpan.Text = "Simpan Data";
             }
@@ -158,7 +181,7 @@ namespace GOS_FxApps
                     {
                         if (dr.Read())
                         {
-                            MessageBox.Show("Data di Tanggal dan di Shift ini sudah ada", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Data di Tanggal dan di Shift ini sudah ada", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
                     }
@@ -174,7 +197,7 @@ namespace GOS_FxApps
                     cmd.ExecuteNonQuery();
                 }
 
-                MessageBox.Show("Data Berhasil Disimpan.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Data Berhasil Disimpan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 setdefault();
                 tampil();
             }
@@ -203,7 +226,7 @@ namespace GOS_FxApps
                 cmd.Parameters.AddWithValue("@no", noprimary);
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Data berhasil dihapus.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Data berhasil dihapus.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tampil();
             }
             catch (SqlException)
@@ -242,7 +265,7 @@ namespace GOS_FxApps
         {
             if (cmbshift.SelectedIndex == -1 || txtbutt.Text == "" || txtman.Text == "") 
             {
-                MessageBox.Show("Harap lengkapi data terlebih dahulu.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Harap lengkapi data terlebih dahulu.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -252,6 +275,8 @@ namespace GOS_FxApps
                 setdefault();
                 btndelete.Enabled = false;
                 btnsimpan.Enabled = false;
+                date.Enabled = true;
+                cmbshift.Enabled = true;
             }
             else if (btnsimpan.Text == "Edit Data")
             {
@@ -260,16 +285,20 @@ namespace GOS_FxApps
                 btndelete.Enabled = false;
                 btnsimpan.Enabled = false;
                 noprimary = 0;
+                date.Enabled = true;
+                cmbshift.Enabled = true;
             }
 
         }
 
         private void formbuttman_Load(object sender, EventArgs e)
         {
+            SqlDependency.Start(Koneksi.GetConnectionString());
             tampil();
             date.Value = DateTime.Now.Date;
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
+            registertampil();
         }
 
         private void btncari_Click(object sender, EventArgs e)
@@ -379,6 +408,11 @@ namespace GOS_FxApps
                 cmbshift.Enabled = true;
                 noprimary = 0;
             }
+        }
+
+        private void formbuttman_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SqlDependency.Stop(Koneksi.GetConnectionString());
         }
     }
 }

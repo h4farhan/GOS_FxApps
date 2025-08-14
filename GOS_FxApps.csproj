@@ -271,12 +271,6 @@
     <Compile Include="editpenerimaan.Designer.cs">
       <DependentUpon>editpenerimaan.cs</DependentUpon>
     </Compile>
-    <Compile Include="editpengiriman.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="editpengiriman.Designer.cs">
-      <DependentUpon>editpengiriman.cs</DependentUpon>
-    </Compile>
     <Compile Include="editperbaikan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -388,6 +382,12 @@
     <Compile Include="reportviewr.Designer.cs">
       <DependentUpon>reportviewr.cs</DependentUpon>
     </Compile>
+    <Compile Include="setmin_rb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="setmin_rb.Designer.cs">
+      <DependentUpon>setmin_rb.cs</DependentUpon>
+    </Compile>
     <Compile Include="userinfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -400,6 +400,27 @@
     <Compile Include="weldingp.Designer.cs">
       <DependentUpon>weldingp.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\dots.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\optimization %281%29.png" />
+    <None Include="Resources\optimization.png" />
+    <None Include="Resources\material-management.png" />
+    <None Include="Resources\delivery-service1.png" />
+    <None Include="Resources\corporate.png" />
+    <None Include="Resources\recycled-material.png" />
+    <None Include="Resources\welding-machine.png" />
+    <None Include="Resources\delivery.png" />
+    <None Include="Resources\tool-box.png" />
+    <None Include="Resources\delivery-service.png" />
+    <None Include="Resources\history.png" />
+    <None Include="Resources\pdf.png" />
+    <None Include="Resources\edit-tools.png" />
+    <None Include="Resources\dashboard.png" />
+    <None Include="Resources\data-entry.png" />
+    <None Include="Resources\download.png" />
+    <None Include="Resources\home %283%29.png" />
+    <None Include="Resources\home %282%29.png" />
+    <None Include="Resources\home %281%29.png" />
     <EmbeddedResource Include="actual_28.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -417,9 +438,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="editpenerimaan.resx">
       <DependentUpon>editpenerimaan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="editpengiriman.resx">
-      <DependentUpon>editpengiriman.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="editperbaikan.resx">
       <DependentUpon>editperbaikan.cs</DependentUpon>
@@ -448,6 +466,15 @@
     <EmbeddedResource Include="historyWelding.resx">
       <DependentUpon>historyWelding.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="kondisi_28.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="kondisi_29.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="kondisi_30.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="kondisi_31.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -472,15 +499,15 @@
     <EmbeddedResource Include="pemakaianMaterial.resx">
       <DependentUpon>pemakaianMaterial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pengiriman.rdlc">
+    <Content Include="Pengiriman.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Perbaikan.rdlc">
+    </Content>
+    <Content Include="Perbaikan.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Penerimaan.rdlc">
+    </Content>
+    <Content Include="Penerimaan.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
     <EmbeddedResource Include="Penerimaan.resx">
       <DependentUpon>Penerimaan.cs</DependentUpon>
     </EmbeddedResource>
@@ -493,9 +520,9 @@
     <EmbeddedResource Include="printpenerimaan.resx">
       <DependentUpon>printpenerimaan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="produksiharian.rdlc">
+    <Content Include="produksiharian.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -509,11 +536,14 @@
     <EmbeddedResource Include="registrasi.resx">
       <DependentUpon>registrasi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rb_Stok.rdlc">
+    <Content Include="Rb_Stok.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
     <EmbeddedResource Include="reportviewr.resx">
       <DependentUpon>reportviewr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="setmin_rb.resx">
+      <DependentUpon>setmin_rb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="userinfo.resx">
       <DependentUpon>userinfo.cs</DependentUpon>

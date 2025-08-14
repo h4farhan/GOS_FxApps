@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 using Microsoft.Reporting.Map.WebForms.BingMaps;
 
 namespace GOS_FxApps
@@ -28,14 +28,63 @@ namespace GOS_FxApps
             tampilpenerimaan();
         }
 
+        private void registertampilpenerimaan()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.penerimaan_s", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampilpenerimaan();
+                            registertampilpenerimaan();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
+        private void registertampilperbaikan()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.perbaikan_s", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampilperbaikan();
+                            registertampilperbaikan();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
         private void Perbaikan_Load(object sender, EventArgs e)
         {
+            SqlDependency.Start(Koneksi.GetConnectionString());
             btnsimpan.Enabled = false;
             datecariperbaikan.Value = DateTime.Now.Date;
             datecariperbaikan.Checked = false;
             datecaripenerimaan.Value = DateTime.Now.Date;
             datecaripenerimaan.Checked = false;
             txtnomorrod.Focus();
+            registertampilpenerimaan();
+            registertampilperbaikan();
         }
 
         private void tampilpenerimaan()
@@ -47,8 +96,8 @@ namespace GOS_FxApps
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
                 dataGridView2.DataSource = dt;
-                dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView2.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+                dataGridView2.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView2.RowTemplate.Height = 35;
                 dataGridView2.ReadOnly = true;
 
@@ -92,7 +141,7 @@ namespace GOS_FxApps
 
             if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
             {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -149,13 +198,13 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, ba, ba1, cr, m, r, c, rl, jumlah, tanggal_penerimaan, updated_at FROM perbaikan_s ORDER BY tanggal_perbaikan DESC";
+                string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl, jumlah, tanggal_penerimaan, updated_at FROM perbaikan_s ORDER BY tanggal_perbaikan DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query,conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
 
@@ -176,16 +225,18 @@ namespace GOS_FxApps
                 dataGridView1.Columns[14].HeaderText = "S";
                 dataGridView1.Columns[15].HeaderText = "D";
                 dataGridView1.Columns[16].HeaderText = "B";
-                dataGridView1.Columns[17].HeaderText = "BA";
-                dataGridView1.Columns[18].HeaderText = "BA-1";
-                dataGridView1.Columns[19].HeaderText = "CR";
-                dataGridView1.Columns[20].HeaderText = "M";
-                dataGridView1.Columns[21].HeaderText = "R";
-                dataGridView1.Columns[22].HeaderText = "C";
-                dataGridView1.Columns[23].HeaderText = "RL";
-                dataGridView1.Columns[24].HeaderText = "Jumlah";
-                dataGridView1.Columns[25].HeaderText = "Tanggal Penerimaan";
-                dataGridView1.Columns[26].HeaderText = "Diubah"; 
+                dataGridView1.Columns[17].HeaderText = "BAC";
+                dataGridView1.Columns[18].HeaderText = "NBA";
+                dataGridView1.Columns[19].HeaderText = "BA";
+                dataGridView1.Columns[20].HeaderText = "BA-1";
+                dataGridView1.Columns[21].HeaderText = "CR";
+                dataGridView1.Columns[22].HeaderText = "M";
+                dataGridView1.Columns[23].HeaderText = "R";
+                dataGridView1.Columns[24].HeaderText = "C";
+                dataGridView1.Columns[25].HeaderText = "RL";
+                dataGridView1.Columns[26].HeaderText = "Jumlah";
+                dataGridView1.Columns[27].HeaderText = "Tanggal Penerimaan";
+                dataGridView1.Columns[28].HeaderText = "Diubah"; 
             }
             catch (SqlException)
             {
@@ -206,7 +257,7 @@ namespace GOS_FxApps
 
             if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
             {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -274,7 +325,8 @@ namespace GOS_FxApps
             txts.Clear();
             txtd.Clear();
             txtb.Clear();
-            txtba.Clear();
+            txtbac.Clear();
+            txtnba.Clear();
             txtba1.Clear();
             txtcr.Clear();
             txtm.Clear();
@@ -284,6 +336,7 @@ namespace GOS_FxApps
             lbltotal.Text = "-";
             lbltotale1.Text = "-";
             lbltotale2.Text = "-";
+            lbltotalba.Text = "-";
         }
 
         private void settrue()
@@ -299,7 +352,8 @@ namespace GOS_FxApps
             txts.Enabled = true;
             txtd.Enabled = true;
             txtb.Enabled = true;
-            txtba.Enabled = true;
+            txtbac.Enabled = true;
+            txtnba.Enabled = true;
             txtba1.Enabled = true;
             txtcr.Enabled = true;
             txtm.Enabled = true;
@@ -321,7 +375,8 @@ namespace GOS_FxApps
             txts.Enabled = false;
             txtd.Enabled = false;
             txtb.Enabled = false;
-            txtba.Enabled = false;
+            txtbac.Enabled = false;
+            txtnba.Enabled = false;
             txtba1.Enabled = false;
             txtcr.Enabled = false;
             txtm.Enabled = false;
@@ -347,16 +402,16 @@ namespace GOS_FxApps
         {
             try
             {
-                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.OK)
                 {
                     conn.Open();
                     SqlCommand cmd1 = new SqlCommand("INSERT INTO perbaikan_s (tanggal_perbaikan,shift,nomor_rod,jenis,e1_ers,e1_est,e1_jumlah,e2_ers,e2_cst,e2_cstub,e2_jumlah," +
-                        "e3,e4,s,d,b,ba,ba1,cr,m,r,c,rl,jumlah,tanggal_penerimaan,updated_at) VALUES(@tanggal,@shift,@nomorrod,@jenis,@e1ers,@e1est,@e1jumlah,@e2ers,@e2cst,@e2cstub,@e2jumlah,@e3,@e4,@s,@d,@b,@ba,@ba1,@cr,@m,@r,@c,@rl,@jumlah,@tanggalpenerimaan,@diubah)", conn);
+                        "e3,e4,s,d,b,bac,nba,ba,ba1,cr,m,r,c,rl,jumlah,tanggal_penerimaan,updated_at) VALUES(@tanggal,@shift,@nomorrod,@jenis,@e1ers,@e1est,@e1jumlah,@e2ers,@e2cst,@e2cstub,@e2jumlah,@e3,@e4,@s,@d,@b,@bac,@nba,@ba,@ba1,@cr,@m,@r,@c,@rl,@jumlah,@tanggalpenerimaan,@diubah)", conn);
 
                     SqlCommand cmd2 = new SqlCommand("INSERT INTO perbaikan_p (tanggal_perbaikan,shift,nomor_rod,jenis,e1_ers,e1_est,e1_jumlah,e2_ers,e2_cst,e2_cstub,e2_jumlah," +
-                        "e3,e4,s,d,b,ba,ba1,cr,m,r,c,rl,jumlah,tanggal_penerimaan,updated_at) VALUES(@tanggal,@shift,@nomorrod,@jenis,@e1ers,@e1est,@e1jumlah,@e2ers,@e2cst,@e2cstub,@e2jumlah,@e3,@e4,@s,@d,@b,@ba,@ba1,@cr,@m,@r,@c,@rl,@jumlah,@tanggalpenerimaan,@diubah)", conn);
+                        "e3,e4,s,d,b,bac,nba,ba,ba1,cr,m,r,c,rl,jumlah,tanggal_penerimaan,updated_at) VALUES(@tanggal,@shift,@nomorrod,@jenis,@e1ers,@e1est,@e1jumlah,@e2ers,@e2cst,@e2cstub,@e2jumlah,@e3,@e4,@s,@d,@b,@bac,@nba,@ba,@ba1,@cr,@m,@r,@c,@rl,@jumlah,@tanggalpenerimaan,@diubah)", conn);
 
                     cmd1.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
                     cmd1.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
@@ -374,7 +429,9 @@ namespace GOS_FxApps
                     cmd1.Parameters.AddWithValue("@s", txts.Text);
                     cmd1.Parameters.AddWithValue("@d", txtd.Text);
                     cmd1.Parameters.AddWithValue("@b", txtb.Text);
-                    cmd1.Parameters.AddWithValue("@ba", txtba.Text);
+                    cmd1.Parameters.AddWithValue("@bac", txtbac.Text);
+                    cmd1.Parameters.AddWithValue("@nba", txtnba.Text);
+                    cmd1.Parameters.AddWithValue("@ba", lbltotalba.Text);
                     cmd1.Parameters.AddWithValue("@ba1", txtba1.Text);
                     cmd1.Parameters.AddWithValue("@cr", txtcr.Text);
                     cmd1.Parameters.AddWithValue("@m", txtm.Text);
@@ -401,7 +458,9 @@ namespace GOS_FxApps
                     cmd2.Parameters.AddWithValue("@s", txts.Text);
                     cmd2.Parameters.AddWithValue("@d", txtd.Text);
                     cmd2.Parameters.AddWithValue("@b", txtb.Text);
-                    cmd2.Parameters.AddWithValue("@ba", txtba.Text);
+                    cmd2.Parameters.AddWithValue("@bac", txtbac.Text);
+                    cmd2.Parameters.AddWithValue("@nba", txtnba.Text);
+                    cmd2.Parameters.AddWithValue("@ba", lbltotalba.Text);
                     cmd2.Parameters.AddWithValue("@ba1", txtba1.Text);
                     cmd2.Parameters.AddWithValue("@cr", txtcr.Text);
                     cmd2.Parameters.AddWithValue("@m", txtm.Text);
@@ -419,7 +478,7 @@ namespace GOS_FxApps
                     cmd1.ExecuteNonQuery();
                     cmd2.ExecuteNonQuery();
 
-                    MessageBox.Show("Data Berhasil Disimpan", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Data Berhasil Disimpan", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     tampilperbaikan();
                     tampilpenerimaan();
                 }
@@ -449,16 +508,16 @@ namespace GOS_FxApps
         {
             try
             {
-                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.OK)
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("UPDATE perbaikan_s SET jenis = @jenis, e1_ers = @e1ers, e1_est = @e1est, e1_jumlah = @e1jumlah, e2_ers = @e2ers, e2_cst = @e2cst, e2_cstub = @e2cstub, e2_jumlah = @e2jumlah," +
-                        "e3 = @e3, e4 = @e4, s = @s, d = @d, b = @b, ba = @ba, ba1 = @ba1, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = @diubah WHERE no = @no ", conn);
+                        "e3 = @e3, e4 = @e4, s = @s, d = @d, bac = @bac, nba = @nba, b = @b, ba = @ba, ba1 = @ba1, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = @diubah WHERE no = @no ", conn);
 
                     SqlCommand cmd2 = new SqlCommand("UPDATE perbaikan_p SET jenis = @jenis, e1_ers = @e1ers, e1_est = @e1est, e1_jumlah = @e1jumlah, e2_ers = @e2ers, e2_cst = @e2cst, e2_cstub = @e2cstub, e2_jumlah = @e2jumlah," +
-                        "e3 = @e3, e4 = @e4, s = @s, d = @d, b = @b, ba = @ba, ba1 = @ba1, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = @diubah WHERE no = @no ", conn);
+                        "e3 = @e3, e4 = @e4, s = @s, d = @d, bac = @bac, nba = @nba, b = @b, ba = @ba, ba1 = @ba1, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = @diubah WHERE no = @no ", conn);
 
 
                     cmd.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
@@ -475,7 +534,9 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@s", txts.Text);
                     cmd.Parameters.AddWithValue("@d", txtd.Text);
                     cmd.Parameters.AddWithValue("@b", txtb.Text);
-                    cmd.Parameters.AddWithValue("@ba", txtba.Text);
+                    cmd.Parameters.AddWithValue("@bac", txtbac.Text);
+                    cmd.Parameters.AddWithValue("@nba", txtnba.Text);
+                    cmd.Parameters.AddWithValue("@ba", lbltotalba.Text);
                     cmd.Parameters.AddWithValue("@ba1", txtba1.Text);
                     cmd.Parameters.AddWithValue("@cr", txtcr.Text);
                     cmd.Parameters.AddWithValue("@m", txtm.Text);
@@ -500,7 +561,9 @@ namespace GOS_FxApps
                     cmd2.Parameters.AddWithValue("@s", txts.Text);
                     cmd2.Parameters.AddWithValue("@d", txtd.Text);
                     cmd2.Parameters.AddWithValue("@b", txtb.Text);
-                    cmd2.Parameters.AddWithValue("@ba", txtba.Text);
+                    cmd2.Parameters.AddWithValue("@bac", txtbac.Text);
+                    cmd2.Parameters.AddWithValue("@nba", txtnba.Text);
+                    cmd2.Parameters.AddWithValue("@ba", lbltotalba.Text);
                     cmd2.Parameters.AddWithValue("@ba1", txtba1.Text);
                     cmd2.Parameters.AddWithValue("@cr", txtcr.Text);
                     cmd2.Parameters.AddWithValue("@m", txtm.Text);
@@ -513,7 +576,7 @@ namespace GOS_FxApps
 
                     cmd.ExecuteNonQuery();
                     cmd2.ExecuteNonQuery();
-                    MessageBox.Show("Data Berhasil Diupdate", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Data Berhasil Diedit", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     tampilperbaikan();
                 }
             }
@@ -550,23 +613,22 @@ namespace GOS_FxApps
             int angka7 = SafeParse(txts);
             int angka8 = SafeParse(txtd);
             int angka9 = SafeParse(txtb);
-            int angka10 = SafeParse(txtba);
-            int angka11 = SafeParse(txtba1);
-            int angka12 = SafeParse(txtcr);
-            int angka13 = SafeParse(txtm);
-            int angka14 = SafeParse(txtr);
-            int angka15 = SafeParse(txtc);
-            int angka16 = SafeParse(txtrl);
-            int angka17 = SafeParse(txte4);
+            int angka10 = SafeParse(txtba1);
+            int angka11 = SafeParse(txtcr);
+            int angka12 = SafeParse(txtm);
+            int angka13 = SafeParse(txtr);
+            int angka14 = SafeParse(txtc);
+            int angka15 = SafeParse(txtrl);
+            int angka16 = SafeParse(txte4);
 
-            int hasil = angka1 + angka2 + angka3 + angka4 + angka5 + angka6 + angka7 + angka8 + angka9 + angka10 + angka11 + angka12 + angka13 + angka14 + angka15 + angka16 + angka17;
+            int angka17 = SafeParse(txtbac);
+            int angka18 = SafeParse(txtnba);
+            int hasilba = angka17 + angka18;
+            lbltotalba.Text = hasilba.ToString();
+
+            int hasil = angka1 + angka2 + angka3 + angka4 + angka5 + angka6 + angka7 + angka8 + angka9 + angka10 + angka11 + angka12 + angka13 + angka14 + angka15 + angka16 + angka17 + angka18;
             lbltotal.Text = hasil.ToString();
             btnsimpan.Enabled = true;
-        }
-
-        private void btnhitung_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void btnsimpan_Click(object sender, EventArgs e)
@@ -574,11 +636,11 @@ namespace GOS_FxApps
         {
             if (txtnomorrod.Text == "" || txtjenis.Text == "")
             {
-                MessageBox.Show("Nomro ROD Dan Jenis Tidak Boleh Kosong");
+                MessageBox.Show("Jenis Tidak Boleh Kosong", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (btnsimpan.Text == "Update Data")
+            if (btnsimpan.Text == "Edit Data")
             {
                 editdata();
                 txtnomorrod.Enabled = true;
@@ -650,7 +712,9 @@ namespace GOS_FxApps
                 txts.Text = row.Cells["s"].Value.ToString();
                 txtd.Text = row.Cells["d"].Value.ToString();
                 txtb.Text = row.Cells["b"].Value.ToString();
-                txtba.Text = row.Cells["ba"].Value.ToString();
+                txtbac.Text = row.Cells["bac"].Value.ToString();
+                txtnba.Text = row.Cells["nba"].Value.ToString();
+                lbltotalba.Text = row.Cells["ba"].Value.ToString();
                 txtba1.Text = row.Cells["ba1"].Value.ToString();
                 txtcr.Text = row.Cells["cr"].Value.ToString();
                 txtm.Text = row.Cells["m"].Value.ToString();
@@ -660,7 +724,7 @@ namespace GOS_FxApps
                 lbltotal.Text = row.Cells["jumlah"].Value.ToString();
                 settrue();
                 btncancel.Enabled = true;
-                btnsimpan.Text = "Update Data";
+                btnsimpan.Text = "Edit Data";
                 txtnomorrod.Enabled = false;
             }
         }
@@ -723,7 +787,12 @@ namespace GOS_FxApps
             hitung();
         }
 
-        private void txtba_TextChanged(object sender, EventArgs e)
+        private void txtnba_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtbac_TextChanged(object sender, EventArgs e)
         {
             hitung();
         }
@@ -762,16 +831,6 @@ namespace GOS_FxApps
         {
             hitung();
         }
-
-        private void txtnomorrod_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; 
-            
-        }
-
-    }
 
         private void btncaripenerimaan_Click(object sender, EventArgs e)
         {
@@ -815,7 +874,7 @@ namespace GOS_FxApps
                 txts.Text = row.Cells["s"].Value.ToString();
                 txtd.Text = row.Cells["d"].Value.ToString();
                 txtb.Text = row.Cells["b"].Value.ToString();
-                txtba.Text = row.Cells["ba"].Value.ToString();
+                txtbac.Text = row.Cells["ba"].Value.ToString();
                 txtcr.Text = row.Cells["cr"].Value.ToString();
                 txtm.Text = row.Cells["m"].Value.ToString();
                 txtr.Text = row.Cells["r"].Value.ToString();
@@ -826,6 +885,11 @@ namespace GOS_FxApps
                 btncancel.Enabled = true;
 
             }
+        }
+
+        private void Perbaikan_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SqlDependency.Stop(Koneksi.GetConnectionString());
         }
     }
 }

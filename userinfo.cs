@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 
 namespace GOS_FxApps
 {
@@ -59,13 +59,18 @@ namespace GOS_FxApps
         {
             MainForm.Instance.loginstatus = false;
             MainForm.Instance.setvisiblefalse();
+            MainForm.Instance.ResetButtonColors();
+            MainForm.Instance.ResetColorContainer();
 
             MainForm.Instance.SwitchPanel(new Dashboard());
+            MainForm.Instance.dashboardButton.FillColor = Color.FromArgb(52, 52, 57);
+            MainForm.Instance.dashboardButton.ForeColor = Color.White;
             MainForm.Instance.lbluser.Text = "";
             MainForm.Instance.entryContainer.Size = MainForm.Instance.defaultentrycontainer;
             MainForm.Instance.EditContainer.Size = MainForm.Instance.defaulteditcontainer;
             MainForm.Instance.historycontainer.Size = MainForm.Instance.defaulhistorycontainer;
             MainForm.Instance.role = null;
+            Dashboard.Instance.btntiga.Visible = false;
             this.Close();
         }
         private void userinfo_Load(object sender, EventArgs e)

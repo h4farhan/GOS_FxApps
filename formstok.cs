@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,15 +25,54 @@ namespace GOS_FxApps
 
         private void formstok_Load(object sender, EventArgs e)
         {
+            SqlDependency.Start(Koneksi.GetConnectionString());
             tampil();
             btnupdate.Enabled = false;
+            registertampil();
+        }
+
+        private void registertampil()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.stok_material", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        if (this.IsHandleCreated)
+                        {
+                            this.BeginInvoke(new Action(() =>
+                            {
+                                tampil();
+                                registertampil();
+                            }));
+                        }
+                        else
+                        {
+                            this.HandleCreated += (s2, e2) =>
+                            {
+                                this.BeginInvoke(new Action(() =>
+                                {
+                                    tampil();
+                                    registertampil();
+                                }));
+                            };
+                        }
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
         }
 
         private void tampil()
         {
             try
             {
-                string query = "SELECT * FROM stok_material ORDER BY created_at DESC";
+                string query = "SELECT * FROM stok_material ORDER BY updated_at DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -45,6 +84,7 @@ namespace GOS_FxApps
                 dtWithImage.Columns.Add("Kode Barang", typeof(string));
                 dtWithImage.Columns.Add("Nama Barang", typeof(string));
                 dtWithImage.Columns.Add("Jumlah Stok", typeof(int));
+                dtWithImage.Columns.Add("Min Stok", typeof(int));
                 dtWithImage.Columns.Add("Gambar", typeof(Image)); 
                 dtWithImage.Columns.Add("Disimpan", typeof(DateTime));
                 dtWithImage.Columns.Add("Diubah", typeof(DateTime));
@@ -57,6 +97,7 @@ namespace GOS_FxApps
                     newRow["Kode Barang"] = row["kodeBarang"];
                     newRow["Nama Barang"] = row["namaBarang"];
                     newRow["Jumlah Stok"] = row["jumlahStok"];
+                    newRow["Min Stok"] = row["min_stok"];
                     newRow["Disimpan"] = row["created_at"];
                     newRow["Diubah"] = row["updated_at"];
 
@@ -80,7 +121,7 @@ namespace GOS_FxApps
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridView1.Columns["No"].FillWeight = 50;
                 dataGridView1.RowTemplate.Height = 100;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.ReadOnly = true;
 
                 foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -128,6 +169,7 @@ namespace GOS_FxApps
                     dtWithImage.Columns.Add("Kode Barang", typeof(string));
                     dtWithImage.Columns.Add("Nama Barang", typeof(string));
                     dtWithImage.Columns.Add("Jumlah Stok", typeof(int));
+                    dtWithImage.Columns.Add("Min Stok", typeof(int));
                     dtWithImage.Columns.Add("Gambar", typeof(Image));
                     dtWithImage.Columns.Add("Disimpan", typeof(DateTime));
                     dtWithImage.Columns.Add("Diubah", typeof(DateTime));
@@ -140,6 +182,7 @@ namespace GOS_FxApps
                         newRow["Kode Barang"] = row["kodeBarang"];
                         newRow["Nama Barang"] = row["namaBarang"];
                         newRow["Jumlah Stok"] = row["jumlahStok"];
+                        newRow["Min Stok"] = row["min_stok"];
                         newRow["Disimpan"] = row["created_at"];
                         newRow["Diubah"] = row["updated_at"];
 
@@ -198,118 +241,194 @@ namespace GOS_FxApps
             txtkodebarang.Enabled = true;
             txtkodebarang.Clear();
             txtstok.Clear();
+            txtminstok.Clear();
             txtnamabarang.Clear();
             imageBytes = null;
             picturebox.Image = null;
+            btnsimpan.Text = "Simpan";
+            btnsimpan.FillColor = Color.FromArgb(76, 175, 80);
         }
 
         private void btnsimpan_Click(object sender, EventArgs e)
         {
-            if (txtkodebarang.Text == "" || txtnamabarang.Text == "" || txtstok.Text == "" || imageBytes == null)
-            {
-                MessageBox.Show("Data Harus Diisi Dengan Lengkap.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                if (btnsimpan.Text == "Cancel")
+                if (btnsimpan.Text == "Batal")
                 {
                     txtkodebarang.Enabled = true;
                     btnupdate.Enabled = false;
-                    btnsimpan.Text = "Simpan";
                     setdefault();
                 }
                 else
                 {
-                    try
+                    if (txtkodebarang.Text == "" || txtnamabarang.Text == "" || txtstok.Text == "" || txtminstok.Text == "" || imageBytes == null)
                     {
-                        conn.Open();
-                        using (SqlCommand cmdcekkode = new SqlCommand("SELECT kodeBarang FROM stok_material WHERE kodeBarang = @kode", conn))
+                        MessageBox.Show("Data Harus Diisi Dengan Lengkap.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                        if (result == DialogResult.OK)
                         {
-                            cmdcekkode.Parameters.AddWithValue("@kode", txtkodebarang.Text);
-                            using (SqlDataReader dr = cmdcekkode.ExecuteReader())
+                            try
                             {
-                                if (dr.Read())
+                                conn.Open();
+                                using (SqlCommand cmdcekkode = new SqlCommand("SELECT kodeBarang FROM stok_material WHERE kodeBarang = @kode", conn))
                                 {
-                                    MessageBox.Show("Kode Sudah Dipakai Material Lain", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    return;
+                                    cmdcekkode.Parameters.AddWithValue("@kode", txtkodebarang.Text);
+                                    using (SqlDataReader dr = cmdcekkode.ExecuteReader())
+                                    {
+                                        if (dr.Read())
+                                        {
+                                            MessageBox.Show("Kode Sudah Dipakai Material Lain", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                            return;
+                                        }
+                                    }
                                 }
+
+                                using (SqlCommand cmd = new SqlCommand("INSERT INTO stok_material (kodeBarang, namaBarang, jumlahStok, min_stok, foto, created_at, updated_at) VALUES(@kodebarang,@namabarang,@stok,@min_stok,@foto,@tanggal,@diubah)", conn))
+                                {
+                                    cmd.Parameters.AddWithValue("@kodebarang", txtkodebarang.Text);
+                                    cmd.Parameters.AddWithValue("@namabarang", txtnamabarang.Text);
+                                    cmd.Parameters.AddWithValue("@stok", txtstok.Text);
+                                    cmd.Parameters.AddWithValue("@min_stok", txtminstok.Text);
+                                    cmd.Parameters.AddWithValue("@foto", imageBytes);
+                                    cmd.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
+                                    cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                                    cmd.ExecuteNonQuery();
+                                }
+
+                                MessageBox.Show("Data Berhasil Disimpan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                setdefault();
+                                tampil();
+                                pemakaianMaterial.instance.combonama();
+                                pemakaianMaterial.instance.picture1.Image = null;
+                                pemakaianMaterial.instance.btnbatal.Enabled = false;
+                                pemakaianMaterial.instance.btnsimpan.Enabled = false;
+                            }
+                            catch (SqlException)
+                            {
+                                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            finally
+                            {
+                                conn.Close();
                             }
                         }
-
-                        using (SqlCommand cmd = new SqlCommand("INSERT INTO stok_material (kodeBarang, namaBarang, jumlahStok, foto, created_at, updated_at) VALUES(@kodebarang,@namabarang,@stok,@foto,@tanggal,@diubah)", conn))
-                        {
-                            cmd.Parameters.AddWithValue("@kodebarang", txtkodebarang.Text);
-                            cmd.Parameters.AddWithValue("@namabarang", txtnamabarang.Text);
-                            cmd.Parameters.AddWithValue("@stok", txtstok.Text);
-                            cmd.Parameters.AddWithValue("@foto", imageBytes);
-                            cmd.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
-                            cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
-                            cmd.ExecuteNonQuery();
-                        }
-
-                        MessageBox.Show("Data Berhasil Disimpan.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        setdefault();
-                        tampil();
-                        pemakaianMaterial.instance.combonama();
-                        pemakaianMaterial.instance.picture1.Image = null;
-                        pemakaianMaterial.instance.btnbatal.Enabled = false;
-                        pemakaianMaterial.instance.btnsimpan.Enabled = false;
-                    }
-                    catch (SqlException)
-                    {
-                        MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                            "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                        "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    finally
-                    {
-                        conn.Close();
                     }
                 }
-            }
             
         }
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
-            try
+            if (MainForm.Instance.role == "Manajer")
             {
-                conn.Open();
-                string query = "UPDATE stok_material SET namaBarang = @namabarang, jumlahStok = @stok, foto = @foto, updated_at = @diubah WHERE kodeBarang = @kodebarang";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@kodebarang", txtkodebarang.Text);
-                cmd.Parameters.AddWithValue("@namabarang", txtnamabarang.Text);
-                cmd.Parameters.AddWithValue("@stok", txtstok.Text);
-                cmd.Parameters.AddWithValue("@foto", imageBytes);
-                cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Data Berhasil Diupdate", "Success.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                setdefault();  
-                tampil();
-                pemakaianMaterial.instance.combonama();
-                pemakaianMaterial.instance.picture1.Image = null;
-                btnupdate.Enabled = false;
-                btnsimpan.Text = "Simpan";
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
+                if (txtkodebarang.Text == "" || txtnamabarang.Text == "" || txtstok.Text == "" || txtminstok.Text == "" || imageBytes == null)
+                {
+                    MessageBox.Show("Data Harus Diisi Dengan Lengkap.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
+                    if (result == DialogResult.OK)
+                    {
+                        try
+                        {
+                            conn.Open();
+                            string query = "UPDATE stok_material SET namaBarang = @namabarang, jumlahStok = @stok, min_stok = @min_stok, foto = @foto, updated_at = @diubah WHERE kodeBarang = @kodebarang";
+                            SqlCommand cmd = new SqlCommand(query, conn);
+                            cmd.Parameters.AddWithValue("@kodebarang", txtkodebarang.Text);
+                            cmd.Parameters.AddWithValue("@namabarang", txtnamabarang.Text);
+                            cmd.Parameters.AddWithValue("@stok", txtstok.Text);
+                            cmd.Parameters.AddWithValue("@min_stok", txtminstok.Text);
+                            cmd.Parameters.AddWithValue("@foto", imageBytes);
+                            cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Data Berhasil Diedit", "Sukses.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            setdefault();
+                            tampil();
+                            pemakaianMaterial.instance.combonama();
+                            pemakaianMaterial.instance.picture1.Image = null;
+                            btnupdate.Enabled = false;
+                            btnsimpan.Text = "Simpan";
+                            pemakaianMaterial.instance.btnbatal.Enabled = false;
+                            pemakaianMaterial.instance.btnsimpan.Enabled = false;
+                        }
+                        catch (SqlException)
+                        {
+                            MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                            "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        finally
+                        {
+                            conn.Close();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (txtkodebarang.Text == "" || txtnamabarang.Text == "" || txtstok.Text == "" || txtminstok.Text == "" || imageBytes == null)
+                {
+                    MessageBox.Show("Data Harus Diisi Dengan Lengkap.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.OK)
+                    {
+                        try
+                        {
+                            conn.Open();
+                            string query = "UPDATE stok_material SET namaBarang = @namabarang, jumlahStok = jumlahStok + @stok, min_stok = @min_stok, foto = @foto, updated_at = @diubah WHERE kodeBarang = @kodebarang";
+                            SqlCommand cmd = new SqlCommand(query, conn);
+                            cmd.Parameters.AddWithValue("@kodebarang", txtkodebarang.Text);
+                            cmd.Parameters.AddWithValue("@namabarang", txtnamabarang.Text);
+                            cmd.Parameters.AddWithValue("@stok", txtstok.Text);
+                            cmd.Parameters.AddWithValue("@min_stok", txtminstok.Text);
+                            cmd.Parameters.AddWithValue("@foto", imageBytes);
+                            cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Data Berhasil Diedit", "Sukses.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            setdefault();
+                            tampil();
+                            pemakaianMaterial.instance.combonama();
+                            pemakaianMaterial.instance.picture1.Image = null;
+                            btnupdate.Enabled = false;
+                            btnsimpan.Text = "Simpan";
+                            pemakaianMaterial.instance.btnbatal.Enabled = false;
+                            pemakaianMaterial.instance.btnsimpan.Enabled = false;
+                        }
+                        catch (SqlException)
+                        {
+                            MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                            "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        finally
+                        {
+                            conn.Close();
+                        }
+                    }
+                }
+            }           
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -321,6 +440,7 @@ namespace GOS_FxApps
                 txtkodebarang.Text = row.Cells["Kode Barang"].Value.ToString();
                 txtnamabarang.Text = row.Cells["Nama Barang"].Value.ToString();
                 txtstok.Text = row.Cells["Jumlah Stok"].Value.ToString();
+                txtminstok.Text = row.Cells["Min Stok"].Value.ToString();
 
                 Image img = row.Cells["Gambar"].Value as Image;
                 if (img != null)
@@ -345,7 +465,8 @@ namespace GOS_FxApps
 
                 txtkodebarang.Enabled = false;
                 btnupdate.Enabled = true;
-                btnsimpan.Text = "Cancel";
+                btnsimpan.Text = "Batal";
+                btnsimpan.FillColor = Color.Red;
             }
         }
 
@@ -375,6 +496,11 @@ namespace GOS_FxApps
                     imageBytes = File.ReadAllBytes(openFileDialog.FileName);
                 }
             }
+        }
+
+        private void formstok_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SqlDependency.Stop(Koneksi.GetConnectionString());
         }
     }
 }

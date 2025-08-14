@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 
 namespace GOS_FxApps
 {
@@ -21,6 +21,28 @@ namespace GOS_FxApps
             InitializeComponent();
         }
 
+        private void registertampil()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.stok_material", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampil();
+                            registertampil();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
         private void tampil()
         {
             try
@@ -72,7 +94,7 @@ namespace GOS_FxApps
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridView1.Columns["No"].FillWeight = 20;
                 dataGridView1.RowTemplate.Height = 100;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.ReadOnly = true;
 
                 foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -155,7 +177,7 @@ namespace GOS_FxApps
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     dataGridView1.Columns["No"].FillWeight = 20;
                     dataGridView1.RowTemplate.Height = 100;
-                    dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                    dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
 
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
@@ -187,12 +209,19 @@ namespace GOS_FxApps
 
         private void historyStokMaterial_Load(object sender, EventArgs e)
         {
+            SqlDependency.Start(Koneksi.GetConnectionString());
             tampil();
+            registertampil();
         }
 
         private void txtcari_TextChanged(object sender, EventArgs e)
         {
             cari();
+        }
+
+        private void historyStokMaterial_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SqlDependency.Start(Koneksi.GetConnectionString());
         }
     }
 }

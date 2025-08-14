@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 using Guna.UI2.WinForms;
 using static System.Net.Mime.MediaTypeNames;
 using System.Management.Instrumentation;
@@ -34,7 +34,6 @@ namespace GOS_FxApps
             }
         }
 
-
         public Pengiriman()
         {
             InitializeComponent();
@@ -45,17 +44,40 @@ namespace GOS_FxApps
             };
         }
 
+        private void registertampil()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.pengiriman", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampil();
+                            registertampil();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
         private void tampil()
         {
             try
             {
-                string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, ba, ba1, cr, m, r, c, rl, jumlah, tanggal_penerimaan, updated_at FROM perbaikan_s ORDER BY tanggal_perbaikan DESC";
+                string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl, jumlah, tanggal_penerimaan, updated_at FROM perbaikan_s ORDER BY tanggal_perbaikan DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
 
@@ -76,16 +98,18 @@ namespace GOS_FxApps
                 dataGridView1.Columns[14].HeaderText = "S";
                 dataGridView1.Columns[15].HeaderText = "D";
                 dataGridView1.Columns[16].HeaderText = "B";
-                dataGridView1.Columns[17].HeaderText = "BA";
-                dataGridView1.Columns[18].HeaderText = "BA-1";
-                dataGridView1.Columns[19].HeaderText = "CR";
-                dataGridView1.Columns[20].HeaderText = "M";
-                dataGridView1.Columns[21].HeaderText = "R";
-                dataGridView1.Columns[22].HeaderText = "C";
-                dataGridView1.Columns[23].HeaderText = "RL";
-                dataGridView1.Columns[24].HeaderText = "Jumlah";
-                dataGridView1.Columns[25].HeaderText = "Tanggal Penerimaan";
-                dataGridView1.Columns[26].HeaderText = "Diubah";
+                dataGridView1.Columns[17].HeaderText = "BAC";
+                dataGridView1.Columns[18].HeaderText = "NBA";
+                dataGridView1.Columns[19].HeaderText = "BA";
+                dataGridView1.Columns[20].HeaderText = "BA-1";
+                dataGridView1.Columns[21].HeaderText = "CR";
+                dataGridView1.Columns[22].HeaderText = "M";
+                dataGridView1.Columns[23].HeaderText = "R";
+                dataGridView1.Columns[24].HeaderText = "C";
+                dataGridView1.Columns[25].HeaderText = "RL";
+                dataGridView1.Columns[26].HeaderText = "Jumlah";
+                dataGridView1.Columns[27].HeaderText = "Tanggal Penerimaan";
+                dataGridView1.Columns[28].HeaderText = "Diubah";
             }
             catch (SqlException)
             {
@@ -106,7 +130,7 @@ namespace GOS_FxApps
 
             if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
             {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Peringatan");
                 return false;
             }
 
@@ -424,11 +448,13 @@ namespace GOS_FxApps
 
         private void Pengiriman_Load(object sender, EventArgs e)
         {
+            SqlDependency.Start(Koneksi.GetConnectionString());
             tampil();
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
             txtrod1.Focus();
             txtrod1.Focus();
+            registertampil();
         }
 
         private void btnclear_Click(object sender, EventArgs e)
@@ -510,7 +536,7 @@ namespace GOS_FxApps
                 {
                     if (txt.Text == value)
                     {
-                        MessageBox.Show("Nomor ROD ini sudah dimasukkan sebelumnya!", "Warning");
+                        MessageBox.Show("Nomor ROD ini sudah dimasukkan sebelumnya!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                 }
@@ -523,9 +549,13 @@ namespace GOS_FxApps
                         return;
                     }
                 }
-                MessageBox.Show("Maksimal pengiriman hanya 10 ROD. Kirim terlebih dahulu dan coba lagi.", "Warning");
+                MessageBox.Show("Maksimal pengiriman hanya 10 ROD. Kirim terlebih dahulu dan coba lagi.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
+        private void Pengiriman_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SqlDependency.Stop(Koneksi.GetConnectionString());
+        }
     }
 }

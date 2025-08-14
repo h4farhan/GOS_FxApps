@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 
 namespace GOS_FxApps
 {
@@ -28,26 +28,69 @@ namespace GOS_FxApps
             btnsimpan.Enabled = false;
         }
 
+        private void registertampil()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.penerimaan_s", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampil();
+                            registertampil();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
         private void simpandata()
         {
             try
             {
-                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.OK)
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT nomor_rod FROM penerimaan_s WHERE nomor_rod = @rod", conn);
-                    cmd.Parameters.AddWithValue("@rod", txtnomorrod.Text);
+                    string query = @"
+                                    SELECT 'penerimaan_s' AS sumber, nomor_rod 
+                                    FROM penerimaan_s 
+                                    WHERE nomor_rod = @rod
+                                    UNION
+                                    SELECT 'perbaikan_p' AS sumber, nomor_rod 
+                                    FROM perbaikan_p 
+                                    WHERE nomor_rod = @rod";
 
-                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        if (dr.Read())
+                        cmd.Parameters.AddWithValue("@rod", txtnomorrod.Text);
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
                         {
-                            MessageBox.Show("Nomor ROD ditable ini sudah ada dan belum diperbaiki.", "Warning");
-                            return;
+                            if (dr.Read())
+                            {
+                                string sumber = dr["sumber"].ToString();
+                                string pesan;
+
+                                if (sumber == "penerimaan_s")
+                                    pesan = "Nomor ROD ini sudah ada di data penerimaan dan belum diperbaiki.";
+                                else
+                                    pesan = "Nomor ROD ini sudah ada di data perbaikan dan belum dikirim.";
+
+                                MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
                         }
                     }
+
 
                     SqlCommand cmd1 = new SqlCommand("INSERT INTO penerimaan_s (tanggal_penerimaan,shift,nomor_rod,jenis,stasiun,e1,e2,e3," +
                         "s,d,b,ba,cr,m,r,c,rl,jumlah,updated_at) VALUES(@tanggal_penerimaan,@shift,@nomorrod,@jenis,@stasiun,@e1,@e2,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah,@diubah)", conn);
@@ -97,7 +140,7 @@ namespace GOS_FxApps
                     cmd1.ExecuteNonQuery();
                     cmd2.ExecuteNonQuery();
 
-                    MessageBox.Show("Data Berhasil Disimpan", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Data Berhasil Disimpan", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     setdefault();
                 }
                 else
@@ -125,7 +168,7 @@ namespace GOS_FxApps
         {
             try
             {
-                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.OK)
                 {
@@ -175,7 +218,7 @@ namespace GOS_FxApps
 
                     cmd.ExecuteNonQuery();
                     cmd2.ExecuteNonQuery();
-                    MessageBox.Show("Data Berhasil Diupdate", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Data Berhasil Diedit", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     tampil();
                 }
             }
@@ -204,8 +247,8 @@ namespace GOS_FxApps
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
 
@@ -246,18 +289,17 @@ namespace GOS_FxApps
         {
             if (txtnomorrod.Text == "" || txtjenis.Text == "" || txtstasiun.Text == "")
             {
-                MessageBox.Show("Nomor ROD, Jenis dan Stasiun Tidak Boleh Kosong", "Warning");
+                MessageBox.Show("Nomor ROD, Jenis dan Stasiun Tidak Boleh Kosong", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (btnsimpan.Text == "Update Data")
+            if (btnsimpan.Text == "Edit Data")
             {
                 editdata();
                 setdefault();
                 btnsimpan.Text = "Simpan Data";
                 btncancel.Enabled = false;
                 btnsimpan.Enabled = false;
-                btnhitung.Text = "Hitung";
                 txtnomorrod.Focus();
             }
             else
@@ -336,7 +378,7 @@ namespace GOS_FxApps
 
             if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
             {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.","Warning");
+                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -441,8 +483,7 @@ namespace GOS_FxApps
                 txtrl.Text = row.Cells["rl"].Value.ToString();
                 lbltotal.Text = row.Cells["jumlah"].Value.ToString();
                 btncancel.Enabled = true;
-                btnsimpan.Text = "Update Data";
-                btnhitung.Text = "Hitung Ulang";
+                btnsimpan.Text = "Edit Data";
 
             }
         }
@@ -453,14 +494,16 @@ namespace GOS_FxApps
             btnsimpan.Text = "Simpan Data";
             btncancel.Enabled = false;
             btnsimpan.Enabled = false;
-            btnhitung.Text = "Hitung";
+            dataGridView1.ClearSelection();
         }
 
         private void Penerimaan_Load(object sender, EventArgs e)
         {
+            SqlDependency.Start(Koneksi.GetConnectionString());
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
             txtnomorrod.Focus();
+            registertampil();
         }
 
         private void txtrl_TextChanged(object sender, EventArgs e)
@@ -544,6 +587,11 @@ namespace GOS_FxApps
         {
             btnsimpan.Enabled = true;
             btncancel.Enabled = true;
+        }
+
+        private void Penerimaan_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SqlDependency.Stop(Koneksi.GetConnectionString());
         }
     }
 }

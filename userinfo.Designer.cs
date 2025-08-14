@@ -39,7 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.shadowform = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.radiusform = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -49,11 +48,12 @@
             // 
             // iconPictureBox1
             // 
-            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.iconPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.iconPictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.iconPictureBox1.ForeColor = System.Drawing.Color.Black;
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.UserCheck;
-            this.iconPictureBox1.IconColor = System.Drawing.Color.White;
+            this.iconPictureBox1.IconColor = System.Drawing.Color.Black;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 111;
             this.iconPictureBox1.Location = new System.Drawing.Point(2, 2);
@@ -69,7 +69,7 @@
             this.lbluser.AutoSize = true;
             this.lbluser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbluser.Font = new System.Drawing.Font("Century Gothic", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbluser.ForeColor = System.Drawing.Color.White;
+            this.lbluser.ForeColor = System.Drawing.Color.Black;
             this.lbluser.Location = new System.Drawing.Point(2, 0);
             this.lbluser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbluser.Name = "lbluser";
@@ -83,7 +83,7 @@
             this.lbljabatan.AutoSize = true;
             this.lbljabatan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbljabatan.Font = new System.Drawing.Font("Century Gothic", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbljabatan.ForeColor = System.Drawing.Color.White;
+            this.lbljabatan.ForeColor = System.Drawing.Color.Black;
             this.lbljabatan.Location = new System.Drawing.Point(2, 63);
             this.lbljabatan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbljabatan.Name = "lbljabatan";
@@ -171,21 +171,16 @@
             // 
             // shadowform
             // 
+            this.shadowform.BorderRadius = 10;
             this.shadowform.ContainerControl = this;
             this.shadowform.DockIndicatorTransparencyValue = 0.6D;
-            this.shadowform.ShadowColor = System.Drawing.Color.White;
             this.shadowform.TransparentWhileDrag = true;
-            // 
-            // radiusform
-            // 
-            this.radiusform.BorderRadius = 5;
-            this.radiusform.TargetControl = this;
             // 
             // userinfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(365, 151);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -216,7 +211,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2BorderlessForm shadowform;
-        private Guna.UI2.WinForms.Guna2Elipse radiusform;
         public System.Windows.Forms.Label lbltambahakun;
     }
 }

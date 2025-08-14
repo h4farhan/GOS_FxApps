@@ -8,29 +8,212 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
+using System.Drawing.Drawing2D;
 
 namespace GOS_FxApps
 {
     public partial class Dashboard : Form
     {
         SqlConnection conn = Koneksi.GetConnection();
+
+        public static Dashboard Instance;
+             
+        public class RoundedPanel : Panel
+            {
+                public int BorderRadius { get; set; } = 15;
+
+                protected override void OnPaint(PaintEventArgs e)
+                {
+                    base.OnPaint(e);
+
+                    using (GraphicsPath path = new GraphicsPath())
+                    {
+                        Rectangle rect = this.ClientRectangle;
+                        int radius = BorderRadius;
+
+                        path.AddArc(rect.X, rect.Y, radius, radius, 180, 90);
+                        path.AddArc(rect.Right - radius, rect.Y, radius, radius, 270, 90);
+                        path.AddArc(rect.Right - radius, rect.Bottom - radius, radius, radius, 0, 90);
+                        path.AddArc(rect.X, rect.Bottom - radius, radius, radius, 90, 90);
+                        path.CloseAllFigures();
+
+                        this.Region = new Region(path);
+                    }
+                }
+        }
+
         public Dashboard()
         {
             InitializeComponent();
             LoadchartRB();
             LoadPanel();
             LoadChartStock();
+            Instance = this;
+            if (MainForm.Instance != null && MainForm.Instance.role != null)
+            {
+                btntiga.Visible = (MainForm.Instance.role == "Operator Gudang");
+            }
+            else
+            {
+                btntiga.Visible = false; 
+            }
+
+        }
+
+        private void LoadNotifikasi()
+        {
+            int scrollPosition = panelNotif.VerticalScroll.Value;
+
+            panelNotif.SuspendLayout();
+            panelNotif.Controls.Clear();
+
+            using (SqlConnection conn = Koneksi.GetConnection())
+            {
+                conn.Open();
+
+
+                string query2 = @"
+                                SELECT TOP 1 bstok, bpe1, bpe2, bbe1, bbe2, wpe1, wpe2, wbe1, wbe2, updated_at
+                                FROM Rb_Stok
+                                ORDER BY id_stok DESC";
+
+                SqlCommand cmd2 = new SqlCommand(query2, conn);
+                SqlDataReader reader2 = cmd2.ExecuteReader();
+
+                Dictionary<string, int> stokData = new Dictionary<string, int>();
+
+                DateTime waktuRb = DateTime.Now;
+                if (reader2.Read())
+                {
+                    string[] kolomList = { "bstok", "bpe1", "bpe2", "bbe1", "bbe2", "wpe1", "wpe2", "wbe1", "wbe2" };
+                    foreach (string kolom in kolomList)
+                    {
+                        stokData[kolom] = Convert.ToInt32(reader2[kolom]);
+                        waktuRb = Convert.ToDateTime(reader2["updated_at"]);
+                    }
+                }
+                reader2.Close();
+
+                foreach (var item in stokData)
+                {
+                    using (SqlCommand cmdMin = new SqlCommand("SELECT namaTampilan, min_stok FROM setmin_Rb WHERE kode = @kode", conn))
+                    {
+                        cmdMin.Parameters.AddWithValue("@kode", item.Key);
+                        using (SqlDataReader rdrMin = cmdMin.ExecuteReader())
+                        {
+                            if (rdrMin.Read())
+                            {
+                                string nama = rdrMin["namaTampilan"].ToString();
+                                int minStok = Convert.ToInt32(rdrMin["min_stok"]);
+
+                                if (item.Value < minStok)
+                                {
+                                    AddNotifPanel(
+                                    $"{nama} Stok Rendah ({item.Value}/{minStok})",
+                                    waktuRb.ToString("dd MMM yyyy HH:mm"),
+                                    Color.FromArgb(255, 0, 0),
+                                    Color.Gray
+                                );
+                                }
+                            }
+                        }
+                    }
+                }
+
+                string query1 = @"
+                                SELECT namaBarang, jumlahStok, min_stok, updated_at
+                                FROM stok_material
+                                WHERE jumlahStok < min_stok";
+
+                SqlCommand cmd1 = new SqlCommand(query1, conn);
+                SqlDataReader reader1 = cmd1.ExecuteReader();
+                while (reader1.Read())
+                {
+                    string nama = reader1["namaBarang"].ToString();
+                    int stok = Convert.ToInt32(reader1["jumlahStok"]);
+                    int minStok = Convert.ToInt32(reader1["min_stok"]);
+                    DateTime waktu = Convert.ToDateTime(reader1["updated_at"]);
+                    AddNotifPanel(
+                            $"Material {nama} Stok Rendah ({stok}/{minStok})",
+                            waktu.ToString("dd MMM yyyy HH:mm"),
+                            Color.FromArgb(255, 0, 0),
+                            Color.Gray
+                    );
+                }
+                reader1.Close();
+            }
+            panelNotif.AutoScroll = true;
+            panelNotif.ResumeLayout();
+
+            panelNotif.VerticalScroll.Value = Math.Min(scrollPosition, panelNotif.VerticalScroll.Maximum);
+            panelNotif.PerformLayout();
+        }
+
+        private void AddNotifPanel(string text, string waktu, Color warnaText, Color warnaWaktu)
+        {
+            RoundedPanel itemPanel = new RoundedPanel();
+            itemPanel.Width = panelNotif.Width - 25;
+            itemPanel.Height = 90;
+            itemPanel.BackColor = Color.WhiteSmoke;
+            itemPanel.Margin = new Padding(3);
+            itemPanel.Padding = new Padding(10);            
+            itemPanel.BorderRadius = 10;
+
+            if (text.Contains("Material"))
+            {
+                itemPanel.Height = 130;
+            }
+
+            Panel teksPanel = new Panel();
+            teksPanel.Dock = DockStyle.Fill;
+            teksPanel.BackColor = Color.WhiteSmoke;
+            teksPanel.Padding = new Padding(5);
+
+            if (text.Contains("Material"))
+            {
+                teksPanel.Height = 130;
+            }
+
+            Label icon = new Label();
+            icon.Text = "🔔";
+            icon.Font = new Font("Segoe UI Emoji", 16);
+            icon.Dock = DockStyle.Left;
+            icon.Width = 40;
+            icon.TextAlign = ContentAlignment.MiddleCenter;
+
+            Label lblText = new Label();
+            lblText.Text = text;
+            lblText.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);
+            lblText.ForeColor = warnaText;
+            lblText.AutoSize = true;
+            lblText.MaximumSize = new Size(teksPanel.Width - 10, 0); 
+            lblText.Dock = DockStyle.Top;
+
+            Label lblWaktu = new Label();
+            lblWaktu.Text = waktu;
+            lblWaktu.Font = new Font("Segoe UI", 9, FontStyle.Italic);
+            lblWaktu.ForeColor = warnaWaktu;
+            lblWaktu.AutoSize = true;
+            lblWaktu.Dock = DockStyle.Bottom;
+
+            teksPanel.Controls.Add(lblWaktu); 
+            teksPanel.Controls.Add(lblText);
+            teksPanel.Controls.Add(icon);
+
+            itemPanel.Controls.Add(teksPanel);
+
+            panelNotif.Controls.Add(itemPanel);
         }
 
         private void LoadPanel()
         {
             try
             {
+                conn.Open();
                 int jumlah1 = 0;
                 int jumlah2 = 0;
                 int jumlah3 = 0;
-                conn.Open();
 
                 string query1 = "SELECT COUNT(*) FROM penerimaan_s";
                 using (SqlCommand cmd1 = new SqlCommand(query1, conn))
@@ -45,9 +228,9 @@ namespace GOS_FxApps
                     jumlah2 = Convert.ToInt32(cmd2.ExecuteScalar());
                     label15.Text = jumlah2.ToString();
                 }
+
                 jumlah3 = jumlah1 + jumlah2;
                 label3.Text = jumlah3.ToString();
-                
             }
             catch (SqlException)
             {
@@ -59,8 +242,8 @@ namespace GOS_FxApps
                 MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
                                 "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
+            finally 
+            { 
                 conn.Close();
             }
         }
@@ -120,7 +303,7 @@ namespace GOS_FxApps
             series.ChartType = SeriesChartType.Column;
             series.IsXValueIndexed = true;
             series.IsValueShownAsLabel = true;
-            series.LabelForeColor = Color.Gainsboro;
+            series.LabelForeColor = Color.Black;
 
             series.Points.AddXY("Roundbar Stock", rbStock);
             series.Points.AddXY("Rounbar Sawing E1", rbSawinge1);
@@ -132,15 +315,15 @@ namespace GOS_FxApps
             series.Points.AddXY("Welding Pieces Lathe E1", wplathee1);
             series.Points.AddXY("Welding Pieces Lathe E2", wplathee2);
 
-            series.Points[0].Color = Color.Red;
-            series.Points[1].Color = Color.Lime;
-            series.Points[2].Color = Color.Lime;
-            series.Points[3].Color = Color.Aqua;
-            series.Points[4].Color = Color.Aqua;
-            series.Points[5].Color = Color.Orange;
-            series.Points[6].Color = Color.Orange;
-            series.Points[7].Color = Color.Violet;
-            series.Points[8].Color = Color.Violet;
+            series.Points[0].Color = Color.SeaGreen;
+            series.Points[1].Color = Color.SeaGreen;
+            series.Points[2].Color = Color.SeaGreen;
+            series.Points[3].Color = Color.SeaGreen;
+            series.Points[4].Color = Color.SeaGreen;
+            series.Points[5].Color = Color.SeaGreen;
+            series.Points[6].Color = Color.SeaGreen;
+            series.Points[7].Color = Color.SeaGreen;
+            series.Points[8].Color = Color.SeaGreen;
 
             chartRoundbar.Series.Add(series);
 
@@ -154,7 +337,7 @@ namespace GOS_FxApps
             Series series = new Series("Stock Material");
             series.ChartType = SeriesChartType.Column;
             series.IsValueShownAsLabel = true;
-            series.LabelForeColor = Color.Gainsboro;
+            series.LabelForeColor = Color.Black;
 
             try
             {
@@ -188,11 +371,156 @@ namespace GOS_FxApps
                 conn.Close();
             }
 
-            series.Color = Color.Red;
+            series.Color = Color.FromArgb(244, 67, 53);
             chartUssageMaterial.Series.Add(series);
             chartUssageMaterial.ChartAreas[0].AxisX.Interval = 1;
-            chartUssageMaterial.ChartAreas[0].AxisX.Title = "Nama Barang";
-            chartUssageMaterial.ChartAreas[0].AxisY.Title = "Jumlah Stok";
         }
+
+        private void registerpenerimaans()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.penerimaan_s", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            LoadPanel();
+                            registerpenerimaans();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
+        private void registerperbaikans()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.perbaikan_s", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            LoadPanel();
+                            registerperbaikans();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
+        private void registerwelding()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.Rb_Stok", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            LoadchartRB();
+                            LoadNotifikasi();
+                            registerwelding();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
+        private void registerstok()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.stok_material", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            LoadChartStock();
+                            LoadNotifikasi();
+                            registerstok();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
+        private void registerSetminRb()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT kode, min_stok FROM dbo.setmin_Rb", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            LoadNotifikasi();
+                            registerSetminRb(); 
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            SqlDependency.Start(Koneksi.GetConnectionString());
+
+            typeof(Panel).InvokeMember("DoubleBuffered",
+               System.Reflection.BindingFlags.SetProperty |
+               System.Reflection.BindingFlags.Instance |
+               System.Reflection.BindingFlags.NonPublic,
+               null, panelNotif, new object[] { true });
+            LoadNotifikasi();
+
+            registerpenerimaans();
+            registerperbaikans();
+            registerwelding();
+            registerstok();
+            registerSetminRb();
+        }
+
+        private void btntiga_Click(object sender, EventArgs e)
+        {
+            Form setmin = new setmin_rb();
+            setmin.Show();
+        }
+
+        private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SqlDependency.Stop(Koneksi.GetConnectionString());
+        }
+
     }
 }

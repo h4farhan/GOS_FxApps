@@ -8,9 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GOS_FxApps.DataSet;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 using Microsoft.Reporting.Map.WebForms.BingMaps;
 using Microsoft.Reporting.WinForms;
+using Guna.UI2.WinForms;
+using DrawingPoint = System.Drawing.Point;
 
 namespace GOS_FxApps
 {
@@ -26,6 +28,126 @@ namespace GOS_FxApps
             dataGridView1.ClearSelection();
         }
 
+        private void registerpenerimaan()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.penerimaan_p", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampilpenerimaan();
+                            jumlahdata();
+                            registerpenerimaan();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
+        private void registerperbaikan()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.perbaikan_p", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampilperbaikan();
+                            jumlahdata();
+                            registerperbaikan();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
+        private void registerpengiriman()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.pengiriman", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampilpengiriman();
+                            jumlahdata();
+                            registerpengiriman();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
+        private void registerpemakaian()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.pemakaian_material", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampilpemakaianmaterial();
+                            jumlahdata();
+                            registerpemakaian();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
+        private void registerwelding()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.Rb_Stok", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampilwelding();
+                            jumlahdata();
+                            registerwelding();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
         private void formpenerimaan()
         {
                 DateTime tanggal1 = datecari.Value.Date;
@@ -35,12 +157,15 @@ namespace GOS_FxApps
 
                 if (string.IsNullOrEmpty(tim))
                 {
-                    MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu", "Warning");
+                    MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 var adapter = new GOS_FxApps.DataSet.PenerimaanFormTableAdapters.penerimaan_sTableAdapter();
                 GOS_FxApps.DataSet.PenerimaanForm.penerimaan_sDataTable data = adapter.GetData(tanggal1, tanggal2, shift);
+
+                var adapter2 = new GOS_FxApps.DataSet.PenerimaanFormTableAdapters.jumlahpenerimaan2TableAdapter();
+                GOS_FxApps.DataSet.PenerimaanForm.jumlahpenerimaan2DataTable data2 = adapter2.GetData(tanggal1, tanggal2, shift);
 
                 frmrpt = new reportviewr();
                 frmrpt.reportViewer1.Reset();
@@ -49,8 +174,10 @@ namespace GOS_FxApps
                 frmrpt.reportViewer1.LocalReport.DataSources.Clear();
                 frmrpt.reportViewer1.LocalReport.DataSources.Add(
                     new ReportDataSource("DataSetPenerimaan", (DataTable)data));
+                frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                        new ReportDataSource("datasetjumlahpenerimaan2", (DataTable)data2));
 
-                ReportParameter[] parameters = new ReportParameter[]
+            ReportParameter[] parameters = new ReportParameter[]
                 {
             new ReportParameter("tanggal1", tanggal1.ToString("yyyy-MM-dd")),
             new ReportParameter("tanggal2", tanggal2.ToString("yyyy-MM-dd")),
@@ -125,12 +252,15 @@ namespace GOS_FxApps
 
             if (string.IsNullOrEmpty(tim))
             {
-                MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu", "Warning");
+                MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             var adapter = new GOS_FxApps.DataSet.PerbaikanFormTableAdapters.perbaikan_pTableAdapter();
             GOS_FxApps.DataSet.PerbaikanForm.perbaikan_pDataTable data = adapter.GetData(tanggal1, tanggal2, shift);
+
+            var adapter2 = new GOS_FxApps.DataSet.PerbaikanFormTableAdapters.jumlahperbaikan2TableAdapter();
+            GOS_FxApps.DataSet.PerbaikanForm.jumlahperbaikan2DataTable data2 = adapter2.GetData(tanggal1, tanggal2, shift);
 
             frmrpt = new reportviewr();
             frmrpt.reportViewer1.Reset();
@@ -139,6 +269,9 @@ namespace GOS_FxApps
             frmrpt.reportViewer1.LocalReport.DataSources.Clear();
             frmrpt.reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("DataSetPerbaikan", (DataTable)data));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetjumlahperbaikan2", (DataTable)data2));
 
             ReportParameter[] parameters = new ReportParameter[]
             {
@@ -162,7 +295,7 @@ namespace GOS_FxApps
 
             if (string.IsNullOrEmpty(tim))
             {
-                MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu", "Warning");
+                MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -364,6 +497,18 @@ namespace GOS_FxApps
             var adapterman = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanKondisiManPowerTableAdapter();
             GOS_FxApps.DataSet.kondisi.sp_LaporanKondisiManPowerDataTable dataman = adapterman.GetData(bulan, tahun);
 
+            var adapterreject = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanRejectBATableAdapter();
+            GOS_FxApps.DataSet.kondisi.sp_LaporanRejectBADataTable datareject = adapterreject.GetData(bulan, tahun);
+
+            var adapterstokreguler = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanStokRegulerTableAdapter();
+            GOS_FxApps.DataSet.kondisi.sp_LaporanStokRegulerDataTable datastokreguler = adapterstokreguler.GetData(bulan, tahun);
+
+            var adapterstok = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanKondisiStokTableAdapter();
+            GOS_FxApps.DataSet.kondisi.sp_LaporanKondisiStokDataTable datastok = adapterstok.GetData(bulan, tahun);
+
+            var adapterstokrepair = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanKondisiStokRepairTableAdapter();
+            GOS_FxApps.DataSet.kondisi.sp_LaporanKondisiStokRepairDataTable datastokrepair = adapterstokrepair.GetData(bulan, tahun);
+
             frmrpt = new reportviewr();
             frmrpt.reportViewer1.Reset();
             frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, namaFileRDLC);
@@ -384,6 +529,18 @@ namespace GOS_FxApps
 
             frmrpt.reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetkondisimanpower", (DataTable)dataman));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetkondisirejectba", (DataTable)datareject));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("dastasetkondisistokreguler", (DataTable)datastokreguler));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetkondisistok", (DataTable)datastok));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetkondisistokrepair", (DataTable)datastokrepair));
 
             ReportParameter[] parameters = new ReportParameter[]
             {
@@ -471,7 +628,7 @@ namespace GOS_FxApps
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
 
@@ -518,7 +675,7 @@ namespace GOS_FxApps
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
 
@@ -572,7 +729,7 @@ namespace GOS_FxApps
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
 
@@ -604,7 +761,7 @@ namespace GOS_FxApps
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
 
@@ -657,7 +814,7 @@ namespace GOS_FxApps
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(25, 25, 25);
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
@@ -699,13 +856,13 @@ namespace GOS_FxApps
 
         private bool caripenerimaan()
         {
-            DateTime? tanggal1 = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
-            DateTime? tanggal2 = datecari.Checked ? (DateTime?)datecari.Value.AddDays(1).Date : null;
+            DateTime tanggal1 = datecari.Value.Date;
+            DateTime tanggal2 = datecari.Value.AddDays(1).Date;
             string shift = cbShift.SelectedItem ?.ToString();
 
-            if (!tanggal1.HasValue || string.IsNullOrEmpty(shift))
+            if (string.IsNullOrEmpty(shift))
             {
-                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan pilih shift untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -730,9 +887,9 @@ namespace GOS_FxApps
 
                     dataGridView1.DataSource = dt;
                 }
-                catch (SqlException)
+                catch (SqlException ex)
                 {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif." + ex.Message,
                                         "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
@@ -751,13 +908,13 @@ namespace GOS_FxApps
 
         private bool cariperbaikan()
         {
-            DateTime? tanggal1 = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
-            DateTime? tanggal2 = datecari.Checked ? (DateTime?)datecari.Value.AddDays(1).Date : null;
+            DateTime tanggal1 = datecari.Value.Date;
+            DateTime tanggal2 = datecari.Value.AddDays(1).Date;
             string shift = cbShift.SelectedItem?.ToString(); 
 
-            if (!tanggal1.HasValue || string.IsNullOrEmpty(shift))
+            if (string.IsNullOrEmpty(shift))
             {
-                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan pilih shift untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -803,13 +960,13 @@ namespace GOS_FxApps
 
         private bool caripengiriman()
         {
-            DateTime? tanggal1 = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
-            DateTime? tanggal2 = datecari.Checked ? (DateTime?)datecari.Value.AddDays(1).Date : null;
+            DateTime tanggal1 = datecari.Value.Date;
+            DateTime tanggal2 = datecari.Value.AddDays(1).Date;
             string shift = cbShift.SelectedItem?.ToString();
 
-            if (!tanggal1.HasValue || string.IsNullOrEmpty(shift))
+            if (string.IsNullOrEmpty(shift))
             {
-                MessageBox.Show("Silakan isi tanggal dan pilih shift untuk melakukan pencarian.", "Warning");
+                MessageBox.Show("Silakan pilih shift untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -858,12 +1015,6 @@ namespace GOS_FxApps
             int bulan = datecaripemakaian.Value.Month;
             int tahun = datecaripemakaian.Value.Year;
 
-            if (datecaripemakaian.Checked == false)
-            {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Warning");
-                return false;
-            }
-
             DataTable dt = new DataTable();
 
             string query = "SELECT * FROM pemakaian_material WHERE YEAR(tanggalPemakaian) = @year AND MONTH(tanggalPemakaian) = @bulan;";
@@ -908,12 +1059,6 @@ namespace GOS_FxApps
             int bulan = datecaripemakaian.Value.Month;
             int tahun = datecaripemakaian.Value.Year;
 
-            if (datecaripemakaian.Checked == false)
-            {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Warning");
-                return false;
-            }
-
             DataTable dt = new DataTable();
 
             string query = "SELECT * FROM Rb_Stok WHERE YEAR(tanggal) = @year AND MONTH(tanggal) = @bulan;";
@@ -956,12 +1101,6 @@ namespace GOS_FxApps
         {
             int bulan = datecaripemakaian.Value.Month;
             int tahun = datecaripemakaian.Value.Year;
-
-            if (datecaripemakaian.Checked == false)
-            {
-                MessageBox.Show("Silakan isi tanggal untuk melakukan pencarian.", "Warning");
-                return false;
-            }
 
             DataTable dt = new DataTable();
 
@@ -1006,12 +1145,6 @@ namespace GOS_FxApps
             int bulan = datecaripemakaian.Value.Month;
             int tahun = datecaripemakaian.Value.Year;
 
-            if (datecaripemakaian.Checked == false)
-            {
-                MessageBox.Show("Silakan isi tanggal untuk melakukan pencarian.", "Warning");
-                return false;
-            }
-
             DataTable dt = new DataTable();
 
             string query = "SELECT * FROM perbaikan_p WHERE YEAR(tanggal_perbaikan) = @year AND MONTH(tanggal_perbaikan) = @bulan;";
@@ -1054,12 +1187,6 @@ namespace GOS_FxApps
         {
             int bulan = datecaripemakaian.Value.Month;
             int tahun = datecaripemakaian.Value.Year;
-
-            if (datecaripemakaian.Checked == false)
-            {
-                MessageBox.Show("Silakan isi tanggal untuk melakukan pencarian.", "Warning");
-                return false;
-            }
 
             DataTable dt = new DataTable();
 
@@ -1374,9 +1501,9 @@ namespace GOS_FxApps
 
         private void TambahCancelOption()
         {
-            if (!cmbpilihdata.Items.Contains("Cancel"))
+            if (!cmbpilihdata.Items.Contains("Batal"))
             {
-                cmbpilihdata.Items.Add("Cancel");
+                cmbpilihdata.Items.Add("Batal");
             }
         }
 
@@ -1515,7 +1642,7 @@ namespace GOS_FxApps
                 TambahCancelOption();
                 jumlahdata();
             }
-            else if (pilihan == "Cancel")
+            else if (pilihan == "Batal")
             {
                 cmbpilihdata.SelectedIndex = 0;
                 infocari = false;
@@ -1533,16 +1660,79 @@ namespace GOS_FxApps
             }
 
         }
-        
-        private void datecari_ValueChanged(object sender, EventArgs e)
-        {
 
+        private void datecaripemakaian_MouseDown(object sender, MouseEventArgs e)
+        {
+            using (Form pickerForm = new Form())
+            {
+                pickerForm.StartPosition = FormStartPosition.Manual;
+                pickerForm.FormBorderStyle = FormBorderStyle.FixedDialog;
+                pickerForm.ControlBox = false;
+                pickerForm.Size = new Size(250, 200);
+                pickerForm.Text = "Pilih Bulan & Tahun";
+
+                var screenPos = datecaripemakaian.PointToScreen(DrawingPoint.Empty);
+                pickerForm.Location = new DrawingPoint(screenPos.X, screenPos.Y + datecaripemakaian.Height);
+
+                var cmbBulan = new Guna2ComboBox
+                {
+                    Font = new Font("Segoe UI", 11F),
+                    Left = 10,
+                    Top = 10,
+                    Width = 200,
+                    BorderRadius = 6,
+                    ForeColor = Color.Black,
+                    DropDownStyle = ComboBoxStyle.DropDownList,
+                    BorderColor = Color.FromArgb(64, 64, 64),
+                    BorderThickness = 2,
+                };
+                string[] bulan = {
+                                    "01 - Januari", "02 - Februari", "03 - Maret", "04 - April", "05 - Mei", "06 - Juni",
+                                    "07 - Juli", "08 - Agustus", "09 - September", "10 - Oktober", "11 - November", "12 - Desember"
+                                };
+                cmbBulan.Items.AddRange(bulan);
+                cmbBulan.SelectedIndex = datecaripemakaian.Value.Month - 1;
+
+                var numTahun = new Guna2NumericUpDown
+                {
+                    Font = new Font("Segoe UI", 11F),
+                    Left = 10,
+                    Top = 55,
+                    Width = 200,
+                    BorderRadius = 6,
+                    Minimum = 1900,
+                    Maximum = 2100,
+                    ForeColor = Color.Black,
+                    Value = datecaripemakaian.Value.Year,
+                    BorderColor = Color.FromArgb(64, 64, 64),
+                    BorderThickness = 2,
+                };
+
+                var btnOK = new Guna2Button
+                {
+                    Text = "OK",
+                    Font = new Font("Segoe UI", 10F),
+                    Left = 10,
+                    Top = 110,
+                    Width = 80,
+                    Height = 35,
+                    BorderRadius = 6,
+                    FillColor = Color.FromArgb(53, 53, 58)
+                };
+                btnOK.Click += (s, ev) =>
+                {
+                    datecaripemakaian.Value = new DateTime((int)numTahun.Value, cmbBulan.SelectedIndex + 1, 1);
+                    pickerForm.DialogResult = DialogResult.OK;
+                };
+
+                pickerForm.Controls.Add(cmbBulan);
+                pickerForm.Controls.Add(numTahun);
+                pickerForm.Controls.Add(btnOK);
+
+                pickerForm.ShowDialog();
+            }
         }
 
-        private void guna2Panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
 
