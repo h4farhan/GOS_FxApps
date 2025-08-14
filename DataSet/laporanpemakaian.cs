@@ -4,5 +4,8 @@
 
     public partial class laporanpemakaian
     {
+        partial class sp_LaporanPemakaianMaterialDataTable
+        {
+        }
     }
 }
