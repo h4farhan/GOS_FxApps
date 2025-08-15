@@ -325,6 +325,18 @@
     <Compile Include="historyWelding.Designer.cs">
       <DependentUpon>historyWelding.cs</DependentUpon>
     </Compile>
+    <Compile Include="infoalluser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="infoalluser.Designer.cs">
+      <DependentUpon>infoalluser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="koefisiensi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="koefisiensi.Designer.cs">
+      <DependentUpon>koefisiensi.cs</DependentUpon>
+    </Compile>
     <Compile Include="koneksi.cs" />
     <Compile Include="loginform.cs">
       <SubType>Form</SubType>
@@ -400,6 +412,8 @@
     <Compile Include="weldingp.Designer.cs">
       <DependentUpon>weldingp.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\search %282%29.png" />
+    <None Include="Resources\search %281%29.png" />
     <None Include="Resources\dots.png" />
     <None Include="Resources\search.png" />
     <None Include="Resources\optimization %281%29.png" />
@@ -465,6 +479,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="historyWelding.resx">
       <DependentUpon>historyWelding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="infoalluser.resx">
+      <DependentUpon>infoalluser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="koefisiensi.resx">
+      <DependentUpon>koefisiensi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="kondisi_28.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

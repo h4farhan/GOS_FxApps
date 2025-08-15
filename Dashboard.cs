@@ -53,6 +53,7 @@ namespace GOS_FxApps
             if (MainForm.Instance != null && MainForm.Instance.role != null)
             {
                 btntiga.Visible = (MainForm.Instance.role == "Operator Gudang");
+                btntiga.Visible = (MainForm.Instance.role == "Manajer");
             }
             else
             {
@@ -68,84 +69,102 @@ namespace GOS_FxApps
             panelNotif.SuspendLayout();
             panelNotif.Controls.Clear();
 
+            List<(string Text, DateTime Waktu, Color WarnaText, Color WarnaWaktu)> notifList =
+                new List<(string, DateTime, Color, Color)>();
+
             using (SqlConnection conn = Koneksi.GetConnection())
             {
                 conn.Open();
 
+                string query2 = @"SELECT TOP 1 bstok, bpe1, bpe2, bbe1, bbe2, wpe1, wpe2, wbe1, wbe2, updated_at 
+                          FROM Rb_Stok ORDER BY id_stok DESC";
 
-                string query2 = @"
-                                SELECT TOP 1 bstok, bpe1, bpe2, bbe1, bbe2, wpe1, wpe2, wbe1, wbe2, updated_at
-                                FROM Rb_Stok
-                                ORDER BY id_stok DESC";
-
-                SqlCommand cmd2 = new SqlCommand(query2, conn);
-                SqlDataReader reader2 = cmd2.ExecuteReader();
-
-                Dictionary<string, int> stokData = new Dictionary<string, int>();
-
-                DateTime waktuRb = DateTime.Now;
-                if (reader2.Read())
+                using (SqlCommand cmd2 = new SqlCommand(query2, conn))
+                using (SqlDataReader reader2 = cmd2.ExecuteReader())
                 {
-                    string[] kolomList = { "bstok", "bpe1", "bpe2", "bbe1", "bbe2", "wpe1", "wpe2", "wbe1", "wbe2" };
-                    foreach (string kolom in kolomList)
+                    Dictionary<string, int> stokData = new Dictionary<string, int>();
+                    DateTime waktuRb = DateTime.Now;
+
+                    if (reader2.Read())
                     {
-                        stokData[kolom] = Convert.ToInt32(reader2[kolom]);
+                        string[] kolomList = { "bstok", "bpe1", "bpe2", "bbe1", "bbe2", "wpe1", "wpe2", "wbe1", "wbe2" };
+
+                        foreach (string kolom in kolomList)
+                        {
+                            stokData[kolom] = Convert.ToInt32(reader2[kolom]);
+                        }
+
                         waktuRb = Convert.ToDateTime(reader2["updated_at"]);
                     }
-                }
-                reader2.Close();
+                    reader2.Close();
 
-                foreach (var item in stokData)
-                {
-                    using (SqlCommand cmdMin = new SqlCommand("SELECT namaTampilan, min_stok FROM setmin_Rb WHERE kode = @kode", conn))
+                    foreach (var item in stokData)
                     {
-                        cmdMin.Parameters.AddWithValue("@kode", item.Key);
-                        using (SqlDataReader rdrMin = cmdMin.ExecuteReader())
+                        using (SqlCommand cmdMin = new SqlCommand(
+                            "SELECT namaTampilan, min_stok FROM setmin_Rb WHERE kode = @kode", conn))
                         {
-                            if (rdrMin.Read())
+                            cmdMin.Parameters.AddWithValue("@kode", item.Key);
+                            using (SqlDataReader rdrMin = cmdMin.ExecuteReader())
                             {
-                                string nama = rdrMin["namaTampilan"].ToString();
-                                int minStok = Convert.ToInt32(rdrMin["min_stok"]);
-
-                                if (item.Value < minStok)
+                                if (rdrMin.Read())
                                 {
-                                    AddNotifPanel(
-                                    $"{nama} Stok Rendah ({item.Value}/{minStok})",
-                                    waktuRb.ToString("dd MMM yyyy HH:mm"),
-                                    Color.FromArgb(255, 0, 0),
-                                    Color.Gray
-                                );
+                                    string nama = rdrMin["namaTampilan"].ToString();
+                                    int minStok = Convert.ToInt32(rdrMin["min_stok"]);
+
+                                    if (item.Value < minStok)
+                                    {
+                                        notifList.Add((
+                                            $"{nama} Stok Rendah ({item.Value}/{minStok})",
+                                            waktuRb, 
+                                            Color.FromArgb(255, 0, 0),
+                                            Color.Gray
+                                        ));
+                                    }
                                 }
                             }
                         }
                     }
                 }
 
-                string query1 = @"
-                                SELECT namaBarang, jumlahStok, min_stok, updated_at
-                                FROM stok_material
-                                WHERE jumlahStok < min_stok";
+                string query1 = @"SELECT namaBarang, jumlahStok, min_stok, updated_at 
+                          FROM stok_material WHERE jumlahStok < min_stok";
 
-                SqlCommand cmd1 = new SqlCommand(query1, conn);
-                SqlDataReader reader1 = cmd1.ExecuteReader();
-                while (reader1.Read())
+                using (SqlCommand cmd1 = new SqlCommand(query1, conn))
+                using (SqlDataReader reader1 = cmd1.ExecuteReader())
                 {
-                    string nama = reader1["namaBarang"].ToString();
-                    int stok = Convert.ToInt32(reader1["jumlahStok"]);
-                    int minStok = Convert.ToInt32(reader1["min_stok"]);
-                    DateTime waktu = Convert.ToDateTime(reader1["updated_at"]);
-                    AddNotifPanel(
+                    while (reader1.Read())
+                    {
+                        string nama = reader1["namaBarang"].ToString();
+                        int stok = Convert.ToInt32(reader1["jumlahStok"]);
+                        int minStok = Convert.ToInt32(reader1["min_stok"]);
+                        DateTime waktu = Convert.ToDateTime(reader1["updated_at"]);
+
+                        notifList.Add((
                             $"Material {nama} Stok Rendah ({stok}/{minStok})",
-                            waktu.ToString("dd MMM yyyy HH:mm"),
+                            waktu,
                             Color.FromArgb(255, 0, 0),
                             Color.Gray
-                    );
+                        ));
+                    }
                 }
-                reader1.Close();
             }
+            var sortedNotif = notifList
+            .OrderByDescending(n => n.Waktu)
+            .ThenByDescending(n => n.Text) 
+            .ToList();
+
+            foreach (var notif in sortedNotif)
+            {
+                AddNotifPanel(
+                    notif.Text,
+                    notif.Waktu.ToString("dd MMM yyyy HH:mm"),
+                    notif.WarnaText,
+                    notif.WarnaWaktu
+                );
+            }
+
             panelNotif.AutoScroll = true;
             panelNotif.ResumeLayout();
-
             panelNotif.VerticalScroll.Value = Math.Min(scrollPosition, panelNotif.VerticalScroll.Maximum);
             panelNotif.PerformLayout();
         }
@@ -154,26 +173,17 @@ namespace GOS_FxApps
         {
             RoundedPanel itemPanel = new RoundedPanel();
             itemPanel.Width = panelNotif.Width - 25;
-            itemPanel.Height = 90;
+            itemPanel.Height = text.Contains("Material") ? 130 : 90;
             itemPanel.BackColor = Color.WhiteSmoke;
             itemPanel.Margin = new Padding(3);
-            itemPanel.Padding = new Padding(10);            
+            itemPanel.Padding = new Padding(10);
             itemPanel.BorderRadius = 10;
-
-            if (text.Contains("Material"))
-            {
-                itemPanel.Height = 130;
-            }
+            itemPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right; 
 
             Panel teksPanel = new Panel();
             teksPanel.Dock = DockStyle.Fill;
             teksPanel.BackColor = Color.WhiteSmoke;
             teksPanel.Padding = new Padding(5);
-
-            if (text.Contains("Material"))
-            {
-                teksPanel.Height = 130;
-            }
 
             Label icon = new Label();
             icon.Text = "🔔";
@@ -187,7 +197,7 @@ namespace GOS_FxApps
             lblText.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);
             lblText.ForeColor = warnaText;
             lblText.AutoSize = true;
-            lblText.MaximumSize = new Size(teksPanel.Width - 10, 0); 
+            lblText.MaximumSize = new Size(teksPanel.Width - 10, 0);
             lblText.Dock = DockStyle.Top;
 
             Label lblWaktu = new Label();
@@ -198,8 +208,8 @@ namespace GOS_FxApps
             lblWaktu.Dock = DockStyle.Bottom;
 
             teksPanel.Controls.Add(lblWaktu); 
-            teksPanel.Controls.Add(lblText);
-            teksPanel.Controls.Add(icon);
+            teksPanel.Controls.Add(lblText); 
+            teksPanel.Controls.Add(icon);     
 
             itemPanel.Controls.Add(teksPanel);
 

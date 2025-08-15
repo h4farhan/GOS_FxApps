@@ -578,6 +578,6 @@
         public Guna.UI2.WinForms.Guna2Button btnbatal;
         private System.Windows.Forms.Label label3;
         public Guna.UI2.WinForms.Guna2PictureBox picture1;
-        private System.Windows.Forms.Label lblstoksaatini;
+        public System.Windows.Forms.Label lblstoksaatini;
     }
 }

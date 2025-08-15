@@ -614,7 +614,6 @@ namespace GOS_FxApps
             paneldata2.Visible = true;
             btncari.Enabled = true;
             tampilpenerimaan();
-            TambahCancelOption();
             jumlahdata();
         }
 
@@ -1499,14 +1498,6 @@ namespace GOS_FxApps
             jlhpanel1.Text = "Jumlah data: " + total.ToString();
         }
 
-        private void TambahCancelOption()
-        {
-            if (!cmbpilihdata.Items.Contains("Batal"))
-            {
-                cmbpilihdata.Items.Add("Batal");
-            }
-        }
-
         private void cmbpilihdata_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbpilihdata.SelectedItem == null)
@@ -1527,7 +1518,6 @@ namespace GOS_FxApps
                 paneldata2.Visible = true;
                 btncari.Enabled = true;
                 tampilpenerimaan();
-                TambahCancelOption();
                 jumlahdata();
             }
             else if (pilihan == "Perbaikan")
@@ -1543,7 +1533,6 @@ namespace GOS_FxApps
                 paneldata2.Visible = true;
                 btncari.Enabled = true;
                 tampilperbaikan();
-                TambahCancelOption();
                 jumlahdata();
             }
             else if (pilihan == "Pengiriman")
@@ -1559,7 +1548,6 @@ namespace GOS_FxApps
                 paneldata2.Visible = true;
                 btncari.Enabled = true;
                 tampilpengiriman();
-                TambahCancelOption();
                 jumlahdata();
             }
             else if (pilihan == "Welding Pieces")
@@ -1575,7 +1563,6 @@ namespace GOS_FxApps
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
                 tampilwelding();
-                TambahCancelOption();
                 jumlahdata();
             }
             else if (pilihan == "Hasil Produksi & Pemakaian Material")
@@ -1591,7 +1578,6 @@ namespace GOS_FxApps
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
                 tampilpemakaianmaterial();
-                TambahCancelOption();
                 jumlahdata();
             }
             else if (pilihan == "Summary Data for Anode ROD Repair")
@@ -1607,7 +1593,6 @@ namespace GOS_FxApps
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
                 tampilperbaikan();
-                TambahCancelOption();
                 jumlahdata();
             }
             else if (pilihan == "Actual Quantity for Repaired ROD Assy")
@@ -1623,7 +1608,6 @@ namespace GOS_FxApps
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
                 tampilperbaikan();
-                TambahCancelOption();
                 jumlahdata();
             }
             else if (pilihan == "Kondisi ROD Reject di Rod Repair Shop")
@@ -1639,26 +1623,8 @@ namespace GOS_FxApps
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
                 tampilperbaikan();
-                TambahCancelOption();
                 jumlahdata();
             }
-            else if (pilihan == "Batal")
-            {
-                cmbpilihdata.SelectedIndex = 0;
-                infocari = false;
-                btncari.Text = "Cari";
-                btnprint.Enabled = false;
-                guna2Panel4.ResetText();
-                datecari.Checked = false;
-                paneldata2.Visible = false;
-
-                paneldata2.Visible = true;
-                btncari.Enabled = true;
-                tampilpenerimaan();
-                TambahCancelOption();
-                jumlahdata();
-            }
-
         }
 
         private void datecaripemakaian_MouseDown(object sender, MouseEventArgs e)

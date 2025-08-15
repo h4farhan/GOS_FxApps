@@ -46,6 +46,7 @@
             this.btnedit = new Guna.UI2.WinForms.Guna2Button();
             this.btnbatal = new Guna.UI2.WinForms.Guna2Button();
             this.shadowform = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.panel1.SuspendLayout();
             this.titlePanel.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
@@ -59,7 +60,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(993, 49);
+            this.panel1.Size = new System.Drawing.Size(1038, 42);
             this.panel1.TabIndex = 46;
             // 
             // label2
@@ -82,7 +83,7 @@
             this.titlePanel.Location = new System.Drawing.Point(0, 0);
             this.titlePanel.Margin = new System.Windows.Forms.Padding(2);
             this.titlePanel.Name = "titlePanel";
-            this.titlePanel.Size = new System.Drawing.Size(993, 24);
+            this.titlePanel.Size = new System.Drawing.Size(1038, 24);
             this.titlePanel.TabIndex = 47;
             // 
             // ControlBoxButton
@@ -90,7 +91,7 @@
             this.ControlBoxButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.ControlBoxButton.FillColor = System.Drawing.Color.Transparent;
             this.ControlBoxButton.IconColor = System.Drawing.Color.Red;
-            this.ControlBoxButton.Location = new System.Drawing.Point(941, 0);
+            this.ControlBoxButton.Location = new System.Drawing.Point(986, 0);
             this.ControlBoxButton.Margin = new System.Windows.Forms.Padding(2);
             this.ControlBoxButton.Name = "ControlBoxButton";
             this.ControlBoxButton.Size = new System.Drawing.Size(52, 24);
@@ -101,7 +102,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(28, 241);
+            this.label1.Location = new System.Drawing.Point(28, 260);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(112, 21);
@@ -124,7 +125,7 @@
             this.txtminstok.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtminstok.ForeColor = System.Drawing.Color.Black;
             this.txtminstok.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtminstok.Location = new System.Drawing.Point(164, 231);
+            this.txtminstok.Location = new System.Drawing.Point(164, 250);
             this.txtminstok.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtminstok.Name = "txtminstok";
             this.txtminstok.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -153,13 +154,13 @@
             this.txtcari.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.search;
             this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
-            this.txtcari.Location = new System.Drawing.Point(425, 86);
+            this.txtcari.Location = new System.Drawing.Point(425, 105);
             this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtcari.Name = "txtcari";
             this.txtcari.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtcari.PlaceholderText = "Cari Nama Tampilan";
             this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(540, 39);
+            this.txtcari.Size = new System.Drawing.Size(585, 39);
             this.txtcari.TabIndex = 57;
             this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
             this.txtcari.TextChanged += new System.EventHandler(this.txtcari_TextChanged);
@@ -172,11 +173,11 @@
             this.guna2Panel4.BorderThickness = 2;
             this.guna2Panel4.Controls.Add(this.dataGridView1);
             this.guna2Panel4.FillColor = System.Drawing.Color.White;
-            this.guna2Panel4.Location = new System.Drawing.Point(425, 135);
+            this.guna2Panel4.Location = new System.Drawing.Point(425, 154);
             this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
-            this.guna2Panel4.Size = new System.Drawing.Size(540, 275);
+            this.guna2Panel4.Size = new System.Drawing.Size(585, 275);
             this.guna2Panel4.TabIndex = 56;
             // 
             // dataGridView1
@@ -219,7 +220,7 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(518, 251);
+            this.dataGridView1.Size = new System.Drawing.Size(563, 251);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -228,7 +229,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(28, 186);
+            this.label4.Location = new System.Drawing.Point(28, 205);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 21);
@@ -251,7 +252,7 @@
             this.txtnamatampilan.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtnamatampilan.ForeColor = System.Drawing.Color.Black;
             this.txtnamatampilan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtnamatampilan.Location = new System.Drawing.Point(164, 176);
+            this.txtnamatampilan.Location = new System.Drawing.Point(164, 195);
             this.txtnamatampilan.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtnamatampilan.Name = "txtnamatampilan";
             this.txtnamatampilan.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -262,7 +263,6 @@
             // 
             // btnedit
             // 
-            this.btnedit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnedit.BorderRadius = 8;
             this.btnedit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnedit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -272,7 +272,7 @@
             this.btnedit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnedit.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnedit.ForeColor = System.Drawing.Color.White;
-            this.btnedit.Location = new System.Drawing.Point(216, 306);
+            this.btnedit.Location = new System.Drawing.Point(216, 325);
             this.btnedit.Margin = new System.Windows.Forms.Padding(2);
             this.btnedit.Name = "btnedit";
             this.btnedit.Size = new System.Drawing.Size(127, 38);
@@ -282,7 +282,6 @@
             // 
             // btnbatal
             // 
-            this.btnbatal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnbatal.BorderRadius = 8;
             this.btnbatal.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnbatal.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -292,7 +291,7 @@
             this.btnbatal.FillColor = System.Drawing.Color.Red;
             this.btnbatal.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnbatal.ForeColor = System.Drawing.Color.White;
-            this.btnbatal.Location = new System.Drawing.Point(73, 306);
+            this.btnbatal.Location = new System.Drawing.Point(73, 325);
             this.btnbatal.Margin = new System.Windows.Forms.Padding(2);
             this.btnbatal.Name = "btnbatal";
             this.btnbatal.Size = new System.Drawing.Size(127, 38);
@@ -307,12 +306,26 @@
             this.shadowform.DockIndicatorTransparencyValue = 0.6D;
             this.shadowform.TransparentWhileDrag = true;
             // 
+            // guna2Separator1
+            // 
+            this.guna2Separator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Separator1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Separator1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.guna2Separator1.FillThickness = 2;
+            this.guna2Separator1.Location = new System.Drawing.Point(22, 67);
+            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(988, 8);
+            this.guna2Separator1.TabIndex = 61;
+            // 
             // setmin_rb
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(993, 439);
+            this.ClientSize = new System.Drawing.Size(1038, 462);
+            this.Controls.Add(this.guna2Separator1);
             this.Controls.Add(this.btnedit);
             this.Controls.Add(this.btnbatal);
             this.Controls.Add(this.label1);
@@ -355,5 +368,6 @@
         private Guna.UI2.WinForms.Guna2Button btnbatal;
         private Guna.UI2.WinForms.Guna2BorderlessForm shadowform;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
     }
 }

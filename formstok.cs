@@ -304,7 +304,8 @@ namespace GOS_FxApps
                                 pemakaianMaterial.instance.picture1.Image = null;
                                 pemakaianMaterial.instance.btnbatal.Enabled = false;
                                 pemakaianMaterial.instance.btnsimpan.Enabled = false;
-                            }
+                                pemakaianMaterial.instance.lblstoksaatini.Text = "Stok Saat Ini: -";
+                        }
                             catch (SqlException)
                             {
                                 MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
@@ -360,6 +361,7 @@ namespace GOS_FxApps
                             btnsimpan.Text = "Simpan";
                             pemakaianMaterial.instance.btnbatal.Enabled = false;
                             pemakaianMaterial.instance.btnsimpan.Enabled = false;
+                            pemakaianMaterial.instance.lblstoksaatini.Text = "Stok Saat Ini: -";
                         }
                         catch (SqlException)
                         {
