@@ -553,6 +553,34 @@ namespace GOS_FxApps
             frmrpt.Show();
         }
 
+        private void formkoefisiensi()
+        {
+            int bulan = datecaripemakaian.Value.Month;
+            int tahun = datecaripemakaian.Value.Year;
+
+            var adapterquantity = new GOS_FxApps.DataSet.koefisiensiTableAdapters.sp_LaporanKoefisiensiQuantityTableAdapter();
+            GOS_FxApps.DataSet.koefisiensi.sp_LaporanKoefisiensiQuantityDataTable dataquantity = adapterquantity.GetData(bulan, tahun);
+
+            frmrpt = new reportviewr();
+            frmrpt.reportViewer1.Reset();
+            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "koefisiensi.rdlc");
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetkoefisiensiqty", (DataTable)dataquantity));
+
+            ReportParameter[] parameters = new ReportParameter[]
+            {
+        new ReportParameter("bulan", bulan.ToString()),
+        new ReportParameter("tahun", tahun.ToString())
+            };
+
+            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
+            frmrpt.reportViewer1.RefreshReport();
+            frmrpt.Show();
+        }
+
         private reportviewr frmrpt;
 
         private void guna2Button2_Click(object sender, EventArgs e) 
@@ -593,6 +621,10 @@ namespace GOS_FxApps
             else if (pilihan == "Kondisi ROD Reject di Rod Repair Shop")
             {
                 formkondisi();
+            }
+            else if (pilihan == "Koefisiensi Material")
+            {
+                formkoefisiensi();
             }
         }
 
@@ -1489,6 +1521,38 @@ namespace GOS_FxApps
                     datecari.Checked = false;
                 }
             }
+            else if (pilihan == "Koefisiensi Material")
+            {
+                if (!infocari)
+                {
+                    bool hasilCari = caripemakaian(); //masih pakai table lain
+                    if (hasilCari)
+                    {
+                        infocari = true;
+                        btnprint.Enabled = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                    else
+                    {
+                        infocari = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                }
+                else
+                {
+                    tampilpemakaianmaterial();
+                    infocari = false;
+                    btncari.Text = "Cari";
+                    jumlahdata();
+
+                    btnprint.Enabled = false;
+
+                    guna2Panel4.ResetText();
+                    datecaripemakaian.Checked = false;
+                }
+            }
         }
 
         private void jumlahdata()
@@ -1623,6 +1687,21 @@ namespace GOS_FxApps
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
                 tampilperbaikan();
+                jumlahdata();
+            }
+            else if (pilihan == "Koefisiensi Material")
+            {
+                //reset dulu
+                infocari = false;
+                btncari.Text = "Cari";
+                btnprint.Enabled = false;
+                guna2Panel4.ResetText();
+                datecaripemakaian.Checked = false;
+                paneldata2.Visible = false;
+
+                paneldata1.Visible = true;
+                btncari.Enabled = true;
+                tampilpemakaianmaterial(); // masih pakai table lain
                 jumlahdata();
             }
         }

@@ -173,7 +173,7 @@ namespace GOS_FxApps
         {
             RoundedPanel itemPanel = new RoundedPanel();
             itemPanel.Width = panelNotif.Width - 25;
-            itemPanel.Height = text.Contains("Material") ? 130 : 90;
+            itemPanel.Height = text.Contains("Material") ? 130 : 110;
             itemPanel.BackColor = Color.WhiteSmoke;
             itemPanel.Margin = new Padding(3);
             itemPanel.Padding = new Padding(10);
