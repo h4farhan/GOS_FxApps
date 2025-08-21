@@ -177,6 +177,7 @@ namespace GOS_FxApps
                 lblstoksaatini.Text = "Stok Saat Ini : -";
                 tampil();
                 btnsimpan.Text = "Simpan Data";
+                cmbnama.Enabled = true;
             }
             catch (SqlException)
             {
@@ -349,6 +350,7 @@ namespace GOS_FxApps
                 txtjumlah.Text = row.Cells["jumlahPemakaian"].Value.ToString();
                 jumlahlama = Convert.ToInt32(row.Cells["jumlahPemakaian"].Value);
 
+                cmbnama.Enabled = false;
                 btnsimpan.Text = "Edit Data";
                 btnbatal.Enabled = true;
             }
@@ -413,6 +415,7 @@ namespace GOS_FxApps
             picture1.Image = null;
             btnsimpan.Enabled = false;
             btnbatal.Enabled = false;
+            cmbnama.Enabled = true;
         }
 
         private void cmbnama_SelectedIndexChanged(object sender, EventArgs e)

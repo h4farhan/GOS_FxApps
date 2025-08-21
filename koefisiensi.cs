@@ -19,6 +19,10 @@ namespace GOS_FxApps
         SqlConnection conn = Koneksi.GetConnection();
 
         bool infocarimaterial = false;
+        bool infocariquantity = false;
+
+        int noprimarymaterial = 0;
+        int noprimaryquantity = 0;
 
         public koefisiensi()
         {
@@ -32,6 +36,52 @@ namespace GOS_FxApps
             datecarimaterial.Checked = false;
             datecariqty.Checked = false;
             combonama();
+        }
+
+        private void registertampilmaterial()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.koefisiensi_material", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampilmaterial();
+                            registertampilmaterial();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
+        private void registertampilquantity()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.koefisiensi_quantity", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampilqty();
+                            registertampilquantity();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
         }
 
         private void AngkaOnly_KeyPress(object sender, KeyPressEventArgs e)
@@ -99,7 +149,7 @@ namespace GOS_FxApps
             txtkoefr.Clear();
             txtkoefc.Clear();
             txtkoefrl.Clear();
-
+            noprimarymaterial = 0;
         }
 
         private void setdefaultquantity()
@@ -119,6 +169,7 @@ namespace GOS_FxApps
             txtqtyr.Clear();
             txtqtyc.Clear();
             txtqtyrl.Clear();
+            noprimarymaterial = 0;
         }
 
         private void tampilqty()
@@ -184,24 +235,27 @@ namespace GOS_FxApps
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "Tanggal";
                 dataGridView1.Columns[2].HeaderText = "Type";
-                dataGridView1.Columns[3].HeaderText = "Deskripsi";
-                dataGridView1.Columns[4].HeaderText = "Spesifikasi";
-                dataGridView1.Columns[5].HeaderText = "UoM";
-                dataGridView1.Columns[6].HeaderText = "Koef E1";
-                dataGridView1.Columns[7].HeaderText = "Koef E2";
-                dataGridView1.Columns[8].HeaderText = "Koef E3";
-                dataGridView1.Columns[9].HeaderText = "Koef E4";
-                dataGridView1.Columns[10].HeaderText = "Koef S";
-                dataGridView1.Columns[11].HeaderText = "Koef D";
-                dataGridView1.Columns[12].HeaderText = "Koef B";
-                dataGridView1.Columns[13].HeaderText = "Koef BA";
-                dataGridView1.Columns[14].HeaderText = "Koef BA-1";
-                dataGridView1.Columns[15].HeaderText = "Koef CR";
-                dataGridView1.Columns[16].HeaderText = "Koef M";
-                dataGridView1.Columns[17].HeaderText = "Koef R";
-                dataGridView1.Columns[18].HeaderText = "Koef C";
-                dataGridView1.Columns[19].HeaderText = "Koef RL";
-                dataGridView1.Columns[20].HeaderText = "Diubah";
+                dataGridView1.Columns[3].HeaderText = "Kode Barang";
+                dataGridView1.Columns[4].HeaderText = "Deskripsi";
+                dataGridView1.Columns[5].HeaderText = "Spesifikasi";
+                dataGridView1.Columns[6].HeaderText = "UoM";
+                dataGridView1.Columns[7].HeaderText = "Koef E1";
+                dataGridView1.Columns[8].HeaderText = "Koef E2";
+                dataGridView1.Columns[9].HeaderText = "Koef E3";
+                dataGridView1.Columns[10].HeaderText = "Koef E4";
+                dataGridView1.Columns[11].HeaderText = "Koef S";
+                dataGridView1.Columns[12].HeaderText = "Koef D";
+                dataGridView1.Columns[13].HeaderText = "Koef B";
+                dataGridView1.Columns[14].HeaderText = "Koef BA";
+                dataGridView1.Columns[15].HeaderText = "Koef BA-1";
+                dataGridView1.Columns[16].HeaderText = "Koef CR";
+                dataGridView1.Columns[17].HeaderText = "Koef M";
+                dataGridView1.Columns[18].HeaderText = "Koef R";
+                dataGridView1.Columns[19].HeaderText = "Koef C";
+                dataGridView1.Columns[20].HeaderText = "Koef RL";
+                dataGridView1.Columns[21].HeaderText = "Diubah";
+
+                dataGridView1.Columns[1].DefaultCellStyle.Format = "MM-yyyy";
             }
             catch (SqlException)
             {
@@ -217,39 +271,25 @@ namespace GOS_FxApps
 
         private bool carimaterial()
         {
-            DateTime? tanggal = datecarimaterial.Checked ? (DateTime?)datecarimaterial.Value.Date : null;
-            //string kodeBarang = txtcari.Text.Trim();
-
-            if (!tanggal.HasValue /*&& string.IsNullOrEmpty(kodeBarang)*/)
-            {
-                MessageBox.Show("Silakan isi Tanggal untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
+            int bulan = datecarimaterial.Value.Month;
+            int tahun = datecarimaterial.Value.Year;
 
             DataTable dt = new DataTable();
 
-            string query = "SELECT * FROM koefisiensi_material WHERE 1=1";
+            string query = @"SELECT * 
+                     FROM koefisiensi_material 
+                     WHERE YEAR(tanggal) = @year 
+                       AND MONTH(tanggal) = @bulan";
 
-            using (SqlCommand cmd = new SqlCommand())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
             {
-                if (tanggal.HasValue)
-                {
-                    query += "AND CAST(tanggal AS DATE) = @tgl";
-                    cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
-                }
-
-                //if (!string.IsNullOrEmpty(kodeBarang))
-                //{
-                //    query += " AND kodeBarang = @kode";
-                //    cmd.Parameters.AddWithValue("@kode", kodeBarang);
-                //}
-
-                cmd.CommandText = query;
-                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@year", tahun);
+                cmd.Parameters.AddWithValue("@bulan", bulan);
 
                 try
                 {
                     conn.Open();
+
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dt);
@@ -271,6 +311,54 @@ namespace GOS_FxApps
                 {
                     conn.Close();
                 }
+
+                return dt.Rows.Count > 0;
+            }
+        }
+
+        private bool cariquantity()
+        {
+            int bulan = datecariqty.Value.Month;
+            int tahun = datecariqty.Value.Year;
+
+            DataTable dt = new DataTable();
+
+            string query = @"SELECT * 
+                     FROM koefisiensi_quantity
+                     WHERE YEAR(tanggal) = @year 
+                       AND MONTH(tanggal) = @bulan";
+
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@year", tahun);
+                cmd.Parameters.AddWithValue("@bulan", bulan);
+
+                try
+                {
+                    conn.Open();
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+
+                    dataGridView2.DataSource = dt;
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
                 return dt.Rows.Count > 0;
             }
         }
@@ -291,15 +379,16 @@ namespace GOS_FxApps
                 {
                     conn.Open();
                     using (SqlCommand cmdcekkode = new SqlCommand(
-                        "SELECT 1 FROM koefisiensi_material WHERE tanggal = @tgl", conn))
+                        "SELECT 1 FROM koefisiensi_material WHERE MONTH(tanggal) = @bulan AND YEAR(tanggal) = @tahun", conn))
                     {
-                        cmdcekkode.Parameters.AddWithValue("@tgl", datematerial.Value.Date);
+                        cmdcekkode.Parameters.AddWithValue("@bulan", datematerial.Value.Month);
+                        cmdcekkode.Parameters.AddWithValue("@tahun", datematerial.Value.Year);
 
                         using (SqlDataReader dr = cmdcekkode.ExecuteReader())
                         {
                             if (dr.Read())
                             {
-                                MessageBox.Show("Data di Tanggal ini sudah ada",
+                                MessageBox.Show("Data Koefisiensi Material di bulan dan tahun ini sudah ada",
                                                 "Peringatan",
                                                 MessageBoxButtons.OK,
                                                 MessageBoxIcon.Warning);
@@ -314,13 +403,13 @@ namespace GOS_FxApps
                     conn.Open();
                     using (SqlCommand cmd1 = new SqlCommand(@"
                 INSERT INTO koefisiensi_material 
-                (tanggal,type,deskripsi,spesifikasi,uom,
+                (tanggal,type,kodeBarang,deskripsi,spesifikasi,uom,
                  koef_e1,koef_e2,koef_e3,koef_e4,
                  koef_s,koef_d,koef_b,koef_ba,koef_ba1,
                  koef_cr,koef_m,koef_r,koef_c,koef_rl,
                  updated_at) 
                 VALUES
-                (@tgl,@type,@deskripsi,@spesifikasi,@uom,
+                (@tgl,@type,@kodeBarang,@deskripsi,@spesifikasi,@uom,
                  @e1,@e2,@e3,@e4,
                  @s,@d,@b,@ba,@ba1,
                  @cr,@m,@r,@c,@rl,
@@ -328,6 +417,7 @@ namespace GOS_FxApps
                     {
                         cmd1.Parameters.AddWithValue("@tgl", datematerial.Value.Date);
                         cmd1.Parameters.AddWithValue("@type", txttipe.Text);
+                        cmd1.Parameters.AddWithValue("@kodeBarang", cmbmaterial.SelectedValue.ToString());
                         cmd1.Parameters.AddWithValue("@deskripsi", cmbmaterial.Text);
                         cmd1.Parameters.AddWithValue("@spesifikasi", txtspesifikasi.Text);
                         cmd1.Parameters.AddWithValue("@uom", txtuom.Text);
@@ -352,7 +442,7 @@ namespace GOS_FxApps
                     }
                 }
 
-                MessageBox.Show("Data Berhasil Disimpan",
+                MessageBox.Show("Data Koefisiensi Material Berhasil Disimpan",
                                 "Sukses",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
@@ -402,7 +492,7 @@ namespace GOS_FxApps
                         object exists = cmdcekkode.ExecuteScalar();
                         if (exists != null)
                         {
-                            MessageBox.Show("Data di bulan dan tahun ini sudah ada",
+                            MessageBox.Show("Data Koefisiensi Quantity di bulan dan tahun ini sudah ada",
                                 "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
@@ -441,7 +531,7 @@ namespace GOS_FxApps
                     }
                 }
 
-                MessageBox.Show("Data Berhasil Disimpan", "Sukses",
+                MessageBox.Show("Data Koefisiensi Quantity Berhasil Disimpan", "Sukses",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 tampilqty();
@@ -461,14 +551,145 @@ namespace GOS_FxApps
             }
         }
 
+        private void editmaterial()
+        {
+                DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.OK)
+                {
+                    try
+                    {
+                        conn.Open();
+                        string query = "UPDATE koefisiensi_material SET koef_e1 = @e1, koef_e2 = @e2, koef_e3 = @e3, koef_e4 = @e4, koef_s = @s, koef_d = @d, koef_b = @b, koef_ba = @ba, koef_ba1 = @ba1, " +
+                        "koef_cr = @cr, koef_m = @m, koef_r = @r, koef_c = @c, koef_rl = @rl, updated_at = @diubah WHERE no = @no";
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@no", noprimarymaterial);
+                        cmd.Parameters.AddWithValue("@e1", txtkoefe1.Text);
+                        cmd.Parameters.AddWithValue("@e2", txtkoefe2.Text);
+                        cmd.Parameters.AddWithValue("@e3", txtkoefe3.Text);
+                        cmd.Parameters.AddWithValue("@e4", txtkoefe4.Text);
+                        cmd.Parameters.AddWithValue("@s", txtkoefs.Text);
+                        cmd.Parameters.AddWithValue("@d", txtkoefd.Text);
+                        cmd.Parameters.AddWithValue("@b", txtkoefb.Text);
+                        cmd.Parameters.AddWithValue("@ba", txtkoefba.Text);
+                        cmd.Parameters.AddWithValue("@ba1", txtkoefba1.Text);
+                        cmd.Parameters.AddWithValue("@cr", txtkoefcr.Text);
+                        cmd.Parameters.AddWithValue("@m", txtkoefm.Text);
+                        cmd.Parameters.AddWithValue("@r", txtkoefr.Text);
+                        cmd.Parameters.AddWithValue("@c", txtkoefc.Text);
+                        cmd.Parameters.AddWithValue("@rl", txtkoefrl.Text);
+                        cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Data Koefisiensi Material Berhasil Diedit", "Sukses.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        setdefaultmaterial();
+                        tampilmaterial();
+                        btnsimpanmaterial.Enabled = false;
+                        btnbatalmaterial.Enabled = false;
+                        cmbmaterial.Enabled = true;
+                        datematerial.Enabled = true;
+                        btnsimpanmaterial.Text = "Simpan Data";
+                    }
+                    catch (SqlException)
+                    {
+                        MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                            "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                        "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+        }
+
+        private void editquantity()
+        {
+            DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "UPDATE koefisiensi_quantity SET qty_e1 = @e1, qty_e2 = @e2, qty_e3 = @e3, qty_e4 = @e4, qty_s = @s, qty_d = @d, qty_b = @b, qty_ba = @ba, qty_ba1 = @ba1, " +
+                    "qty_cr = @cr, qty_m = @m, qty_r = @r, qty_c = @c, qty_rl = @rl, updated_at = @diubah WHERE no = @no";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@no", noprimaryquantity);
+                    cmd.Parameters.AddWithValue("@e1", txtqtye1.Text);
+                    cmd.Parameters.AddWithValue("@e2", txtqtye2.Text);
+                    cmd.Parameters.AddWithValue("@e3", txtqtye3.Text);
+                    cmd.Parameters.AddWithValue("@e4", txtqtye4.Text);
+                    cmd.Parameters.AddWithValue("@s", txtqtys.Text);
+                    cmd.Parameters.AddWithValue("@d", txtqtyd.Text);
+                    cmd.Parameters.AddWithValue("@b", txtqtyb.Text);
+                    cmd.Parameters.AddWithValue("@ba", txtqtyba.Text);
+                    cmd.Parameters.AddWithValue("@ba1", txtqtyba1.Text);
+                    cmd.Parameters.AddWithValue("@cr", txtqtycr.Text);
+                    cmd.Parameters.AddWithValue("@m", txtqtym.Text);
+                    cmd.Parameters.AddWithValue("@r", txtqtyr.Text);
+                    cmd.Parameters.AddWithValue("@c", txtqtyc.Text);
+                    cmd.Parameters.AddWithValue("@rl", txtqtyrl.Text);
+                    cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Data Koefisiensi Quantity Berhasil Diedit", "Sukses.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    setdefaultquantity();
+                    tampilqty();
+                    btnsimpanquantity.Enabled = false;
+                    btnbatalquantity.Enabled = false;
+                    datequantity.Enabled = true;
+                    btnsimpanquantity.Text = "Simpan Data";
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+
         private void btnsimpanquantity_Click(object sender, EventArgs e)
         {
-            simpandataquantity();
+            if (btnsimpanquantity.Text == "Edit Data")
+            {
+                editquantity();
+            }
+            else
+            {
+                simpandataquantity();
+            }            
         }
 
         private void btnsimpanmaterial_Click(object sender, EventArgs e)
         {
-            simpandatamaterial();
+            if (cmbmaterial.SelectedIndex == -1 || txtspesifikasi.Text == "" || txtuom.Text == "" || txttipe.Text == "")
+            {
+                MessageBox.Show("Data Material Harus Diisi Dengan Lengkap.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if(btnsimpanmaterial.Text == "Edit Data")
+            {
+                editmaterial();
+            }
+            else
+            {
+                simpandatamaterial();
+            }             
         }
 
         private void btnbatalquantity_Click(object sender, EventArgs e)
@@ -806,6 +1027,326 @@ namespace GOS_FxApps
 
                 //txtcari.Text = "";
                 datecarimaterial.Checked = false;
+            }
+        }
+
+        private void btncariquantity_Click(object sender, EventArgs e)
+        {
+            if (!infocariquantity)
+            {
+                bool hasilCari = cariquantity();
+                if (hasilCari)
+                {
+                    infocariquantity = true;
+                    btncariquantity.Text = "Reset";
+                }
+                else
+                {
+                    infocariquantity = true;
+                    btncariquantity.Text = "Reset";
+                }
+            }
+            else
+            {
+                tampilqty();
+                infocariquantity = false;
+                btncariquantity.Text = "Cari";
+
+                //txtcari.Text = "";
+                datecariqty.Checked = false;
+            }
+        }
+
+        private void datematerial_MouseDown(object sender, MouseEventArgs e)
+        {
+            using (Form pickerForm = new Form())
+            {
+                pickerForm.StartPosition = FormStartPosition.Manual;
+                pickerForm.FormBorderStyle = FormBorderStyle.FixedDialog;
+                pickerForm.ControlBox = false;
+                pickerForm.Size = new Size(250, 200);
+                pickerForm.Text = "Pilih Bulan & Tahun";
+
+                var screenPos = datematerial.PointToScreen(DrawingPoint.Empty);
+                pickerForm.Location = new DrawingPoint(screenPos.X, screenPos.Y + datematerial.Height);
+
+                var cmbBulan = new Guna2ComboBox
+                {
+                    Font = new Font("Segoe UI", 11F),
+                    Left = 10,
+                    Top = 10,
+                    Width = 200,
+                    BorderRadius = 6,
+                    ForeColor = Color.Black,
+                    DropDownStyle = ComboBoxStyle.DropDownList,
+                    BorderColor = Color.FromArgb(64, 64, 64),
+                    BorderThickness = 2,
+                };
+                string[] bulan = {
+                                    "01 - Januari", "02 - Februari", "03 - Maret", "04 - April", "05 - Mei", "06 - Juni",
+                                    "07 - Juli", "08 - Agustus", "09 - September", "10 - Oktober", "11 - November", "12 - Desember"
+                                };
+                cmbBulan.Items.AddRange(bulan);
+                cmbBulan.SelectedIndex = datematerial.Value.Month - 1;
+
+                var numTahun = new Guna2NumericUpDown
+                {
+                    Font = new Font("Segoe UI", 11F),
+                    Left = 10,
+                    Top = 55,
+                    Width = 200,
+                    BorderRadius = 6,
+                    Minimum = 1900,
+                    Maximum = 2100,
+                    ForeColor = Color.Black,
+                    Value = datematerial.Value.Year,
+                    BorderColor = Color.FromArgb(64, 64, 64),
+                    BorderThickness = 2,
+                };
+
+                var btnOK = new Guna2Button
+                {
+                    Text = "OK",
+                    Font = new Font("Segoe UI", 10F),
+                    Left = 10,
+                    Top = 110,
+                    Width = 80,
+                    Height = 35,
+                    BorderRadius = 6,
+                    FillColor = Color.FromArgb(53, 53, 58)
+                };
+                btnOK.Click += (s, ev) =>
+                {
+                    datematerial.Value = new DateTime((int)numTahun.Value, cmbBulan.SelectedIndex + 1, 1);
+                    pickerForm.DialogResult = DialogResult.OK;
+                };
+
+                pickerForm.Controls.Add(cmbBulan);
+                pickerForm.Controls.Add(numTahun);
+                pickerForm.Controls.Add(btnOK);
+
+                pickerForm.ShowDialog();
+            }
+        }
+
+        private void datecariqty_MouseDown(object sender, MouseEventArgs e)
+        {
+            using (Form pickerForm = new Form())
+            {
+                pickerForm.StartPosition = FormStartPosition.Manual;
+                pickerForm.FormBorderStyle = FormBorderStyle.FixedDialog;
+                pickerForm.ControlBox = false;
+                pickerForm.Size = new Size(250, 200);
+                pickerForm.Text = "Pilih Bulan & Tahun";
+
+                var screenPos = datecariqty.PointToScreen(DrawingPoint.Empty);
+                pickerForm.Location = new DrawingPoint(screenPos.X, screenPos.Y + datecariqty.Height);
+
+                var cmbBulan = new Guna2ComboBox
+                {
+                    Font = new Font("Segoe UI", 11F),
+                    Left = 10,
+                    Top = 10,
+                    Width = 200,
+                    BorderRadius = 6,
+                    ForeColor = Color.Black,
+                    DropDownStyle = ComboBoxStyle.DropDownList,
+                    BorderColor = Color.FromArgb(64, 64, 64),
+                    BorderThickness = 2,
+                };
+                string[] bulan = {
+                                    "01 - Januari", "02 - Februari", "03 - Maret", "04 - April", "05 - Mei", "06 - Juni",
+                                    "07 - Juli", "08 - Agustus", "09 - September", "10 - Oktober", "11 - November", "12 - Desember"
+                                };
+                cmbBulan.Items.AddRange(bulan);
+                cmbBulan.SelectedIndex = datecariqty.Value.Month - 1;
+
+                var numTahun = new Guna2NumericUpDown
+                {
+                    Font = new Font("Segoe UI", 11F),
+                    Left = 10,
+                    Top = 55,
+                    Width = 200,
+                    BorderRadius = 6,
+                    Minimum = 1900,
+                    Maximum = 2100,
+                    ForeColor = Color.Black,
+                    Value = datecariqty.Value.Year,
+                    BorderColor = Color.FromArgb(64, 64, 64),
+                    BorderThickness = 2,
+                };
+
+                var btnOK = new Guna2Button
+                {
+                    Text = "OK",
+                    Font = new Font("Segoe UI", 10F),
+                    Left = 10,
+                    Top = 110,
+                    Width = 80,
+                    Height = 35,
+                    BorderRadius = 6,
+                    FillColor = Color.FromArgb(53, 53, 58)
+                };
+                btnOK.Click += (s, ev) =>
+                {
+                    datecariqty.Value = new DateTime((int)numTahun.Value, cmbBulan.SelectedIndex + 1, 1);
+                    pickerForm.DialogResult = DialogResult.OK;
+                };
+
+                pickerForm.Controls.Add(cmbBulan);
+                pickerForm.Controls.Add(numTahun);
+                pickerForm.Controls.Add(btnOK);
+
+                pickerForm.ShowDialog();
+            }
+        }
+
+        private void datecarimaterial_MouseDown(object sender, MouseEventArgs e)
+        {
+            using (Form pickerForm = new Form())
+            {
+                pickerForm.StartPosition = FormStartPosition.Manual;
+                pickerForm.FormBorderStyle = FormBorderStyle.FixedDialog;
+                pickerForm.ControlBox = false;
+                pickerForm.Size = new Size(250, 200);
+                pickerForm.Text = "Pilih Bulan & Tahun";
+
+                var screenPos = datecarimaterial.PointToScreen(DrawingPoint.Empty);
+                pickerForm.Location = new DrawingPoint(screenPos.X, screenPos.Y + datecarimaterial.Height);
+
+                var cmbBulan = new Guna2ComboBox
+                {
+                    Font = new Font("Segoe UI", 11F),
+                    Left = 10,
+                    Top = 10,
+                    Width = 200,
+                    BorderRadius = 6,
+                    ForeColor = Color.Black,
+                    DropDownStyle = ComboBoxStyle.DropDownList,
+                    BorderColor = Color.FromArgb(64, 64, 64),
+                    BorderThickness = 2,
+                };
+                string[] bulan = {
+                                    "01 - Januari", "02 - Februari", "03 - Maret", "04 - April", "05 - Mei", "06 - Juni",
+                                    "07 - Juli", "08 - Agustus", "09 - September", "10 - Oktober", "11 - November", "12 - Desember"
+                                };
+                cmbBulan.Items.AddRange(bulan);
+                cmbBulan.SelectedIndex = datecarimaterial.Value.Month - 1;
+
+                var numTahun = new Guna2NumericUpDown
+                {
+                    Font = new Font("Segoe UI", 11F),
+                    Left = 10,
+                    Top = 55,
+                    Width = 200,
+                    BorderRadius = 6,
+                    Minimum = 1900,
+                    Maximum = 2100,
+                    ForeColor = Color.Black,
+                    Value = datecarimaterial.Value.Year,
+                    BorderColor = Color.FromArgb(64, 64, 64),
+                    BorderThickness = 2,
+                };
+
+                var btnOK = new Guna2Button
+                {
+                    Text = "OK",
+                    Font = new Font("Segoe UI", 10F),
+                    Left = 10,
+                    Top = 110,
+                    Width = 80,
+                    Height = 35,
+                    BorderRadius = 6,
+                    FillColor = Color.FromArgb(53, 53, 58)
+                };
+                btnOK.Click += (s, ev) =>
+                {
+                    datecarimaterial.Value = new DateTime((int)numTahun.Value, cmbBulan.SelectedIndex + 1, 1);
+                    pickerForm.DialogResult = DialogResult.OK;
+                };
+
+                pickerForm.Controls.Add(cmbBulan);
+                pickerForm.Controls.Add(numTahun);
+                pickerForm.Controls.Add(btnOK);
+
+                pickerForm.ShowDialog();
+            }
+        }
+
+        private void koefisiensi_Load(object sender, EventArgs e)
+        {
+            SqlDependency.Start(Koneksi.GetConnectionString());
+            registertampilmaterial();
+            registertampilquantity();
+        }
+
+        private void koefisiensi_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SqlDependency.Stop(Koneksi.GetConnectionString());
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                noprimarymaterial = Convert.ToInt32(row.Cells["no"].Value);
+                cmbmaterial.SelectedValue = row.Cells["kodeBarang"].Value.ToString();
+                datematerial.Value = Convert.ToDateTime(row.Cells["tanggal"].Value);
+                txtspesifikasi.Text = row.Cells["spesifikasi"].Value.ToString();
+                txtuom.Text = row.Cells["uom"].Value.ToString();
+                txttipe.Text = row.Cells["type"].Value.ToString();
+                txtkoefe1.Text = row.Cells["koef_e1"].Value.ToString();
+                txtkoefe2.Text = row.Cells["koef_e2"].Value.ToString();
+                txtkoefe3.Text = row.Cells["koef_e3"].Value.ToString();
+                txtkoefe4.Text = row.Cells["koef_e4"].Value.ToString();
+                txtkoefs.Text = row.Cells["koef_s"].Value.ToString();
+                txtkoefd.Text = row.Cells["koef_d"].Value.ToString();
+                txtkoefb.Text = row.Cells["koef_b"].Value.ToString();
+                txtkoefba.Text = row.Cells["koef_ba"].Value.ToString();
+                txtkoefba1.Text = row.Cells["koef_ba1"].Value.ToString();
+                txtkoefcr.Text = row.Cells["koef_cr"].Value.ToString();
+                txtkoefm.Text = row.Cells["koef_m"].Value.ToString();
+                txtkoefr.Text = row.Cells["koef_r"].Value.ToString();
+                txtkoefc.Text = row.Cells["koef_c"].Value.ToString();
+                txtkoefrl.Text = row.Cells["koef_rl"].Value.ToString();
+
+                datematerial.Enabled = false;
+                cmbmaterial.Enabled = false;
+                btnsimpanmaterial.Enabled = true;
+                btnsimpanmaterial.Text = "Edit Data";
+                btnbatalmaterial.Enabled = true;
+            }
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView2.Rows[e.RowIndex];
+
+                noprimaryquantity = Convert.ToInt32(row.Cells["no"].Value);                
+                datequantity.Value = Convert.ToDateTime(row.Cells["tanggal"].Value);
+                txtqtye1.Text = row.Cells["qty_e1"].Value.ToString();
+                txtqtye2.Text = row.Cells["qty_e2"].Value.ToString();
+                txtqtye3.Text = row.Cells["qty_e3"].Value.ToString();
+                txtqtye4.Text = row.Cells["qty_e4"].Value.ToString();
+                txtqtys.Text = row.Cells["qty_s"].Value.ToString();
+                txtqtyd.Text = row.Cells["qty_d"].Value.ToString();
+                txtqtyb.Text = row.Cells["qty_b"].Value.ToString();
+                txtqtyba.Text = row.Cells["qty_ba"].Value.ToString();
+                txtqtyba1.Text = row.Cells["qty_ba1"].Value.ToString();
+                txtqtycr.Text = row.Cells["qty_cr"].Value.ToString();
+                txtqtym.Text = row.Cells["qty_m"].Value.ToString();
+                txtqtyr.Text = row.Cells["qty_r"].Value.ToString();
+                txtqtyc.Text = row.Cells["qty_c"].Value.ToString();
+                txtqtyrl.Text = row.Cells["qty_rl"].Value.ToString();
+
+                datequantity.Enabled = false;
+                btnsimpanquantity.Enabled = true;
+                btnsimpanquantity.Text = "Edit Data";
+                btnbatalquantity.Enabled = true;
             }
         }
     }
