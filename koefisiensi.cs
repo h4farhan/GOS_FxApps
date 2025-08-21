@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using Guna.UI2.WinForms;
 using DrawingPoint = System.Drawing.Point;
 using System.IO;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace GOS_FxApps
 {
@@ -379,10 +380,11 @@ namespace GOS_FxApps
                 {
                     conn.Open();
                     using (SqlCommand cmdcekkode = new SqlCommand(
-                        "SELECT 1 FROM koefisiensi_material WHERE MONTH(tanggal) = @bulan AND YEAR(tanggal) = @tahun", conn))
+                        "SELECT 1 FROM koefisiensi_material WHERE MONTH(tanggal) = @bulan AND YEAR(tanggal) = @tahun AND kodeBarang = @kodebarang", conn))
                     {
                         cmdcekkode.Parameters.AddWithValue("@bulan", datematerial.Value.Month);
                         cmdcekkode.Parameters.AddWithValue("@tahun", datematerial.Value.Year);
+                        cmdcekkode.Parameters.AddWithValue("@kodebarang", cmbmaterial.SelectedValue.ToString());
 
                         using (SqlDataReader dr = cmdcekkode.ExecuteReader())
                         {
@@ -448,6 +450,7 @@ namespace GOS_FxApps
                                 MessageBoxIcon.Information);
 
                 tampilmaterial();
+                combonama();
                 setdefaultmaterial();
                 btnbatalmaterial.Enabled = false;
                 btnsimpanmaterial.Enabled = false;

@@ -56,7 +56,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM pemakaian_material ORDER BY tanggalPemakaian DESC, updated_at DESC";
+                string query = "SELECT idPemakaian, kodeBarang, namaBarang, type, tanggalPemakaian, jumlahPemakaian, updated_at FROM pemakaian_material ORDER BY tanggalPemakaian DESC, updated_at DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -70,9 +70,10 @@ namespace GOS_FxApps
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "Kode Barang";
                 dataGridView1.Columns[2].HeaderText = "Nama Barang";
-                dataGridView1.Columns[3].HeaderText = "Tanggal Pemakaian";
-                dataGridView1.Columns[4].HeaderText = "Jumlah Pemakaian";
-                dataGridView1.Columns[5].HeaderText = "Diubah";
+                dataGridView1.Columns[3].HeaderText = "Tipe";
+                dataGridView1.Columns[4].HeaderText = "Tanggal Pemakaian";
+                dataGridView1.Columns[5].HeaderText = "Jumlah Pemakaian";
+                dataGridView1.Columns[6].HeaderText = "Diubah";
             }
             catch (SqlException)
             {
@@ -218,9 +219,10 @@ namespace GOS_FxApps
                     txtjumlah.Clear();
                     return;
                 }
-                SqlCommand cmdPakai = new SqlCommand("INSERT INTO pemakaian_material (kodeBarang, namaBarang, tanggalPemakaian, jumlahPemakaian, updated_at) VALUES (@kode, @nama, @tgl, @jumlah, @diubah)", conn);
+                SqlCommand cmdPakai = new SqlCommand("INSERT INTO pemakaian_material (kodeBarang, namaBarang, type, tanggalPemakaian, jumlahPemakaian, updated_at) VALUES (@kode, @nama, @type, @tgl, @jumlah, @diubah)", conn);
                 cmdPakai.Parameters.AddWithValue("@kode", kodeBarang);
                 cmdPakai.Parameters.AddWithValue("@nama", namaBarang);
+                cmdPakai.Parameters.AddWithValue("@type", txttipe.Text);
                 cmdPakai.Parameters.AddWithValue("@tgl", datepemakaian.Value);
                 cmdPakai.Parameters.AddWithValue("@jumlah", jumlahPakai);
                 cmdPakai.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
@@ -348,6 +350,7 @@ namespace GOS_FxApps
                 cmbnama.SelectedValue = row.Cells["kodeBarang"].Value.ToString();
                 datepemakaian.Value = Convert.ToDateTime(row.Cells["tanggalPemakaian"].Value);
                 txtjumlah.Text = row.Cells["jumlahPemakaian"].Value.ToString();
+                txttipe.Text = row.Cells["type"].Value.ToString();
                 jumlahlama = Convert.ToInt32(row.Cells["jumlahPemakaian"].Value);
 
                 cmbnama.Enabled = false;
@@ -373,6 +376,9 @@ namespace GOS_FxApps
                         simpandata();
                         combonama();
                         lblstoksaatini.Text = "Stok Saat Ini: -";
+                        txttipe.Enabled = true;
+                        txttipe.Clear();
+                        txttipe.Enabled = false;
                         picture1.Image = null;
                         btnbatal.Enabled = false;
                         btnsimpan.Enabled = false;
@@ -395,6 +401,9 @@ namespace GOS_FxApps
                         btnbatal.Enabled = false;
                         combonama();
                         lblstoksaatini.Text = "Stok Saat Ini: -";
+                        txttipe.Enabled = true;
+                        txttipe.Clear();
+                        txttipe.Enabled = false;
                         picture1.Image = null;
                         btnbatal.Enabled = false;
                         btnsimpan.Enabled = false;
@@ -405,13 +414,16 @@ namespace GOS_FxApps
 
         private void btnbatal_Click(object sender, EventArgs e)
         {
-            datepemakaian.Value = DateTime.Now.Date;
+            datepemakaian.Value = DateTime.Now.Date;            
             txtjumlah.Clear();
             jumlahlama = 0;
             noprimary = 0;  
             btnsimpan.Text = "Simpan Data";
             combonama();
             lblstoksaatini.Text = "Stok Saat Ini: -";
+            txttipe.Enabled = true;
+            txttipe.Clear();
+            txttipe.Enabled = false;
             picture1.Image = null;
             btnsimpan.Enabled = false;
             btnbatal.Enabled = false;
@@ -433,7 +445,7 @@ namespace GOS_FxApps
                 {
                     using (SqlConnection conn = Koneksi.GetConnection())
                     using (SqlCommand cmd = new SqlCommand(
-                        "SELECT foto, jumlahStok FROM stok_material WHERE kodeBarang = @kodeBarang", conn))
+                        "SELECT foto, jumlahStok, type FROM stok_material WHERE kodeBarang = @kodeBarang", conn))
                     {
                         cmd.Parameters.AddWithValue("@kodeBarang", kodeBarang);
 
@@ -443,6 +455,7 @@ namespace GOS_FxApps
                             if (reader.Read())
                             {
                                 lblstoksaatini.Text = "Stok Saat Ini: " + reader["jumlahStok"]?.ToString();
+                                txttipe.Text = reader["type"]?.ToString();
 
                                 if (reader["foto"] != DBNull.Value)
                                 {
