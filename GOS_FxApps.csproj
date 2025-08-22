@@ -224,11 +224,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>actual.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DataSet\koefisiensi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>koefisiensi.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DataSet\kondisi.cs">
       <DependentUpon>kondisi.xsd</DependentUpon>
     </Compile>
@@ -421,17 +416,6 @@
     <Compile Include="weldingp.Designer.cs">
       <DependentUpon>weldingp.cs</DependentUpon>
     </Compile>
-    <None Include="DataSet\koefisiensi.xsc">
-      <DependentUpon>koefisiensi.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet\koefisiensi.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>koefisiensi.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSet\koefisiensi.xss">
-      <DependentUpon>koefisiensi.xsd</DependentUpon>
-    </None>
     <Content Include="Koefisien Material.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -506,9 +490,6 @@
     <EmbeddedResource Include="infoalluser.resx">
       <DependentUpon>infoalluser.cs</DependentUpon>
     </EmbeddedResource>
-    <Content Include="koefisiensi.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <EmbeddedResource Include="koefisiensi.resx">
       <DependentUpon>koefisiensi.cs</DependentUpon>
     </EmbeddedResource>

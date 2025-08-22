@@ -5,7 +5,7 @@ VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GOS_FxApps", "GOS_FxApps.csproj", "{51434C83-6C5E-4C12-99E8-00155D3C3A79}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GOS Apps", "..\GOS Apps\GOS Apps.vdproj", "{3CDC128D-4728-DCEA-AB43-0AFF49780613}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GOS_Apps", "..\GOS_Apps\GOS_Apps.vdproj", "{BAF5F22B-2B6C-D1C1-4EC1-9523B38E44C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{51434C83-6C5E-4C12-99E8-00155D3C3A79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51434C83-6C5E-4C12-99E8-00155D3C3A79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51434C83-6C5E-4C12-99E8-00155D3C3A79}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3CDC128D-4728-DCEA-AB43-0AFF49780613}.Debug|Any CPU.ActiveCfg = Debug
-		{3CDC128D-4728-DCEA-AB43-0AFF49780613}.Release|Any CPU.ActiveCfg = Release
+		{BAF5F22B-2B6C-D1C1-4EC1-9523B38E44C7}.Debug|Any CPU.ActiveCfg = Debug
+		{BAF5F22B-2B6C-D1C1-4EC1-9523B38E44C7}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

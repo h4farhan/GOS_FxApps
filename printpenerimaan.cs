@@ -715,6 +715,13 @@ namespace GOS_FxApps
 
         private void printpenerimaan_Load(object sender, EventArgs e)
         {
+            if (MainForm.Instance.role != "Manajer" && MainForm.Instance.role != "Admin")
+            {
+                if (cmbpilihdata.Items.Contains("Koefisiensi Material"))
+                {
+                    cmbpilihdata.Items.Remove("Koefisiensi Material");
+                }
+            }
             datecari.Checked = false;
             datecari.Value = DateTime.Now.Date;
             datecaripemakaian.Checked = false;
