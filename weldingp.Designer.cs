@@ -172,7 +172,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1008, 57);
+            this.panel1.Size = new System.Drawing.Size(1025, 57);
             this.panel1.TabIndex = 1;
             // 
             // label2
@@ -214,7 +214,7 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 620F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1008, 620);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1025, 620);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // guna2Panel1
@@ -230,7 +230,7 @@
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Padding = new System.Windows.Forms.Padding(8);
-            this.guna2Panel1.Size = new System.Drawing.Size(974, 616);
+            this.guna2Panel1.Size = new System.Drawing.Size(991, 616);
             this.guna2Panel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -247,7 +247,7 @@
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 600F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(958, 600);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(975, 600);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel10
@@ -258,14 +258,14 @@
             this.tableLayoutPanel10.Controls.Add(this.guna2Panel5, 0, 2);
             this.tableLayoutPanel10.Controls.Add(this.guna2Panel4, 0, 1);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(481, 2);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(489, 2);
             this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 3;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.90272F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.54864F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.54864F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(475, 596);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(484, 596);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
             // tableLayoutPanel11
@@ -282,7 +282,7 @@
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 156F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(471, 156);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(480, 156);
             this.tableLayoutPanel11.TabIndex = 0;
             // 
             // guna2Panel14
@@ -295,11 +295,11 @@
             this.guna2Panel14.Controls.Add(this.label24);
             this.guna2Panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel14.FillColor = System.Drawing.Color.White;
-            this.guna2Panel14.Location = new System.Drawing.Point(237, 2);
+            this.guna2Panel14.Location = new System.Drawing.Point(242, 2);
             this.guna2Panel14.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel14.Name = "guna2Panel14";
             this.guna2Panel14.Padding = new System.Windows.Forms.Padding(10, 4, 4, 4);
-            this.guna2Panel14.Size = new System.Drawing.Size(232, 152);
+            this.guna2Panel14.Size = new System.Drawing.Size(236, 152);
             this.guna2Panel14.TabIndex = 1;
             // 
             // tableLayoutPanel13
@@ -311,7 +311,7 @@
             this.tableLayoutPanel13.Controls.Add(this.ttlstoklathee2, 0, 3);
             this.tableLayoutPanel13.Controls.Add(this.label38, 0, 2);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(138, 4);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(142, 4);
             this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 4;
@@ -409,7 +409,7 @@
             this.guna2Panel13.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel13.Name = "guna2Panel13";
             this.guna2Panel13.Padding = new System.Windows.Forms.Padding(10, 4, 4, 4);
-            this.guna2Panel13.Size = new System.Drawing.Size(231, 152);
+            this.guna2Panel13.Size = new System.Drawing.Size(236, 152);
             this.guna2Panel13.TabIndex = 0;
             // 
             // tableLayoutPanel12
@@ -421,7 +421,7 @@
             this.tableLayoutPanel12.Controls.Add(this.ttlstoksawinge2, 0, 3);
             this.tableLayoutPanel12.Controls.Add(this.label34, 0, 2);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(137, 4);
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(142, 4);
             this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 4;
@@ -521,7 +521,7 @@
             this.guna2Panel5.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
-            this.guna2Panel5.Size = new System.Drawing.Size(471, 215);
+            this.guna2Panel5.Size = new System.Drawing.Size(480, 215);
             this.guna2Panel5.TabIndex = 5;
             this.guna2Panel5.TabStop = true;
             // 
@@ -534,7 +534,7 @@
             this.tableLayoutPanel6.Controls.Add(this.lble2mm, 0, 3);
             this.tableLayoutPanel6.Controls.Add(this.label28, 0, 2);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(281, 4);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(290, 4);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 4;
@@ -611,7 +611,7 @@
             this.tableLayoutPanel7.Controls.Add(this.lblttle1e2, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.label30, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(375, 4);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(384, 4);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 2;
@@ -676,7 +676,7 @@
             this.txtketerangan.PlaceholderText = "4xxxx";
             this.txtketerangan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtketerangan.SelectedText = "";
-            this.txtketerangan.Size = new System.Drawing.Size(249, 140);
+            this.txtketerangan.Size = new System.Drawing.Size(258, 140);
             this.txtketerangan.TabIndex = 0;
             // 
             // label23
@@ -711,7 +711,7 @@
             this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
-            this.guna2Panel4.Size = new System.Drawing.Size(471, 213);
+            this.guna2Panel4.Size = new System.Drawing.Size(480, 213);
             this.guna2Panel4.TabIndex = 4;
             this.guna2Panel4.TabStop = true;
             // 
@@ -725,7 +725,7 @@
             this.guna2Separator5.Location = new System.Drawing.Point(18, 42);
             this.guna2Separator5.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Separator5.Name = "guna2Separator5";
-            this.guna2Separator5.Size = new System.Drawing.Size(277, 12);
+            this.guna2Separator5.Size = new System.Drawing.Size(286, 12);
             this.guna2Separator5.TabIndex = 43;
             // 
             // tableLayoutPanel3
@@ -737,7 +737,7 @@
             this.tableLayoutPanel3.Controls.Add(this.lblwaste, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.label11, 0, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(313, 4);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(322, 4);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
@@ -854,7 +854,7 @@
             this.txtsbarkg.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtsbarkg.PlaceholderText = "4xxxx";
             this.txtsbarkg.SelectedText = "";
-            this.txtsbarkg.Size = new System.Drawing.Size(152, 48);
+            this.txtsbarkg.Size = new System.Drawing.Size(161, 48);
             this.txtsbarkg.TabIndex = 1;
             this.txtsbarkg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -882,7 +882,7 @@
             this.txtsbarmm.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtsbarmm.PlaceholderText = "4xxxx";
             this.txtsbarmm.SelectedText = "";
-            this.txtsbarmm.Size = new System.Drawing.Size(152, 48);
+            this.txtsbarmm.Size = new System.Drawing.Size(161, 48);
             this.txtsbarmm.TabIndex = 0;
             this.txtsbarmm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -913,7 +913,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 58F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(475, 596);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(483, 596);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // guna2Panel2
@@ -938,7 +938,7 @@
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
-            this.guna2Panel2.Size = new System.Drawing.Size(471, 265);
+            this.guna2Panel2.Size = new System.Drawing.Size(479, 265);
             this.guna2Panel2.TabIndex = 0;
             this.guna2Panel2.TabStop = true;
             // 
@@ -951,7 +951,7 @@
             this.tableLayoutPanel9.Controls.Add(this.label13, 0, 0);
             this.tableLayoutPanel9.Controls.Add(this.label26, 0, 2);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(316, 4);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(324, 4);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 4;
@@ -1042,7 +1042,7 @@
             this.guna2Separator4.Location = new System.Drawing.Point(19, 43);
             this.guna2Separator4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Separator4.Name = "guna2Separator4";
-            this.guna2Separator4.Size = new System.Drawing.Size(286, 5);
+            this.guna2Separator4.Size = new System.Drawing.Size(294, 5);
             this.guna2Separator4.TabIndex = 42;
             // 
             // label6
@@ -1093,7 +1093,7 @@
             this.txtpbar.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtpbar.PlaceholderText = "4xxxx";
             this.txtpbar.SelectedText = "";
-            this.txtpbar.Size = new System.Drawing.Size(161, 48);
+            this.txtpbar.Size = new System.Drawing.Size(169, 48);
             this.txtpbar.TabIndex = 2;
             this.txtpbar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1121,7 +1121,7 @@
             this.txtkeluar.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtkeluar.PlaceholderText = "4xxxx";
             this.txtkeluar.SelectedText = "";
-            this.txtkeluar.Size = new System.Drawing.Size(161, 48);
+            this.txtkeluar.Size = new System.Drawing.Size(169, 48);
             this.txtkeluar.TabIndex = 1;
             this.txtkeluar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1149,7 +1149,7 @@
             this.txtmasuk.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtmasuk.PlaceholderText = "4xxxx";
             this.txtmasuk.SelectedText = "";
-            this.txtmasuk.Size = new System.Drawing.Size(161, 48);
+            this.txtmasuk.Size = new System.Drawing.Size(169, 48);
             this.txtmasuk.TabIndex = 0;
             this.txtmasuk.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1182,7 +1182,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 265F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 265F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(471, 265);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(479, 265);
             this.tableLayoutPanel5.TabIndex = 4;
             // 
             // guna2Panel7
@@ -1199,10 +1199,10 @@
             this.guna2Panel7.Controls.Add(this.label16);
             this.guna2Panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel7.FillColor = System.Drawing.Color.White;
-            this.guna2Panel7.Location = new System.Drawing.Point(316, 2);
+            this.guna2Panel7.Location = new System.Drawing.Point(320, 2);
             this.guna2Panel7.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel7.Name = "guna2Panel7";
-            this.guna2Panel7.Size = new System.Drawing.Size(153, 261);
+            this.guna2Panel7.Size = new System.Drawing.Size(157, 261);
             this.guna2Panel7.TabIndex = 3;
             this.guna2Panel7.TabStop = true;
             // 
@@ -1242,7 +1242,7 @@
             this.pkeluare2.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pkeluare2.PlaceholderText = "4xxxx";
             this.pkeluare2.SelectedText = "";
-            this.pkeluare2.Size = new System.Drawing.Size(123, 48);
+            this.pkeluare2.Size = new System.Drawing.Size(127, 48);
             this.pkeluare2.TabIndex = 1;
             this.pkeluare2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1267,7 +1267,7 @@
             this.guna2Separator3.Location = new System.Drawing.Point(18, 58);
             this.guna2Separator3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Separator3.Name = "guna2Separator3";
-            this.guna2Separator3.Size = new System.Drawing.Size(122, 19);
+            this.guna2Separator3.Size = new System.Drawing.Size(126, 19);
             this.guna2Separator3.TabIndex = 14;
             // 
             // pkeluare1
@@ -1294,7 +1294,7 @@
             this.pkeluare1.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pkeluare1.PlaceholderText = "4xxxx";
             this.pkeluare1.SelectedText = "";
-            this.pkeluare1.Size = new System.Drawing.Size(123, 48);
+            this.pkeluare1.Size = new System.Drawing.Size(127, 48);
             this.pkeluare1.TabIndex = 0;
             this.pkeluare1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1325,10 +1325,10 @@
             this.guna2Panel6.Controls.Add(this.label15);
             this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel6.FillColor = System.Drawing.Color.White;
-            this.guna2Panel6.Location = new System.Drawing.Point(159, 2);
+            this.guna2Panel6.Location = new System.Drawing.Point(161, 2);
             this.guna2Panel6.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel6.Name = "guna2Panel6";
-            this.guna2Panel6.Size = new System.Drawing.Size(153, 261);
+            this.guna2Panel6.Size = new System.Drawing.Size(155, 261);
             this.guna2Panel6.TabIndex = 2;
             this.guna2Panel6.TabStop = true;
             // 
@@ -1341,7 +1341,7 @@
             this.guna2Separator2.Location = new System.Drawing.Point(16, 59);
             this.guna2Separator2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Separator2.Name = "guna2Separator2";
-            this.guna2Separator2.Size = new System.Drawing.Size(123, 19);
+            this.guna2Separator2.Size = new System.Drawing.Size(125, 19);
             this.guna2Separator2.TabIndex = 13;
             // 
             // label19
@@ -1380,7 +1380,7 @@
             this.lathee2.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lathee2.PlaceholderText = "4xxxx";
             this.lathee2.SelectedText = "";
-            this.lathee2.Size = new System.Drawing.Size(123, 48);
+            this.lathee2.Size = new System.Drawing.Size(125, 48);
             this.lathee2.TabIndex = 1;
             this.lathee2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1420,7 +1420,7 @@
             this.lathee1.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lathee1.PlaceholderText = "4xxxx";
             this.lathee1.SelectedText = "";
-            this.lathee1.Size = new System.Drawing.Size(123, 48);
+            this.lathee1.Size = new System.Drawing.Size(125, 48);
             this.lathee1.TabIndex = 0;
             this.lathee1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1454,7 +1454,7 @@
             this.guna2Panel3.Location = new System.Drawing.Point(2, 2);
             this.guna2Panel3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(153, 261);
+            this.guna2Panel3.Size = new System.Drawing.Size(155, 261);
             this.guna2Panel3.TabIndex = 1;
             this.guna2Panel3.TabStop = true;
             // 
@@ -1494,7 +1494,7 @@
             this.sawinge2.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.sawinge2.PlaceholderText = "4xxxx";
             this.sawinge2.SelectedText = "";
-            this.sawinge2.Size = new System.Drawing.Size(123, 48);
+            this.sawinge2.Size = new System.Drawing.Size(125, 48);
             this.sawinge2.TabIndex = 1;
             this.sawinge2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1519,7 +1519,7 @@
             this.guna2Separator1.Location = new System.Drawing.Point(16, 60);
             this.guna2Separator1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(123, 19);
+            this.guna2Separator1.Size = new System.Drawing.Size(125, 19);
             this.guna2Separator1.TabIndex = 4;
             // 
             // sawinge1
@@ -1546,7 +1546,7 @@
             this.sawinge1.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.sawinge1.PlaceholderText = "4xxxx";
             this.sawinge1.SelectedText = "";
-            this.sawinge1.Size = new System.Drawing.Size(123, 48);
+            this.sawinge1.Size = new System.Drawing.Size(125, 48);
             this.sawinge1.TabIndex = 0;
             this.sawinge1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
@@ -1576,7 +1576,7 @@
             this.guna2Panel10.FillColor = System.Drawing.Color.White;
             this.guna2Panel10.Location = new System.Drawing.Point(3, 3);
             this.guna2Panel10.Name = "guna2Panel10";
-            this.guna2Panel10.Size = new System.Drawing.Size(469, 52);
+            this.guna2Panel10.Size = new System.Drawing.Size(477, 52);
             this.guna2Panel10.TabIndex = 5;
             // 
             // shift
@@ -1658,7 +1658,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 677);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1008, 84);
+            this.panel2.Size = new System.Drawing.Size(1025, 84);
             this.panel2.TabIndex = 6;
             this.panel2.TabStop = true;
             // 
@@ -1674,7 +1674,7 @@
             this.btnbatal.FillColor = System.Drawing.Color.DarkRed;
             this.btnbatal.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnbatal.ForeColor = System.Drawing.Color.White;
-            this.btnbatal.Location = new System.Drawing.Point(577, 15);
+            this.btnbatal.Location = new System.Drawing.Point(594, 15);
             this.btnbatal.Margin = new System.Windows.Forms.Padding(2);
             this.btnbatal.Name = "btnbatal";
             this.btnbatal.Size = new System.Drawing.Size(122, 35);
@@ -1692,7 +1692,7 @@
             this.guna2Separator6.Location = new System.Drawing.Point(17, 63);
             this.guna2Separator6.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Separator6.Name = "guna2Separator6";
-            this.guna2Separator6.Size = new System.Drawing.Size(974, 8);
+            this.guna2Separator6.Size = new System.Drawing.Size(991, 8);
             this.guna2Separator6.TabIndex = 39;
             // 
             // label31
@@ -1702,7 +1702,7 @@
             this.label31.BackColor = System.Drawing.Color.Transparent;
             this.label31.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label31.ForeColor = System.Drawing.Color.Black;
-            this.label31.Location = new System.Drawing.Point(846, 24);
+            this.label31.Location = new System.Drawing.Point(863, 24);
             this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(19, 19);
@@ -1719,7 +1719,7 @@
             this.btnhitung.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnhitung.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnhitung.ForeColor = System.Drawing.Color.White;
-            this.btnhitung.Location = new System.Drawing.Point(715, 15);
+            this.btnhitung.Location = new System.Drawing.Point(732, 15);
             this.btnhitung.Margin = new System.Windows.Forms.Padding(2);
             this.btnhitung.Name = "btnhitung";
             this.btnhitung.Size = new System.Drawing.Size(122, 35);
@@ -1738,7 +1738,7 @@
             this.btnsimpan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnsimpan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnsimpan.ForeColor = System.Drawing.Color.White;
-            this.btnsimpan.Location = new System.Drawing.Point(869, 15);
+            this.btnsimpan.Location = new System.Drawing.Point(886, 15);
             this.btnsimpan.Margin = new System.Windows.Forms.Padding(2);
             this.btnsimpan.Name = "btnsimpan";
             this.btnsimpan.Size = new System.Drawing.Size(122, 35);
@@ -1761,7 +1761,7 @@
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 582F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(1008, 582);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1025, 582);
             this.tableLayoutPanel8.TabIndex = 10;
             // 
             // guna2Panel9
@@ -1779,7 +1779,7 @@
             this.guna2Panel9.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel9.Name = "guna2Panel9";
             this.guna2Panel9.Padding = new System.Windows.Forms.Padding(8);
-            this.guna2Panel9.Size = new System.Drawing.Size(974, 578);
+            this.guna2Panel9.Size = new System.Drawing.Size(991, 578);
             this.guna2Panel9.TabIndex = 7;
             this.guna2Panel9.TabStop = true;
             // 
@@ -1823,7 +1823,7 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(958, 465);
+            this.dataGridView1.Size = new System.Drawing.Size(975, 465);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -1836,7 +1836,7 @@
             this.panel3.Location = new System.Drawing.Point(8, 59);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(958, 46);
+            this.panel3.Size = new System.Drawing.Size(975, 46);
             this.panel3.TabIndex = 0;
             this.panel3.TabStop = true;
             // 
@@ -1875,7 +1875,7 @@
             this.btncari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btncari.ForeColor = System.Drawing.Color.White;
-            this.btncari.Location = new System.Drawing.Point(895, 4);
+            this.btncari.Location = new System.Drawing.Point(912, 4);
             this.btncari.Margin = new System.Windows.Forms.Padding(2);
             this.btncari.Name = "btncari";
             this.btncari.Size = new System.Drawing.Size(60, 37);
@@ -1912,7 +1912,7 @@
             this.label32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label32.Name = "label32";
             this.label32.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
-            this.label32.Size = new System.Drawing.Size(958, 51);
+            this.label32.Size = new System.Drawing.Size(975, 51);
             this.label32.TabIndex = 0;
             this.label32.Text = "STOCK ROUND BAR dan WELDING PIECE 180 MM  ";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1931,7 +1931,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1025, 894);
+            this.ClientSize = new System.Drawing.Size(1042, 894);
             this.Controls.Add(this.tableLayoutPanel8);
             this.Controls.Add(this.guna2Panel8);
             this.Controls.Add(this.panel2);

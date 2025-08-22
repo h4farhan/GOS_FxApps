@@ -531,5 +531,6 @@ namespace GOS_FxApps
         {
             SqlDependency.Stop(Koneksi.GetConnectionString());
         }
+
     }
 }

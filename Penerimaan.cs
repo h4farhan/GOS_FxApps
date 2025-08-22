@@ -350,14 +350,41 @@ namespace GOS_FxApps
             int angka1 = SafeParse(txte1);
             int angka2 = SafeParse(txte2);
             int angka3 = SafeParse(txte3);
-            int angka4 = SafeParse(txts);
+            int angka4 = 0;
+            int angka4a = SafeParse(txts);
+            if(angka4a > 0)
+            {
+                angka4 = 1;
+            }
+            else
+            {
+                angka4 = 0;
+            }
             int angka5 = SafeParse(txtd);
             int angka6 = SafeParse(txtb);
             int angka7 = SafeParse(txtba);
-            int angka8 = SafeParse(txtcr);
+            int angka8 = 0;
+            int angka8a = SafeParse(txtcr);
+            if (angka8a > 0) 
+            { 
+                angka8 = 1;
+            }
+            else
+            {
+                angka8 = 0;
+            }
             int angka9 = SafeParse(txtm);
             int angka10 = SafeParse(txtr);
-            int angka11 = SafeParse(txtc);
+            int angka11 = 0;
+            int angka11a = SafeParse(txtc);
+            if (angka11a > 0)
+            {
+                angka11 = 1;
+            }
+            else
+            {
+                angka11 = 0;
+            }
             int angka12 = SafeParse(txtrl);
 
             int hasil = angka1 + angka2 + angka3 + angka4 + angka5 + angka6 + angka7 + angka8 + angka9 + angka10 + angka11 + angka12;
