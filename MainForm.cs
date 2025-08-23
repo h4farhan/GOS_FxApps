@@ -309,7 +309,7 @@ namespace GOS_FxApps {
             ResetButtonColors();
             iconButton12.FillColor = Color.FromArgb(64, 64, 64);
             iconButton12.ForeColor = Color.White;
-            //ini jangan lupa
+            SwitchPanel(new koefisiensi());
         }
 
         private void btnlaporan_Click_1(object sender, EventArgs e)
@@ -386,6 +386,7 @@ namespace GOS_FxApps {
         public void truemanajer()
         {
             entryContainer.MaximumSize = new Size(232, 297);
+            Dashboard.Instance.btntiga.Visible = true;
             entryContainer.Visible = true;
             penerimaanButton1.Visible = true;
             iconButton1.Visible = true;

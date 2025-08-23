@@ -7374,7 +7374,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!Total.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8336,7 +8336,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!Total.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8817,7 +8817,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!Total.Value, "datasetjumlahperbaikan2"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>

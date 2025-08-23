@@ -57,6 +57,7 @@ namespace GOS_FxApps
                             {
                                 MainForm.Instance.trueadmin();
                                 MainForm.Instance.lbluser.Text = name + " [Admin]";
+                                MainForm.Instance.role = "Admin";
                                 this.Close();
                             }
                             else if (level == "Operator Gudang")

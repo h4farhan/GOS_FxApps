@@ -13,6 +13,8 @@ using Microsoft.Reporting.Map.WebForms.BingMaps;
 using Microsoft.Reporting.WinForms;
 using Guna.UI2.WinForms;
 using DrawingPoint = System.Drawing.Point;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.IO;
 
 namespace GOS_FxApps
 {
@@ -553,6 +555,117 @@ namespace GOS_FxApps
             frmrpt.Show();
         }
 
+        private DataTable GetDataFromSP(string spName, int bulan, int tahun)
+        {
+            using (SqlConnection conn = Koneksi.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(spName, conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Bulan", bulan);
+                cmd.Parameters.AddWithValue("@Tahun", tahun);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+        }
+
+        private void ExportToExcel()
+        {
+            try
+            {
+                int bulan = datecaripemakaian.Value.Month;
+                int tahun = datecaripemakaian.Value.Year;
+
+                DataTable dtMaterial = GetDataFromSP("sp_koefisiensiMaterialCost", bulan, tahun);
+                DataTable dtConsumable = GetDataFromSP("sp_koefisiensiConsumableCost", bulan, tahun);
+                DataTable dtsafety = GetDataFromSP("sp_koefisiensiSafetyCost", bulan, tahun);
+                DataTable dtQty = GetDataFromSP("koefisiensiqty", bulan, tahun);
+
+                Excel.Application xlApp = new Excel.Application();
+
+                string templatePath = Path.Combine(Application.StartupPath, "Koefisien Material.xlsx");
+                Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(templatePath);
+                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Sheets[1];
+
+                xlWorkSheet.Cells[1, 1] = "BQ PEKERJAAN ROD REPAIR SHOP PERIODE TAHUN " + datecaripemakaian.Value.Year + "/" + (datecaripemakaian.Value.Year + 1);
+                xlWorkSheet.Cells[2, 1] = "UoM = Unit of Measure,     U /Price = Unit Price,     Coeff. = Coefficient,     E1, E2, E3 = Erotion,     " +
+                    "S = Sticking,     D= Deformation,     B = Bending,     BA = BA Clade Change,     R = Spark,     CR = Crack York,     M = Crack MIG,     C = End Cut,     RL = Rod Long";
+
+                int rowStart1 = 7, colStart1 = 2;
+                for (int i = 0; i < dtMaterial.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dtMaterial.Columns.Count; j++)
+                    {
+                        xlWorkSheet.Cells[rowStart1 + i, colStart1 + j] = dtMaterial.Rows[i][j].ToString();
+                    }
+                }
+
+                int rowStart2 = 11, colStart2 = 2;
+                for (int i = 0; i < dtConsumable.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dtConsumable.Columns.Count; j++)
+                    {
+                        xlWorkSheet.Cells[rowStart2 + i, colStart2 + j] = dtConsumable.Rows[i][j].ToString();
+                    }
+                }
+
+                int rowStart3 = 15, colStart3 = 2;
+                for (int i = 0; i < dtsafety.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dtsafety.Columns.Count; j++)
+                    {
+                        xlWorkSheet.Cells[rowStart3 + i, colStart3 + j] = dtsafety.Rows[i][j].ToString();
+                    }
+                }
+
+                if (dtQty.Rows.Count > 0)
+                {
+                    DataRow r = dtQty.Rows[0];
+
+                    xlWorkSheet.Cells[5, 6] = r["Total_E1"];
+                    xlWorkSheet.Cells[5, 8] = r["Total_E2"];
+                    xlWorkSheet.Cells[5, 10] = r["Total_E3"];
+                    xlWorkSheet.Cells[5, 12] = r["Total_E4"];
+                    xlWorkSheet.Cells[5, 14] = r["Total_S"];
+                    xlWorkSheet.Cells[5, 16] = r["Total_D"];
+                    xlWorkSheet.Cells[5, 18] = r["Total_B"];
+                    xlWorkSheet.Cells[5, 20] = r["Total_BA"];
+                    xlWorkSheet.Cells[5, 22] = r["Total_BA1"];
+                    xlWorkSheet.Cells[5, 24] = r["Total_CR"];
+                    xlWorkSheet.Cells[5, 26] = r["Total_M"];
+                    xlWorkSheet.Cells[5, 28] = r["Total_R"];
+                    xlWorkSheet.Cells[5, 30] = r["Total_C"];
+                    xlWorkSheet.Cells[5, 32] = r["Total_RL"];
+
+                }
+
+                string savePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                                               "Koefisien Material " + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx");
+                xlWorkBook.SaveAs(savePath);
+
+                xlWorkBook.Close(false);
+                xlApp.Quit();
+
+                DialogResult result = MessageBox.Show(
+                    "Export selesai ke: " + savePath +
+                    "Apakah mau buka file sekarang?",
+                    "Export Selesai",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (result == DialogResult.Yes)
+                {
+                    System.Diagnostics.Process.Start(savePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
         private reportviewr frmrpt;
 
         private void guna2Button2_Click(object sender, EventArgs e) 
@@ -594,10 +707,21 @@ namespace GOS_FxApps
             {
                 formkondisi();
             }
+            else if (pilihan == "Koefisiensi Material")
+            {
+                ExportToExcel();
+            }
         }
 
         private void printpenerimaan_Load(object sender, EventArgs e)
         {
+            if (MainForm.Instance.role != "Manajer" && MainForm.Instance.role != "Admin")
+            {
+                if (cmbpilihdata.Items.Contains("Koefisiensi Material"))
+                {
+                    cmbpilihdata.Items.Remove("Koefisiensi Material");
+                }
+            }
             datecari.Checked = false;
             datecari.Value = DateTime.Now.Date;
             datecaripemakaian.Checked = false;
@@ -614,7 +738,6 @@ namespace GOS_FxApps
             paneldata2.Visible = true;
             btncari.Enabled = true;
             tampilpenerimaan();
-            TambahCancelOption();
             jumlahdata();
         }
 
@@ -825,6 +948,57 @@ namespace GOS_FxApps
                 dataGridView1.Columns[3].HeaderText = "Tanggal Pemakaian";
                 dataGridView1.Columns[4].HeaderText = "Jumlah Pemakaian";
                 dataGridView1.Columns["updated_at"].Visible = false;
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void tampilkoefisiensi()
+        {
+            try
+            {
+                string query = "SELECT * FROM koefisiensi_material ORDER BY tanggal DESC";
+                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                ad.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
+                dataGridView1.RowTemplate.Height = 35;
+                dataGridView1.ReadOnly = true;
+
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].HeaderText = "Tanggal";
+                dataGridView1.Columns[2].HeaderText = "Type";
+                dataGridView1.Columns[3].HeaderText = "Kode Barang";
+                dataGridView1.Columns[4].HeaderText = "Deskripsi";
+                dataGridView1.Columns[5].HeaderText = "Spesifikasi";
+                dataGridView1.Columns[6].HeaderText = "UoM";
+                dataGridView1.Columns[7].HeaderText = "Koef E1";
+                dataGridView1.Columns[8].HeaderText = "Koef E2";
+                dataGridView1.Columns[9].HeaderText = "Koef E3";
+                dataGridView1.Columns[10].HeaderText = "Koef E4";
+                dataGridView1.Columns[11].HeaderText = "Koef S";
+                dataGridView1.Columns[12].HeaderText = "Koef D";
+                dataGridView1.Columns[13].HeaderText = "Koef B";
+                dataGridView1.Columns[14].HeaderText = "Koef BA";
+                dataGridView1.Columns[15].HeaderText = "Koef BA-1";
+                dataGridView1.Columns[16].HeaderText = "Koef CR";
+                dataGridView1.Columns[17].HeaderText = "Koef M";
+                dataGridView1.Columns[18].HeaderText = "Koef R";
+                dataGridView1.Columns[19].HeaderText = "Koef C";
+                dataGridView1.Columns[20].HeaderText = "Koef RL";
+                dataGridView1.Columns[21].HeaderText = "Diubah";
+
+                dataGridView1.Columns[1].DefaultCellStyle.Format = "MM-yyyy";
             }
             catch (SqlException)
             {
@@ -1226,6 +1400,49 @@ namespace GOS_FxApps
             }
         }
 
+        private bool carikoefisiensi()
+        {
+            int bulan = datecaripemakaian.Value.Month;
+            int tahun = datecaripemakaian.Value.Year;
+
+            DataTable dt = new DataTable();
+
+            string query = "SELECT * FROM koefisiensi_material WHERE YEAR(tanggal) = @year AND MONTH(tanggal) = @bulan;";
+
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@year", tahun);
+                cmd.Parameters.AddWithValue("@bulan", bulan);
+
+                try
+                {
+                    conn.Open();
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+
+                    dataGridView1.DataSource = dt;
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                return dt.Rows.Count > 0;
+            }
+        }
+
         private void btncari_Click(object sender, EventArgs e)
         {
 
@@ -1490,6 +1707,38 @@ namespace GOS_FxApps
                     datecari.Checked = false;
                 }
             }
+            else if (pilihan == "Koefisiensi Material")
+            {
+                if (!infocari)
+                {
+                    bool hasilCari = carikoefisiensi(); 
+                    if (hasilCari)
+                    {
+                        infocari = true;
+                        btnprint.Enabled = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                    else
+                    {
+                        infocari = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                }
+                else
+                {
+                    tampilkoefisiensi();
+                    infocari = false;
+                    btncari.Text = "Cari";
+                    jumlahdata();
+
+                    btnprint.Enabled = false;
+
+                    guna2Panel4.ResetText();
+                    datecaripemakaian.Checked = false;
+                }
+            }
         }
 
         private void jumlahdata()
@@ -1497,14 +1746,6 @@ namespace GOS_FxApps
             int total = dataGridView1.Rows.Count;
             label4.Text = "Jumlah data: " + total.ToString();
             jlhpanel1.Text = "Jumlah data: " + total.ToString();
-        }
-
-        private void TambahCancelOption()
-        {
-            if (!cmbpilihdata.Items.Contains("Batal"))
-            {
-                cmbpilihdata.Items.Add("Batal");
-            }
         }
 
         private void cmbpilihdata_SelectedIndexChanged(object sender, EventArgs e)
@@ -1526,8 +1767,8 @@ namespace GOS_FxApps
 
                 paneldata2.Visible = true;
                 btncari.Enabled = true;
+                btnprint.Text = "Print Data";
                 tampilpenerimaan();
-                TambahCancelOption();
                 jumlahdata();
             }
             else if (pilihan == "Perbaikan")
@@ -1542,8 +1783,8 @@ namespace GOS_FxApps
 
                 paneldata2.Visible = true;
                 btncari.Enabled = true;
+                btnprint.Text = "Print Data";
                 tampilperbaikan();
-                TambahCancelOption();
                 jumlahdata();
             }
             else if (pilihan == "Pengiriman")
@@ -1558,8 +1799,8 @@ namespace GOS_FxApps
 
                 paneldata2.Visible = true;
                 btncari.Enabled = true;
+                btnprint.Text = "Print Data";
                 tampilpengiriman();
-                TambahCancelOption();
                 jumlahdata();
             }
             else if (pilihan == "Welding Pieces")
@@ -1574,8 +1815,8 @@ namespace GOS_FxApps
 
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
+                btnprint.Text = "Print Data";
                 tampilwelding();
-                TambahCancelOption();
                 jumlahdata();
             }
             else if (pilihan == "Hasil Produksi & Pemakaian Material")
@@ -1590,8 +1831,8 @@ namespace GOS_FxApps
 
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
+                btnprint.Text = "Print Data";
                 tampilpemakaianmaterial();
-                TambahCancelOption();
                 jumlahdata();
             }
             else if (pilihan == "Summary Data for Anode ROD Repair")
@@ -1606,8 +1847,8 @@ namespace GOS_FxApps
 
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
+                btnprint.Text = "Print Data";
                 tampilperbaikan();
-                TambahCancelOption();
                 jumlahdata();
             }
             else if (pilihan == "Actual Quantity for Repaired ROD Assy")
@@ -1622,8 +1863,8 @@ namespace GOS_FxApps
 
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
+                btnprint.Text = "Print Data";
                 tampilperbaikan();
-                TambahCancelOption();
                 jumlahdata();
             }
             else if (pilihan == "Kondisi ROD Reject di Rod Repair Shop")
@@ -1638,27 +1879,26 @@ namespace GOS_FxApps
 
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
+                btnprint.Text = "Print Data";
                 tampilperbaikan();
-                TambahCancelOption();
                 jumlahdata();
             }
-            else if (pilihan == "Batal")
+            else if (pilihan == "Koefisiensi Material")
             {
-                cmbpilihdata.SelectedIndex = 0;
+                //reset dulu
                 infocari = false;
                 btncari.Text = "Cari";
                 btnprint.Enabled = false;
                 guna2Panel4.ResetText();
-                datecari.Checked = false;
+                datecaripemakaian.Checked = false;
                 paneldata2.Visible = false;
 
-                paneldata2.Visible = true;
+                paneldata1.Visible = true;
                 btncari.Enabled = true;
-                tampilpenerimaan();
-                TambahCancelOption();
+                btnprint.Text = "Export Data";
+                tampilkoefisiensi();
                 jumlahdata();
             }
-
         }
 
         private void datecaripemakaian_MouseDown(object sender, MouseEventArgs e)

@@ -608,16 +608,43 @@ namespace GOS_FxApps
             int angka5 = SafeParse(txte2cstub);
             int hasile2 = angka3 + angka4 + angka5;
             lbltotale2.Text = hasile2.ToString();
-
             int angka6 = SafeParse(txte3);
-            int angka7 = SafeParse(txts);
+            int angka7 = 0;
+            int angka7a = SafeParse(txts);
+            if (angka7a > 0)
+            {
+                angka7 = 1;
+            }
+            else
+            {
+                angka7 = 0;
+            }
+
             int angka8 = SafeParse(txtd);
             int angka9 = SafeParse(txtb);
             int angka10 = SafeParse(txtba1);
-            int angka11 = SafeParse(txtcr);
+            int angka11 = 0;
+            int angka11a = SafeParse(txtcr);
+            if (angka11a > 0) 
+            { 
+                angka11 =1;
+            }
+            else
+            {
+                angka11 = 0;
+            }
             int angka12 = SafeParse(txtm);
             int angka13 = SafeParse(txtr);
-            int angka14 = SafeParse(txtc);
+            int angka14 = 0;
+            int angka14a = SafeParse(txtc);
+            if (angka14a > 0)
+            {
+                angka14 = 1;
+            }
+            else
+            {
+                angka14 = 0;
+            }
             int angka15 = SafeParse(txtrl);
             int angka16 = SafeParse(txte4);
 
