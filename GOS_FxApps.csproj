@@ -281,6 +281,12 @@
     <Compile Include="editperbaikan.Designer.cs">
       <DependentUpon>editperbaikan.cs</DependentUpon>
     </Compile>
+    <Compile Include="EstimasiPemakaianMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EstimasiPemakaianMaterial.Designer.cs">
+      <DependentUpon>EstimasiPemakaianMaterial.cs</DependentUpon>
+    </Compile>
     <Compile Include="formbuttman.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -462,6 +468,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="editperbaikan.resx">
       <DependentUpon>editperbaikan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EstimasiPemakaianMaterial.resx">
+      <DependentUpon>EstimasiPemakaianMaterial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formbuttman.resx">
       <DependentUpon>formbuttman.cs</DependentUpon>

@@ -33,6 +33,7 @@ namespace GOS_FxApps
         {
             this.components = new System.ComponentModel.Container();
             this.titlePanel = new System.Windows.Forms.Panel();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.ControlBoxButton = new Guna.UI2.WinForms.Guna2ControlBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.historycontainer = new Guna.UI2.WinForms.Guna2Panel();
@@ -80,7 +81,6 @@ namespace GOS_FxApps
             this.iconButton9 = new Guna.UI2.WinForms.Guna2Button();
             this.Editbutton = new Guna.UI2.WinForms.Guna2Button();
             this.btnlaporan = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.titlePanel.SuspendLayout();
             this.historycontainer.SuspendLayout();
             this.headerPanel.SuspendLayout();
@@ -107,6 +107,18 @@ namespace GOS_FxApps
             this.titlePanel.Name = "titlePanel";
             this.titlePanel.Size = new System.Drawing.Size(1221, 30);
             this.titlePanel.TabIndex = 1;
+            // 
+            // guna2ControlBox1
+            // 
+            this.guna2ControlBox1.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.Black;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1137, 0);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Size = new System.Drawing.Size(39, 30);
+            this.guna2ControlBox1.TabIndex = 1;
             // 
             // ControlBoxButton
             // 
@@ -921,18 +933,6 @@ namespace GOS_FxApps
             this.btnlaporan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnlaporan.TextOffset = new System.Drawing.Point(5, 0);
             this.btnlaporan.Click += new System.EventHandler(this.btnlaporan_Click_1);
-            // 
-            // guna2ControlBox1
-            // 
-            this.guna2ControlBox1.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.guna2ControlBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.Black;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(1137, 0);
-            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(39, 30);
-            this.guna2ControlBox1.TabIndex = 1;
             // 
             // MainForm
             // 
