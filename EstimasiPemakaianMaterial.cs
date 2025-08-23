@@ -209,25 +209,30 @@ namespace GOS_FxApps
                 saveFileDialog.Filter = "Excel Files|*.xlsx";
                 saveFileDialog.FileName = "Koefisien Material Tanggal " + hari + " " + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx";
 
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                try
                 {
-                    string savePath = saveFileDialog.FileName;
-
-                    if (File.Exists(savePath))
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
-                        File.Delete(savePath);
+                        string savePath = saveFileDialog.FileName;
+
+                        if (File.Exists(savePath))
+                        {
+                            File.Delete(savePath);
+                        }
+
+                        xlWorkBook.SaveCopyAs(savePath);
+
+                        MessageBox.Show("Export selesai ke: " + savePath);
                     }
-
-                    xlWorkBook.SaveCopyAs(savePath);
-
+                }
+                finally
+                {
                     xlWorkBook.Close(false);
                     xlApp.Quit();
 
                     System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkSheet);
                     System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkBook);
                     System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp);
-
-                    MessageBox.Show("Export selesai ke: " + savePath);
                 }
 
             }
@@ -513,25 +518,30 @@ namespace GOS_FxApps
                 saveFileDialog.Filter = "Excel Files|*.xlsx";
                 saveFileDialog.FileName = "Koefisien Material Bulan " + bulan + " " + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx";
 
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                try
                 {
-                    string savePath = saveFileDialog.FileName;
-
-                    if (File.Exists(savePath))
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
-                        File.Delete(savePath);
+                        string savePath = saveFileDialog.FileName;
+
+                        if (File.Exists(savePath))
+                        {
+                            File.Delete(savePath);
+                        }
+
+                        xlWorkBook.SaveCopyAs(savePath);
+
+                        MessageBox.Show("Export selesai ke: " + savePath);
                     }
-
-                    xlWorkBook.SaveCopyAs(savePath);
-
+                }
+                finally
+                {
                     xlWorkBook.Close(false);
                     xlApp.Quit();
 
                     System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkSheet);
                     System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkBook);
                     System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp);
-
-                    MessageBox.Show("Export selesai ke: " + savePath);
                 }
             }
             catch (Exception ex)
@@ -628,25 +638,30 @@ namespace GOS_FxApps
                 saveFileDialog.Filter = "Excel Files|*.xlsx";
                 saveFileDialog.FileName = "Koefisien Material Tahun " + tahun + " " + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx";
 
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                try
                 {
-                    string savePath = saveFileDialog.FileName;
-
-                    if (File.Exists(savePath))
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
-                        File.Delete(savePath);
+                        string savePath = saveFileDialog.FileName;
+
+                        if (File.Exists(savePath))
+                        {
+                            File.Delete(savePath);
+                        }
+
+                        xlWorkBook.SaveCopyAs(savePath);
+
+                        MessageBox.Show("Export selesai ke: " + savePath);
                     }
-
-                    xlWorkBook.SaveCopyAs(savePath);
-
+                }
+                finally
+                {
                     xlWorkBook.Close(false);
                     xlApp.Quit();
 
                     System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkSheet);
                     System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkBook);
                     System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp);
-
-                    MessageBox.Show("Export selesai ke: " + savePath);
                 }
             }
             catch (Exception ex)
