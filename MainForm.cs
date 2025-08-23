@@ -85,6 +85,9 @@ namespace GOS_FxApps {
 
             iconButton13.FillColor = Color.Transparent;
             iconButton13.ForeColor = Color.Black;
+
+            btnestimasi.FillColor = Color.Transparent;
+            btnestimasi.ForeColor = Color.Black;
         }
 
         public void ResetColorContainer()
@@ -374,6 +377,14 @@ namespace GOS_FxApps {
             SwitchPanel(new historyStokMaterial());
         }
 
+        private void btnestimasi_Click(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            btnestimasi.FillColor = Color.FromArgb(64, 64, 64);
+            btnestimasi.ForeColor = Color.White;
+            SwitchPanel(new EstimasiPemakaianMaterial());
+        }
+
 
         //kode fitur terbatas
         public void setvisiblefalse()
@@ -382,6 +393,7 @@ namespace GOS_FxApps {
             EditContainer.Visible = false; 
             btnlaporan.Visible = false;
             historycontainer.Visible = false;
+            btnestimasi.Visible = true; //masih on
         }
         public void truemanajer()
         {
@@ -398,6 +410,7 @@ namespace GOS_FxApps {
             btnHistori.Visible = true;
             btnlaporan.Visible = true;
             historycontainer.Visible = true;
+            btnestimasi.Visible = true;
         }
         public void trueadmin()
         {
@@ -430,6 +443,7 @@ namespace GOS_FxApps {
             entryContainer.MaximumSize = new Size(232, 95);    
             iconButton1.Visible=true;
             btnlaporan.Visible=true;
+            btnestimasi.Visible=true;
         }
         public void trueoperatorpenerimaan()
         {
@@ -507,5 +521,6 @@ namespace GOS_FxApps {
                 login.ShowDialog();
             }
         }
+
     }
 }

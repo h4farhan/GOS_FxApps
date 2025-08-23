@@ -95,8 +95,7 @@
             "Hasil Produksi & Pemakaian Material",
             "Summary Data for Anode ROD Repair",
             "Actual Quantity for Repaired ROD Assy",
-            "Kondisi ROD Reject di Rod Repair Shop",
-            "Koefisiensi Material"});
+            "Kondisi ROD Reject di Rod Repair Shop"});
             this.cmbpilihdata.Location = new System.Drawing.Point(692, 13);
             this.cmbpilihdata.Margin = new System.Windows.Forms.Padding(2);
             this.cmbpilihdata.Name = "cmbpilihdata";

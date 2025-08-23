@@ -81,6 +81,7 @@ namespace GOS_FxApps
             this.iconButton9 = new Guna.UI2.WinForms.Guna2Button();
             this.Editbutton = new Guna.UI2.WinForms.Guna2Button();
             this.btnlaporan = new Guna.UI2.WinForms.Guna2Button();
+            this.btnestimasi = new Guna.UI2.WinForms.Guna2Button();
             this.titlePanel.SuspendLayout();
             this.historycontainer.SuspendLayout();
             this.headerPanel.SuspendLayout();
@@ -595,6 +596,7 @@ namespace GOS_FxApps
             this.flowLayoutPanel1.Controls.Add(this.EditContainer);
             this.flowLayoutPanel1.Controls.Add(this.btnlaporan);
             this.flowLayoutPanel1.Controls.Add(this.historycontainer);
+            this.flowLayoutPanel1.Controls.Add(this.btnestimasi);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 262);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
@@ -934,6 +936,28 @@ namespace GOS_FxApps
             this.btnlaporan.TextOffset = new System.Drawing.Point(5, 0);
             this.btnlaporan.Click += new System.EventHandler(this.btnlaporan_Click_1);
             // 
+            // btnestimasi
+            // 
+            this.btnestimasi.BorderRadius = 8;
+            this.btnestimasi.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnestimasi.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnestimasi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnestimasi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnestimasi.FillColor = System.Drawing.Color.White;
+            this.btnestimasi.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnestimasi.ForeColor = System.Drawing.Color.Black;
+            this.btnestimasi.Image = global::GOS_FxApps.Properties.Resources.pdf;
+            this.btnestimasi.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnestimasi.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnestimasi.Location = new System.Drawing.Point(6, 325);
+            this.btnestimasi.Name = "btnestimasi";
+            this.btnestimasi.Size = new System.Drawing.Size(231, 55);
+            this.btnestimasi.TabIndex = 16;
+            this.btnestimasi.Text = "Estimasi Pemakaian Material";
+            this.btnestimasi.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnestimasi.TextOffset = new System.Drawing.Point(5, 0);
+            this.btnestimasi.Click += new System.EventHandler(this.btnestimasi_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1017,5 +1041,6 @@ namespace GOS_FxApps
         public Guna.UI2.WinForms.Guna2Panel EditContainer;
         public Guna.UI2.WinForms.Guna2Panel historycontainer;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private Guna.UI2.WinForms.Guna2Button btnestimasi;
     }
 }
