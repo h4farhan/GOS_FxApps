@@ -393,7 +393,7 @@ namespace GOS_FxApps {
             EditContainer.Visible = false; 
             btnlaporan.Visible = false;
             historycontainer.Visible = false;
-            btnestimasi.Visible = true; //masih on
+            btnestimasi.Visible = false;
         }
         public void truemanajer()
         {
