@@ -216,6 +216,12 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="datamaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="datamaterial.Designer.cs">
+      <DependentUpon>datamaterial.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\actual.cs">
       <DependentUpon>actual.xsd</DependentUpon>
     </Compile>
@@ -437,6 +443,9 @@
     <Content Include="Koefisien Material.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Data Barang Template.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\search %282%29.png" />
     <None Include="Resources\search %281%29.png" />
     <None Include="Resources\dots.png" />
@@ -474,6 +483,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="datamaterial.resx">
+      <DependentUpon>datamaterial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="editpenerimaan.resx">
       <DependentUpon>editpenerimaan.cs</DependentUpon>

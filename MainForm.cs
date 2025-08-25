@@ -461,7 +461,7 @@ namespace GOS_FxApps {
             btndata.FillColor = Color.FromArgb(64, 64, 64);
             btndata.ForeColor = Color.White;
 
-            //SwitchPanel(new pemakaianMaterial());//belum diubah
+            SwitchPanel(new datamaterial());
         }
 
         //kode fitur terbatas
@@ -472,7 +472,7 @@ namespace GOS_FxApps {
             btnlaporan.Visible = false;
             historycontainer.Visible = false;
             btnestimasi.Visible = false;
-            gudangContainer.Visible = true; //masih hidup
+            gudangContainer.Visible = false;
         }
         public void truemanajer()
         {
@@ -499,9 +499,18 @@ namespace GOS_FxApps {
         }
         public void trueoperatorgudang()
         {
+            penerimaanButton1.Visible = false;
+            iconButton2.Visible = false;
+            iconButton1.Visible = false;
+            iconButton15.Visible = false;
+
+            entryContainer.Visible = true;
+            entryContainer.MaximumSize = new Size(232, 135);
             Dashboard.Instance.btntiga.Visible=true;
+            iconButton3.Visible = true;
             btnestimasi.Visible = true;
-            gudangContainer.Visible = true;            
+            gudangContainer.Visible = true;
+            btnlaporan.Visible = true;            
         }
         public void trueoperatorperbaikan()
         {

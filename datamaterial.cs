@@ -8,18 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using Guna.UI2.WinForms;
 using DrawingPoint = System.Drawing.Point;
 using System.IO;
 using Excel = Microsoft.Office.Interop.Excel;
+using Guna.UI2.WinForms;
 
 namespace GOS_FxApps
 {
-    public partial class laporanpersediaan : Form
+    public partial class datamaterial : Form
     {
-        SqlConnection conn = Koneksi.GetConnection();
-
-        public laporanpersediaan()
+        public datamaterial()
         {
             InitializeComponent();
         }
@@ -38,12 +36,13 @@ namespace GOS_FxApps
                 return dt;
             }
         }
+
         private void loadsp1()
         {
             int bulan = datejadwal.Value.Month;
             int tahun = datejadwal.Value.Year;
 
-            DataTable dt1 = GetDataFromSPbulan("sp_LaporanPersediaanMaterial", bulan, tahun);
+            DataTable dt1 = GetDataFromSPbulan("sp_LaporanDataMaterial", bulan, tahun);
 
             dt1.Columns.Add("No", typeof(int)).SetOrdinal(0);
 
@@ -67,24 +66,77 @@ namespace GOS_FxApps
                 col.Resizable = DataGridViewTriState.False;
             }
 
-            dataGridView1.Columns["saldodex"].Visible = false;
-            dataGridView1.Columns["totalsaldo"].Visible = false;
-            dataGridView1.Columns["status"].Visible = false;
-            dataGridView1.Columns["tglrequest"].Visible = false;
-            dataGridView1.Columns["keterangan"].Visible = false;
-
             dataGridView1.Columns["No"].Width = label5.Width;
-            dataGridView1.Columns["kodebarang"].Width = label4.Width;
-            dataGridView1.Columns["namabarang"].Width = label8.Width;
+            dataGridView1.Columns["Bulan"].Width = label12.Width;
+            dataGridView1.Columns["kodeBarang"].Width = label4.Width;
+            dataGridView1.Columns["namaBarang"].Width = label8.Width;
             dataGridView1.Columns["spesifikasi"].Width = label9.Width;
-            dataGridView1.Columns["stokawalktj"].Width = label15.Width;
-            dataGridView1.Columns["uom"].Width = label7.Width;
-            dataGridView1.Columns["masuk"].Width = label6.Width;
-            dataGridView1.Columns["keluar"].Width = label10.Width;
-            dataGridView1.Columns["saldoktj"].Width = label14.Width;
+            dataGridView1.Columns["uom"].Width = label15.Width;
+            dataGridView1.Columns["StokAwal"].Width = label7.Width;
 
-            dataGridView1.Columns["ratarata"].Width = label11.Width;
-            dataGridView1.Columns["limit"].Width = label13.Width;
+            dataGridView1.Columns["Masuk1"].Width = label6.Width;
+            dataGridView1.Columns["Masuk2"].Width = label10.Width;
+            dataGridView1.Columns["Masuk3"].Width = label14.Width;
+            dataGridView1.Columns["Masuk4"].Width = label13.Width;
+            dataGridView1.Columns["Masuk5"].Width = label11.Width;
+            dataGridView1.Columns["Masuk6"].Width = label20.Width;
+            dataGridView1.Columns["Masuk7"].Width = label19.Width;
+            dataGridView1.Columns["Masuk8"].Width = label16.Width;
+            dataGridView1.Columns["Masuk9"].Width = label18.Width;
+            dataGridView1.Columns["Masuk10"].Width = label17.Width;
+            dataGridView1.Columns["Masuk11"].Width = label30.Width;
+            dataGridView1.Columns["Masuk12"].Width = label29.Width;
+            dataGridView1.Columns["Masuk13"].Width = label26.Width;
+            dataGridView1.Columns["Masuk14"].Width = label28.Width;
+            dataGridView1.Columns["Masuk15"].Width = label27.Width;
+            dataGridView1.Columns["Masuk16"].Width = label25.Width;
+            dataGridView1.Columns["Masuk17"].Width = label24.Width;
+            dataGridView1.Columns["Masuk18"].Width = label21.Width;
+            dataGridView1.Columns["Masuk19"].Width = label23.Width;
+            dataGridView1.Columns["Masuk20"].Width = label22.Width;
+            dataGridView1.Columns["Masuk21"].Width = label40.Width;
+            dataGridView1.Columns["Masuk22"].Width = label39.Width;
+            dataGridView1.Columns["Masuk23"].Width = label36.Width;
+            dataGridView1.Columns["Masuk24"].Width = label38.Width;
+            dataGridView1.Columns["Masuk25"].Width = label37.Width;
+            dataGridView1.Columns["Masuk26"].Width = label35.Width;
+            dataGridView1.Columns["Masuk27"].Width = label34.Width;
+            dataGridView1.Columns["Masuk28"].Width = label31.Width;
+            dataGridView1.Columns["Masuk29"].Width = label33.Width;
+            dataGridView1.Columns["Masuk30"].Width = label32.Width;
+            dataGridView1.Columns["Masuk31"].Width = label41.Width;
+
+            dataGridView1.Columns["Keluar1"].Width = label72.Width;
+            dataGridView1.Columns["Keluar2"].Width = label71.Width;
+            dataGridView1.Columns["Keluar3"].Width = label68.Width;
+            dataGridView1.Columns["Keluar4"].Width = label70.Width;
+            dataGridView1.Columns["Keluar5"].Width = label69.Width;
+            dataGridView1.Columns["Keluar6"].Width = label67.Width;
+            dataGridView1.Columns["Keluar7"].Width = label66.Width;
+            dataGridView1.Columns["Keluar8"].Width = label63.Width;
+            dataGridView1.Columns["Keluar9"].Width = label65.Width;
+            dataGridView1.Columns["Keluar10"].Width = label64.Width;
+            dataGridView1.Columns["Keluar11"].Width = label62.Width;
+            dataGridView1.Columns["Keluar12"].Width = label61.Width;
+            dataGridView1.Columns["Keluar13"].Width = label58.Width;
+            dataGridView1.Columns["Keluar14"].Width = label60.Width;
+            dataGridView1.Columns["Keluar15"].Width = label59.Width;
+            dataGridView1.Columns["Keluar16"].Width = label57.Width;
+            dataGridView1.Columns["Keluar17"].Width = label56.Width;
+            dataGridView1.Columns["Keluar18"].Width = label53.Width;
+            dataGridView1.Columns["Keluar19"].Width = label55.Width;
+            dataGridView1.Columns["Keluar20"].Width = label54.Width;
+            dataGridView1.Columns["Keluar21"].Width = label52.Width;
+            dataGridView1.Columns["Keluar22"].Width = label51.Width;
+            dataGridView1.Columns["Keluar23"].Width = label48.Width;
+            dataGridView1.Columns["Keluar24"].Width = label50.Width;
+            dataGridView1.Columns["Keluar25"].Width = label49.Width;
+            dataGridView1.Columns["Keluar26"].Width = label47.Width;
+            dataGridView1.Columns["Keluar27"].Width = label46.Width;
+            dataGridView1.Columns["Keluar28"].Width = label43.Width;
+            dataGridView1.Columns["Keluar29"].Width = label45.Width;
+            dataGridView1.Columns["Keluar30"].Width = label44.Width;
+            dataGridView1.Columns["Keluar31"].Width = label42.Width;
         }
 
         private void ExportToExcelBulan()
@@ -95,19 +147,15 @@ namespace GOS_FxApps
                 int tahun = datejadwal.Value.Year;
                 string namaBulan = new DateTime(tahun, bulan, 1).ToString("MMMM");
 
-                DataTable dtMaterial = GetDataFromSPbulan("sp_LaporanPersediaanMaterial", bulan, tahun);
+                DataTable dtMaterial = GetDataFromSPbulan("sp_LaporanDataMaterial", bulan, tahun);
 
                 Excel.Application xlApp = new Excel.Application();
 
-                string templatePath = Path.Combine(Application.StartupPath, "Stock Barang Template.xlsx");
+                string templatePath = Path.Combine(Application.StartupPath, "Data Barang Template.xlsx");
                 Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(templatePath);
                 Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Sheets[1];
 
-                xlWorkSheet.Cells[1, 1] = "LAPORAN PERSEDIAAN MATERIAL DI KUALA TANJUNG";
-                xlWorkSheet.Cells[2, 1] = "PT.GENTANUSA GEMILANG";
-                xlWorkSheet.Cells[3, 1] = $"Per Tanggal {namaBulan} {tahun}";
-
-                int rowStart = 6;
+                int rowStart = 3;
                 int colStart = 1;
                 for (int i = 0; i < dtMaterial.Rows.Count; i++)
                 {
@@ -123,7 +171,7 @@ namespace GOS_FxApps
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Title = "Simpan File Excel";
                 saveFileDialog.Filter = "Excel Files|*.xlsx";
-                saveFileDialog.FileName = $"STOCK BARANG KTJ PER {namaBulan} {tahun}.xlsx";
+                saveFileDialog.FileName = $"DATA BARANG KTJ PER {namaBulan} {tahun}.xlsx";
 
                 try
                 {
@@ -155,6 +203,17 @@ namespace GOS_FxApps
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        private void btncari_Click(object sender, EventArgs e)
+        {
+            loadsp1();
+            btnreset.Enabled = true;
+        }
+
+        private void btnprint_Click(object sender, EventArgs e)
+        {
+            ExportToExcelBulan();
         }
 
         private void datejadwal_MouseDown(object sender, MouseEventArgs e)
@@ -229,12 +288,6 @@ namespace GOS_FxApps
             }
         }
 
-        private void btncari_Click(object sender, EventArgs e)
-        {
-            loadsp1();
-            btnreset.Enabled = true;
-        }
-
         private void btnreset_Click(object sender, EventArgs e)
         {
             datejadwal.Value = DateTime.Now;
@@ -242,15 +295,10 @@ namespace GOS_FxApps
             btnreset.Enabled = false;
         }
 
-        private void laporanpersediaan_Load(object sender, EventArgs e)
+        private void datamaterial_Load(object sender, EventArgs e)
         {
             datejadwal.Value = DateTime.Now;
             loadsp1();
-        }
-
-        private void btnprint_Click(object sender, EventArgs e)
-        {
-            ExportToExcelBulan();
         }
     }
 }

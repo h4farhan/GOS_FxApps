@@ -69,7 +69,6 @@ namespace GOS_FxApps
             this.dashboardButton = new Guna.UI2.WinForms.Guna2Button();
             this.entryContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.iconButton15 = new Guna.UI2.WinForms.Guna2Button();
-            this.btnpemakaian = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton3 = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton2 = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton1 = new Guna.UI2.WinForms.Guna2Button();
@@ -83,11 +82,12 @@ namespace GOS_FxApps
             this.btnlaporan = new Guna.UI2.WinForms.Guna2Button();
             this.btnestimasi = new Guna.UI2.WinForms.Guna2Button();
             this.gudangContainer = new Guna.UI2.WinForms.Guna2Panel();
-            this.btngudang = new Guna.UI2.WinForms.Guna2Button();
-            this.btnmaterialmasuk = new Guna.UI2.WinForms.Guna2Button();
-            this.btntambahmaterial = new Guna.UI2.WinForms.Guna2Button();
-            this.btnlaporanpersediaan = new Guna.UI2.WinForms.Guna2Button();
             this.btndata = new Guna.UI2.WinForms.Guna2Button();
+            this.btnlaporanpersediaan = new Guna.UI2.WinForms.Guna2Button();
+            this.btntambahmaterial = new Guna.UI2.WinForms.Guna2Button();
+            this.btnmaterialmasuk = new Guna.UI2.WinForms.Guna2Button();
+            this.btnpemakaian = new Guna.UI2.WinForms.Guna2Button();
+            this.btngudang = new Guna.UI2.WinForms.Guna2Button();
             this.gudangtimer = new System.Windows.Forms.Timer(this.components);
             this.titlePanel.SuspendLayout();
             this.historycontainer.SuspendLayout();
@@ -677,29 +677,6 @@ namespace GOS_FxApps
             this.iconButton15.TextOffset = new System.Drawing.Point(5, 0);
             this.iconButton15.Click += new System.EventHandler(this.iconButton15_Click_1);
             // 
-            // btnpemakaian
-            // 
-            this.btnpemakaian.BorderRadius = 8;
-            this.btnpemakaian.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnpemakaian.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnpemakaian.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnpemakaian.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnpemakaian.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnpemakaian.FillColor = System.Drawing.Color.Transparent;
-            this.btnpemakaian.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnpemakaian.ForeColor = System.Drawing.Color.Black;
-            this.btnpemakaian.Image = global::GOS_FxApps.Properties.Resources.recycled_material;
-            this.btnpemakaian.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnpemakaian.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnpemakaian.Location = new System.Drawing.Point(0, 55);
-            this.btnpemakaian.Name = "btnpemakaian";
-            this.btnpemakaian.Size = new System.Drawing.Size(231, 40);
-            this.btnpemakaian.TabIndex = 18;
-            this.btnpemakaian.Text = "Pemakaian Material";
-            this.btnpemakaian.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnpemakaian.TextOffset = new System.Drawing.Point(5, 0);
-            this.btnpemakaian.Click += new System.EventHandler(this.iconButton4_Click_1);
-            // 
             // iconButton3
             // 
             this.iconButton3.BorderRadius = 8;
@@ -984,74 +961,28 @@ namespace GOS_FxApps
             this.gudangContainer.Size = new System.Drawing.Size(231, 55);
             this.gudangContainer.TabIndex = 21;
             // 
-            // btngudang
+            // btndata
             // 
-            this.btngudang.BorderRadius = 8;
-            this.btngudang.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btngudang.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btngudang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btngudang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btngudang.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btngudang.FillColor = System.Drawing.Color.White;
-            this.btngudang.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btngudang.ForeColor = System.Drawing.Color.Black;
-            this.btngudang.Image = global::GOS_FxApps.Properties.Resources.data_entry;
-            this.btngudang.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btngudang.ImageSize = new System.Drawing.Size(30, 30);
-            this.btngudang.Location = new System.Drawing.Point(0, 0);
-            this.btngudang.Name = "btngudang";
-            this.btngudang.Size = new System.Drawing.Size(231, 55);
-            this.btngudang.TabIndex = 14;
-            this.btngudang.Text = "Form Gudang";
-            this.btngudang.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btngudang.TextOffset = new System.Drawing.Point(5, 0);
-            this.btngudang.Click += new System.EventHandler(this.btngudang_Click);
-            // 
-            // btnmaterialmasuk
-            // 
-            this.btnmaterialmasuk.BorderRadius = 8;
-            this.btnmaterialmasuk.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnmaterialmasuk.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnmaterialmasuk.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnmaterialmasuk.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnmaterialmasuk.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnmaterialmasuk.FillColor = System.Drawing.Color.Transparent;
-            this.btnmaterialmasuk.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnmaterialmasuk.ForeColor = System.Drawing.Color.Black;
-            this.btnmaterialmasuk.Image = global::GOS_FxApps.Properties.Resources.recycled_material;
-            this.btnmaterialmasuk.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnmaterialmasuk.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnmaterialmasuk.Location = new System.Drawing.Point(0, 95);
-            this.btnmaterialmasuk.Name = "btnmaterialmasuk";
-            this.btnmaterialmasuk.Size = new System.Drawing.Size(231, 40);
-            this.btnmaterialmasuk.TabIndex = 19;
-            this.btnmaterialmasuk.Text = "Material Masuk";
-            this.btnmaterialmasuk.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnmaterialmasuk.TextOffset = new System.Drawing.Point(5, 0);
-            this.btnmaterialmasuk.Click += new System.EventHandler(this.btnmaterialmasuk_Click);
-            // 
-            // btntambahmaterial
-            // 
-            this.btntambahmaterial.BorderRadius = 8;
-            this.btntambahmaterial.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btntambahmaterial.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btntambahmaterial.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btntambahmaterial.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btntambahmaterial.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btntambahmaterial.FillColor = System.Drawing.Color.Transparent;
-            this.btntambahmaterial.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btntambahmaterial.ForeColor = System.Drawing.Color.Black;
-            this.btntambahmaterial.Image = global::GOS_FxApps.Properties.Resources.recycled_material;
-            this.btntambahmaterial.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btntambahmaterial.ImageSize = new System.Drawing.Size(30, 30);
-            this.btntambahmaterial.Location = new System.Drawing.Point(0, 135);
-            this.btntambahmaterial.Name = "btntambahmaterial";
-            this.btntambahmaterial.Size = new System.Drawing.Size(231, 40);
-            this.btntambahmaterial.TabIndex = 20;
-            this.btntambahmaterial.Text = "Tambah Material";
-            this.btntambahmaterial.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btntambahmaterial.TextOffset = new System.Drawing.Point(5, 0);
-            this.btntambahmaterial.Click += new System.EventHandler(this.btntambahmaterial_Click);
+            this.btndata.BorderRadius = 8;
+            this.btndata.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btndata.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btndata.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btndata.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btndata.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btndata.FillColor = System.Drawing.Color.Transparent;
+            this.btndata.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btndata.ForeColor = System.Drawing.Color.Black;
+            this.btndata.Image = global::GOS_FxApps.Properties.Resources.recycled_material;
+            this.btndata.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btndata.ImageSize = new System.Drawing.Size(30, 30);
+            this.btndata.Location = new System.Drawing.Point(0, 215);
+            this.btndata.Name = "btndata";
+            this.btndata.Size = new System.Drawing.Size(231, 40);
+            this.btndata.TabIndex = 22;
+            this.btndata.Text = "Data";
+            this.btndata.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btndata.TextOffset = new System.Drawing.Point(5, 0);
+            this.btndata.Click += new System.EventHandler(this.btndata_Click);
             // 
             // btnlaporanpersediaan
             // 
@@ -1076,28 +1007,97 @@ namespace GOS_FxApps
             this.btnlaporanpersediaan.TextOffset = new System.Drawing.Point(5, 0);
             this.btnlaporanpersediaan.Click += new System.EventHandler(this.btnlaporanpersediaan_Click);
             // 
-            // btndata
+            // btntambahmaterial
             // 
-            this.btndata.BorderRadius = 8;
-            this.btndata.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btndata.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btndata.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btndata.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btndata.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btndata.FillColor = System.Drawing.Color.Transparent;
-            this.btndata.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btndata.ForeColor = System.Drawing.Color.Black;
-            this.btndata.Image = global::GOS_FxApps.Properties.Resources.recycled_material;
-            this.btndata.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btndata.ImageSize = new System.Drawing.Size(30, 30);
-            this.btndata.Location = new System.Drawing.Point(0, 215);
-            this.btndata.Name = "btndata";
-            this.btndata.Size = new System.Drawing.Size(231, 40);
-            this.btndata.TabIndex = 22;
-            this.btndata.Text = "Data";
-            this.btndata.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btndata.TextOffset = new System.Drawing.Point(5, 0);
-            this.btndata.Click += new System.EventHandler(this.btndata_Click);
+            this.btntambahmaterial.BorderRadius = 8;
+            this.btntambahmaterial.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btntambahmaterial.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btntambahmaterial.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btntambahmaterial.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btntambahmaterial.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btntambahmaterial.FillColor = System.Drawing.Color.Transparent;
+            this.btntambahmaterial.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btntambahmaterial.ForeColor = System.Drawing.Color.Black;
+            this.btntambahmaterial.Image = global::GOS_FxApps.Properties.Resources.recycled_material;
+            this.btntambahmaterial.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btntambahmaterial.ImageSize = new System.Drawing.Size(30, 30);
+            this.btntambahmaterial.Location = new System.Drawing.Point(0, 135);
+            this.btntambahmaterial.Name = "btntambahmaterial";
+            this.btntambahmaterial.Size = new System.Drawing.Size(231, 40);
+            this.btntambahmaterial.TabIndex = 20;
+            this.btntambahmaterial.Text = "Tambah Material";
+            this.btntambahmaterial.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btntambahmaterial.TextOffset = new System.Drawing.Point(5, 0);
+            this.btntambahmaterial.Click += new System.EventHandler(this.btntambahmaterial_Click);
+            // 
+            // btnmaterialmasuk
+            // 
+            this.btnmaterialmasuk.BorderRadius = 8;
+            this.btnmaterialmasuk.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnmaterialmasuk.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnmaterialmasuk.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnmaterialmasuk.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnmaterialmasuk.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnmaterialmasuk.FillColor = System.Drawing.Color.Transparent;
+            this.btnmaterialmasuk.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnmaterialmasuk.ForeColor = System.Drawing.Color.Black;
+            this.btnmaterialmasuk.Image = global::GOS_FxApps.Properties.Resources.recycled_material;
+            this.btnmaterialmasuk.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnmaterialmasuk.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnmaterialmasuk.Location = new System.Drawing.Point(0, 95);
+            this.btnmaterialmasuk.Name = "btnmaterialmasuk";
+            this.btnmaterialmasuk.Size = new System.Drawing.Size(231, 40);
+            this.btnmaterialmasuk.TabIndex = 19;
+            this.btnmaterialmasuk.Text = "Material Masuk";
+            this.btnmaterialmasuk.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnmaterialmasuk.TextOffset = new System.Drawing.Point(5, 0);
+            this.btnmaterialmasuk.Click += new System.EventHandler(this.btnmaterialmasuk_Click);
+            // 
+            // btnpemakaian
+            // 
+            this.btnpemakaian.BorderRadius = 8;
+            this.btnpemakaian.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnpemakaian.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnpemakaian.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnpemakaian.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnpemakaian.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnpemakaian.FillColor = System.Drawing.Color.Transparent;
+            this.btnpemakaian.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnpemakaian.ForeColor = System.Drawing.Color.Black;
+            this.btnpemakaian.Image = global::GOS_FxApps.Properties.Resources.recycled_material;
+            this.btnpemakaian.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnpemakaian.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnpemakaian.Location = new System.Drawing.Point(0, 55);
+            this.btnpemakaian.Name = "btnpemakaian";
+            this.btnpemakaian.Size = new System.Drawing.Size(231, 40);
+            this.btnpemakaian.TabIndex = 18;
+            this.btnpemakaian.Text = "Pemakaian Material";
+            this.btnpemakaian.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnpemakaian.TextOffset = new System.Drawing.Point(5, 0);
+            this.btnpemakaian.Click += new System.EventHandler(this.iconButton4_Click_1);
+            // 
+            // btngudang
+            // 
+            this.btngudang.BorderRadius = 8;
+            this.btngudang.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btngudang.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btngudang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btngudang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btngudang.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btngudang.FillColor = System.Drawing.Color.White;
+            this.btngudang.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btngudang.ForeColor = System.Drawing.Color.Black;
+            this.btngudang.Image = global::GOS_FxApps.Properties.Resources.data_entry;
+            this.btngudang.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btngudang.ImageSize = new System.Drawing.Size(30, 30);
+            this.btngudang.Location = new System.Drawing.Point(0, 0);
+            this.btngudang.Name = "btngudang";
+            this.btngudang.Size = new System.Drawing.Size(231, 55);
+            this.btngudang.TabIndex = 14;
+            this.btngudang.Text = "Form Gudang";
+            this.btngudang.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btngudang.TextOffset = new System.Drawing.Point(5, 0);
+            this.btngudang.Click += new System.EventHandler(this.btngudang_Click);
             // 
             // gudangtimer
             // 
