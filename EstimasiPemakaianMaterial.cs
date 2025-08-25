@@ -196,9 +196,9 @@ namespace GOS_FxApps
                     xlWorkSheet.Cells[5, 18] = r["Total_B"];
                     xlWorkSheet.Cells[5, 20] = r["Total_BA"];
                     xlWorkSheet.Cells[5, 22] = r["Total_BA1"];
-                    xlWorkSheet.Cells[5, 24] = r["Total_CR"];
+                    xlWorkSheet.Cells[5, 24] = r["Total_R"];
                     xlWorkSheet.Cells[5, 26] = r["Total_M"];
-                    xlWorkSheet.Cells[5, 28] = r["Total_R"];
+                    xlWorkSheet.Cells[5, 28] = r["Total_CR"];
                     xlWorkSheet.Cells[5, 30] = r["Total_C"];
                     xlWorkSheet.Cells[5, 32] = r["Total_RL"];
 
@@ -505,9 +505,9 @@ namespace GOS_FxApps
                     xlWorkSheet.Cells[5, 18] = r["Total_B"];
                     xlWorkSheet.Cells[5, 20] = r["Total_BA"];
                     xlWorkSheet.Cells[5, 22] = r["Total_BA1"];
-                    xlWorkSheet.Cells[5, 24] = r["Total_CR"];
+                    xlWorkSheet.Cells[5, 24] = r["Total_R"];
                     xlWorkSheet.Cells[5, 26] = r["Total_M"];
-                    xlWorkSheet.Cells[5, 28] = r["Total_R"];
+                    xlWorkSheet.Cells[5, 28] = r["Total_CR"];
                     xlWorkSheet.Cells[5, 30] = r["Total_C"];
                     xlWorkSheet.Cells[5, 32] = r["Total_RL"];
 
@@ -625,9 +625,9 @@ namespace GOS_FxApps
                     xlWorkSheet.Cells[5, 18] = r["Total_B"];
                     xlWorkSheet.Cells[5, 20] = r["Total_BA"];
                     xlWorkSheet.Cells[5, 22] = r["Total_BA1"];
-                    xlWorkSheet.Cells[5, 24] = r["Total_CR"];
+                    xlWorkSheet.Cells[5, 24] = r["Total_R"];
                     xlWorkSheet.Cells[5, 26] = r["Total_M"];
-                    xlWorkSheet.Cells[5, 28] = r["Total_R"];
+                    xlWorkSheet.Cells[5, 28] = r["Total_CR"];
                     xlWorkSheet.Cells[5, 30] = r["Total_C"];
                     xlWorkSheet.Cells[5, 32] = r["Total_RL"];
 

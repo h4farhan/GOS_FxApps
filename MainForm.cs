@@ -20,6 +20,7 @@ namespace GOS_FxApps {
         private bool entryprodx = false;
         private bool editx = false;
         private bool historiy = false;
+        private bool gudangx = false;
 
         public static MainForm Instance;
         
@@ -50,8 +51,8 @@ namespace GOS_FxApps {
             iconButton3.FillColor = Color.Transparent;
             iconButton3.ForeColor = Color.Black;
 
-            iconButton4.FillColor = Color.Transparent;
-            iconButton4.ForeColor = Color.Black;
+            btnpemakaian.FillColor = Color.Transparent;
+            btnpemakaian.ForeColor = Color.Black;
 
             iconButton15.FillColor = Color.Transparent;
             iconButton15.ForeColor = Color.Black;
@@ -88,6 +89,21 @@ namespace GOS_FxApps {
 
             btnestimasi.FillColor = Color.Transparent;
             btnestimasi.ForeColor = Color.Black;
+
+            btnpemakaian.FillColor = Color.Transparent;
+            btnpemakaian.ForeColor = Color.Black;
+
+            btnmaterialmasuk.FillColor = Color.Transparent;
+            btnmaterialmasuk.ForeColor = Color.Black;
+
+            btntambahmaterial.FillColor = Color.Transparent;
+            btntambahmaterial.ForeColor = Color.Black;
+
+            btnlaporanpersediaan.FillColor = Color.Transparent;
+            btnlaporanpersediaan.ForeColor = Color.Black;
+
+            btndata.FillColor = Color.Transparent;
+            btndata.ForeColor = Color.Black;
         }
 
         public void ResetColorContainer()
@@ -225,6 +241,33 @@ namespace GOS_FxApps {
 
             }
         }
+        private void gudangtimer_Tick(object sender, EventArgs e)
+        {
+            if (gudangx)
+            {
+                gudangContainer.Height += 10;
+                if (gudangContainer.Height >= gudangContainer.MaximumSize.Height)
+                {
+                    gudangtimer.Stop();
+                    gudangx = false;
+                    btngudang.FillColor = Color.Gray;
+                    btngudang.ForeColor = Color.White;
+                }
+            }
+            else
+            {
+                gudangContainer.Height -= 10;
+                if (gudangContainer.Height <= gudangContainer.MinimumSize.Height)
+                {
+                    gudangtimer.Stop();
+                    gudangx = true;
+                    btngudang.FillColor = Color.White;
+                    btngudang.ForeColor = Color.Black;
+                }
+
+            }
+        }
+
         private void dashboardButton_Click_1(object sender, EventArgs e)
         {
             ResetButtonColors();
@@ -270,14 +313,6 @@ namespace GOS_FxApps {
             iconButton3.ForeColor = Color.White;
 
             SwitchPanel(new weldingp());
-        }
-        private void iconButton4_Click_1(object sender, EventArgs e)
-        {
-            ResetButtonColors();
-            iconButton4.FillColor = Color.FromArgb(64, 64, 64);
-            iconButton4.ForeColor = Color.White;
-
-            SwitchPanel(new pemakaianMaterial());
         }
         private void iconButton15_Click_1(object sender, EventArgs e)
         {
@@ -376,7 +411,6 @@ namespace GOS_FxApps {
 
             SwitchPanel(new historyStokMaterial());
         }
-
         private void btnestimasi_Click(object sender, EventArgs e)
         {
             ResetButtonColors();
@@ -385,6 +419,50 @@ namespace GOS_FxApps {
             SwitchPanel(new EstimasiPemakaianMaterial());
         }
 
+        private void btngudang_Click(object sender, EventArgs e)
+        {
+            gudangtimer.Start();
+        }
+        private void iconButton4_Click_1(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            btnpemakaian.FillColor = Color.FromArgb(64, 64, 64);
+            btnpemakaian.ForeColor = Color.White;
+
+            SwitchPanel(new pemakaianMaterial());
+        }
+        private void btnmaterialmasuk_Click(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            btnmaterialmasuk.FillColor = Color.FromArgb(64, 64, 64);
+            btnmaterialmasuk.ForeColor = Color.White;
+
+            SwitchPanel(new materialmasuk());
+        }
+        private void btntambahmaterial_Click(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            btntambahmaterial.FillColor = Color.FromArgb(64, 64, 64);
+            btntambahmaterial.ForeColor = Color.White;
+
+            SwitchPanel(new formstok());
+        }
+        private void btnlaporanpersediaan_Click(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            btnlaporanpersediaan.FillColor = Color.FromArgb(64, 64, 64);
+            btnlaporanpersediaan.ForeColor = Color.White;
+
+            SwitchPanel(new laporanpersediaan());
+        }
+        private void btndata_Click(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            btndata.FillColor = Color.FromArgb(64, 64, 64);
+            btndata.ForeColor = Color.White;
+
+            //SwitchPanel(new pemakaianMaterial());//belum diubah
+        }
 
         //kode fitur terbatas
         public void setvisiblefalse()
@@ -394,23 +472,25 @@ namespace GOS_FxApps {
             btnlaporan.Visible = false;
             historycontainer.Visible = false;
             btnestimasi.Visible = false;
+            gudangContainer.Visible = true; //masih hidup
         }
         public void truemanajer()
         {
-            entryContainer.MaximumSize = new Size(232, 297);
+            entryContainer.MaximumSize = new Size(232, 255);
             Dashboard.Instance.btntiga.Visible = true;
             entryContainer.Visible = true;
             penerimaanButton1.Visible = true;
             iconButton1.Visible = true;
             iconButton2.Visible = true;
             iconButton3.Visible = true;
-            iconButton4.Visible = true;
+            btnpemakaian.Visible = true;
             iconButton15.Visible = true;
             EditContainer.Visible = true;
             btnHistori.Visible = true;
             btnlaporan.Visible = true;
             historycontainer.Visible = true;
             btnestimasi.Visible = true;
+            gudangContainer.Visible = true;
         }
         public void trueadmin()
         {
@@ -419,37 +499,26 @@ namespace GOS_FxApps {
         }
         public void trueoperatorgudang()
         {
-            penerimaanButton1.Visible=false;
-            iconButton1.Visible=false;
-            iconButton2.Visible=false;
-            iconButton15.Visible=false;
-
-            entryContainer.Visible = true;
-            entryContainer.MaximumSize = new Size(232, 135);
             Dashboard.Instance.btntiga.Visible=true;
-            iconButton3.Visible=true;
-            iconButton4.Visible=true;
-            btnlaporan.Visible=true;
+            btnestimasi.Visible = true;
+            gudangContainer.Visible = true;            
         }
         public void trueoperatorperbaikan()
         {
             penerimaanButton1.Visible = false;
             iconButton2.Visible=false;
             iconButton3.Visible = false;
-            iconButton4.Visible = false;
             iconButton15.Visible = false;
 
             entryContainer.Visible = true;
             entryContainer.MaximumSize = new Size(232, 95);    
             iconButton1.Visible=true;
             btnlaporan.Visible=true;
-            btnestimasi.Visible=true;
         }
         public void trueoperatorpenerimaan()
         {
             iconButton1.Visible=false;
             iconButton3.Visible = false;
-            iconButton4.Visible=false;
             iconButton15.Visible = false;
 
             entryContainer.Visible=true;
@@ -521,6 +590,5 @@ namespace GOS_FxApps {
                 login.ShowDialog();
             }
         }
-
     }
 }

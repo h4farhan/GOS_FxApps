@@ -348,6 +348,12 @@
       <DependentUpon>koefisiensi.cs</DependentUpon>
     </Compile>
     <Compile Include="koneksi.cs" />
+    <Compile Include="laporanpersediaan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="laporanpersediaan.Designer.cs">
+      <DependentUpon>laporanpersediaan.cs</DependentUpon>
+    </Compile>
     <Compile Include="loginform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -359,6 +365,12 @@
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="materialmasuk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="materialmasuk.Designer.cs">
+      <DependentUpon>materialmasuk.cs</DependentUpon>
     </Compile>
     <Compile Include="pemakaianMaterial.cs">
       <SubType>Form</SubType>
@@ -526,11 +538,17 @@
     <EmbeddedResource Include="laporanpemakaian_30.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="laporanpersediaan.resx">
+      <DependentUpon>laporanpersediaan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="loginform.resx">
       <DependentUpon>loginform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="materialmasuk.resx">
+      <DependentUpon>materialmasuk.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pemakaianMaterial.resx">
       <DependentUpon>pemakaianMaterial.cs</DependentUpon>
@@ -674,6 +692,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="Stock Barang Template.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
