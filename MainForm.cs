@@ -476,7 +476,7 @@ namespace GOS_FxApps {
         }
         public void truemanajer()
         {
-            entryContainer.MaximumSize = new Size(232, 255);
+            entryContainer.MaximumSize = new Size(232, 215);
             Dashboard.Instance.btntiga.Visible = true;
             entryContainer.Visible = true;
             penerimaanButton1.Visible = true;
@@ -499,15 +499,7 @@ namespace GOS_FxApps {
         }
         public void trueoperatorgudang()
         {
-            penerimaanButton1.Visible = false;
-            iconButton2.Visible = false;
-            iconButton1.Visible = false;
-            iconButton15.Visible = false;
-
-            entryContainer.Visible = true;
-            entryContainer.MaximumSize = new Size(232, 135);
             Dashboard.Instance.btntiga.Visible=true;
-            iconButton3.Visible = true;
             btnestimasi.Visible = true;
             gudangContainer.Visible = true;
             btnlaporan.Visible = true;            
@@ -516,7 +508,6 @@ namespace GOS_FxApps {
         {
             penerimaanButton1.Visible = false;
             iconButton2.Visible=false;
-            iconButton3.Visible = false;
             iconButton15.Visible = false;
 
             entryContainer.Visible = true;
@@ -527,7 +518,6 @@ namespace GOS_FxApps {
         public void trueoperatorpenerimaan()
         {
             iconButton1.Visible=false;
-            iconButton3.Visible = false;
             iconButton15.Visible = false;
 
             entryContainer.Visible=true;

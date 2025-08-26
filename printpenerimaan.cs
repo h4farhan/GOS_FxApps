@@ -555,115 +555,39 @@ namespace GOS_FxApps
             frmrpt.Show();
         }
 
-        private DataTable GetDataFromSP(string spName, int bulan, int tahun)
+        private void formmaterial()
         {
-            using (SqlConnection conn = Koneksi.GetConnection())
-            using (SqlCommand cmd = new SqlCommand(spName, conn))
+            int bulan = datematerial.Value.Month;
+            int tahun = datematerial.Value.Year;
+            string kode = cmbnamamaterial.SelectedValue.ToString();
+
+            var adapter = new GOS_FxApps.DataSet.materialTableAdapters.cardMaterialTableAdapter();
+            GOS_FxApps.DataSet.material.cardMaterialDataTable data = adapter.GetData(tahun, bulan, kode);
+
+            var adapter2 = new GOS_FxApps.DataSet.materialTableAdapters.sp_dataCardMaterialTableAdapter();
+            GOS_FxApps.DataSet.material.sp_dataCardMaterialDataTable data2 = adapter2.GetData(tahun, bulan, kode);
+
+            frmrpt = new reportviewr();
+            frmrpt.reportViewer1.Reset();
+            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "cardmaterial.rdlc");
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("cardmaterial", (DataTable)data));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("dataCardMaterial", (DataTable)data2));
+
+            ReportParameter[] parameters = new ReportParameter[]
             {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Bulan", bulan);
-                cmd.Parameters.AddWithValue("@Tahun", tahun);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                return dt;
-            }
-        }
+            new ReportParameter("bulan", bulan.ToString()),
+            new ReportParameter("tahun", tahun.ToString()),
+            new ReportParameter("kode", kode)
+            };
+            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
+            frmrpt.reportViewer1.RefreshReport();
 
-        private void ExportToExcel()
-        {
-            try
-            {
-                int bulan = datecaripemakaian.Value.Month;
-                int tahun = datecaripemakaian.Value.Year;
-
-                DataTable dtMaterial = GetDataFromSP("sp_koefisiensiMaterialCost", bulan, tahun);
-                DataTable dtConsumable = GetDataFromSP("sp_koefisiensiConsumableCost", bulan, tahun);
-                DataTable dtsafety = GetDataFromSP("sp_koefisiensiSafetyCost", bulan, tahun);
-                DataTable dtQty = GetDataFromSP("koefisiensiqty", bulan, tahun);
-
-                Excel.Application xlApp = new Excel.Application();
-
-                string templatePath = Path.Combine(Application.StartupPath, "Koefisien Material.xlsx");
-                Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(templatePath);
-                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Sheets[1];
-
-                xlWorkSheet.Cells[1, 1] = "BQ PEKERJAAN ROD REPAIR SHOP PERIODE TAHUN " + datecaripemakaian.Value.Year + "/" + (datecaripemakaian.Value.Year + 1);
-                xlWorkSheet.Cells[2, 1] = "UoM = Unit of Measure,     U /Price = Unit Price,     Coeff. = Coefficient,     E1, E2, E3 = Erotion,     " +
-                    "S = Sticking,     D= Deformation,     B = Bending,     BA = BA Clade Change,     R = Spark,     CR = Crack York,     M = Crack MIG,     C = End Cut,     RL = Rod Long";
-
-                int rowStart1 = 7, colStart1 = 2;
-                for (int i = 0; i < dtMaterial.Rows.Count; i++)
-                {
-                    for (int j = 0; j < dtMaterial.Columns.Count; j++)
-                    {
-                        xlWorkSheet.Cells[rowStart1 + i, colStart1 + j] = dtMaterial.Rows[i][j].ToString();
-                    }
-                }
-
-                int rowStart2 = 11, colStart2 = 2;
-                for (int i = 0; i < dtConsumable.Rows.Count; i++)
-                {
-                    for (int j = 0; j < dtConsumable.Columns.Count; j++)
-                    {
-                        xlWorkSheet.Cells[rowStart2 + i, colStart2 + j] = dtConsumable.Rows[i][j].ToString();
-                    }
-                }
-
-                int rowStart3 = 15, colStart3 = 2;
-                for (int i = 0; i < dtsafety.Rows.Count; i++)
-                {
-                    for (int j = 0; j < dtsafety.Columns.Count; j++)
-                    {
-                        xlWorkSheet.Cells[rowStart3 + i, colStart3 + j] = dtsafety.Rows[i][j].ToString();
-                    }
-                }
-
-                if (dtQty.Rows.Count > 0)
-                {
-                    DataRow r = dtQty.Rows[0];
-
-                    xlWorkSheet.Cells[5, 6] = r["Total_E1"];
-                    xlWorkSheet.Cells[5, 8] = r["Total_E2"];
-                    xlWorkSheet.Cells[5, 10] = r["Total_E3"];
-                    xlWorkSheet.Cells[5, 12] = r["Total_E4"];
-                    xlWorkSheet.Cells[5, 14] = r["Total_S"];
-                    xlWorkSheet.Cells[5, 16] = r["Total_D"];
-                    xlWorkSheet.Cells[5, 18] = r["Total_B"];
-                    xlWorkSheet.Cells[5, 20] = r["Total_BA"];
-                    xlWorkSheet.Cells[5, 22] = r["Total_BA1"];
-                    xlWorkSheet.Cells[5, 24] = r["Total_CR"];
-                    xlWorkSheet.Cells[5, 26] = r["Total_M"];
-                    xlWorkSheet.Cells[5, 28] = r["Total_R"];
-                    xlWorkSheet.Cells[5, 30] = r["Total_C"];
-                    xlWorkSheet.Cells[5, 32] = r["Total_RL"];
-
-                }
-
-                string savePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-                                               "Koefisien Material " + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx");
-                xlWorkBook.SaveAs(savePath);
-
-                xlWorkBook.Close(false);
-                xlApp.Quit();
-
-                DialogResult result = MessageBox.Show(
-                    "Export selesai ke: " + savePath +
-                    "Apakah mau buka file sekarang?",
-                    "Export Selesai",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question
-                );
-
-                if (result == DialogResult.Yes)
-                {
-                    System.Diagnostics.Process.Start(savePath);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
+            frmrpt.Show();
         }
 
         private reportviewr frmrpt;
@@ -707,22 +631,23 @@ namespace GOS_FxApps
             {
                 formkondisi();
             }
+            else if (pilihan == "Kartu Stock Material")
+            {
+                formmaterial();
+            }
         }
 
         private void printpenerimaan_Load(object sender, EventArgs e)
         {
-            datecari.Checked = false;
             datecari.Value = DateTime.Now.Date;
-            datecaripemakaian.Checked = false;
             datecaripemakaian.Value = DateTime.Now.Date;
-            datecaripemakaian.ShowUpDown = true;
+            datematerial.Value = DateTime.Now.Date;
             cmbpilihdata.SelectedIndex = 0;
             infocari = false;
+
             btncari.Text = "Cari";
             btnprint.Enabled = false;
             guna2Panel4.ResetText();
-            datecari.Checked = false;
-            paneldata2.Visible = false;
 
             paneldata2.Visible = true;
             btncari.Enabled = true;
@@ -937,6 +862,91 @@ namespace GOS_FxApps
                 dataGridView1.Columns[3].HeaderText = "Tanggal Pemakaian";
                 dataGridView1.Columns[4].HeaderText = "Jumlah Pemakaian";
                 dataGridView1.Columns["updated_at"].Visible = false;
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void tampilmaterial()
+        {
+            try
+            {
+                string query = "SELECT * FROM stok_material ORDER BY updated_at DESC";
+                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                ad.Fill(dt);
+
+                dt.Columns["foto"].ColumnName = "Gambar";
+
+                DataTable dtWithImage = new DataTable();
+                dtWithImage.Columns.Add("No", typeof(int));
+                dtWithImage.Columns.Add("Kode Barang", typeof(string));
+                dtWithImage.Columns.Add("Nama Barang", typeof(string));
+                dtWithImage.Columns.Add("Spesifikasi", typeof(string));
+                dtWithImage.Columns.Add("UoM", typeof(string));
+                dtWithImage.Columns.Add("Tipe", typeof(string));
+                dtWithImage.Columns.Add("Jumlah Stok", typeof(int));
+                dtWithImage.Columns.Add("Min Stok", typeof(int));
+                dtWithImage.Columns.Add("Gambar", typeof(Image));
+                dtWithImage.Columns.Add("Disimpan", typeof(DateTime));
+                dtWithImage.Columns.Add("Diubah", typeof(DateTime));
+
+                int no = 1;
+                foreach (DataRow row in dt.Rows)
+                {
+                    DataRow newRow = dtWithImage.NewRow();
+                    newRow["No"] = no++;
+                    newRow["Kode Barang"] = row["kodeBarang"];
+                    newRow["Nama Barang"] = row["namaBarang"];
+                    newRow["Spesifikasi"] = row["spesifikasi"];
+                    newRow["UoM"] = row["uom"];
+                    newRow["Tipe"] = row["type"];
+                    newRow["Jumlah Stok"] = row["jumlahStok"];
+                    newRow["Min Stok"] = row["min_stok"];
+                    newRow["Disimpan"] = row["created_at"];
+                    newRow["Diubah"] = row["updated_at"];
+
+                    if (row["Gambar"] != DBNull.Value)
+                    {
+                        byte[] imageBytes = (byte[])row["Gambar"];
+                        using (MemoryStream ms = new MemoryStream(imageBytes))
+                        {
+                            newRow["Gambar"] = Image.FromStream(ms);
+                        }
+                    }
+                    else
+                    {
+                        newRow["Gambar"] = null;
+                    }
+
+                    dtWithImage.Rows.Add(newRow);
+                }
+
+                dataGridView1.DataSource = dtWithImage;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridView1.Columns["No"].FillWeight = 50;
+                dataGridView1.RowTemplate.Height = 130;
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
+                dataGridView1.ReadOnly = true;
+
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    row.Height = 100;
+                }
+
+                DataGridViewImageColumn imageCol = (DataGridViewImageColumn)dataGridView1.Columns["Gambar"];
+                imageCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                dataGridView1.RowHeadersVisible = false;
+                dataGridView1.DefaultCellStyle.Padding = new Padding(5);
+                dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
             catch (SqlException)
             {
@@ -1338,6 +1348,142 @@ namespace GOS_FxApps
             }
         }
 
+        public void combonama()
+        {
+            try
+            {
+                using (SqlConnection conn = Koneksi.GetConnection())
+                {
+                    string query = "SELECT * FROM stok_material";
+                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    cmbnamamaterial.DataSource = dt;
+                    cmbnamamaterial.DisplayMember = "namaBarang";
+                    cmbnamamaterial.ValueMember = "kodeBarang";
+
+                    cmbnamamaterial.SelectedIndexChanged -= cmbnamamaterial_SelectedIndexChanged;
+                    cmbnamamaterial.SelectedIndex = -1;
+                    cmbnamamaterial.SelectedIndexChanged += cmbnamamaterial_SelectedIndexChanged;
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool carimaterial()
+        {
+            if (cmbnamamaterial.SelectedValue == null)
+            {
+                MessageBox.Show("Silakan pilih Material untuk melakukan pencarian.",
+                                "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            string keyword = cmbnamamaterial.SelectedValue.ToString();
+            bool found = false;
+
+            using (SqlCommand cmd = new SqlCommand("SELECT * FROM stok_material WHERE kodeBarang = @keyword", conn))
+            {
+                cmd.Parameters.AddWithValue("@keyword", keyword);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+
+                try
+                {
+                    conn.Open();
+                    da.Fill(dt);
+
+                    DataTable dtWithImage = new DataTable();
+                    dtWithImage.Columns.Add("No", typeof(int));
+                    dtWithImage.Columns.Add("Kode Barang", typeof(string));
+                    dtWithImage.Columns.Add("Nama Barang", typeof(string));
+                    dtWithImage.Columns.Add("Spesifikasi", typeof(string));
+                    dtWithImage.Columns.Add("UoM", typeof(string));
+                    dtWithImage.Columns.Add("Tipe", typeof(string));
+                    dtWithImage.Columns.Add("Jumlah Stok", typeof(int));
+                    dtWithImage.Columns.Add("Min Stok", typeof(int));
+                    dtWithImage.Columns.Add("Gambar", typeof(Image));
+                    dtWithImage.Columns.Add("Disimpan", typeof(DateTime));
+                    dtWithImage.Columns.Add("Diubah", typeof(DateTime));
+
+                    int no = 1;
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        DataRow newRow = dtWithImage.NewRow();
+                        newRow["No"] = no++;
+                        newRow["Kode Barang"] = row["kodeBarang"];
+                        newRow["Nama Barang"] = row["namaBarang"];
+                        newRow["Spesifikasi"] = row["spesifikasi"];
+                        newRow["UoM"] = row["uom"];
+                        newRow["Tipe"] = row["type"];
+                        newRow["Jumlah Stok"] = row["jumlahStok"];
+                        newRow["Min Stok"] = row["min_stok"];
+                        newRow["Disimpan"] = row["created_at"];
+                        newRow["Diubah"] = row["updated_at"];
+
+                        if (row["foto"] != DBNull.Value)
+                        {
+                            byte[] imageBytes = (byte[])row["foto"];
+                            using (MemoryStream ms = new MemoryStream(imageBytes))
+                            {
+                                newRow["Gambar"] = Image.FromStream(ms);
+                            }
+                        }
+                        else
+                        {
+                            newRow["Gambar"] = null;
+                        }
+
+                        dtWithImage.Rows.Add(newRow);
+                        found = true;
+                    }
+
+                    dataGridView1.DataSource = dtWithImage;
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dataGridView1.Columns["No"].FillWeight = 50;
+                    dataGridView1.RowTemplate.Height = 130;
+                    dataGridView1.ReadOnly = true;
+
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        row.Height = 100;
+                    }
+
+                    DataGridViewImageColumn imageCol = (DataGridViewImageColumn)dataGridView1.Columns["Gambar"];
+                    imageCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                    dataGridView1.RowHeadersVisible = false;
+                    dataGridView1.DefaultCellStyle.Padding = new Padding(5);
+                    dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+
+            return found;
+        }
+
         private void btncari_Click(object sender, EventArgs e)
         {
 
@@ -1374,7 +1520,6 @@ namespace GOS_FxApps
                     btnprint.Enabled = false;
 
                     guna2Panel4.ResetText();
-                    datecari.Checked = false;
                     jumlahdata();
                 }
             } 
@@ -1407,7 +1552,6 @@ namespace GOS_FxApps
                     btnprint.Enabled = false;
 
                     guna2Panel4.ResetText();
-                    datecari.Checked = false;
                 }
             }
             else if (pilihan == "Pengiriman")
@@ -1439,7 +1583,6 @@ namespace GOS_FxApps
                     btnprint.Enabled = false;
 
                     guna2Panel4.ResetText();
-                    datecari.Checked = false;
                 }
             }
             else if (pilihan == "Welding Pieces")
@@ -1471,7 +1614,6 @@ namespace GOS_FxApps
                     btnprint.Enabled = false;
 
                     guna2Panel4.ResetText();
-                    datecaripemakaian.Checked = false;
                 }
             }
             else if (pilihan == "Hasil Produksi & Pemakaian Material")
@@ -1503,7 +1645,6 @@ namespace GOS_FxApps
                     btnprint.Enabled = false;
 
                     guna2Panel4.ResetText();
-                    datecaripemakaian.Checked = false;
                 }
             }
             else if (pilihan == "Summary Data for Anode ROD Repair")
@@ -1535,7 +1676,6 @@ namespace GOS_FxApps
                     btnprint.Enabled = false;
 
                     guna2Panel4.ResetText();
-                    datecari.Checked = false;
                 }
             }
             else if (pilihan == "Actual Quantity for Repaired ROD Assy")
@@ -1567,7 +1707,6 @@ namespace GOS_FxApps
                     btnprint.Enabled = false;
 
                     guna2Panel4.ResetText();
-                    datecari.Checked = false;
                 }
             }
             else if (pilihan == "Kondisi ROD Reject di Rod Repair Shop")
@@ -1599,7 +1738,39 @@ namespace GOS_FxApps
                     btnprint.Enabled = false;
 
                     guna2Panel4.ResetText();
-                    datecari.Checked = false;
+                }
+            }
+            else if (pilihan == "Kartu Stock Material")
+            {
+                if (!infocari)
+                {
+                    bool hasilCari = carimaterial();
+                    if (hasilCari)
+                    {
+                        infocari = true;
+                        btnprint.Enabled = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                    else
+                    {
+                        infocari = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                }
+                else
+                {
+                    tampilmaterial();
+                    infocari = false;
+                    btncari.Text = "Cari";
+                    jumlahdata();
+
+                    btnprint.Enabled = false;
+                    combonama();
+                    cmbnamamaterial.SelectedIndex = -1;
+
+                    guna2Panel4.ResetText();
                 }
             }
         }
@@ -1609,6 +1780,8 @@ namespace GOS_FxApps
             int total = dataGridView1.Rows.Count;
             label4.Text = "Jumlah data: " + total.ToString();
             jlhpanel1.Text = "Jumlah data: " + total.ToString();
+            lbljumlahdatamaterial.Text = "Jumlah data: " + total.ToString();
+
         }
 
         private void cmbpilihdata_SelectedIndexChanged(object sender, EventArgs e)
@@ -1627,6 +1800,7 @@ namespace GOS_FxApps
                 guna2Panel4.ResetText();
                 datecari.Checked = false;
                 paneldata2.Visible = false;
+                paneldata3.Visible = false;
 
                 paneldata2.Visible = true;
                 btncari.Enabled = true;
@@ -1643,6 +1817,7 @@ namespace GOS_FxApps
                 guna2Panel4.ResetText();
                 datecari.Checked = false;
                 paneldata2.Visible = false;
+                paneldata3.Visible = false;
 
                 paneldata2.Visible = true;
                 btncari.Enabled = true;
@@ -1659,6 +1834,7 @@ namespace GOS_FxApps
                 guna2Panel4.ResetText();
                 datecari.Checked = false;
                 paneldata2.Visible = false;
+                paneldata3.Visible = false;
 
                 paneldata2.Visible = true;
                 btncari.Enabled = true;
@@ -1675,6 +1851,7 @@ namespace GOS_FxApps
                 guna2Panel4.ResetText();
                 datecaripemakaian.Checked = false;
                 paneldata2.Visible = false;
+                paneldata3.Visible = false;
 
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
@@ -1691,6 +1868,7 @@ namespace GOS_FxApps
                 guna2Panel4.ResetText();
                 datecaripemakaian.Checked = false;
                 paneldata2.Visible = false;
+                paneldata3.Visible = false;
 
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
@@ -1707,6 +1885,7 @@ namespace GOS_FxApps
                 guna2Panel4.ResetText();
                 datecaripemakaian.Checked = false;
                 paneldata2.Visible = false;
+                paneldata3.Visible = false;
 
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
@@ -1723,6 +1902,7 @@ namespace GOS_FxApps
                 guna2Panel4.ResetText();
                 datecaripemakaian.Checked = false;
                 paneldata2.Visible = false;
+                paneldata3.Visible = false;
 
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
@@ -1739,11 +1919,30 @@ namespace GOS_FxApps
                 guna2Panel4.ResetText();
                 datecaripemakaian.Checked = false;
                 paneldata2.Visible = false;
+                paneldata3.Visible = false;
 
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
                 btnprint.Text = "Print Data";
                 tampilperbaikan();
+                jumlahdata();
+            }
+            else if (pilihan == "Kartu Stock Material")
+            {
+                //reset dulu
+                infocari = false;
+                btncari.Text = "Cari";
+                btnprint.Enabled = false;
+                guna2Panel4.ResetText();
+                datecaripemakaian.Checked = false;
+                paneldata2.Visible = false;
+                paneldata1.Visible = false;
+
+                paneldata3.Visible = true;
+                btncari.Enabled = true;
+                btnprint.Text = "Print Data";
+                tampilmaterial();
+                combonama();
                 jumlahdata();
             }
         }
@@ -1820,6 +2019,82 @@ namespace GOS_FxApps
             }
         }
 
+        private void datematerial_MouseDown(object sender, MouseEventArgs e)
+        {
+            using (Form pickerForm = new Form())
+            {
+                pickerForm.StartPosition = FormStartPosition.Manual;
+                pickerForm.FormBorderStyle = FormBorderStyle.FixedDialog;
+                pickerForm.ControlBox = false;
+                pickerForm.Size = new Size(250, 200);
+                pickerForm.Text = "Pilih Bulan & Tahun";
+
+                var screenPos = datematerial.PointToScreen(DrawingPoint.Empty);
+                pickerForm.Location = new DrawingPoint(screenPos.X, screenPos.Y + datematerial.Height);
+
+                var cmbBulan = new Guna2ComboBox
+                {
+                    Font = new Font("Segoe UI", 11F),
+                    Left = 10,
+                    Top = 10,
+                    Width = 200,
+                    BorderRadius = 6,
+                    ForeColor = Color.Black,
+                    DropDownStyle = ComboBoxStyle.DropDownList,
+                    BorderColor = Color.FromArgb(64, 64, 64),
+                    BorderThickness = 2,
+                };
+                string[] bulan = {
+                                    "01 - Januari", "02 - Februari", "03 - Maret", "04 - April", "05 - Mei", "06 - Juni",
+                                    "07 - Juli", "08 - Agustus", "09 - September", "10 - Oktober", "11 - November", "12 - Desember"
+                                };
+                cmbBulan.Items.AddRange(bulan);
+                cmbBulan.SelectedIndex = datematerial.Value.Month - 1;
+
+                var numTahun = new Guna2NumericUpDown
+                {
+                    Font = new Font("Segoe UI", 11F),
+                    Left = 10,
+                    Top = 55,
+                    Width = 200,
+                    BorderRadius = 6,
+                    Minimum = 1900,
+                    Maximum = 2100,
+                    ForeColor = Color.Black,
+                    Value = datematerial.Value.Year,
+                    BorderColor = Color.FromArgb(64, 64, 64),
+                    BorderThickness = 2,
+                };
+
+                var btnOK = new Guna2Button
+                {
+                    Text = "OK",
+                    Font = new Font("Segoe UI", 10F),
+                    Left = 10,
+                    Top = 110,
+                    Width = 80,
+                    Height = 35,
+                    BorderRadius = 6,
+                    FillColor = Color.FromArgb(53, 53, 58)
+                };
+                btnOK.Click += (s, ev) =>
+                {
+                    datematerial.Value = new DateTime((int)numTahun.Value, cmbBulan.SelectedIndex + 1, 1);
+                    pickerForm.DialogResult = DialogResult.OK;
+                };
+
+                pickerForm.Controls.Add(cmbBulan);
+                pickerForm.Controls.Add(numTahun);
+                pickerForm.Controls.Add(btnOK);
+
+                pickerForm.ShowDialog();
+            }
+        }
+
+        private void cmbnamamaterial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
