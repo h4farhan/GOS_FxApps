@@ -12,6 +12,7 @@ using DrawingPoint = System.Drawing.Point;
 using System.IO;
 using Excel = Microsoft.Office.Interop.Excel;
 using Guna.UI2.WinForms;
+using System.Runtime.InteropServices;
 
 namespace GOS_FxApps
 {
@@ -186,7 +187,7 @@ namespace GOS_FxApps
 
                         xlWorkBook.SaveCopyAs(savePath);
 
-                        MessageBox.Show("Export selesai ke: " + savePath);
+                        MessageBox.Show("Export selesai ke: " + savePath, "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 finally
@@ -194,9 +195,16 @@ namespace GOS_FxApps
                     xlWorkBook.Close(false);
                     xlApp.Quit();
 
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkSheet);
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkBook);
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp);
+                    Marshal.ReleaseComObject(xlWorkSheet);
+                    Marshal.ReleaseComObject(xlWorkBook);
+                    Marshal.ReleaseComObject(xlApp);
+
+                    xlWorkSheet = null;
+                    xlWorkBook = null;
+                    xlApp = null;
+
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 }
             }
             catch (Exception ex)
