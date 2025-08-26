@@ -104,6 +104,9 @@ namespace GOS_FxApps {
 
             btndata.FillColor = Color.Transparent;
             btndata.ForeColor = Color.Black;
+
+            guna2Button1.ForeColor = Color.Transparent;
+            guna2Button1.ForeColor = Color.Black;
         }
 
         public void ResetColorContainer()
@@ -411,6 +414,14 @@ namespace GOS_FxApps {
 
             SwitchPanel(new historyStokMaterial());
         }
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            guna2Button1.FillColor = Color.FromArgb(64, 64, 64);
+            guna2Button1.ForeColor = Color.White;
+
+            SwitchPanel(new historymaterialmasuk());
+        }
         private void btnestimasi_Click(object sender, EventArgs e)
         {
             ResetButtonColors();
@@ -589,5 +600,6 @@ namespace GOS_FxApps {
                 login.ShowDialog();
             }
         }
+
     }
 }

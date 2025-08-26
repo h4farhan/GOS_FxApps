@@ -38,6 +38,7 @@ namespace GOS_FxApps
             this.panel4 = new System.Windows.Forms.Panel();
             this.historycontainer = new Guna.UI2.WinForms.Guna2Panel();
             this.iconButton13 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton5 = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton6 = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton10 = new Guna.UI2.WinForms.Guna2Button();
@@ -69,7 +70,6 @@ namespace GOS_FxApps
             this.dashboardButton = new Guna.UI2.WinForms.Guna2Button();
             this.entryContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.iconButton15 = new Guna.UI2.WinForms.Guna2Button();
-            this.iconButton3 = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton2 = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton1 = new Guna.UI2.WinForms.Guna2Button();
             this.penerimaanButton1 = new Guna.UI2.WinForms.Guna2Button();
@@ -85,6 +85,7 @@ namespace GOS_FxApps
             this.btntambahmaterial = new Guna.UI2.WinForms.Guna2Button();
             this.btnmaterialmasuk = new Guna.UI2.WinForms.Guna2Button();
             this.btnpemakaian = new Guna.UI2.WinForms.Guna2Button();
+            this.iconButton3 = new Guna.UI2.WinForms.Guna2Button();
             this.btngudang = new Guna.UI2.WinForms.Guna2Button();
             this.btnlaporan = new Guna.UI2.WinForms.Guna2Button();
             this.btnestimasi = new Guna.UI2.WinForms.Guna2Button();
@@ -114,7 +115,7 @@ namespace GOS_FxApps
             this.titlePanel.Location = new System.Drawing.Point(0, 0);
             this.titlePanel.Margin = new System.Windows.Forms.Padding(2);
             this.titlePanel.Name = "titlePanel";
-            this.titlePanel.Size = new System.Drawing.Size(1221, 30);
+            this.titlePanel.Size = new System.Drawing.Size(1262, 30);
             this.titlePanel.TabIndex = 1;
             // 
             // guna2ControlBox1
@@ -123,7 +124,7 @@ namespace GOS_FxApps
             this.guna2ControlBox1.Dock = System.Windows.Forms.DockStyle.Right;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox1.IconColor = System.Drawing.Color.Black;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(1137, 0);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1178, 0);
             this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(39, 30);
@@ -134,7 +135,7 @@ namespace GOS_FxApps
             this.ControlBoxButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.ControlBoxButton.FillColor = System.Drawing.Color.Transparent;
             this.ControlBoxButton.IconColor = System.Drawing.Color.Red;
-            this.ControlBoxButton.Location = new System.Drawing.Point(1176, 0);
+            this.ControlBoxButton.Location = new System.Drawing.Point(1217, 0);
             this.ControlBoxButton.Margin = new System.Windows.Forms.Padding(2);
             this.ControlBoxButton.Name = "ControlBoxButton";
             this.ControlBoxButton.Size = new System.Drawing.Size(45, 30);
@@ -147,7 +148,7 @@ namespace GOS_FxApps
             this.panel4.Location = new System.Drawing.Point(254, 80);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(967, 647);
+            this.panel4.Size = new System.Drawing.Size(1008, 672);
             this.panel4.TabIndex = 3;
             // 
             // historycontainer
@@ -156,6 +157,7 @@ namespace GOS_FxApps
             this.historycontainer.BorderRadius = 8;
             this.historycontainer.Controls.Add(this.iconButton13);
             this.historycontainer.Controls.Add(this.iconButton5);
+            this.historycontainer.Controls.Add(this.guna2Button1);
             this.historycontainer.Controls.Add(this.iconButton6);
             this.historycontainer.Controls.Add(this.iconButton10);
             this.historycontainer.Controls.Add(this.iconButton11);
@@ -163,7 +165,7 @@ namespace GOS_FxApps
             this.historycontainer.Controls.Add(this.btnHistori);
             this.historycontainer.FillColor = System.Drawing.Color.WhiteSmoke;
             this.historycontainer.Location = new System.Drawing.Point(6, 386);
-            this.historycontainer.MaximumSize = new System.Drawing.Size(232, 308);
+            this.historycontainer.MaximumSize = new System.Drawing.Size(232, 348);
             this.historycontainer.MinimumSize = new System.Drawing.Size(232, 55);
             this.historycontainer.Name = "historycontainer";
             this.historycontainer.Size = new System.Drawing.Size(232, 55);
@@ -184,7 +186,7 @@ namespace GOS_FxApps
             this.iconButton13.Image = global::GOS_FxApps.Properties.Resources.material_management;
             this.iconButton13.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.iconButton13.ImageSize = new System.Drawing.Size(35, 35);
-            this.iconButton13.Location = new System.Drawing.Point(0, 255);
+            this.iconButton13.Location = new System.Drawing.Point(0, 295);
             this.iconButton13.Name = "iconButton13";
             this.iconButton13.Size = new System.Drawing.Size(232, 50);
             this.iconButton13.TabIndex = 20;
@@ -192,6 +194,29 @@ namespace GOS_FxApps
             this.iconButton13.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.iconButton13.TextOffset = new System.Drawing.Point(5, 0);
             this.iconButton13.Click += new System.EventHandler(this.iconButton13_Click_1);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BorderRadius = 8;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button1.Image = global::GOS_FxApps.Properties.Resources.processing;
+            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2Button1.Location = new System.Drawing.Point(0, 215);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(232, 40);
+            this.guna2Button1.TabIndex = 20;
+            this.guna2Button1.Text = "Material Masuk";
+            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.TextOffset = new System.Drawing.Point(5, 0);
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // iconButton5
             // 
@@ -208,7 +233,7 @@ namespace GOS_FxApps
             this.iconButton5.Image = global::GOS_FxApps.Properties.Resources.recycled_material;
             this.iconButton5.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.iconButton5.ImageSize = new System.Drawing.Size(30, 30);
-            this.iconButton5.Location = new System.Drawing.Point(0, 215);
+            this.iconButton5.Location = new System.Drawing.Point(0, 255);
             this.iconButton5.Name = "iconButton5";
             this.iconButton5.Size = new System.Drawing.Size(232, 40);
             this.iconButton5.TabIndex = 19;
@@ -347,7 +372,7 @@ namespace GOS_FxApps
             this.headerPanel.Location = new System.Drawing.Point(254, 30);
             this.headerPanel.Margin = new System.Windows.Forms.Padding(2);
             this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(967, 50);
+            this.headerPanel.Size = new System.Drawing.Size(1008, 50);
             this.headerPanel.TabIndex = 3;
             // 
             // panel3
@@ -355,7 +380,7 @@ namespace GOS_FxApps
             this.panel3.Controls.Add(this.lbluser);
             this.panel3.Controls.Add(this.iconButton14);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(449, 0);
+            this.panel3.Location = new System.Drawing.Point(490, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(518, 50);
             this.panel3.TabIndex = 8;
@@ -576,7 +601,7 @@ namespace GOS_FxApps
             this.sidebarPanel.RowCount = 2;
             this.sidebarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.sidebarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.sidebarPanel.Size = new System.Drawing.Size(254, 697);
+            this.sidebarPanel.Size = new System.Drawing.Size(254, 722);
             this.sidebarPanel.TabIndex = 4;
             // 
             // guna2Panel1
@@ -592,7 +617,7 @@ namespace GOS_FxApps
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
             this.guna2Panel1.Location = new System.Drawing.Point(8, 3);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(243, 686);
+            this.guna2Panel1.Size = new System.Drawing.Size(243, 711);
             this.guna2Panel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -611,7 +636,7 @@ namespace GOS_FxApps
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(3);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(243, 424);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(243, 449);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // dashboardButton
@@ -675,29 +700,6 @@ namespace GOS_FxApps
             this.iconButton15.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.iconButton15.TextOffset = new System.Drawing.Point(5, 0);
             this.iconButton15.Click += new System.EventHandler(this.iconButton15_Click_1);
-            // 
-            // iconButton3
-            // 
-            this.iconButton3.BorderRadius = 8;
-            this.iconButton3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.iconButton3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton3.FillColor = System.Drawing.Color.Transparent;
-            this.iconButton3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.iconButton3.ForeColor = System.Drawing.Color.Black;
-            this.iconButton3.Image = global::GOS_FxApps.Properties.Resources.welding_machine;
-            this.iconButton3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.iconButton3.ImageSize = new System.Drawing.Size(30, 30);
-            this.iconButton3.Location = new System.Drawing.Point(0, 55);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(231, 40);
-            this.iconButton3.TabIndex = 20;
-            this.iconButton3.Text = "Welding Pieces";
-            this.iconButton3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.iconButton3.TextOffset = new System.Drawing.Point(5, 0);
-            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click_1);
             // 
             // iconButton2
             // 
@@ -905,8 +907,8 @@ namespace GOS_FxApps
             this.gudangContainer.Controls.Add(this.btndata);
             this.gudangContainer.Controls.Add(this.btnlaporanpersediaan);
             this.gudangContainer.Controls.Add(this.btntambahmaterial);
-            this.gudangContainer.Controls.Add(this.btnmaterialmasuk);
             this.gudangContainer.Controls.Add(this.btnpemakaian);
+            this.gudangContainer.Controls.Add(this.btnmaterialmasuk);
             this.gudangContainer.Controls.Add(this.iconButton3);
             this.gudangContainer.Controls.Add(this.btngudang);
             this.gudangContainer.FillColor = System.Drawing.Color.WhiteSmoke;
@@ -928,7 +930,7 @@ namespace GOS_FxApps
             this.btndata.FillColor = System.Drawing.Color.Transparent;
             this.btndata.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btndata.ForeColor = System.Drawing.Color.Black;
-            this.btndata.Image = global::GOS_FxApps.Properties.Resources.recycled_material;
+            this.btndata.Image = global::GOS_FxApps.Properties.Resources.books;
             this.btndata.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btndata.ImageSize = new System.Drawing.Size(30, 30);
             this.btndata.Location = new System.Drawing.Point(0, 255);
@@ -951,7 +953,7 @@ namespace GOS_FxApps
             this.btnlaporanpersediaan.FillColor = System.Drawing.Color.Transparent;
             this.btnlaporanpersediaan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnlaporanpersediaan.ForeColor = System.Drawing.Color.Black;
-            this.btnlaporanpersediaan.Image = global::GOS_FxApps.Properties.Resources.recycled_material;
+            this.btnlaporanpersediaan.Image = global::GOS_FxApps.Properties.Resources.checklists;
             this.btnlaporanpersediaan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnlaporanpersediaan.ImageSize = new System.Drawing.Size(30, 30);
             this.btnlaporanpersediaan.Location = new System.Drawing.Point(0, 215);
@@ -974,7 +976,7 @@ namespace GOS_FxApps
             this.btntambahmaterial.FillColor = System.Drawing.Color.Transparent;
             this.btntambahmaterial.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btntambahmaterial.ForeColor = System.Drawing.Color.Black;
-            this.btntambahmaterial.Image = global::GOS_FxApps.Properties.Resources.recycled_material;
+            this.btntambahmaterial.Image = global::GOS_FxApps.Properties.Resources.membrane;
             this.btntambahmaterial.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btntambahmaterial.ImageSize = new System.Drawing.Size(30, 30);
             this.btntambahmaterial.Location = new System.Drawing.Point(0, 175);
@@ -997,10 +999,10 @@ namespace GOS_FxApps
             this.btnmaterialmasuk.FillColor = System.Drawing.Color.Transparent;
             this.btnmaterialmasuk.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnmaterialmasuk.ForeColor = System.Drawing.Color.Black;
-            this.btnmaterialmasuk.Image = global::GOS_FxApps.Properties.Resources.recycled_material;
+            this.btnmaterialmasuk.Image = global::GOS_FxApps.Properties.Resources.processing;
             this.btnmaterialmasuk.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnmaterialmasuk.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnmaterialmasuk.Location = new System.Drawing.Point(0, 135);
+            this.btnmaterialmasuk.Location = new System.Drawing.Point(0, 95);
             this.btnmaterialmasuk.Name = "btnmaterialmasuk";
             this.btnmaterialmasuk.Size = new System.Drawing.Size(231, 40);
             this.btnmaterialmasuk.TabIndex = 19;
@@ -1023,7 +1025,7 @@ namespace GOS_FxApps
             this.btnpemakaian.Image = global::GOS_FxApps.Properties.Resources.recycled_material;
             this.btnpemakaian.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnpemakaian.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnpemakaian.Location = new System.Drawing.Point(0, 95);
+            this.btnpemakaian.Location = new System.Drawing.Point(0, 135);
             this.btnpemakaian.Name = "btnpemakaian";
             this.btnpemakaian.Size = new System.Drawing.Size(231, 40);
             this.btnpemakaian.TabIndex = 18;
@@ -1031,6 +1033,29 @@ namespace GOS_FxApps
             this.btnpemakaian.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnpemakaian.TextOffset = new System.Drawing.Point(5, 0);
             this.btnpemakaian.Click += new System.EventHandler(this.iconButton4_Click_1);
+            // 
+            // iconButton3
+            // 
+            this.iconButton3.BorderRadius = 8;
+            this.iconButton3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.iconButton3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton3.FillColor = System.Drawing.Color.Transparent;
+            this.iconButton3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.iconButton3.ForeColor = System.Drawing.Color.Black;
+            this.iconButton3.Image = global::GOS_FxApps.Properties.Resources.welding_machine;
+            this.iconButton3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton3.ImageSize = new System.Drawing.Size(30, 30);
+            this.iconButton3.Location = new System.Drawing.Point(0, 55);
+            this.iconButton3.Name = "iconButton3";
+            this.iconButton3.Size = new System.Drawing.Size(231, 40);
+            this.iconButton3.TabIndex = 20;
+            this.iconButton3.Text = "Welding Pieces";
+            this.iconButton3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton3.TextOffset = new System.Drawing.Point(5, 0);
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click_1);
             // 
             // btngudang
             // 
@@ -1043,7 +1068,7 @@ namespace GOS_FxApps
             this.btngudang.FillColor = System.Drawing.Color.White;
             this.btngudang.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btngudang.ForeColor = System.Drawing.Color.Black;
-            this.btngudang.Image = global::GOS_FxApps.Properties.Resources.data_entry;
+            this.btngudang.Image = global::GOS_FxApps.Properties.Resources.warehouse;
             this.btngudang.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btngudang.ImageSize = new System.Drawing.Size(30, 30);
             this.btngudang.Location = new System.Drawing.Point(0, 0);
@@ -1087,7 +1112,7 @@ namespace GOS_FxApps
             this.btnestimasi.FillColor = System.Drawing.Color.White;
             this.btnestimasi.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnestimasi.ForeColor = System.Drawing.Color.Black;
-            this.btnestimasi.Image = global::GOS_FxApps.Properties.Resources.pdf;
+            this.btnestimasi.Image = global::GOS_FxApps.Properties.Resources.calculator;
             this.btnestimasi.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnestimasi.ImageSize = new System.Drawing.Size(30, 30);
             this.btnestimasi.Location = new System.Drawing.Point(6, 325);
@@ -1108,7 +1133,7 @@ namespace GOS_FxApps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1221, 727);
+            this.ClientSize = new System.Drawing.Size(1262, 752);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.headerPanel);
             this.Controls.Add(this.sidebarPanel);
@@ -1196,5 +1221,6 @@ namespace GOS_FxApps
         private Guna.UI2.WinForms.Guna2Button btnmaterialmasuk;
         private Guna.UI2.WinForms.Guna2Button btngudang;
         private Timer gudangtimer;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

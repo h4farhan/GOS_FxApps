@@ -310,6 +310,12 @@
     <Compile Include="formstok.Designer.cs">
       <DependentUpon>formstok.cs</DependentUpon>
     </Compile>
+    <Compile Include="historymaterialmasuk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="historymaterialmasuk.Designer.cs">
+      <DependentUpon>historymaterialmasuk.cs</DependentUpon>
+    </Compile>
     <Compile Include="historyPemakaianMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -521,6 +527,9 @@
     <EmbeddedResource Include="formstok.resx">
       <DependentUpon>formstok.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="historymaterialmasuk.resx">
+      <DependentUpon>historymaterialmasuk.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="historyPemakaianMaterial.resx">
       <DependentUpon>historyPemakaianMaterial.cs</DependentUpon>
     </EmbeddedResource>
@@ -723,6 +732,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\warehouse.png" />
+    <None Include="Resources\processing.png" />
+    <None Include="Resources\membrane.png" />
+    <None Include="Resources\checklists.png" />
+    <None Include="Resources\books.png" />
+    <None Include="Resources\calculator.png" />
     <Content Include="Stock Barang Template.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
