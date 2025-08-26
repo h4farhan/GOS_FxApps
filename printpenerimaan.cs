@@ -15,6 +15,7 @@ using Guna.UI2.WinForms;
 using DrawingPoint = System.Drawing.Point;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.IO;
+using System.Web.Security;
 
 namespace GOS_FxApps
 {
@@ -639,6 +640,15 @@ namespace GOS_FxApps
 
         private void printpenerimaan_Load(object sender, EventArgs e)
         {
+            if (!(MainForm.Instance.role == "Operator Gudang"
+               || MainForm.Instance.role == "Manajer"
+               || MainForm.Instance.role == "Admin"))
+            {
+                if (cmbpilihdata.Items.Contains("Kartu Stock Material"))
+                {
+                    cmbpilihdata.Items.Remove("Kartu Stock Material");
+                }
+            }
             datecari.Value = DateTime.Now.Date;
             datecaripemakaian.Value = DateTime.Now.Date;
             datematerial.Value = DateTime.Now.Date;

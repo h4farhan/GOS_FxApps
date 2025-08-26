@@ -71,12 +71,14 @@ namespace GOS_FxApps
                             {
                                 MainForm.Instance.trueoperatorperbaikan();
                                 MainForm.Instance.lbluser.Text = name + " [Operator Perbaikan]";
+                                MainForm.Instance.role = "Operator Perbaikan";
                                 this.Close();
                             }
                             else if (level == "Operator Penerimaan/Pengiriman")
                             {
                                 MainForm.Instance.trueoperatorpenerimaan();
                                 MainForm.Instance.lbluser.Text = name + " [Operator Penerimaan/Pengiriman]";
+                                MainForm.Instance.role = "Operator Penerimaan/Pengiriman";
                                 this.Close();
                             }
                             MainForm.Instance.loginstatus = true;
