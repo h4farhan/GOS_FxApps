@@ -515,26 +515,27 @@ namespace GOS_FxApps {
             gudangContainer.Visible = true;
             btnlaporan.Visible = true;            
         }
-        public void trueoperatorperbaikan()
+        //public void trueoperatorperbaikan()
+        //{
+        //    penerimaanButton1.Visible = false;
+        //    iconButton2.Visible=false;
+        //    iconButton15.Visible = false;
+
+        //    entryContainer.Visible = true;
+        //    entryContainer.MaximumSize = new Size(232, 95);    
+        //    iconButton1.Visible=true;
+        //    btnlaporan.Visible=true;
+        //}
+        public void trueoperator()
         {
-            penerimaanButton1.Visible = false;
-            iconButton2.Visible=false;
+            iconButton1.Visible = false;
             iconButton15.Visible = false;
 
             entryContainer.Visible = true;
-            entryContainer.MaximumSize = new Size(232, 95);    
-            iconButton1.Visible=true;
-            btnlaporan.Visible=true;
-        }
-        public void trueoperatorpenerimaan()
-        {
-            iconButton1.Visible=false;
-            iconButton15.Visible = false;
-
-            entryContainer.Visible=true;
-            entryContainer.MaximumSize = new Size(232, 135);
+            entryContainer.MaximumSize = new Size(232, 175);
             penerimaanButton1.Visible = true;
-            iconButton2.Visible=true;
+            iconButton1.Visible = true;
+            iconButton2.Visible = true;
             btnlaporan.Visible = true;
         }
 

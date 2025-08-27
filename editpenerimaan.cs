@@ -60,7 +60,7 @@ namespace GOS_FxApps
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
@@ -344,8 +344,6 @@ namespace GOS_FxApps
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("UPDATE penerimaan_p SET jenis = @jenis, stasiun = @stasiun, e1 = @e1, e2 = @e2, e3 = @e3, s = @s, d = @d," +
                         "b = @b, ba = @ba, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = @diubah WHERE no = @no", conn);
-                    //SqlCommand cmd2 = new SqlCommand("INSERT INTO histori_penerimaan (tanggal_penerimaan,shift,nomor_rod,jenis,stasiun,e1,e2,e3," +
-                    //    "s,d,b,ba,cr,m,r,c,rl,jumlah) VALUES(@tanggal,@shift,@nomorrod,@jenis,@stasiun,@e1,@e2,@e3,@s,@d,@b,@ba,@cr,@m,@r,@c,@rl,@jumlah)", conn);
 
                     cmd.Parameters.AddWithValue("@jenis", txtjenis.Text);
                     cmd.Parameters.AddWithValue("@stasiun", txtstasiun.Text);
@@ -365,27 +363,7 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@no", noprimary);
                     cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
 
-                    //cmd2.Parameters.AddWithValue("@tanggal", tanggalpenerimaan);
-                    //cmd2.Parameters.AddWithValue("@shift", shift);
-                    //cmd2.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
-                    //cmd2.Parameters.AddWithValue("@jenis", txtjenis.Text);
-                    //cmd2.Parameters.AddWithValue("@stasiun", txtstasiun.Text);
-                    //cmd2.Parameters.AddWithValue("@e1", txte1.Text);
-                    //cmd2.Parameters.AddWithValue("@e2", txte2.Text);
-                    //cmd2.Parameters.AddWithValue("@e3", txte3.Text);
-                    //cmd2.Parameters.AddWithValue("@s", txts.Text);
-                    //cmd2.Parameters.AddWithValue("@d", txtd.Text);
-                    //cmd2.Parameters.AddWithValue("@b", txtb.Text);
-                    //cmd2.Parameters.AddWithValue("@ba", txtba.Text);
-                    //cmd2.Parameters.AddWithValue("@cr", txtcr.Text);
-                    //cmd2.Parameters.AddWithValue("@m", txtm.Text);
-                    //cmd2.Parameters.AddWithValue("@r", txtr.Text);
-                    //cmd2.Parameters.AddWithValue("@c", txtc.Text);
-                    //cmd2.Parameters.AddWithValue("@rl", txtrl.Text);
-                    //cmd2.Parameters.AddWithValue("@jumlah", lbltotalupdate.Text);
-
                     cmd.ExecuteNonQuery();
-                    //cmd2.ExecuteNonQuery();
                     MessageBox.Show("Data Berhasil Diedit", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     setdefault();
                     tampil();

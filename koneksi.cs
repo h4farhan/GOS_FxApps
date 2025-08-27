@@ -11,15 +11,10 @@ namespace GOS_FxApps
     public static class Koneksi
     {
 
-        //private static readonly string connectionString = "Data Source=192.168.1.64;" +
-        //    "Initial Catalog=gos_apps;" +
-        //    "Persist Security Info=True;" +
-        //    "User ID=sa;Password=%tii2025%;" +
-        //    "TrustServerCertificate=True;";
-
-        private static readonly string connectionString = "Data Source=WIN-LP6P3PLEU8O;" +
+        private static readonly string connectionString = "Data Source=192.168.1.64;" +
             "Initial Catalog=gos_apps;" +
-            "Integrated Security=True;" +
+            "Persist Security Info=True;" +
+            "User ID=sa;Password=$Genta2025$;" +
             "TrustServerCertificate=True;";
 
         public static SqlConnection GetConnection()

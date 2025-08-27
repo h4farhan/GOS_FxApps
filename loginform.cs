@@ -41,47 +41,37 @@ namespace GOS_FxApps
                         cmd.Parameters.AddWithValue("@id", txtid.Text);
                         cmd.Parameters.AddWithValue("@pw", txtpw.Text);
                         SqlDataReader dr = cmd.ExecuteReader();
+
                         if (dr.Read())
                         {
-                            level = dr["lvl"].ToString();
-                            name = dr["username"].ToString();
+                            string level = dr["lvl"].ToString();
+                            string name = dr["username"].ToString();
 
-                            if (level == "Manajer")
+                            switch (level)
                             {
-                                MainForm.Instance.truemanajer();
-                                MainForm.Instance.lbluser.Text = name + " [Manajer]";
-                                MainForm.Instance.role = "Manajer";
-                                this.Close();
+                                case "Manajer":
+                                    MainForm.Instance.truemanajer();
+                                    break;
+                                case "Admin":
+                                    MainForm.Instance.trueadmin();
+                                    break;
+                                case "Operator Gudang":
+                                    MainForm.Instance.trueoperatorgudang();
+                                    break;
+                                case "Operator":
+                                    MainForm.Instance.trueoperator();
+                                    break;
+                                default:
+                                    MessageBox.Show("Level tidak dikenali!", "Warning");
+                                    txtid.Clear();
+                                    txtpw.Clear();
+                                    return;
                             }
-                            else if (level == "Admin")
-                            {
-                                MainForm.Instance.trueadmin();
-                                MainForm.Instance.lbluser.Text = name + " [Admin]";
-                                MainForm.Instance.role = "Admin";
-                                this.Close();
-                            }
-                            else if (level == "Operator Gudang")
-                            {
-                                MainForm.Instance.trueoperatorgudang();
-                                MainForm.Instance.lbluser.Text = name + " [Operator Gudang]";
-                                MainForm.Instance.role = "Operator Gudang";
-                                this.Close();
-                            }
-                            else if (level == "Operator Perbaikan")
-                            {
-                                MainForm.Instance.trueoperatorperbaikan();
-                                MainForm.Instance.lbluser.Text = name + " [Operator Perbaikan]";
-                                MainForm.Instance.role = "Operator Perbaikan";
-                                this.Close();
-                            }
-                            else if (level == "Operator Penerimaan/Pengiriman")
-                            {
-                                MainForm.Instance.trueoperatorpenerimaan();
-                                MainForm.Instance.lbluser.Text = name + " [Operator Penerimaan/Pengiriman]";
-                                MainForm.Instance.role = "Operator Penerimaan/Pengiriman";
-                                this.Close();
-                            }
+
+                            MainForm.Instance.lbluser.Text = name + " [" + level + "]";
+                            MainForm.Instance.role = level;
                             MainForm.Instance.loginstatus = true;
+                            this.Close();
                         }
                         else
                         {
@@ -89,7 +79,54 @@ namespace GOS_FxApps
                             txtid.Clear();
                             txtpw.Clear();
                         }
-                    }  
+
+                        //if (dr.Read())
+                        //{
+                        //    string level = dr["lvl"].ToString();
+                        //    string name = dr["username"].ToString();
+
+                        //    string allowedRole = ""; //Belum ditentukan
+
+                        //    if (level == allowedRole)
+                        //    {
+                        //        switch (allowedRole)
+                        //        {
+                        //            case "Manajer":
+                        //                MainForm.Instance.truemanajer();
+                        //                break;
+                        //            case "Admin":
+                        //                MainForm.Instance.trueadmin();
+                        //                break;
+                        //            case "Operator Gudang":
+                        //                MainForm.Instance.trueoperatorgudang();
+                        //                break;
+                        //            case "Operator Perbaikan":
+                        //                MainForm.Instance.trueoperatorperbaikan();
+                        //                break;
+                        //            case "Operator Penerimaan/Pengiriman":
+                        //                MainForm.Instance.trueoperatorpenerimaan();
+                        //                break;
+                        //        }
+
+                        //        MainForm.Instance.lbluser.Text = name + " [" + allowedRole + "]";
+                        //        MainForm.Instance.role = allowedRole;
+                        //        MainForm.Instance.loginstatus = true;
+                        //        this.Close();
+                        //    }
+                        //    else
+                        //    {
+                        //        MessageBox.Show("Akses hanya untuk " + allowedRole + "!", "Warning");
+                        //        txtid.Clear();
+                        //        txtpw.Clear();
+                        //    }
+                        //}
+                        //else
+                        //{
+                        //    MessageBox.Show("Id Dan Password Anda Salah!!", "Warning");
+                        //    txtid.Clear();
+                        //    txtpw.Clear();
+                        //}
+                    }
                 }
                 catch (SqlException)
                 {

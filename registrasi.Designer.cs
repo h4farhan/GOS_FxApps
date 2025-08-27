@@ -222,9 +222,8 @@
             this.cmblevel.Items.AddRange(new object[] {
             "Manajer",
             "Admin",
-            "Operator Gudang",
-            "Operator Perbaikan",
-            "Operator Penerimaan/Pengiriman"});
+            "Operator",
+            "Operator Gudang"});
             this.cmblevel.Location = new System.Drawing.Point(230, 383);
             this.cmblevel.Margin = new System.Windows.Forms.Padding(2);
             this.cmblevel.Name = "cmblevel";
