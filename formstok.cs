@@ -299,7 +299,7 @@ namespace GOS_FxApps
                                     }
                                 }
 
-                                using (SqlCommand cmd = new SqlCommand("INSERT INTO stok_material (kodeBarang, namaBarang, spesifikasi, uom, type, min_stok, foto, created_at, updated_at) VALUES(@kodebarang,@namabarang,@spesifikasi,@uom,@type,@stok,@min_stok,@foto,@tanggal,@diubah)", conn))
+                                using (SqlCommand cmd = new SqlCommand("INSERT INTO stok_material (kodeBarang, namaBarang, spesifikasi, uom, type, min_stok, foto, created_at, updated_at) VALUES(@kodebarang,@namabarang,@spesifikasi,@uom,@type,@min_stok,@foto,@tanggal,@diubah)", conn))
                                 {
                                     cmd.Parameters.AddWithValue("@kodebarang", txtkodebarang.Text);
                                     cmd.Parameters.AddWithValue("@namabarang", txtnamabarang.Text);
@@ -317,9 +317,9 @@ namespace GOS_FxApps
                                 setdefault();
                                 tampil();
                         }
-                            catch (SqlException)
+                            catch (SqlException ex)
                             {
-                                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif." + ex.Message,
                                                     "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             catch (Exception ex)
