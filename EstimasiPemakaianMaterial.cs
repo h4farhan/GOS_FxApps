@@ -68,6 +68,7 @@ namespace GOS_FxApps
             dataGridView1.ReadOnly = true;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
             dataGridView1.RowTemplate.Height = 34;
+            dataGridView1.AllowUserToAddRows = false;
 
             foreach (DataGridViewColumn col in dataGridView1.Columns)
             {
@@ -157,37 +158,66 @@ namespace GOS_FxApps
                 xlWorkSheet.Cells[2, 1] = "UoM = Unit of Measure,     U /Price = Unit Price,     Coeff. = Coefficient,     E1, E2, E3 = Erotion,     " +
                     "S = Sticking,     D= Deformation,     B = Bending,     BA = BA Clade Change,     R = Spark,     CR = Crack York,     M = Crack MIG,     C = End Cut,     RL = Rod Long";
 
-                int rowStart1 = 7, colStart1 = 2;
-                for (int i = 0; i < dtMaterial.Rows.Count; i++)
+                if (dtMaterial.Rows.Count > 0)
                 {
-                    for (int j = 0; j < dtMaterial.Columns.Count; j++)
+                    int nomor = 1;
+                    Excel.ListObject tblMaterial = xlWorkSheet.ListObjects["Table6"];
+                    foreach (DataRow dr in dtMaterial.Rows)
                     {
-                        xlWorkSheet.Cells[rowStart1 + i, colStart1 + j] = dtMaterial.Rows[i][j].ToString();
+                        Excel.ListRow newRow = tblMaterial.ListRows.Add();
+                        newRow.Range[1, 1].Value2 = nomor++;
+                        for (int j = 0; j < dtMaterial.Columns.Count; j++)
+                        {
+                            int targetCol = j + 2;
+                            if (dtMaterial.Columns[j].ColumnName == "Persentase")
+                                newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                            else
+                                newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                        }
                     }
                 }
 
-                int rowStart2 = 11, colStart2 = 2;
-                for (int i = 0; i < dtConsumable.Rows.Count; i++)
+                if (dtConsumable.Rows.Count > 0)
                 {
-                    for (int j = 0; j < dtConsumable.Columns.Count; j++)
+                    int nomor = 1;
+                    Excel.ListObject tblConsumable = xlWorkSheet.ListObjects["Table1"];
+                    foreach (DataRow dr in dtConsumable.Rows)
                     {
-                        xlWorkSheet.Cells[rowStart2 + i, colStart2 + j] = dtConsumable.Rows[i][j].ToString();
+                        Excel.ListRow newRow = tblConsumable.ListRows.Add();
+                        newRow.Range[1, 1].Value2 = nomor++;
+                        for (int j = 0; j < dtConsumable.Columns.Count; j++)
+                        {
+                            int targetCol = j + 2;
+                            if (dtConsumable.Columns[j].ColumnName == "Persentase")
+                                newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                            else
+                                newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                        }
                     }
                 }
 
-                int rowStart3 = 15, colStart3 = 2;
-                for (int i = 0; i < dtsafety.Rows.Count; i++)
+                if (dtsafety.Rows.Count > 0)
                 {
-                    for (int j = 0; j < dtsafety.Columns.Count; j++)
+                    int nomor = 1;
+                    Excel.ListObject tblSafety = xlWorkSheet.ListObjects["Table2"];
+                    foreach (DataRow dr in dtsafety.Rows)
                     {
-                        xlWorkSheet.Cells[rowStart3 + i, colStart3 + j] = dtsafety.Rows[i][j].ToString();
+                        Excel.ListRow newRow = tblSafety.ListRows.Add();
+                        newRow.Range[1, 1].Value2 = nomor++;
+                        for (int j = 0; j < dtsafety.Columns.Count; j++)
+                        {
+                            int targetCol = j + 2;
+                            if (dtsafety.Columns[j].ColumnName == "Persentase")
+                                newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                            else
+                                newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                        }
                     }
                 }
 
                 if (dtQty.Rows.Count > 0)
                 {
                     DataRow r = dtQty.Rows[0];
-
                     xlWorkSheet.Cells[5, 6] = r["Total_E1"];
                     xlWorkSheet.Cells[5, 8] = r["Total_E2"];
                     xlWorkSheet.Cells[5, 10] = r["Total_E3"];
@@ -202,7 +232,6 @@ namespace GOS_FxApps
                     xlWorkSheet.Cells[5, 28] = r["Total_CR"];
                     xlWorkSheet.Cells[5, 30] = r["Total_C"];
                     xlWorkSheet.Cells[5, 32] = r["Total_RL"];
-
                 }
 
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -242,13 +271,13 @@ namespace GOS_FxApps
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
                 }
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
 
         private DataTable GetDataFromSPBulan(string spName, int bulan, int tahun)
         {
@@ -291,6 +320,7 @@ namespace GOS_FxApps
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ReadOnly = true;
+            dataGridView1.AllowUserToAddRows = false;
 
 
             foreach (DataGridViewColumn col in dataGridView1.Columns)
@@ -363,9 +393,9 @@ namespace GOS_FxApps
             int bulan = DateTime.Now.Month;
             int tahun = DateTime.Now.Year;
 
-            DataTable dt1 = GetDataFromSPBulan("sp_koefisiensiMaterialCostbulan", bulan, tahun);
-            DataTable dt2 = GetDataFromSPBulan("sp_koefisiensiConsumableCostbulan", bulan, tahun);
-            DataTable dt3 = GetDataFromSPBulan("sp_koefisiensiSafetyCostbulan", bulan, tahun);
+            DataTable dt1 = GetDataFromSPBulan("sp_koefisiensiMaterialCosttahun", bulan, tahun);
+            DataTable dt2 = GetDataFromSPBulan("sp_koefisiensiConsumableCosttahun", bulan, tahun);
+            DataTable dt3 = GetDataFromSPBulan("sp_koefisiensiSafetyCosttahun", bulan, tahun);
 
             DataTable finalDt = dt1.Copy();
 
@@ -384,7 +414,7 @@ namespace GOS_FxApps
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ReadOnly = true;
-
+            dataGridView1.AllowUserToAddRows = false;
 
             foreach (DataGridViewColumn col in dataGridView1.Columns)
             {
@@ -473,30 +503,60 @@ namespace GOS_FxApps
                 xlWorkSheet.Cells[2, 1] = "UoM = Unit of Measure,     U /Price = Unit Price,     Coeff. = Coefficient,     E1, E2, E3 = Erotion,     " +
                     "S = Sticking,     D= Deformation,     B = Bending,     BA = BA Clade Change,     R = Spark,     CR = Crack York,     M = Crack MIG,     C = End Cut,     RL = Rod Long";
 
-                int rowStart1 = 7, colStart1 = 2;
-                for (int i = 0; i < dtMaterial.Rows.Count; i++)
+                if (dtMaterial.Rows.Count > 0)
                 {
-                    for (int j = 0; j < dtMaterial.Columns.Count; j++)
+                    int nomor = 1;
+                    Excel.ListObject tblMaterial = xlWorkSheet.ListObjects["Table6"];
+                    foreach (DataRow dr in dtMaterial.Rows)
                     {
-                        xlWorkSheet.Cells[rowStart1 + i, colStart1 + j] = dtMaterial.Rows[i][j].ToString();
+                        Excel.ListRow newRow = tblMaterial.ListRows.Add();
+                        newRow.Range[1, 1].Value2 = nomor++;
+                        for (int j = 0; j < dtMaterial.Columns.Count; j++)
+                        {
+                            int targetCol = j + 2;
+                            if (dtMaterial.Columns[j].ColumnName == "Persentase")
+                                newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                            else
+                                newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                        }
                     }
                 }
 
-                int rowStart2 = 11, colStart2 = 2;
-                for (int i = 0; i < dtConsumable.Rows.Count; i++)
+                if (dtConsumable.Rows.Count > 0)
                 {
-                    for (int j = 0; j < dtConsumable.Columns.Count; j++)
+                    int nomor = 1;
+                    Excel.ListObject tblConsumable = xlWorkSheet.ListObjects["Table1"];
+                    foreach (DataRow dr in dtConsumable.Rows)
                     {
-                        xlWorkSheet.Cells[rowStart2 + i, colStart2 + j] = dtConsumable.Rows[i][j].ToString();
+                        Excel.ListRow newRow = tblConsumable.ListRows.Add();
+                        newRow.Range[1, 1].Value2 = nomor++;
+                        for (int j = 0; j < dtConsumable.Columns.Count; j++)
+                        {
+                            int targetCol = j + 2;
+                            if (dtConsumable.Columns[j].ColumnName == "Persentase")
+                                newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                            else
+                                newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                        }
                     }
                 }
 
-                int rowStart3 = 15, colStart3 = 2;
-                for (int i = 0; i < dtsafety.Rows.Count; i++)
+                if (dtsafety.Rows.Count > 0)
                 {
-                    for (int j = 0; j < dtsafety.Columns.Count; j++)
+                    int nomor = 1;
+                    Excel.ListObject tblSafety = xlWorkSheet.ListObjects["Table2"];
+                    foreach (DataRow dr in dtsafety.Rows)
                     {
-                        xlWorkSheet.Cells[rowStart3 + i, colStart3 + j] = dtsafety.Rows[i][j].ToString();
+                        Excel.ListRow newRow = tblSafety.ListRows.Add();
+                        newRow.Range[1, 1].Value2 = nomor++;
+                        for (int j = 0; j < dtsafety.Columns.Count; j++)
+                        {
+                            int targetCol = j + 2;
+                            if (dtsafety.Columns[j].ColumnName == "Persentase")
+                                newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                            else
+                                newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                        }
                     }
                 }
 
@@ -600,30 +660,60 @@ namespace GOS_FxApps
                 xlWorkSheet.Cells[2, 1] = "UoM = Unit of Measure,     U /Price = Unit Price,     Coeff. = Coefficient,     E1, E2, E3 = Erotion,     " +
                     "S = Sticking,     D= Deformation,     B = Bending,     BA = BA Clade Change,     R = Spark,     CR = Crack York,     M = Crack MIG,     C = End Cut,     RL = Rod Long";
 
-                int rowStart1 = 7, colStart1 = 2;
-                for (int i = 0; i < dtMaterial.Rows.Count; i++)
+                if (dtMaterial.Rows.Count > 0)
                 {
-                    for (int j = 0; j < dtMaterial.Columns.Count; j++)
+                    int nomor = 1;
+                    Excel.ListObject tblMaterial = xlWorkSheet.ListObjects["Table6"];
+                    foreach (DataRow dr in dtMaterial.Rows)
                     {
-                        xlWorkSheet.Cells[rowStart1 + i, colStart1 + j] = dtMaterial.Rows[i][j].ToString();
+                        Excel.ListRow newRow = tblMaterial.ListRows.Add();
+                        newRow.Range[1, 1].Value2 = nomor++;
+                        for (int j = 0; j < dtMaterial.Columns.Count; j++)
+                        {
+                            int targetCol = j + 2;
+                            if (dtMaterial.Columns[j].ColumnName == "Persentase")
+                                newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                            else
+                                newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                        }
                     }
                 }
 
-                int rowStart2 = 11, colStart2 = 2;
-                for (int i = 0; i < dtConsumable.Rows.Count; i++)
+                if (dtConsumable.Rows.Count > 0)
                 {
-                    for (int j = 0; j < dtConsumable.Columns.Count; j++)
+                    int nomor = 1;
+                    Excel.ListObject tblConsumable = xlWorkSheet.ListObjects["Table1"];
+                    foreach (DataRow dr in dtConsumable.Rows)
                     {
-                        xlWorkSheet.Cells[rowStart2 + i, colStart2 + j] = dtConsumable.Rows[i][j].ToString();
+                        Excel.ListRow newRow = tblConsumable.ListRows.Add();
+                        newRow.Range[1, 1].Value2 = nomor++;
+                        for (int j = 0; j < dtConsumable.Columns.Count; j++)
+                        {
+                            int targetCol = j + 2;
+                            if (dtConsumable.Columns[j].ColumnName == "Persentase")
+                                newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                            else
+                                newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                        }
                     }
                 }
 
-                int rowStart3 = 15, colStart3 = 2;
-                for (int i = 0; i < dtsafety.Rows.Count; i++)
+                if (dtsafety.Rows.Count > 0)
                 {
-                    for (int j = 0; j < dtsafety.Columns.Count; j++)
+                    int nomor = 1;
+                    Excel.ListObject tblSafety = xlWorkSheet.ListObjects["Table2"];
+                    foreach (DataRow dr in dtsafety.Rows)
                     {
-                        xlWorkSheet.Cells[rowStart3 + i, colStart3 + j] = dtsafety.Rows[i][j].ToString();
+                        Excel.ListRow newRow = tblSafety.ListRows.Add();
+                        newRow.Range[1, 1].Value2 = nomor++;
+                        for (int j = 0; j < dtsafety.Columns.Count; j++)
+                        {
+                            int targetCol = j + 2;
+                            if (dtsafety.Columns[j].ColumnName == "Persentase")
+                                newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                            else
+                                newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                        }
                     }
                 }
 

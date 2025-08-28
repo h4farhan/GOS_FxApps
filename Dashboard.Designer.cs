@@ -107,7 +107,7 @@ namespace GOS_FxApps
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(312, 33);
             this.label11.TabIndex = 2;
-            this.label11.Text = "Pcs";
+            this.label11.Text = "Assy";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label13
@@ -120,7 +120,7 @@ namespace GOS_FxApps
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(312, 33);
             this.label13.TabIndex = 0;
-            this.label13.Text = "Stok Batang Yang Belum Diperbaiki";
+            this.label13.Text = "Stok ROD Reject";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label3
@@ -147,7 +147,7 @@ namespace GOS_FxApps
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(312, 33);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Pcs";
+            this.label4.Text = "Assy";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
@@ -160,7 +160,7 @@ namespace GOS_FxApps
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(312, 33);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Jumlah Batang di Bengkel";
+            this.label2.Text = "Total ROD Di RRS";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tableLayoutPanel7
@@ -354,7 +354,7 @@ namespace GOS_FxApps
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(312, 33);
             this.label16.TabIndex = 0;
-            this.label16.Text = "Stok Batang Yang Sudah Diperbaiki";
+            this.label16.Text = "Stok ROD Ready";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label14
@@ -368,7 +368,7 @@ namespace GOS_FxApps
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(312, 33);
             this.label14.TabIndex = 2;
-            this.label14.Text = "Pcs";
+            this.label14.Text = "Assy";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // guna2Panel3

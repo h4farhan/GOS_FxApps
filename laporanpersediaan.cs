@@ -62,6 +62,7 @@ namespace GOS_FxApps
             dataGridView1.ReadOnly = true;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
             dataGridView1.RowTemplate.Height = 34;
+            dataGridView1.AllowUserToAddRows = false;
 
             foreach (DataGridViewColumn col in dataGridView1.Columns)
             {
@@ -258,6 +259,7 @@ namespace GOS_FxApps
 
         private void btnprint_Click(object sender, EventArgs e)
         {
+            
             ExportToExcelBulan();
         }
     }

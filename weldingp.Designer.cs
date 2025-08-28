@@ -377,7 +377,7 @@
             this.label38.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
             this.label38.Size = new System.Drawing.Size(86, 20);
             this.label38.TabIndex = 2;
-            this.label38.Text = "E2 - 225 mm";
+            this.label38.Text = "E2 - 220 mm";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label24
@@ -487,7 +487,7 @@
             this.label34.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
             this.label34.Size = new System.Drawing.Size(86, 20);
             this.label34.TabIndex = 2;
-            this.label34.Text = "E2 - 225 mm";
+            this.label34.Text = "E2 - 220 mm";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10
@@ -1216,7 +1216,7 @@
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(90, 19);
             this.label21.TabIndex = 20;
-            this.label21.Text = "E2 - 225 mm";
+            this.label21.Text = "E2 - 220 mm";
             // 
             // pkeluare2
             // 
@@ -1354,7 +1354,7 @@
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(90, 19);
             this.label19.TabIndex = 16;
-            this.label19.Text = "E2 - 225 mm";
+            this.label19.Text = "E2 - 220 mm";
             // 
             // lathee2
             // 
@@ -1468,7 +1468,7 @@
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(90, 19);
             this.label18.TabIndex = 12;
-            this.label18.Text = "E2 - 225 mm";
+            this.label18.Text = "E2 - 220 mm";
             // 
             // sawinge2
             // 

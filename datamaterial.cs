@@ -56,17 +56,18 @@ namespace GOS_FxApps
             dataGridView1.AutoGenerateColumns = true;
 
             dataGridView1.ColumnHeadersVisible = false;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.RowHeadersVisible = false;            
             dataGridView1.ReadOnly = true;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-            dataGridView1.RowTemplate.Height = 34;
+            dataGridView1.RowTemplate.Height = 70;
+            dataGridView1.AllowUserToAddRows = false;
 
             foreach (DataGridViewColumn col in dataGridView1.Columns)
             {
                 col.Resizable = DataGridViewTriState.False;
             }
 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.Columns["No"].Width = label5.Width;
             dataGridView1.Columns["Bulan"].Width = label12.Width;
             dataGridView1.Columns["kodeBarang"].Width = label4.Width;
@@ -138,6 +139,22 @@ namespace GOS_FxApps
             dataGridView1.Columns["Keluar29"].Width = label45.Width;
             dataGridView1.Columns["Keluar30"].Width = label44.Width;
             dataGridView1.Columns["Keluar31"].Width = label42.Width;
+
+            if (dataGridView1.Columns.Contains("foto"))
+            {
+                int fotoIndex = dataGridView1.Columns["foto"].Index;
+
+                DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
+                imgCol.Name = "foto";
+                imgCol.HeaderText = "Foto";
+                imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                imgCol.DataPropertyName = "foto";
+
+                dataGridView1.Columns.Remove("foto");
+                dataGridView1.Columns.Insert(fotoIndex, imgCol);
+
+                dataGridView1.Columns["foto"].Width = label73.Width;
+            }
         }
 
         private void ExportToExcelBulan()
@@ -164,8 +181,35 @@ namespace GOS_FxApps
 
                     for (int j = 0; j < dtMaterial.Columns.Count; j++)
                     {
-                        xlWorkSheet.Cells[rowStart + i, colStart + j + 1] =
-                            dtMaterial.Rows[i][j].ToString();
+                        string columnName = dtMaterial.Columns[j].ColumnName.ToLower();
+
+                        if (columnName == "foto")
+                        {
+                            if (dtMaterial.Rows[i][j] != DBNull.Value)
+                            {
+                                byte[] imgBytes = (byte[])dtMaterial.Rows[i][j];
+                                using (MemoryStream ms = new MemoryStream(imgBytes))
+                                {
+                                    System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
+                                    string tempPath = Path.Combine(Path.GetTempPath(), $"img_{i}_{j}.png");
+                                    img.Save(tempPath, System.Drawing.Imaging.ImageFormat.Png);
+
+                                    Excel.Range cell = (Excel.Range)xlWorkSheet.Cells[rowStart + i, colStart + j + 1];
+                                    Excel.Pictures pics = (Excel.Pictures)xlWorkSheet.Pictures(Type.Missing);
+                                    Excel.Picture pic = pics.Insert(tempPath, Type.Missing);
+
+                                    float cmToPoint = 28.35f;  
+                                    pic.Height = 3.5f * cmToPoint;   
+
+                                    pic.Left = (float)cell.Left + ((float)cell.Width - pic.Width) / 2;
+                                    pic.Top = (float)cell.Top + ((float)cell.Height - pic.Height) / 2;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            xlWorkSheet.Cells[rowStart + i, colStart + j + 1] = dtMaterial.Rows[i][j].ToString();
+                        }
                     }
                 }
 
