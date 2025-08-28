@@ -40,6 +40,7 @@
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label73 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
@@ -113,7 +114,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbltanggal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label73 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
@@ -369,6 +369,19 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(8664, 50);
             this.panel4.TabIndex = 58;
+            // 
+            // label73
+            // 
+            this.label73.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label73.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label73.ForeColor = System.Drawing.Color.White;
+            this.label73.Location = new System.Drawing.Point(8468, 0);
+            this.label73.Margin = new System.Windows.Forms.Padding(0);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(196, 50);
+            this.label73.TabIndex = 74;
+            this.label73.Text = "FOTO";
+            this.label73.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label42
             // 
@@ -1292,7 +1305,7 @@
             // lbltanggal
             // 
             this.lbltanggal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbltanggal.Font = new System.Drawing.Font("Segoe UI", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltanggal.Font = new System.Drawing.Font("Segoe UI", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltanggal.Location = new System.Drawing.Point(5, 35);
             this.lbltanggal.Name = "lbltanggal";
             this.lbltanggal.Size = new System.Drawing.Size(8654, 33);
@@ -1308,21 +1321,8 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(8654, 30);
             this.label1.TabIndex = 0;
-            this.label1.Text = "LAPORAN PERSEDIAAN MATERIAL DI KUALA TANJUNG";
+            this.label1.Text = "LAPORAN DATA MATERIAL";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label73
-            // 
-            this.label73.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label73.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label73.ForeColor = System.Drawing.Color.White;
-            this.label73.Location = new System.Drawing.Point(8468, 0);
-            this.label73.Margin = new System.Windows.Forms.Padding(0);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(196, 50);
-            this.label73.TabIndex = 74;
-            this.label73.Text = "FOTO";
-            this.label73.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // datamaterial
             // 

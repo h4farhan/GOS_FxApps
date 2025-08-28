@@ -255,11 +255,11 @@ namespace GOS_FxApps
         {
             datejadwal.Value = DateTime.Now;
             loadsp1();
+            lbltanggal.Text = "Per " + DateTime.Now.ToString("MMMM yyyy");
         }
 
         private void btnprint_Click(object sender, EventArgs e)
         {
-            
             ExportToExcelBulan();
         }
     }

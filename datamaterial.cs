@@ -351,6 +351,7 @@ namespace GOS_FxApps
         {
             datejadwal.Value = DateTime.Now;
             loadsp1();
+            lbltanggal.Text = "Per " + DateTime.Now.ToString("MMMM yyyy");
         }
     }
 }
