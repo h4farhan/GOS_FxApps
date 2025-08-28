@@ -17,7 +17,6 @@ namespace GOS_FxApps
     {
         SqlConnection conn = Koneksi.GetConnection();
 
-        bool infocari = false;
         int noprimary;
 
         public Penerimaan()
@@ -400,32 +399,20 @@ namespace GOS_FxApps
 
         private bool cari()
         {
-            DateTime? tanggal = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
             string inputRod = txtcari.Text.Trim();
-
-            if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
-            {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
             DataTable dt = new DataTable();
 
             string query = "SELECT * FROM penerimaan_s WHERE 1=1";
 
             using (SqlCommand cmd = new SqlCommand())
             {
-                if (tanggal.HasValue)
-                {
-                    query += "AND CAST(tanggal_penerimaan AS DATE) = @tgl";
-                    cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
-                }
-
                 if (!string.IsNullOrEmpty(inputRod))
                 {
-                    query += " AND nomor_rod = @rod";
-                    cmd.Parameters.AddWithValue("@rod", Convert.ToInt32(inputRod));
+                    query += " AND CAST(nomor_rod AS VARCHAR) LIKE @rod";
+                    cmd.Parameters.AddWithValue("@rod", "%" + inputRod + "%");
                 }
+
+                query += " ORDER BY tanggal_penerimaan DESC";
 
                 cmd.CommandText = query;
                 cmd.Connection = conn;
@@ -455,33 +442,6 @@ namespace GOS_FxApps
                     conn.Close();
                 }
                 return dt.Rows.Count > 0;
-            }
-        }
-
-        private void btncari_Click(object sender, EventArgs e)
-        {
-            if (!infocari)
-            {
-                bool hasilCari = cari();
-                if (hasilCari)
-                {
-                    infocari = true;
-                    btncari.Text = "Reset";
-                }
-                else
-                {
-                    infocari = true;
-                    btncari.Text = "Reset";
-                }
-            }
-            else
-            {
-                tampil();
-                infocari = false;
-                btncari.Text = "Cari";
-
-                txtcari.Text = "";
-                datecari.Checked = false;
             }
         }
 
@@ -527,8 +487,6 @@ namespace GOS_FxApps
         private void Penerimaan_Load(object sender, EventArgs e)
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
-            datecari.Value = DateTime.Now.Date;
-            datecari.Checked = false;
             txtnomorrod.Focus();
             registertampil();
         }
@@ -624,6 +582,11 @@ namespace GOS_FxApps
         private void guna2Panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void txtcari_TextChanged(object sender, EventArgs e)
+        {
+            cari();
         }
     }
 }

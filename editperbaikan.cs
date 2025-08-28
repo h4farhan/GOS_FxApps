@@ -144,6 +144,8 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@rod", Convert.ToInt32(inputRod));
                 }
 
+                query += " ORDER BY tanggal_perbaikan DESC";
+
                 cmd.CommandText = query;
                 cmd.Connection = conn;
 

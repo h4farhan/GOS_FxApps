@@ -47,7 +47,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM material_masuk ORDER BY tanggalMasuk DESC, updated_at DESC";
+                string query = "SELECT * FROM material_masuk ORDER BY tanggalMasuk DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -106,6 +106,8 @@ namespace GOS_FxApps
                     query += " AND kodeBarang = @kode";
                     cmd.Parameters.AddWithValue("@kode", kodeBarang);
                 }
+
+                query += " ORDER BY tanggalMasuk DESC";
 
                 cmd.CommandText = query;
                 cmd.Connection = conn;

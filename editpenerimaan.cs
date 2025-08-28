@@ -127,6 +127,8 @@ namespace GOS_FxApps
                      cmd.Parameters.AddWithValue("@rod", Convert.ToInt32(inputRod));
                 }
 
+                query += " ORDER BY tanggal_penerimaan DESC";
+
                 cmd.CommandText = query;
                 cmd.Connection = conn;
 

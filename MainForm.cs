@@ -105,7 +105,7 @@ namespace GOS_FxApps {
             btndata.FillColor = Color.Transparent;
             btndata.ForeColor = Color.Black;
 
-            guna2Button1.ForeColor = Color.Transparent;
+            guna2Button1.FillColor = Color.Transparent;
             guna2Button1.ForeColor = Color.Black;
         }
 

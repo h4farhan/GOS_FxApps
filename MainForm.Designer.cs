@@ -38,8 +38,8 @@ namespace GOS_FxApps
             this.panel4 = new System.Windows.Forms.Panel();
             this.historycontainer = new Guna.UI2.WinForms.Guna2Panel();
             this.iconButton13 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton5 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton6 = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton10 = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton11 = new Guna.UI2.WinForms.Guna2Button();
@@ -83,8 +83,8 @@ namespace GOS_FxApps
             this.btndata = new Guna.UI2.WinForms.Guna2Button();
             this.btnlaporanpersediaan = new Guna.UI2.WinForms.Guna2Button();
             this.btntambahmaterial = new Guna.UI2.WinForms.Guna2Button();
-            this.btnmaterialmasuk = new Guna.UI2.WinForms.Guna2Button();
             this.btnpemakaian = new Guna.UI2.WinForms.Guna2Button();
+            this.btnmaterialmasuk = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton3 = new Guna.UI2.WinForms.Guna2Button();
             this.btngudang = new Guna.UI2.WinForms.Guna2Button();
             this.btnlaporan = new Guna.UI2.WinForms.Guna2Button();
@@ -195,29 +195,6 @@ namespace GOS_FxApps
             this.iconButton13.TextOffset = new System.Drawing.Point(5, 0);
             this.iconButton13.Click += new System.EventHandler(this.iconButton13_Click_1);
             // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BorderRadius = 8;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.Image = global::GOS_FxApps.Properties.Resources.processing;
-            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button1.Location = new System.Drawing.Point(0, 215);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(232, 40);
-            this.guna2Button1.TabIndex = 20;
-            this.guna2Button1.Text = "Material Masuk";
-            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.TextOffset = new System.Drawing.Point(5, 0);
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
-            // 
             // iconButton5
             // 
             this.iconButton5.BackColor = System.Drawing.Color.Transparent;
@@ -241,6 +218,29 @@ namespace GOS_FxApps
             this.iconButton5.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.iconButton5.TextOffset = new System.Drawing.Point(5, 0);
             this.iconButton5.Click += new System.EventHandler(this.iconButton5_Click_1);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BorderRadius = 8;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button1.Image = global::GOS_FxApps.Properties.Resources.processing;
+            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2Button1.Location = new System.Drawing.Point(0, 215);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(232, 40);
+            this.guna2Button1.TabIndex = 20;
+            this.guna2Button1.Text = "Material Masuk";
+            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.TextOffset = new System.Drawing.Point(5, 0);
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // iconButton6
             // 
@@ -988,29 +988,6 @@ namespace GOS_FxApps
             this.btntambahmaterial.TextOffset = new System.Drawing.Point(5, 0);
             this.btntambahmaterial.Click += new System.EventHandler(this.btntambahmaterial_Click);
             // 
-            // btnmaterialmasuk
-            // 
-            this.btnmaterialmasuk.BorderRadius = 8;
-            this.btnmaterialmasuk.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnmaterialmasuk.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnmaterialmasuk.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnmaterialmasuk.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnmaterialmasuk.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnmaterialmasuk.FillColor = System.Drawing.Color.Transparent;
-            this.btnmaterialmasuk.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnmaterialmasuk.ForeColor = System.Drawing.Color.Black;
-            this.btnmaterialmasuk.Image = global::GOS_FxApps.Properties.Resources.processing;
-            this.btnmaterialmasuk.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnmaterialmasuk.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnmaterialmasuk.Location = new System.Drawing.Point(0, 95);
-            this.btnmaterialmasuk.Name = "btnmaterialmasuk";
-            this.btnmaterialmasuk.Size = new System.Drawing.Size(231, 40);
-            this.btnmaterialmasuk.TabIndex = 19;
-            this.btnmaterialmasuk.Text = "Material Masuk";
-            this.btnmaterialmasuk.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnmaterialmasuk.TextOffset = new System.Drawing.Point(5, 0);
-            this.btnmaterialmasuk.Click += new System.EventHandler(this.btnmaterialmasuk_Click);
-            // 
             // btnpemakaian
             // 
             this.btnpemakaian.BorderRadius = 8;
@@ -1033,6 +1010,29 @@ namespace GOS_FxApps
             this.btnpemakaian.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnpemakaian.TextOffset = new System.Drawing.Point(5, 0);
             this.btnpemakaian.Click += new System.EventHandler(this.iconButton4_Click_1);
+            // 
+            // btnmaterialmasuk
+            // 
+            this.btnmaterialmasuk.BorderRadius = 8;
+            this.btnmaterialmasuk.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnmaterialmasuk.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnmaterialmasuk.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnmaterialmasuk.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnmaterialmasuk.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnmaterialmasuk.FillColor = System.Drawing.Color.Transparent;
+            this.btnmaterialmasuk.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnmaterialmasuk.ForeColor = System.Drawing.Color.Black;
+            this.btnmaterialmasuk.Image = global::GOS_FxApps.Properties.Resources.processing;
+            this.btnmaterialmasuk.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnmaterialmasuk.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnmaterialmasuk.Location = new System.Drawing.Point(0, 95);
+            this.btnmaterialmasuk.Name = "btnmaterialmasuk";
+            this.btnmaterialmasuk.Size = new System.Drawing.Size(231, 40);
+            this.btnmaterialmasuk.TabIndex = 19;
+            this.btnmaterialmasuk.Text = "Material Masuk";
+            this.btnmaterialmasuk.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnmaterialmasuk.TextOffset = new System.Drawing.Point(5, 0);
+            this.btnmaterialmasuk.Click += new System.EventHandler(this.btnmaterialmasuk_Click);
             // 
             // iconButton3
             // 

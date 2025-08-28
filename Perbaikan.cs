@@ -17,7 +17,6 @@ namespace GOS_FxApps
     {
         private DateTime tanggalpenerimaan;
         SqlConnection conn = Koneksi.GetConnection();
-        bool infocari = false;
         int noprimary;
 
         public Perbaikan()
@@ -78,10 +77,6 @@ namespace GOS_FxApps
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
             btnsimpan.Enabled = false;
-            datecariperbaikan.Value = DateTime.Now.Date;
-            datecariperbaikan.Checked = false;
-            datecaripenerimaan.Value = DateTime.Now.Date;
-            datecaripenerimaan.Checked = false;
             txtnomorrod.Focus();
             registertampilpenerimaan();
             registertampilperbaikan();
@@ -136,32 +131,20 @@ namespace GOS_FxApps
 
         private bool caripenerimaan()
         {
-            DateTime? tanggal = datecaripenerimaan.Checked ? (DateTime?)datecaripenerimaan.Value.Date : null;
             string inputRod = txtcaripenerimaan.Text.Trim();
-
-            if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
-            {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
             DataTable dt = new DataTable();
 
             string query = "SELECT * FROM penerimaan_s WHERE 1=1";
 
             using (SqlCommand cmd = new SqlCommand())
             {
-                if (tanggal.HasValue)
-                {
-                    query += "AND CAST(tanggal_penerimaan AS DATE) = @tgl";
-                    cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
-                }
-
                 if (!string.IsNullOrEmpty(inputRod))
                 {
-                    query += " AND nomor_rod = @rod";
-                    cmd.Parameters.AddWithValue("@rod", Convert.ToInt32(inputRod));
+                    query += " AND CAST(nomor_rod AS VARCHAR) LIKE @rod";
+                    cmd.Parameters.AddWithValue("@rod", "%" + inputRod + "%");
                 }
+
+                query += " ORDER BY tanggal_penerimaan DESC";
 
                 cmd.CommandText = query;
                 cmd.Connection = conn;
@@ -252,32 +235,20 @@ namespace GOS_FxApps
 
         private bool cariperbaikan()
         {
-            DateTime? tanggal = datecariperbaikan.Checked ? (DateTime?)datecariperbaikan.Value.Date : null;
             string inputRod = txtcariperbaikan.Text.Trim();
-
-            if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
-            {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
             DataTable dt = new DataTable();
 
             string query = "SELECT * FROM perbaikan_s WHERE 1=1";
 
             using (SqlCommand cmd = new SqlCommand())
             {
-                if (tanggal.HasValue)
-                {
-                    query += "AND CAST(tanggal_perbaikan AS DATE) = @tgl";
-                    cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
-                }
-
                 if (!string.IsNullOrEmpty(inputRod))
                 {
-                    query += " AND nomor_rod = @rod";
-                    cmd.Parameters.AddWithValue("@rod", Convert.ToInt32(inputRod));
+                    query += " AND CAST(nomor_rod AS VARCHAR) LIKE @rod";
+                    cmd.Parameters.AddWithValue("@rod", "%" + inputRod + "%");
                 }
+
+                query += " ORDER BY tanggal_perbaikan DESC";
 
                 cmd.CommandText = query;
                 cmd.Connection = conn;
@@ -689,33 +660,6 @@ namespace GOS_FxApps
                 btncancel.Enabled = false;
             }
         }
-        
-        private void btncari_Click(object sender, EventArgs e)
-        {
-            if (!infocari)
-            {
-                bool hasilCari = cariperbaikan();
-                if (hasilCari)
-                {
-                    infocari = true;
-                    btncariperbaikan.Text = "Reset";
-                }
-                else
-                {
-                    infocari = true;
-                    btncariperbaikan.Text = "Reset";
-                }
-            }
-            else
-            {
-                tampilperbaikan();
-                infocari = false;
-                btncariperbaikan.Text = "Cari";
-
-                txtcariperbaikan.Text = "";
-                datecariperbaikan.Checked = false;
-            }
-        }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -859,33 +803,6 @@ namespace GOS_FxApps
             hitung();
         }
 
-        private void btncaripenerimaan_Click(object sender, EventArgs e)
-        {
-            if (!infocari)
-            {
-                bool hasilCari = caripenerimaan();
-                if (hasilCari)
-                {
-                    infocari = true;
-                    btncaripenerimaan.Text = "Reset";
-                }
-                else
-                {
-                    infocari = true;
-                    btncaripenerimaan.Text = "Reset";
-                }
-            }
-            else
-            {
-                tampilpenerimaan();
-                infocari = false;
-                btncaripenerimaan.Text = "Cari";
-
-                txtcaripenerimaan.Text = "";
-                datecaripenerimaan.Checked = false;
-            }
-        }
-
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -917,6 +834,16 @@ namespace GOS_FxApps
         private void Perbaikan_FormClosing(object sender, FormClosingEventArgs e)
         {
             SqlDependency.Stop(Koneksi.GetConnectionString());
+        }
+
+        private void txtcaripenerimaan_TextChanged(object sender, EventArgs e)
+        {
+            caripenerimaan();
+        }
+
+        private void txtcariperbaikan_TextChanged(object sender, EventArgs e)
+        {
+            cariperbaikan();
         }
     }
 }

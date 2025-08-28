@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Collections;
 
 namespace GOS_FxApps
 {
@@ -124,7 +125,7 @@ namespace GOS_FxApps
         {
             string keyword = txtcari.Text;
 
-            using (SqlCommand cmd = new SqlCommand("SELECT * FROM stok_material WHERE kodeBarang LIKE @keyword OR namaBarang LIKE @keyword", conn))
+            using (SqlCommand cmd = new SqlCommand("SELECT * FROM stok_material WHERE kodeBarang LIKE @keyword OR namaBarang LIKE @keyword ORDER BY created_at DESC", conn))
             {
                 cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
                 SqlDataAdapter da = new SqlDataAdapter(cmd);

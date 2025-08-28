@@ -185,7 +185,7 @@ namespace GOS_FxApps
             string query = @"SELECT * 
                      FROM koefisiensi_material 
                      WHERE YEAR(tanggal) = @year 
-                       AND MONTH(tanggal) = @bulan";
+                       AND MONTH(tanggal) = @bulan ORDER BY tanggal DESC";
 
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {

@@ -81,8 +81,6 @@ namespace GOS_FxApps
             this.btnsimpan = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.datecari = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.btncari = new Guna.UI2.WinForms.Guna2Button();
             this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
@@ -944,8 +942,6 @@ namespace GOS_FxApps
             this.guna2Panel4.BorderColor = System.Drawing.Color.Gainsboro;
             this.guna2Panel4.BorderRadius = 15;
             this.guna2Panel4.BorderThickness = 2;
-            this.guna2Panel4.Controls.Add(this.datecari);
-            this.guna2Panel4.Controls.Add(this.btncari);
             this.guna2Panel4.Controls.Add(this.txtcari);
             this.guna2Panel4.Controls.Add(this.dataGridView1);
             this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -956,44 +952,6 @@ namespace GOS_FxApps
             this.guna2Panel4.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.guna2Panel4.Size = new System.Drawing.Size(318, 541);
             this.guna2Panel4.TabIndex = 3;
-            // 
-            // datecari
-            // 
-            this.datecari.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.datecari.BorderRadius = 5;
-            this.datecari.BorderThickness = 2;
-            this.datecari.Checked = true;
-            this.datecari.FillColor = System.Drawing.Color.White;
-            this.datecari.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.datecari.ForeColor = System.Drawing.Color.Black;
-            this.datecari.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.datecari.Location = new System.Drawing.Point(11, 14);
-            this.datecari.Margin = new System.Windows.Forms.Padding(2);
-            this.datecari.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.datecari.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.datecari.Name = "datecari";
-            this.datecari.ShowCheckBox = true;
-            this.datecari.Size = new System.Drawing.Size(203, 41);
-            this.datecari.TabIndex = 0;
-            this.datecari.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
-            // 
-            // btncari
-            // 
-            this.btncari.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btncari.BorderRadius = 8;
-            this.btncari.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btncari.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btncari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btncari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btncari.ForeColor = System.Drawing.Color.White;
-            this.btncari.Location = new System.Drawing.Point(245, 14);
-            this.btncari.Margin = new System.Windows.Forms.Padding(2);
-            this.btncari.Name = "btncari";
-            this.btncari.Size = new System.Drawing.Size(60, 39);
-            this.btncari.TabIndex = 2;
-            this.btncari.Text = "Cari";
-            this.btncari.Click += new System.EventHandler(this.btncari_Click);
             // 
             // txtcari
             // 
@@ -1015,15 +973,16 @@ namespace GOS_FxApps
             this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.search;
             this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
-            this.txtcari.Location = new System.Drawing.Point(218, 15);
+            this.txtcari.Location = new System.Drawing.Point(11, 15);
             this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtcari.Name = "txtcari";
             this.txtcari.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtcari.PlaceholderText = "Nomor Rod";
             this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(23, 39);
+            this.txtcari.Size = new System.Drawing.Size(294, 39);
             this.txtcari.TabIndex = 1;
             this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtcari.TextChanged += new System.EventHandler(this.txtcari_TextChanged);
             this.txtcari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // dataGridView1
@@ -1155,9 +1114,7 @@ namespace GOS_FxApps
         private Label label22;
         private Label lbltotal;
         private DataGridView dataGridView1;
-        private Guna.UI2.WinForms.Guna2Button btncari;
         private Guna.UI2.WinForms.Guna2TextBox txtcari;
         private Guna.UI2.WinForms.Guna2Button btncancel;
-        private Guna.UI2.WinForms.Guna2DateTimePicker datecari;
     }
 }

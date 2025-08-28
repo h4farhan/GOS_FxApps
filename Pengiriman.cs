@@ -19,7 +19,6 @@ namespace GOS_FxApps
         private List<Perbaikan> list = new List<Perbaikan>();
         SqlConnection conn = Koneksi.GetConnection();
 
-        bool infocari = false;
         Guna.UI2.WinForms.Guna2TextBox[] txtrods;
 
         public class Perbaikan
@@ -125,32 +124,20 @@ namespace GOS_FxApps
 
         private bool cari()
         {
-            DateTime? tanggal = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
             string inputRod = txtcari.Text.Trim();
-
-            if (!tanggal.HasValue && string.IsNullOrEmpty(inputRod))
-            {
-                MessageBox.Show("Silakan isi tanggal atau nomor ROD untuk melakukan pencarian.", "Peringatan");
-                return false;
-            }
-
             DataTable dt = new DataTable();
 
             string query = "SELECT * FROM perbaikan_s WHERE 1=1";
 
             using (SqlCommand cmd = new SqlCommand())
             {
-                if (tanggal.HasValue)
-                {
-                    query += "AND CAST(tanggal_perbaikan AS DATE) = @tgl";
-                    cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
-                }
-
                 if (!string.IsNullOrEmpty(inputRod))
                 {
-                    query += " AND nomor_rod = @rod";
-                    cmd.Parameters.AddWithValue("@rod", Convert.ToInt32(inputRod));
+                    query += " AND CAST(nomor_rod AS VARCHAR) LIKE @rod";
+                    cmd.Parameters.AddWithValue("@rod", "%" + inputRod + "%");
                 }
+
+                query += " ORDER BY tanggal_perbaikan DESC";
 
                 cmd.CommandText = query;
                 cmd.Connection = conn;
@@ -419,39 +406,10 @@ namespace GOS_FxApps
             }
         }
 
-        private void btncari_Click(object sender, EventArgs e)
-        {
-            if (!infocari)
-            {
-                bool hasilCari = cari();
-                if (hasilCari)
-                {
-                    infocari = true;
-                    btncari.Text = "Reset";
-                }
-                else
-                {
-                    infocari = true;
-                    btncari.Text = "Reset";
-                }
-            }
-            else
-            {
-                tampil();
-                infocari = false;
-                btncari.Text = "Cari";
-
-                txtcari.Text = "";
-                datecari.Checked = false;
-            }
-        }
-
         private void Pengiriman_Load(object sender, EventArgs e)
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
             tampil();
-            datecari.Value = DateTime.Now.Date;
-            datecari.Checked = false;
             txtrod1.Focus();
             txtrod1.Focus();
             registertampil();
@@ -556,6 +514,11 @@ namespace GOS_FxApps
         private void Pengiriman_FormClosing(object sender, FormClosingEventArgs e)
         {
             SqlDependency.Stop(Koneksi.GetConnectionString());
+        }
+
+        private void txtcari_TextChanged(object sender, EventArgs e)
+        {
+            cari();
         }
     }
 }

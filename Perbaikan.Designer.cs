@@ -113,13 +113,9 @@ namespace GOS_FxApps
             this.btnsimpan = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btncariperbaikan = new Guna.UI2.WinForms.Guna2Button();
-            this.datecariperbaikan = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtcariperbaikan = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btncaripenerimaan = new Guna.UI2.WinForms.Guna2Button();
-            this.datecaripenerimaan = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtcaripenerimaan = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
@@ -1484,8 +1480,6 @@ namespace GOS_FxApps
             this.guna2Panel6.BorderColor = System.Drawing.Color.Gainsboro;
             this.guna2Panel6.BorderRadius = 15;
             this.guna2Panel6.BorderThickness = 2;
-            this.guna2Panel6.Controls.Add(this.btncariperbaikan);
-            this.guna2Panel6.Controls.Add(this.datecariperbaikan);
             this.guna2Panel6.Controls.Add(this.txtcariperbaikan);
             this.guna2Panel6.Controls.Add(this.dataGridView1);
             this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1495,45 +1489,6 @@ namespace GOS_FxApps
             this.guna2Panel6.Name = "guna2Panel6";
             this.guna2Panel6.Size = new System.Drawing.Size(318, 292);
             this.guna2Panel6.TabIndex = 3;
-            // 
-            // btncariperbaikan
-            // 
-            this.btncariperbaikan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btncariperbaikan.BorderRadius = 8;
-            this.btncariperbaikan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btncariperbaikan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btncariperbaikan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btncariperbaikan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btncariperbaikan.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btncariperbaikan.ForeColor = System.Drawing.Color.White;
-            this.btncariperbaikan.Location = new System.Drawing.Point(247, 16);
-            this.btncariperbaikan.Margin = new System.Windows.Forms.Padding(2);
-            this.btncariperbaikan.Name = "btncariperbaikan";
-            this.btncariperbaikan.Size = new System.Drawing.Size(60, 37);
-            this.btncariperbaikan.TabIndex = 2;
-            this.btncariperbaikan.Text = "Cari";
-            this.btncariperbaikan.Click += new System.EventHandler(this.btncari_Click);
-            // 
-            // datecariperbaikan
-            // 
-            this.datecariperbaikan.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.datecariperbaikan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.datecariperbaikan.BorderRadius = 5;
-            this.datecariperbaikan.BorderThickness = 2;
-            this.datecariperbaikan.Checked = true;
-            this.datecariperbaikan.FillColor = System.Drawing.Color.White;
-            this.datecariperbaikan.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.datecariperbaikan.ForeColor = System.Drawing.Color.Black;
-            this.datecariperbaikan.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.datecariperbaikan.Location = new System.Drawing.Point(13, 15);
-            this.datecariperbaikan.Margin = new System.Windows.Forms.Padding(2);
-            this.datecariperbaikan.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.datecariperbaikan.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.datecariperbaikan.Name = "datecariperbaikan";
-            this.datecariperbaikan.ShowCheckBox = true;
-            this.datecariperbaikan.Size = new System.Drawing.Size(204, 39);
-            this.datecariperbaikan.TabIndex = 0;
-            this.datecariperbaikan.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
             // 
             // txtcariperbaikan
             // 
@@ -1555,15 +1510,16 @@ namespace GOS_FxApps
             this.txtcariperbaikan.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtcariperbaikan.IconLeft")));
             this.txtcariperbaikan.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.txtcariperbaikan.IconLeftSize = new System.Drawing.Size(15, 15);
-            this.txtcariperbaikan.Location = new System.Drawing.Point(221, 15);
+            this.txtcariperbaikan.Location = new System.Drawing.Point(13, 15);
             this.txtcariperbaikan.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtcariperbaikan.Name = "txtcariperbaikan";
             this.txtcariperbaikan.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.txtcariperbaikan.PlaceholderText = "Nomor ROD";
             this.txtcariperbaikan.SelectedText = "";
-            this.txtcariperbaikan.Size = new System.Drawing.Size(22, 39);
+            this.txtcariperbaikan.Size = new System.Drawing.Size(294, 39);
             this.txtcariperbaikan.TabIndex = 1;
             this.txtcariperbaikan.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtcariperbaikan.TextChanged += new System.EventHandler(this.txtcariperbaikan_TextChanged);
             this.txtcariperbaikan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // dataGridView1
@@ -1617,8 +1573,6 @@ namespace GOS_FxApps
             this.guna2Panel7.BorderColor = System.Drawing.Color.Gainsboro;
             this.guna2Panel7.BorderRadius = 15;
             this.guna2Panel7.BorderThickness = 2;
-            this.guna2Panel7.Controls.Add(this.btncaripenerimaan);
-            this.guna2Panel7.Controls.Add(this.datecaripenerimaan);
             this.guna2Panel7.Controls.Add(this.txtcaripenerimaan);
             this.guna2Panel7.Controls.Add(this.dataGridView2);
             this.guna2Panel7.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1628,45 +1582,6 @@ namespace GOS_FxApps
             this.guna2Panel7.Name = "guna2Panel7";
             this.guna2Panel7.Size = new System.Drawing.Size(318, 292);
             this.guna2Panel7.TabIndex = 4;
-            // 
-            // btncaripenerimaan
-            // 
-            this.btncaripenerimaan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btncaripenerimaan.BorderRadius = 8;
-            this.btncaripenerimaan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btncaripenerimaan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btncaripenerimaan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btncaripenerimaan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btncaripenerimaan.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btncaripenerimaan.ForeColor = System.Drawing.Color.White;
-            this.btncaripenerimaan.Location = new System.Drawing.Point(247, 16);
-            this.btncaripenerimaan.Margin = new System.Windows.Forms.Padding(2);
-            this.btncaripenerimaan.Name = "btncaripenerimaan";
-            this.btncaripenerimaan.Size = new System.Drawing.Size(60, 37);
-            this.btncaripenerimaan.TabIndex = 2;
-            this.btncaripenerimaan.Text = "Cari";
-            this.btncaripenerimaan.Click += new System.EventHandler(this.btncaripenerimaan_Click);
-            // 
-            // datecaripenerimaan
-            // 
-            this.datecaripenerimaan.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.datecaripenerimaan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.datecaripenerimaan.BorderRadius = 5;
-            this.datecaripenerimaan.BorderThickness = 2;
-            this.datecaripenerimaan.Checked = true;
-            this.datecaripenerimaan.FillColor = System.Drawing.Color.White;
-            this.datecaripenerimaan.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.datecaripenerimaan.ForeColor = System.Drawing.Color.Black;
-            this.datecaripenerimaan.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.datecaripenerimaan.Location = new System.Drawing.Point(13, 15);
-            this.datecaripenerimaan.Margin = new System.Windows.Forms.Padding(2);
-            this.datecaripenerimaan.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.datecaripenerimaan.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.datecaripenerimaan.Name = "datecaripenerimaan";
-            this.datecaripenerimaan.ShowCheckBox = true;
-            this.datecaripenerimaan.Size = new System.Drawing.Size(204, 39);
-            this.datecaripenerimaan.TabIndex = 0;
-            this.datecaripenerimaan.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
             // 
             // txtcaripenerimaan
             // 
@@ -1688,15 +1603,16 @@ namespace GOS_FxApps
             this.txtcaripenerimaan.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtcaripenerimaan.IconLeft")));
             this.txtcaripenerimaan.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.txtcaripenerimaan.IconLeftSize = new System.Drawing.Size(15, 15);
-            this.txtcaripenerimaan.Location = new System.Drawing.Point(221, 15);
+            this.txtcaripenerimaan.Location = new System.Drawing.Point(13, 15);
             this.txtcaripenerimaan.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtcaripenerimaan.Name = "txtcaripenerimaan";
             this.txtcaripenerimaan.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.txtcaripenerimaan.PlaceholderText = "Nomor ROD";
             this.txtcaripenerimaan.SelectedText = "";
-            this.txtcaripenerimaan.Size = new System.Drawing.Size(22, 39);
+            this.txtcaripenerimaan.Size = new System.Drawing.Size(294, 39);
             this.txtcaripenerimaan.TabIndex = 1;
             this.txtcaripenerimaan.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtcaripenerimaan.TextChanged += new System.EventHandler(this.txtcaripenerimaan_TextChanged);
             // 
             // dataGridView2
             // 
@@ -1809,13 +1725,9 @@ namespace GOS_FxApps
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
         private DataGridView dataGridView1;
         private Guna.UI2.WinForms.Guna2Button btnsimpan;
-        private Guna.UI2.WinForms.Guna2Button btncariperbaikan;
-        private Guna.UI2.WinForms.Guna2DateTimePicker datecariperbaikan;
         private Guna.UI2.WinForms.Guna2TextBox txtcariperbaikan;
         private Guna.UI2.WinForms.Guna2Button btncancel;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
-        private Guna.UI2.WinForms.Guna2Button btncaripenerimaan;
-        private Guna.UI2.WinForms.Guna2DateTimePicker datecaripenerimaan;
         private Guna.UI2.WinForms.Guna2TextBox txtcaripenerimaan;
         private DataGridView dataGridView2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;

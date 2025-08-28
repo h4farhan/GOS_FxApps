@@ -114,6 +114,8 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@shift", cbShift.SelectedItem.ToString());
                 }
 
+                query += " ORDER BY tanggal_pengiriman DESC";
+
                 cmd.CommandText = query;
                 cmd.Connection = conn;
 

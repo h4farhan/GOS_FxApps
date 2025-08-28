@@ -113,6 +113,8 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@kode", kodeBarang);
                 }
 
+                query += " ORDER BY tanggalMasuk DESC";
+
                 cmd.CommandText = query;
                 cmd.Connection = conn;
 

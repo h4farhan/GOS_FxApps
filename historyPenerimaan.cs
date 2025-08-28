@@ -125,6 +125,8 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@shift", cbShift.SelectedItem.ToString());
                 }
 
+                query += " ORDER BY tanggal_penerimaan DESC";
+
                 cmd.CommandText = query;
                 cmd.Connection = conn;
 

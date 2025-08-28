@@ -108,6 +108,8 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@shift", cbShift.SelectedItem.ToString());
                 }
 
+                query += " ORDER BY tanggal DESC";
+
                 cmd.CommandText = query;
                 cmd.Connection = conn;
 

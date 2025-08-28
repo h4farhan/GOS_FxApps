@@ -102,7 +102,7 @@ namespace GOS_FxApps
                 conn.Open();
                 string query = "SELECT * FROM users " +
                                "WHERE username LIKE @cari OR lvl LIKE @cari " +
-                               "ORDER BY updated_at DESC";
+                               "ORDER BY created_at DESC";
 
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 ad.SelectCommand.Parameters.AddWithValue("@cari", "%" + txtcari.Text + "%");
