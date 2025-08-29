@@ -378,6 +378,15 @@ namespace GOS_FxApps
             }
         }
 
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                guna2Button2.PerformClick();
+            }
+        }
+
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             Guna2TextBox[] txtRods = {

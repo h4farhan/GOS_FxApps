@@ -629,6 +629,23 @@ namespace GOS_FxApps
             btnsimpan.Enabled = true;
         }
 
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnsimpan.PerformClick();
+            }
+        }
+
+        private void hurufbesar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.KeyChar = char.ToUpper(e.KeyChar);
+            }
+        }
+
         private void btnsimpan_Click(object sender, EventArgs e)
 
         {
@@ -696,7 +713,7 @@ namespace GOS_FxApps
                 settrue();
                 btncancel.Enabled = true;
                 btnsimpan.Text = "Edit Data";
-                txtnomorrod.Enabled = false;
+                txtnomorrod.Enabled = false;                
             }
         }
 
@@ -827,7 +844,7 @@ namespace GOS_FxApps
                 lbltotal.Text = row.Cells["jumlah"].Value.ToString();
                 settrue();
                 btncancel.Enabled = true;
-
+                txtjenis.Focus();
             }
         }
 

@@ -273,7 +273,7 @@ namespace GOS_FxApps
                 }
                 else
                 {
-                    if (txtkodebarang.Text == "" || txtnamabarang.Text == "" || txtspesifikasi.Text == "" || txtuom.Text == "" || cmbtipematerial.SelectedIndex == -1 || txtminstok.Text == "" || imageBytes == null)
+                    if (txtkodebarang.Text == "" || txtnamabarang.Text == "" || cmbtipematerial.SelectedIndex == -1)
                     {
                         MessageBox.Show("Data Harus Diisi Dengan Lengkap.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
@@ -299,27 +299,43 @@ namespace GOS_FxApps
                                     }
                                 }
 
-                                using (SqlCommand cmd = new SqlCommand("INSERT INTO stok_material (kodeBarang, namaBarang, spesifikasi, uom, type, min_stok, foto, created_at, updated_at) VALUES(@kodebarang,@namabarang,@spesifikasi,@uom,@type,@min_stok,@foto,@tanggal,@diubah)", conn))
+                            using (SqlCommand cmd = new SqlCommand(
+                                                                "INSERT INTO stok_material (kodeBarang, namaBarang, spesifikasi, uom, type, min_stok, foto, created_at, updated_at) " +
+                                                                "VALUES(@kodebarang,@namabarang,@spesifikasi,@uom,@type,@min_stok,@foto,@tanggal,@diubah)", conn))
+                            {
+                                cmd.Parameters.AddWithValue("@kodebarang", txtkodebarang.Text);
+                                cmd.Parameters.AddWithValue("@namabarang", txtnamabarang.Text);
+                                cmd.Parameters.AddWithValue("@spesifikasi", txtspesifikasi.Text);
+                                cmd.Parameters.AddWithValue("@uom", txtuom.Text);
+                                cmd.Parameters.AddWithValue("@type", cmbtipematerial.SelectedItem.ToString());
+
+                                if (string.IsNullOrWhiteSpace(txtminstok.Text))
+                                    cmd.Parameters.AddWithValue("@min_stok", 0);
+                                else
+                                    cmd.Parameters.AddWithValue("@min_stok", int.Parse(txtminstok.Text));
+
+                                if (imageBytes == null)
                                 {
-                                    cmd.Parameters.AddWithValue("@kodebarang", txtkodebarang.Text);
-                                    cmd.Parameters.AddWithValue("@namabarang", txtnamabarang.Text);
-                                    cmd.Parameters.AddWithValue("@spesifikasi", txtspesifikasi.Text);
-                                    cmd.Parameters.AddWithValue("@uom", txtuom.Text);
-                                    cmd.Parameters.AddWithValue("@type", cmbtipematerial.SelectedItem.ToString());
-                                    cmd.Parameters.AddWithValue("@min_stok", txtminstok.Text);
-                                    cmd.Parameters.AddWithValue("@foto", imageBytes);
-                                    cmd.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
-                                    cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
-                                    cmd.ExecuteNonQuery();
+                                    cmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = DBNull.Value;
+                                }
+                                else
+                                {
+                                    cmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = imageBytes;
                                 }
 
-                                MessageBox.Show("Data Berhasil Disimpan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                cmd.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
+                                cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            MessageBox.Show("Data Berhasil Disimpan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 setdefault();
                                 tampil();
                         }
-                            catch (SqlException)
+                            catch (SqlException ex)
                             {
-                                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif." + ex.Message,
                                                     "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             catch (Exception ex)
@@ -338,7 +354,7 @@ namespace GOS_FxApps
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
-                if (txtkodebarang.Text == "" || txtnamabarang.Text == "" || cmbtipematerial.SelectedItem == null || txtminstok.Text == "" || imageBytes == null)
+                if (txtnamabarang.Text == "" || cmbtipematerial.SelectedIndex == -1)
                 {
                     MessageBox.Show("Data Harus Diisi Dengan Lengkap.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -358,8 +374,21 @@ namespace GOS_FxApps
                             cmd.Parameters.AddWithValue("@spesifikasi", txtspesifikasi.Text);
                             cmd.Parameters.AddWithValue("@uom", txtuom.Text);
                             cmd.Parameters.AddWithValue("@type", cmbtipematerial.SelectedItem.ToString());
-                            cmd.Parameters.AddWithValue("@min_stok", txtminstok.Text);
-                            cmd.Parameters.AddWithValue("@foto", imageBytes);
+
+                            if (string.IsNullOrWhiteSpace(txtminstok.Text))
+                                cmd.Parameters.AddWithValue("@min_stok", 0);
+                            else
+                                cmd.Parameters.AddWithValue("@min_stok", int.Parse(txtminstok.Text));
+
+                            if (imageBytes == null)
+                            {
+                                cmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = DBNull.Value;
+                            }
+                            else
+                            {
+                                cmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = imageBytes;
+                            }
+
                             cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                             cmd.ExecuteNonQuery();
                             MessageBox.Show("Data Berhasil Diedit", "Sukses.", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -368,9 +397,9 @@ namespace GOS_FxApps
                             btnupdate.Enabled = false;
                             btnsimpan.Text = "Simpan";
                         }
-                        catch (SqlException)
+                        catch (SqlException ex)
                         {
-                            MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                            MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif." + ex.Message,
                                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         catch (Exception ex)
