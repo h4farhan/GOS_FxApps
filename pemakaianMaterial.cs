@@ -268,19 +268,21 @@ namespace GOS_FxApps
             }
         }
 
-        public void combonama()
+        public void combonama(string keyword = "")
         {
             try
             {
                 using (SqlConnection conn = Koneksi.GetConnection())
                 {
-                    string query = "SELECT * FROM stok_material";
+                    string query = "SELECT * FROM stok_material WHERE namaBarang LIKE @keyword ORDER BY namaBarang ASC";
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    da.SelectCommand.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
                     cmbnama.DataSource = dt;
-                    cmbnama.DisplayMember = "namaBarang"; 
+                    cmbnama.DisplayMember = "namaBarang";
                     cmbnama.ValueMember = "kodeBarang";
 
                     cmbnama.SelectedIndexChanged -= cmbnama_SelectedIndexChanged;
@@ -297,7 +299,7 @@ namespace GOS_FxApps
             {
                 MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
                                 "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }      
+            }
         }
 
         private void pemakaianMaterial_Load(object sender, EventArgs e)
@@ -416,6 +418,7 @@ namespace GOS_FxApps
                         picture1.Image = null;
                         btnbatal.Enabled = false;
                         btnsimpan.Enabled = false;
+                        txtcarimaterial.Clear();
                     }
                 }
             }
@@ -479,6 +482,8 @@ namespace GOS_FxApps
                                 else
                                 {
                                     picture1.Image = null;
+                                    btnbatal.Enabled = true;
+                                    btnsimpan.Enabled = true;
                                 }
                             }
                             else
@@ -506,5 +511,15 @@ namespace GOS_FxApps
             SqlDependency.Stop(Koneksi.GetConnectionString());
         }
 
+        private void txtjumlah_TextChanged(object sender, EventArgs e)
+        {
+            btnbatal.Enabled = true;
+            btnsimpan.Enabled = true;
+        }
+
+        private void txtcarimaterial_TextChanged(object sender, EventArgs e)
+        {
+            combonama(txtcarimaterial.Text);
+        }
     }
 }

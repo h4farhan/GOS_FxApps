@@ -148,14 +148,16 @@ namespace GOS_FxApps
             }
         }
 
-        public void combonama()
+        public void combonama(string keyword = "")
         {
             try
             {
                 using (SqlConnection conn = Koneksi.GetConnection())
                 {
-                    string query = "SELECT * FROM stok_material ORDER BY namaBarang ASC";
+                    string query = "SELECT * FROM stok_material WHERE namaBarang LIKE @keyword ORDER BY namaBarang ASC";
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    da.SelectCommand.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
@@ -417,6 +419,8 @@ namespace GOS_FxApps
                             else
                             {
                                 picture1.Image = null;
+                                btnbatal.Enabled = true;
+                                btnsimpan.Enabled = true;
                             }
                         }
                         else
@@ -487,6 +491,17 @@ namespace GOS_FxApps
                 btnsimpan.Text = "Edit Data";
                 btnbatal.Enabled = true;
             }
+        }
+
+        private void txtjumlah_TextChanged(object sender, EventArgs e)
+        {
+            btnbatal.Enabled = true ;
+            btnsimpan.Enabled = true ;
+        }
+
+        private void txtcarimaterial_TextChanged(object sender, EventArgs e)
+        {
+            combonama(txtcarimaterial.Text);
         }
     }
 }

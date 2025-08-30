@@ -305,11 +305,11 @@ namespace GOS_FxApps
 
                             using (SqlCommand cmd = new SqlCommand(
                                                                 "INSERT INTO stok_material (kodeBarang, namaBarang, spesifikasi, uom, type, min_stok, foto, created_at, updated_at, remaks) " +
-                                                                "VALUES(@kodebarang,@namabarang,@spesifikasi,@uom,@type,@min_stok,@foto,@tanggal,@diuba,@remaks)", conn))
+                                                                "VALUES(@kodebarang,@namabarang,@spesifikasi,@uom,@type,@min_stok,@foto,@tanggal,@diubah,@remaks)", conn))
                             {
                                 cmd.Parameters.AddWithValue("@kodebarang", txtkodebarang.Text);
                                 cmd.Parameters.AddWithValue("@namabarang", txtnamabarang.Text);
-                                cmd.Parameters.AddWithValue("@jumlahS   tok", 0);
+                                cmd.Parameters.AddWithValue("@jumlahStok", 0);
                                 cmd.Parameters.AddWithValue("@spesifikasi", txtspesifikasi.Text);
                                 cmd.Parameters.AddWithValue("@uom", txtuom.Text);
                                 cmd.Parameters.AddWithValue("@type", cmbtipematerial.SelectedItem.ToString());
