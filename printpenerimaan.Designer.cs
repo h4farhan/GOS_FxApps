@@ -52,11 +52,11 @@
             this.jlhpanel1 = new System.Windows.Forms.Label();
             this.datecaripemakaian = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.paneldata3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtcarimaterial = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbnamamaterial = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lbljumlahdatamaterial = new System.Windows.Forms.Label();
             this.datematerial = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -451,7 +451,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.paneldata3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.paneldata3.BorderRadius = 15;
-            this.paneldata3.Controls.Add(this.guna2TextBox1);
+            this.paneldata3.Controls.Add(this.txtcarimaterial);
             this.paneldata3.Controls.Add(this.label1);
             this.paneldata3.Controls.Add(this.cmbnamamaterial);
             this.paneldata3.Controls.Add(this.lbljumlahdatamaterial);
@@ -462,6 +462,31 @@
             this.paneldata3.Size = new System.Drawing.Size(738, 73);
             this.paneldata3.TabIndex = 59;
             this.paneldata3.Visible = false;
+            // 
+            // txtcarimaterial
+            // 
+            this.txtcarimaterial.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcarimaterial.BorderRadius = 4;
+            this.txtcarimaterial.BorderThickness = 0;
+            this.txtcarimaterial.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtcarimaterial.DefaultText = "";
+            this.txtcarimaterial.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtcarimaterial.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtcarimaterial.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcarimaterial.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcarimaterial.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcarimaterial.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtcarimaterial.ForeColor = System.Drawing.Color.Black;
+            this.txtcarimaterial.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcarimaterial.Location = new System.Drawing.Point(281, 25);
+            this.txtcarimaterial.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtcarimaterial.Name = "txtcarimaterial";
+            this.txtcarimaterial.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcarimaterial.PlaceholderText = "Axxxx";
+            this.txtcarimaterial.SelectedText = "";
+            this.txtcarimaterial.Size = new System.Drawing.Size(220, 29);
+            this.txtcarimaterial.TabIndex = 61;
+            this.txtcarimaterial.TextChanged += new System.EventHandler(this.txtcarimaterial_TextChanged);
             // 
             // label1
             // 
@@ -530,30 +555,6 @@
             this.datematerial.Value = new System.DateTime(2025, 5, 20, 0, 0, 0, 0);
             this.datematerial.MouseDown += new System.Windows.Forms.MouseEventHandler(this.datematerial_MouseDown);
             // 
-            // guna2TextBox1
-            // 
-            this.guna2TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.guna2TextBox1.BorderRadius = 4;
-            this.guna2TextBox1.BorderThickness = 0;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(281, 25);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.guna2TextBox1.PlaceholderText = "Axxxx";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(220, 29);
-            this.guna2TextBox1.TabIndex = 61;
-            // 
             // printpenerimaan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -610,6 +611,6 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker datematerial;
         private Guna.UI2.WinForms.Guna2ComboBox cmbnamamaterial;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox txtcarimaterial;
     }
 }

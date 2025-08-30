@@ -37,10 +37,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtcarimaterial = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txttipe = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblstoksaatini = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.picture1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.datepemakaian = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,19 +56,17 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.btncari = new Guna.UI2.WinForms.Guna2Button();
             this.datecari = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
-            this.picture1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.txtcarimaterial = new Guna.UI2.WinForms.Guna2TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picture1)).BeginInit();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -159,6 +159,32 @@
             this.guna2Panel1.Size = new System.Drawing.Size(376, 668);
             this.guna2Panel1.TabIndex = 2;
             // 
+            // txtcarimaterial
+            // 
+            this.txtcarimaterial.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtcarimaterial.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcarimaterial.BorderRadius = 5;
+            this.txtcarimaterial.BorderThickness = 0;
+            this.txtcarimaterial.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtcarimaterial.DefaultText = "";
+            this.txtcarimaterial.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtcarimaterial.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtcarimaterial.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcarimaterial.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcarimaterial.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcarimaterial.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtcarimaterial.ForeColor = System.Drawing.Color.Black;
+            this.txtcarimaterial.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcarimaterial.Location = new System.Drawing.Point(51, 340);
+            this.txtcarimaterial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtcarimaterial.Name = "txtcarimaterial";
+            this.txtcarimaterial.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcarimaterial.PlaceholderText = "Axxxx";
+            this.txtcarimaterial.SelectedText = "";
+            this.txtcarimaterial.Size = new System.Drawing.Size(255, 29);
+            this.txtcarimaterial.TabIndex = 50;
+            this.txtcarimaterial.TextChanged += new System.EventHandler(this.txtcarimaterial_TextChanged_1);
+            // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -223,6 +249,19 @@
             this.label3.Size = new System.Drawing.Size(263, 21);
             this.label3.TabIndex = 41;
             this.label3.Text = " Masukkan Material Yang Digunakan";
+            // 
+            // picture1
+            // 
+            this.picture1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.picture1.BorderRadius = 5;
+            this.picture1.FillColor = System.Drawing.Color.DimGray;
+            this.picture1.ImageRotate = 0F;
+            this.picture1.Location = new System.Drawing.Point(110, 82);
+            this.picture1.Name = "picture1";
+            this.picture1.Size = new System.Drawing.Size(161, 181);
+            this.picture1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picture1.TabIndex = 40;
+            this.picture1.TabStop = false;
             // 
             // datepemakaian
             // 
@@ -460,6 +499,36 @@
             this.datecari.TabIndex = 43;
             this.datecari.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
             // 
+            // txtcari
+            // 
+            this.txtcari.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtcari.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcari.BorderRadius = 5;
+            this.txtcari.BorderThickness = 2;
+            this.txtcari.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtcari.DefaultText = "";
+            this.txtcari.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtcari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtcari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcari.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcari.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcari.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtcari.ForeColor = System.Drawing.Color.Black;
+            this.txtcari.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.search;
+            this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
+            this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
+            this.txtcari.Location = new System.Drawing.Point(232, 14);
+            this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtcari.Name = "txtcari";
+            this.txtcari.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcari.PlaceholderText = "Kode Barang";
+            this.txtcari.SelectedText = "";
+            this.txtcari.Size = new System.Drawing.Size(83, 39);
+            this.txtcari.TabIndex = 42;
+            this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -506,74 +575,6 @@
             this.dataGridView1.TabIndex = 39;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // txtcari
-            // 
-            this.txtcari.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtcari.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcari.BorderRadius = 5;
-            this.txtcari.BorderThickness = 2;
-            this.txtcari.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtcari.DefaultText = "";
-            this.txtcari.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtcari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtcari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcari.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcari.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcari.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtcari.ForeColor = System.Drawing.Color.Black;
-            this.txtcari.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.search;
-            this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
-            this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
-            this.txtcari.Location = new System.Drawing.Point(232, 14);
-            this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtcari.Name = "txtcari";
-            this.txtcari.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcari.PlaceholderText = "Kode Barang";
-            this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(83, 39);
-            this.txtcari.TabIndex = 42;
-            this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
-            // 
-            // picture1
-            // 
-            this.picture1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.picture1.BorderRadius = 5;
-            this.picture1.FillColor = System.Drawing.Color.DimGray;
-            this.picture1.ImageRotate = 0F;
-            this.picture1.Location = new System.Drawing.Point(110, 82);
-            this.picture1.Name = "picture1";
-            this.picture1.Size = new System.Drawing.Size(161, 181);
-            this.picture1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picture1.TabIndex = 40;
-            this.picture1.TabStop = false;
-            // 
-            // txtcarimaterial
-            // 
-            this.txtcarimaterial.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtcarimaterial.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcarimaterial.BorderRadius = 5;
-            this.txtcarimaterial.BorderThickness = 0;
-            this.txtcarimaterial.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtcarimaterial.DefaultText = "";
-            this.txtcarimaterial.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtcarimaterial.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtcarimaterial.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcarimaterial.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcarimaterial.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcarimaterial.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtcarimaterial.ForeColor = System.Drawing.Color.Black;
-            this.txtcarimaterial.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcarimaterial.Location = new System.Drawing.Point(51, 340);
-            this.txtcarimaterial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtcarimaterial.Name = "txtcarimaterial";
-            this.txtcarimaterial.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcarimaterial.PlaceholderText = "Axxxx";
-            this.txtcarimaterial.SelectedText = "";
-            this.txtcarimaterial.Size = new System.Drawing.Size(255, 29);
-            this.txtcarimaterial.TabIndex = 50;
-            // 
             // pemakaianMaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -595,11 +596,11 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picture1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture1)).EndInit();
             this.ResumeLayout(false);
 
         }

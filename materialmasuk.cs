@@ -23,6 +23,7 @@ namespace GOS_FxApps
         int jumlahlama;
 
         private bool isBinding = false;
+        bool isProgrammaticChange = false;
 
         public materialmasuk()
         {
@@ -147,45 +148,6 @@ namespace GOS_FxApps
                     conn.Close();
                 }
                 return dt.Rows.Count > 0;
-            }
-        }
-
-        public void combonama(string keyword = "")
-        {
-            try
-            {
-                using (SqlConnection conn = Koneksi.GetConnection())
-                {
-                    string query = "SELECT * FROM stok_material WHERE namaBarang LIKE @keyword ORDER BY namaBarang ASC";
-                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                    da.SelectCommand.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
-
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
-                    isBinding = true;
-                    cmbnama.DataSource = dt;
-                    cmbnama.DisplayMember = "namaBarang";
-                    cmbnama.ValueMember = "kodeBarang";
-                    cmbnama.SelectedIndex = -1;
-                    isBinding = false;
-
-                    if (dt.Rows.Count > 0)
-                    {
-                        cmbnama.DroppedDown = true;
-                        txtcarimaterial.Focus();
-                    }
-                }
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -356,6 +318,7 @@ namespace GOS_FxApps
                         picture1.Image = null;
                         btnbatal.Enabled = false;
                         btnsimpan.Enabled = false;
+                        txtcarimaterial.Clear();
                     }
                 }
             }
@@ -373,7 +336,6 @@ namespace GOS_FxApps
                     {
                         editdata();
                         btnbatal.Enabled = false;
-                        combonama();
                         lblstoksaatini.Text = "Stok Saat Ini: -";
                         txttipe.Enabled = true;
                         txttipe.Clear();
@@ -381,14 +343,140 @@ namespace GOS_FxApps
                         picture1.Image = null;
                         btnbatal.Enabled = false;
                         btnsimpan.Enabled = false;
+                        cmbnama.Enabled = true;
+                        txtcarimaterial.Enabled = true;
+                        txtcarimaterial.Clear();
                     }
                 }
+            }
+        }
+
+        private void btnbatal_Click(object sender, EventArgs e)
+        {
+            datemasuk.Value = DateTime.Now.Date;
+            txtjumlah.Clear();
+            jumlahlama = 0;
+            noprimary = 0;
+            btnsimpan.Text = "Simpan Data";
+            lblstoksaatini.Text = "Stok Saat Ini: -";
+            txttipe.Enabled = true;
+            txttipe.Clear();
+            txttipe.Enabled = false;
+            picture1.Image = null;
+            btnsimpan.Enabled = false;
+            btnbatal.Enabled = false;
+            cmbnama.Enabled = true;
+            txtcarimaterial.Enabled = true;
+            txtcarimaterial.Clear();
+        }
+
+        private void materialmasuk_Load(object sender, EventArgs e)
+        {
+            SqlDependency.Start(Koneksi.GetConnectionString());
+            combonama();
+            cmbnama.SelectedIndex = -1;
+            tampil();
+            datecari.Value = DateTime.Now.Date;
+            datecari.Checked = false;
+            datemasuk.Value = DateTime.Now.Date;
+            registertampil();
+            cmbnama.DropDownStyle = ComboBoxStyle.DropDown;
+            cmbnama.MaxDropDownItems = 10;
+            cmbnama.DropDownHeight = 200;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (MainForm.Instance.role != "Manajer") return;
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                noprimary = Convert.ToInt32(row.Cells["idMasuk"].Value);
+                cmbnama.SelectedValue = row.Cells["kodeBarang"].Value.ToString();
+                datemasuk.Value = Convert.ToDateTime(row.Cells["tanggalMasuk"].Value);
+                txtjumlah.Text = row.Cells["jumlahMasuk"].Value.ToString();
+                txttipe.Text = row.Cells["type"].Value.ToString();
+                jumlahlama = Convert.ToInt32(row.Cells["jumlahMasuk"].Value);
+
+                cmbnama.Enabled = false;
+                txtcarimaterial.Enabled = false;
+                btnsimpan.Text = "Edit Data";
+                btnbatal.Enabled = true;
+            }
+        }
+
+        private void txtjumlah_TextChanged(object sender, EventArgs e)
+        {
+            btnbatal.Enabled = true ;
+            btnsimpan.Enabled = true ;
+        }
+
+        public void combonama(string keyword = "")
+        {
+            try
+            {
+                using (SqlConnection conn = Koneksi.GetConnection())
+                {
+                    string query = "SELECT * FROM stok_material WHERE namaBarang LIKE @keyword ORDER BY namaBarang ASC";
+                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    da.SelectCommand.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    isBinding = true;
+                    cmbnama.DataSource = dt;
+                    cmbnama.DisplayMember = "namaBarang";
+                    cmbnama.ValueMember = "kodeBarang";
+                    cmbnama.SelectedIndex = -1;
+                    isBinding = false;
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        cmbnama.DroppedDown = true;
+                        txtcarimaterial.Focus();
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtcarimaterial_TextChanged(object sender, EventArgs e)
+        {
+            if (isProgrammaticChange)
+                return;
+
+            string keyword = txtcarimaterial.Text.Trim();
+            combonama(keyword);
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                cmbnama.DroppedDown = true;
+
+                Cursor = Cursors.Default;
+
+                txtcarimaterial.Focus();
+                txtcarimaterial.SelectionStart = txtcarimaterial.Text.Length;
+            }
+            else
+            {
+                cmbnama.DroppedDown = false;
             }
         }
 
         private void cmbnama_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (isBinding) return;
+
             if (cmbnama.SelectedIndex == -1 || cmbnama.SelectedValue == null || cmbnama.SelectedValue == DBNull.Value)
             {
                 picture1.Image = null;
@@ -402,7 +490,7 @@ namespace GOS_FxApps
             {
                 using (SqlConnection conn = Koneksi.GetConnection())
                 using (SqlCommand cmd = new SqlCommand(
-                    "SELECT foto, jumlahStok, type FROM stok_material WHERE kodeBarang = @kodeBarang", conn))
+                    "SELECT foto, jumlahStok, type, namaBarang FROM stok_material WHERE kodeBarang = @kodeBarang", conn))
                 {
                     cmd.Parameters.AddWithValue("@kodeBarang", kodeBarang);
 
@@ -413,6 +501,10 @@ namespace GOS_FxApps
                         {
                             lblstoksaatini.Text = "Stok Saat Ini: " + reader["jumlahStok"]?.ToString();
                             txttipe.Text = reader["type"]?.ToString();
+
+                            isProgrammaticChange = true;
+                            txtcarimaterial.Text = reader["namaBarang"]?.ToString();
+                            isProgrammaticChange = false;
 
                             if (reader["foto"] != DBNull.Value)
                             {
@@ -448,84 +540,6 @@ namespace GOS_FxApps
             {
                 MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
                                 "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnbatal_Click(object sender, EventArgs e)
-        {
-            datemasuk.Value = DateTime.Now.Date;
-            txtjumlah.Clear();
-            jumlahlama = 0;
-            noprimary = 0;
-            btnsimpan.Text = "Simpan Data";
-            combonama();
-            lblstoksaatini.Text = "Stok Saat Ini: -";
-            txttipe.Enabled = true;
-            txttipe.Clear();
-            txttipe.Enabled = false;
-            picture1.Image = null;
-            btnsimpan.Enabled = false;
-            btnbatal.Enabled = false;
-            cmbnama.Enabled = true;
-        }
-
-        private void materialmasuk_Load(object sender, EventArgs e)
-        {
-            SqlDependency.Start(Koneksi.GetConnectionString());
-            combonama();
-            cmbnama.SelectedIndex = -1;
-            tampil();
-            datecari.Value = DateTime.Now.Date;
-            datecari.Checked = false;
-            datemasuk.Value = DateTime.Now.Date;
-            registertampil();
-            cmbnama.DropDownStyle = ComboBoxStyle.DropDown;
-            cmbnama.MaxDropDownItems = 10;
-            cmbnama.DropDownHeight = 200;
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (MainForm.Instance.role != "Manajer") return;
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-
-                noprimary = Convert.ToInt32(row.Cells["idMasuk"].Value);
-                cmbnama.SelectedValue = row.Cells["kodeBarang"].Value.ToString();
-                datemasuk.Value = Convert.ToDateTime(row.Cells["tanggalMasuk"].Value);
-                txtjumlah.Text = row.Cells["jumlahMasuk"].Value.ToString();
-                txttipe.Text = row.Cells["type"].Value.ToString();
-                jumlahlama = Convert.ToInt32(row.Cells["jumlahMasuk"].Value);
-
-                cmbnama.Enabled = false;
-                btnsimpan.Text = "Edit Data";
-                btnbatal.Enabled = true;
-            }
-        }
-
-        private void txtjumlah_TextChanged(object sender, EventArgs e)
-        {
-            btnbatal.Enabled = true ;
-            btnsimpan.Enabled = true ;
-        }
-
-        private void txtcarimaterial_TextChanged(object sender, EventArgs e)
-        {
-            string keyword = txtcarimaterial.Text.Trim();
-            combonama(keyword);
-            if (!string.IsNullOrEmpty(keyword))
-            {
-                cmbnama.DroppedDown = true;
-
-                Cursor = Cursors.Default;
-
-                txtcarimaterial.Focus();
-                txtcarimaterial.SelectionStart = txtcarimaterial.Text.Length;
-            }
-            else
-            {
-                cmbnama.DroppedDown = false;
             }
         }
     }

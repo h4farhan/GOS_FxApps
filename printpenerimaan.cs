@@ -16,6 +16,7 @@ using DrawingPoint = System.Drawing.Point;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.IO;
 using System.Web.Security;
+using System.Windows.Data;
 
 namespace GOS_FxApps
 {
@@ -24,6 +25,8 @@ namespace GOS_FxApps
         SqlConnection conn = Koneksi.GetConnection();
 
         bool infocari = false;
+        private bool isBinding = false;
+        bool isProgrammaticChange = false;
 
         public printpenerimaan()
         {
@@ -1358,24 +1361,31 @@ namespace GOS_FxApps
             }
         }
 
-        public void combonama()
+        public void combonama(string keyword = "")
         {
             try
             {
                 using (SqlConnection conn = Koneksi.GetConnection())
                 {
-                    string query = "SELECT * FROM stok_material";
+                    string query = "SELECT * FROM stok_material WHERE namaBarang LIKE @keyword ORDER BY namaBarang ASC";
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    da.SelectCommand.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
+                    isBinding = true;
                     cmbnamamaterial.DataSource = dt;
                     cmbnamamaterial.DisplayMember = "namaBarang";
                     cmbnamamaterial.ValueMember = "kodeBarang";
-
-                    cmbnamamaterial.SelectedIndexChanged -= cmbnamamaterial_SelectedIndexChanged;
                     cmbnamamaterial.SelectedIndex = -1;
-                    cmbnamamaterial.SelectedIndexChanged += cmbnamamaterial_SelectedIndexChanged;
+                    isBinding = false;
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        cmbnamamaterial.DroppedDown = true;
+                        txtcarimaterial.Focus();
+                    }
                 }
             }
             catch (SqlException)
@@ -1777,9 +1787,9 @@ namespace GOS_FxApps
                     jumlahdata();
 
                     btnprint.Enabled = false;
-                    combonama();
+                    txtcarimaterial.Clear();
                     cmbnamamaterial.SelectedIndex = -1;
-
+                    cmbnamamaterial.DroppedDown = false;
                     guna2Panel4.ResetText();
                 }
             }
@@ -1953,6 +1963,9 @@ namespace GOS_FxApps
                 btnprint.Text = "Print Data";
                 tampilmaterial();
                 combonama();
+                cmbnamamaterial.DropDownStyle = ComboBoxStyle.DropDown;
+                cmbnamamaterial.MaxDropDownItems = 20;
+                cmbnamamaterial.DropDownHeight = 400;
                 jumlahdata();
             }
         }
@@ -2103,7 +2116,72 @@ namespace GOS_FxApps
 
         private void cmbnamamaterial_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (isBinding) return;
 
+            if (cmbnamamaterial.SelectedIndex == -1 || cmbnamamaterial.SelectedValue == null || cmbnamamaterial.SelectedValue == DBNull.Value)
+            {
+                return;
+            }
+
+            string kodeBarang = cmbnamamaterial.SelectedValue.ToString();
+
+            try
+            {
+                using (SqlConnection conn = Koneksi.GetConnection())
+                using (SqlCommand cmd = new SqlCommand(
+                    "SELECT foto, jumlahStok, type, namaBarang FROM stok_material WHERE kodeBarang = @kodeBarang", conn))
+                {
+                    cmd.Parameters.AddWithValue("@kodeBarang", kodeBarang);
+
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+
+                            isProgrammaticChange = true;
+                            txtcarimaterial.Text = reader["namaBarang"]?.ToString();
+                            isProgrammaticChange = false;
+                        }
+                        else
+                        {
+                            
+                        }
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtcarimaterial_TextChanged(object sender, EventArgs e)
+        {
+            if (isProgrammaticChange)
+                return;
+
+            string keyword = txtcarimaterial.Text.Trim();
+            combonama(keyword);
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                cmbnamamaterial.DroppedDown = true;
+
+                Cursor = Cursors.Default;
+
+                txtcarimaterial.Focus();
+                txtcarimaterial.SelectionStart = txtcarimaterial.Text.Length;
+            }
+            else
+            {
+                cmbnamamaterial.DroppedDown = false;
+            }
         }
     }
 }
