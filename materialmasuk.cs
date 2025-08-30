@@ -169,6 +169,12 @@ namespace GOS_FxApps
                     cmbnama.ValueMember = "kodeBarang";
                     cmbnama.SelectedIndex = -1;
                     isBinding = false;
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        cmbnama.DroppedDown = true;
+                        txtcarimaterial.Focus();
+                    }
                 }
             }
             catch (SqlException)
@@ -473,6 +479,9 @@ namespace GOS_FxApps
             datecari.Checked = false;
             datemasuk.Value = DateTime.Now.Date;
             registertampil();
+            cmbnama.DropDownStyle = ComboBoxStyle.DropDown;
+            cmbnama.MaxDropDownItems = 10;
+            cmbnama.DropDownHeight = 200;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -503,7 +512,21 @@ namespace GOS_FxApps
 
         private void txtcarimaterial_TextChanged(object sender, EventArgs e)
         {
-            combonama(txtcarimaterial.Text);
+            string keyword = txtcarimaterial.Text.Trim();
+            combonama(keyword);
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                cmbnama.DroppedDown = true;
+
+                Cursor = Cursors.Default;
+
+                txtcarimaterial.Focus();
+                txtcarimaterial.SelectionStart = txtcarimaterial.Text.Length;
+            }
+            else
+            {
+                cmbnama.DroppedDown = false;
+            }
         }
     }
 }

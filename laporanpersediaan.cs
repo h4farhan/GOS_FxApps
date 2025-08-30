@@ -25,6 +25,7 @@ namespace GOS_FxApps
             InitializeComponent();
         }
 
+
         private DataTable GetDataFromSPbulan(string spName, int bulan, int tahun)
         {
             using (SqlConnection conn = Koneksi.GetConnection())
@@ -89,80 +90,88 @@ namespace GOS_FxApps
             dataGridView1.Columns["limit"].Width = label13.Width;
         }
 
-        private void ExportToExcelBulan()
+        private async void ExportToExcelBulan()
         {
-            try
+            using (FormLoading loading = new FormLoading())
             {
-                int bulan = datejadwal.Value.Month;
-                int tahun = datejadwal.Value.Year;
-                string namaBulan = new DateTime(tahun, bulan, 1).ToString("MMMM");
+                loading.Show();
+                loading.Refresh();
 
-                DataTable dtMaterial = GetDataFromSPbulan("sp_LaporanPersediaanMaterial", bulan, tahun);
-
-                Excel.Application xlApp = new Excel.Application();
-
-                string templatePath = Path.Combine(Application.StartupPath, "Stock Barang Template.xlsx");
-                Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(templatePath);
-                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Sheets[1];
-
-                xlWorkSheet.Cells[1, 1] = "LAPORAN PERSEDIAAN MATERIAL DI KUALA TANJUNG";
-                xlWorkSheet.Cells[2, 1] = "PT.GENTANUSA GEMILANG";
-                xlWorkSheet.Cells[3, 1] = $"Per Tanggal {namaBulan} {tahun}";
-
-                int rowStart = 6;
-                int colStart = 1;
-                for (int i = 0; i < dtMaterial.Rows.Count; i++)
+                await Task.Run(() =>
                 {
-                    xlWorkSheet.Cells[rowStart + i, colStart] = (i + 1).ToString();
-
-                    for (int j = 0; j < dtMaterial.Columns.Count; j++)
+                    try
                     {
-                        xlWorkSheet.Cells[rowStart + i, colStart + j + 1] =
-                            dtMaterial.Rows[i][j].ToString();
-                    }
-                }
+                        int bulan = datejadwal.Value.Month;
+                        int tahun = datejadwal.Value.Year;
+                        string namaBulan = new DateTime(tahun, bulan, 1).ToString("MMMM");
 
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Title = "Simpan File Excel";
-                saveFileDialog.Filter = "Excel Files|*.xlsx";
-                saveFileDialog.FileName = $"STOCK BARANG KTJ PER {namaBulan} {tahun}.xlsx";
+                        DataTable dtMaterial = GetDataFromSPbulan("sp_LaporanPersediaanMaterial", bulan, tahun);
 
-                try
-                {
-                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        string savePath = saveFileDialog.FileName;
+                        Excel.Application xlApp = new Excel.Application();
+                        string templatePath = Path.Combine(Application.StartupPath, "Stock Barang Template.xlsx");
+                        Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(templatePath);
+                        Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Sheets[1];
 
-                        if (File.Exists(savePath))
+                        xlWorkSheet.Cells[1, 1] = "LAPORAN PERSEDIAAN MATERIAL DI KUALA TANJUNG";
+                        xlWorkSheet.Cells[2, 1] = "PT.GENTANUSA GEMILANG";
+                        xlWorkSheet.Cells[3, 1] = $"Per Tanggal {namaBulan} {tahun}";
+
+                        int rowStart = 6;
+                        int colStart = 1;
+                        for (int i = 0; i < dtMaterial.Rows.Count; i++)
                         {
-                            File.Delete(savePath);
+                            xlWorkSheet.Cells[rowStart + i, colStart] = (i + 1).ToString();
+                            for (int j = 0; j < dtMaterial.Columns.Count; j++)
+                            {
+                                xlWorkSheet.Cells[rowStart + i, colStart + j + 1] = dtMaterial.Rows[i][j].ToString();
+                            }
                         }
 
-                        xlWorkBook.SaveCopyAs(savePath);
+                        this.Invoke(new Action(() =>
+                        {
+                            SaveFileDialog saveFileDialog = new SaveFileDialog
+                            {
+                                Title = "Simpan File Excel",
+                                Filter = "Excel Files|*.xlsx",
+                                FileName = $"STOCK BARANG KTJ PER {namaBulan} {tahun}.xlsx"
+                            };
 
-                        MessageBox.Show("Export selesai ke: " + savePath, "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                            {
+                                string savePath = saveFileDialog.FileName;
+                                if (File.Exists(savePath))
+                                {
+                                    File.Delete(savePath);
+                                }
+                                xlWorkBook.SaveCopyAs(savePath);
+                                MessageBox.Show("Export selesai ke: " + savePath, "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }));
+
+                        xlWorkBook.Close(false);
+                        xlApp.Quit();
+
+                        Marshal.ReleaseComObject(xlWorkSheet);
+                        Marshal.ReleaseComObject(xlWorkBook);
+                        Marshal.ReleaseComObject(xlApp);
+
+                        xlWorkSheet = null;
+                        xlWorkBook = null;
+                        xlApp = null;
+
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
                     }
-                }
-                finally
-                {
-                    xlWorkBook.Close(false);
-                    xlApp.Quit();
+                    catch (Exception ex)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            MessageBox.Show("Error: " + ex.Message);
+                        }));
+                    }
+                });
 
-                    Marshal.ReleaseComObject(xlWorkSheet);
-                    Marshal.ReleaseComObject(xlWorkBook);
-                    Marshal.ReleaseComObject(xlApp);
-
-                    xlWorkSheet = null;
-                    xlWorkBook = null;
-                    xlApp = null;
-
-                    GC.Collect();
-                    GC.WaitForPendingFinalizers();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
+                loading.Close();
             }
         }
 

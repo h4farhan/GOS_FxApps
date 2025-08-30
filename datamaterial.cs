@@ -157,103 +157,109 @@ namespace GOS_FxApps
             }
         }
 
-        private void ExportToExcelBulan()
+        private async void ExportToExcelBulan()
         {
-            try
+            using (FormLoading loading = new FormLoading())
             {
-                int bulan = datejadwal.Value.Month;
-                int tahun = datejadwal.Value.Year;
-                string namaBulan = new DateTime(tahun, bulan, 1).ToString("MMMM");
-
-                DataTable dtMaterial = GetDataFromSPbulan("sp_LaporanDataMaterial", bulan, tahun);
-
-                Excel.Application xlApp = new Excel.Application();
-
-                string templatePath = Path.Combine(Application.StartupPath, "Data Barang Template.xlsx");
-                Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(templatePath);
-                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Sheets[1];
-
-                int rowStart = 3;
-                int colStart = 1;
-                for (int i = 0; i < dtMaterial.Rows.Count; i++)
-                {
-                    xlWorkSheet.Cells[rowStart + i, colStart] = (i + 1).ToString();
-
-                    for (int j = 0; j < dtMaterial.Columns.Count; j++)
+                loading.Show();
+                loading.Refresh();
+                await Task.Run(() =>
+            {
+                    try
                     {
-                        string columnName = dtMaterial.Columns[j].ColumnName.ToLower();
+                        int bulan = datejadwal.Value.Month;
+                        int tahun = datejadwal.Value.Year;
+                        string namaBulan = new DateTime(tahun, bulan, 1).ToString("MMMM");
 
-                        if (columnName == "foto")
+                        DataTable dtMaterial = GetDataFromSPbulan("sp_LaporanDataMaterial", bulan, tahun);
+
+                        Excel.Application xlApp = new Excel.Application();
+                        string templatePath = Path.Combine(Application.StartupPath, "Data Barang Template.xlsx");
+                        Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(templatePath);
+                        Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Sheets[1];
+
+                        int rowStart = 3;
+                        int colStart = 1;
+                        for (int i = 0; i < dtMaterial.Rows.Count; i++)
                         {
-                            if (dtMaterial.Rows[i][j] != DBNull.Value)
+                            xlWorkSheet.Cells[rowStart + i, colStart] = (i + 1).ToString();
+
+                            for (int j = 0; j < dtMaterial.Columns.Count; j++)
                             {
-                                byte[] imgBytes = (byte[])dtMaterial.Rows[i][j];
-                                using (MemoryStream ms = new MemoryStream(imgBytes))
+                                string columnName = dtMaterial.Columns[j].ColumnName.ToLower();
+
+                                if (columnName == "foto")
                                 {
-                                    System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
-                                    string tempPath = Path.Combine(Path.GetTempPath(), $"img_{i}_{j}.png");
-                                    img.Save(tempPath, System.Drawing.Imaging.ImageFormat.Png);
+                                    if (dtMaterial.Rows[i][j] != DBNull.Value)
+                                    {
+                                        byte[] imgBytes = (byte[])dtMaterial.Rows[i][j];
+                                        using (MemoryStream ms = new MemoryStream(imgBytes))
+                                        {
+                                            System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
+                                            string tempPath = Path.Combine(Path.GetTempPath(), $"img_{i}_{j}.png");
+                                            img.Save(tempPath, System.Drawing.Imaging.ImageFormat.Png);
 
-                                    Excel.Range cell = (Excel.Range)xlWorkSheet.Cells[rowStart + i, colStart + j + 1];
-                                    Excel.Pictures pics = (Excel.Pictures)xlWorkSheet.Pictures(Type.Missing);
-                                    Excel.Picture pic = pics.Insert(tempPath, Type.Missing);
+                                            Excel.Range cell = (Excel.Range)xlWorkSheet.Cells[rowStart + i, colStart + j + 1];
+                                            Excel.Pictures pics = (Excel.Pictures)xlWorkSheet.Pictures(Type.Missing);
+                                            Excel.Picture pic = pics.Insert(tempPath, Type.Missing);
 
-                                    float cmToPoint = 28.35f;  
-                                    pic.Height = 3.5f * cmToPoint;   
+                                            float cmToPoint = 28.35f;
+                                            pic.Height = 3.5f * cmToPoint;
 
-                                    pic.Left = (float)cell.Left + ((float)cell.Width - pic.Width) / 2;
-                                    pic.Top = (float)cell.Top + ((float)cell.Height - pic.Height) / 2;
+                                            pic.Left = (float)cell.Left + ((float)cell.Width - pic.Width) / 2;
+                                            pic.Top = (float)cell.Top + ((float)cell.Height - pic.Height) / 2;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    xlWorkSheet.Cells[rowStart + i, colStart + j + 1] = dtMaterial.Rows[i][j].ToString();
                                 }
                             }
                         }
-                        else
+
+                        this.Invoke(new Action(() =>
                         {
-                            xlWorkSheet.Cells[rowStart + i, colStart + j + 1] = dtMaterial.Rows[i][j].ToString();
-                        }
+                            SaveFileDialog saveFileDialog = new SaveFileDialog
+                            {
+                                Title = "Simpan File Excel",
+                                Filter = "Excel Files|*.xlsx",
+                                FileName = $"DATA BARANG KTJ PER {namaBulan} {tahun}.xlsx"
+                            };
+
+                            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                            {
+                                string savePath = saveFileDialog.FileName;
+                                if (File.Exists(savePath)) File.Delete(savePath);
+
+                                xlWorkBook.SaveCopyAs(savePath);
+                                MessageBox.Show("Export selesai ke: " + savePath, "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }));
+
+                        xlWorkBook.Close(false);
+                        xlApp.Quit();
+
+                        Marshal.ReleaseComObject(xlWorkSheet);
+                        Marshal.ReleaseComObject(xlWorkBook);
+                        Marshal.ReleaseComObject(xlApp);
+
+                        xlWorkSheet = null;
+                        xlWorkBook = null;
+                        xlApp = null;
+
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
                     }
-                }
-
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Title = "Simpan File Excel";
-                saveFileDialog.Filter = "Excel Files|*.xlsx";
-                saveFileDialog.FileName = $"DATA BARANG KTJ PER {namaBulan} {tahun}.xlsx";
-
-                try
-                {
-                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    catch (Exception ex)
                     {
-                        string savePath = saveFileDialog.FileName;
-
-                        if (File.Exists(savePath))
+                        this.Invoke(new Action(() =>
                         {
-                            File.Delete(savePath);
-                        }
-
-                        xlWorkBook.SaveCopyAs(savePath);
-
-                        MessageBox.Show("Export selesai ke: " + savePath, "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Error: " + ex.Message);
+                        }));
                     }
-                }
-                finally
-                {
-                    xlWorkBook.Close(false);
-                    xlApp.Quit();
-
-                    Marshal.ReleaseComObject(xlWorkSheet);
-                    Marshal.ReleaseComObject(xlWorkBook);
-                    Marshal.ReleaseComObject(xlApp);
-
-                    xlWorkSheet = null;
-                    xlWorkBook = null;
-                    xlApp = null;
-
-                    GC.Collect();
-                    GC.WaitForPendingFinalizers();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
+                });
+                loading.Close();
             }
         }
 

@@ -290,6 +290,12 @@ namespace GOS_FxApps
                     cmbnama.ValueMember = "kodeBarang";
                     cmbnama.SelectedIndex = -1; 
                     isBinding = false;
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        cmbnama.DroppedDown = true;
+                        txtcarimaterial.Focus();
+                    }
                 }
             }
             catch (SqlException)
@@ -523,7 +529,21 @@ namespace GOS_FxApps
 
         private void txtcarimaterial_TextChanged(object sender, EventArgs e)
         {
-            combonama(txtcarimaterial.Text);
+            string keyword = txtcarimaterial.Text.Trim();
+            combonama(keyword);
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                cmbnama.DroppedDown = true;
+
+                Cursor = Cursors.Default;
+
+                txtcarimaterial.Focus();
+                txtcarimaterial.SelectionStart = txtcarimaterial.Text.Length;
+            }
+            else
+            {
+                cmbnama.DroppedDown = false;
+            }
         }
     }
 }
