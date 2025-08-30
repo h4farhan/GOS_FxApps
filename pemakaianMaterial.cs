@@ -23,6 +23,9 @@ namespace GOS_FxApps
         int noprimary = 0;
         int jumlahlama;
 
+        private bool isBinding = false; 
+
+
         public pemakaianMaterial()
         {
             InitializeComponent();
@@ -281,13 +284,12 @@ namespace GOS_FxApps
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
+                    isBinding = true; 
                     cmbnama.DataSource = dt;
                     cmbnama.DisplayMember = "namaBarang";
                     cmbnama.ValueMember = "kodeBarang";
-
-                    cmbnama.SelectedIndexChanged -= cmbnama_SelectedIndexChanged;
-                    cmbnama.SelectedIndex = -1;
-                    cmbnama.SelectedIndexChanged += cmbnama_SelectedIndexChanged;
+                    cmbnama.SelectedIndex = -1; 
+                    isBinding = false;
                 }
             }
             catch (SqlException)
@@ -444,6 +446,8 @@ namespace GOS_FxApps
 
         private void cmbnama_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (isBinding) return;
+
             if (cmbnama.SelectedIndex == -1 || cmbnama.SelectedValue == null || cmbnama.SelectedValue == DBNull.Value)
             {
                 picture1.Image = null;
