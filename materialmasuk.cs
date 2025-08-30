@@ -154,7 +154,7 @@ namespace GOS_FxApps
             {
                 using (SqlConnection conn = Koneksi.GetConnection())
                 {
-                    string query = "SELECT * FROM stok_material";
+                    string query = "SELECT * FROM stok_material ORDER BY namaBarang ASC";
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
