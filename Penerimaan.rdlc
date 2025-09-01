@@ -583,7 +583,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!cr.Value</Value>
+                                  <Value>=Fields!r.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -645,7 +645,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!r.Value</Value>
+                                  <Value>=Fields!cr.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1156,7 +1156,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(IIf(Fields!cr.Value &gt; 0, 1, 0), "DataSetPenerimaan")</Value>
+                                  <Value>=Sum(Fields!r.Value, "DataSetPenerimaan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1220,7 +1220,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!r.Value, "DataSetPenerimaan")</Value>
+                                  <Value>=Sum(IIf(Fields!cr.Value &gt; 0, 1, 0), "DataSetPenerimaan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -2434,7 +2434,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>CR</Value>
+                          <Value>R</Value>
                           <Style>
                             <FontFamily>Segoe UI</FontFamily>
                             <FontSize>8pt</FontSize>
@@ -2656,7 +2656,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>R</Value>
+                          <Value>CR</Value>
                           <Style>
                             <FontFamily>Segoe UI</FontFamily>
                             <FontSize>8pt</FontSize>
@@ -3343,7 +3343,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>CR</Value>
+                      <Value>R</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -3491,7 +3491,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>R</Value>
+                      <Value>CR</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -3861,7 +3861,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1,ReportItems!Textbox59.Value, "")</Value>
+                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!r.Value, "DataSetPenerimaan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4009,7 +4009,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!r.Value, "DataSetPenerimaan"), "")</Value>
+                      <Value>=IIf(Parameters!shift.Value = 1,ReportItems!Textbox61.Value, "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4897,7 +4897,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2,ReportItems!Textbox59.Value, "")</Value>
+                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!r.Value, "DataSetPenerimaan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5045,7 +5045,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!r.Value, "DataSetPenerimaan"), "")</Value>
+                      <Value>=IIf(Parameters!shift.Value = 2,ReportItems!Textbox61.Value, "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5415,7 +5415,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3,ReportItems!Textbox59.Value, "")</Value>
+                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!r.Value, "DataSetPenerimaan"), "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5563,7 +5563,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!r.Value, "DataSetPenerimaan"), "")</Value>
+                      <Value>=IIf(Parameters!shift.Value = 3,ReportItems!Textbox61.Value, "")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>

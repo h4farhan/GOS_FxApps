@@ -250,6 +250,7 @@ namespace GOS_FxApps
         private void btncari_Click(object sender, EventArgs e)
         {
             loadsp1();
+            lbltanggal.Text = "Per " + datejadwal.Value.ToString("MMMM yyyy");
             btnreset.Enabled = true;
         }
 
@@ -257,6 +258,7 @@ namespace GOS_FxApps
         {
             datejadwal.Value = DateTime.Now;
             loadsp1();
+            lbltanggal.Text = "Per " + datejadwal.Value.ToString("MMMM yyyy");
             btnreset.Enabled = false;
         }
 
@@ -264,7 +266,7 @@ namespace GOS_FxApps
         {
             datejadwal.Value = DateTime.Now;
             loadsp1();
-            lbltanggal.Text = "Per " + DateTime.Now.ToString("MMMM yyyy");
+            lbltanggal.Text = "Per " + datejadwal.Value.ToString("MMMM yyyy");
         }
 
         private void btnprint_Click(object sender, EventArgs e)

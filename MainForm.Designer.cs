@@ -423,7 +423,7 @@ namespace GOS_FxApps
             this.panel2.Controls.Add(this.lblshift);
             this.panel2.Controls.Add(this.lblinfo);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(283, 0);
+            this.panel2.Location = new System.Drawing.Point(323, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(166, 50);
             this.panel2.TabIndex = 7;
@@ -463,7 +463,7 @@ namespace GOS_FxApps
             this.lbldate.Margin = new System.Windows.Forms.Padding(15, 16, 15, 16);
             this.lbldate.Name = "lbldate";
             this.lbldate.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.lbldate.Size = new System.Drawing.Size(283, 50);
+            this.lbldate.Size = new System.Drawing.Size(323, 50);
             this.lbldate.TabIndex = 0;
             this.lbldate.Text = "Tanggal Dan Jam";
             this.lbldate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

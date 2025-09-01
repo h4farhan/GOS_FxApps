@@ -86,7 +86,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM penerimaan_s ORDER BY tanggal_penerimaan DESC";
+                string query = "SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3, s, d, b, ba, r, m, cr, c, rl, jumlah, updated_at, remaks FROM penerimaan_s ORDER BY tanggal_penerimaan DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -109,9 +109,9 @@ namespace GOS_FxApps
                 dataGridView2.Columns[10].HeaderText = "D";
                 dataGridView2.Columns[11].HeaderText = "B";
                 dataGridView2.Columns[12].HeaderText = "BA";
-                dataGridView2.Columns[13].HeaderText = "CR";
+                dataGridView2.Columns[13].HeaderText = "R";
                 dataGridView2.Columns[14].HeaderText = "M";
-                dataGridView2.Columns[15].HeaderText = "R";
+                dataGridView2.Columns[15].HeaderText = "CR";
                 dataGridView2.Columns[16].HeaderText = "C";
                 dataGridView2.Columns[17].HeaderText = "RL";
                 dataGridView2.Columns[18].HeaderText = "Jumlah";
@@ -182,7 +182,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl, jumlah, tanggal_penerimaan, updated_at, remaks FROM perbaikan_s ORDER BY tanggal_perbaikan DESC";
+                string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, bac, nba, ba, ba1, r, m, cr, c, rl, jumlah, tanggal_penerimaan, updated_at, remaks FROM perbaikan_s ORDER BY tanggal_perbaikan DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query,conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -213,9 +213,9 @@ namespace GOS_FxApps
                 dataGridView1.Columns[18].HeaderText = "NBA";
                 dataGridView1.Columns[19].HeaderText = "BA";
                 dataGridView1.Columns[20].HeaderText = "BA-1";
-                dataGridView1.Columns[21].HeaderText = "CR";
+                dataGridView1.Columns[21].HeaderText = "R";
                 dataGridView1.Columns[22].HeaderText = "M";
-                dataGridView1.Columns[23].HeaderText = "R";
+                dataGridView1.Columns[23].HeaderText = "CR";
                 dataGridView1.Columns[24].HeaderText = "C";
                 dataGridView1.Columns[25].HeaderText = "RL";
                 dataGridView1.Columns[26].HeaderText = "Jumlah";

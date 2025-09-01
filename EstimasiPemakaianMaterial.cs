@@ -787,14 +787,17 @@ namespace GOS_FxApps
             if (cmbpilihdata.SelectedItem.ToString().Equals("Hari Ini"))
             {
                 loadsp1();
+                lbltanggal.Text = DateTime.Now.ToString("dd MMMM yyyy");
             }
             else if(cmbpilihdata.SelectedItem.ToString().Equals("Bulan Ini"))
             {
                 loadsp2();
+                lbltanggal.Text = DateTime.Now.ToString("MMMM yyyy");
             }
             else if(cmbpilihdata.SelectedItem.ToString().Equals("Tahun Ini"))
             {
                 loadsp3();
+                lbltanggal.Text = DateTime.Now.ToString("yyyy");
             }
         }
 
@@ -823,7 +826,7 @@ namespace GOS_FxApps
         {
             cmbpilihdata.SelectedIndex = 0;
             loadsp1();
-            lbltanggal.Text = DateTime.Now.ToString("MMMM yyyy");
+            lbltanggal.Text = DateTime.Now.ToString("dd MMMM yyyy");
         }
     }
 }

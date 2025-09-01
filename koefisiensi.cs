@@ -27,7 +27,6 @@ namespace GOS_FxApps
         {
             InitializeComponent();
             tampilmaterial();
-            datematerial.Value = DateTime.Now;
             datecarimaterial.Value = DateTime.Now;
             datecarimaterial.Checked = false;
             combonama();
@@ -102,7 +101,6 @@ namespace GOS_FxApps
 
         private void setdefaultmaterial()
         {
-            datematerial.Value = DateTime.Now;
             cmbmaterial.SelectedIndex = -1;
             txtspesifikasi.Clear();
             txtuom.Clear();
@@ -128,7 +126,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM koefisiensi_material ORDER BY tanggal DESC";
+                string query = "SELECT * FROM koefisiensi_material ORDER BY updated_at DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -139,27 +137,26 @@ namespace GOS_FxApps
                 dataGridView1.ReadOnly = true;
 
                 dataGridView1.Columns[0].Visible = false;
-                dataGridView1.Columns[1].HeaderText = "Tanggal";
-                dataGridView1.Columns[2].HeaderText = "Type";
-                dataGridView1.Columns[3].HeaderText = "Kode Barang";
-                dataGridView1.Columns[4].HeaderText = "Deskripsi";
-                dataGridView1.Columns[5].HeaderText = "Spesifikasi";
-                dataGridView1.Columns[6].HeaderText = "UoM";
-                dataGridView1.Columns[7].HeaderText = "Koef E1";
-                dataGridView1.Columns[8].HeaderText = "Koef E2";
-                dataGridView1.Columns[9].HeaderText = "Koef E3";
-                dataGridView1.Columns[10].HeaderText = "Koef E4";
-                dataGridView1.Columns[11].HeaderText = "Koef S";
-                dataGridView1.Columns[12].HeaderText = "Koef D";
-                dataGridView1.Columns[13].HeaderText = "Koef B";
-                dataGridView1.Columns[14].HeaderText = "Koef BA";
-                dataGridView1.Columns[15].HeaderText = "Koef BA-1";
-                dataGridView1.Columns[16].HeaderText = "Koef CR";
-                dataGridView1.Columns[17].HeaderText = "Koef M";
-                dataGridView1.Columns[18].HeaderText = "Koef R";
-                dataGridView1.Columns[19].HeaderText = "Koef C";
-                dataGridView1.Columns[20].HeaderText = "Koef RL";
-                dataGridView1.Columns[21].HeaderText = "Diubah";
+                dataGridView1.Columns[1].HeaderText = "Type";
+                dataGridView1.Columns[2].HeaderText = "Kode Barang";
+                dataGridView1.Columns[3].HeaderText = "Deskripsi";
+                dataGridView1.Columns[4].HeaderText = "Spesifikasi";
+                dataGridView1.Columns[5].HeaderText = "UoM";
+                dataGridView1.Columns[6].HeaderText = "Koef E1";
+                dataGridView1.Columns[7].HeaderText = "Koef E2";
+                dataGridView1.Columns[8].HeaderText = "Koef E3";
+                dataGridView1.Columns[9].HeaderText = "Koef E4";
+                dataGridView1.Columns[10].HeaderText = "Koef S";
+                dataGridView1.Columns[11].HeaderText = "Koef D";
+                dataGridView1.Columns[12].HeaderText = "Koef B";
+                dataGridView1.Columns[13].HeaderText = "Koef BA";
+                dataGridView1.Columns[14].HeaderText = "Koef BA-1";
+                dataGridView1.Columns[15].HeaderText = "Koef CR";
+                dataGridView1.Columns[16].HeaderText = "Koef M";
+                dataGridView1.Columns[17].HeaderText = "Koef R";
+                dataGridView1.Columns[18].HeaderText = "Koef C";
+                dataGridView1.Columns[19].HeaderText = "Koef RL";
+                dataGridView1.Columns[20].HeaderText = "Diubah";
 
                 dataGridView1.Columns[1].DefaultCellStyle.Format = "MM-yyyy";
             }
@@ -237,33 +234,9 @@ namespace GOS_FxApps
                 using (SqlConnection conn = Koneksi.GetConnection())
                 {
                     conn.Open();
-                    using (SqlCommand cmdcekkode = new SqlCommand(
-                        "SELECT 1 FROM koefisiensi_material WHERE MONTH(tanggal) = @bulan AND YEAR(tanggal) = @tahun AND kodeBarang = @kodebarang", conn))
-                    {
-                        cmdcekkode.Parameters.AddWithValue("@bulan", datematerial.Value.Month);
-                        cmdcekkode.Parameters.AddWithValue("@tahun", datematerial.Value.Year);
-                        cmdcekkode.Parameters.AddWithValue("@kodebarang", cmbmaterial.SelectedValue.ToString());
-
-                        using (SqlDataReader dr = cmdcekkode.ExecuteReader())
-                        {
-                            if (dr.Read())
-                            {
-                                MessageBox.Show("Data Koefisiensi Material di bulan dan tahun ini sudah ada",
-                                                "Peringatan",
-                                                MessageBoxButtons.OK,
-                                                MessageBoxIcon.Warning);
-                                return;
-                            }
-                        }
-                    }
-                }
-
-                using (SqlConnection conn = Koneksi.GetConnection())
-                {
-                    conn.Open();
                     using (SqlCommand cmd1 = new SqlCommand(@"
                 INSERT INTO koefisiensi_material 
-                (tanggal,type,kodeBarang,deskripsi,spesifikasi,uom,
+                (type,kodeBarang,deskripsi,spesifikasi,uom,
                  koef_e1,koef_e2,koef_e3,koef_e4,
                  koef_s,koef_d,koef_b,koef_ba,koef_ba1,
                  koef_cr,koef_m,koef_r,koef_c,koef_rl,
@@ -275,7 +248,6 @@ namespace GOS_FxApps
                  @cr,@m,@r,@c,@rl,
                  @diubah)", conn))
                     {
-                        cmd1.Parameters.AddWithValue("@tgl", datematerial.Value.Date);
                         cmd1.Parameters.AddWithValue("@type", txttipe.Text);
                         cmd1.Parameters.AddWithValue("@kodeBarang", cmbmaterial.SelectedValue.ToString());
                         cmd1.Parameters.AddWithValue("@deskripsi", cmbmaterial.Text);
@@ -313,7 +285,6 @@ namespace GOS_FxApps
                 btnbatalmaterial.Enabled = false;
                 btnsimpanmaterial.Enabled = false;
                 cmbmaterial.Enabled = true;
-                datematerial.Enabled = true;
             }
             catch (SqlException ex)
             {
@@ -363,7 +334,6 @@ namespace GOS_FxApps
                         btnsimpanmaterial.Enabled = false;
                         btnbatalmaterial.Enabled = false;
                         cmbmaterial.Enabled = true;
-                        datematerial.Enabled = true;
                         btnsimpanmaterial.Text = "Simpan Data";
                     }
                     catch (SqlException)
@@ -423,7 +393,6 @@ namespace GOS_FxApps
             btnbatalmaterial.Enabled = false;
             btnsimpanmaterial.Enabled = false;
             cmbmaterial.Enabled = true;
-            datematerial.Enabled = true;
         }
 
         private void txtkoefm_TextChanged(object sender, EventArgs e)
@@ -587,150 +556,6 @@ namespace GOS_FxApps
             }
         }
 
-        private void datematerial_MouseDown(object sender, MouseEventArgs e)
-        {
-            using (Form pickerForm = new Form())
-            {
-                pickerForm.StartPosition = FormStartPosition.Manual;
-                pickerForm.FormBorderStyle = FormBorderStyle.FixedDialog;
-                pickerForm.ControlBox = false;
-                pickerForm.Size = new Size(250, 200);
-                pickerForm.Text = "Pilih Bulan & Tahun";
-
-                var screenPos = datematerial.PointToScreen(DrawingPoint.Empty);
-                pickerForm.Location = new DrawingPoint(screenPos.X, screenPos.Y + datematerial.Height);
-
-                var cmbBulan = new Guna2ComboBox
-                {
-                    Font = new Font("Segoe UI", 11F),
-                    Left = 10,
-                    Top = 10,
-                    Width = 200,
-                    BorderRadius = 6,
-                    ForeColor = Color.Black,
-                    DropDownStyle = ComboBoxStyle.DropDownList,
-                    BorderColor = Color.FromArgb(64, 64, 64),
-                    BorderThickness = 2,
-                };
-                string[] bulan = {
-                                    "01 - Januari", "02 - Februari", "03 - Maret", "04 - April", "05 - Mei", "06 - Juni",
-                                    "07 - Juli", "08 - Agustus", "09 - September", "10 - Oktober", "11 - November", "12 - Desember"
-                                };
-                cmbBulan.Items.AddRange(bulan);
-                cmbBulan.SelectedIndex = datematerial.Value.Month - 1;
-
-                var numTahun = new Guna2NumericUpDown
-                {
-                    Font = new Font("Segoe UI", 11F),
-                    Left = 10,
-                    Top = 55,
-                    Width = 200,
-                    BorderRadius = 6,
-                    Minimum = 1900,
-                    Maximum = 2100,
-                    ForeColor = Color.Black,
-                    Value = datematerial.Value.Year,
-                    BorderColor = Color.FromArgb(64, 64, 64),
-                    BorderThickness = 2,
-                };
-
-                var btnOK = new Guna2Button
-                {
-                    Text = "OK",
-                    Font = new Font("Segoe UI", 10F),
-                    Left = 10,
-                    Top = 110,
-                    Width = 80,
-                    Height = 35,
-                    BorderRadius = 6,
-                    FillColor = Color.FromArgb(53, 53, 58)
-                };
-                btnOK.Click += (s, ev) =>
-                {
-                    datematerial.Value = new DateTime((int)numTahun.Value, cmbBulan.SelectedIndex + 1, 1);
-                    pickerForm.DialogResult = DialogResult.OK;
-                };
-
-                pickerForm.Controls.Add(cmbBulan);
-                pickerForm.Controls.Add(numTahun);
-                pickerForm.Controls.Add(btnOK);
-
-                pickerForm.ShowDialog();
-            }
-        }
-
-        private void datecarimaterial_MouseDown(object sender, MouseEventArgs e)
-        {
-            using (Form pickerForm = new Form())
-            {
-                pickerForm.StartPosition = FormStartPosition.Manual;
-                pickerForm.FormBorderStyle = FormBorderStyle.FixedDialog;
-                pickerForm.ControlBox = false;
-                pickerForm.Size = new Size(250, 200);
-                pickerForm.Text = "Pilih Bulan & Tahun";
-
-                var screenPos = datecarimaterial.PointToScreen(DrawingPoint.Empty);
-                pickerForm.Location = new DrawingPoint(screenPos.X, screenPos.Y + datecarimaterial.Height);
-
-                var cmbBulan = new Guna2ComboBox
-                {
-                    Font = new Font("Segoe UI", 11F),
-                    Left = 10,
-                    Top = 10,
-                    Width = 200,
-                    BorderRadius = 6,
-                    ForeColor = Color.Black,
-                    DropDownStyle = ComboBoxStyle.DropDownList,
-                    BorderColor = Color.FromArgb(64, 64, 64),
-                    BorderThickness = 2,
-                };
-                string[] bulan = {
-                                    "01 - Januari", "02 - Februari", "03 - Maret", "04 - April", "05 - Mei", "06 - Juni",
-                                    "07 - Juli", "08 - Agustus", "09 - September", "10 - Oktober", "11 - November", "12 - Desember"
-                                };
-                cmbBulan.Items.AddRange(bulan);
-                cmbBulan.SelectedIndex = datecarimaterial.Value.Month - 1;
-
-                var numTahun = new Guna2NumericUpDown
-                {
-                    Font = new Font("Segoe UI", 11F),
-                    Left = 10,
-                    Top = 55,
-                    Width = 200,
-                    BorderRadius = 6,
-                    Minimum = 1900,
-                    Maximum = 2100,
-                    ForeColor = Color.Black,
-                    Value = datecarimaterial.Value.Year,
-                    BorderColor = Color.FromArgb(64, 64, 64),
-                    BorderThickness = 2,
-                };
-
-                var btnOK = new Guna2Button
-                {
-                    Text = "OK",
-                    Font = new Font("Segoe UI", 10F),
-                    Left = 10,
-                    Top = 110,
-                    Width = 80,
-                    Height = 35,
-                    BorderRadius = 6,
-                    FillColor = Color.FromArgb(53, 53, 58)
-                };
-                btnOK.Click += (s, ev) =>
-                {
-                    datecarimaterial.Value = new DateTime((int)numTahun.Value, cmbBulan.SelectedIndex + 1, 1);
-                    pickerForm.DialogResult = DialogResult.OK;
-                };
-
-                pickerForm.Controls.Add(cmbBulan);
-                pickerForm.Controls.Add(numTahun);
-                pickerForm.Controls.Add(btnOK);
-
-                pickerForm.ShowDialog();
-            }
-        }
-
         private void koefisiensi_Load(object sender, EventArgs e)
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
@@ -750,7 +575,6 @@ namespace GOS_FxApps
 
                 noprimarymaterial = Convert.ToInt32(row.Cells["no"].Value);
                 cmbmaterial.SelectedValue = row.Cells["kodeBarang"].Value.ToString();
-                datematerial.Value = Convert.ToDateTime(row.Cells["tanggal"].Value);
                 txtspesifikasi.Text = row.Cells["spesifikasi"].Value.ToString();
                 txtuom.Text = row.Cells["uom"].Value.ToString();
                 txttipe.Text = row.Cells["type"].Value.ToString();
@@ -769,7 +593,6 @@ namespace GOS_FxApps
                 txtkoefc.Text = row.Cells["koef_c"].Value.ToString();
                 txtkoefrl.Text = row.Cells["koef_rl"].Value.ToString();
 
-                datematerial.Enabled = false;
                 cmbmaterial.Enabled = false;
                 btnsimpanmaterial.Enabled = true;
                 btnsimpanmaterial.Text = "Edit Data";

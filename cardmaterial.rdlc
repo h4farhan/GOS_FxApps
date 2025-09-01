@@ -73,17 +73,21 @@
           <DataField>uom</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="jumlahStok">
-          <DataField>jumlahStok</DataField>
+        <Field Name="StokAwal">
+          <DataField>StokAwal</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="StokAkhir">
+          <DataField>StokAkhir</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="MutasiBulanIni">
+          <DataField>MutasiBulanIni</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="foto">
           <DataField>foto</DataField>
           <rd:TypeName>System.Byte[]</rd:TypeName>
-        </Field>
-        <Field Name="StokAwal">
-          <DataField>StokAwal</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
@@ -837,7 +841,7 @@
                 </TablixRowHierarchy>
                 <DataSetName>cardmaterial</DataSetName>
                 <Height>2.5cm</Height>
-                <Width>18.78019cm</Width>
+                <Width>18.7802cm</Width>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -851,7 +855,7 @@
             <Top>0.03027cm</Top>
             <Left>0.06668cm</Left>
             <Height>2.5cm</Height>
-            <Width>18.78019cm</Width>
+            <Width>18.7802cm</Width>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -996,7 +1000,6 @@
                       </Paragraphs>
                       <rd:DefaultName>Textbox99</rd:DefaultName>
                       <Top>2.21653cm</Top>
-                      <Left>0cm</Left>
                       <Height>1.07722cm</Height>
                       <Width>12.91418cm</Width>
                       <ZIndex>3</ZIndex>
@@ -1239,9 +1242,9 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox26</rd:DefaultName>
                   <Top>4.35307cm</Top>
-                  <Left>3.12079cm</Left>
+                  <Left>2.95861cm</Left>
                   <Height>0.6cm</Height>
-                  <Width>4.88125cm</Width>
+                  <Width>7.4776cm</Width>
                   <ZIndex>2</ZIndex>
                   <Style>
                     <Border>
@@ -1277,9 +1280,9 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox26</rd:DefaultName>
                   <Top>5.12946cm</Top>
-                  <Left>3.12079cm</Left>
+                  <Left>2.95861cm</Left>
                   <Height>0.6cm</Height>
-                  <Width>4.88125cm</Width>
+                  <Width>7.4776cm</Width>
                   <ZIndex>3</ZIndex>
                   <Style>
                     <Border>
@@ -1347,9 +1350,9 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox26</rd:DefaultName>
                   <Top>5.90585cm</Top>
-                  <Left>3.12079cm</Left>
+                  <Left>2.95861cm</Left>
                   <Height>0.6cm</Height>
-                  <Width>4.88125cm</Width>
+                  <Width>7.4776cm</Width>
                   <ZIndex>5</ZIndex>
                   <Style>
                     <Border>
@@ -1411,7 +1414,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox26</rd:DefaultName>
                   <Top>4.35307cm</Top>
-                  <Left>8.83915cm</Left>
+                  <Left>10.74415cm</Left>
                   <Height>0.6cm</Height>
                   <Width>2.5cm</Width>
                   <ZIndex>7</ZIndex>
@@ -1449,9 +1452,9 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox26</rd:DefaultName>
                   <Top>4.35307cm</Top>
-                  <Left>11.67772cm</Left>
+                  <Left>13.42054cm</Left>
                   <Height>0.6cm</Height>
-                  <Width>4.88125cm</Width>
+                  <Width>3.79989cm</Width>
                   <ZIndex>8</ZIndex>
                   <Style>
                     <Border>
@@ -1487,9 +1490,9 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox26</rd:DefaultName>
                   <Top>5.12946cm</Top>
-                  <Left>11.67772cm</Left>
+                  <Left>13.42054cm</Left>
                   <Height>0.6cm</Height>
-                  <Width>4.88125cm</Width>
+                  <Width>3.79989cm</Width>
                   <ZIndex>9</ZIndex>
                   <Style>
                     <Border>
@@ -1519,7 +1522,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox26</rd:DefaultName>
                   <Top>5.12946cm</Top>
-                  <Left>8.83915cm</Left>
+                  <Left>10.74415cm</Left>
                   <Height>0.6cm</Height>
                   <Width>2.5cm</Width>
                   <ZIndex>10</ZIndex>
@@ -1546,7 +1549,7 @@
                           </Style>
                         </TextRun>
                         <TextRun>
-                          <Value>=Sum(Fields!jumlahStok.Value, "dataCardMaterial")</Value>
+                          <Value>=Sum(Fields!StokAkhir.Value, "dataCardMaterial")</Value>
                           <Style>
                             <FontSize>9pt</FontSize>
                           </Style>
@@ -1557,9 +1560,9 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox26</rd:DefaultName>
                   <Top>5.90585cm</Top>
-                  <Left>11.67772cm</Left>
+                  <Left>13.42054cm</Left>
                   <Height>0.6cm</Height>
-                  <Width>4.88125cm</Width>
+                  <Width>3.79989cm</Width>
                   <ZIndex>11</ZIndex>
                   <Style>
                     <Border>
@@ -1589,7 +1592,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox26</rd:DefaultName>
                   <Top>5.90585cm</Top>
-                  <Left>8.83915cm</Left>
+                  <Left>10.74415cm</Left>
                   <Height>0.6cm</Height>
                   <Width>2.5cm</Width>
                   <ZIndex>12</ZIndex>
