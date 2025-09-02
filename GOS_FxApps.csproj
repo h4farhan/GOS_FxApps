@@ -222,6 +222,24 @@
     <Compile Include="datamaterial.Designer.cs">
       <DependentUpon>datamaterial.cs</DependentUpon>
     </Compile>
+    <Compile Include="datapenerimaanedit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="datapenerimaanedit.Designer.cs">
+      <DependentUpon>datapenerimaanedit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="datapengirimanedit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="datapengirimanedit.Designer.cs">
+      <DependentUpon>datapengirimanedit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dataperbaikanedit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dataperbaikanedit.Designer.cs">
+      <DependentUpon>dataperbaikanedit.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\actual.cs">
       <DependentUpon>actual.xsd</DependentUpon>
     </Compile>
@@ -517,6 +535,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="datamaterial.resx">
       <DependentUpon>datamaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="datapenerimaanedit.resx">
+      <DependentUpon>datapenerimaanedit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="datapengirimanedit.resx">
+      <DependentUpon>datapengirimanedit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dataperbaikanedit.resx">
+      <DependentUpon>dataperbaikanedit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="editpenerimaan.resx">
       <DependentUpon>editpenerimaan.cs</DependentUpon>

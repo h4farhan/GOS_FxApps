@@ -16,9 +16,15 @@ namespace GOS_FxApps
 
         SqlConnection conn = Koneksi.GetConnection();
 
+        public int noprimary;
+        public string nomorrod;
+
+        public static historyPerbaikan instance;
+
         public historyPerbaikan()
         {
             InitializeComponent();
+            instance = this;
         }
 
         private void registertampil()
@@ -194,6 +200,21 @@ namespace GOS_FxApps
         private void historyPerbaikan_FormClosing(object sender, FormClosingEventArgs e)
         {
             SqlDependency.Stop(Koneksi.GetConnectionString());
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                noprimary = Convert.ToInt32(row.Cells["no"].Value);
+                nomorrod = row.Cells["nomor_rod"].Value.ToString();
+
+                dataperbaikanedit data = new dataperbaikanedit();
+                data.lbljudul.Text = "Riwayat Perubahan ROD No = " + nomorrod;
+                data.ShowDialog();
+            }
         }
     }
 }
