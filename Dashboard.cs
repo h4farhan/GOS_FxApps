@@ -1165,25 +1165,38 @@ namespace GOS_FxApps
                     }
                 }
 
+                // ===== Bersihkan chart lama =====
                 chartUssageMaterial.Series.Clear();
+                chartUssageMaterial.DataSource = null;
 
-                Series seriesBQ = new Series("TotalBQ");
-                seriesBQ.ChartType = SeriesChartType.Column;
-                seriesBQ.XValueMember = "Deskripsi";
-                seriesBQ.YValueMembers = "TotalBQ";
-                seriesBQ.IsValueShownAsLabel = true;
+                // Reset ChartArea
+                var area = chartUssageMaterial.ChartAreas[0];
+                area.AxisX.ScaleView.ZoomReset();
+                area.RecalculateAxesScale();
+
+                // ===== Tambahkan series baru =====
+                Series seriesBQ = new Series("TotalBQ")
+                {
+                    ChartType = SeriesChartType.Column,
+                    XValueMember = "Deskripsi",
+                    YValueMembers = "TotalBQ",
+                    IsValueShownAsLabel = true
+                };
                 seriesBQ["PointWidth"] = "0.4";
 
-                Series seriesPemakaian = new Series("TotalPemakaian");
-                seriesPemakaian.ChartType = SeriesChartType.Column;
-                seriesPemakaian.XValueMember = "Deskripsi";
-                seriesPemakaian.YValueMembers = "TotalPemakaian";
-                seriesPemakaian.IsValueShownAsLabel = true;
+                Series seriesPemakaian = new Series("TotalPemakaian")
+                {
+                    ChartType = SeriesChartType.Column,
+                    XValueMember = "Deskripsi",
+                    YValueMembers = "TotalPemakaian",
+                    IsValueShownAsLabel = true
+                };
                 seriesPemakaian["PointWidth"] = "0.4";
 
                 chartUssageMaterial.Series.Add(seriesBQ);
                 chartUssageMaterial.Series.Add(seriesPemakaian);
 
+                // ===== Setup axis X =====
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
                 axisX.Interval = 1;
                 axisX.IsLabelAutoFit = false;
@@ -1191,6 +1204,7 @@ namespace GOS_FxApps
                 axisX.ScrollBar.Enabled = true;
                 axisX.ScrollBar.IsPositionedInside = true;
 
+                // ===== Bind data =====
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
             }
@@ -1218,6 +1232,11 @@ namespace GOS_FxApps
                 }
 
                 chartUssageMaterial.Series.Clear();
+                chartUssageMaterial.DataSource = null;
+
+                var area = chartUssageMaterial.ChartAreas[0];
+                area.AxisX.ScaleView.ZoomReset();
+                area.RecalculateAxesScale();
 
                 Series seriesBQ = new Series("TotalBQ");
                 seriesBQ.ChartType = SeriesChartType.Column;
@@ -1269,6 +1288,11 @@ namespace GOS_FxApps
                 }
 
                 chartUssageMaterial.Series.Clear();
+                chartUssageMaterial.DataSource = null;
+
+                var area = chartUssageMaterial.ChartAreas[0];
+                area.AxisX.ScaleView.ZoomReset();
+                area.RecalculateAxesScale();
 
                 Series seriesBQ = new Series("TotalBQ");
                 seriesBQ.ChartType = SeriesChartType.Column;
@@ -1323,6 +1347,11 @@ namespace GOS_FxApps
                 }
 
                 chartUssageMaterial.Series.Clear();
+                chartUssageMaterial.DataSource = null;
+
+                var area = chartUssageMaterial.ChartAreas[0];
+                area.AxisX.ScaleView.ZoomReset();
+                area.RecalculateAxesScale();
 
                 Series seriesBQ = new Series("TotalBQ");
                 seriesBQ.ChartType = SeriesChartType.Column;
@@ -1375,6 +1404,11 @@ namespace GOS_FxApps
                 }
 
                 chartUssageMaterial.Series.Clear();
+                chartUssageMaterial.DataSource = null;
+
+                var area = chartUssageMaterial.ChartAreas[0];
+                area.AxisX.ScaleView.ZoomReset();
+                area.RecalculateAxesScale();
 
                 Series seriesBQ = new Series("TotalBQ");
                 seriesBQ.ChartType = SeriesChartType.Column;
@@ -1426,6 +1460,11 @@ namespace GOS_FxApps
                 }
 
                 chartUssageMaterial.Series.Clear();
+                chartUssageMaterial.DataSource = null;
+
+                var area = chartUssageMaterial.ChartAreas[0];
+                area.AxisX.ScaleView.ZoomReset();
+                area.RecalculateAxesScale();
 
                 Series seriesBQ = new Series("TotalBQ");
                 seriesBQ.ChartType = SeriesChartType.Column;
@@ -1480,6 +1519,11 @@ namespace GOS_FxApps
                 }
 
                 chartUssageMaterial.Series.Clear();
+                chartUssageMaterial.DataSource = null;
+
+                var area = chartUssageMaterial.ChartAreas[0];
+                area.AxisX.ScaleView.ZoomReset();
+                area.RecalculateAxesScale();
 
                 Series seriesBQ = new Series("TotalBQ");
                 seriesBQ.ChartType = SeriesChartType.Column;
@@ -1532,6 +1576,11 @@ namespace GOS_FxApps
                 }
 
                 chartUssageMaterial.Series.Clear();
+                chartUssageMaterial.DataSource = null;
+
+                var area = chartUssageMaterial.ChartAreas[0];
+                area.AxisX.ScaleView.ZoomReset();
+                area.RecalculateAxesScale();
 
                 Series seriesBQ = new Series("TotalBQ");
                 seriesBQ.ChartType = SeriesChartType.Column;
@@ -1583,6 +1632,11 @@ namespace GOS_FxApps
                 }
 
                 chartUssageMaterial.Series.Clear();
+                chartUssageMaterial.DataSource = null;
+
+                var area = chartUssageMaterial.ChartAreas[0];
+                area.AxisX.ScaleView.ZoomReset();
+                area.RecalculateAxesScale();
 
                 Series seriesBQ = new Series("TotalBQ");
                 seriesBQ.ChartType = SeriesChartType.Column;
