@@ -142,7 +142,7 @@ namespace GOS_FxApps
                 if (!string.IsNullOrEmpty(inputRod))
                 {
                     query += " AND nomor_rod = @rod";
-                    cmd.Parameters.AddWithValue("@rod", Convert.ToInt32(inputRod));
+                    cmd.Parameters.AddWithValue("@rod", inputRod);
                 }
 
                 query += " ORDER BY tanggal_perbaikan DESC";
@@ -384,10 +384,6 @@ namespace GOS_FxApps
 
                     cmd2.ExecuteNonQuery();
                 }
-                else
-                {
-                    MessageBox.Show("Perbaikan_s tidak ditemukan");
-                }
 
                 //UPDATE penerimaan_p jika ada
                 SqlCommand cek3 = new SqlCommand(
@@ -415,10 +411,6 @@ namespace GOS_FxApps
                     log3.Parameters.AddWithValue("@no", noprimary);
                     log3.ExecuteNonQuery();
                 }
-                else
-                {
-                    MessageBox.Show("Penerimaan_p tidak ditemukan");
-                }
 
                 //UPDATE pengiriman jika ada
                 SqlCommand cek5 = new SqlCommand(
@@ -444,10 +436,6 @@ namespace GOS_FxApps
                         conn, trans);
                     log5.Parameters.AddWithValue("@no", noprimary);
                     log5.ExecuteNonQuery();
-                }
-                else
-                {
-                    MessageBox.Show("Pengiriman tidak ditemukan");
                 }
 
                 //Commit transaksi

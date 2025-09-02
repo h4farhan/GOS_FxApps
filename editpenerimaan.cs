@@ -125,7 +125,7 @@ namespace GOS_FxApps
                 if (!string.IsNullOrEmpty(inputRod))
                 {
                      query += " AND nomor_rod = @rod";
-                     cmd.Parameters.AddWithValue("@rod", Convert.ToInt32(inputRod));
+                     cmd.Parameters.AddWithValue("@rod", inputRod);
                 }
 
                 query += " ORDER BY tanggal_penerimaan DESC";
@@ -436,10 +436,6 @@ namespace GOS_FxApps
                     cmd2.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                     cmd2.ExecuteNonQuery();
                 }
-                else
-                {
-                    MessageBox.Show("Penerimaan_s gada");
-                }
 
                 // 3. Update perbaikan_p (Hanya kalau ada)
                 SqlCommand cek3 = new SqlCommand("SELECT COUNT(*) FROM perbaikan_p WHERE no=@no", conn, trans);
@@ -462,10 +458,6 @@ namespace GOS_FxApps
                     SqlCommand log3 = new SqlCommand("INSERT INTO perbaikan_e SELECT * FROM perbaikan_p WHERE no=@no", conn, trans);
                     log3.Parameters.AddWithValue("@no", noprimary);
                     log3.ExecuteNonQuery();
-                }
-                else
-                {
-                    MessageBox.Show("Perbaikan_p gada");
                 }
 
                 // 4. Update perbaikan_s (Hanya kalau ada)
@@ -490,10 +482,6 @@ namespace GOS_FxApps
                     log4.Parameters.AddWithValue("@no", noprimary);
                     log4.ExecuteNonQuery();
                 }
-                else
-                {
-                    MessageBox.Show("Perbaikan_s gada");
-                }
 
                 // 5. Update pengiriman (Hanya kalau ada)
                 SqlCommand cek5 = new SqlCommand("SELECT COUNT(*) FROM pengiriman WHERE no=@no", conn, trans);
@@ -515,10 +503,6 @@ namespace GOS_FxApps
                     SqlCommand log5 = new SqlCommand("INSERT INTO pengiriman_e SELECT * FROM pengiriman WHERE no=@no", conn, trans);
                     log5.Parameters.AddWithValue("@no", noprimary);
                     log5.ExecuteNonQuery();
-                }
-                else
-                {
-                    MessageBox.Show("pengiriman gada");
                 }
 
                 trans.Commit();
