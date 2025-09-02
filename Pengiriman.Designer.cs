@@ -180,7 +180,7 @@ namespace GOS_FxApps
             this.txtrod10.Size = new System.Drawing.Size(282, 41);
             this.txtrod10.TabIndex = 9;
             this.txtrod10.TextChanged += new System.EventHandler(this.txtrod10_TextChanged);
-            this.txtrod10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            this.txtrod10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             this.txtrod10.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // txtrod9
@@ -207,7 +207,7 @@ namespace GOS_FxApps
             this.txtrod9.Size = new System.Drawing.Size(282, 41);
             this.txtrod9.TabIndex = 8;
             this.txtrod9.TextChanged += new System.EventHandler(this.txtrod9_TextChanged);
-            this.txtrod9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            this.txtrod9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             this.txtrod9.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // txtrod8
@@ -234,7 +234,7 @@ namespace GOS_FxApps
             this.txtrod8.Size = new System.Drawing.Size(282, 41);
             this.txtrod8.TabIndex = 7;
             this.txtrod8.TextChanged += new System.EventHandler(this.txtrod8_TextChanged);
-            this.txtrod8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            this.txtrod8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             this.txtrod8.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // txtrod7
@@ -261,7 +261,7 @@ namespace GOS_FxApps
             this.txtrod7.Size = new System.Drawing.Size(282, 41);
             this.txtrod7.TabIndex = 6;
             this.txtrod7.TextChanged += new System.EventHandler(this.txtrod7_TextChanged);
-            this.txtrod7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            this.txtrod7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             this.txtrod7.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // txtrod6
@@ -288,7 +288,7 @@ namespace GOS_FxApps
             this.txtrod6.Size = new System.Drawing.Size(282, 41);
             this.txtrod6.TabIndex = 5;
             this.txtrod6.TextChanged += new System.EventHandler(this.txtrod6_TextChanged);
-            this.txtrod6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            this.txtrod6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             this.txtrod6.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // txtrod5
@@ -315,7 +315,7 @@ namespace GOS_FxApps
             this.txtrod5.Size = new System.Drawing.Size(282, 41);
             this.txtrod5.TabIndex = 4;
             this.txtrod5.TextChanged += new System.EventHandler(this.txtrod5_TextChanged);
-            this.txtrod5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            this.txtrod5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             this.txtrod5.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // txtrod4
@@ -342,7 +342,7 @@ namespace GOS_FxApps
             this.txtrod4.Size = new System.Drawing.Size(282, 41);
             this.txtrod4.TabIndex = 3;
             this.txtrod4.TextChanged += new System.EventHandler(this.txtrod4_TextChanged);
-            this.txtrod4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            this.txtrod4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             this.txtrod4.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // txtrod3
@@ -369,7 +369,7 @@ namespace GOS_FxApps
             this.txtrod3.Size = new System.Drawing.Size(282, 41);
             this.txtrod3.TabIndex = 2;
             this.txtrod3.TextChanged += new System.EventHandler(this.txtrod3_TextChanged);
-            this.txtrod3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            this.txtrod3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             this.txtrod3.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // txtrod2
@@ -396,7 +396,7 @@ namespace GOS_FxApps
             this.txtrod2.Size = new System.Drawing.Size(282, 41);
             this.txtrod2.TabIndex = 1;
             this.txtrod2.TextChanged += new System.EventHandler(this.txtrod2_TextChanged);
-            this.txtrod2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            this.txtrod2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             this.txtrod2.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // label3
@@ -434,7 +434,7 @@ namespace GOS_FxApps
             this.txtrod1.Size = new System.Drawing.Size(282, 41);
             this.txtrod1.TabIndex = 0;
             this.txtrod1.TextChanged += new System.EventHandler(this.txtrod1_TextChanged);
-            this.txtrod1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            this.txtrod1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             this.txtrod1.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // panel3

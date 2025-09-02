@@ -880,7 +880,7 @@ namespace GOS_FxApps
             this.txtnomorrod.TabIndex = 0;
             this.txtnomorrod.TextChanged += new System.EventHandler(this.txtnomorrod_TextChanged);
             this.txtnomorrod.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtnomorrod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            this.txtnomorrod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             // 
             // panel3
             // 

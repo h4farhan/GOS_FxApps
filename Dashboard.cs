@@ -1855,15 +1855,15 @@ namespace GOS_FxApps
                 btntiga.Visible = false;
             }
             LoadNotifikasi();
-            tanggal.Value = DateTime.Now;
+            tanggal.Value = DateTime.Today;
             datebulan.Value = DateTime.Now;
             LoadPanel();
+            LoadchartRB();
             containerrentang.Visible = true;
             containertanggal.Visible = true;
-            //LoadChartStock();
 
-            //registerpenerimaans();
-            //registerperbaikans();
+            registerpenerimaans();
+            registerperbaikans();
             //registerwelding();
             //registerstok();
             //registerSetminRb();

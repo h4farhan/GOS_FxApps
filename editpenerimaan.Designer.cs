@@ -929,7 +929,7 @@ namespace GOS_FxApps
             this.txtnomorrod.Size = new System.Drawing.Size(202, 41);
             this.txtnomorrod.TabIndex = 0;
             this.txtnomorrod.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtnomorrod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            this.txtnomorrod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             // 
             // btnclear
             // 

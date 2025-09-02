@@ -404,6 +404,14 @@ namespace GOS_FxApps
             }
         }
 
+        private void hurufbesar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.KeyChar = char.ToUpper(e.KeyChar);
+            }
+        }
+
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             Guna2TextBox[] txtRods = {

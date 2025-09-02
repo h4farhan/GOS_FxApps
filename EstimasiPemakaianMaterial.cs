@@ -135,146 +135,154 @@ namespace GOS_FxApps
             dataGridView1.Columns["aktual"].Width = label56.Width;
             dataGridView1.Columns["Persentase"].Width = label59.Width;
         }
-        private void ExportToExcelHari()
+        private async void ExportToExcelHari()
         {
-            try
+            using (FormLoading loading = new FormLoading())
             {
-                int hari = DateTime.Now.Day;
-                int bulan = DateTime.Now.Month;
-                int tahun = DateTime.Now.Year;
+                loading.Show();
+                loading.Refresh();
 
-                DataTable dtMaterial = GetDataFromSPHari("sp_koefisiensiMaterialCosthari", hari, bulan, tahun);
-                DataTable dtConsumable = GetDataFromSPHari("sp_koefisiensiConsumableCosthari", hari, bulan, tahun);
-                DataTable dtsafety = GetDataFromSPHari("sp_koefisiensiSafetyCosthari", hari, bulan, tahun);
-                DataTable dtQty = GetDataFromSPHari("koefisiensiqtyhari", hari, bulan, tahun);
-
-                Excel.Application xlApp = new Excel.Application();
-
-                string templatePath = Path.Combine(Application.StartupPath, "Koefisien Material.xlsx");
-                Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(templatePath);
-                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Sheets[1];
-
-                xlWorkSheet.Cells[1, 1] = "BQ PEKERJAAN ROD REPAIR SHOP PERIODE TAHUN " + tahun + "/" + (tahun + 1);
-                xlWorkSheet.Cells[2, 1] = "UoM = Unit of Measure,     U /Price = Unit Price,     Coeff. = Coefficient,     E1, E2, E3 = Erotion,     " +
-                    "S = Sticking,     D= Deformation,     B = Bending,     BA = BA Clade Change,     R = Spark,     CR = Crack York,     M = Crack MIG,     C = End Cut,     RL = Rod Long";
-
-                if (dtMaterial.Rows.Count > 0)
+                await Task.Run(() =>
                 {
-                    int nomor = 1;
-                    Excel.ListObject tblMaterial = xlWorkSheet.ListObjects["Table6"];
-                    foreach (DataRow dr in dtMaterial.Rows)
+                    try
                     {
-                        Excel.ListRow newRow = tblMaterial.ListRows.Add();
-                        newRow.Range[1, 1].Value2 = nomor++;
-                        for (int j = 0; j < dtMaterial.Columns.Count; j++)
+                        int hari = DateTime.Now.Day;
+                        int bulan = DateTime.Now.Month;
+                        int tahun = DateTime.Now.Year;
+
+                        DataTable dtMaterial = GetDataFromSPHari("sp_koefisiensiMaterialCosthari", hari, bulan, tahun);
+                        DataTable dtConsumable = GetDataFromSPHari("sp_koefisiensiConsumableCosthari", hari, bulan, tahun);
+                        DataTable dtsafety = GetDataFromSPHari("sp_koefisiensiSafetyCosthari", hari, bulan, tahun);
+                        DataTable dtQty = GetDataFromSPHari("koefisiensiqtyhari", hari, bulan, tahun);
+
+                        Excel.Application xlApp = new Excel.Application();
+                        string templatePath = Path.Combine(Application.StartupPath, "Koefisien Material.xlsx");
+                        Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(templatePath);
+                        Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Sheets[1];
+
+                        xlWorkSheet.Cells[1, 1] = "BQ PEKERJAAN ROD REPAIR SHOP PERIODE TAHUN " + tahun + "/" + (tahun + 1);
+                        xlWorkSheet.Cells[2, 1] = "UoM = Unit of Measure, U/Price = Unit Price, Coeff. = Coefficient, E1,E2,E3 = Erotion, " +
+                            "S=Sticking, D=Deformation, B=Bending, BA=BA Clade Change, R=Spark, CR=Crack York, M=Crack MIG, C=End Cut, RL=Rod Long";
+
+                        if (dtMaterial.Rows.Count > 0)
                         {
-                            int targetCol = j + 2;
-                            if (dtMaterial.Columns[j].ColumnName == "Persentase")
-                                newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
-                            else
-                                newRow.Range[1, targetCol].Value2 = dr[j].ToString();
-                        }
-                    }
-                }
-
-                if (dtConsumable.Rows.Count > 0)
-                {
-                    int nomor = 1;
-                    Excel.ListObject tblConsumable = xlWorkSheet.ListObjects["Table1"];
-                    foreach (DataRow dr in dtConsumable.Rows)
-                    {
-                        Excel.ListRow newRow = tblConsumable.ListRows.Add();
-                        newRow.Range[1, 1].Value2 = nomor++;
-                        for (int j = 0; j < dtConsumable.Columns.Count; j++)
-                        {
-                            int targetCol = j + 2;
-                            if (dtConsumable.Columns[j].ColumnName == "Persentase")
-                                newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
-                            else
-                                newRow.Range[1, targetCol].Value2 = dr[j].ToString();
-                        }
-                    }
-                }
-
-                if (dtsafety.Rows.Count > 0)
-                {
-                    int nomor = 1;
-                    Excel.ListObject tblSafety = xlWorkSheet.ListObjects["Table2"];
-                    foreach (DataRow dr in dtsafety.Rows)
-                    {
-                        Excel.ListRow newRow = tblSafety.ListRows.Add();
-                        newRow.Range[1, 1].Value2 = nomor++;
-                        for (int j = 0; j < dtsafety.Columns.Count; j++)
-                        {
-                            int targetCol = j + 2;
-                            if (dtsafety.Columns[j].ColumnName == "Persentase")
-                                newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
-                            else
-                                newRow.Range[1, targetCol].Value2 = dr[j].ToString();
-                        }
-                    }
-                }
-
-                if (dtQty.Rows.Count > 0)
-                {
-                    DataRow r = dtQty.Rows[0];
-                    xlWorkSheet.Cells[5, 6] = r["Total_E1"];
-                    xlWorkSheet.Cells[5, 8] = r["Total_E2"];
-                    xlWorkSheet.Cells[5, 10] = r["Total_E3"];
-                    xlWorkSheet.Cells[5, 12] = r["Total_E4"];
-                    xlWorkSheet.Cells[5, 14] = r["Total_S"];
-                    xlWorkSheet.Cells[5, 16] = r["Total_D"];
-                    xlWorkSheet.Cells[5, 18] = r["Total_B"];
-                    xlWorkSheet.Cells[5, 20] = r["Total_BA"];
-                    xlWorkSheet.Cells[5, 22] = r["Total_BA1"];
-                    xlWorkSheet.Cells[5, 24] = r["Total_R"];
-                    xlWorkSheet.Cells[5, 26] = r["Total_M"];
-                    xlWorkSheet.Cells[5, 28] = r["Total_CR"];
-                    xlWorkSheet.Cells[5, 30] = r["Total_C"];
-                    xlWorkSheet.Cells[5, 32] = r["Total_RL"];
-                }
-
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Title = "Simpan File Excel";
-                saveFileDialog.Filter = "Excel Files|*.xlsx";
-                saveFileDialog.FileName = "Koefisien Material Tanggal " + hari + " " + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx";
-
-                try
-                {
-                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        string savePath = saveFileDialog.FileName;
-
-                        if (File.Exists(savePath))
-                        {
-                            File.Delete(savePath);
+                            int nomor = 1;
+                            Excel.ListObject tblMaterial = xlWorkSheet.ListObjects["Table6"];
+                            foreach (DataRow dr in dtMaterial.Rows)
+                            {
+                                Excel.ListRow newRow = tblMaterial.ListRows.Add();
+                                newRow.Range[1, 1].Value2 = nomor++;
+                                for (int j = 0; j < dtMaterial.Columns.Count; j++)
+                                {
+                                    int targetCol = j + 2;
+                                    if (dtMaterial.Columns[j].ColumnName == "Persentase")
+                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                                    else
+                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                                }
+                            }
                         }
 
-                        xlWorkBook.SaveCopyAs(savePath);
+                        if (dtConsumable.Rows.Count > 0)
+                        {
+                            int nomor = 1;
+                            Excel.ListObject tblConsumable = xlWorkSheet.ListObjects["Table1"];
+                            foreach (DataRow dr in dtConsumable.Rows)
+                            {
+                                Excel.ListRow newRow = tblConsumable.ListRows.Add();
+                                newRow.Range[1, 1].Value2 = nomor++;
+                                for (int j = 0; j < dtConsumable.Columns.Count; j++)
+                                {
+                                    int targetCol = j + 2;
+                                    if (dtConsumable.Columns[j].ColumnName == "Persentase")
+                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                                    else
+                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                                }
+                            }
+                        }
 
-                        MessageBox.Show("Export selesai ke: " + savePath, "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (dtsafety.Rows.Count > 0)
+                        {
+                            int nomor = 1;
+                            Excel.ListObject tblSafety = xlWorkSheet.ListObjects["Table2"];
+                            foreach (DataRow dr in dtsafety.Rows)
+                            {
+                                Excel.ListRow newRow = tblSafety.ListRows.Add();
+                                newRow.Range[1, 1].Value2 = nomor++;
+                                for (int j = 0; j < dtsafety.Columns.Count; j++)
+                                {
+                                    int targetCol = j + 2;
+                                    if (dtsafety.Columns[j].ColumnName == "Persentase")
+                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                                    else
+                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                                }
+                            }
+                        }
+
+                        if (dtQty.Rows.Count > 0)
+                        {
+                            DataRow r = dtQty.Rows[0];
+                            xlWorkSheet.Cells[5, 6] = r["Total_E1"];
+                            xlWorkSheet.Cells[5, 8] = r["Total_E2"];
+                            xlWorkSheet.Cells[5, 10] = r["Total_E3"];
+                            xlWorkSheet.Cells[5, 12] = r["Total_E4"];
+                            xlWorkSheet.Cells[5, 14] = r["Total_S"];
+                            xlWorkSheet.Cells[5, 16] = r["Total_D"];
+                            xlWorkSheet.Cells[5, 18] = r["Total_B"];
+                            xlWorkSheet.Cells[5, 20] = r["Total_BA"];
+                            xlWorkSheet.Cells[5, 22] = r["Total_BA1"];
+                            xlWorkSheet.Cells[5, 24] = r["Total_R"];
+                            xlWorkSheet.Cells[5, 26] = r["Total_M"];
+                            xlWorkSheet.Cells[5, 28] = r["Total_CR"];
+                            xlWorkSheet.Cells[5, 30] = r["Total_C"];
+                            xlWorkSheet.Cells[5, 32] = r["Total_RL"];
+                        }
+
+                        this.Invoke(new Action(() =>
+                        {
+                            SaveFileDialog saveFileDialog = new SaveFileDialog
+                            {
+                                Title = "Simpan File Excel",
+                                Filter = "Excel Files|*.xlsx",
+                                FileName = "Koefisien Material Tanggal " + hari + " " + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx"
+                            };
+
+                            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                            {
+                                string savePath = saveFileDialog.FileName;
+                                if (File.Exists(savePath)) File.Delete(savePath);
+
+                                xlWorkBook.SaveCopyAs(savePath);
+                                MessageBox.Show("Export selesai ke: " + savePath, "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }));
+
+                        xlWorkBook.Close(false);
+                        xlApp.Quit();
+
+                        Marshal.ReleaseComObject(xlWorkSheet);
+                        Marshal.ReleaseComObject(xlWorkBook);
+                        Marshal.ReleaseComObject(xlApp);
+
+                        xlWorkSheet = null;
+                        xlWorkBook = null;
+                        xlApp = null;
+
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
                     }
-                }
-                finally
-                {
-                    xlWorkBook.Close(false);
-                    xlApp.Quit();
+                    catch (Exception ex)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            MessageBox.Show("Error: " + ex.Message);
+                        }));
+                    }
+                });
 
-                    Marshal.ReleaseComObject(xlWorkSheet);
-                    Marshal.ReleaseComObject(xlWorkBook);
-                    Marshal.ReleaseComObject(xlApp);
-
-                    xlWorkSheet = null;
-                    xlWorkBook = null;
-                    xlApp = null;
-
-                    GC.Collect();
-                    GC.WaitForPendingFinalizers();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
+                loading.Close();
             }
         }
 
@@ -481,149 +489,156 @@ namespace GOS_FxApps
             dataGridView1.Columns["aktual"].Width = label56.Width;
             dataGridView1.Columns["Persentase"].Width = label59.Width;
         }
-        private void ExportToExcelBulan()
+        private async void ExportToExcelBulan()
         {
-            try
+            using (FormLoading loading = new FormLoading())
             {
-                int bulan = DateTime.Now.Month;
-                int tahun = DateTime.Now.Year;
+                loading.Show();
+                loading.Refresh();
 
-                DataTable dtMaterial = GetDataFromSPBulan("sp_koefisiensiMaterialCostbulan", bulan, tahun);
-                DataTable dtConsumable = GetDataFromSPBulan("sp_koefisiensiConsumableCostbulan", bulan, tahun);
-                DataTable dtsafety = GetDataFromSPBulan("sp_koefisiensiSafetyCostbulan", bulan, tahun);
-                DataTable dtQty = GetDataFromSPBulan("koefisiensiqtybulan", bulan, tahun);
-
-                Excel.Application xlApp = new Excel.Application();
-
-                string templatePath = Path.Combine(Application.StartupPath, "Koefisien Material.xlsx");
-                Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(templatePath);
-                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Sheets[1];
-
-                xlWorkSheet.Cells[1, 1] = "BQ PEKERJAAN ROD REPAIR SHOP PERIODE TAHUN " + tahun + "/" + (tahun + 1);
-                xlWorkSheet.Cells[2, 1] = "UoM = Unit of Measure,     U /Price = Unit Price,     Coeff. = Coefficient,     E1, E2, E3 = Erotion,     " +
-                    "S = Sticking,     D= Deformation,     B = Bending,     BA = BA Clade Change,     R = Spark,     CR = Crack York,     M = Crack MIG,     C = End Cut,     RL = Rod Long";
-
-                if (dtMaterial.Rows.Count > 0)
+                await Task.Run(() =>
                 {
-                    int nomor = 1;
-                    Excel.ListObject tblMaterial = xlWorkSheet.ListObjects["Table6"];
-                    foreach (DataRow dr in dtMaterial.Rows)
+                    try
                     {
-                        Excel.ListRow newRow = tblMaterial.ListRows.Add();
-                        newRow.Range[1, 1].Value2 = nomor++;
-                        for (int j = 0; j < dtMaterial.Columns.Count; j++)
+                        int bulan = DateTime.Now.Month;
+                        int tahun = DateTime.Now.Year;
+
+                        DataTable dtMaterial = GetDataFromSPBulan("sp_koefisiensiMaterialCostbulan", bulan, tahun);
+                        DataTable dtConsumable = GetDataFromSPBulan("sp_koefisiensiConsumableCostbulan", bulan, tahun);
+                        DataTable dtsafety = GetDataFromSPBulan("sp_koefisiensiSafetyCostbulan", bulan, tahun);
+                        DataTable dtQty = GetDataFromSPBulan("koefisiensiqtybulan", bulan, tahun);
+
+                        Excel.Application xlApp = new Excel.Application();
+                        string templatePath = Path.Combine(Application.StartupPath, "Koefisien Material.xlsx");
+                        Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(templatePath);
+                        Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Sheets[1];
+
+                        xlWorkSheet.Cells[1, 1] = "BQ PEKERJAAN ROD REPAIR SHOP PERIODE TAHUN " + tahun + "/" + (tahun + 1);
+                        xlWorkSheet.Cells[2, 1] = "UoM = Unit of Measure,     U /Price = Unit Price,     Coeff. = Coefficient,     E1, E2, E3 = Erotion,     " +
+                            "S = Sticking,     D= Deformation,     B = Bending,     BA = BA Clade Change,     R = Spark,     CR = Crack York,     M = Crack MIG,     C = End Cut,     RL = Rod Long";
+
+                        if (dtMaterial.Rows.Count > 0)
                         {
-                            int targetCol = j + 2;
-                            if (dtMaterial.Columns[j].ColumnName == "Persentase")
-                                newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
-                            else
-                                newRow.Range[1, targetCol].Value2 = dr[j].ToString();
-                        }
-                    }
-                }
-
-                if (dtConsumable.Rows.Count > 0)
-                {
-                    int nomor = 1;
-                    Excel.ListObject tblConsumable = xlWorkSheet.ListObjects["Table1"];
-                    foreach (DataRow dr in dtConsumable.Rows)
-                    {
-                        Excel.ListRow newRow = tblConsumable.ListRows.Add();
-                        newRow.Range[1, 1].Value2 = nomor++;
-                        for (int j = 0; j < dtConsumable.Columns.Count; j++)
-                        {
-                            int targetCol = j + 2;
-                            if (dtConsumable.Columns[j].ColumnName == "Persentase")
-                                newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
-                            else
-                                newRow.Range[1, targetCol].Value2 = dr[j].ToString();
-                        }
-                    }
-                }
-
-                if (dtsafety.Rows.Count > 0)
-                {
-                    int nomor = 1;
-                    Excel.ListObject tblSafety = xlWorkSheet.ListObjects["Table2"];
-                    foreach (DataRow dr in dtsafety.Rows)
-                    {
-                        Excel.ListRow newRow = tblSafety.ListRows.Add();
-                        newRow.Range[1, 1].Value2 = nomor++;
-                        for (int j = 0; j < dtsafety.Columns.Count; j++)
-                        {
-                            int targetCol = j + 2;
-                            if (dtsafety.Columns[j].ColumnName == "Persentase")
-                                newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
-                            else
-                                newRow.Range[1, targetCol].Value2 = dr[j].ToString();
-                        }
-                    }
-                }
-
-                if (dtQty.Rows.Count > 0)
-                {
-                    DataRow r = dtQty.Rows[0];
-
-                    xlWorkSheet.Cells[5, 6] = r["Total_E1"];
-                    xlWorkSheet.Cells[5, 8] = r["Total_E2"];
-                    xlWorkSheet.Cells[5, 10] = r["Total_E3"];
-                    xlWorkSheet.Cells[5, 12] = r["Total_E4"];
-                    xlWorkSheet.Cells[5, 14] = r["Total_S"];
-                    xlWorkSheet.Cells[5, 16] = r["Total_D"];
-                    xlWorkSheet.Cells[5, 18] = r["Total_B"];
-                    xlWorkSheet.Cells[5, 20] = r["Total_BA"];
-                    xlWorkSheet.Cells[5, 22] = r["Total_BA1"];
-                    xlWorkSheet.Cells[5, 24] = r["Total_R"];
-                    xlWorkSheet.Cells[5, 26] = r["Total_M"];
-                    xlWorkSheet.Cells[5, 28] = r["Total_CR"];
-                    xlWorkSheet.Cells[5, 30] = r["Total_C"];
-                    xlWorkSheet.Cells[5, 32] = r["Total_RL"];
-
-                }
-
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Title = "Simpan File Excel";
-                saveFileDialog.Filter = "Excel Files|*.xlsx";
-                saveFileDialog.FileName = "Koefisien Material Bulan " + bulan + " " + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx";
-
-                try
-                {
-                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        string savePath = saveFileDialog.FileName;
-
-                        if (File.Exists(savePath))
-                        {
-                            File.Delete(savePath);
+                            int nomor = 1;
+                            Excel.ListObject tblMaterial = xlWorkSheet.ListObjects["Table6"];
+                            foreach (DataRow dr in dtMaterial.Rows)
+                            {
+                                Excel.ListRow newRow = tblMaterial.ListRows.Add();
+                                newRow.Range[1, 1].Value2 = nomor++;
+                                for (int j = 0; j < dtMaterial.Columns.Count; j++)
+                                {
+                                    int targetCol = j + 2;
+                                    if (dtMaterial.Columns[j].ColumnName == "Persentase")
+                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                                    else
+                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                                }
+                            }
                         }
 
-                        xlWorkBook.SaveCopyAs(savePath);
+                        if (dtConsumable.Rows.Count > 0)
+                        {
+                            int nomor = 1;
+                            Excel.ListObject tblConsumable = xlWorkSheet.ListObjects["Table1"];
+                            foreach (DataRow dr in dtConsumable.Rows)
+                            {
+                                Excel.ListRow newRow = tblConsumable.ListRows.Add();
+                                newRow.Range[1, 1].Value2 = nomor++;
+                                for (int j = 0; j < dtConsumable.Columns.Count; j++)
+                                {
+                                    int targetCol = j + 2;
+                                    if (dtConsumable.Columns[j].ColumnName == "Persentase")
+                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                                    else
+                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                                }
+                            }
+                        }
 
-                        MessageBox.Show("Export selesai ke: " + savePath, "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (dtsafety.Rows.Count > 0)
+                        {
+                            int nomor = 1;
+                            Excel.ListObject tblSafety = xlWorkSheet.ListObjects["Table2"];
+                            foreach (DataRow dr in dtsafety.Rows)
+                            {
+                                Excel.ListRow newRow = tblSafety.ListRows.Add();
+                                newRow.Range[1, 1].Value2 = nomor++;
+                                for (int j = 0; j < dtsafety.Columns.Count; j++)
+                                {
+                                    int targetCol = j + 2;
+                                    if (dtsafety.Columns[j].ColumnName == "Persentase")
+                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                                    else
+                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                                }
+                            }
+                        }
+
+                        if (dtQty.Rows.Count > 0)
+                        {
+                            DataRow r = dtQty.Rows[0];
+                            xlWorkSheet.Cells[5, 6] = r["Total_E1"];
+                            xlWorkSheet.Cells[5, 8] = r["Total_E2"];
+                            xlWorkSheet.Cells[5, 10] = r["Total_E3"];
+                            xlWorkSheet.Cells[5, 12] = r["Total_E4"];
+                            xlWorkSheet.Cells[5, 14] = r["Total_S"];
+                            xlWorkSheet.Cells[5, 16] = r["Total_D"];
+                            xlWorkSheet.Cells[5, 18] = r["Total_B"];
+                            xlWorkSheet.Cells[5, 20] = r["Total_BA"];
+                            xlWorkSheet.Cells[5, 22] = r["Total_BA1"];
+                            xlWorkSheet.Cells[5, 24] = r["Total_R"];
+                            xlWorkSheet.Cells[5, 26] = r["Total_M"];
+                            xlWorkSheet.Cells[5, 28] = r["Total_CR"];
+                            xlWorkSheet.Cells[5, 30] = r["Total_C"];
+                            xlWorkSheet.Cells[5, 32] = r["Total_RL"];
+                        }
+
+                        this.Invoke(new Action(() =>
+                        {
+                            SaveFileDialog saveFileDialog = new SaveFileDialog
+                            {
+                                Title = "Simpan File Excel",
+                                Filter = "Excel Files|*.xlsx",
+                                FileName = "Koefisien Material Bulan " + bulan + " " + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx"
+                            };
+
+                            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                            {
+                                string savePath = saveFileDialog.FileName;
+                                if (File.Exists(savePath)) File.Delete(savePath);
+
+                                xlWorkBook.SaveCopyAs(savePath);
+                                MessageBox.Show("Export selesai ke: " + savePath, "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }));
+
+                        xlWorkBook.Close(false);
+                        xlApp.Quit();
+
+                        Marshal.ReleaseComObject(xlWorkSheet);
+                        Marshal.ReleaseComObject(xlWorkBook);
+                        Marshal.ReleaseComObject(xlApp);
+
+                        xlWorkSheet = null;
+                        xlWorkBook = null;
+                        xlApp = null;
+
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
                     }
-                }
-                finally
-                {
-                    xlWorkBook.Close(false);
-                    xlApp.Quit();
+                    catch (Exception ex)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            MessageBox.Show("Error: " + ex.Message);
+                        }));
+                    }
+                });
 
-                    Marshal.ReleaseComObject(xlWorkSheet);
-                    Marshal.ReleaseComObject(xlWorkBook);
-                    Marshal.ReleaseComObject(xlApp);
-
-                    xlWorkSheet = null;
-                    xlWorkBook = null;
-                    xlApp = null;
-
-                    GC.Collect();
-                    GC.WaitForPendingFinalizers();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
+                loading.Close();
             }
         }
+
         private DataTable GetDataFromSPTahun(string spName, int tahun)
         {
             using (SqlConnection conn = Koneksi.GetConnection())
@@ -638,147 +653,153 @@ namespace GOS_FxApps
                 return dt;
             }
         }
-        private void ExportToExcelTahun()
+        private async void ExportToExcelTahun()
         {
-            try
+            using (FormLoading loading = new FormLoading())
             {
-                int bulan = DateTime.Now.Month;
-                int tahun = DateTime.Now.Year;
+                loading.Show();
+                loading.Refresh();
 
-                DataTable dtMaterial = GetDataFromSPBulan("sp_koefisiensiMaterialCosttahun", bulan, tahun);
-                DataTable dtConsumable = GetDataFromSPBulan("sp_koefisiensiConsumableCosttahun", bulan, tahun);
-                DataTable dtsafety = GetDataFromSPBulan("sp_koefisiensiSafetyCosttahun", bulan, tahun);
-                DataTable dtQty = GetDataFromSPTahun("koefisiensiqtytahun", tahun);
-
-                Excel.Application xlApp = new Excel.Application();
-
-                string templatePath = Path.Combine(Application.StartupPath, "Koefisien Material.xlsx");
-                Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(templatePath);
-                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Sheets[1];
-
-                xlWorkSheet.Cells[1, 1] = "BQ PEKERJAAN ROD REPAIR SHOP PERIODE TAHUN " + tahun + "/" + (tahun + 1);
-                xlWorkSheet.Cells[2, 1] = "UoM = Unit of Measure,     U /Price = Unit Price,     Coeff. = Coefficient,     E1, E2, E3 = Erotion,     " +
-                    "S = Sticking,     D= Deformation,     B = Bending,     BA = BA Clade Change,     R = Spark,     CR = Crack York,     M = Crack MIG,     C = End Cut,     RL = Rod Long";
-
-                if (dtMaterial.Rows.Count > 0)
+                await Task.Run(() =>
                 {
-                    int nomor = 1;
-                    Excel.ListObject tblMaterial = xlWorkSheet.ListObjects["Table6"];
-                    foreach (DataRow dr in dtMaterial.Rows)
+                    try
                     {
-                        Excel.ListRow newRow = tblMaterial.ListRows.Add();
-                        newRow.Range[1, 1].Value2 = nomor++;
-                        for (int j = 0; j < dtMaterial.Columns.Count; j++)
+                        int bulan = DateTime.Now.Month;
+                        int tahun = DateTime.Now.Year;
+
+                        DataTable dtMaterial = GetDataFromSPBulan("sp_koefisiensiMaterialCosttahun", bulan, tahun);
+                        DataTable dtConsumable = GetDataFromSPBulan("sp_koefisiensiConsumableCosttahun", bulan, tahun);
+                        DataTable dtsafety = GetDataFromSPBulan("sp_koefisiensiSafetyCosttahun", bulan, tahun);
+                        DataTable dtQty = GetDataFromSPTahun("koefisiensiqtytahun", tahun);
+
+                        Excel.Application xlApp = new Excel.Application();
+                        string templatePath = Path.Combine(Application.StartupPath, "Koefisien Material.xlsx");
+                        Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(templatePath);
+                        Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Sheets[1];
+
+                        xlWorkSheet.Cells[1, 1] = "BQ PEKERJAAN ROD REPAIR SHOP PERIODE TAHUN " + tahun + "/" + (tahun + 1);
+                        xlWorkSheet.Cells[2, 1] = "UoM = Unit of Measure,     U /Price = Unit Price,     Coeff. = Coefficient,     E1, E2, E3 = Erotion,     " +
+                            "S = Sticking,     D= Deformation,     B = Bending,     BA = BA Clade Change,     R = Spark,     CR = Crack York,     M = Crack MIG,     C = End Cut,     RL = Rod Long";
+
+                        if (dtMaterial.Rows.Count > 0)
                         {
-                            int targetCol = j + 2;
-                            if (dtMaterial.Columns[j].ColumnName == "Persentase")
-                                newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
-                            else
-                                newRow.Range[1, targetCol].Value2 = dr[j].ToString();
-                        }
-                    }
-                }
-
-                if (dtConsumable.Rows.Count > 0)
-                {
-                    int nomor = 1;
-                    Excel.ListObject tblConsumable = xlWorkSheet.ListObjects["Table1"];
-                    foreach (DataRow dr in dtConsumable.Rows)
-                    {
-                        Excel.ListRow newRow = tblConsumable.ListRows.Add();
-                        newRow.Range[1, 1].Value2 = nomor++;
-                        for (int j = 0; j < dtConsumable.Columns.Count; j++)
-                        {
-                            int targetCol = j + 2;
-                            if (dtConsumable.Columns[j].ColumnName == "Persentase")
-                                newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
-                            else
-                                newRow.Range[1, targetCol].Value2 = dr[j].ToString();
-                        }
-                    }
-                }
-
-                if (dtsafety.Rows.Count > 0)
-                {
-                    int nomor = 1;
-                    Excel.ListObject tblSafety = xlWorkSheet.ListObjects["Table2"];
-                    foreach (DataRow dr in dtsafety.Rows)
-                    {
-                        Excel.ListRow newRow = tblSafety.ListRows.Add();
-                        newRow.Range[1, 1].Value2 = nomor++;
-                        for (int j = 0; j < dtsafety.Columns.Count; j++)
-                        {
-                            int targetCol = j + 2;
-                            if (dtsafety.Columns[j].ColumnName == "Persentase")
-                                newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
-                            else
-                                newRow.Range[1, targetCol].Value2 = dr[j].ToString();
-                        }
-                    }
-                }
-
-                if (dtQty.Rows.Count > 0)
-                {
-                    DataRow r = dtQty.Rows[0];
-
-                    xlWorkSheet.Cells[5, 6] = r["Total_E1"];
-                    xlWorkSheet.Cells[5, 8] = r["Total_E2"];
-                    xlWorkSheet.Cells[5, 10] = r["Total_E3"];
-                    xlWorkSheet.Cells[5, 12] = r["Total_E4"];
-                    xlWorkSheet.Cells[5, 14] = r["Total_S"];
-                    xlWorkSheet.Cells[5, 16] = r["Total_D"];
-                    xlWorkSheet.Cells[5, 18] = r["Total_B"];
-                    xlWorkSheet.Cells[5, 20] = r["Total_BA"];
-                    xlWorkSheet.Cells[5, 22] = r["Total_BA1"];
-                    xlWorkSheet.Cells[5, 24] = r["Total_R"];
-                    xlWorkSheet.Cells[5, 26] = r["Total_M"];
-                    xlWorkSheet.Cells[5, 28] = r["Total_CR"];
-                    xlWorkSheet.Cells[5, 30] = r["Total_C"];
-                    xlWorkSheet.Cells[5, 32] = r["Total_RL"];
-
-                }
-
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Title = "Simpan File Excel";
-                saveFileDialog.Filter = "Excel Files|*.xlsx";
-                saveFileDialog.FileName = "Koefisien Material Tahun " + tahun + " " + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx";
-
-                try
-                {
-                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        string savePath = saveFileDialog.FileName;
-
-                        if (File.Exists(savePath))
-                        {
-                            File.Delete(savePath);
+                            int nomor = 1;
+                            Excel.ListObject tblMaterial = xlWorkSheet.ListObjects["Table6"];
+                            foreach (DataRow dr in dtMaterial.Rows)
+                            {
+                                Excel.ListRow newRow = tblMaterial.ListRows.Add();
+                                newRow.Range[1, 1].Value2 = nomor++;
+                                for (int j = 0; j < dtMaterial.Columns.Count; j++)
+                                {
+                                    int targetCol = j + 2;
+                                    if (dtMaterial.Columns[j].ColumnName == "Persentase")
+                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                                    else
+                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                                }
+                            }
                         }
 
-                        xlWorkBook.SaveCopyAs(savePath);
+                        if (dtConsumable.Rows.Count > 0)
+                        {
+                            int nomor = 1;
+                            Excel.ListObject tblConsumable = xlWorkSheet.ListObjects["Table1"];
+                            foreach (DataRow dr in dtConsumable.Rows)
+                            {
+                                Excel.ListRow newRow = tblConsumable.ListRows.Add();
+                                newRow.Range[1, 1].Value2 = nomor++;
+                                for (int j = 0; j < dtConsumable.Columns.Count; j++)
+                                {
+                                    int targetCol = j + 2;
+                                    if (dtConsumable.Columns[j].ColumnName == "Persentase")
+                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                                    else
+                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                                }
+                            }
+                        }
 
-                        MessageBox.Show("Export selesai ke: " + savePath, "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (dtsafety.Rows.Count > 0)
+                        {
+                            int nomor = 1;
+                            Excel.ListObject tblSafety = xlWorkSheet.ListObjects["Table2"];
+                            foreach (DataRow dr in dtsafety.Rows)
+                            {
+                                Excel.ListRow newRow = tblSafety.ListRows.Add();
+                                newRow.Range[1, 1].Value2 = nomor++;
+                                for (int j = 0; j < dtsafety.Columns.Count; j++)
+                                {
+                                    int targetCol = j + 2;
+                                    if (dtsafety.Columns[j].ColumnName == "Persentase")
+                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                                    else
+                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                                }
+                            }
+                        }
+
+                        if (dtQty.Rows.Count > 0)
+                        {
+                            DataRow r = dtQty.Rows[0];
+                            xlWorkSheet.Cells[5, 6] = r["Total_E1"];
+                            xlWorkSheet.Cells[5, 8] = r["Total_E2"];
+                            xlWorkSheet.Cells[5, 10] = r["Total_E3"];
+                            xlWorkSheet.Cells[5, 12] = r["Total_E4"];
+                            xlWorkSheet.Cells[5, 14] = r["Total_S"];
+                            xlWorkSheet.Cells[5, 16] = r["Total_D"];
+                            xlWorkSheet.Cells[5, 18] = r["Total_B"];
+                            xlWorkSheet.Cells[5, 20] = r["Total_BA"];
+                            xlWorkSheet.Cells[5, 22] = r["Total_BA1"];
+                            xlWorkSheet.Cells[5, 24] = r["Total_R"];
+                            xlWorkSheet.Cells[5, 26] = r["Total_M"];
+                            xlWorkSheet.Cells[5, 28] = r["Total_CR"];
+                            xlWorkSheet.Cells[5, 30] = r["Total_C"];
+                            xlWorkSheet.Cells[5, 32] = r["Total_RL"];
+                        }
+
+                        this.Invoke(new Action(() =>
+                        {
+                            SaveFileDialog saveFileDialog = new SaveFileDialog
+                            {
+                                Title = "Simpan File Excel",
+                                Filter = "Excel Files|*.xlsx",
+                                FileName = "Koefisien Material Tahun " + tahun + " " + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx"
+                            };
+
+                            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                            {
+                                string savePath = saveFileDialog.FileName;
+                                if (File.Exists(savePath)) File.Delete(savePath);
+
+                                xlWorkBook.SaveCopyAs(savePath);
+                                MessageBox.Show("Export selesai ke: " + savePath, "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }));
+
+                        xlWorkBook.Close(false);
+                        xlApp.Quit();
+
+                        Marshal.ReleaseComObject(xlWorkSheet);
+                        Marshal.ReleaseComObject(xlWorkBook);
+                        Marshal.ReleaseComObject(xlApp);
+
+                        xlWorkSheet = null;
+                        xlWorkBook = null;
+                        xlApp = null;
+
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
                     }
-                }
-                finally
-                {
-                    xlWorkBook.Close(false);
-                    xlApp.Quit();
+                    catch (Exception ex)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            MessageBox.Show("Error: " + ex.Message);
+                        }));
+                    }
+                });
 
-                    Marshal.ReleaseComObject(xlWorkSheet);
-                    Marshal.ReleaseComObject(xlWorkBook);
-                    Marshal.ReleaseComObject(xlApp);
-
-                    xlWorkSheet = null;
-                    xlWorkBook = null;
-                    xlApp = null;
-
-                    GC.Collect();
-                    GC.WaitForPendingFinalizers();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
+                loading.Close();
             }
         }
 
