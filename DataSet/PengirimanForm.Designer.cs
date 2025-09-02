@@ -399,7 +399,7 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public pengirimanRow AddpengirimanRow(System.DateTime tanggal_pengiriman, string shift, int nomor_rod, int RowNumber) {
+            public pengirimanRow AddpengirimanRow(System.DateTime tanggal_pengiriman, string shift, string nomor_rod, int RowNumber) {
                 pengirimanRow rowpengirimanRow = ((pengirimanRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -452,7 +452,7 @@ namespace GOS_FxApps.DataSet {
                 base.Columns.Add(this.columntanggal_pengiriman);
                 this.columnshift = new global::System.Data.DataColumn("shift", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnshift);
-                this.columnnomor_rod = new global::System.Data.DataColumn("nomor_rod", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnnomor_rod = new global::System.Data.DataColumn("nomor_rod", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnomor_rod);
                 this.columnRowNumber = new global::System.Data.DataColumn("RowNumber", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRowNumber);
@@ -650,10 +650,10 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int nomor_rod {
+            public string nomor_rod {
                 get {
                     try {
-                        return ((int)(this[this.tablepengiriman.nomor_rodColumn]));
+                        return ((string)(this[this.tablepengiriman.nomor_rodColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'nomor_rod\' in table \'pengiriman\' is DBNull.", e);

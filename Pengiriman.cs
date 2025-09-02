@@ -379,9 +379,9 @@ namespace GOS_FxApps
                 tampil();
                 setdefault();
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.\n",
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.\n" + ex.Message,
                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)

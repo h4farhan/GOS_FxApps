@@ -89,20 +89,20 @@ SELECT no, tanggal_pengiriman, shift, nomor_rod FROM pengiriman WHERE (no = @no)
   <xs:element name="PengirimanForm" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="PengirimanForm" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="PengirimanForm">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="pengiriman" msprop:Generator_RowClassName="pengirimanRow" msprop:Generator_RowEvHandlerName="pengirimanRowChangeEventHandler" msprop:Generator_RowDeletedName="pengirimanRowDeleted" msprop:Generator_RowDeletingName="pengirimanRowDeleting" msprop:Generator_RowEvArgName="pengirimanRowChangeEvent" msprop:Generator_TablePropName="pengiriman" msprop:Generator_RowChangedName="pengirimanRowChanged" msprop:Generator_UserTableName="pengiriman" msprop:Generator_RowChangingName="pengirimanRowChanging" msprop:Generator_TableClassName="pengirimanDataTable" msprop:Generator_TableVarName="tablepengiriman">
+        <xs:element name="pengiriman" msprop:Generator_RowEvHandlerName="pengirimanRowChangeEventHandler" msprop:Generator_RowDeletedName="pengirimanRowDeleted" msprop:Generator_RowDeletingName="pengirimanRowDeleting" msprop:Generator_RowEvArgName="pengirimanRowChangeEvent" msprop:Generator_TablePropName="pengiriman" msprop:Generator_RowChangedName="pengirimanRowChanged" msprop:Generator_UserTableName="pengiriman" msprop:Generator_RowChangingName="pengirimanRowChanging" msprop:Generator_RowClassName="pengirimanRow" msprop:Generator_TableClassName="pengirimanDataTable" msprop:Generator_TableVarName="tablepengiriman">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="no" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="no" msprop:Generator_ColumnPropNameInTable="noColumn" msprop:Generator_ColumnPropNameInRow="no" msprop:Generator_ColumnVarNameInTable="columnno" type="xs:int" />
-              <xs:element name="tanggal_pengiriman" msprop:Generator_UserColumnName="tanggal_pengiriman" msprop:Generator_ColumnPropNameInTable="tanggal_pengirimanColumn" msprop:Generator_ColumnPropNameInRow="tanggal_pengiriman" msprop:Generator_ColumnVarNameInTable="columntanggal_pengiriman" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="shift" msprop:Generator_UserColumnName="shift" msprop:Generator_ColumnPropNameInTable="shiftColumn" msprop:Generator_ColumnPropNameInRow="shift" msprop:Generator_ColumnVarNameInTable="columnshift" minOccurs="0">
+              <xs:element name="no" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="noColumn" msprop:Generator_ColumnPropNameInRow="no" msprop:Generator_UserColumnName="no" msprop:Generator_ColumnVarNameInTable="columnno" type="xs:int" />
+              <xs:element name="tanggal_pengiriman" msprop:Generator_ColumnPropNameInTable="tanggal_pengirimanColumn" msprop:Generator_ColumnPropNameInRow="tanggal_pengiriman" msprop:Generator_UserColumnName="tanggal_pengiriman" msprop:Generator_ColumnVarNameInTable="columntanggal_pengiriman" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="shift" msprop:Generator_ColumnPropNameInTable="shiftColumn" msprop:Generator_ColumnPropNameInRow="shift" msprop:Generator_UserColumnName="shift" msprop:Generator_ColumnVarNameInTable="columnshift" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="nomor_rod" msprop:Generator_UserColumnName="nomor_rod" msprop:Generator_ColumnPropNameInTable="nomor_rodColumn" msprop:Generator_ColumnPropNameInRow="nomor_rod" msprop:Generator_ColumnVarNameInTable="columnnomor_rod" type="xs:int" minOccurs="0" />
-              <xs:element name="RowNumber" msprop:Generator_UserColumnName="RowNumber" msprop:Generator_ColumnPropNameInTable="RowNumberColumn" msprop:Generator_ColumnPropNameInRow="RowNumber" msprop:Generator_ColumnVarNameInTable="columnRowNumber" type="xs:int" minOccurs="0" />
+              <xs:element name="nomor_rod" msprop:Generator_ColumnPropNameInTable="nomor_rodColumn" msprop:Generator_ColumnPropNameInRow="nomor_rod" msprop:Generator_UserColumnName="nomor_rod" msprop:Generator_ColumnVarNameInTable="columnnomor_rod" type="xs:string" minOccurs="0" />
+              <xs:element name="RowNumber" msprop:Generator_ColumnPropNameInTable="RowNumberColumn" msprop:Generator_ColumnPropNameInRow="RowNumber" msprop:Generator_UserColumnName="RowNumber" msprop:Generator_ColumnVarNameInTable="columnRowNumber" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

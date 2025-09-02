@@ -2116,7 +2116,7 @@ namespace GOS_FxApps.DataSet {
             public perbaikan_pRow Addperbaikan_pRow(
                         System.DateTime tanggal_perbaikan, 
                         string shift, 
-                        int nomor_rod, 
+                        string nomor_rod, 
                         string jenis, 
                         int e1_ers, 
                         int e1_est, 
@@ -2233,7 +2233,7 @@ namespace GOS_FxApps.DataSet {
                 base.Columns.Add(this.columntanggal_perbaikan);
                 this.columnshift = new global::System.Data.DataColumn("shift", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnshift);
-                this.columnnomor_rod = new global::System.Data.DataColumn("nomor_rod", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnnomor_rod = new global::System.Data.DataColumn("nomor_rod", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnomor_rod);
                 this.columnjenis = new global::System.Data.DataColumn("jenis", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnjenis);
@@ -4541,10 +4541,10 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int nomor_rod {
+            public string nomor_rod {
                 get {
                     try {
-                        return ((int)(this[this.tableperbaikan_p.nomor_rodColumn]));
+                        return ((string)(this[this.tableperbaikan_p.nomor_rodColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'nomor_rod\' in table \'perbaikan_p\' is DBNull.", e);
