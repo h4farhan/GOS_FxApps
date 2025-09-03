@@ -20,189 +20,14 @@ namespace GOS_FxApps
         SqlConnection conn = Koneksi.GetConnection();
 
         public static Dashboard Instance;
-             
-        public class RoundedPanel : Panel
-            {
-                public int BorderRadius { get; set; } = 15;
 
-                protected override void OnPaint(PaintEventArgs e)
-                {
-                    base.OnPaint(e);
-
-                    using (GraphicsPath path = new GraphicsPath())
-                    {
-                        Rectangle rect = this.ClientRectangle;
-                        int radius = BorderRadius;
-
-                        path.AddArc(rect.X, rect.Y, radius, radius, 180, 90);
-                        path.AddArc(rect.Right - radius, rect.Y, radius, radius, 270, 90);
-                        path.AddArc(rect.Right - radius, rect.Bottom - radius, radius, radius, 0, 90);
-                        path.AddArc(rect.X, rect.Bottom - radius, radius, radius, 90, 90);
-                        path.CloseAllFigures();
-
-                        this.Region = new Region(path);
-                    }
-                }
-        }
+        bool bukatutupfilter = false;
 
         public Dashboard()
         {
             InitializeComponent();
         }
 
-        private void LoadNotifikasi()
-        {
-            int scrollPosition = panelNotif.VerticalScroll.Value;
-
-            panelNotif.SuspendLayout();
-            panelNotif.Controls.Clear();
-
-            List<(string Text, DateTime Waktu, Color WarnaText, Color WarnaWaktu)> notifList =
-                new List<(string, DateTime, Color, Color)>();
-
-            using (SqlConnection conn = Koneksi.GetConnection())
-            {
-                conn.Open();
-
-                string query2 = @"SELECT TOP 1 bstok, bpe1, bpe2, bbe1, bbe2, wpe1, wpe2, wbe1, wbe2, updated_at 
-                          FROM Rb_Stok ORDER BY id_stok DESC";
-
-                using (SqlCommand cmd2 = new SqlCommand(query2, conn))
-                using (SqlDataReader reader2 = cmd2.ExecuteReader())
-                {
-                    Dictionary<string, int> stokData = new Dictionary<string, int>();
-                    DateTime waktuRb = DateTime.Now;
-
-                    if (reader2.Read())
-                    {
-                        string[] kolomList = { "bstok", "bpe1", "bpe2", "bbe1", "bbe2", "wpe1", "wpe2", "wbe1", "wbe2" };
-
-                        foreach (string kolom in kolomList)
-                        {
-                            stokData[kolom] = Convert.ToInt32(reader2[kolom]);
-                        }
-
-                        waktuRb = Convert.ToDateTime(reader2["updated_at"]);
-                    }
-                    reader2.Close();
-
-                    foreach (var item in stokData)
-                    {
-                        using (SqlCommand cmdMin = new SqlCommand(
-                            "SELECT namaTampilan, min_stok FROM setmin_Rb WHERE kode = @kode", conn))
-                        {
-                            cmdMin.Parameters.AddWithValue("@kode", item.Key);
-                            using (SqlDataReader rdrMin = cmdMin.ExecuteReader())
-                            {
-                                if (rdrMin.Read())
-                                {
-                                    string nama = rdrMin["namaTampilan"].ToString();
-                                    int minStok = Convert.ToInt32(rdrMin["min_stok"]);
-
-                                    if (item.Value < minStok)
-                                    {
-                                        notifList.Add((
-                                            $"{nama} Stok Rendah ({item.Value}/{minStok})",
-                                            waktuRb, 
-                                            Color.FromArgb(255, 0, 0),
-                                            Color.Gray
-                                        ));
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                string query1 = @"SELECT namaBarang, jumlahStok, min_stok, updated_at 
-                          FROM stok_material WHERE jumlahStok < min_stok";
-
-                using (SqlCommand cmd1 = new SqlCommand(query1, conn))
-                using (SqlDataReader reader1 = cmd1.ExecuteReader())
-                {
-                    while (reader1.Read())
-                    {
-                        string nama = reader1["namaBarang"].ToString();
-                        int stok = Convert.ToInt32(reader1["jumlahStok"]);
-                        int minStok = Convert.ToInt32(reader1["min_stok"]);
-                        DateTime waktu = Convert.ToDateTime(reader1["updated_at"]);
-
-                        notifList.Add((
-                            $"Material {nama} Stok Rendah ({stok}/{minStok})",
-                            waktu,
-                            Color.FromArgb(255, 0, 0),
-                            Color.Gray
-                        ));
-                    }
-                }
-            }
-            var sortedNotif = notifList
-            .OrderByDescending(n => n.Waktu)
-            .ThenByDescending(n => n.Text) 
-            .ToList();
-
-            foreach (var notif in sortedNotif)
-            {
-                AddNotifPanel(
-                    notif.Text,
-                    notif.Waktu.ToString("dd MMM yyyy HH:mm"),
-                    notif.WarnaText,
-                    notif.WarnaWaktu
-                );
-            }
-
-            panelNotif.AutoScroll = true;
-            panelNotif.ResumeLayout();
-            panelNotif.VerticalScroll.Value = Math.Min(scrollPosition, panelNotif.VerticalScroll.Maximum);
-            panelNotif.PerformLayout();
-        }
-
-        private void AddNotifPanel(string text, string waktu, Color warnaText, Color warnaWaktu)
-        {
-            RoundedPanel itemPanel = new RoundedPanel();
-            itemPanel.Width = panelNotif.Width - 25;
-            itemPanel.Height = text.Contains("Material") ? 130 : 110;
-            itemPanel.BackColor = Color.WhiteSmoke;
-            itemPanel.Margin = new Padding(3);
-            itemPanel.Padding = new Padding(10);
-            itemPanel.BorderRadius = 10;
-            itemPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right; 
-
-            Panel teksPanel = new Panel();
-            teksPanel.Dock = DockStyle.Fill;
-            teksPanel.BackColor = Color.WhiteSmoke;
-            teksPanel.Padding = new Padding(5);
-
-            Label icon = new Label();
-            icon.Text = "🔔";
-            icon.Font = new Font("Segoe UI Emoji", 16);
-            icon.Dock = DockStyle.Left;
-            icon.Width = 40;
-            icon.TextAlign = ContentAlignment.MiddleCenter;
-
-            Label lblText = new Label();
-            lblText.Text = text;
-            lblText.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);
-            lblText.ForeColor = warnaText;
-            lblText.AutoSize = true;
-            lblText.MaximumSize = new Size(teksPanel.Width - 10, 0);
-            lblText.Dock = DockStyle.Top;
-
-            Label lblWaktu = new Label();
-            lblWaktu.Text = waktu;
-            lblWaktu.Font = new Font("Segoe UI", 9, FontStyle.Italic);
-            lblWaktu.ForeColor = warnaWaktu;
-            lblWaktu.AutoSize = true;
-            lblWaktu.Dock = DockStyle.Bottom;
-
-            teksPanel.Controls.Add(lblWaktu); 
-            teksPanel.Controls.Add(lblText); 
-            teksPanel.Controls.Add(icon);     
-
-            itemPanel.Controls.Add(teksPanel);
-
-            panelNotif.Controls.Add(itemPanel);
-        }
         private void LoadPanel()
         {
             try
@@ -268,7 +93,7 @@ namespace GOS_FxApps
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@tanggal", tanggal.Value.Date);
+                    cmd.Parameters.AddWithValue("@tanggal", tanggalcustom1.Value.Date);
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
@@ -526,6 +351,100 @@ namespace GOS_FxApps
 
             chartUssageMaterial.Series.Add(series);
         }
+        private void LoadchartRBCustom()
+        {
+            double rbStock = 0;
+            double rbSawinge1 = 0;
+            double rbSawinge2 = 0;
+            double rblathee1 = 0;
+            double rblathee2 = 0;
+            double wpsawinge1 = 0;
+            double wpsawinge2 = 0;
+            double wplathee1 = 0;
+            double wplathee2 = 0;
+
+            try
+            {
+                conn.Open();
+                string query = @"
+            SELECT TOP 1 bstok, bpe1, bpe2, bbe1, bbe2, wpe1, wpe2, wbe1, wbe2, tanggal, id_stok
+            FROM Rb_Stok
+            WHERE tanggal >= @TanggalMulai AND tanggal <= @TanggalAkhir
+            ORDER BY tanggal DESC, id_stok DESC";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@TanggalMulai", tanggalcustom1.Value.Date);
+                    cmd.Parameters.AddWithValue("@TanggalAkhir", tanggalcustom2.Value.Date);
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            rbStock = dr["bstok"] != DBNull.Value ? Convert.ToDouble(dr["bstok"]) : 0;
+                            rbSawinge1 = dr["bpe1"] != DBNull.Value ? Convert.ToDouble(dr["bpe1"]) : 0;
+                            rbSawinge2 = dr["bpe2"] != DBNull.Value ? Convert.ToDouble(dr["bpe2"]) : 0;
+                            rblathee1 = dr["bbe1"] != DBNull.Value ? Convert.ToDouble(dr["bbe1"]) : 0;
+                            rblathee2 = dr["bbe2"] != DBNull.Value ? Convert.ToDouble(dr["bbe2"]) : 0;
+                            wpsawinge1 = dr["wpe1"] != DBNull.Value ? Convert.ToDouble(dr["wpe1"]) : 0;
+                            wpsawinge2 = dr["wpe2"] != DBNull.Value ? Convert.ToDouble(dr["wpe2"]) : 0;
+                            wplathee1 = dr["wbe1"] != DBNull.Value ? Convert.ToDouble(dr["wbe1"]) : 0;
+                            wplathee2 = dr["wbe2"] != DBNull.Value ? Convert.ToDouble(dr["wbe2"]) : 0;
+                        }
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            // ===== Grafik =====
+            chartUssageMaterial.Series.Clear();
+            chartUssageMaterial.ChartAreas.Clear();
+
+            ChartArea area = new ChartArea("MainArea");
+            area.AxisX.Interval = 1;
+            area.AxisY.Minimum = 0;
+
+            area.AxisX.MajorGrid.LineWidth = 0;
+            area.AxisY.MajorGrid.LineWidth = 0;
+
+            area.AxisX.MinorGrid.LineWidth = 0;
+            area.AxisY.MinorGrid.LineWidth = 0;
+            chartUssageMaterial.ChartAreas.Add(area);
+
+            Series series = new Series
+            {
+                Name = "DataSeries",
+                ChartType = SeriesChartType.Column,
+                IsXValueIndexed = true,
+                IsValueShownAsLabel = true,
+                LabelForeColor = Color.Black
+            };
+
+            series.Points.AddXY("Roundbar Stock", rbStock);
+            series.Points.AddXY("Roundbar Sawing E1", rbSawinge1);
+            series.Points.AddXY("Roundbar Sawing E2", rbSawinge2);
+            series.Points.AddXY("Roundbar Lathe E1", rblathee1);
+            series.Points.AddXY("Roundbar Lathe E2", rblathee2);
+            series.Points.AddXY("Welding Pieces Sawing E1", wpsawinge1);
+            series.Points.AddXY("Welding Pieces Sawing E2", wpsawinge2);
+            series.Points.AddXY("Welding Pieces Lathe E1", wplathee1);
+            series.Points.AddXY("Welding Pieces Lathe E2", wplathee2);
+
+            chartUssageMaterial.Series.Add(series);
+        }
 
         private void LoadChartPenerimaanHarian()
         {
@@ -558,7 +477,7 @@ namespace GOS_FxApps
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@tanggal", tanggal.Value.Date);
+                        cmd.Parameters.AddWithValue("@tanggal", tanggalcustom1.Value.Date);
 
                         using (SqlDataReader dr = cmd.ExecuteReader())
                         {
@@ -823,6 +742,106 @@ namespace GOS_FxApps
                 chartUssageMaterial.Series.Add(series);
             }
         }
+        private void LoadChartPenerimaanCustom()
+        {
+            using (SqlConnection conn = Koneksi.GetConnection())
+            {
+                double totalE1 = 0, totalE2 = 0, totalE3 = 0,
+                       totalS = 0, totalD = 0, totalB = 0,
+                       totalBA = 0, totalCR = 0, totalM = 0,
+                       totalR = 0, totalC = 0, totalRL = 0;
+
+                try
+                {
+                    conn.Open();
+                    string query = @"
+                SELECT
+                    SUM(e1) AS TotalE1,
+                    SUM(e2) AS TotalE2,
+                    SUM(e3) AS TotalE3,
+                    SUM(s)  AS TotalS,
+                    SUM(d)  AS TotalD,
+                    SUM(b)  AS TotalB,
+                    SUM(ba) AS TotalBA,
+                    SUM(cr) AS TotalCR,
+                    SUM(m)  AS TotalM,
+                    SUM(r)  AS TotalR,
+                    SUM(c)  AS TotalC,
+                    SUM(rl) AS TotalRL
+                FROM penerimaan_p
+                WHERE CAST(tanggal_penerimaan AS DATE) >= @TanggalMulai
+                  AND CAST(tanggal_penerimaan AS DATE) <= @TanggalAkhir";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@TanggalMulai", tanggalcustom1.Value.Date);
+                        cmd.Parameters.AddWithValue("@TanggalAkhir", tanggalcustom2.Value.Date);
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            if (dr.Read())
+                            {
+                                totalE1 = dr["TotalE1"] != DBNull.Value ? Convert.ToDouble(dr["TotalE1"]) : 0;
+                                totalE2 = dr["TotalE2"] != DBNull.Value ? Convert.ToDouble(dr["TotalE2"]) : 0;
+                                totalE3 = dr["TotalE3"] != DBNull.Value ? Convert.ToDouble(dr["TotalE3"]) : 0;
+                                totalS = dr["TotalS"] != DBNull.Value ? Convert.ToDouble(dr["TotalS"]) : 0;
+                                totalD = dr["TotalD"] != DBNull.Value ? Convert.ToDouble(dr["TotalD"]) : 0;
+                                totalB = dr["TotalB"] != DBNull.Value ? Convert.ToDouble(dr["TotalB"]) : 0;
+                                totalBA = dr["TotalBA"] != DBNull.Value ? Convert.ToDouble(dr["TotalBA"]) : 0;
+                                totalCR = dr["TotalCR"] != DBNull.Value ? Convert.ToDouble(dr["TotalCR"]) : 0;
+                                totalM = dr["TotalM"] != DBNull.Value ? Convert.ToDouble(dr["TotalM"]) : 0;
+                                totalR = dr["TotalR"] != DBNull.Value ? Convert.ToDouble(dr["TotalR"]) : 0;
+                                totalC = dr["TotalC"] != DBNull.Value ? Convert.ToDouble(dr["TotalC"]) : 0;
+                                totalRL = dr["TotalRL"] != DBNull.Value ? Convert.ToDouble(dr["TotalRL"]) : 0;
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan: " + ex.Message,
+                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
+                // ===== Refresh Chart =====
+                chartUssageMaterial.Series.Clear();
+                chartUssageMaterial.ChartAreas.Clear();
+
+                ChartArea area = new ChartArea("MainArea");
+                area.AxisX.Interval = 1;
+                area.AxisY.Minimum = 0;
+                area.AxisX.MajorGrid.LineWidth = 0;
+                area.AxisY.MajorGrid.LineWidth = 0;
+                chartUssageMaterial.ChartAreas.Add(area);
+
+                Series series = new Series("Jumlah Periode")
+                {
+                    ChartType = SeriesChartType.Column,
+                    IsXValueIndexed = true,
+                    IsValueShownAsLabel = true,
+                    LabelForeColor = Color.Black
+                };
+
+                series.Points.AddXY("E1", totalE1);
+                series.Points.AddXY("E2", totalE2);
+                series.Points.AddXY("E3", totalE3);
+                series.Points.AddXY("S", totalS);
+                series.Points.AddXY("D", totalD);
+                series.Points.AddXY("B", totalB);
+                series.Points.AddXY("BA", totalBA);
+                series.Points.AddXY("CR", totalCR);
+                series.Points.AddXY("M", totalM);
+                series.Points.AddXY("R", totalR);
+                series.Points.AddXY("C", totalC);
+                series.Points.AddXY("RL", totalRL);
+
+                chartUssageMaterial.Series.Add(series);
+            }
+        }
 
         private void loadChartPerbaikanHarian()
         {
@@ -858,7 +877,7 @@ namespace GOS_FxApps
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@tanggal", tanggal.Value.Date);
+                        cmd.Parameters.AddWithValue("@tanggal", tanggalcustom1.Value.Date);
 
                         using (SqlDataReader dr = cmd.ExecuteReader())
                         {
@@ -1144,7 +1163,113 @@ namespace GOS_FxApps
                 chartUssageMaterial.Series.Add(series);
             }
         }
+        private void LoadChartPerbaikanCustom()
+        {
+            using (SqlConnection conn = Koneksi.GetConnection())
+            {
+                double totalE1 = 0, totalE2 = 0, totalE3 = 0,
+                       totalE4 = 0, totalS = 0, totalD = 0,
+                       totalB = 0, totalBA = 0, totalBA1 = 0,
+                       totalCR = 0, totalM = 0, totalR = 0,
+                       totalC = 0, totalRL = 0;
 
+                try
+                {
+                    conn.Open();
+                    string query = @"
+                SELECT
+                    SUM(e1_jumlah) AS TotalE1,
+                    SUM(e2_jumlah) AS TotalE2,
+                    SUM(e3) AS TotalE3,
+                    SUM(e4) AS TotalE4,
+                    SUM(s)  AS TotalS,
+                    SUM(d)  AS TotalD,
+                    SUM(b)  AS TotalB,
+                    SUM(ba) AS TotalBA,
+                    SUM(ba1) AS TotalBA1,
+                    SUM(cr) AS TotalCR,
+                    SUM(m)  AS TotalM,
+                    SUM(r)  AS TotalR,
+                    SUM(c)  AS TotalC,
+                    SUM(rl) AS TotalRL
+                FROM perbaikan_p
+                WHERE CAST(tanggal_perbaikan AS DATE) >= @TanggalMulai
+                  AND CAST(tanggal_perbaikan AS DATE) <= @TanggalAkhir";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@TanggalMulai", tanggalcustom1.Value.Date);
+                        cmd.Parameters.AddWithValue("@TanggalAkhir", tanggalcustom2.Value.Date);
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            if (dr.Read())
+                            {
+                                totalE1 = dr["TotalE1"] != DBNull.Value ? Convert.ToDouble(dr["TotalE1"]) : 0;
+                                totalE2 = dr["TotalE2"] != DBNull.Value ? Convert.ToDouble(dr["TotalE2"]) : 0;
+                                totalE3 = dr["TotalE3"] != DBNull.Value ? Convert.ToDouble(dr["TotalE3"]) : 0;
+                                totalE4 = dr["TotalE4"] != DBNull.Value ? Convert.ToDouble(dr["TotalE4"]) : 0;
+                                totalS = dr["TotalS"] != DBNull.Value ? Convert.ToDouble(dr["TotalS"]) : 0;
+                                totalD = dr["TotalD"] != DBNull.Value ? Convert.ToDouble(dr["TotalD"]) : 0;
+                                totalB = dr["TotalB"] != DBNull.Value ? Convert.ToDouble(dr["TotalB"]) : 0;
+                                totalBA = dr["TotalBA"] != DBNull.Value ? Convert.ToDouble(dr["TotalBA"]) : 0;
+                                totalBA1 = dr["TotalBA1"] != DBNull.Value ? Convert.ToDouble(dr["TotalBA1"]) : 0;
+                                totalCR = dr["TotalCR"] != DBNull.Value ? Convert.ToDouble(dr["TotalCR"]) : 0;
+                                totalM = dr["TotalM"] != DBNull.Value ? Convert.ToDouble(dr["TotalM"]) : 0;
+                                totalR = dr["TotalR"] != DBNull.Value ? Convert.ToDouble(dr["TotalR"]) : 0;
+                                totalC = dr["TotalC"] != DBNull.Value ? Convert.ToDouble(dr["TotalC"]) : 0;
+                                totalRL = dr["TotalRL"] != DBNull.Value ? Convert.ToDouble(dr["TotalRL"]) : 0;
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan: " + ex.Message,
+                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
+                // ===== Refresh Chart =====
+                chartUssageMaterial.Series.Clear();
+                chartUssageMaterial.ChartAreas.Clear();
+
+                ChartArea area = new ChartArea("MainArea");
+                area.AxisX.Interval = 1;
+                area.AxisY.Minimum = 0;
+                area.AxisX.MajorGrid.LineWidth = 0;
+                area.AxisY.MajorGrid.LineWidth = 0;
+                chartUssageMaterial.ChartAreas.Add(area);
+
+                Series series = new Series("Jumlah Perbaikan Periode")
+                {
+                    ChartType = SeriesChartType.Column,
+                    IsXValueIndexed = true,
+                    IsValueShownAsLabel = true,
+                    LabelForeColor = Color.Black
+                };
+
+                series.Points.AddXY("E1", totalE1);
+                series.Points.AddXY("E2", totalE2);
+                series.Points.AddXY("E3", totalE3);
+                series.Points.AddXY("E4", totalE4);
+                series.Points.AddXY("S", totalS);
+                series.Points.AddXY("D", totalD);
+                series.Points.AddXY("B", totalB);
+                series.Points.AddXY("BA", totalBA);
+                series.Points.AddXY("BA1", totalBA1);
+                series.Points.AddXY("CR", totalCR);
+                series.Points.AddXY("M", totalM);
+                series.Points.AddXY("R", totalR);
+                series.Points.AddXY("C", totalC);
+                series.Points.AddXY("RL", totalRL);
+
+                chartUssageMaterial.Series.Add(series);
+            }
+        }
 
         private void LoadChartMaterialCostHarian()
         {
@@ -1156,9 +1281,9 @@ namespace GOS_FxApps
                     using (SqlCommand cmd = new SqlCommand("sp_chartmaterialcostharian", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@Hari", tanggal.Value.Day);
-                        cmd.Parameters.AddWithValue("@Bulan", tanggal.Value.Month);
-                        cmd.Parameters.AddWithValue("@Tahun", tanggal.Value.Year);
+                        cmd.Parameters.AddWithValue("@Hari", tanggalcustom1.Value.Day);
+                        cmd.Parameters.AddWithValue("@Bulan", tanggalcustom1.Value.Month);
+                        cmd.Parameters.AddWithValue("@Tahun", tanggalcustom1.Value.Year);
 
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
                         da.Fill(dt);
@@ -1326,6 +1451,62 @@ namespace GOS_FxApps
                 MessageBox.Show("Error load chart tahunan: " + ex.Message);
             }
         }
+        private void LoadChartmaterialCostCustom()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                using (SqlConnection conn = Koneksi.GetConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_chartmaterialcostcustom", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@TanggalMulai", tanggalcustom1.Value.Date);
+                        cmd.Parameters.AddWithValue("@TanggalAkhir", tanggalcustom2.Value.Date);
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        da.Fill(dt);
+                    }
+                }
+
+                chartUssageMaterial.Series.Clear();
+                chartUssageMaterial.DataSource = null;
+
+                var area = chartUssageMaterial.ChartAreas[0];
+                area.AxisX.ScaleView.ZoomReset();
+                area.RecalculateAxesScale();
+
+                Series seriesBQ = new Series("TotalBQ");
+                seriesBQ.ChartType = SeriesChartType.Column;
+                seriesBQ.XValueMember = "Deskripsi";
+                seriesBQ.YValueMembers = "TotalBQ";
+                seriesBQ.IsValueShownAsLabel = true;
+                seriesBQ["PointWidth"] = "0.4";
+
+                Series seriesPemakaian = new Series("TotalPemakaian");
+                seriesPemakaian.ChartType = SeriesChartType.Column;
+                seriesPemakaian.XValueMember = "Deskripsi";
+                seriesPemakaian.YValueMembers = "TotalPemakaian";
+                seriesPemakaian.IsValueShownAsLabel = true;
+                seriesPemakaian["PointWidth"] = "0.4";
+
+                chartUssageMaterial.Series.Add(seriesBQ);
+                chartUssageMaterial.Series.Add(seriesPemakaian);
+
+                var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
+                axisX.Interval = 1;
+                axisX.IsLabelAutoFit = false;
+                axisX.ScaleView.Size = 5;
+                axisX.ScrollBar.Enabled = true;
+                axisX.ScrollBar.IsPositionedInside = true;
+
+                chartUssageMaterial.DataSource = dt;
+                chartUssageMaterial.DataBind();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error load chart tahunan: " + ex.Message);
+            }
+        }
 
         private void LoadChartConsumableCostHarian()
         {
@@ -1337,9 +1518,9 @@ namespace GOS_FxApps
                     using (SqlCommand cmd = new SqlCommand("sp_chartconsumablecostharian", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@Hari", tanggal.Value.Day);
-                        cmd.Parameters.AddWithValue("@Bulan", tanggal.Value.Month);
-                        cmd.Parameters.AddWithValue("@Tahun", tanggal.Value.Year);
+                        cmd.Parameters.AddWithValue("@Hari", tanggalcustom1.Value.Day);
+                        cmd.Parameters.AddWithValue("@Bulan", tanggalcustom1.Value.Month);
+                        cmd.Parameters.AddWithValue("@Tahun", tanggalcustom1.Value.Year);
 
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
                         da.Fill(dt);
@@ -1498,6 +1679,62 @@ namespace GOS_FxApps
                 MessageBox.Show("Error load chart tahunan: " + ex.Message);
             }
         }
+        private void LoadChartConsumableCostCustom()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                using (SqlConnection conn = Koneksi.GetConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_chartconsumablecostcustom", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@TanggalMulai", tanggalcustom1.Value.Date);
+                        cmd.Parameters.AddWithValue("@TanggalAkhir", tanggalcustom2.Value.Date);
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        da.Fill(dt);
+                    }
+                }
+
+                chartUssageMaterial.Series.Clear();
+                chartUssageMaterial.DataSource = null;
+
+                var area = chartUssageMaterial.ChartAreas[0];
+                area.AxisX.ScaleView.ZoomReset();
+                area.RecalculateAxesScale();
+
+                Series seriesBQ = new Series("TotalBQ");
+                seriesBQ.ChartType = SeriesChartType.Column;
+                seriesBQ.XValueMember = "Deskripsi";
+                seriesBQ.YValueMembers = "TotalBQ";
+                seriesBQ.IsValueShownAsLabel = true;
+                seriesBQ["PointWidth"] = "0.4";
+
+                Series seriesPemakaian = new Series("TotalPemakaian");
+                seriesPemakaian.ChartType = SeriesChartType.Column;
+                seriesPemakaian.XValueMember = "Deskripsi";
+                seriesPemakaian.YValueMembers = "TotalPemakaian";
+                seriesPemakaian.IsValueShownAsLabel = true;
+                seriesPemakaian["PointWidth"] = "0.4";
+
+                chartUssageMaterial.Series.Add(seriesBQ);
+                chartUssageMaterial.Series.Add(seriesPemakaian);
+
+                var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
+                axisX.Interval = 1;
+                axisX.IsLabelAutoFit = false;
+                axisX.ScaleView.Size = 5;
+                axisX.ScrollBar.Enabled = true;
+                axisX.ScrollBar.IsPositionedInside = true;
+
+                chartUssageMaterial.DataSource = dt;
+                chartUssageMaterial.DataBind();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error load chart tahunan: " + ex.Message);
+            }
+        }
 
         private void LoadChartSafetyCostHarian()
         {
@@ -1509,9 +1746,9 @@ namespace GOS_FxApps
                     using (SqlCommand cmd = new SqlCommand("sp_chartsafetycostharian", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@Hari", tanggal.Value.Day);
-                        cmd.Parameters.AddWithValue("@Bulan", tanggal.Value.Month);
-                        cmd.Parameters.AddWithValue("@Tahun", tanggal.Value.Year);
+                        cmd.Parameters.AddWithValue("@Hari", tanggalcustom1.Value.Day);
+                        cmd.Parameters.AddWithValue("@Bulan", tanggalcustom1.Value.Month);
+                        cmd.Parameters.AddWithValue("@Tahun", tanggalcustom1.Value.Year);
 
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
                         da.Fill(dt);
@@ -1670,52 +1907,61 @@ namespace GOS_FxApps
                 MessageBox.Show("Error load chart tahunan: " + ex.Message);
             }
         }
-
-
-        private void LoadChartStock()
+        private void LoadChartsafetyCostCustom()
         {
-            chartUssageMaterial.Series.Clear();
-
-            Series series = new Series("Stock Material");
-            series.ChartType = SeriesChartType.Column;
-            series.IsValueShownAsLabel = true;
-            series.LabelForeColor = Color.Black;
-
             try
             {
-                conn.Open();
-                string query = "SELECT TOP 10 namaBarang, jumlahStok FROM stok_material ORDER BY jumlahStok ASC;";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                using (SqlDataReader dr = cmd.ExecuteReader())
+                DataTable dt = new DataTable();
+                using (SqlConnection conn = Koneksi.GetConnection())
                 {
-                    while (dr.Read())
+                    using (SqlCommand cmd = new SqlCommand("sp_chartsafetycostcustom", conn))
                     {
-                        string namaBarang = dr["namaBarang"].ToString();
-                        int jumlah = dr["jumlahStok"] != DBNull.Value ? Convert.ToInt32(dr["jumlahStok"]) : 0;
-
-                        series.Points.AddXY(namaBarang, jumlah);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@TanggalMulai", tanggalcustom1.Value.Date);
+                        cmd.Parameters.AddWithValue("@TanggalAkhir", tanggalcustom2.Value.Date);
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        da.Fill(dt);
                     }
                 }
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                chartUssageMaterial.Series.Clear();
+                chartUssageMaterial.DataSource = null;
+
+                var area = chartUssageMaterial.ChartAreas[0];
+                area.AxisX.ScaleView.ZoomReset();
+                area.RecalculateAxesScale();
+
+                Series seriesBQ = new Series("TotalBQ");
+                seriesBQ.ChartType = SeriesChartType.Column;
+                seriesBQ.XValueMember = "Deskripsi";
+                seriesBQ.YValueMembers = "TotalBQ";
+                seriesBQ.IsValueShownAsLabel = true;
+                seriesBQ["PointWidth"] = "0.4";
+
+                Series seriesPemakaian = new Series("TotalPemakaian");
+                seriesPemakaian.ChartType = SeriesChartType.Column;
+                seriesPemakaian.XValueMember = "Deskripsi";
+                seriesPemakaian.YValueMembers = "TotalPemakaian";
+                seriesPemakaian.IsValueShownAsLabel = true;
+                seriesPemakaian["PointWidth"] = "0.4";
+
+                chartUssageMaterial.Series.Add(seriesBQ);
+                chartUssageMaterial.Series.Add(seriesPemakaian);
+
+                var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
+                axisX.Interval = 1;
+                axisX.IsLabelAutoFit = false;
+                axisX.ScaleView.Size = 5;
+                axisX.ScrollBar.Enabled = true;
+                axisX.ScrollBar.IsPositionedInside = true;
+
+                chartUssageMaterial.DataSource = dt;
+                chartUssageMaterial.DataBind();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error load chart tahunan: " + ex.Message);
             }
-            finally
-            {
-                conn.Close();
-            }
-
-            series.Color = Color.FromArgb(244, 67, 53);
-            chartUssageMaterial.Series.Add(series);
-            chartUssageMaterial.ChartAreas[0].AxisX.Interval = 1;
         }
 
         private void registerpenerimaans()
@@ -1740,7 +1986,6 @@ namespace GOS_FxApps
                 cmd.ExecuteReader();
             }
         }
-
         private void registerperbaikans()
         {
             using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
@@ -1763,7 +2008,6 @@ namespace GOS_FxApps
                 cmd.ExecuteReader();
             }
         }
-
         private void registerwelding()
         {
             using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
@@ -1778,55 +2022,7 @@ namespace GOS_FxApps
                         this.Invoke(new Action(() =>
                         {
                             LoadchartRB();
-                            LoadNotifikasi();
                             registerwelding();
-                        }));
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
-            }
-        }
-
-        private void registerstok()
-        {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.stok_material", conn))
-            {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
-                {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            LoadChartStock();
-                            LoadNotifikasi();
-                            registerstok();
-                        }));
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
-            }
-        }
-
-        private void registerSetminRb()
-        {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT kode, min_stok FROM dbo.setmin_Rb", conn))
-            {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
-                {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            LoadNotifikasi();
-                            registerSetminRb(); 
                         }));
                     }
                 };
@@ -1839,45 +2035,21 @@ namespace GOS_FxApps
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
 
-            typeof(Panel).InvokeMember("DoubleBuffered",
-               System.Reflection.BindingFlags.SetProperty |
-               System.Reflection.BindingFlags.Instance |
-               System.Reflection.BindingFlags.NonPublic,
-               null, panelNotif, new object[] { true });
-            Instance = this;
-            if (MainForm.Instance != null && MainForm.Instance.role != null)
-            {
-                btntiga.Visible = (MainForm.Instance.role == "Operator Gudang");
-                btntiga.Visible = (MainForm.Instance.role == "Manajer");
-            }
-            else
-            {
-                btntiga.Visible = false;
-            }
-            LoadNotifikasi();
-            tanggal.Value = DateTime.Today;
+            tanggalcustom1.Value = DateTime.Today;
+            tanggalcustom2.Value = DateTime.Today;
             datebulan.Value = DateTime.Now;
             LoadPanel();
             LoadchartRB();
             containerrentang.Visible = true;
-            containertanggal.Visible = true;
+            containertanggal1.Visible = true;
 
             registerpenerimaans();
             registerperbaikans();
-            //registerwelding();
-            //registerstok();
-            //registerSetminRb();
+            registerwelding();
         }
 
         private void cmbpilihdata_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (cmbpilihdata.SelectedIndex == 0) 
-            //{
-            //    registerstok();
-            //    LoadChartStock();
-            //    lbltitlechart.Text = "10 Material Dengan Stok Rendah";
-            //}
-            //else
             if (cmbpilihdata.SelectedIndex == 0)
             {   
                 
@@ -1885,40 +2057,40 @@ namespace GOS_FxApps
                 containerbulan.Visible = false;
                 containertipe.Visible = false;
                 containertipem.Visible = false;
-                containertanggal.Visible = false;
+                containertanggal1.Visible = false;
 
                 containerrentang.Visible = true;
-                containertanggal.Visible = true;
+                containertanggal1.Visible = true;
                 cmbrentang.SelectedIndex = 0;
-                tanggal.Value = DateTime.Now;
+                tanggalcustom1.Value = DateTime.Now;
             }
             else if (cmbpilihdata.SelectedIndex == 1)
             {
                 lbltitlechart.Text = "Estimasi VS Actual";
                 containerbulan.Visible = false;
                 containertipe.Visible = false;
-                containertanggal.Visible = false;
+                containertanggal1.Visible = false;
 
                 containerrentang.Visible = true;
                 containertipem.Visible = true;
-                containertanggal.Visible = true;
+                containertanggal1.Visible = true;
                 cmbrentang.SelectedIndex = 0;
                 cmbtipem.SelectedIndex = 0;
-                tanggal.Value = DateTime.Now;
+                tanggalcustom1.Value = DateTime.Now;
             }
             else if (cmbpilihdata.SelectedIndex == 2)
             {
                 lbltitlechart.Text = "Trend Jenis Kerusakan";
                 containerbulan.Visible = false;
                 containertipem.Visible = false;
-                containertanggal.Visible = false;
+                containertanggal1.Visible = false;
 
                 containerrentang.Visible = true;
                 containertipe.Visible = true;
-                containertanggal.Visible = true;
+                containertanggal1.Visible = true;
                 cmbrentang.SelectedIndex = 0;
                 cmbtipe.SelectedIndex = 0;
-                tanggal.Value = DateTime.Now;
+                tanggalcustom1.Value = DateTime.Now;
             }
         }
 
@@ -1938,17 +2110,26 @@ namespace GOS_FxApps
             if (cmbrentang.SelectedIndex == 0) 
             {
                 containerbulan.Visible = false;
-                containertanggal.Visible=true;
+                containertanggal2.Visible = false;
+                containertanggal1.Visible=true;
             }
             else if(cmbrentang.SelectedIndex == 1)
             {
-                containertanggal.Visible = false;
+                containertanggal1.Visible = false;
+                containertanggal2.Visible = false;
                 containerbulan.Visible=true;
             }
             else if(cmbrentang.SelectedIndex == 2)
             {
-                containertanggal.Visible = false;
+                containertanggal1.Visible = false;
+                containertanggal2.Visible = false;
                 containerbulan.Visible=true;
+            }
+            else if (cmbrentang.SelectedIndex == 3)
+            {
+                containerbulan.Visible = false;
+                containertanggal1.Visible=true;
+                containertanggal2.Visible=true;
             }
         }
 
@@ -1967,6 +2148,16 @@ namespace GOS_FxApps
                 else if (cmbrentang.SelectedIndex == 2)
                 {
                     LoadchartRBByYear();
+                }
+                else if (cmbrentang.SelectedIndex == 3)
+                {
+                    if (tanggalcustom1.Value.Date > tanggalcustom2.Value.Date)
+                    {
+                        MessageBox.Show("Tanggal Mulai harus kurang dari atau sama dengan Tanggal Akhir agar valid", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    // seharusnya ini custom rb
+                    LoadchartRBCustom();
                 }
             }
             else if(cmbpilihdata.SelectedIndex == 1)
@@ -2026,6 +2217,30 @@ namespace GOS_FxApps
                         LoadChartSafetyCostTahun();
                     }
                 }
+                else if (cmbrentang.SelectedIndex == 3)
+                {
+                    if(tanggalcustom1.Value.Date > tanggalcustom2.Value.Date)
+                    {
+                        MessageBox.Show("Tanggal Mulai harus kurang dari atau sama dengan Tanggal Akhir agar valid", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    if (cmbtipem.SelectedIndex == 0)
+                    {
+                        // custom Material Cost
+                        LoadChartmaterialCostCustom();
+                    }
+                    else if (cmbtipem.SelectedIndex == 1)
+                    {
+                        // custom Consumable Cost
+                        LoadChartConsumableCostCustom();
+                    }
+                    else if (cmbtipem.SelectedIndex == 2)
+                    {
+                        //custom Protector Cost
+                        LoadChartsafetyCostCustom();
+                    }
+                }
             }
             else if (cmbpilihdata.SelectedIndex == 2)
             {
@@ -2066,6 +2281,24 @@ namespace GOS_FxApps
                     {
                         //Perbaikan tahun
                         LoadChartPerbaikanTahunan();
+                    }
+                }
+                else if (cmbrentang.SelectedIndex == 3)
+                {
+                    if (tanggalcustom1.Value.Date > tanggalcustom2.Value.Date)
+                    {
+                        MessageBox.Show("Tanggal Mulai harus kurang dari atau sama dengan Tanggal Akhir agar valid", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    if (cmbtipe.SelectedIndex == 0)
+                    {
+                        // seharusnya ini custom penerimaan
+                        LoadChartPenerimaanCustom();
+                    }
+                    else if (cmbtipe.SelectedIndex == 1)
+                    {
+                        // seharusnya ini custom perbaikan
+                        LoadChartPerbaikanCustom();
                     }
                 }
             }
@@ -2195,6 +2428,22 @@ namespace GOS_FxApps
 
                     pickerForm.ShowDialog();
                 }
+            }
+        }
+
+        private void HamburgerButton_Click(object sender, EventArgs e)
+        {
+            if (bukatutupfilter)
+            {
+                panelfilter.Visible = false;
+                bukatutupfilter = false;
+                HamburgerButton.IconChar = FontAwesome.Sharp.IconChar.AngleLeft;
+            }
+            else
+            {
+                panelfilter.Visible = true;
+                bukatutupfilter = true;
+                HamburgerButton.IconChar = FontAwesome.Sharp.IconChar.AngleRight;
             }
         }
     }

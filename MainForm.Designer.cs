@@ -46,13 +46,14 @@ namespace GOS_FxApps
             this.iconButton24 = new Guna.UI2.WinForms.Guna2Button();
             this.btnHistori = new Guna.UI2.WinForms.Guna2Button();
             this.headerPanel = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lbluser = new System.Windows.Forms.Label();
-            this.iconButton14 = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblshift = new System.Windows.Forms.Label();
             this.lblinfo = new System.Windows.Forms.Label();
             this.lbldate = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lbluser = new System.Windows.Forms.Label();
+            this.iconButton14 = new FontAwesome.Sharp.IconButton();
+            this.btnnotif = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -93,8 +94,8 @@ namespace GOS_FxApps
             this.titlePanel.SuspendLayout();
             this.historycontainer.SuspendLayout();
             this.headerPanel.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -145,10 +146,10 @@ namespace GOS_FxApps
             // 
             this.panel4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(254, 80);
+            this.panel4.Location = new System.Drawing.Point(254, 76);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1008, 672);
+            this.panel4.Size = new System.Drawing.Size(1008, 676);
             this.panel4.TabIndex = 3;
             // 
             // historycontainer
@@ -364,25 +365,76 @@ namespace GOS_FxApps
             // headerPanel
             // 
             this.headerPanel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.headerPanel.Controls.Add(this.panel3);
             this.headerPanel.Controls.Add(this.panel2);
             this.headerPanel.Controls.Add(this.lbldate);
+            this.headerPanel.Controls.Add(this.panel3);
+            this.headerPanel.Controls.Add(this.btnnotif);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.ForeColor = System.Drawing.Color.Gainsboro;
             this.headerPanel.Location = new System.Drawing.Point(254, 30);
             this.headerPanel.Margin = new System.Windows.Forms.Padding(2);
             this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(1008, 50);
+            this.headerPanel.Size = new System.Drawing.Size(1008, 46);
             this.headerPanel.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblshift);
+            this.panel2.Controls.Add(this.lblinfo);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(421, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(166, 46);
+            this.panel2.TabIndex = 7;
+            // 
+            // lblshift
+            // 
+            this.lblshift.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblshift.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblshift.ForeColor = System.Drawing.Color.Black;
+            this.lblshift.Location = new System.Drawing.Point(114, 0);
+            this.lblshift.Margin = new System.Windows.Forms.Padding(15, 16, 15, 16);
+            this.lblshift.Name = "lblshift";
+            this.lblshift.Size = new System.Drawing.Size(44, 46);
+            this.lblshift.TabIndex = 4;
+            this.lblshift.Text = "1";
+            this.lblshift.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblinfo
+            // 
+            this.lblinfo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblinfo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblinfo.ForeColor = System.Drawing.Color.Black;
+            this.lblinfo.Location = new System.Drawing.Point(0, 0);
+            this.lblinfo.Margin = new System.Windows.Forms.Padding(15, 16, 15, 16);
+            this.lblinfo.Name = "lblinfo";
+            this.lblinfo.Size = new System.Drawing.Size(114, 46);
+            this.lblinfo.TabIndex = 3;
+            this.lblinfo.Text = "Shift Aktual :";
+            this.lblinfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbldate
+            // 
+            this.lbldate.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbldate.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lbldate.ForeColor = System.Drawing.Color.Black;
+            this.lbldate.Location = new System.Drawing.Point(98, 0);
+            this.lbldate.Margin = new System.Windows.Forms.Padding(15, 16, 15, 16);
+            this.lbldate.Name = "lbldate";
+            this.lbldate.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.lbldate.Size = new System.Drawing.Size(323, 46);
+            this.lbldate.TabIndex = 0;
+            this.lbldate.Text = "Tanggal Dan Jam";
+            this.lbldate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.lbluser);
             this.panel3.Controls.Add(this.iconButton14);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(490, 0);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(98, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(518, 50);
+            this.panel3.Size = new System.Drawing.Size(910, 46);
             this.panel3.TabIndex = 8;
             // 
             // lbluser
@@ -393,7 +445,7 @@ namespace GOS_FxApps
             this.lbluser.Location = new System.Drawing.Point(0, 0);
             this.lbluser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbluser.Name = "lbluser";
-            this.lbluser.Size = new System.Drawing.Size(469, 50);
+            this.lbluser.Size = new System.Drawing.Size(861, 46);
             this.lbluser.TabIndex = 8;
             this.lbluser.Text = "Robert Danuarta [Manajer]";
             this.lbluser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -410,63 +462,34 @@ namespace GOS_FxApps
             this.iconButton14.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(132)))));
             this.iconButton14.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton14.IconSize = 40;
-            this.iconButton14.Location = new System.Drawing.Point(469, 0);
+            this.iconButton14.Location = new System.Drawing.Point(861, 0);
             this.iconButton14.Margin = new System.Windows.Forms.Padding(2);
             this.iconButton14.Name = "iconButton14";
-            this.iconButton14.Size = new System.Drawing.Size(49, 50);
+            this.iconButton14.Size = new System.Drawing.Size(49, 46);
             this.iconButton14.TabIndex = 7;
             this.iconButton14.UseVisualStyleBackColor = false;
             this.iconButton14.Click += new System.EventHandler(this.iconButton14_Click);
             // 
-            // panel2
+            // btnnotif
             // 
-            this.panel2.Controls.Add(this.lblshift);
-            this.panel2.Controls.Add(this.lblinfo);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(323, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(166, 50);
-            this.panel2.TabIndex = 7;
-            // 
-            // lblshift
-            // 
-            this.lblshift.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblshift.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblshift.ForeColor = System.Drawing.Color.Black;
-            this.lblshift.Location = new System.Drawing.Point(114, 0);
-            this.lblshift.Margin = new System.Windows.Forms.Padding(15, 16, 15, 16);
-            this.lblshift.Name = "lblshift";
-            this.lblshift.Size = new System.Drawing.Size(44, 50);
-            this.lblshift.TabIndex = 4;
-            this.lblshift.Text = "1";
-            this.lblshift.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblinfo
-            // 
-            this.lblinfo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblinfo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblinfo.ForeColor = System.Drawing.Color.Black;
-            this.lblinfo.Location = new System.Drawing.Point(0, 0);
-            this.lblinfo.Margin = new System.Windows.Forms.Padding(15, 16, 15, 16);
-            this.lblinfo.Name = "lblinfo";
-            this.lblinfo.Size = new System.Drawing.Size(114, 50);
-            this.lblinfo.TabIndex = 3;
-            this.lblinfo.Text = "Shift Aktual :";
-            this.lblinfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbldate
-            // 
-            this.lbldate.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbldate.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lbldate.ForeColor = System.Drawing.Color.Black;
-            this.lbldate.Location = new System.Drawing.Point(0, 0);
-            this.lbldate.Margin = new System.Windows.Forms.Padding(15, 16, 15, 16);
-            this.lbldate.Name = "lbldate";
-            this.lbldate.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.lbldate.Size = new System.Drawing.Size(323, 50);
-            this.lbldate.TabIndex = 0;
-            this.lbldate.Text = "Tanggal Dan Jam";
-            this.lbldate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnnotif.BackColor = System.Drawing.Color.Transparent;
+            this.btnnotif.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnnotif.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnnotif.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnnotif.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnnotif.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnnotif.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnnotif.FillColor = System.Drawing.Color.Transparent;
+            this.btnnotif.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnnotif.ForeColor = System.Drawing.Color.Black;
+            this.btnnotif.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnnotif.Location = new System.Drawing.Point(0, 0);
+            this.btnnotif.Name = "btnnotif";
+            this.btnnotif.PressedColor = System.Drawing.Color.Transparent;
+            this.btnnotif.Size = new System.Drawing.Size(98, 46);
+            this.btnnotif.TabIndex = 9;
+            this.btnnotif.Text = "🔔 0";
+            this.btnnotif.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // panel1
             // 
@@ -1144,12 +1167,13 @@ namespace GOS_FxApps
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.titlePanel.ResumeLayout(false);
             this.historycontainer.ResumeLayout(false);
             this.headerPanel.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -1222,5 +1246,6 @@ namespace GOS_FxApps
         private Guna.UI2.WinForms.Guna2Button btngudang;
         private Timer gudangtimer;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        public Guna.UI2.WinForms.Guna2Button btnnotif;
     }
 }

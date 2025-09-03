@@ -15,11 +15,22 @@ namespace GOS_FxApps
     public partial class userinfo : Form
     {
         public static userinfo Instance;
+        private bool justOpened = false;
 
         public userinfo()
         {
             InitializeComponent();
             Instance = this;
+        }
+
+        protected override void OnDeactivate(EventArgs e)
+        {
+            base.OnDeactivate(e);
+            if (!justOpened)
+            {
+                this.Close();
+            }
+            justOpened = false;
         }
 
         private void profil()
@@ -70,7 +81,7 @@ namespace GOS_FxApps
             MainForm.Instance.EditContainer.Size = MainForm.Instance.defaulteditcontainer;
             MainForm.Instance.historycontainer.Size = MainForm.Instance.defaulhistorycontainer;
             MainForm.Instance.role = null;
-            Dashboard.Instance.btntiga.Visible = false;
+            formnotifikasi.Instance.btntiga.Visible = false;
             this.Close();
         }
         private void userinfo_Load(object sender, EventArgs e)
@@ -84,6 +95,7 @@ namespace GOS_FxApps
             {
                 lbltambahakun.Visible = false;
             }
+            justOpened = true;
         }
 
         private void label1_Click(object sender, EventArgs e)
