@@ -15,22 +15,11 @@ namespace GOS_FxApps
     public partial class userinfo : Form
     {
         public static userinfo Instance;
-        private bool justOpened = false;
 
         public userinfo()
         {
             InitializeComponent();
             Instance = this;
-        }
-
-        protected override void OnDeactivate(EventArgs e)
-        {
-            base.OnDeactivate(e);
-            if (!justOpened)
-            {
-                this.Close();
-            }
-            justOpened = false;
         }
 
         private void profil()
@@ -95,7 +84,6 @@ namespace GOS_FxApps
             {
                 lbltambahakun.Visible = false;
             }
-            justOpened = true;
         }
 
         private void label1_Click(object sender, EventArgs e)

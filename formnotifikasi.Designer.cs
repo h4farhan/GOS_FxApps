@@ -78,12 +78,11 @@
             this.btntiga.ForeColor = System.Drawing.Color.White;
             this.btntiga.Image = global::GOS_FxApps.Properties.Resources.dots;
             this.btntiga.ImageSize = new System.Drawing.Size(30, 30);
-            this.btntiga.Location = new System.Drawing.Point(266, 8);
+            this.btntiga.Location = new System.Drawing.Point(261, 8);
             this.btntiga.Name = "btntiga";
             this.btntiga.PressedColor = System.Drawing.Color.Transparent;
-            this.btntiga.Size = new System.Drawing.Size(40, 22);
+            this.btntiga.Size = new System.Drawing.Size(45, 22);
             this.btntiga.TabIndex = 7;
-            this.btntiga.Text = "`";
             this.btntiga.Visible = false;
             this.btntiga.Click += new System.EventHandler(this.btntiga_Click);
             // 

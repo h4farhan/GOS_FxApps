@@ -2052,8 +2052,6 @@ namespace GOS_FxApps
         {
             if (cmbpilihdata.SelectedIndex == 0)
             {   
-                
-                lbltitlechart.Text = "Stok Round Bar Dan Welding Piece";
                 containerbulan.Visible = false;
                 containertipe.Visible = false;
                 containertipem.Visible = false;
@@ -2066,7 +2064,6 @@ namespace GOS_FxApps
             }
             else if (cmbpilihdata.SelectedIndex == 1)
             {
-                lbltitlechart.Text = "Estimasi VS Actual";
                 containerbulan.Visible = false;
                 containertipe.Visible = false;
                 containertanggal1.Visible = false;
@@ -2080,7 +2077,6 @@ namespace GOS_FxApps
             }
             else if (cmbpilihdata.SelectedIndex == 2)
             {
-                lbltitlechart.Text = "Trend Jenis Kerusakan";
                 containerbulan.Visible = false;
                 containertipem.Visible = false;
                 containertanggal1.Visible = false;
@@ -2092,12 +2088,6 @@ namespace GOS_FxApps
                 cmbtipe.SelectedIndex = 0;
                 tanggalcustom1.Value = DateTime.Now;
             }
-        }
-
-        private void btntiga_Click(object sender, EventArgs e)
-        {
-            Form setmin = new setmin_rb();
-            setmin.Show();
         }
 
         private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
@@ -2140,14 +2130,17 @@ namespace GOS_FxApps
                 if (cmbrentang.SelectedIndex == 0)
                 {
                     LoadchartRB();
+                    lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value;
                 }
                 else if (cmbrentang.SelectedIndex == 1)
                 {
                     LoadchartRBByMonth();
+                    lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + datebulan.Value;
                 }
                 else if (cmbrentang.SelectedIndex == 2)
                 {
                     LoadchartRBByYear();
+                    lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + datebulan.Value.Year;
                 }
                 else if (cmbrentang.SelectedIndex == 3)
                 {
@@ -2156,8 +2149,9 @@ namespace GOS_FxApps
                         MessageBox.Show("Tanggal Mulai harus kurang dari atau sama dengan Tanggal Akhir agar valid", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
-                    // seharusnya ini custom rb
+
                     LoadchartRBCustom();
+                    lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value + " s/d " + tanggalcustom2.Value;
                 }
             }
             else if(cmbpilihdata.SelectedIndex == 1)
@@ -2248,39 +2242,39 @@ namespace GOS_FxApps
                 {
                     if (cmbtipe.SelectedIndex == 0)
                     {
-                        //Penerimaan hari
                         LoadChartPenerimaanHarian();
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + tanggalcustom1.Value;
                     }
                     else if (cmbtipe.SelectedIndex == 1)
                     {
-                        //Perbaikan hari
                         loadChartPerbaikanHarian();
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + tanggalcustom1.Value;
                     }
                 }
                 else if (cmbrentang.SelectedIndex == 1)
                 {
                     if (cmbtipe.SelectedIndex == 0)
                     {
-                        //Penerimaan bulan
                         LoadChartPenerimaanBulanan();
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + datebulan.Value;
                     }
                     else if (cmbtipe.SelectedIndex == 1)
                     {
-                        //Perbaikan bulan
                         LoadChartPerbaikanBulanan();
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + datebulan.Value;
                     }                    
                 }
                 else if (cmbrentang.SelectedIndex == 2)
                 {
                     if (cmbtipe.SelectedIndex == 0)
                     {
-                        //Penerimaan tahun
                         LoadChartPenerimaanTahunan();
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + datebulan.Value.Year;
                     }
                     else if (cmbtipe.SelectedIndex == 1)
                     {
-                        //Perbaikan tahun
                         LoadChartPerbaikanTahunan();
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + datebulan.Value.Year;
                     }
                 }
                 else if (cmbrentang.SelectedIndex == 3)
@@ -2292,13 +2286,13 @@ namespace GOS_FxApps
                     }
                     if (cmbtipe.SelectedIndex == 0)
                     {
-                        // seharusnya ini custom penerimaan
                         LoadChartPenerimaanCustom();
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + tanggalcustom1.Value + " s/d " + tanggalcustom2.Value;
                     }
                     else if (cmbtipe.SelectedIndex == 1)
                     {
-                        // seharusnya ini custom perbaikan
                         LoadChartPerbaikanCustom();
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + tanggalcustom1.Value + " s/d " + tanggalcustom2.Value;
                     }
                 }
             }

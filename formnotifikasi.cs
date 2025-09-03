@@ -18,21 +18,10 @@ namespace GOS_FxApps
         SqlConnection conn = Koneksi.GetConnection();
 
         public static formnotifikasi Instance;
-        private bool justOpened = false;
 
         public formnotifikasi()
         {
             InitializeComponent();
-        }
-
-        protected override void OnDeactivate(EventArgs e)
-        {
-            base.OnDeactivate(e);
-            if (!justOpened)
-            {
-                this.Close();
-            }
-            justOpened = false;
         }
 
         public class RoundedPanel : Panel
@@ -223,21 +212,25 @@ namespace GOS_FxApps
                 {
                     if (e.Type == SqlNotificationType.Change)
                     {
-                        this.Invoke(new Action(() =>
+                        if (!this.IsDisposed && this.IsHandleCreated)
                         {
-                            LoadNotifikasi();
-                            registerstok();
-                        }));
+                            this.BeginInvoke(new Action(() =>
+                            {
+                                LoadNotifikasi();
+                                registerstok();
+                            }));
+                        }
                     }
                 };
                 conn.Open();
                 cmd.ExecuteReader();
             }
         }
+
         private void registerSetminRb()
         {
             using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT kode, min_stok FROM dbo.setmin_Rb", conn))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.setmin_Rb", conn))
             {
                 cmd.Notification = null;
                 var dep = new SqlDependency(cmd);
@@ -245,17 +238,21 @@ namespace GOS_FxApps
                 {
                     if (e.Type == SqlNotificationType.Change)
                     {
-                        this.Invoke(new Action(() =>
+                        if (!this.IsDisposed && this.IsHandleCreated)
                         {
-                            LoadNotifikasi();
-                            registerSetminRb();
-                        }));
+                            this.BeginInvoke(new Action(() =>
+                            {
+                                LoadNotifikasi();
+                                registerSetminRb();
+                            }));
+                        }
                     }
                 };
                 conn.Open();
                 cmd.ExecuteReader();
             }
         }
+
         private void registerwelding()
         {
             using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
@@ -267,17 +264,21 @@ namespace GOS_FxApps
                 {
                     if (e.Type == SqlNotificationType.Change)
                     {
-                        this.Invoke(new Action(() =>
+                        if (!this.IsDisposed && this.IsHandleCreated)
                         {
-                            LoadNotifikasi();
-                            registerwelding();
-                        }));
+                            this.BeginInvoke(new Action(() =>
+                            {
+                                LoadNotifikasi();
+                                registerwelding();
+                            }));
+                        }
                     }
                 };
                 conn.Open();
                 cmd.ExecuteReader();
             }
         }
+
 
         private void formnotifikasi_Load(object sender, EventArgs e)
         {
@@ -300,7 +301,6 @@ namespace GOS_FxApps
             registerSetminRb();
             registerstok();
             registerwelding();
-            justOpened = true;
         }
 
         private void formnotifikasi_FormClosing(object sender, FormClosingEventArgs e)
@@ -310,7 +310,8 @@ namespace GOS_FxApps
 
         private void btntiga_Click(object sender, EventArgs e)
         {
-
+            Form setmin = new setmin_rb();
+            setmin.Show();
         }
     }
 }

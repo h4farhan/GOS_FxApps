@@ -214,6 +214,7 @@ namespace GOS_FxApps {
                 }
             }
             totalNotifikasi = notifList.Count;
+            btnnotif.Text = "🔔 " + totalNotifikasi;
             var sortedNotif = notifList
             .OrderByDescending(n => n.Waktu)
             .ThenByDescending(n => n.Text)
@@ -244,7 +245,7 @@ namespace GOS_FxApps {
         private void registerSetminRb()
         {
             using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT kode, min_stok FROM dbo.setmin_Rb", conn))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.setmin_Rb", conn))
             {
                 cmd.Notification = null;
                 var dep = new SqlDependency(cmd);
@@ -315,7 +316,6 @@ namespace GOS_FxApps {
             registerSetminRb();
             registerstok();
             registerwelding();
-            btnnotif.Text = "🔔 " + totalNotifikasi;
         }
 
         private void HamburgerButton_Click_1(object sender, EventArgs e)
