@@ -1015,7 +1015,7 @@
       <Width>18.9cm</Width>
       <Page>
         <PageHeader>
-          <Height>5.42976cm</Height>
+          <Height>5.11226cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1024,7 +1024,7 @@
                 <Line Name="Line1">
                   <Top>0.94636cm</Top>
                   <Height>0cm</Height>
-                  <Width>5.19395cm</Width>
+                  <Width>5.44913cm</Width>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
@@ -1034,7 +1034,7 @@
                 </Line>
                 <Line Name="Line2">
                   <Top>0.94636cm</Top>
-                  <Left>1.63095cm</Left>
+                  <Left>1.88613cm</Left>
                   <Height>3.40898cm</Height>
                   <Width>0cm</Width>
                   <ZIndex>1</ZIndex>
@@ -1047,7 +1047,7 @@
                 </Line>
                 <Line Name="Line3">
                   <Top>0.94636cm</Top>
-                  <Left>3.45706cm</Left>
+                  <Left>3.71224cm</Left>
                   <Height>3.40898cm</Height>
                   <Width>0cm</Width>
                   <ZIndex>2</ZIndex>
@@ -1061,7 +1061,7 @@
                 <Line Name="Line4">
                   <Top>1.80372cm</Top>
                   <Height>0cm</Height>
-                  <Width>5.19395cm</Width>
+                  <Width>5.44913cm</Width>
                   <ZIndex>3</ZIndex>
                   <Style>
                     <Border>
@@ -1073,7 +1073,7 @@
                 <Line Name="Line5">
                   <Top>2.64062cm</Top>
                   <Height>0cm</Height>
-                  <Width>5.19395cm</Width>
+                  <Width>5.44913cm</Width>
                   <ZIndex>4</ZIndex>
                   <Style>
                     <Border>
@@ -1085,7 +1085,7 @@
                 <Line Name="Line6">
                   <Top>3.49798cm</Top>
                   <Height>0cm</Height>
-                  <Width>5.19395cm</Width>
+                  <Width>5.44913cm</Width>
                   <ZIndex>5</ZIndex>
                   <Style>
                     <Border>
@@ -1114,7 +1114,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox101</rd:DefaultName>
                   <Height>0.94636cm</Height>
-                  <Width>5.19395cm</Width>
+                  <Width>5.44913cm</Width>
                   <ZIndex>6</ZIndex>
                   <Style>
                     <Border>
@@ -1134,8 +1134,11 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>s</Value>
-                          <Style />
+                          <Value>Foreman</Value>
+                          <Style>
+                            <FontFamily>Segoe UI</FontFamily>
+                            <FontSize>8pt</FontSize>
+                          </Style>
                         </TextRun>
                       </TextRuns>
                       <Style>
@@ -1146,7 +1149,7 @@
                   <rd:DefaultName>Textbox101</rd:DefaultName>
                   <Top>0.94636cm</Top>
                   <Height>0.85736cm</Height>
-                  <Width>1.59567cm</Width>
+                  <Width>1.85085cm</Width>
                   <ZIndex>7</ZIndex>
                   <Style>
                     <Border>
@@ -1166,8 +1169,17 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>As.S</Value>
-                          <Style />
+                          <Value>As.</Value>
+                          <Style>
+                            <FontSize>8pt</FontSize>
+                          </Style>
+                        </TextRun>
+                        <TextRun>
+                          <Value>Foreman</Value>
+                          <Style>
+                            <FontFamily>Segoe UI</FontFamily>
+                            <FontSize>8pt</FontSize>
+                          </Style>
                         </TextRun>
                       </TextRuns>
                       <Style>
@@ -1178,7 +1190,7 @@
                   <rd:DefaultName>Textbox101</rd:DefaultName>
                   <Top>1.80372cm</Top>
                   <Height>0.85736cm</Height>
-                  <Width>1.63095cm</Width>
+                  <Width>1.88613cm</Width>
                   <ZIndex>8</ZIndex>
                   <Style>
                     <Border>
@@ -1199,7 +1211,10 @@
                       <TextRuns>
                         <TextRun>
                           <Value>Checker</Value>
-                          <Style />
+                          <Style>
+                            <FontFamily>Segoe UI</FontFamily>
+                            <FontSize>8pt</FontSize>
+                          </Style>
                         </TextRun>
                       </TextRuns>
                       <Style>
@@ -1210,7 +1225,7 @@
                   <rd:DefaultName>Textbox101</rd:DefaultName>
                   <Top>2.64062cm</Top>
                   <Height>0.85736cm</Height>
-                  <Width>1.59568cm</Width>
+                  <Width>1.85086cm</Width>
                   <ZIndex>9</ZIndex>
                   <Style>
                     <Border>
@@ -1231,7 +1246,10 @@
                       <TextRuns>
                         <TextRun>
                           <Value>SEKSI</Value>
-                          <Style />
+                          <Style>
+                            <FontFamily>Segoe UI</FontFamily>
+                            <FontSize>8pt</FontSize>
+                          </Style>
                         </TextRun>
                       </TextRuns>
                       <Style>
@@ -1242,7 +1260,7 @@
                   <rd:DefaultName>Textbox101</rd:DefaultName>
                   <Top>3.49798cm</Top>
                   <Height>0.85736cm</Height>
-                  <Width>1.63095cm</Width>
+                  <Width>1.88613cm</Width>
                   <ZIndex>10</ZIndex>
                   <Style>
                     <Border>
@@ -1276,7 +1294,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox5</rd:DefaultName>
                   <Top>3.49798cm</Top>
-                  <Left>1.66623cm</Left>
+                  <Left>1.92141cm</Left>
                   <Height>0.85736cm</Height>
                   <Width>1.72028cm</Width>
                   <ZIndex>11</ZIndex>
@@ -1312,7 +1330,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox5</rd:DefaultName>
                   <Top>3.49798cm</Top>
-                  <Left>3.45706cm</Left>
+                  <Left>3.71224cm</Left>
                   <Height>0.86907cm</Height>
                   <Width>1.73689cm</Width>
                   <ZIndex>12</ZIndex>
@@ -1330,9 +1348,9 @@
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>0.59396cm</Top>
-              <Left>13.48855cm</Left>
+              <Left>13.23337cm</Left>
               <Height>4.36705cm</Height>
-              <Width>5.19395cm</Width>
+              <Width>5.44913cm</Width>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -1363,7 +1381,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox99</rd:DefaultName>
               <Top>0.59396cm</Top>
-              <Left>4.75401cm</Left>
+              <Left>4.53411cm</Left>
               <Height>0.94636cm</Height>
               <Width>8.41704cm</Width>
               <ZIndex>1</ZIndex>
@@ -1412,7 +1430,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox99</rd:DefaultName>
               <Top>1.39921cm</Top>
-              <Left>5.40263cm</Left>
+              <Left>5.18273cm</Left>
               <Height>1.20037cm</Height>
               <Width>6.9787cm</Width>
               <ZIndex>2</ZIndex>
@@ -1490,41 +1508,6 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
-            <Textbox Name="Textbox9">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value xml:space="preserve">          </Value>
-                      <Style>
-                        <FontWeight>Normal</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>4.51619cm</Top>
-              <Left>0.30903cm</Left>
-              <Height>0.70583cm</Height>
-              <Width>2.12605cm</Width>
-              <ZIndex>5</ZIndex>
-              <Visibility>
-                <Hidden>true</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
             <Textbox Name="Textbox10">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
@@ -1552,7 +1535,7 @@
               <Left>3.10536cm</Left>
               <Height>0.70583cm</Height>
               <Width>5.51963cm</Width>
-              <ZIndex>6</ZIndex>
+              <ZIndex>5</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1599,42 +1582,7 @@
               <Left>3.10536cm</Left>
               <Height>0.70583cm</Height>
               <Width>5.51963cm</Width>
-              <ZIndex>7</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox12">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value />
-                      <Style>
-                        <FontWeight>Normal</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>4.51619cm</Top>
-              <Left>2.43508cm</Left>
-              <Height>0.70583cm</Height>
-              <Width>5.51963cm</Width>
-              <ZIndex>8</ZIndex>
-              <Visibility>
-                <Hidden>true</Hidden>
-              </Visibility>
+              <ZIndex>6</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1650,10 +1598,10 @@
               <Value>Picture1</Value>
               <Sizing>Fit</Sizing>
               <Top>0.59396cm</Top>
-              <Left>0.42503cm</Left>
+              <Left>0.20513cm</Left>
               <Height>1.20036cm</Height>
               <Width>2.44224cm</Width>
-              <ZIndex>9</ZIndex>
+              <ZIndex>7</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1665,10 +1613,10 @@
               <Value>Picture2</Value>
               <Sizing>Fit</Sizing>
               <Top>0.59396cm</Top>
-              <Left>2.9731cm</Left>
+              <Left>2.7532cm</Left>
               <Height>1.7019cm</Height>
               <Width>1.6398cm</Width>
-              <ZIndex>10</ZIndex>
+              <ZIndex>8</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
