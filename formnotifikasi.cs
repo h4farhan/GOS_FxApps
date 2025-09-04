@@ -18,6 +18,7 @@ namespace GOS_FxApps
         SqlConnection conn = Koneksi.GetConnection();
 
         public static formnotifikasi Instance;
+        private bool allowDeactivate = false;
 
         public formnotifikasi()
         {
@@ -47,6 +48,7 @@ namespace GOS_FxApps
                 }
             }
         }
+
         private void LoadNotifikasi()
         {
             int scrollPosition = panelNotif.VerticalScroll.Value;
@@ -154,6 +156,7 @@ namespace GOS_FxApps
             panelNotif.VerticalScroll.Value = Math.Min(scrollPosition, panelNotif.VerticalScroll.Maximum);
             panelNotif.PerformLayout();
         }
+
         private void AddNotifPanel(string text, string waktu, Color warnaText, Color warnaWaktu)
         {
             RoundedPanel itemPanel = new RoundedPanel();
@@ -279,7 +282,6 @@ namespace GOS_FxApps
             }
         }
 
-
         private void formnotifikasi_Load(object sender, EventArgs e)
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
@@ -312,6 +314,32 @@ namespace GOS_FxApps
         {
             Form setmin = new setmin_rb();
             setmin.Show();
+        }
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+
+            Timer t = new Timer();
+            t.Interval = 200; 
+            t.Tick += (s, ev) =>
+            {
+                allowDeactivate = true;
+                t.Stop();
+                t.Dispose();
+            };
+            t.Start();
+
+            this.Activate();
+        }
+
+        protected override void OnDeactivate(EventArgs e)
+        {
+            base.OnDeactivate(e);
+            if (allowDeactivate)
+            {
+                this.Close();
+            }
         }
     }
 }

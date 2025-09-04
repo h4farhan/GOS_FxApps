@@ -16,6 +16,9 @@ namespace GOS_FxApps
     {
         public static userinfo Instance;
 
+        // flag supaya tidak langsung close pas baru muncul
+        private bool allowDeactivate = false;
+
         public userinfo()
         {
             InitializeComponent();
@@ -52,7 +55,7 @@ namespace GOS_FxApps
             {
                 MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
                                 "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }  
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -72,9 +75,10 @@ namespace GOS_FxApps
             MainForm.Instance.role = null;
             this.Close();
         }
+
         private void userinfo_Load(object sender, EventArgs e)
         {
-            profil(); 
+            profil();
             if (lbljabatan.Text == "[Manajer]")
             {
                 lbltambahakun.Visible = true;
@@ -91,5 +95,33 @@ namespace GOS_FxApps
             regis.Show();
             this.Close();
         }
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+
+            Timer t = new Timer();
+            t.Interval = 200;
+            t.Tick += (s, ev) =>
+            {
+                allowDeactivate = true;
+                t.Stop();
+                t.Dispose();
+            };
+            t.Start();
+
+            this.Activate();
+        }
+
+        protected override void OnDeactivate(EventArgs e)
+        {
+            base.OnDeactivate(e);
+
+            if (allowDeactivate)
+            {
+                this.Close();
+            }
+        }
     }
 }
+

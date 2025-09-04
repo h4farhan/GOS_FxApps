@@ -753,10 +753,6 @@ namespace GOS_FxApps {
 
                     form.Show();
                 }
-                else
-                {
-                    form.Close();
-                }
             }
             else
             {
@@ -808,10 +804,6 @@ namespace GOS_FxApps {
                 formnotif.Show();
                 formnotif.BringToFront();
                 formnotif.Activate();
-            }
-            else
-            {
-                formnotif.Close();
             }
         }
 

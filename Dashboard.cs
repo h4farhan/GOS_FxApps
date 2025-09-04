@@ -2161,55 +2161,54 @@ namespace GOS_FxApps
                 {
                     if(cmbtipem.SelectedIndex == 0)
                     {
-                        //Material Cost hari
                         LoadChartMaterialCostHarian();
-
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
                     }
                     else if(cmbtipem.SelectedIndex == 1)
                     {
-                        //Consumable Cost hari
                         LoadChartConsumableCostHarian();
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
                     }
                     else if(cmbtipem.SelectedIndex == 2)
                     {
-                        //Safety Protector Cost hari
                         LoadChartSafetyCostHarian();
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
                     }
                 }
                 else if (cmbrentang.SelectedIndex == 1)
                 {
                     if (cmbtipem.SelectedIndex == 0)
                     {
-                        //Material Cost bulan
                         LoadChartMaterialCostBulan();
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + datebulan.Value.Month + "/" + datebulan.Value.Year;
                     }
                     else if (cmbtipem.SelectedIndex == 1)
                     {
-                        //Consumable Cost bulan
                         LoadChartConsumableCostBulan();
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + datebulan.Value.Month + "/" + datebulan.Value.Year;
                     }
                     else if (cmbtipem.SelectedIndex == 2)
                     {
-                        //Safety Protector Cost bulan
                         LoadChartSafetyCostBulan();
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + datebulan.Value.Month + "/" + datebulan.Value.Year;
                     }
                 }
                 else if (cmbrentang.SelectedIndex == 2)
                 {
                     if (cmbtipem.SelectedIndex == 0)
                     {
-                        //Material Cost tahun
                         LoadChartMaterialCostTahun();
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + datebulan.Value.Year;
                     }
                     else if (cmbtipem.SelectedIndex == 1)
                     {
-                        //Consumable Cost tahun
                         LoadChartConsumableCostTahun();
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + datebulan.Value.Year;
                     }
                     else if (cmbtipem.SelectedIndex == 2)
                     {
-                        //Safety Protector Cost tahun
                         LoadChartSafetyCostTahun();
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + datebulan.Value.Year;
                     }
                 }
                 else if (cmbrentang.SelectedIndex == 3)
@@ -2222,18 +2221,18 @@ namespace GOS_FxApps
 
                     if (cmbtipem.SelectedIndex == 0)
                     {
-                        // custom Material Cost
                         LoadChartmaterialCostCustom();
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy") + " s/d " + tanggalcustom2.Value.ToString("dd/MM/yyyy");
                     }
                     else if (cmbtipem.SelectedIndex == 1)
                     {
-                        // custom Consumable Cost
                         LoadChartConsumableCostCustom();
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy") + " s/d " + tanggalcustom2.Value.ToString("dd/MM/yyyy");
                     }
                     else if (cmbtipem.SelectedIndex == 2)
                     {
-                        //custom Protector Cost
                         LoadChartsafetyCostCustom();
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy") + " s/d " + tanggalcustom2.Value.ToString("dd/MM/yyyy");
                     }
                 }
             }
@@ -2244,12 +2243,12 @@ namespace GOS_FxApps
                     if (cmbtipe.SelectedIndex == 0)
                     {
                         LoadChartPenerimaanHarian();
-                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipe.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
                     }
                     else if (cmbtipe.SelectedIndex == 1)
                     {
                         loadChartPerbaikanHarian();
-                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipe.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
                     }
                 }
                 else if (cmbrentang.SelectedIndex == 1)
@@ -2257,12 +2256,12 @@ namespace GOS_FxApps
                     if (cmbtipe.SelectedIndex == 0)
                     {
                         LoadChartPenerimaanBulanan();
-                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + datebulan.Value.Month + "/" + datebulan.Value.Year;
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipe.Text + " " + cmbrentang.Text + " " + datebulan.Value.Month + "/" + datebulan.Value.Year;
                     }
                     else if (cmbtipe.SelectedIndex == 1)
                     {
                         LoadChartPerbaikanBulanan();
-                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + datebulan.Value.Month + "/" + datebulan.Value.Year;
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipe.Text + " " + cmbrentang.Text + " " + datebulan.Value.Month + "/" + datebulan.Value.Year;
                     }                    
                 }
                 else if (cmbrentang.SelectedIndex == 2)
@@ -2270,12 +2269,12 @@ namespace GOS_FxApps
                     if (cmbtipe.SelectedIndex == 0)
                     {
                         LoadChartPenerimaanTahunan();
-                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + datebulan.Value.Year;
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipe.Text + " " + cmbrentang.Text + " " + datebulan.Value.Year;
                     }
                     else if (cmbtipe.SelectedIndex == 1)
                     {
                         LoadChartPerbaikanTahunan();
-                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + datebulan.Value.Year;
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipe.Text + " " + cmbrentang.Text + " " + datebulan.Value.Year;
                     }
                 }
                 else if (cmbrentang.SelectedIndex == 3)
@@ -2288,12 +2287,12 @@ namespace GOS_FxApps
                     if (cmbtipe.SelectedIndex == 0)
                     {
                         LoadChartPenerimaanCustom();
-                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy") + " s/d " + tanggalcustom2.Value.ToString("dd/MM/yyyy");
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipe.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy") + " s/d " + tanggalcustom2.Value.ToString("dd/MM/yyyy");
                     }
                     else if (cmbtipe.SelectedIndex == 1)
                     {
                         LoadChartPerbaikanCustom();
-                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy") + " s/d " + tanggalcustom2.Value.ToString("dd/MM/yyyy");
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipe.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy") + " s/d " + tanggalcustom2.Value.ToString("dd/MM/yyyy");
                     }
                 }
             }

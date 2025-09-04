@@ -11026,9 +11026,7 @@ Val(ReportItems!Textbox273.Value) +
 Val(ReportItems!Textbox274.Value) + 
 Val(ReportItems!Textbox275.Value) + 
 Val(ReportItems!Textbox276.Value) + 
-Val(ReportItems!Textbox277.Value) + 
-Val(ReportItems!Textbox278.Value) + 
-Val(ReportItems!Textbox279.Value)</Value>
+Val(ReportItems!Textbox277.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -18222,7 +18220,7 @@ Val(ReportItems!Textbox279.Value)</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Val(ReportItems!Textbox409.Value) + Val(ReportItems!Textbox410.Value) + Val(ReportItems!Textbox411.Value) + Val(ReportItems!Textbox412.Value) + Val(ReportItems!Textbox413.Value) + Val(ReportItems!Textbox414.Value) + Val(ReportItems!Textbox415.Value) + Val(ReportItems!Textbox416.Value) + Val(ReportItems!Textbox417.Value) + Val(ReportItems!Textbox418.Value) + Val(ReportItems!Textbox419.Value) + Val(ReportItems!Textbox420.Value) + Val(ReportItems!Textbox421.Value) + Val(ReportItems!Textbox422.Value) + Val(ReportItems!Textbox423.Value) + Val(ReportItems!Textbox424.Value) + Val(ReportItems!Textbox425.Value) + Val(ReportItems!Textbox426.Value) + Val(ReportItems!Textbox427.Value) + Val(ReportItems!Textbox428.Value) + Val(ReportItems!Textbox429.Value) + Val(ReportItems!Textbox430.Value) + Val(ReportItems!Textbox431.Value) + Val(ReportItems!Textbox432.Value) + Val(ReportItems!Textbox433.Value) + Val(ReportItems!Textbox434.Value) + Val(ReportItems!Textbox435.Value) + Val(ReportItems!Textbox436.Value) + Val(ReportItems!Textbox437.Value) + Val(ReportItems!Textbox438.Value) + Val(ReportItems!Textbox439.Value)</Value>
+                                  <Value>=Val(ReportItems!Textbox409.Value) + Val(ReportItems!Textbox410.Value) + Val(ReportItems!Textbox411.Value) + Val(ReportItems!Textbox412.Value) + Val(ReportItems!Textbox413.Value) + Val(ReportItems!Textbox414.Value) + Val(ReportItems!Textbox415.Value) + Val(ReportItems!Textbox416.Value) + Val(ReportItems!Textbox417.Value) + Val(ReportItems!Textbox418.Value) + Val(ReportItems!Textbox419.Value) + Val(ReportItems!Textbox420.Value) + Val(ReportItems!Textbox421.Value) + Val(ReportItems!Textbox422.Value) + Val(ReportItems!Textbox423.Value) + Val(ReportItems!Textbox424.Value) + Val(ReportItems!Textbox425.Value) + Val(ReportItems!Textbox426.Value) + Val(ReportItems!Textbox427.Value) + Val(ReportItems!Textbox428.Value) + Val(ReportItems!Textbox429.Value) + Val(ReportItems!Textbox430.Value) + Val(ReportItems!Textbox431.Value) + Val(ReportItems!Textbox432.Value) + Val(ReportItems!Textbox433.Value) + Val(ReportItems!Textbox434.Value) + Val(ReportItems!Textbox435.Value) + Val(ReportItems!Textbox436.Value) + Val(ReportItems!Textbox437.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -18248,6 +18246,7 @@ Val(ReportItems!Textbox279.Value)</Value>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
