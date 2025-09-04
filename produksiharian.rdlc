@@ -69,6 +69,10 @@
           <DataField>e3</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="e4">
+          <DataField>e4</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="s">
           <DataField>s</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -83,6 +87,10 @@
         </Field>
         <Field Name="ba">
           <DataField>ba</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ba1">
+          <DataField>ba1</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="cr">
@@ -109,13 +117,9 @@
           <DataField>jumlah</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="e4">
-          <DataField>e4</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="ba1">
-          <DataField>ba1</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="catatan">
+          <DataField>catatan</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
@@ -1946,14 +1950,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox59">
+                        <Textbox Name="catatan">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!catatan.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1964,7 +1968,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox59</rd:DefaultName>
+                          <rd:DefaultName>catatan</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1989,6 +1993,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>

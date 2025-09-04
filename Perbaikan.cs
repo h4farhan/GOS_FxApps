@@ -22,9 +22,6 @@ namespace GOS_FxApps
         public Perbaikan()
         {
             InitializeComponent();
-            setdefault();
-            tampilperbaikan();
-            tampilpenerimaan();
         }
 
         private void registertampilpenerimaan()
@@ -50,43 +47,45 @@ namespace GOS_FxApps
             }
         }
 
-        private void registertampilperbaikan()
-        {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.perbaikan_s", conn))
-            {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
-                {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            tampilperbaikan();
-                            registertampilperbaikan();
-                        }));
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
-            }
-        }
+        //private void registertampilperbaikan()
+        //{
+        //    using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+        //    using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.perbaikan_s", conn))
+        //    {
+        //        cmd.Notification = null;
+        //        var dep = new SqlDependency(cmd);
+        //        dep.OnChange += (s, e) =>
+        //        {
+        //            if (e.Type == SqlNotificationType.Change)
+        //            {
+        //                this.Invoke(new Action(() =>
+        //                {
+        //                    tampilperbaikan();
+        //                    registertampilperbaikan();
+        //                }));
+        //            }
+        //        };
+        //        conn.Open();
+        //        cmd.ExecuteReader();
+        //    }
+        //}
 
         private void Perbaikan_Load(object sender, EventArgs e)
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
+            setdefault();
+            tampilpenerimaan();
             btnsimpan.Enabled = false;
             txtnomorrod.Focus();
             registertampilpenerimaan();
-            registertampilperbaikan();
+            //registertampilperbaikan();
         }
 
         private void tampilpenerimaan()
         {
             try
             {
-                string query = "SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3, s, d, b, ba, r, m, cr, c, rl, jumlah, updated_at, remaks FROM penerimaan_s ORDER BY tanggal_penerimaan DESC";
+                string query = "SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3, s, d, b, ba, r, m, cr, c, rl, jumlah, updated_at, remaks, catatan FROM penerimaan_s ORDER BY tanggal_penerimaan DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -117,6 +116,7 @@ namespace GOS_FxApps
                 dataGridView2.Columns[18].HeaderText = "Jumlah";
                 dataGridView2.Columns[19].HeaderText = "Diubah";
                 dataGridView2.Columns[20].HeaderText = "Remaks";
+                dataGridView2.Columns[21].HeaderText = "Catatan";
             }
             catch (SqlException)
             {
@@ -178,110 +178,62 @@ namespace GOS_FxApps
             }
         }
 
-        private void tampilperbaikan()
-        {
-            try
-            {
-                string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, bac, nba, ba, ba1, r, m, cr, c, rl, jumlah, tanggal_penerimaan, updated_at, remaks FROM perbaikan_s ORDER BY tanggal_perbaikan DESC";
-                SqlDataAdapter ad = new SqlDataAdapter(query,conn);
-                DataTable dt = new DataTable();
-                ad.Fill(dt);
-                dataGridView1.DataSource = dt;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-                dataGridView1.RowTemplate.Height = 35;
-                dataGridView1.ReadOnly = true;
+        //private void tampilperbaikan()
+        //{
+        //    try
+        //    {
+        //        string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, bac, nba, ba, ba1, r, m, cr, c, rl, jumlah, tanggal_penerimaan, updated_at, remaks FROM perbaikan_s ORDER BY tanggal_perbaikan DESC";
+        //        SqlDataAdapter ad = new SqlDataAdapter(query,conn);
+        //        DataTable dt = new DataTable();
+        //        ad.Fill(dt);
+        //        dataGridView1.DataSource = dt;
+        //        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+        //        dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
+        //        dataGridView1.RowTemplate.Height = 35;
+        //        dataGridView1.ReadOnly = true;
 
-                dataGridView1.Columns[0].Visible = false;
-                dataGridView1.Columns[1].HeaderText = "Tanggal Perbaikan";
-                dataGridView1.Columns[2].HeaderText = "Shift";
-                dataGridView1.Columns[3].HeaderText = "Nomor ROD";
-                dataGridView1.Columns[4].HeaderText = "Jenis";
-                dataGridView1.Columns[5].HeaderText = "E1 Ers";
-                dataGridView1.Columns[6].HeaderText = "E1 Est";
-                dataGridView1.Columns[7].HeaderText = "E1 Jumlah";
-                dataGridView1.Columns[8].HeaderText = "E2 Ers";
-                dataGridView1.Columns[9].HeaderText = "E2 Cst";
-                dataGridView1.Columns[10].HeaderText = "E2 Cstub";
-                dataGridView1.Columns[11].HeaderText = "E2 Jumlah";
-                dataGridView1.Columns[12].HeaderText = "E3";
-                dataGridView1.Columns[13].HeaderText = "E4";
-                dataGridView1.Columns[14].HeaderText = "S";
-                dataGridView1.Columns[15].HeaderText = "D";
-                dataGridView1.Columns[16].HeaderText = "B";
-                dataGridView1.Columns[17].HeaderText = "BAC";
-                dataGridView1.Columns[18].HeaderText = "NBA";
-                dataGridView1.Columns[19].HeaderText = "BA";
-                dataGridView1.Columns[20].HeaderText = "BA-1";
-                dataGridView1.Columns[21].HeaderText = "R";
-                dataGridView1.Columns[22].HeaderText = "M";
-                dataGridView1.Columns[23].HeaderText = "CR";
-                dataGridView1.Columns[24].HeaderText = "C";
-                dataGridView1.Columns[25].HeaderText = "RL";
-                dataGridView1.Columns[26].HeaderText = "Jumlah";
-                dataGridView1.Columns[27].HeaderText = "Tanggal Penerimaan";
-                dataGridView1.Columns[28].HeaderText = "Diubah"; 
-                dataGridView1.Columns[29].HeaderText = "Remaks"; 
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private bool cariperbaikan()
-        {
-            string inputRod = txtcariperbaikan.Text.Trim();
-            DataTable dt = new DataTable();
-
-            string query = "SELECT * FROM perbaikan_s WHERE 1=1";
-
-            using (SqlCommand cmd = new SqlCommand())
-            {
-                if (!string.IsNullOrEmpty(inputRod))
-                {
-                    query += " AND CAST(nomor_rod AS VARCHAR) LIKE @rod";
-                    cmd.Parameters.AddWithValue("@rod", "%" + inputRod + "%");
-                }
-
-                query += " ORDER BY tanggal_perbaikan DESC";
-
-                cmd.CommandText = query;
-                cmd.Connection = conn;
-
-                try
-                {
-                    conn.Open();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-
-                    dataGridView1.DataSource = dt;
-                }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-                return dt.Rows.Count > 0;
-            }
-        }
+        //        dataGridView1.Columns[0].Visible = false;
+        //        dataGridView1.Columns[1].HeaderText = "Tanggal Perbaikan";
+        //        dataGridView1.Columns[2].HeaderText = "Shift";
+        //        dataGridView1.Columns[3].HeaderText = "Nomor ROD";
+        //        dataGridView1.Columns[4].HeaderText = "Jenis";
+        //        dataGridView1.Columns[5].HeaderText = "E1 Ers";
+        //        dataGridView1.Columns[6].HeaderText = "E1 Est";
+        //        dataGridView1.Columns[7].HeaderText = "E1 Jumlah";
+        //        dataGridView1.Columns[8].HeaderText = "E2 Ers";
+        //        dataGridView1.Columns[9].HeaderText = "E2 Cst";
+        //        dataGridView1.Columns[10].HeaderText = "E2 Cstub";
+        //        dataGridView1.Columns[11].HeaderText = "E2 Jumlah";
+        //        dataGridView1.Columns[12].HeaderText = "E3";
+        //        dataGridView1.Columns[13].HeaderText = "E4";
+        //        dataGridView1.Columns[14].HeaderText = "S";
+        //        dataGridView1.Columns[15].HeaderText = "D";
+        //        dataGridView1.Columns[16].HeaderText = "B";
+        //        dataGridView1.Columns[17].HeaderText = "BAC";
+        //        dataGridView1.Columns[18].HeaderText = "NBA";
+        //        dataGridView1.Columns[19].HeaderText = "BA";
+        //        dataGridView1.Columns[20].HeaderText = "BA-1";
+        //        dataGridView1.Columns[21].HeaderText = "R";
+        //        dataGridView1.Columns[22].HeaderText = "M";
+        //        dataGridView1.Columns[23].HeaderText = "CR";
+        //        dataGridView1.Columns[24].HeaderText = "C";
+        //        dataGridView1.Columns[25].HeaderText = "RL";
+        //        dataGridView1.Columns[26].HeaderText = "Jumlah";
+        //        dataGridView1.Columns[27].HeaderText = "Tanggal Penerimaan";
+        //        dataGridView1.Columns[28].HeaderText = "Diubah"; 
+        //        dataGridView1.Columns[29].HeaderText = "Remaks"; 
+        //    }
+        //    catch (SqlException)
+        //    {
+        //        MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+        //                            "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+        //                        "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         private void setdefault()
         {
@@ -306,6 +258,7 @@ namespace GOS_FxApps
             txtr.Clear();
             txtc.Clear();
             txtrl.Clear();
+            txtcatatan.Clear();
             lbltotal.Text = "-";
             lbltotale1.Text = "-";
             lbltotale2.Text = "-";
@@ -333,6 +286,7 @@ namespace GOS_FxApps
             txtr.Enabled = true;
             txtc.Enabled = true;
             txtrl.Enabled = true;
+            txtcatatan.Enabled = true;
         }
 
         private void setfalse()
@@ -356,6 +310,7 @@ namespace GOS_FxApps
             txtr.Enabled = false;
             txtc.Enabled = false;
             txtrl.Enabled = false;
+            txtcatatan.Enabled = false;
         }
 
         private void AngkaOnly_KeyPress(object sender, KeyPressEventArgs e)
@@ -389,36 +344,36 @@ namespace GOS_FxApps
                                                 (no, tanggal_perbaikan, shift, nomor_rod, jenis,
                                                  e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah,
                                                  e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl,
-                                                 jumlah, tanggal_penerimaan, updated_at, remaks) 
+                                                 jumlah, tanggal_penerimaan, updated_at, remaks, catatan) 
                                                 VALUES
                                                 (@no, @tanggal, @shift, @nomorrod, @jenis,
                                                  @e1ers, @e1est, @e1jumlah, @e2ers, @e2cst, @e2cstub, @e2jumlah,
                                                  @e3, @e4, @s, @d, @b, @bac, @nba, @ba, @ba1, @cr, @m, @r, @c, @rl,
-                                                 @jumlah, @tanggalpenerimaan, @diubah, @remaks)", conn);
+                                                 @jumlah, @tanggalpenerimaan, @diubah, @remaks, @catatan)", conn);
 
                 SqlCommand cmd2 = new SqlCommand(@"
                                                 INSERT INTO perbaikan_p 
                                                 (no, tanggal_perbaikan, shift, nomor_rod, jenis,
                                                  e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah,
                                                  e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl,
-                                                 jumlah, tanggal_penerimaan, updated_at, remaks) 
+                                                 jumlah, tanggal_penerimaan, updated_at, remaks, catatan) 
                                                 VALUES
                                                 (@no, @tanggal, @shift, @nomorrod, @jenis,
                                                  @e1ers, @e1est, @e1jumlah, @e2ers, @e2cst, @e2cstub, @e2jumlah,
                                                  @e3, @e4, @s, @d, @b, @bac, @nba, @ba, @ba1, @cr, @m, @r, @c, @rl,
-                                                 @jumlah, @tanggalpenerimaan, @diubah, @remaks)", conn);
+                                                 @jumlah, @tanggalpenerimaan, @diubah, @remaks, @catatan)", conn);
 
                 SqlCommand cmd3 = new SqlCommand(@"
                                                 INSERT INTO perbaikan_m 
                                                 (no, tanggal_perbaikan, shift, nomor_rod, jenis,
                                                  e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah,
                                                  e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl,
-                                                 jumlah, tanggal_penerimaan, updated_at, remaks) 
+                                                 jumlah, tanggal_penerimaan, updated_at, remaks, catatan) 
                                                 VALUES
                                                 (@no, @tanggal, @shift, @nomorrod, @jenis,
                                                  @e1ers, @e1est, @e1jumlah, @e2ers, @e2cst, @e2cstub, @e2jumlah,
                                                  @e3, @e4, @s, @d, @b, @bac, @nba, @ba, @ba1, @cr, @m, @r, @c, @rl,
-                                                 @jumlah, @tanggalpenerimaan, @diubah, @remaks)", conn);
+                                                 @jumlah, @tanggalpenerimaan, @diubah, @remaks, @catatan)", conn);
 
                 foreach (var cmd in new[] { cmd1, cmd2, cmd3 })
                 {
@@ -452,6 +407,7 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@tanggalpenerimaan", tanggalpenerimaan);
                     cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                     cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
+                    cmd.Parameters.AddWithValue("@catatan", txtcatatan.Text);
                 }
 
                 cmd1.ExecuteNonQuery();
@@ -465,7 +421,7 @@ namespace GOS_FxApps
                 }
 
                 MessageBox.Show("Data Berhasil Disimpan", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                tampilperbaikan();
+                //tampilperbaikan();
                 tampilpenerimaan();
             }
             catch (SqlException)
@@ -735,7 +691,6 @@ namespace GOS_FxApps
             btncancel.Enabled = false;
             btnsimpan.Text = "Simpan Data";
             btnsimpan.Enabled = false;
-            dataGridView1.ClearSelection();
             dataGridView2.ClearSelection();
         }
 
@@ -852,6 +807,7 @@ namespace GOS_FxApps
                 txtc.Text = row.Cells["c"].Value.ToString();
                 txtrl.Text = row.Cells["rl"].Value.ToString();
                 lbltotal.Text = row.Cells["jumlah"].Value.ToString();
+                txtcatatan.Text = row.Cells["catatan"].Value.ToString();
                 settrue();
                 btncancel.Enabled = true;
                 txtjenis.Focus();
@@ -866,11 +822,6 @@ namespace GOS_FxApps
         private void txtcaripenerimaan_TextChanged(object sender, EventArgs e)
         {
             caripenerimaan();
-        }
-
-        private void txtcariperbaikan_TextChanged(object sender, EventArgs e)
-        {
-            cariperbaikan();
         }
     }
 }

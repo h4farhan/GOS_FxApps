@@ -114,25 +114,25 @@ namespace GOS_FxApps
                     SqlCommand cmd1 = new SqlCommand(@"
                                                     INSERT INTO penerimaan_s 
                                                     (tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3,
-                                                     s, d, b, ba, cr, m, r, c, rl, jumlah, updated_at, remaks) 
+                                                     s, d, b, ba, cr, m, r, c, rl, jumlah, updated_at, remaks, catatan) 
                                                     VALUES
                                                     (@tanggal_penerimaan, @shift, @nomorrod, @jenis, @stasiun, @e1, @e2, @e3,
-                                                     @s, @d, @b, @ba, @cr, @m, @r, @c, @rl, @jumlah, @diubah, @remaks)", conn);
+                                                     @s, @d, @b, @ba, @cr, @m, @r, @c, @rl, @jumlah, @diubah, @remaks, @catatan)", conn);
 
                     SqlCommand cmd2 = new SqlCommand(@"
                                                     INSERT INTO penerimaan_p
                                                     (tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3,
-                                                     s, d, b, ba, cr, m, r, c, rl, jumlah, updated_at, remaks) 
+                                                     s, d, b, ba, cr, m, r, c, rl, jumlah, updated_at, remaks, catatan) 
                                                     VALUES
                                                     (@tanggal_penerimaan, @shift, @nomorrod, @jenis, @stasiun, @e1, @e2, @e3,
-                                                     @s, @d, @b, @ba, @cr, @m, @r, @c, @rl, @jumlah, @diubah, @remaks)", conn);
+                                                     @s, @d, @b, @ba, @cr, @m, @r, @c, @rl, @jumlah, @diubah, @remaks, @catatan)", conn);
                     SqlCommand cmd3 = new SqlCommand(@"
                                                     INSERT INTO penerimaan_m
                                                     (tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3,
-                                                     s, d, b, ba, cr, m, r, c, rl, jumlah, updated_at, remaks) 
+                                                     s, d, b, ba, cr, m, r, c, rl, jumlah, updated_at, remaks, catatan) 
                                                     VALUES
                                                     (@tanggal_penerimaan, @shift, @nomorrod, @jenis, @stasiun, @e1, @e2, @e3,
-                                                     @s, @d, @b, @ba, @cr, @m, @r, @c, @rl, @jumlah, @diubah, @remaks)", conn);
+                                                     @s, @d, @b, @ba, @cr, @m, @r, @c, @rl, @jumlah, @diubah, @remaks, @catatan)", conn);
 
                     foreach (var command in new[] { cmd1, cmd2, cmd3 })
                     {
@@ -156,6 +156,7 @@ namespace GOS_FxApps
                         command.Parameters.AddWithValue("@jumlah", lbltotal.Text);
                         command.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                         command.Parameters.AddWithValue("@remaks", loginform.login.name);
+                        command.Parameters.AddWithValue("@catatan", txtcatatan.Text);
                     }
 
                     cmd1.ExecuteNonQuery();
@@ -299,7 +300,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3, s, d, b, ba, r, m, cr, c, rl, jumlah, updated_at, remaks FROM penerimaan_s ORDER BY tanggal_penerimaan DESC";
+                string query = "SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3, s, d, b, ba, r, m, cr, c, rl, jumlah, updated_at, remaks, catatan FROM penerimaan_s ORDER BY tanggal_penerimaan DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -330,6 +331,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[18].HeaderText = "Jumlah";
                 dataGridView1.Columns[19].HeaderText = "Diubah";
                 dataGridView1.Columns[20].HeaderText = "Remaks";
+                dataGridView1.Columns[21].HeaderText = "Catatan";
             }
             catch (SqlException)
             {

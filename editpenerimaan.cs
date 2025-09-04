@@ -55,7 +55,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3, s, d, b, ba, r, m, cr, c, rl, jumlah, updated_at, remaks FROM penerimaan_p ORDER BY tanggal_penerimaan DESC";
+                string query = "SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3, s, d, b, ba, r, m, cr, c, rl, jumlah, updated_at, remaks, catatan FROM penerimaan_p ORDER BY tanggal_penerimaan DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -86,6 +86,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[18].HeaderText = "Jumlah";
                 dataGridView1.Columns[19].HeaderText = "Diubah";
                 dataGridView1.Columns[20].HeaderText = "Remaks";
+                dataGridView1.Columns[21].HeaderText = "Catatan";
             }
             catch (SqlException)
             {
@@ -182,6 +183,7 @@ namespace GOS_FxApps
             txtrl.Clear();
             lbltotalsebelum.Text = "-";
             lbltotalupdate.Text = "-";
+            txtcatatan.Clear();
         }
 
         private void settrue()
@@ -201,6 +203,7 @@ namespace GOS_FxApps
             txtr.Enabled = true;
             txtc.Enabled = true;
             txtrl.Enabled = true;
+            txtcatatan.Enabled = true;
         }
 
         private void setfalse()
@@ -219,6 +222,7 @@ namespace GOS_FxApps
             txtr.Enabled = false;
             txtc.Enabled = false;
             txtrl.Enabled = false;
+            txtcatatan.Enabled = false;
         }
 
         private void editpenerimaan_Load(object sender, EventArgs e)
@@ -282,6 +286,7 @@ namespace GOS_FxApps
                 txtc.Text = row.Cells["c"].Value.ToString();
                 txtrl.Text = row.Cells["rl"].Value.ToString();
                 lbltotalsebelum.Text = row.Cells["jumlah"].Value.ToString();
+                txtcatatan.Text = row.Cells["catatan"].Value.ToString();
                 settrue();
                 btnclear.Enabled = true;
                 txtjenis.Focus();
@@ -373,7 +378,7 @@ namespace GOS_FxApps
             UPDATE penerimaan_p 
             SET nomor_rod = @nomorrod, jenis=@jenis, stasiun=@stasiun, e1=@e1, e2=@e2, e3=@e3, s=@s, d=@d, 
                 b=@b, ba=@ba, cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah,
-                remaks=@remaks, updated_at=@diubah
+                remaks=@remaks, updated_at=@diubah, catatan = @catatan
             WHERE no=@no", conn, trans);
 
                 cmd1.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
@@ -395,6 +400,7 @@ namespace GOS_FxApps
                 cmd1.Parameters.AddWithValue("@remaks", loginform.login.name);
                 cmd1.Parameters.AddWithValue("@no", noprimary);
                 cmd1.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                cmd1.Parameters.AddWithValue("@catatan", txtcatatan.Text);
                 cmd1.ExecuteNonQuery();
 
                 SqlCommand log1 = new SqlCommand("INSERT INTO penerimaan_e SELECT * FROM penerimaan_p WHERE no=@no", conn, trans);
@@ -412,7 +418,7 @@ namespace GOS_FxApps
             UPDATE penerimaan_s
             SET nomor_rod = @nomorrod, jenis=@jenis, stasiun=@stasiun, e1=@e1, e2=@e2, e3=@e3, s=@s, d=@d, 
                 b=@b, ba=@ba, cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah,
-                remaks=@remaks, updated_at=@diubah
+                remaks=@remaks, updated_at=@diubah, catatan = @catatan
             WHERE no=@no", conn, trans);
 
                     cmd2.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
@@ -434,6 +440,7 @@ namespace GOS_FxApps
                     cmd2.Parameters.AddWithValue("@remaks", loginform.login.name);
                     cmd2.Parameters.AddWithValue("@no", noprimary);
                     cmd2.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                    cmd2.Parameters.AddWithValue("@catatan", txtcatatan.Text);
                     cmd2.ExecuteNonQuery();
                 }
 

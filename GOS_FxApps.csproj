@@ -681,6 +681,12 @@
     <EmbeddedResource Include="reportviewr.resx">
       <DependentUpon>reportviewr.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RiwayatPenerimaan.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RiwayatPerbaikan.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="setmin_rb.resx">
       <DependentUpon>setmin_rb.cs</DependentUpon>
     </EmbeddedResource>

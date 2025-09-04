@@ -63,7 +63,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, bac, nba, ba, ba1, r, m, cr, c, rl, jumlah, tanggal_penerimaan, updated_at, remaks FROM perbaikan_p ORDER BY tanggal_perbaikan DESC";
+                string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, bac, nba, ba, ba1, r, m, cr, c, rl, jumlah, tanggal_penerimaan, updated_at, remaks, catatan FROM perbaikan_p ORDER BY tanggal_perbaikan DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -103,6 +103,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[27].HeaderText = "Tanggal Penerimaan";
                 dataGridView1.Columns[28].HeaderText = "Diubah";
                 dataGridView1.Columns[29].HeaderText = "Remaks";
+                dataGridView1.Columns[30].HeaderText = "Catatan";
             }
             catch (SqlException)
             {
@@ -202,6 +203,7 @@ namespace GOS_FxApps
             txtr.Clear();
             txtc.Clear();
             txtrl.Clear();
+            txtcatatan.Clear();
             lbltotalsebelum.Text = "-";
             lbltotalupdate.Text = "-";
             lbltotale1.Text = "-";
@@ -231,6 +233,7 @@ namespace GOS_FxApps
             txtr.Enabled = true;
             txtc.Enabled = true;
             txtrl.Enabled = true;
+            txtcatatan.Enabled = true;
         }
 
         private void setfalse()
@@ -254,6 +257,7 @@ namespace GOS_FxApps
             txtr.Enabled = false;
             txtc.Enabled = false;
             txtrl.Enabled = false;
+            txtcatatan.Enabled = false;
         }
 
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
@@ -302,7 +306,7 @@ namespace GOS_FxApps
             SET nomor_rod = @nomorrod, jenis=@jenis, e1_ers=@e1ers, e1_est=@e1est, e1_jumlah=@e1jumlah,
                 e2_ers=@e2ers, e2_cst=@e2cst, e2_cstub=@e2cstub, e2_jumlah=@e2jumlah,
                 e3=@e3, e4=@e4, s=@s, d=@d, b=@b, bac=@bac, nba=@nba, ba=@ba, ba1=@ba1,
-                cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah, updated_at=@diubah
+                cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah, updated_at=@diubah, catatan = @catatan
             WHERE no=@no", conn, trans);
 
                 cmd1.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
@@ -331,6 +335,7 @@ namespace GOS_FxApps
                 cmd1.Parameters.AddWithValue("@jumlah", lbltotalupdate.Text);
                 cmd1.Parameters.AddWithValue("@no", noprimary);
                 cmd1.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                cmd1.Parameters.AddWithValue("@catatan", txtcatatan.Text);
                 cmd1.ExecuteNonQuery();
 
                 SqlCommand log1 = new SqlCommand(
@@ -352,7 +357,7 @@ namespace GOS_FxApps
                 SET nomor_rod = @nomorrod, jenis=@jenis, e1_ers=@e1ers, e1_est=@e1est, e1_jumlah=@e1jumlah,
                     e2_ers=@e2ers, e2_cst=@e2cst, e2_cstub=@e2cstub, e2_jumlah=@e2jumlah,
                     e3=@e3, e4=@e4, s=@s, d=@d, b=@b, bac=@bac, nba=@nba, ba=@ba, ba1=@ba1,
-                    cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah, updated_at=@diubah
+                    cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah, updated_at=@diubah, catatan = @catatan
                 WHERE no=@no", conn, trans);
 
                     cmd2.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
@@ -381,6 +386,7 @@ namespace GOS_FxApps
                     cmd2.Parameters.AddWithValue("@jumlah", lbltotalupdate.Text);
                     cmd2.Parameters.AddWithValue("@no", noprimary);
                     cmd2.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                    cmd2.Parameters.AddWithValue("@catatan", txtcatatan.Text);
 
                     cmd2.ExecuteNonQuery();
                 }
@@ -537,6 +543,7 @@ namespace GOS_FxApps
                 txtrl.Text = row.Cells["rl"].Value.ToString();                
                 lbltotalsebelum.Text = row.Cells["jumlah"].Value.ToString();
                 tanggalpenerimaan = row.Cells["tanggal_penerimaan"].Value.ToString();
+                txtcatatan.Text = row.Cells["catatan"].Value.ToString();
 
                 settrue();
 

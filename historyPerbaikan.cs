@@ -53,7 +53,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, ba, ba1, cr, m, r, c, rl, jumlah, tanggal_penerimaan, updated_at, remaks FROM perbaikan_p ORDER BY tanggal_perbaikan DESC";
+                string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, ba, ba1, cr, m, r, c, rl, jumlah, tanggal_penerimaan, updated_at, remaks, catatan FROM perbaikan_p ORDER BY tanggal_perbaikan DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -91,6 +91,7 @@ namespace GOS_FxApps
                 dataGridView1.Columns[25].HeaderText = "Tanggal Penerimaan";
                 dataGridView1.Columns[26].HeaderText = "Diubah";
                 dataGridView1.Columns[27].HeaderText = "Remaks";
+                dataGridView1.Columns[28].HeaderText = "Catatan";
             }
             catch (SqlException)
             {
@@ -212,7 +213,7 @@ namespace GOS_FxApps
                 nomorrod = row.Cells["nomor_rod"].Value.ToString();
 
                 dataperbaikanedit data = new dataperbaikanedit();
-                data.lbljudul.Text = "Riwayat Perubahan ROD No = " + nomorrod;
+                data.lbljudul.Text = "Nomor ROD = " + nomorrod;
                 data.ShowDialog();
             }
         }
