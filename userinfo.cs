@@ -70,7 +70,6 @@ namespace GOS_FxApps
             MainForm.Instance.EditContainer.Size = MainForm.Instance.defaulteditcontainer;
             MainForm.Instance.historycontainer.Size = MainForm.Instance.defaulhistorycontainer;
             MainForm.Instance.role = null;
-            formnotifikasi.Instance.btntiga.Visible = false;
             this.Close();
         }
         private void userinfo_Load(object sender, EventArgs e)

@@ -42,6 +42,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.chartUssageMaterial = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.HamburgerButton = new FontAwesome.Sharp.IconButton();
             this.lbltitlechart = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
@@ -70,12 +71,14 @@ namespace GOS_FxApps
             this.cmbtipe = new Guna.UI2.WinForms.Guna2ComboBox();
             this.containertanggal1 = new Guna.UI2.WinForms.Guna2Panel();
             this.tanggalcustom1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.containertanggal2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.tanggalcustom2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.containerbulan = new Guna.UI2.WinForms.Guna2Panel();
             this.datebulan = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.containertanggal2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.tanggalcustom2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.HamburgerButton = new FontAwesome.Sharp.IconButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.tableLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartUssageMaterial)).BeginInit();
             this.panel1.SuspendLayout();
@@ -93,8 +96,8 @@ namespace GOS_FxApps
             this.containertipem.SuspendLayout();
             this.containertipe.SuspendLayout();
             this.containertanggal1.SuspendLayout();
-            this.containerbulan.SuspendLayout();
             this.containertanggal2.SuspendLayout();
+            this.containerbulan.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblubrepaired
@@ -105,7 +108,7 @@ namespace GOS_FxApps
             this.lblubrepaired.Location = new System.Drawing.Point(5, 38);
             this.lblubrepaired.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblubrepaired.Name = "lblubrepaired";
-            this.lblubrepaired.Size = new System.Drawing.Size(383, 109);
+            this.lblubrepaired.Size = new System.Drawing.Size(381, 109);
             this.lblubrepaired.TabIndex = 3;
             this.lblubrepaired.Text = "1426";
             this.lblubrepaired.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -119,7 +122,7 @@ namespace GOS_FxApps
             this.label11.Location = new System.Drawing.Point(5, 147);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(383, 33);
+            this.label11.Size = new System.Drawing.Size(381, 33);
             this.label11.TabIndex = 2;
             this.label11.Text = "Assy";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -132,7 +135,7 @@ namespace GOS_FxApps
             this.label13.Location = new System.Drawing.Point(5, 5);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(383, 33);
+            this.label13.Size = new System.Drawing.Size(381, 33);
             this.label13.TabIndex = 0;
             this.label13.Text = "Stok ROD Reject";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -145,7 +148,7 @@ namespace GOS_FxApps
             this.label3.Location = new System.Drawing.Point(5, 38);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(383, 109);
+            this.label3.Size = new System.Drawing.Size(381, 109);
             this.label3.TabIndex = 3;
             this.label3.Text = "1426";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -159,7 +162,7 @@ namespace GOS_FxApps
             this.label4.Location = new System.Drawing.Point(5, 147);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(383, 33);
+            this.label4.Size = new System.Drawing.Size(381, 33);
             this.label4.TabIndex = 2;
             this.label4.Text = "Assy";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -172,7 +175,7 @@ namespace GOS_FxApps
             this.label2.Location = new System.Drawing.Point(5, 5);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(383, 33);
+            this.label2.Size = new System.Drawing.Size(381, 33);
             this.label2.TabIndex = 0;
             this.label2.Text = "Total ROD Di RRS";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -241,6 +244,24 @@ namespace GOS_FxApps
             this.panel1.Size = new System.Drawing.Size(898, 53);
             this.panel1.TabIndex = 13;
             // 
+            // HamburgerButton
+            // 
+            this.HamburgerButton.BackColor = System.Drawing.Color.Transparent;
+            this.HamburgerButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.HamburgerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HamburgerButton.ForeColor = System.Drawing.Color.Transparent;
+            this.HamburgerButton.IconChar = FontAwesome.Sharp.IconChar.AngleRight;
+            this.HamburgerButton.IconColor = System.Drawing.Color.Black;
+            this.HamburgerButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.HamburgerButton.IconSize = 30;
+            this.HamburgerButton.Location = new System.Drawing.Point(865, 0);
+            this.HamburgerButton.Margin = new System.Windows.Forms.Padding(2);
+            this.HamburgerButton.Name = "HamburgerButton";
+            this.HamburgerButton.Size = new System.Drawing.Size(33, 53);
+            this.HamburgerButton.TabIndex = 12;
+            this.HamburgerButton.UseVisualStyleBackColor = false;
+            this.HamburgerButton.Click += new System.EventHandler(this.HamburgerButton_Click);
+            // 
             // lbltitlechart
             // 
             this.lbltitlechart.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -269,7 +290,7 @@ namespace GOS_FxApps
             this.guna2Panel1.Location = new System.Drawing.Point(13, 3);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2Panel1.Size = new System.Drawing.Size(393, 185);
+            this.guna2Panel1.Size = new System.Drawing.Size(391, 185);
             this.guna2Panel1.TabIndex = 0;
             // 
             // guna2Panel2
@@ -290,7 +311,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 17F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel4, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel3, 3, 0);
@@ -313,10 +334,10 @@ namespace GOS_FxApps
             this.guna2Panel4.Controls.Add(this.label14);
             this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel4.FillColor = System.Drawing.Color.White;
-            this.guna2Panel4.Location = new System.Drawing.Point(813, 3);
+            this.guna2Panel4.Location = new System.Drawing.Point(809, 3);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2Panel4.Size = new System.Drawing.Size(393, 185);
+            this.guna2Panel4.Size = new System.Drawing.Size(391, 185);
             this.guna2Panel4.TabIndex = 4;
             // 
             // label15
@@ -327,7 +348,7 @@ namespace GOS_FxApps
             this.label15.Location = new System.Drawing.Point(5, 38);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(383, 109);
+            this.label15.Size = new System.Drawing.Size(381, 109);
             this.label15.TabIndex = 3;
             this.label15.Text = "1426";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -340,7 +361,7 @@ namespace GOS_FxApps
             this.label16.Location = new System.Drawing.Point(5, 5);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(383, 33);
+            this.label16.Size = new System.Drawing.Size(381, 33);
             this.label16.TabIndex = 0;
             this.label16.Text = "Stok ROD Ready";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -354,7 +375,7 @@ namespace GOS_FxApps
             this.label14.Location = new System.Drawing.Point(5, 147);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(383, 33);
+            this.label14.Size = new System.Drawing.Size(381, 33);
             this.label14.TabIndex = 2;
             this.label14.Text = "Assy";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -370,10 +391,10 @@ namespace GOS_FxApps
             this.guna2Panel3.Controls.Add(this.label11);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel3.FillColor = System.Drawing.Color.White;
-            this.guna2Panel3.Location = new System.Drawing.Point(413, 3);
+            this.guna2Panel3.Location = new System.Drawing.Point(411, 3);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2Panel3.Size = new System.Drawing.Size(393, 185);
+            this.guna2Panel3.Size = new System.Drawing.Size(391, 185);
             this.guna2Panel3.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -637,10 +658,11 @@ namespace GOS_FxApps
             // 
             // containertanggal1
             // 
+            this.containertanggal1.Controls.Add(this.label1);
             this.containertanggal1.Controls.Add(this.tanggalcustom1);
             this.containertanggal1.Location = new System.Drawing.Point(3, 343);
             this.containertanggal1.Name = "containertanggal1";
-            this.containertanggal1.Size = new System.Drawing.Size(252, 60);
+            this.containertanggal1.Size = new System.Drawing.Size(252, 79);
             this.containertanggal1.TabIndex = 63;
             this.containertanggal1.Visible = false;
             // 
@@ -655,7 +677,7 @@ namespace GOS_FxApps
             this.tanggalcustom1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.tanggalcustom1.ForeColor = System.Drawing.Color.Black;
             this.tanggalcustom1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.tanggalcustom1.Location = new System.Drawing.Point(7, 10);
+            this.tanggalcustom1.Location = new System.Drawing.Point(7, 32);
             this.tanggalcustom1.Margin = new System.Windows.Forms.Padding(2);
             this.tanggalcustom1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.tanggalcustom1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
@@ -664,12 +686,43 @@ namespace GOS_FxApps
             this.tanggalcustom1.TabIndex = 63;
             this.tanggalcustom1.Value = new System.DateTime(2025, 5, 20, 0, 0, 0, 0);
             // 
+            // containertanggal2
+            // 
+            this.containertanggal2.Controls.Add(this.label10);
+            this.containertanggal2.Controls.Add(this.tanggalcustom2);
+            this.containertanggal2.Location = new System.Drawing.Point(3, 428);
+            this.containertanggal2.Name = "containertanggal2";
+            this.containertanggal2.Size = new System.Drawing.Size(252, 79);
+            this.containertanggal2.TabIndex = 64;
+            this.containertanggal2.Visible = false;
+            // 
+            // tanggalcustom2
+            // 
+            this.tanggalcustom2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tanggalcustom2.BorderRadius = 5;
+            this.tanggalcustom2.BorderThickness = 2;
+            this.tanggalcustom2.Checked = true;
+            this.tanggalcustom2.CustomFormat = "";
+            this.tanggalcustom2.FillColor = System.Drawing.Color.White;
+            this.tanggalcustom2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.tanggalcustom2.ForeColor = System.Drawing.Color.Black;
+            this.tanggalcustom2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.tanggalcustom2.Location = new System.Drawing.Point(7, 32);
+            this.tanggalcustom2.Margin = new System.Windows.Forms.Padding(2);
+            this.tanggalcustom2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.tanggalcustom2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.tanggalcustom2.Name = "tanggalcustom2";
+            this.tanggalcustom2.Size = new System.Drawing.Size(240, 41);
+            this.tanggalcustom2.TabIndex = 63;
+            this.tanggalcustom2.Value = new System.DateTime(2025, 5, 20, 0, 0, 0, 0);
+            // 
             // containerbulan
             // 
+            this.containerbulan.Controls.Add(this.label12);
             this.containerbulan.Controls.Add(this.datebulan);
-            this.containerbulan.Location = new System.Drawing.Point(3, 475);
+            this.containerbulan.Location = new System.Drawing.Point(3, 513);
             this.containerbulan.Name = "containerbulan";
-            this.containerbulan.Size = new System.Drawing.Size(252, 60);
+            this.containerbulan.Size = new System.Drawing.Size(252, 79);
             this.containerbulan.TabIndex = 64;
             this.containerbulan.Visible = false;
             // 
@@ -684,7 +737,7 @@ namespace GOS_FxApps
             this.datebulan.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.datebulan.ForeColor = System.Drawing.Color.Black;
             this.datebulan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datebulan.Location = new System.Drawing.Point(7, 10);
+            this.datebulan.Location = new System.Drawing.Point(7, 32);
             this.datebulan.Margin = new System.Windows.Forms.Padding(2);
             this.datebulan.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.datebulan.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
@@ -708,52 +761,35 @@ namespace GOS_FxApps
             this.label5.Text = "Filter Data";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // containertanggal2
+            // label1
             // 
-            this.containertanggal2.Controls.Add(this.tanggalcustom2);
-            this.containertanggal2.Location = new System.Drawing.Point(3, 409);
-            this.containertanggal2.Name = "containertanggal2";
-            this.containertanggal2.Size = new System.Drawing.Size(252, 60);
-            this.containertanggal2.TabIndex = 64;
-            this.containertanggal2.Visible = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 19);
+            this.label1.TabIndex = 63;
+            this.label1.Text = "Tanggal Mulai";
             // 
-            // tanggalcustom2
+            // label10
             // 
-            this.tanggalcustom2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tanggalcustom2.BorderRadius = 5;
-            this.tanggalcustom2.BorderThickness = 2;
-            this.tanggalcustom2.Checked = true;
-            this.tanggalcustom2.CustomFormat = "";
-            this.tanggalcustom2.FillColor = System.Drawing.Color.White;
-            this.tanggalcustom2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.tanggalcustom2.ForeColor = System.Drawing.Color.Black;
-            this.tanggalcustom2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.tanggalcustom2.Location = new System.Drawing.Point(7, 10);
-            this.tanggalcustom2.Margin = new System.Windows.Forms.Padding(2);
-            this.tanggalcustom2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.tanggalcustom2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.tanggalcustom2.Name = "tanggalcustom2";
-            this.tanggalcustom2.Size = new System.Drawing.Size(240, 41);
-            this.tanggalcustom2.TabIndex = 63;
-            this.tanggalcustom2.Value = new System.DateTime(2025, 5, 20, 0, 0, 0, 0);
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(3, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(95, 19);
+            this.label10.TabIndex = 64;
+            this.label10.Text = "Tanggal Akhir";
             // 
-            // HamburgerButton
+            // label12
             // 
-            this.HamburgerButton.BackColor = System.Drawing.Color.Transparent;
-            this.HamburgerButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.HamburgerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HamburgerButton.ForeColor = System.Drawing.Color.Transparent;
-            this.HamburgerButton.IconChar = FontAwesome.Sharp.IconChar.AngleRight;
-            this.HamburgerButton.IconColor = System.Drawing.Color.Black;
-            this.HamburgerButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.HamburgerButton.IconSize = 30;
-            this.HamburgerButton.Location = new System.Drawing.Point(865, 0);
-            this.HamburgerButton.Margin = new System.Windows.Forms.Padding(2);
-            this.HamburgerButton.Name = "HamburgerButton";
-            this.HamburgerButton.Size = new System.Drawing.Size(33, 53);
-            this.HamburgerButton.TabIndex = 12;
-            this.HamburgerButton.UseVisualStyleBackColor = false;
-            this.HamburgerButton.Click += new System.EventHandler(this.HamburgerButton_Click);
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(3, 9);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(113, 19);
+            this.label12.TabIndex = 65;
+            this.label12.Text = "Bulan dan Tahun";
             // 
             // Dashboard
             // 
@@ -790,8 +826,11 @@ namespace GOS_FxApps
             this.containertipe.ResumeLayout(false);
             this.containertipe.PerformLayout();
             this.containertanggal1.ResumeLayout(false);
-            this.containerbulan.ResumeLayout(false);
+            this.containertanggal1.PerformLayout();
             this.containertanggal2.ResumeLayout(false);
+            this.containertanggal2.PerformLayout();
+            this.containerbulan.ResumeLayout(false);
+            this.containerbulan.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -840,5 +879,8 @@ namespace GOS_FxApps
         private FontAwesome.Sharp.IconButton HamburgerButton;
         private Guna.UI2.WinForms.Guna2Panel containertanggal2;
         private Guna.UI2.WinForms.Guna2DateTimePicker tanggalcustom2;
+        private Label label1;
+        private Label label10;
+        private Label label12;
     }
 }

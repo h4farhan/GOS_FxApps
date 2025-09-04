@@ -42,16 +42,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelNotif.AutoScroll = true;
             this.panelNotif.BackColor = System.Drawing.Color.Transparent;
-            this.panelNotif.Location = new System.Drawing.Point(17, 36);
+            this.panelNotif.Location = new System.Drawing.Point(17, 53);
             this.panelNotif.Name = "panelNotif";
-            this.panelNotif.Size = new System.Drawing.Size(289, 467);
+            this.panelNotif.Size = new System.Drawing.Size(289, 483);
             this.panelNotif.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 8);
+            this.label1.Location = new System.Drawing.Point(12, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 25);
             this.label1.TabIndex = 2;
@@ -78,7 +78,7 @@
             this.btntiga.ForeColor = System.Drawing.Color.White;
             this.btntiga.Image = global::GOS_FxApps.Properties.Resources.dots;
             this.btntiga.ImageSize = new System.Drawing.Size(30, 30);
-            this.btntiga.Location = new System.Drawing.Point(261, 8);
+            this.btntiga.Location = new System.Drawing.Point(261, 20);
             this.btntiga.Name = "btntiga";
             this.btntiga.PressedColor = System.Drawing.Color.Transparent;
             this.btntiga.Size = new System.Drawing.Size(45, 22);
@@ -91,7 +91,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(324, 515);
+            this.ClientSize = new System.Drawing.Size(324, 560);
             this.Controls.Add(this.btntiga);
             this.Controls.Add(this.panelNotif);
             this.Controls.Add(this.label1);

@@ -2042,6 +2042,7 @@ namespace GOS_FxApps
             LoadchartRB();
             containerrentang.Visible = true;
             containertanggal1.Visible = true;
+            lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
 
             registerpenerimaans();
             registerperbaikans();
@@ -2130,12 +2131,12 @@ namespace GOS_FxApps
                 if (cmbrentang.SelectedIndex == 0)
                 {
                     LoadchartRB();
-                    lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value;
+                    lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
                 }
                 else if (cmbrentang.SelectedIndex == 1)
                 {
                     LoadchartRBByMonth();
-                    lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + datebulan.Value;
+                    lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + datebulan.Value.Month + "/" + datebulan.Value.Year;
                 }
                 else if (cmbrentang.SelectedIndex == 2)
                 {
@@ -2151,7 +2152,7 @@ namespace GOS_FxApps
                     }
 
                     LoadchartRBCustom();
-                    lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value + " s/d " + tanggalcustom2.Value;
+                    lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy") + " s/d " + tanggalcustom2.Value.ToString("dd/MM/yyyy");
                 }
             }
             else if(cmbpilihdata.SelectedIndex == 1)
@@ -2243,12 +2244,12 @@ namespace GOS_FxApps
                     if (cmbtipe.SelectedIndex == 0)
                     {
                         LoadChartPenerimaanHarian();
-                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + tanggalcustom1.Value;
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
                     }
                     else if (cmbtipe.SelectedIndex == 1)
                     {
                         loadChartPerbaikanHarian();
-                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + tanggalcustom1.Value;
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
                     }
                 }
                 else if (cmbrentang.SelectedIndex == 1)
@@ -2256,12 +2257,12 @@ namespace GOS_FxApps
                     if (cmbtipe.SelectedIndex == 0)
                     {
                         LoadChartPenerimaanBulanan();
-                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + datebulan.Value;
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + datebulan.Value.Month + "/" + datebulan.Value.Year;
                     }
                     else if (cmbtipe.SelectedIndex == 1)
                     {
                         LoadChartPerbaikanBulanan();
-                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + datebulan.Value;
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + datebulan.Value.Month + "/" + datebulan.Value.Year;
                     }                    
                 }
                 else if (cmbrentang.SelectedIndex == 2)
@@ -2287,12 +2288,12 @@ namespace GOS_FxApps
                     if (cmbtipe.SelectedIndex == 0)
                     {
                         LoadChartPenerimaanCustom();
-                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + tanggalcustom1.Value + " s/d " + tanggalcustom2.Value;
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy") + " s/d " + tanggalcustom2.Value.ToString("dd/MM/yyyy");
                     }
                     else if (cmbtipe.SelectedIndex == 1)
                     {
                         LoadChartPerbaikanCustom();
-                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + tanggalcustom1.Value + " s/d " + tanggalcustom2.Value;
+                        lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + cmbtipe.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy") + " s/d " + tanggalcustom2.Value.ToString("dd/MM/yyyy");
                     }
                 }
             }
