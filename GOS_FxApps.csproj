@@ -334,6 +334,12 @@
     <Compile Include="formnotifikasi.Designer.cs">
       <DependentUpon>formnotifikasi.cs</DependentUpon>
     </Compile>
+    <Compile Include="formperubahanperbaikan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formperubahanperbaikan.Designer.cs">
+      <DependentUpon>formperubahanperbaikan.cs</DependentUpon>
+    </Compile>
     <Compile Include="formstok.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -568,6 +574,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formnotifikasi.resx">
       <DependentUpon>formnotifikasi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formperubahanperbaikan.resx">
+      <DependentUpon>formperubahanperbaikan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formstok.resx">
       <DependentUpon>formstok.cs</DependentUpon>
