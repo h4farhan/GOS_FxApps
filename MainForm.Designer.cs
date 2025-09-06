@@ -78,6 +78,7 @@ namespace GOS_FxApps
             this.entryButton = new Guna.UI2.WinForms.Guna2Button();
             this.EditContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.iconButton12 = new Guna.UI2.WinForms.Guna2Button();
+            this.btneditbuktiperubahan = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton8 = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton9 = new Guna.UI2.WinForms.Guna2Button();
             this.Editbutton = new Guna.UI2.WinForms.Guna2Button();
@@ -92,7 +93,6 @@ namespace GOS_FxApps
             this.btnlaporan = new Guna.UI2.WinForms.Guna2Button();
             this.btnestimasi = new Guna.UI2.WinForms.Guna2Button();
             this.gudangtimer = new System.Windows.Forms.Timer(this.components);
-            this.btneditbuktiperubahan = new Guna.UI2.WinForms.Guna2Button();
             this.titlePanel.SuspendLayout();
             this.historycontainer.SuspendLayout();
             this.headerPanel.SuspendLayout();
@@ -167,7 +167,7 @@ namespace GOS_FxApps
             this.historycontainer.Controls.Add(this.iconButton24);
             this.historycontainer.Controls.Add(this.btnHistori);
             this.historycontainer.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.historycontainer.Location = new System.Drawing.Point(6, 549);
+            this.historycontainer.Location = new System.Drawing.Point(6, 386);
             this.historycontainer.MaximumSize = new System.Drawing.Size(232, 348);
             this.historycontainer.MinimumSize = new System.Drawing.Size(232, 55);
             this.historycontainer.Name = "historycontainer";
@@ -855,7 +855,7 @@ namespace GOS_FxApps
             this.EditContainer.MaximumSize = new System.Drawing.Size(231, 218);
             this.EditContainer.MinimumSize = new System.Drawing.Size(231, 55);
             this.EditContainer.Name = "EditContainer";
-            this.EditContainer.Size = new System.Drawing.Size(231, 218);
+            this.EditContainer.Size = new System.Drawing.Size(231, 55);
             this.EditContainer.TabIndex = 14;
             // 
             // iconButton12
@@ -880,6 +880,29 @@ namespace GOS_FxApps
             this.iconButton12.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.iconButton12.TextOffset = new System.Drawing.Point(5, 0);
             this.iconButton12.Click += new System.EventHandler(this.iconButton12_Click);
+            // 
+            // btneditbuktiperubahan
+            // 
+            this.btneditbuktiperubahan.BorderRadius = 8;
+            this.btneditbuktiperubahan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btneditbuktiperubahan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btneditbuktiperubahan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btneditbuktiperubahan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btneditbuktiperubahan.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btneditbuktiperubahan.FillColor = System.Drawing.Color.Transparent;
+            this.btneditbuktiperubahan.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btneditbuktiperubahan.ForeColor = System.Drawing.Color.Black;
+            this.btneditbuktiperubahan.Image = global::GOS_FxApps.Properties.Resources.tool_box;
+            this.btneditbuktiperubahan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btneditbuktiperubahan.ImageSize = new System.Drawing.Size(30, 30);
+            this.btneditbuktiperubahan.Location = new System.Drawing.Point(0, 135);
+            this.btneditbuktiperubahan.Name = "btneditbuktiperubahan";
+            this.btneditbuktiperubahan.Size = new System.Drawing.Size(231, 40);
+            this.btneditbuktiperubahan.TabIndex = 18;
+            this.btneditbuktiperubahan.Text = "Bukti Perubahan";
+            this.btneditbuktiperubahan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btneditbuktiperubahan.TextOffset = new System.Drawing.Point(5, 0);
+            this.btneditbuktiperubahan.Click += new System.EventHandler(this.btneditbuktiperubahan_Click);
             // 
             // iconButton8
             // 
@@ -962,7 +985,7 @@ namespace GOS_FxApps
             this.gudangContainer.Controls.Add(this.iconButton3);
             this.gudangContainer.Controls.Add(this.btngudang);
             this.gudangContainer.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.gudangContainer.Location = new System.Drawing.Point(6, 366);
+            this.gudangContainer.Location = new System.Drawing.Point(6, 203);
             this.gudangContainer.MaximumSize = new System.Drawing.Size(231, 295);
             this.gudangContainer.MinimumSize = new System.Drawing.Size(231, 55);
             this.gudangContainer.Name = "gudangContainer";
@@ -1143,7 +1166,7 @@ namespace GOS_FxApps
             this.btnlaporan.Image = global::GOS_FxApps.Properties.Resources.pdf;
             this.btnlaporan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnlaporan.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnlaporan.Location = new System.Drawing.Point(6, 427);
+            this.btnlaporan.Location = new System.Drawing.Point(6, 264);
             this.btnlaporan.Name = "btnlaporan";
             this.btnlaporan.Size = new System.Drawing.Size(231, 55);
             this.btnlaporan.TabIndex = 14;
@@ -1165,7 +1188,7 @@ namespace GOS_FxApps
             this.btnestimasi.Image = global::GOS_FxApps.Properties.Resources.calculator;
             this.btnestimasi.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnestimasi.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnestimasi.Location = new System.Drawing.Point(6, 488);
+            this.btnestimasi.Location = new System.Drawing.Point(6, 325);
             this.btnestimasi.Name = "btnestimasi";
             this.btnestimasi.Size = new System.Drawing.Size(231, 55);
             this.btnestimasi.TabIndex = 16;
@@ -1178,29 +1201,6 @@ namespace GOS_FxApps
             // 
             this.gudangtimer.Interval = 1;
             this.gudangtimer.Tick += new System.EventHandler(this.gudangtimer_Tick);
-            // 
-            // btneditbuktiperubahan
-            // 
-            this.btneditbuktiperubahan.BorderRadius = 8;
-            this.btneditbuktiperubahan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btneditbuktiperubahan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btneditbuktiperubahan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btneditbuktiperubahan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btneditbuktiperubahan.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btneditbuktiperubahan.FillColor = System.Drawing.Color.Transparent;
-            this.btneditbuktiperubahan.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btneditbuktiperubahan.ForeColor = System.Drawing.Color.Black;
-            this.btneditbuktiperubahan.Image = global::GOS_FxApps.Properties.Resources.tool_box;
-            this.btneditbuktiperubahan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btneditbuktiperubahan.ImageSize = new System.Drawing.Size(30, 30);
-            this.btneditbuktiperubahan.Location = new System.Drawing.Point(0, 135);
-            this.btneditbuktiperubahan.Name = "btneditbuktiperubahan";
-            this.btneditbuktiperubahan.Size = new System.Drawing.Size(231, 40);
-            this.btneditbuktiperubahan.TabIndex = 18;
-            this.btneditbuktiperubahan.Text = "Bukti Perubahan";
-            this.btneditbuktiperubahan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btneditbuktiperubahan.TextOffset = new System.Drawing.Point(5, 0);
-            this.btneditbuktiperubahan.Click += new System.EventHandler(this.btneditbuktiperubahan_Click);
             // 
             // MainForm
             // 
