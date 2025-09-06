@@ -142,7 +142,9 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
     </Reference>
@@ -256,6 +258,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>actual.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\bukti.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bukti.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSet\kondisi.cs">
       <DependentUpon>kondisi.xsd</DependentUpon>
@@ -514,6 +521,17 @@
     <Content Include="Data Barang Template.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="DataSet\bukti.xsc">
+      <DependentUpon>bukti.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\bukti.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>bukti.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\bukti.xss">
+      <DependentUpon>bukti.xsd</DependentUpon>
+    </None>
     <None Include="DataSet\material.xsc">
       <DependentUpon>material.xsd</DependentUpon>
     </None>
@@ -566,7 +584,9 @@
     <EmbeddedResource Include="cardmaterial.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="consumption.rdlc" />
+    <EmbeddedResource Include="consumption31.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -797,7 +817,7 @@
     <None Include="DataSet\PerbaikanForm.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PerbaikanForm1.Designer.cs</LastGenOutput>
+      <LastGenOutput>PerbaikanForm.Designer.cs</LastGenOutput>
     </None>
     <None Include="DataSet\PerbaikanForm.xss">
       <DependentUpon>PerbaikanForm.xsd</DependentUpon>

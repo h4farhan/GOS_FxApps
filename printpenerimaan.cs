@@ -17,6 +17,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 using System.IO;
 using System.Web.Security;
 using System.Windows.Data;
+using System.Web.UI.WebControls.WebParts;
 
 namespace GOS_FxApps
 {
@@ -594,7 +595,97 @@ namespace GOS_FxApps
             frmrpt.Show();
         }
 
-        
+        private void formconsumption()
+        {
+            int bulan = datecaripemakaian.Value.Month;
+            int tahun = datecaripemakaian.Value.Year;
+
+            int jumlahHari = DateTime.DaysInMonth(tahun, bulan);
+
+            string namaFileRDLC = null;
+            switch (jumlahHari)
+            {
+                case 28:
+                    namaFileRDLC = "consumption28.rdlc";
+                    break;
+                case 29:
+                    namaFileRDLC = "consumption29.rdlc";
+                    break;
+                case 30:
+                    namaFileRDLC = "consumption30.rdlc";
+                    break;
+                case 31:
+                    namaFileRDLC = "consumption31.rdlc";
+                    break;
+            }
+
+            var adaptermaterial = new GOS_FxApps.DataSet.buktiTableAdapters.sp_consumptionmaterialcostTableAdapter();
+            GOS_FxApps.DataSet.bukti.sp_consumptionmaterialcostDataTable datamaterial = adaptermaterial.GetData(bulan, tahun);
+
+            var adapterconsumable = new GOS_FxApps.DataSet.buktiTableAdapters.sp_consumptionconsumablecostTableAdapter();
+            GOS_FxApps.DataSet.bukti.sp_consumptionconsumablecostDataTable dataconsumable = adapterconsumable.GetData(bulan, tahun);
+
+            var adaptersafety = new GOS_FxApps.DataSet.buktiTableAdapters.sp_consumptionsafetycostTableAdapter();
+            GOS_FxApps.DataSet.bukti.sp_consumptionsafetycostDataTable datasafety = adaptersafety.GetData(bulan, tahun);
+
+            frmrpt = new reportviewr();
+            frmrpt.reportViewer1.Reset();
+            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, namaFileRDLC);
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("consumptionmaterial", (DataTable)datamaterial));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("consumptionconsumable", (DataTable)dataconsumable));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("consumptionsafety", (DataTable)datasafety));
+
+            ReportParameter[] parameters = new ReportParameter[]
+            {
+        new ReportParameter("bulan", bulan.ToString()),
+        new ReportParameter("tahun", tahun.ToString())
+            };
+
+            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
+            frmrpt.reportViewer1.RefreshReport();
+            frmrpt.Show();
+        }
+
+        private void formbukti()
+        {
+            DateTime tanggal = datecaribukti.Value.Date;
+            string shift = shiftbukti.SelectedItem?.ToString();
+
+            if (string.IsNullOrEmpty(shift))
+            {
+                MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var adapter = new GOS_FxApps.DataSet.buktiTableAdapters.sp_buktiperubahanTableAdapter();
+            GOS_FxApps.DataSet.bukti.sp_buktiperubahanDataTable data = adapter.GetData(tanggal, shift);
+
+            frmrpt = new reportviewr();
+            frmrpt.reportViewer1.Reset();
+            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "buktiperubahan.rdlc");
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetbukti", (DataTable)data));
+
+            ReportParameter[] parameters = new ReportParameter[]
+            {
+            new ReportParameter("TanggalAwal", tanggal.ToString("yyyy-MM-dd")),
+            new ReportParameter("Shift", shift),
+            };
+            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
+            frmrpt.reportViewer1.RefreshReport();
+
+            frmrpt.Show();
+        }
 
         private reportviewr frmrpt;
 
@@ -641,6 +732,14 @@ namespace GOS_FxApps
             {
                 formmaterial();
             }
+            else if (pilihan == "Actual Consumption Of Material & Part")
+            {
+                formconsumption();
+            }
+            else if (pilihan == "Bukti Perubahan")
+            {
+                formbukti();
+            }
         }
 
         private void printpenerimaan_Load(object sender, EventArgs e)
@@ -657,6 +756,7 @@ namespace GOS_FxApps
             datecari.Value = DateTime.Now.Date;
             datecaripemakaian.Value = DateTime.Now.Date;
             datematerial.Value = DateTime.Now.Date;
+            datecaribukti.Value = DateTime.Now.Date;
             cmbpilihdata.SelectedIndex = 0;
             infocari = false;
 
@@ -1600,7 +1700,7 @@ namespace GOS_FxApps
         private bool caribukti()
         {
             DateTime tanggal = datecaribukti.Value.Date;
-            string shift = cbShift.SelectedItem?.ToString();
+            string shift = shiftbukti.SelectedItem?.ToString();
 
             if (string.IsNullOrEmpty(shift))
             {
@@ -1977,6 +2077,37 @@ namespace GOS_FxApps
                     guna2Panel4.ResetText();
                 }
             }
+            else if (pilihan == "Actual Consumption Of Material & Part")
+            {
+                if (!infocari)
+                {
+                    bool hasilCari = caripemakaian();
+                    if (hasilCari)
+                    {
+                        infocari = true;
+                        btnprint.Enabled = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                    else
+                    {
+                        infocari = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                }
+                else
+                {
+                    tampilpemakaianmaterial();
+                    infocari = false;
+                    btncari.Text = "Cari";
+                    jumlahdata();
+
+                    btnprint.Enabled = false;
+
+                    guna2Panel4.ResetText();
+                }
+            }
             else if (pilihan == "Bukti Perubahan")
             {
                 if (!infocari)
@@ -2190,6 +2321,24 @@ namespace GOS_FxApps
                 cmbnamamaterial.DropDownStyle = ComboBoxStyle.DropDown;
                 cmbnamamaterial.MaxDropDownItems = 20;
                 cmbnamamaterial.DropDownHeight = 400;
+                jumlahdata();
+            }
+            else if (pilihan == "Actual Consumption Of Material & Part")
+            {
+                //reset dulu
+                infocari = false;
+                btncari.Text = "Cari";
+                btnprint.Enabled = false;
+                guna2Panel4.ResetText();
+                datecaripemakaian.Checked = false;
+                paneldata2.Visible = false;
+                paneldata3.Visible = false;
+                panelbukti.Visible = false;
+
+                paneldata1.Visible = true;
+                btncari.Enabled = true;
+                btnprint.Text = "Print Data";
+                tampilpemakaianmaterial();
                 jumlahdata();
             }
             else if (pilihan == "Bukti Perubahan")
