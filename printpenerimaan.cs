@@ -594,6 +594,8 @@ namespace GOS_FxApps
             frmrpt.Show();
         }
 
+        
+
         private reportviewr frmrpt;
 
         private void guna2Button2_Click(object sender, EventArgs e) 
@@ -969,6 +971,93 @@ namespace GOS_FxApps
             {
                 MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
                                     "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void tampilbukti()
+        {
+            try
+            {
+                string query = @"SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis, 
+                                e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, 
+                                e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl, 
+                                jumlah, tanggal_perbaikan, updated_at, remaks, catatan, foto 
+                         FROM buktiperubahan 
+                         ORDER BY tanggal_perbaikan DESC";
+
+                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                ad.Fill(dt);
+
+                if (!dt.Columns.Contains("fotoImage"))
+                    dt.Columns.Add("fotoImage", typeof(Image));
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    if (row["foto"] != DBNull.Value)
+                    {
+                        byte[] bytes = (byte[])row["foto"];
+                        using (MemoryStream ms = new MemoryStream(bytes))
+                        {
+                            row["fotoImage"] = Image.FromStream(ms);
+                        }
+                    }
+                }
+
+                dataGridView1.DataSource = dt;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+                dataGridView1.Columns["fotoImage"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
+                dataGridView1.RowTemplate.Height = 80;
+                dataGridView1.ReadOnly = true;
+
+                dataGridView1.Columns["foto"].Visible = false;
+
+                DataGridViewImageColumn imgCol = (DataGridViewImageColumn)dataGridView1.Columns["fotoImage"];
+                imgCol.HeaderText = "Foto";
+                imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].HeaderText = "Tanggal Penerimaan";
+                dataGridView1.Columns[2].HeaderText = "Shift";
+                dataGridView1.Columns[3].HeaderText = "Nomor ROD";
+                dataGridView1.Columns[4].HeaderText = "Jenis";
+                dataGridView1.Columns[5].HeaderText = "E1 Ers";
+                dataGridView1.Columns[6].HeaderText = "E1 Est";
+                dataGridView1.Columns[7].HeaderText = "E1 Jumlah";
+                dataGridView1.Columns[8].HeaderText = "E2 Ers";
+                dataGridView1.Columns[9].HeaderText = "E2 Cst";
+                dataGridView1.Columns[10].HeaderText = "E2 Cstub";
+                dataGridView1.Columns[11].HeaderText = "E2 Jumlah";
+                dataGridView1.Columns[12].HeaderText = "E3";
+                dataGridView1.Columns[13].HeaderText = "E4";
+                dataGridView1.Columns[14].HeaderText = "S";
+                dataGridView1.Columns[15].HeaderText = "D";
+                dataGridView1.Columns[16].HeaderText = "B";
+                dataGridView1.Columns[17].HeaderText = "BAC";
+                dataGridView1.Columns[18].HeaderText = "NBA";
+                dataGridView1.Columns[19].HeaderText = "BA";
+                dataGridView1.Columns[20].HeaderText = "BA-1";
+                dataGridView1.Columns[21].HeaderText = "CR";
+                dataGridView1.Columns[22].HeaderText = "M";
+                dataGridView1.Columns[23].HeaderText = "R";
+                dataGridView1.Columns[24].HeaderText = "C";
+                dataGridView1.Columns[25].HeaderText = "RL";
+                dataGridView1.Columns[26].HeaderText = "Jumlah";
+                dataGridView1.Columns[27].HeaderText = "Tanggal Perbaikan";
+                dataGridView1.Columns[28].HeaderText = "Diubah";
+                dataGridView1.Columns[29].HeaderText = "Remaks";
+                dataGridView1.Columns[30].HeaderText = "Catatan";
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
@@ -1508,6 +1597,97 @@ namespace GOS_FxApps
             return found;
         }
 
+        private bool caribukti()
+        {
+            DateTime tanggal = datecaribukti.Value.Date;
+            string shift = cbShift.SelectedItem?.ToString();
+
+            if (string.IsNullOrEmpty(shift))
+            {
+                MessageBox.Show("Silakan pilih shift untuk melakukan pencarian.",
+                                "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            DataTable dt = new DataTable();
+
+            string query = @"SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis,
+                            e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah,
+                            e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl,
+                            jumlah, tanggal_perbaikan, updated_at, remaks, catatan, foto
+                     FROM buktiperubahan
+                     WHERE CAST(tanggal_penerimaan AS DATE) = @tgl
+                       AND shift = @shift
+                     ORDER BY tanggal_penerimaan DESC";
+
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@tgl", tanggal);
+                cmd.Parameters.AddWithValue("@shift", shift);
+
+                try
+                {
+                    conn.Open();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+
+                    if (!dt.Columns.Contains("fotoImage"))
+                        dt.Columns.Add("fotoImage", typeof(Image));
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        if (row["foto"] != DBNull.Value)
+                        {
+                            byte[] bytes = (byte[])row["foto"];
+                            using (MemoryStream ms = new MemoryStream(bytes))
+                            {
+                                row["fotoImage"] = Image.FromStream(ms);
+                            }
+                        }
+                    }
+
+                    dataGridView1.DataSource = dt;
+
+                    if (dataGridView1.Columns.Contains("no"))
+                        dataGridView1.Columns["no"].Visible = false;
+
+                    if (dataGridView1.Columns.Contains("foto"))
+                        dataGridView1.Columns["foto"].Visible = false;
+
+                    if (dataGridView1.Columns.Contains("fotoImage"))
+                    {
+                        DataGridViewImageColumn imgCol =
+                            (DataGridViewImageColumn)dataGridView1.Columns["fotoImage"];
+                        imgCol.HeaderText = "Foto";
+                        imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                    }
+
+                    dataGridView1.RowTemplate.Height = 80;
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+                    dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
+                    dataGridView1.ReadOnly = true;
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+
+            return dt.Rows.Count > 0;
+        }
+
         private void btncari_Click(object sender, EventArgs e)
         {
 
@@ -1797,6 +1977,37 @@ namespace GOS_FxApps
                     guna2Panel4.ResetText();
                 }
             }
+            else if (pilihan == "Bukti Perubahan")
+            {
+                if (!infocari)
+                {
+                    bool hasilCari = caribukti();
+                    if (hasilCari)
+                    {
+                        infocari = true;
+                        btnprint.Enabled = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                    else
+                    {
+                        infocari = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                }
+                else
+                {
+                    tampilbukti();
+                    infocari = false;
+                    btncari.Text = "Cari";
+                    jumlahdata();
+
+                    btnprint.Enabled = false;
+
+                    guna2Panel4.ResetText();
+                }
+            }
         }
 
         private void jumlahdata()
@@ -1805,7 +2016,7 @@ namespace GOS_FxApps
             label4.Text = "Jumlah data: " + total.ToString();
             jlhpanel1.Text = "Jumlah data: " + total.ToString();
             lbljumlahdatamaterial.Text = "Jumlah data: " + total.ToString();
-
+            lbljumlahbukti.Text = "Jumlah data: " + total.ToString();
         }
 
         private void cmbpilihdata_SelectedIndexChanged(object sender, EventArgs e)
@@ -1825,6 +2036,7 @@ namespace GOS_FxApps
                 datecari.Checked = false;
                 paneldata2.Visible = false;
                 paneldata3.Visible = false;
+                panelbukti.Visible = false;
 
                 paneldata2.Visible = true;
                 btncari.Enabled = true;
@@ -1842,6 +2054,7 @@ namespace GOS_FxApps
                 datecari.Checked = false;
                 paneldata2.Visible = false;
                 paneldata3.Visible = false;
+                panelbukti.Visible = false;
 
                 paneldata2.Visible = true;
                 btncari.Enabled = true;
@@ -1859,6 +2072,7 @@ namespace GOS_FxApps
                 datecari.Checked = false;
                 paneldata2.Visible = false;
                 paneldata3.Visible = false;
+                panelbukti.Visible = false;
 
                 paneldata2.Visible = true;
                 btncari.Enabled = true;
@@ -1876,6 +2090,7 @@ namespace GOS_FxApps
                 datecaripemakaian.Checked = false;
                 paneldata2.Visible = false;
                 paneldata3.Visible = false;
+                panelbukti.Visible = false;
 
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
@@ -1893,6 +2108,7 @@ namespace GOS_FxApps
                 datecaripemakaian.Checked = false;
                 paneldata2.Visible = false;
                 paneldata3.Visible = false;
+                panelbukti.Visible = false;
 
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
@@ -1910,6 +2126,7 @@ namespace GOS_FxApps
                 datecaripemakaian.Checked = false;
                 paneldata2.Visible = false;
                 paneldata3.Visible = false;
+                panelbukti.Visible = false;
 
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
@@ -1927,6 +2144,7 @@ namespace GOS_FxApps
                 datecaripemakaian.Checked = false;
                 paneldata2.Visible = false;
                 paneldata3.Visible = false;
+                panelbukti.Visible = false;
 
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
@@ -1944,6 +2162,7 @@ namespace GOS_FxApps
                 datecaripemakaian.Checked = false;
                 paneldata2.Visible = false;
                 paneldata3.Visible = false;
+                panelbukti.Visible = false;
 
                 paneldata1.Visible = true;
                 btncari.Enabled = true;
@@ -1961,6 +2180,7 @@ namespace GOS_FxApps
                 datecaripemakaian.Checked = false;
                 paneldata2.Visible = false;
                 paneldata1.Visible = false;
+                panelbukti.Visible = false;
 
                 paneldata3.Visible = true;
                 btncari.Enabled = true;
@@ -1970,6 +2190,24 @@ namespace GOS_FxApps
                 cmbnamamaterial.DropDownStyle = ComboBoxStyle.DropDown;
                 cmbnamamaterial.MaxDropDownItems = 20;
                 cmbnamamaterial.DropDownHeight = 400;
+                jumlahdata();
+            }
+            else if (pilihan == "Bukti Perubahan")
+            {
+                //reset dulu
+                infocari = false;
+                btncari.Text = "Cari";
+                btnprint.Enabled = false;
+                guna2Panel4.ResetText();
+                datecaribukti.Checked = false;
+                paneldata2.Visible = false;
+                paneldata1.Visible = false;
+                paneldata3.Visible = false;
+
+                panelbukti.Visible = true;
+                btncari.Enabled = true;
+                btnprint.Text = "Print Data";
+                tampilbukti();
                 jumlahdata();
             }
         }

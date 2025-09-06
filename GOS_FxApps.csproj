@@ -560,10 +560,13 @@
     <EmbeddedResource Include="actual_31.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="buktiperubahan.rdlc" />
+    <EmbeddedResource Include="buktiperubahan.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="cardmaterial.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="consumption.rdlc" />
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -794,7 +797,7 @@
     <None Include="DataSet\PerbaikanForm.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PerbaikanForm.Designer.cs</LastGenOutput>
+      <LastGenOutput>PerbaikanForm1.Designer.cs</LastGenOutput>
     </None>
     <None Include="DataSet\PerbaikanForm.xss">
       <DependentUpon>PerbaikanForm.xsd</DependentUpon>

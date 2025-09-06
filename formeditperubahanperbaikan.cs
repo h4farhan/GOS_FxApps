@@ -149,19 +149,25 @@ namespace GOS_FxApps
 
             if (!tanggal.HasValue && string.IsNullOrEmpty(nomorrod))
             {
-                MessageBox.Show("Silakan isi Tanggal atau Nomor ROD untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Silakan isi Tanggal atau Nomor ROD untuk melakukan pencarian.",
+                                "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
             DataTable dt = new DataTable();
 
-            string query = "SELECT * FROM buktiperubahan WHERE 1=1";
+            string query = @"SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis,
+                            e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah,
+                            e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl,
+                            jumlah, tanggal_perbaikan, updated_at, remaks, catatan, foto
+                     FROM buktiperubahan
+                     WHERE 1=1 ";
 
             using (SqlCommand cmd = new SqlCommand())
             {
                 if (tanggal.HasValue)
                 {
-                    query += "AND CAST(tanggal_penerimaan AS DATE) = @tgl";
+                    query += " AND CAST(tanggal_penerimaan AS DATE) = @tgl";
                     cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
                 }
 
@@ -184,12 +190,45 @@ namespace GOS_FxApps
                         da.Fill(dt);
                     }
 
+                    if (!dt.Columns.Contains("fotoImage"))
+                        dt.Columns.Add("fotoImage", typeof(Image));
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        if (row["foto"] != DBNull.Value)
+                        {
+                            byte[] bytes = (byte[])row["foto"];
+                            using (MemoryStream ms = new MemoryStream(bytes))
+                            {
+                                row["fotoImage"] = Image.FromStream(ms);
+                            }
+                        }
+                    }
+
                     dataGridView1.DataSource = dt;
+
+                    if (dataGridView1.Columns.Contains("no"))
+                        dataGridView1.Columns["no"].Visible = false;
+
+                    if (dataGridView1.Columns.Contains("foto"))
+                        dataGridView1.Columns["foto"].Visible = false;
+
+                    if (dataGridView1.Columns.Contains("fotoImage"))
+                    {
+                        DataGridViewImageColumn imgCol = (DataGridViewImageColumn)dataGridView1.Columns["fotoImage"];
+                        imgCol.HeaderText = "Foto";
+                        imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                    }
+
+                    dataGridView1.RowTemplate.Height = 80;
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+                    dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
+                    dataGridView1.ReadOnly = true;
                 }
                 catch (SqlException)
                 {
                     MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
@@ -200,6 +239,7 @@ namespace GOS_FxApps
                 {
                     conn.Close();
                 }
+
                 return dt.Rows.Count > 0;
             }
         }
@@ -404,6 +444,7 @@ namespace GOS_FxApps
         {
             tampilbukti();
             datecari.Value = DateTime.Now;
+            datecari.Checked = false;
         }
 
         private void txtc_TextChanged(object sender, EventArgs e)
@@ -692,6 +733,9 @@ namespace GOS_FxApps
                     if (frm.HasilFoto != null)
                     {
                         fotoSementara = new Bitmap(frm.HasilFoto);
+
+                        fotoDiganti = true;
+
                         MessageBox.Show("Foto berhasil diambil, siap disimpan!",
                                         "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -703,6 +747,7 @@ namespace GOS_FxApps
                 }
             }
         }
+
 
         private void btncari_Click(object sender, EventArgs e)
         {
@@ -729,6 +774,17 @@ namespace GOS_FxApps
                 txtcari.Text = "";
                 datecari.Checked = false;
             }
+        }
+
+        private void btncancel_Click(object sender, EventArgs e)
+        {
+            txtnomorrod.Enabled = true;
+            setdefault();
+            txtnomorrod.Enabled = false;
+            setfalse();
+            btncancel.Enabled = false;
+            btnedit.Enabled = false;
+            dataGridView1.ClearSelection();
         }
     }
 }

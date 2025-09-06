@@ -83,14 +83,35 @@ namespace GOS_FxApps
 
         private void VideoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            Bitmap bmp = (Bitmap)eventArgs.Frame.Clone();
-            bmp.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            try
+            {
+                Bitmap bmp = (Bitmap)eventArgs.Frame.Clone();
+                bmp.RotateFlip(RotateFlipType.RotateNoneFlipX);
 
-            if (pictureBoxPreview.Image != null)
-                pictureBoxPreview.Image.Dispose();
+                if (pictureBoxPreview.InvokeRequired)
+                {
+                    pictureBoxPreview.BeginInvoke(new Action(() =>
+                    {
+                        if (pictureBoxPreview.Image != null)
+                            pictureBoxPreview.Image.Dispose();
 
-            pictureBoxPreview.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBoxPreview.Image = bmp;
+                        pictureBoxPreview.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pictureBoxPreview.Image = bmp;
+                    }));
+                }
+                else
+                {
+                    if (pictureBoxPreview.Image != null)
+                        pictureBoxPreview.Image.Dispose();
+
+                    pictureBoxPreview.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pictureBoxPreview.Image = bmp;
+                }
+            }
+            catch
+            {
+                
+            }
         }
 
         private void formkamera_FormClosing(object sender, FormClosingEventArgs e)
