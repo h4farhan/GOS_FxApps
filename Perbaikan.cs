@@ -27,7 +27,7 @@ namespace GOS_FxApps
         private void registertampilpenerimaan()
         {
             using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.penerimaan_s", conn))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.perbaikan_s", conn))
             {
                 cmd.Notification = null;
                 var dep = new SqlDependency(cmd);

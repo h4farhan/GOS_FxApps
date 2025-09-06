@@ -1,6 +1,6 @@
 ﻿namespace GOS_FxApps
 {
-    partial class formperubahanperbaikan
+    partial class formeditperubahanperbaikan
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formperubahanperbaikan));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -105,13 +104,15 @@
             this.txtb = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
-            this.txtcaripenerimaan = new Guna.UI2.WinForms.Guna2TextBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.btncari = new Guna.UI2.WinForms.Guna2Button();
+            this.datecari = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtcatatan = new Guna.UI2.WinForms.Guna2TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.btncancel = new Guna.UI2.WinForms.Guna2Button();
-            this.btnsimpan = new Guna.UI2.WinForms.Guna2Button();
+            this.btnedit = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -127,7 +128,7 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.guna2Panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.guna2Panel6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -141,7 +142,7 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(923, 46);
-            this.panel1.TabIndex = 2;
+            this.panel1.TabIndex = 3;
             // 
             // label2
             // 
@@ -163,9 +164,9 @@
             this.label1.Location = new System.Drawing.Point(17, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 19);
+            this.label1.Size = new System.Drawing.Size(114, 19);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Form Entry Data  /";
+            this.label1.Text = "Form Edit Data  /";
             // 
             // panel2
             // 
@@ -176,7 +177,7 @@
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(405, 668);
-            this.panel2.TabIndex = 3;
+            this.panel2.TabIndex = 4;
             // 
             // tableLayoutPanel1
             // 
@@ -1453,15 +1454,17 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.43243F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 6F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(518, 605);
-            this.tableLayoutPanel5.TabIndex = 4;
+            this.tableLayoutPanel5.TabIndex = 5;
             // 
             // guna2Panel7
             // 
             this.guna2Panel7.BorderColor = System.Drawing.Color.Gainsboro;
             this.guna2Panel7.BorderRadius = 15;
             this.guna2Panel7.BorderThickness = 2;
-            this.guna2Panel7.Controls.Add(this.txtcaripenerimaan);
-            this.guna2Panel7.Controls.Add(this.dataGridView2);
+            this.guna2Panel7.Controls.Add(this.btncari);
+            this.guna2Panel7.Controls.Add(this.datecari);
+            this.guna2Panel7.Controls.Add(this.txtcari);
+            this.guna2Panel7.Controls.Add(this.dataGridView1);
             this.guna2Panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel7.FillColor = System.Drawing.Color.White;
             this.guna2Panel7.Location = new System.Drawing.Point(2, 2);
@@ -1470,47 +1473,84 @@
             this.guna2Panel7.Size = new System.Drawing.Size(506, 396);
             this.guna2Panel7.TabIndex = 4;
             // 
-            // txtcaripenerimaan
+            // btncari
             // 
-            this.txtcaripenerimaan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btncari.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btncari.BorderRadius = 8;
+            this.btncari.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btncari.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btncari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btncari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btncari.ForeColor = System.Drawing.Color.White;
+            this.btncari.Location = new System.Drawing.Point(435, 9);
+            this.btncari.Margin = new System.Windows.Forms.Padding(2);
+            this.btncari.Name = "btncari";
+            this.btncari.Size = new System.Drawing.Size(60, 37);
+            this.btncari.TabIndex = 44;
+            this.btncari.Text = "Cari";
+            this.btncari.Click += new System.EventHandler(this.btncari_Click);
+            // 
+            // datecari
+            // 
+            this.datecari.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.datecari.BorderRadius = 5;
+            this.datecari.BorderThickness = 2;
+            this.datecari.Checked = true;
+            this.datecari.FillColor = System.Drawing.Color.White;
+            this.datecari.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.datecari.ForeColor = System.Drawing.Color.Black;
+            this.datecari.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.datecari.Location = new System.Drawing.Point(13, 9);
+            this.datecari.Margin = new System.Windows.Forms.Padding(2);
+            this.datecari.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.datecari.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.datecari.Name = "datecari";
+            this.datecari.ShowCheckBox = true;
+            this.datecari.Size = new System.Drawing.Size(217, 39);
+            this.datecari.TabIndex = 46;
+            this.datecari.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
+            // 
+            // txtcari
+            // 
+            this.txtcari.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtcaripenerimaan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcaripenerimaan.BorderRadius = 5;
-            this.txtcaripenerimaan.BorderThickness = 2;
-            this.txtcaripenerimaan.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtcaripenerimaan.DefaultText = "";
-            this.txtcaripenerimaan.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtcaripenerimaan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtcaripenerimaan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcaripenerimaan.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcaripenerimaan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcaripenerimaan.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtcaripenerimaan.ForeColor = System.Drawing.Color.Black;
-            this.txtcaripenerimaan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcaripenerimaan.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtcaripenerimaan.IconLeft")));
-            this.txtcaripenerimaan.IconLeftOffset = new System.Drawing.Point(5, 0);
-            this.txtcaripenerimaan.IconLeftSize = new System.Drawing.Size(15, 15);
-            this.txtcaripenerimaan.Location = new System.Drawing.Point(13, 15);
-            this.txtcaripenerimaan.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtcaripenerimaan.Name = "txtcaripenerimaan";
-            this.txtcaripenerimaan.PlaceholderForeColor = System.Drawing.Color.Gray;
-            this.txtcaripenerimaan.PlaceholderText = "Nomor ROD";
-            this.txtcaripenerimaan.SelectedText = "";
-            this.txtcaripenerimaan.Size = new System.Drawing.Size(482, 39);
-            this.txtcaripenerimaan.TabIndex = 1;
-            this.txtcaripenerimaan.TextOffset = new System.Drawing.Point(5, 0);
-            this.txtcaripenerimaan.TextChanged += new System.EventHandler(this.txtcaripenerimaan_TextChanged);
+            this.txtcari.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcari.BorderRadius = 5;
+            this.txtcari.BorderThickness = 2;
+            this.txtcari.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtcari.DefaultText = "";
+            this.txtcari.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtcari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtcari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcari.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcari.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcari.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtcari.ForeColor = System.Drawing.Color.Black;
+            this.txtcari.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.search;
+            this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
+            this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
+            this.txtcari.Location = new System.Drawing.Point(234, 9);
+            this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtcari.Name = "txtcari";
+            this.txtcari.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcari.PlaceholderText = "Nomor ROD";
+            this.txtcari.SelectedText = "";
+            this.txtcari.Size = new System.Drawing.Size(197, 39);
+            this.txtcari.TabIndex = 45;
+            this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
             // 
-            // dataGridView2
+            // dataGridView1
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToResizeColumns = false;
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1518,8 +1558,8 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1527,12 +1567,12 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView2.EnableHeadersVisualStyles = false;
-            this.dataGridView2.GridColor = System.Drawing.Color.Gray;
-            this.dataGridView2.Location = new System.Drawing.Point(13, 58);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.Color.Gray;
+            this.dataGridView1.Location = new System.Drawing.Point(13, 58);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1540,12 +1580,12 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(482, 328);
-            this.dataGridView2.TabIndex = 3;
-            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(482, 328);
+            this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // guna2Panel6
             // 
@@ -1624,45 +1664,43 @@
             this.btncancel.Margin = new System.Windows.Forms.Padding(2);
             this.btncancel.Name = "btncancel";
             this.btncancel.Size = new System.Drawing.Size(122, 35);
-            this.btncancel.TabIndex = 6;
+            this.btncancel.TabIndex = 8;
             this.btncancel.Text = "Batal";
-            this.btncancel.Click += new System.EventHandler(this.btncancel_Click);
             // 
-            // btnsimpan
+            // btnedit
             // 
-            this.btnsimpan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnsimpan.BorderRadius = 8;
-            this.btnsimpan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnsimpan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnsimpan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnsimpan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnsimpan.Enabled = false;
-            this.btnsimpan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnsimpan.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnsimpan.ForeColor = System.Drawing.Color.White;
-            this.btnsimpan.Location = new System.Drawing.Point(790, 664);
-            this.btnsimpan.Margin = new System.Windows.Forms.Padding(2);
-            this.btnsimpan.Name = "btnsimpan";
-            this.btnsimpan.Size = new System.Drawing.Size(122, 35);
-            this.btnsimpan.TabIndex = 5;
-            this.btnsimpan.Text = "Simpan Data";
-            this.btnsimpan.Click += new System.EventHandler(this.btnsimpan_Click);
+            this.btnedit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnedit.BorderRadius = 8;
+            this.btnedit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnedit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnedit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnedit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnedit.Enabled = false;
+            this.btnedit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnedit.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnedit.ForeColor = System.Drawing.Color.White;
+            this.btnedit.Location = new System.Drawing.Point(790, 664);
+            this.btnedit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnedit.Name = "btnedit";
+            this.btnedit.Size = new System.Drawing.Size(122, 35);
+            this.btnedit.TabIndex = 7;
+            this.btnedit.Text = "Edit Data";
+            this.btnedit.Click += new System.EventHandler(this.btnedit_Click);
             // 
-            // formperubahanperbaikan
+            // formeditperubahanperbaikan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(923, 714);
             this.Controls.Add(this.btncancel);
-            this.Controls.Add(this.btnsimpan);
+            this.Controls.Add(this.btnedit);
             this.Controls.Add(this.tableLayoutPanel5);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "formperubahanperbaikan";
-            this.Text = "formperubahanperbaikan";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formperubahanperbaikan_FormClosing);
-            this.Load += new System.EventHandler(this.formperubahanperbaikan_Load);
+            this.Name = "formeditperubahanperbaikan";
+            this.Text = "formeditperubahanperbaikan";
+            this.Load += new System.EventHandler(this.formeditperubahanperbaikan_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1688,7 +1726,7 @@
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.guna2Panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.guna2Panel6.ResumeLayout(false);
             this.guna2Panel6.PerformLayout();
             this.ResumeLayout(false);
@@ -1708,6 +1746,7 @@
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2TextBox txtnomorrod;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private FontAwesome.Sharp.IconButton btnambilfoto;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
@@ -1769,13 +1808,14 @@
         private Guna.UI2.WinForms.Guna2TextBox txtb;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
-        private Guna.UI2.WinForms.Guna2TextBox txtcaripenerimaan;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
         private Guna.UI2.WinForms.Guna2TextBox txtcatatan;
         private System.Windows.Forms.Label label12;
         private Guna.UI2.WinForms.Guna2Button btncancel;
-        private Guna.UI2.WinForms.Guna2Button btnsimpan;
-        private FontAwesome.Sharp.IconButton btnambilfoto;
+        private Guna.UI2.WinForms.Guna2Button btnedit;
+        private Guna.UI2.WinForms.Guna2Button btncari;
+        private Guna.UI2.WinForms.Guna2DateTimePicker datecari;
+        private Guna.UI2.WinForms.Guna2TextBox txtcari;
     }
 }

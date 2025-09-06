@@ -44,6 +44,9 @@ namespace GOS_FxApps {
             penerimaanButton1.FillColor = Color.Transparent;
             penerimaanButton1.ForeColor = Color.Black;
 
+            btnbuktiperubahan.FillColor = Color.Transparent;
+            btnbuktiperubahan.ForeColor = Color.Black;
+
             iconButton1.FillColor = Color.Transparent;
             iconButton1.ForeColor = Color.Black;
 
@@ -64,6 +67,9 @@ namespace GOS_FxApps {
 
             iconButton8.FillColor = Color.Transparent;
             iconButton8.ForeColor = Color.Black;
+
+            btneditbuktiperubahan.FillColor = Color.Transparent;
+            btneditbuktiperubahan.ForeColor = Color.Black;
 
             iconButton12.FillColor = Color.Transparent;
             iconButton12.ForeColor = Color.Black;
@@ -458,6 +464,14 @@ namespace GOS_FxApps {
 
             SwitchPanel(new Penerimaan());
         }
+        private void btnbuktiperubahan_Click(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            btnbuktiperubahan.FillColor = Color.FromArgb(64, 64, 64);
+            btnbuktiperubahan.ForeColor = Color.White;
+
+            SwitchPanel(new formperubahanperbaikan());
+        }
         private void iconButton1_Click_1(object sender, EventArgs e)
         {
             ResetButtonColors();
@@ -509,6 +523,14 @@ namespace GOS_FxApps {
             iconButton8.ForeColor = Color.White;
 
             SwitchPanel(new editperbaikan());
+        }
+        private void btneditbuktiperubahan_Click(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            btneditbuktiperubahan.FillColor = Color.FromArgb(64, 64, 64);
+            btneditbuktiperubahan.ForeColor = Color.White;
+
+            SwitchPanel(new formeditperubahanperbaikan());
         }
         private void iconButton12_Click(object sender, EventArgs e)
         {
@@ -652,9 +674,10 @@ namespace GOS_FxApps {
         }
         public void truemanajer()
         {
-            entryContainer.MaximumSize = new Size(232, 215);
+            entryContainer.MaximumSize = new Size(232, 255);
             entryContainer.Visible = true;
             penerimaanButton1.Visible = true;
+            btnbuktiperubahan.Visible = true;
             iconButton1.Visible = true;
             iconButton2.Visible = true;
             iconButton3.Visible = true;
@@ -695,8 +718,9 @@ namespace GOS_FxApps {
             iconButton15.Visible = false;
 
             entryContainer.Visible = true;
-            entryContainer.MaximumSize = new Size(232, 175);
+            entryContainer.MaximumSize = new Size(232, 215);
             penerimaanButton1.Visible = true;
+            btnbuktiperubahan.Visible=true;
             iconButton1.Visible = true;
             iconButton2.Visible = true;
             btnlaporan.Visible = true;

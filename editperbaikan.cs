@@ -17,8 +17,8 @@ namespace GOS_FxApps
         SqlConnection conn = Koneksi.GetConnection();
 
         bool infocari = false;
-        string tanggalpenerimaan;
-        string tanggalperbaikan;
+        DateTime tanggalpenerimaan;
+        DateTime tanggalperbaikan;
         int shift;
         int noprimary;
 
@@ -306,7 +306,7 @@ namespace GOS_FxApps
             SET nomor_rod = @nomorrod, jenis=@jenis, e1_ers=@e1ers, e1_est=@e1est, e1_jumlah=@e1jumlah,
                 e2_ers=@e2ers, e2_cst=@e2cst, e2_cstub=@e2cstub, e2_jumlah=@e2jumlah,
                 e3=@e3, e4=@e4, s=@s, d=@d, b=@b, bac=@bac, nba=@nba, ba=@ba, ba1=@ba1,
-                cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah, updated_at=@diubah, catatan = @catatan
+                cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah, updated_at=@diubah, remaks = @remaks, catatan = @catatan
             WHERE no=@no", conn, trans);
 
                 cmd1.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
@@ -335,6 +335,7 @@ namespace GOS_FxApps
                 cmd1.Parameters.AddWithValue("@jumlah", lbltotalupdate.Text);
                 cmd1.Parameters.AddWithValue("@no", noprimary);
                 cmd1.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                cmd1.Parameters.AddWithValue("@remaks", MainForm.Instance.Name);
                 cmd1.Parameters.AddWithValue("@catatan", txtcatatan.Text);
                 cmd1.ExecuteNonQuery();
 
@@ -357,7 +358,7 @@ namespace GOS_FxApps
                 SET nomor_rod = @nomorrod, jenis=@jenis, e1_ers=@e1ers, e1_est=@e1est, e1_jumlah=@e1jumlah,
                     e2_ers=@e2ers, e2_cst=@e2cst, e2_cstub=@e2cstub, e2_jumlah=@e2jumlah,
                     e3=@e3, e4=@e4, s=@s, d=@d, b=@b, bac=@bac, nba=@nba, ba=@ba, ba1=@ba1,
-                    cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah, updated_at=@diubah, catatan = @catatan
+                    cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah, updated_at=@diubah, remaks = @remaks, catatan = @catatan
                 WHERE no=@no", conn, trans);
 
                     cmd2.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
@@ -386,6 +387,7 @@ namespace GOS_FxApps
                     cmd2.Parameters.AddWithValue("@jumlah", lbltotalupdate.Text);
                     cmd2.Parameters.AddWithValue("@no", noprimary);
                     cmd2.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                    cmd2.Parameters.AddWithValue("@remaks", MainForm.Instance.Name);
                     cmd2.Parameters.AddWithValue("@catatan", txtcatatan.Text);
 
                     cmd2.ExecuteNonQuery();
@@ -516,7 +518,7 @@ namespace GOS_FxApps
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
                 noprimary = Convert.ToInt32(row.Cells["no"].Value);
-                tanggalperbaikan = row.Cells["tanggal_perbaikan"].ToString();
+                tanggalperbaikan = Convert.ToDateTime(row.Cells["tanggal_perbaikan"].Value);
                 shift = Convert.ToInt32(row.Cells["shift"].Value);        
                 txtnomorrod.Text = row.Cells["nomor_rod"].Value.ToString();           
                 txtjenis.Text = row.Cells["jenis"].Value.ToString();           
@@ -542,7 +544,7 @@ namespace GOS_FxApps
                 txtc.Text = row.Cells["c"].Value.ToString();                
                 txtrl.Text = row.Cells["rl"].Value.ToString();                
                 lbltotalsebelum.Text = row.Cells["jumlah"].Value.ToString();
-                tanggalpenerimaan = row.Cells["tanggal_penerimaan"].Value.ToString();
+                tanggalpenerimaan = Convert.ToDateTime(row.Cells["tanggal_penerimaan"].Value);
                 txtcatatan.Text = row.Cells["catatan"].Value.ToString();
 
                 settrue();

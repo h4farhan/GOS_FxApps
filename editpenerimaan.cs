@@ -19,7 +19,7 @@ namespace GOS_FxApps
         
         bool infocari = false;
 
-        string tanggalpenerimaan;
+        DateTime tanggalpenerimaan;
         int shift;
         int noprimary;
 
@@ -268,7 +268,7 @@ namespace GOS_FxApps
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
                 noprimary = Convert.ToInt32(row.Cells["no"].Value);
-                tanggalpenerimaan = row.Cells["tanggal_penerimaan"].ToString();
+                tanggalpenerimaan = Convert.ToDateTime(row.Cells["tanggal_penerimaan"].Value);
                 shift = Convert.ToInt32(row.Cells["shift"].Value);
                 txtnomorrod.Text = row.Cells["nomor_rod"].Value.ToString();
                 txtjenis.Text = row.Cells["jenis"].Value.ToString();
