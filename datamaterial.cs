@@ -67,7 +67,7 @@ namespace GOS_FxApps
                 col.Resizable = DataGridViewTriState.False;
             }
 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             dataGridView1.Columns["No"].Width = label5.Width;
             dataGridView1.Columns["Bulan"].Width = label12.Width;
             dataGridView1.Columns["kodeBarang"].Width = label4.Width;

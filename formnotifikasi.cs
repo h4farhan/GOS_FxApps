@@ -293,7 +293,7 @@ namespace GOS_FxApps
             Instance = this;
             if (MainForm.Instance != null && MainForm.Instance.role != null)
             {
-                btntiga.Visible = (MainForm.Instance.role == "Operator Gudang" || MainForm.Instance.role == "Manajer");
+                btntiga.Visible = (MainForm.Instance.role == "Operator Gudang" || MainForm.Instance.role == "Manajer" || MainForm.Instance.role == "Developer");
             }
             else
             {

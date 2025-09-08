@@ -79,7 +79,7 @@ namespace GOS_FxApps
         private void userinfo_Load(object sender, EventArgs e)
         {
             profil();
-            if (lbljabatan.Text == "[Manajer]")
+            if (lbljabatan.Text == "[Manajer]" || lbljabatan.Text == "[Developer]")
             {
                 lbltambahakun.Visible = true;
             }

@@ -49,6 +49,9 @@ namespace GOS_FxApps
 
                             switch (level)
                             {
+                                case "Developer":
+                                    MainForm.Instance.truemanajer();
+                                    break;
                                 case "Manajer":
                                     MainForm.Instance.truemanajer();
                                     break;

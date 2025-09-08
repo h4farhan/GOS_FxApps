@@ -64,7 +64,7 @@ namespace GOS_FxApps
             dataGridView1.DataSource = finalDt;
             dataGridView1.ColumnHeadersVisible = false;
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             dataGridView1.ReadOnly = true;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
             dataGridView1.RowTemplate.Height = 34;
@@ -326,7 +326,7 @@ namespace GOS_FxApps
             dataGridView1.DataSource = finalDt;
             dataGridView1.ColumnHeadersVisible = false;
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             dataGridView1.ReadOnly = true;
             dataGridView1.AllowUserToAddRows = false;
 
@@ -420,7 +420,7 @@ namespace GOS_FxApps
             dataGridView1.DataSource = finalDt;
             dataGridView1.ColumnHeadersVisible = false;
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             dataGridView1.ReadOnly = true;
             dataGridView1.AllowUserToAddRows = false;
 

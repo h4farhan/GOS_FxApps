@@ -268,7 +268,7 @@
             this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
-            this.guna2Panel4.Size = new System.Drawing.Size(8686, 900);
+            this.guna2Panel4.Size = new System.Drawing.Size(8685, 900);
             this.guna2Panel4.TabIndex = 37;
             // 
             // dataGridView1
@@ -288,7 +288,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(11, 135);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.Size = new System.Drawing.Size(8664, 753);
+            this.dataGridView1.Size = new System.Drawing.Size(8663, 753);
             this.dataGridView1.TabIndex = 59;
             // 
             // panel4
@@ -367,7 +367,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(11, 85);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(8664, 50);
+            this.panel4.Size = new System.Drawing.Size(8663, 50);
             this.panel4.TabIndex = 58;
             // 
             // label73
@@ -1292,7 +1292,7 @@
             this.PanelJudul.Margin = new System.Windows.Forms.Padding(2);
             this.PanelJudul.Name = "PanelJudul";
             this.PanelJudul.Padding = new System.Windows.Forms.Padding(5);
-            this.PanelJudul.Size = new System.Drawing.Size(8664, 73);
+            this.PanelJudul.Size = new System.Drawing.Size(8663, 73);
             this.PanelJudul.TabIndex = 57;
             // 
             // panel2
@@ -1308,7 +1308,7 @@
             this.lbltanggal.Font = new System.Drawing.Font("Segoe UI", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltanggal.Location = new System.Drawing.Point(5, 35);
             this.lbltanggal.Name = "lbltanggal";
-            this.lbltanggal.Size = new System.Drawing.Size(8654, 33);
+            this.lbltanggal.Size = new System.Drawing.Size(8653, 33);
             this.lbltanggal.TabIndex = 1;
             this.lbltanggal.Text = "Per Tanggal  Agustus 2025";
             this.lbltanggal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1319,7 +1319,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(5, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(8654, 30);
+            this.label1.Size = new System.Drawing.Size(8653, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "LAPORAN DATA MATERIAL";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

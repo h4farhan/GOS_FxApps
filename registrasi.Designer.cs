@@ -75,7 +75,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(230, 200);
+            this.label3.Location = new System.Drawing.Point(204, 200);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 20);
@@ -87,7 +87,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(230, 121);
+            this.label2.Location = new System.Drawing.Point(204, 121);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 20);
@@ -122,12 +122,12 @@
             this.txtusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtusername.ForeColor = System.Drawing.Color.White;
             this.txtusername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtusername.Location = new System.Drawing.Point(230, 226);
+            this.txtusername.Location = new System.Drawing.Point(204, 226);
             this.txtusername.Margin = new System.Windows.Forms.Padding(2);
             this.txtusername.Name = "txtusername";
             this.txtusername.PlaceholderText = "";
             this.txtusername.SelectedText = "";
-            this.txtusername.Size = new System.Drawing.Size(281, 40);
+            this.txtusername.Size = new System.Drawing.Size(333, 40);
             this.txtusername.TabIndex = 8;
             this.txtusername.TextOffset = new System.Drawing.Point(10, 0);
             // 
@@ -147,12 +147,12 @@
             this.txtid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtid.ForeColor = System.Drawing.Color.White;
             this.txtid.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtid.Location = new System.Drawing.Point(230, 148);
+            this.txtid.Location = new System.Drawing.Point(204, 148);
             this.txtid.Margin = new System.Windows.Forms.Padding(2);
             this.txtid.Name = "txtid";
             this.txtid.PlaceholderText = "";
             this.txtid.SelectedText = "";
-            this.txtid.Size = new System.Drawing.Size(281, 40);
+            this.txtid.Size = new System.Drawing.Size(333, 40);
             this.txtid.TabIndex = 7;
             this.txtid.TextOffset = new System.Drawing.Point(10, 0);
             // 
@@ -161,7 +161,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(230, 356);
+            this.label4.Location = new System.Drawing.Point(204, 356);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 20);
@@ -173,7 +173,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Location = new System.Drawing.Point(230, 278);
+            this.label5.Location = new System.Drawing.Point(204, 278);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 20);
@@ -196,12 +196,12 @@
             this.txtpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpass.ForeColor = System.Drawing.Color.White;
             this.txtpass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtpass.Location = new System.Drawing.Point(230, 303);
+            this.txtpass.Location = new System.Drawing.Point(204, 303);
             this.txtpass.Margin = new System.Windows.Forms.Padding(2);
             this.txtpass.Name = "txtpass";
             this.txtpass.PlaceholderText = "";
             this.txtpass.SelectedText = "";
-            this.txtpass.Size = new System.Drawing.Size(281, 40);
+            this.txtpass.Size = new System.Drawing.Size(333, 40);
             this.txtpass.TabIndex = 14;
             this.txtpass.TextOffset = new System.Drawing.Point(10, 0);
             // 
@@ -223,11 +223,13 @@
             "Manajer",
             "Admin",
             "Operator",
-            "Operator Gudang"});
-            this.cmblevel.Location = new System.Drawing.Point(230, 383);
+            "Operator Gudang",
+            "Foreman",
+            "Asisten Foreman"});
+            this.cmblevel.Location = new System.Drawing.Point(204, 383);
             this.cmblevel.Margin = new System.Windows.Forms.Padding(2);
             this.cmblevel.Name = "cmblevel";
-            this.cmblevel.Size = new System.Drawing.Size(281, 36);
+            this.cmblevel.Size = new System.Drawing.Size(333, 36);
             this.cmblevel.TabIndex = 18;
             this.cmblevel.TextOffset = new System.Drawing.Point(10, 0);
             // 

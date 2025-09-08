@@ -66,7 +66,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM users ORDER BY created_at DESC";
+                string query = "SELECT * FROM users ORDER BY updated_at DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -83,9 +83,9 @@ namespace GOS_FxApps
                 dataGridView1.Columns[4].HeaderText = "Jabatan";
                 dataGridView1.Columns[5].HeaderText = "Terdaftar";
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif." + ex.Message,
                                     "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
@@ -102,7 +102,7 @@ namespace GOS_FxApps
                 conn.Open();
                 string query = "SELECT * FROM users " +
                                "WHERE username LIKE @cari OR lvl LIKE @cari " +
-                               "ORDER BY created_at DESC";
+                               "ORDER BY updated_at DESC";
 
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 ad.SelectCommand.Parameters.AddWithValue("@cari", "%" + txtcari.Text + "%");
@@ -148,9 +148,9 @@ namespace GOS_FxApps
                     if (reader.Read())
                     {
                         string level = reader["lvl"].ToString();
-                        if (level.Equals("Manajer", StringComparison.OrdinalIgnoreCase))
+                        if (level.Equals("Developer", StringComparison.OrdinalIgnoreCase))
                         {
-                            MessageBox.Show("Data manajer tidak bisa diedit.",
+                            MessageBox.Show("Data Developer tidak bisa diedit.",
                                             "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return false;
                         }

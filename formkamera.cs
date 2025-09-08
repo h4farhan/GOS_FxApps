@@ -1,13 +1,7 @@
 ﻿using Guna.UI2.WinForms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge.Video;
 using AForge.Video.DirectShow;
@@ -19,32 +13,11 @@ namespace GOS_FxApps
         private FilterInfoCollection videoDevices;
         private VideoCaptureDevice videoSource;
 
-        private bool isCameraReady = false;
-
         public Image HasilFoto { get; private set; }
 
         public formkamera()
         {
             InitializeComponent();
-        }
-
-        private void btncapture_Click(object sender, EventArgs e)
-        {
-            if (pictureBoxPreview.Image != null)
-            {
-                HasilFoto = (Image)pictureBoxPreview.Image.Clone();
-
-                if (videoSource != null && videoSource.IsRunning)
-                {
-                    videoSource.SignalToStop();
-                    videoSource.WaitForStop();
-                }
-
-                btnya.Visible = true;
-                btnno.Visible = true;
-                btncapture.Enabled = false;
-            }
-
         }
 
         private void formkamera_Load(object sender, EventArgs e)
@@ -53,7 +26,8 @@ namespace GOS_FxApps
 
             if (videoDevices.Count == 0)
             {
-                MessageBox.Show("Tidak ada kamera terdeteksi!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Tidak ada kamera terdeteksi!", "Peringatan",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.DialogResult = DialogResult.Cancel;
                 this.Close();
                 return;
@@ -77,7 +51,6 @@ namespace GOS_FxApps
             videoSource.NewFrame += VideoSource_NewFrame;
             videoSource.Start();
 
-            isCameraReady = true;
             btncapture.Enabled = true;
         }
 
@@ -110,7 +83,47 @@ namespace GOS_FxApps
             }
             catch
             {
-                
+            }
+        }
+
+        private void btncapture_Click(object sender, EventArgs e)
+        {
+            if (pictureBoxPreview.Image == null) return;
+
+            HasilFoto = (Image)pictureBoxPreview.Image.Clone();
+
+            if (videoSource != null && videoSource.IsRunning)
+            {
+                videoSource.SignalToStop();
+                videoSource.WaitForStop();
+            }
+
+            btnya.Visible = true;
+            btnno.Visible = true;
+            btncapture.Enabled = false;
+        }
+
+        private void btnno_Click(object sender, EventArgs e)
+        {
+            HasilFoto = null;
+
+            if (videoSource != null && !videoSource.IsRunning)
+            {
+                videoSource.Start();
+            }
+
+            btnya.Visible = false;
+            btnno.Visible = false;
+            btncapture.Enabled = true;
+        }
+
+        private void btnya_Click(object sender, EventArgs e)
+        {
+            if (pictureBoxPreview.Image != null)
+            {
+                HasilFoto = (Image)pictureBoxPreview.Image.Clone();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
         }
 
@@ -128,30 +141,5 @@ namespace GOS_FxApps
                 pictureBoxPreview.Image = null;
             }
         }
-
-        private void btnno_Click(object sender, EventArgs e)
-        {
-            HasilFoto = null;
-
-            if (videoSource != null && !videoSource.IsRunning)
-            {
-                videoSource.Start();
-            }
-
-            btnya.Visible = false;
-            btnno.Visible = false;
-            btncapture.Enabled = true;
-
-        }
-
-        private void btnya_Click(object sender, EventArgs e)
-        {
-            if (pictureBoxPreview.Image != null)
-            {
-                HasilFoto = (Image)pictureBoxPreview.Image.Clone();
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
-        }        
     }
 }
