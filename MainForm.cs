@@ -683,7 +683,9 @@ namespace GOS_FxApps {
             iconButton3.Visible = true;
             btnpemakaian.Visible = true;
             iconButton15.Visible = true;
+            EditContainer.MaximumSize = new Size(232, 218);
             EditContainer.Visible = true;
+            iconButton12.Visible = true;
             btnHistori.Visible = true;
             btnlaporan.Visible = true;
             historycontainer.Visible = true;
@@ -724,6 +726,26 @@ namespace GOS_FxApps {
             iconButton1.Visible = true;
             iconButton2.Visible = true;
             btnlaporan.Visible = true;
+        }
+        public void trueforeman()
+        {
+            entryContainer.MaximumSize = new Size(232, 255);
+            entryContainer.Visible = true;
+            penerimaanButton1.Visible = true;
+            btnbuktiperubahan.Visible = true;
+            iconButton1.Visible = true;
+            iconButton2.Visible = true;
+            iconButton3.Visible = true;
+            btnpemakaian.Visible = true;
+            iconButton15.Visible = true;
+            EditContainer.MaximumSize = new Size(232, 178);
+            EditContainer.Visible = true;
+            iconButton12.Visible = false;
+            btnHistori.Visible = true;
+            btnlaporan.Visible = true;
+            historycontainer.Visible = false;
+            btnestimasi.Visible = false;
+            gudangContainer.Visible = false;
         }
 
 

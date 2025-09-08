@@ -870,6 +870,7 @@
     <None Include="Resources\photo-camera-interface-symbol-for-button.png" />
     <None Include="Resources\check.png" />
     <None Include="Resources\close.png" />
+    <None Include="Resources\checklist.png" />
     <Content Include="Stock Barang Template.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

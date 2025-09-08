@@ -64,6 +64,12 @@ namespace GOS_FxApps
                                 case "Operator":
                                     MainForm.Instance.trueoperator();
                                     break;
+                                case "Foreman":
+                                    MainForm.Instance.trueforeman();
+                                    break;
+                                case "Asisten Foreman":
+                                    MainForm.Instance.trueforeman();
+                                    break;
                                 default:
                                     MessageBox.Show("Level tidak dikenali!", "Warning");
                                     txtid.Clear();
