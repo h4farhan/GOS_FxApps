@@ -630,7 +630,7 @@
                 <Top>1.19073cm</Top>
                 <Left>0.00163cm</Left>
                 <Height>0.69665cm</Height>
-                <Width>40.01842cm</Width>
+                <Width>37.51737cm</Width>
                 <ZIndex>3</ZIndex>
                 <Style>
                   <Border>
@@ -669,7 +669,7 @@
                 <rd:DefaultName>Textbox44</rd:DefaultName>
                 <Left>10.64914cm</Left>
                 <Height>0.6556cm</Height>
-                <Width>25.85756cm</Width>
+                <Width>23.35652cm</Width>
                 <ZIndex>4</ZIndex>
                 <Style>
                   <Border>
@@ -704,9 +704,9 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox44</rd:DefaultName>
                 <Top>0.00381cm</Top>
-                <Left>36.49996cm</Left>
+                <Left>34.00566cm</Left>
                 <Height>1.18593cm</Height>
-                <Width>2.10037cm</Width>
+                <Width>2.09363cm</Width>
                 <ZIndex>5</ZIndex>
                 <Style>
                   <Border>
@@ -1756,117 +1756,6 @@
                   <PaddingBottom>2pt</PaddingBottom>
                 </Style>
               </Textbox>
-              <Textbox Name="Textbox113">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>29</Value>
-                        <Style>
-                          <FontFamily>Arial Narrow</FontFamily>
-                          <FontWeight>SemiBold</FontWeight>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6604cm</Top>
-                <Left>34.00566cm</Left>
-                <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>34</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>Solid</Style>
-                    <Width>2pt</Width>
-                  </Border>
-                  <VerticalAlign>Middle</VerticalAlign>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-              <Textbox Name="Textbox114">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>30</Value>
-                        <Style>
-                          <FontFamily>Arial Narrow</FontFamily>
-                          <FontWeight>SemiBold</FontWeight>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6604cm</Top>
-                <Left>34.83934cm</Left>
-                <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>35</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>Solid</Style>
-                    <Width>2pt</Width>
-                  </Border>
-                  <VerticalAlign>Middle</VerticalAlign>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-              <Textbox Name="Textbox115">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>31</Value>
-                        <Style>
-                          <FontFamily>Arial Narrow</FontFamily>
-                          <FontWeight>SemiBold</FontWeight>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6556cm</Top>
-                <Left>35.67302cm</Left>
-                <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>36</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>Solid</Style>
-                    <Width>2pt</Width>
-                  </Border>
-                  <VerticalAlign>Middle</VerticalAlign>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
               <Textbox Name="Textbox118">
                 <CanGrow>true</CanGrow>
                 <KeepTogether>true</KeepTogether>
@@ -1891,7 +1780,7 @@
                 <Left>9.44747cm</Left>
                 <Height>1.18593cm</Height>
                 <Width>1.18113cm</Width>
-                <ZIndex>37</ZIndex>
+                <ZIndex>34</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1925,10 +1814,10 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox44</rd:DefaultName>
                 <Top>0.00381cm</Top>
-                <Left>38.60033cm</Left>
+                <Left>36.09929cm</Left>
                 <Height>1.18593cm</Height>
                 <Width>1.41971cm</Width>
-                <ZIndex>38</ZIndex>
+                <ZIndex>35</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1944,9 +1833,9 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.16778cm</Top>
-            <Left>0.97248cm</Left>
+            <Left>1.92498cm</Left>
             <Height>1.88738cm</Height>
-            <Width>40.02005cm</Width>
+            <Width>37.519cm</Width>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -1968,15 +1857,6 @@
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.19966cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>0.83368cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>0.83368cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>0.83368cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.83368cm</Width>
@@ -3194,111 +3074,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Kolom29">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Kolom29.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Kolom29</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Kolom30">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Kolom30.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Kolom30</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Kolom31">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Kolom31.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Kolom31</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
                         <Textbox Name="Total">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -3409,9 +3184,6 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -3423,9 +3195,9 @@
             </TablixRowHierarchy>
             <DataSetName>consumptionmaterial</DataSetName>
             <Top>2.05516cm</Top>
-            <Left>0.97411cm</Left>
+            <Left>1.92661cm</Left>
             <Height>0.62891cm</Height>
-            <Width>40.01841cm</Width>
+            <Width>37.51737cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -3455,9 +3227,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox44</rd:DefaultName>
             <Top>2.68408cm</Top>
-            <Left>0.97412cm</Left>
+            <Left>1.92662cm</Left>
             <Height>0.69665cm</Height>
-            <Width>40.0184cm</Width>
+            <Width>37.51736cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -3485,15 +3257,6 @@
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.19966cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>0.83368cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>0.83368cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>0.83368cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.83368cm</Width>
@@ -4711,111 +4474,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Kolom58">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Kolom29.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Kolom29</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Kolom59">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Kolom30.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Kolom30</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Kolom60">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Kolom31.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Kolom31</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
                         <Textbox Name="Total2">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -4926,9 +4584,6 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -4940,9 +4595,9 @@
             </TablixRowHierarchy>
             <DataSetName>consumptionconsumable</DataSetName>
             <Top>3.38377cm</Top>
-            <Left>0.97411cm</Left>
+            <Left>1.92661cm</Left>
             <Height>0.62891cm</Height>
-            <Width>40.01841cm</Width>
+            <Width>37.51737cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -4972,9 +4627,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox44</rd:DefaultName>
             <Top>4.01268cm</Top>
-            <Left>0.97248cm</Left>
+            <Left>1.92498cm</Left>
             <Height>0.69665cm</Height>
-            <Width>40.02004cm</Width>
+            <Width>37.519cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -5002,15 +4657,6 @@
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.19966cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>0.83368cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>0.83368cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>0.83368cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.83368cm</Width>
@@ -6228,111 +5874,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Kolom88">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Kolom29.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Kolom29</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Kolom89">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Kolom30.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Kolom30</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Kolom90">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Kolom31.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Kolom31</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
                         <Textbox Name="Total3">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -6443,9 +5984,6 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -6457,9 +5995,9 @@
             </TablixRowHierarchy>
             <DataSetName>consumptionsafety</DataSetName>
             <Top>4.71262cm</Top>
-            <Left>0.97411cm</Left>
+            <Left>1.92661cm</Left>
             <Height>0.62891cm</Height>
-            <Width>40.01841cm</Width>
+            <Width>37.51737cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -6484,7 +6022,7 @@
               <Value>Picture1</Value>
               <Sizing>Fit</Sizing>
               <Top>0.17983cm</Top>
-              <Left>0.97248cm</Left>
+              <Left>1.92498cm</Left>
               <Height>1.20036cm</Height>
               <Width>2.44224cm</Width>
               <Style>
@@ -6498,7 +6036,7 @@
               <Value>Picture2</Value>
               <Sizing>Fit</Sizing>
               <Top>0.17983cm</Top>
-              <Left>3.59111cm</Left>
+              <Left>4.54361cm</Left>
               <Height>1.7019cm</Height>
               <Width>1.6398cm</Width>
               <ZIndex>1</ZIndex>
@@ -6531,7 +6069,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox99</rd:DefaultName>
               <Top>2.05812cm</Top>
-              <Left>0.97248cm</Left>
+              <Left>1.92498cm</Left>
               <Height>0.73469cm</Height>
               <Width>7.54392cm</Width>
               <ZIndex>2</ZIndex>
@@ -6582,7 +6120,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox35</rd:DefaultName>
               <Top>0.49733cm</Top>
-              <Left>16.34586cm</Left>
+              <Left>17.29836cm</Left>
               <Height>1.3844cm</Height>
               <Width>12.21382cm</Width>
               <ZIndex>3</ZIndex>
@@ -6989,7 +6527,7 @@
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>0.19345cm</Top>
-              <Left>29.97606cm</Left>
+              <Left>28.42602cm</Left>
               <Height>4.06785cm</Height>
               <Width>11.01647cm</Width>
               <Visibility>

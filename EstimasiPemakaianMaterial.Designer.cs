@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnprint = new Guna.UI2.WinForms.Guna2Button();
             this.cmbpilihdata = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -69,6 +70,7 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -95,8 +97,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbltanggal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnprint = new Guna.UI2.WinForms.Guna2Button();
-            this.label28 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
@@ -118,6 +118,25 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1162, 57);
             this.panel1.TabIndex = 2;
+            // 
+            // btnprint
+            // 
+            this.btnprint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnprint.BorderRadius = 8;
+            this.btnprint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnprint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnprint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnprint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnprint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(58)))));
+            this.btnprint.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnprint.ForeColor = System.Drawing.Color.White;
+            this.btnprint.Location = new System.Drawing.Point(1012, 10);
+            this.btnprint.Margin = new System.Windows.Forms.Padding(2);
+            this.btnprint.Name = "btnprint";
+            this.btnprint.Size = new System.Drawing.Size(133, 36);
+            this.btnprint.TabIndex = 58;
+            this.btnprint.Text = "Ekspor Ke Excel";
+            this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
             // 
             // cmbpilihdata
             // 
@@ -197,7 +216,7 @@
             this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
-            this.guna2Panel4.Size = new System.Drawing.Size(2358, 900);
+            this.guna2Panel4.Size = new System.Drawing.Size(2375, 900);
             this.guna2Panel4.TabIndex = 37;
             // 
             // dataGridView1
@@ -217,7 +236,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(11, 135);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.Size = new System.Drawing.Size(2336, 753);
+            this.dataGridView1.Size = new System.Drawing.Size(2353, 753);
             this.dataGridView1.TabIndex = 59;
             // 
             // panel4
@@ -281,7 +300,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(11, 85);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(2336, 50);
+            this.panel4.Size = new System.Drawing.Size(2353, 50);
             this.panel4.TabIndex = 58;
             // 
             // label59
@@ -700,6 +719,19 @@
             this.label27.Text = "Qty";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label28
+            // 
+            this.label28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label28.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.White;
+            this.label28.Location = new System.Drawing.Point(620, 25);
+            this.label28.Margin = new System.Windows.Forms.Padding(0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(50, 25);
+            this.label28.TabIndex = 22;
+            this.label28.Text = "Qty";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label25
             // 
             this.label25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -998,7 +1030,7 @@
             this.PanelJudul.Margin = new System.Windows.Forms.Padding(2);
             this.PanelJudul.Name = "PanelJudul";
             this.PanelJudul.Padding = new System.Windows.Forms.Padding(5);
-            this.PanelJudul.Size = new System.Drawing.Size(2336, 73);
+            this.PanelJudul.Size = new System.Drawing.Size(2353, 73);
             this.PanelJudul.TabIndex = 57;
             // 
             // panel2
@@ -1014,7 +1046,7 @@
             this.lbltanggal.Font = new System.Drawing.Font("Segoe UI", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltanggal.Location = new System.Drawing.Point(5, 35);
             this.lbltanggal.Name = "lbltanggal";
-            this.lbltanggal.Size = new System.Drawing.Size(2326, 33);
+            this.lbltanggal.Size = new System.Drawing.Size(2343, 33);
             this.lbltanggal.TabIndex = 1;
             this.lbltanggal.Text = "Agustus 2024";
             this.lbltanggal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1025,42 +1057,10 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(5, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(2326, 30);
+            this.label1.Size = new System.Drawing.Size(2343, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "Estimasi Pemakaian Material";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnprint
-            // 
-            this.btnprint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnprint.BorderRadius = 8;
-            this.btnprint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnprint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnprint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnprint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnprint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(58)))));
-            this.btnprint.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnprint.ForeColor = System.Drawing.Color.White;
-            this.btnprint.Location = new System.Drawing.Point(1012, 10);
-            this.btnprint.Margin = new System.Windows.Forms.Padding(2);
-            this.btnprint.Name = "btnprint";
-            this.btnprint.Size = new System.Drawing.Size(133, 36);
-            this.btnprint.TabIndex = 58;
-            this.btnprint.Text = "Ekspor Ke Excel";
-            this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
-            // 
-            // label28
-            // 
-            this.label28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label28.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.White;
-            this.label28.Location = new System.Drawing.Point(620, 25);
-            this.label28.Margin = new System.Windows.Forms.Padding(0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(50, 25);
-            this.label28.TabIndex = 22;
-            this.label28.Text = "Qty";
-            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // EstimasiPemakaianMaterial
             // 
