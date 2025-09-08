@@ -86,7 +86,7 @@ namespace GOS_FxApps
             try
             {
                 Bitmap bmp = (Bitmap)eventArgs.Frame.Clone();
-                bmp.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                bmp.RotateFlip(RotateFlipType.Rotate180FlipNone);
 
                 if (pictureBoxPreview.InvokeRequired)
                 {
@@ -152,46 +152,6 @@ namespace GOS_FxApps
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
-        }
-
-        private void btnopenfile_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog ofd = new OpenFileDialog())
-            {
-                ofd.Title = "Pilih Foto";
-                ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
-
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        using (var fs = new FileStream(ofd.FileName, FileMode.Open, FileAccess.Read))
-                        {
-                            Image img = Image.FromStream(fs);
-
-                            if (pictureBoxPreview.Image != null)
-                                pictureBoxPreview.Image.Dispose();
-
-                            pictureBoxPreview.Image = (Image)img.Clone();
-                            HasilFoto = (Image)img.Clone();
-                        }
-
-                        if (videoSource != null && videoSource.IsRunning)
-                        {
-                            videoSource.SignalToStop();
-                            videoSource.WaitForStop();
-                        }
-
-                        btnya.Visible = true;
-                        btnno.Visible = true;
-                        btncapture.Enabled = false;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Gagal membuka file: " + ex.Message);
-                    }
-                }
-            }
-        }
+        }        
     }
 }

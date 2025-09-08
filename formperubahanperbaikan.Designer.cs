@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formperubahanperbaikan));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formperubahanperbaikan));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,7 +43,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtnomorrod = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnambilfoto = new FontAwesome.Sharp.IconButton();
             this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -105,13 +104,15 @@
             this.txtb = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
-            this.txtcaripenerimaan = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtcatatan = new Guna.UI2.WinForms.Guna2TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.btncancel = new Guna.UI2.WinForms.Guna2Button();
             this.btnsimpan = new Guna.UI2.WinForms.Guna2Button();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnambilfoto = new FontAwesome.Sharp.IconButton();
+            this.txtcaripenerimaan = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -299,7 +300,6 @@
             this.guna2Panel2.BorderColor = System.Drawing.Color.Gainsboro;
             this.guna2Panel2.BorderRadius = 15;
             this.guna2Panel2.BorderThickness = 2;
-            this.guna2Panel2.Controls.Add(this.btnambilfoto);
             this.guna2Panel2.Controls.Add(this.guna2Panel10);
             this.guna2Panel2.Controls.Add(this.txtm);
             this.guna2Panel2.Controls.Add(this.txte3);
@@ -334,24 +334,6 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(378, 545);
             this.guna2Panel2.TabIndex = 1;
-            // 
-            // btnambilfoto
-            // 
-            this.btnambilfoto.BackColor = System.Drawing.Color.Transparent;
-            this.btnambilfoto.Enabled = false;
-            this.btnambilfoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnambilfoto.ForeColor = System.Drawing.Color.Transparent;
-            this.btnambilfoto.IconChar = FontAwesome.Sharp.IconChar.CameraAlt;
-            this.btnambilfoto.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnambilfoto.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnambilfoto.IconSize = 30;
-            this.btnambilfoto.Location = new System.Drawing.Point(319, 396);
-            this.btnambilfoto.Margin = new System.Windows.Forms.Padding(2);
-            this.btnambilfoto.Name = "btnambilfoto";
-            this.btnambilfoto.Size = new System.Drawing.Size(47, 41);
-            this.btnambilfoto.TabIndex = 5;
-            this.btnambilfoto.UseVisualStyleBackColor = false;
-            this.btnambilfoto.Click += new System.EventHandler(this.btnambilfoto_Click);
             // 
             // guna2Panel10
             // 
@@ -1470,37 +1452,6 @@
             this.guna2Panel7.Size = new System.Drawing.Size(506, 396);
             this.guna2Panel7.TabIndex = 4;
             // 
-            // txtcaripenerimaan
-            // 
-            this.txtcaripenerimaan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtcaripenerimaan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcaripenerimaan.BorderRadius = 5;
-            this.txtcaripenerimaan.BorderThickness = 2;
-            this.txtcaripenerimaan.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtcaripenerimaan.DefaultText = "";
-            this.txtcaripenerimaan.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtcaripenerimaan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtcaripenerimaan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcaripenerimaan.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcaripenerimaan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcaripenerimaan.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtcaripenerimaan.ForeColor = System.Drawing.Color.Black;
-            this.txtcaripenerimaan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcaripenerimaan.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtcaripenerimaan.IconLeft")));
-            this.txtcaripenerimaan.IconLeftOffset = new System.Drawing.Point(5, 0);
-            this.txtcaripenerimaan.IconLeftSize = new System.Drawing.Size(15, 15);
-            this.txtcaripenerimaan.Location = new System.Drawing.Point(13, 15);
-            this.txtcaripenerimaan.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtcaripenerimaan.Name = "txtcaripenerimaan";
-            this.txtcaripenerimaan.PlaceholderForeColor = System.Drawing.Color.Gray;
-            this.txtcaripenerimaan.PlaceholderText = "Nomor ROD";
-            this.txtcaripenerimaan.SelectedText = "";
-            this.txtcaripenerimaan.Size = new System.Drawing.Size(482, 39);
-            this.txtcaripenerimaan.TabIndex = 1;
-            this.txtcaripenerimaan.TextOffset = new System.Drawing.Point(5, 0);
-            this.txtcaripenerimaan.TextChanged += new System.EventHandler(this.txtcaripenerimaan_TextChanged);
-            // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
@@ -1648,11 +1599,82 @@
             this.btnsimpan.Text = "Simpan Data";
             this.btnsimpan.Click += new System.EventHandler(this.btnsimpan_Click);
             // 
+            // iconButton1
+            // 
+            this.iconButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconButton1.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton1.Enabled = false;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.ForeColor = System.Drawing.Color.Transparent;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.FileUpload;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 30;
+            this.iconButton1.Location = new System.Drawing.Point(541, 662);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(2);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(47, 41);
+            this.iconButton1.TabIndex = 7;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
+            // btnambilfoto
+            // 
+            this.btnambilfoto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnambilfoto.BackColor = System.Drawing.Color.Transparent;
+            this.btnambilfoto.Enabled = false;
+            this.btnambilfoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnambilfoto.ForeColor = System.Drawing.Color.Transparent;
+            this.btnambilfoto.IconChar = FontAwesome.Sharp.IconChar.CameraAlt;
+            this.btnambilfoto.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnambilfoto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnambilfoto.IconSize = 30;
+            this.btnambilfoto.Location = new System.Drawing.Point(599, 662);
+            this.btnambilfoto.Margin = new System.Windows.Forms.Padding(2);
+            this.btnambilfoto.Name = "btnambilfoto";
+            this.btnambilfoto.Size = new System.Drawing.Size(47, 41);
+            this.btnambilfoto.TabIndex = 5;
+            this.btnambilfoto.UseVisualStyleBackColor = false;
+            this.btnambilfoto.Click += new System.EventHandler(this.btnambilfoto_Click);
+            // 
+            // txtcaripenerimaan
+            // 
+            this.txtcaripenerimaan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtcaripenerimaan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcaripenerimaan.BorderRadius = 5;
+            this.txtcaripenerimaan.BorderThickness = 2;
+            this.txtcaripenerimaan.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtcaripenerimaan.DefaultText = "";
+            this.txtcaripenerimaan.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtcaripenerimaan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtcaripenerimaan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcaripenerimaan.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcaripenerimaan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcaripenerimaan.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtcaripenerimaan.ForeColor = System.Drawing.Color.Black;
+            this.txtcaripenerimaan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcaripenerimaan.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtcaripenerimaan.IconLeft")));
+            this.txtcaripenerimaan.IconLeftOffset = new System.Drawing.Point(5, 0);
+            this.txtcaripenerimaan.IconLeftSize = new System.Drawing.Size(15, 15);
+            this.txtcaripenerimaan.Location = new System.Drawing.Point(13, 15);
+            this.txtcaripenerimaan.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtcaripenerimaan.Name = "txtcaripenerimaan";
+            this.txtcaripenerimaan.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.txtcaripenerimaan.PlaceholderText = "Nomor ROD";
+            this.txtcaripenerimaan.SelectedText = "";
+            this.txtcaripenerimaan.Size = new System.Drawing.Size(482, 39);
+            this.txtcaripenerimaan.TabIndex = 1;
+            this.txtcaripenerimaan.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtcaripenerimaan.TextChanged += new System.EventHandler(this.txtcaripenerimaan_TextChanged);
+            // 
             // formperubahanperbaikan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(923, 714);
+            this.Controls.Add(this.iconButton1);
+            this.Controls.Add(this.btnambilfoto);
             this.Controls.Add(this.btncancel);
             this.Controls.Add(this.btnsimpan);
             this.Controls.Add(this.tableLayoutPanel5);
@@ -1777,5 +1799,6 @@
         private Guna.UI2.WinForms.Guna2Button btncancel;
         private Guna.UI2.WinForms.Guna2Button btnsimpan;
         private FontAwesome.Sharp.IconButton btnambilfoto;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }

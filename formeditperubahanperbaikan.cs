@@ -298,6 +298,7 @@ namespace GOS_FxApps
             txtrl.Enabled = true;
             txtcatatan.Enabled = true;
             btnambilfoto.Enabled = true;
+            iconButton1.Enabled = true;
         }
 
         private void setfalse()
@@ -323,6 +324,7 @@ namespace GOS_FxApps
             txtrl.Enabled = false;
             txtcatatan.Enabled = false;
             btnambilfoto.Enabled = false;
+            iconButton1.Enabled = false;
         }
 
         private void AngkaOnly_KeyPress(object sender, KeyPressEventArgs e)
@@ -785,6 +787,52 @@ namespace GOS_FxApps
             btncancel.Enabled = false;
             btnedit.Enabled = false;
             dataGridView1.ClearSelection();
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            if (fotoSementara != null)
+            {
+                var result = MessageBox.Show("Foto sudah ada, ambil ulang?",
+                                             "Konfirmasi",
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                    return;
+            }
+
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Title = "Pilih Foto";
+                ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    using (var fs = new FileStream(ofd.FileName, FileMode.Open, FileAccess.Read))
+                    {
+                        Image img = Image.FromStream(fs);
+
+                        using (formdialog frm = new formdialog((Image)img.Clone()))
+                        {
+                            if (frm.ShowDialog() == DialogResult.OK)
+                            {
+                                if (frm.HasilFoto != null)
+                                {
+                                    fotoSementara = new Bitmap(frm.HasilFoto);
+                                    fotoDiganti = true;
+                                    MessageBox.Show("Foto berhasil dipilih, siap disimpan!",
+                                                    "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Foto gagal dipilih. Silakan ulangi.",
+                                                    "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

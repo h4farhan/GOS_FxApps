@@ -113,6 +113,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.btncancel = new Guna.UI2.WinForms.Guna2Button();
             this.btnedit = new Guna.UI2.WinForms.Guna2Button();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -300,7 +301,6 @@
             this.guna2Panel2.BorderColor = System.Drawing.Color.Gainsboro;
             this.guna2Panel2.BorderRadius = 15;
             this.guna2Panel2.BorderThickness = 2;
-            this.guna2Panel2.Controls.Add(this.btnambilfoto);
             this.guna2Panel2.Controls.Add(this.guna2Panel10);
             this.guna2Panel2.Controls.Add(this.txtm);
             this.guna2Panel2.Controls.Add(this.txte3);
@@ -338,6 +338,7 @@
             // 
             // btnambilfoto
             // 
+            this.btnambilfoto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnambilfoto.BackColor = System.Drawing.Color.Transparent;
             this.btnambilfoto.Enabled = false;
             this.btnambilfoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -346,7 +347,7 @@
             this.btnambilfoto.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnambilfoto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnambilfoto.IconSize = 30;
-            this.btnambilfoto.Location = new System.Drawing.Point(319, 396);
+            this.btnambilfoto.Location = new System.Drawing.Point(598, 661);
             this.btnambilfoto.Margin = new System.Windows.Forms.Padding(2);
             this.btnambilfoto.Name = "btnambilfoto";
             this.btnambilfoto.Size = new System.Drawing.Size(47, 41);
@@ -1688,11 +1689,32 @@
             this.btnedit.Text = "Edit Data";
             this.btnedit.Click += new System.EventHandler(this.btnedit_Click);
             // 
+            // iconButton1
+            // 
+            this.iconButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconButton1.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton1.Enabled = false;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.ForeColor = System.Drawing.Color.Transparent;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.FileUpload;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 30;
+            this.iconButton1.Location = new System.Drawing.Point(540, 661);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(2);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(47, 41);
+            this.iconButton1.TabIndex = 9;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
             // formeditperubahanperbaikan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(923, 714);
+            this.Controls.Add(this.btnambilfoto);
+            this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.btncancel);
             this.Controls.Add(this.btnedit);
             this.Controls.Add(this.tableLayoutPanel5);
@@ -1818,5 +1840,6 @@
         private Guna.UI2.WinForms.Guna2Button btncari;
         private Guna.UI2.WinForms.Guna2DateTimePicker datecari;
         private Guna.UI2.WinForms.Guna2TextBox txtcari;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }
