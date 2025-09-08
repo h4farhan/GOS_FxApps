@@ -46,7 +46,6 @@ namespace GOS_FxApps
             this.label6 = new System.Windows.Forms.Label();
             this.txtnomorrod = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnAmbilFoto = new FontAwesome.Sharp.IconPictureBox();
             this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -121,7 +120,6 @@ namespace GOS_FxApps
             this.tableLayoutPanel1.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAmbilFoto)).BeginInit();
             this.guna2Panel10.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
@@ -307,7 +305,6 @@ namespace GOS_FxApps
             this.guna2Panel2.BorderColor = System.Drawing.Color.Gainsboro;
             this.guna2Panel2.BorderRadius = 15;
             this.guna2Panel2.BorderThickness = 2;
-            this.guna2Panel2.Controls.Add(this.btnAmbilFoto);
             this.guna2Panel2.Controls.Add(this.guna2Panel10);
             this.guna2Panel2.Controls.Add(this.txtm);
             this.guna2Panel2.Controls.Add(this.txte3);
@@ -342,22 +339,6 @@ namespace GOS_FxApps
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(378, 545);
             this.guna2Panel2.TabIndex = 1;
-            // 
-            // btnAmbilFoto
-            // 
-            this.btnAmbilFoto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.btnAmbilFoto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAmbilFoto.ForeColor = System.Drawing.Color.Black;
-            this.btnAmbilFoto.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
-            this.btnAmbilFoto.IconColor = System.Drawing.Color.Black;
-            this.btnAmbilFoto.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAmbilFoto.IconSize = 41;
-            this.btnAmbilFoto.Location = new System.Drawing.Point(319, 396);
-            this.btnAmbilFoto.Name = "btnAmbilFoto";
-            this.btnAmbilFoto.Size = new System.Drawing.Size(47, 41);
-            this.btnAmbilFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnAmbilFoto.TabIndex = 60;
-            this.btnAmbilFoto.TabStop = false;
             // 
             // guna2Panel10
             // 
@@ -1687,7 +1668,6 @@ namespace GOS_FxApps
             this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAmbilFoto)).EndInit();
             this.guna2Panel10.ResumeLayout(false);
             this.guna2Panel10.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -1795,6 +1775,5 @@ namespace GOS_FxApps
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
         private Guna.UI2.WinForms.Guna2TextBox txtcatatan;
         private Label label12;
-        private FontAwesome.Sharp.IconPictureBox btnAmbilFoto;
     }
 }

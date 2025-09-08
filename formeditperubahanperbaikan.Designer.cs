@@ -42,7 +42,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtnomorrod = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnambilfoto = new FontAwesome.Sharp.IconButton();
             this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -102,6 +101,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.txtb = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnambilfoto = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
             this.btncari = new Guna.UI2.WinForms.Guna2Button();
@@ -335,25 +335,6 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(378, 545);
             this.guna2Panel2.TabIndex = 1;
-            // 
-            // btnambilfoto
-            // 
-            this.btnambilfoto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnambilfoto.BackColor = System.Drawing.Color.Transparent;
-            this.btnambilfoto.Enabled = false;
-            this.btnambilfoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnambilfoto.ForeColor = System.Drawing.Color.Transparent;
-            this.btnambilfoto.IconChar = FontAwesome.Sharp.IconChar.CameraAlt;
-            this.btnambilfoto.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnambilfoto.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnambilfoto.IconSize = 30;
-            this.btnambilfoto.Location = new System.Drawing.Point(598, 661);
-            this.btnambilfoto.Margin = new System.Windows.Forms.Padding(2);
-            this.btnambilfoto.Name = "btnambilfoto";
-            this.btnambilfoto.Size = new System.Drawing.Size(47, 41);
-            this.btnambilfoto.TabIndex = 5;
-            this.btnambilfoto.UseVisualStyleBackColor = false;
-            this.btnambilfoto.Click += new System.EventHandler(this.btnambilfoto_Click);
             // 
             // guna2Panel10
             // 
@@ -1435,6 +1416,25 @@
             this.txtb.TextChanged += new System.EventHandler(this.txtb_TextChanged);
             this.txtb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txtb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            // 
+            // btnambilfoto
+            // 
+            this.btnambilfoto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnambilfoto.BackColor = System.Drawing.Color.Transparent;
+            this.btnambilfoto.Enabled = false;
+            this.btnambilfoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnambilfoto.ForeColor = System.Drawing.Color.Transparent;
+            this.btnambilfoto.IconChar = FontAwesome.Sharp.IconChar.CameraAlt;
+            this.btnambilfoto.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnambilfoto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnambilfoto.IconSize = 30;
+            this.btnambilfoto.Location = new System.Drawing.Point(598, 661);
+            this.btnambilfoto.Margin = new System.Windows.Forms.Padding(2);
+            this.btnambilfoto.Name = "btnambilfoto";
+            this.btnambilfoto.Size = new System.Drawing.Size(47, 41);
+            this.btnambilfoto.TabIndex = 5;
+            this.btnambilfoto.UseVisualStyleBackColor = false;
+            this.btnambilfoto.Click += new System.EventHandler(this.btnambilfoto_Click);
             // 
             // tableLayoutPanel5
             // 

@@ -1712,7 +1712,7 @@
                 <DataSetName>datasetpenerimanmati</DataSetName>
                 <Top>1.8cm</Top>
                 <Height>0.59023cm</Height>
-                <Width>25.01554cm</Width>
+                <Width>25.01555cm</Width>
                 <ZIndex>22</ZIndex>
                 <Style>
                   <Border>
@@ -1726,7 +1726,7 @@
             <Top>1.07597cm</Top>
             <Left>0.3175cm</Left>
             <Height>2.39023cm</Height>
-            <Width>25.01554cm</Width>
+            <Width>25.01555cm</Width>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -3231,7 +3231,7 @@
                 <DataSetName>datasetpenerimaanedit</DataSetName>
                 <Top>1.8cm</Top>
                 <Height>0.59023cm</Height>
-                <Width>25.01554cm</Width>
+                <Width>25.01548cm</Width>
                 <ZIndex>22</ZIndex>
                 <Style>
                   <Border>
@@ -3310,7 +3310,7 @@
             <Top>3.93253cm</Top>
             <Left>0.3175cm</Left>
             <Height>0.70583cm</Height>
-            <Width>18.41587cm</Width>
+            <Width>25.01548cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
