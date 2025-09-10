@@ -795,7 +795,7 @@
                                 <TextRun>
                                   <Value>=Trim(Fields!catatan.Value)</Value>
                                   <Style>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1520,17 +1520,27 @@
             <TablixRowHierarchy>
               <TablixMembers>
                 <TablixMember>
-                  <Group Name="Details" />
+                  <Group Name="grphalaman">
+                    <GroupExpressions>
+                      <GroupExpression>=Ceiling(RowNumber(Nothing) / 30)</GroupExpression>
+                    </GroupExpressions>
+                    <PageBreak>
+                      <BreakLocation>Between</BreakLocation>
+                    </PageBreak>
+                  </Group>
+                  <TablixMembers>
+                    <TablixMember>
+                      <Group Name="Details" />
+                    </TablixMember>
+                  </TablixMembers>
                 </TablixMember>
-                <TablixMember>
-                  <KeepWithGroup>Before</KeepWithGroup>
-                </TablixMember>
+                <TablixMember />
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSetPenerimaan</DataSetName>
             <Left>0.36455cm</Left>
             <Height>1.19023cm</Height>
-            <Width>20.17545cm</Width>
+            <Width>20.17543cm</Width>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -3093,7 +3103,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>5.39736cm</Height>
+          <Height>5.27334cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>

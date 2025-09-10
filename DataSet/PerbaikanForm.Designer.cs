@@ -10869,28 +10869,23 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT\r\n    ISNULL(SUM(CASE WHEN jenis LIKE \'%E%\'  THEN 1 ELSE 0 END), 0) AS E,\r\n" +
-                "    ISNULL(SUM(CASE WHEN jenis LIKE \'%S%\'  THEN 1 ELSE 0 END), 0) AS S,\r\n    ISN" +
-                "ULL(SUM(CASE WHEN jenis LIKE \'%D%\'  THEN 1 ELSE 0 END), 0) AS D,\r\n    ISNULL(SUM" +
-                "(CASE WHEN jenis LIKE \'%B%\'  THEN 1 ELSE 0 END), 0) AS B,\r\n    ISNULL(SUM(CASE W" +
-                "HEN jenis LIKE \'%BA%\' THEN 1 ELSE 0 END), 0) AS BA,\r\n\tISNULL(SUM(CASE WHEN jenis" +
-                " LIKE \'%BA-1%\' THEN 1 ELSE 0 END), 0) AS BA_1,\r\n    ISNULL(SUM(CASE WHEN jenis L" +
-                "IKE \'%CR%\' THEN 1 ELSE 0 END), 0) AS CR,\r\n    ISNULL(SUM(CASE WHEN jenis LIKE \'%" +
-                "M%\'  THEN 1 ELSE 0 END), 0) AS M,\r\n    ISNULL(SUM(CASE WHEN jenis LIKE \'%R%\'  TH" +
-                "EN 1 ELSE 0 END), 0) AS R,\r\n    ISNULL(SUM(CASE WHEN jenis LIKE \'%C%\'  THEN 1 EL" +
-                "SE 0 END), 0) AS C,\r\n    ISNULL(SUM(CASE WHEN jenis LIKE \'%RL%\' THEN 1 ELSE 0 EN" +
-                "D), 0) AS RL,\r\n    ISNULL(\r\n        (\r\n            SUM(CASE WHEN jenis LIKE \'%E%" +
-                "\'  THEN 1 ELSE 0 END) +\r\n            SUM(CASE WHEN jenis LIKE \'%S%\'  THEN 1 ELSE" +
-                " 0 END) +\r\n            SUM(CASE WHEN jenis LIKE \'%D%\'  THEN 1 ELSE 0 END) +\r\n   " +
-                "         SUM(CASE WHEN jenis LIKE \'%B%\'  THEN 1 ELSE 0 END) +\r\n            SUM(C" +
-                "ASE WHEN jenis LIKE \'%BA%\' THEN 1 ELSE 0 END) +\r\n\t\t\tSUM(CASE WHEN jenis LIKE \'%B" +
-                "A-1%\' THEN 1 ELSE 0 END) +\r\n            SUM(CASE WHEN jenis LIKE \'%CR%\' THEN 1 E" +
-                "LSE 0 END) +\r\n            SUM(CASE WHEN jenis LIKE \'%M%\'  THEN 1 ELSE 0 END) +\r\n" +
-                "            SUM(CASE WHEN jenis LIKE \'%R%\'  THEN 1 ELSE 0 END) +\r\n            SU" +
-                "M(CASE WHEN jenis LIKE \'%C%\'  THEN 1 ELSE 0 END) +\r\n            SUM(CASE WHEN je" +
-                "nis LIKE \'%RL%\' THEN 1 ELSE 0 END)\r\n        ), 0\r\n    ) AS Total\r\nFROM perbaikan" +
-                "_p\r\nWHERE tanggal_perbaikan BETWEEN @tanggal1 AND @tanggal2\r\n  AND shift = @shif" +
-                "t;\r\n";
+            this._commandCollection[0].CommandText = @"SELECT
+    ISNULL(SUM(CASE WHEN jenis = 'E'     THEN 1 ELSE 0 END), 0) AS E,
+    ISNULL(SUM(CASE WHEN jenis = 'S'     THEN 1 ELSE 0 END), 0) AS S,
+    ISNULL(SUM(CASE WHEN jenis = 'D'     THEN 1 ELSE 0 END), 0) AS D,
+    ISNULL(SUM(CASE WHEN jenis = 'B'     THEN 1 ELSE 0 END), 0) AS B,
+    ISNULL(SUM(CASE WHEN jenis = 'BA'    THEN 1 ELSE 0 END), 0) AS BA,
+    ISNULL(SUM(CASE WHEN jenis = 'BA-1'  THEN 1 ELSE 0 END), 0) AS BA_1,
+    ISNULL(SUM(CASE WHEN jenis = 'CR'    THEN 1 ELSE 0 END), 0) AS CR,
+    ISNULL(SUM(CASE WHEN jenis = 'M'     THEN 1 ELSE 0 END), 0) AS M,
+    ISNULL(SUM(CASE WHEN jenis = 'R'     THEN 1 ELSE 0 END), 0) AS R,
+    ISNULL(SUM(CASE WHEN jenis = 'C'     THEN 1 ELSE 0 END), 0) AS C,
+    ISNULL(SUM(CASE WHEN jenis = 'RL'    THEN 1 ELSE 0 END), 0) AS RL,
+    COUNT(*) AS Total
+FROM perbaikan_p
+WHERE tanggal_perbaikan BETWEEN @tanggal1 AND @tanggal2
+  AND shift = @shift;
+";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal1", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal2", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

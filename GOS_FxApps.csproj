@@ -710,17 +710,17 @@
     <Content Include="Pengiriman.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Perbaikan.rdlc">
+    <EmbeddedResource Include="Penerimaan.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Penerimaan.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </EmbeddedResource>
     <EmbeddedResource Include="Penerimaan.resx">
       <DependentUpon>Penerimaan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pengiriman.resx">
       <DependentUpon>Pengiriman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Perbaikan.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Perbaikan.resx">
       <DependentUpon>Perbaikan.cs</DependentUpon>

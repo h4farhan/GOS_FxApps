@@ -74,7 +74,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(810, 57);
+            this.panel1.Size = new System.Drawing.Size(923, 57);
             this.panel1.TabIndex = 2;
             // 
             // label2
@@ -316,7 +316,7 @@
             this.panel3.Location = new System.Drawing.Point(405, 57);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(405, 620);
+            this.panel3.Size = new System.Drawing.Size(518, 620);
             this.panel3.TabIndex = 5;
             // 
             // btnbatal
@@ -330,7 +330,7 @@
             this.btnbatal.FillColor = System.Drawing.Color.Maroon;
             this.btnbatal.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnbatal.ForeColor = System.Drawing.Color.White;
-            this.btnbatal.Location = new System.Drawing.Point(14, 565);
+            this.btnbatal.Location = new System.Drawing.Point(127, 565);
             this.btnbatal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnbatal.Name = "btnbatal";
             this.btnbatal.Size = new System.Drawing.Size(122, 35);
@@ -351,7 +351,7 @@
             this.btndelete.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btndelete.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btndelete.ForeColor = System.Drawing.Color.White;
-            this.btndelete.Location = new System.Drawing.Point(144, 565);
+            this.btndelete.Location = new System.Drawing.Point(257, 565);
             this.btndelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btndelete.Name = "btndelete";
             this.btndelete.Size = new System.Drawing.Size(122, 35);
@@ -371,7 +371,7 @@
             this.btnsimpan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnsimpan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnsimpan.ForeColor = System.Drawing.Color.White;
-            this.btnsimpan.Location = new System.Drawing.Point(272, 565);
+            this.btnsimpan.Location = new System.Drawing.Point(385, 565);
             this.btnsimpan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnsimpan.Name = "btnsimpan";
             this.btnsimpan.Size = new System.Drawing.Size(122, 35);
@@ -394,7 +394,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 6F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(405, 557);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(518, 557);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // guna2Panel2
@@ -412,7 +412,7 @@
             this.guna2Panel2.Location = new System.Drawing.Point(3, 2);
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(391, 547);
+            this.guna2Panel2.Size = new System.Drawing.Size(504, 547);
             this.guna2Panel2.TabIndex = 2;
             // 
             // cbShift
@@ -433,7 +433,7 @@
             "1",
             "2",
             "3"});
-            this.cbShift.Location = new System.Drawing.Point(225, 15);
+            this.cbShift.Location = new System.Drawing.Point(254, 15);
             this.cbShift.Margin = new System.Windows.Forms.Padding(2);
             this.cbShift.Name = "cbShift";
             this.cbShift.Size = new System.Drawing.Size(90, 36);
@@ -450,7 +450,7 @@
             this.btncari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btncari.ForeColor = System.Drawing.Color.White;
-            this.btncari.Location = new System.Drawing.Point(319, 15);
+            this.btncari.Location = new System.Drawing.Point(432, 15);
             this.btncari.Margin = new System.Windows.Forms.Padding(2);
             this.btncari.Name = "btncari";
             this.btncari.Size = new System.Drawing.Size(60, 37);
@@ -474,7 +474,7 @@
             this.datecari.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datecari.Name = "datecari";
             this.datecari.ShowCheckBox = true;
-            this.datecari.Size = new System.Drawing.Size(210, 39);
+            this.datecari.Size = new System.Drawing.Size(239, 39);
             this.datecari.TabIndex = 43;
             this.datecari.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
             // 
@@ -520,7 +520,7 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(368, 477);
+            this.dataGridView1.Size = new System.Drawing.Size(481, 477);
             this.dataGridView1.TabIndex = 39;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -529,7 +529,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.ClientSize = new System.Drawing.Size(810, 677);
+            this.ClientSize = new System.Drawing.Size(923, 677);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

@@ -103,6 +103,9 @@
             this.txtb = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnambilfoto = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtcatatan = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
             this.btncari = new Guna.UI2.WinForms.Guna2Button();
             this.datecari = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -111,9 +114,6 @@
             this.btncancel = new Guna.UI2.WinForms.Guna2Button();
             this.btnedit = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
-            this.txtcatatan = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -128,9 +128,9 @@
             this.guna2Panel3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            this.guna2Panel6.SuspendLayout();
             this.guna2Panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.guna2Panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -1457,6 +1457,66 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(518, 605);
             this.tableLayoutPanel5.TabIndex = 5;
             // 
+            // guna2Panel6
+            // 
+            this.guna2Panel6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel6.BorderColor = System.Drawing.Color.Gainsboro;
+            this.guna2Panel6.BorderRadius = 10;
+            this.guna2Panel6.BorderThickness = 2;
+            this.guna2Panel6.Controls.Add(this.txtcatatan);
+            this.guna2Panel6.Controls.Add(this.label12);
+            this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel6.FillColor = System.Drawing.Color.White;
+            this.guna2Panel6.Location = new System.Drawing.Point(2, 2);
+            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Panel6.Name = "guna2Panel6";
+            this.guna2Panel6.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
+            this.guna2Panel6.Size = new System.Drawing.Size(506, 90);
+            this.guna2Panel6.TabIndex = 8;
+            this.guna2Panel6.TabStop = true;
+            // 
+            // txtcatatan
+            // 
+            this.txtcatatan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtcatatan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcatatan.BorderRadius = 5;
+            this.txtcatatan.BorderThickness = 2;
+            this.txtcatatan.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtcatatan.DefaultText = "";
+            this.txtcatatan.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtcatatan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtcatatan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcatatan.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcatatan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcatatan.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtcatatan.ForeColor = System.Drawing.Color.Black;
+            this.txtcatatan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcatatan.Location = new System.Drawing.Point(18, 39);
+            this.txtcatatan.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtcatatan.Name = "txtcatatan";
+            this.txtcatatan.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcatatan.PlaceholderText = "Axxxx";
+            this.txtcatatan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtcatatan.SelectedText = "";
+            this.txtcatatan.Size = new System.Drawing.Size(475, 41);
+            this.txtcatatan.TabIndex = 0;
+            this.txtcatatan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+            this.txtcatatan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
+            // 
+            // label12
+            // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label12.Location = new System.Drawing.Point(14, 10);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(63, 21);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Catatan";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // guna2Panel7
             // 
             this.guna2Panel7.BorderColor = System.Drawing.Color.Gainsboro;
@@ -1508,7 +1568,7 @@
             this.datecari.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datecari.Name = "datecari";
             this.datecari.ShowCheckBox = true;
-            this.datecari.Size = new System.Drawing.Size(217, 39);
+            this.datecari.Size = new System.Drawing.Size(241, 39);
             this.datecari.TabIndex = 46;
             this.datecari.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
             // 
@@ -1532,13 +1592,13 @@
             this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.search;
             this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
-            this.txtcari.Location = new System.Drawing.Point(234, 9);
+            this.txtcari.Location = new System.Drawing.Point(258, 9);
             this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtcari.Name = "txtcari";
             this.txtcari.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtcari.PlaceholderText = "Nomor ROD";
             this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(197, 39);
+            this.txtcari.Size = new System.Drawing.Size(173, 39);
             this.txtcari.TabIndex = 45;
             this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
             // 
@@ -1647,66 +1707,6 @@
             this.iconButton1.UseVisualStyleBackColor = false;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
-            // guna2Panel6
-            // 
-            this.guna2Panel6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel6.BorderColor = System.Drawing.Color.Gainsboro;
-            this.guna2Panel6.BorderRadius = 10;
-            this.guna2Panel6.BorderThickness = 2;
-            this.guna2Panel6.Controls.Add(this.txtcatatan);
-            this.guna2Panel6.Controls.Add(this.label12);
-            this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel6.FillColor = System.Drawing.Color.White;
-            this.guna2Panel6.Location = new System.Drawing.Point(2, 2);
-            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2Panel6.Name = "guna2Panel6";
-            this.guna2Panel6.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
-            this.guna2Panel6.Size = new System.Drawing.Size(506, 90);
-            this.guna2Panel6.TabIndex = 8;
-            this.guna2Panel6.TabStop = true;
-            // 
-            // txtcatatan
-            // 
-            this.txtcatatan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtcatatan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcatatan.BorderRadius = 5;
-            this.txtcatatan.BorderThickness = 2;
-            this.txtcatatan.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtcatatan.DefaultText = "";
-            this.txtcatatan.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtcatatan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtcatatan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcatatan.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcatatan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcatatan.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtcatatan.ForeColor = System.Drawing.Color.Black;
-            this.txtcatatan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcatatan.Location = new System.Drawing.Point(18, 39);
-            this.txtcatatan.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtcatatan.Name = "txtcatatan";
-            this.txtcatatan.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcatatan.PlaceholderText = "Axxxx";
-            this.txtcatatan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtcatatan.SelectedText = "";
-            this.txtcatatan.Size = new System.Drawing.Size(475, 41);
-            this.txtcatatan.TabIndex = 0;
-            this.txtcatatan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtcatatan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
-            // 
-            // label12
-            // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(14, 10);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(63, 21);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "Catatan";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // formeditperubahanperbaikan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1747,10 +1747,10 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
-            this.guna2Panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.guna2Panel6.ResumeLayout(false);
             this.guna2Panel6.PerformLayout();
+            this.guna2Panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

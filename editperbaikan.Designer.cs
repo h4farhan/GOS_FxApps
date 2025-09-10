@@ -31,9 +31,9 @@ namespace GOS_FxApps
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -112,14 +112,14 @@ namespace GOS_FxApps
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnupdate = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtcatatan = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.btncari = new Guna.UI2.WinForms.Guna2Button();
             this.dateeditperbaikan = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
-            this.txtcatatan = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -136,9 +136,9 @@ namespace GOS_FxApps
             this.tableLayoutPanel6.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            this.guna2Panel7.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.guna2Panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -150,7 +150,7 @@ namespace GOS_FxApps
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(735, 46);
+            this.panel1.Size = new System.Drawing.Size(923, 46);
             this.panel1.TabIndex = 2;
             // 
             // label2
@@ -1481,7 +1481,7 @@ namespace GOS_FxApps
             this.btnclear.FillColor = System.Drawing.Color.DarkRed;
             this.btnclear.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnclear.ForeColor = System.Drawing.Color.White;
-            this.btnclear.Location = new System.Drawing.Point(64, 697);
+            this.btnclear.Location = new System.Drawing.Point(252, 697);
             this.btnclear.Margin = new System.Windows.Forms.Padding(2);
             this.btnclear.Name = "btnclear";
             this.btnclear.Size = new System.Drawing.Size(122, 35);
@@ -1500,7 +1500,7 @@ namespace GOS_FxApps
             this.panel3.Location = new System.Drawing.Point(405, 46);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(330, 753);
+            this.panel3.Size = new System.Drawing.Size(518, 753);
             this.panel3.TabIndex = 4;
             // 
             // btnupdate
@@ -1515,7 +1515,7 @@ namespace GOS_FxApps
             this.btnupdate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnupdate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnupdate.ForeColor = System.Drawing.Color.White;
-            this.btnupdate.Location = new System.Drawing.Point(197, 697);
+            this.btnupdate.Location = new System.Drawing.Point(385, 697);
             this.btnupdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnupdate.Name = "btnupdate";
             this.btnupdate.Size = new System.Drawing.Size(122, 35);
@@ -1539,142 +1539,8 @@ namespace GOS_FxApps
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.47178F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.52822F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(330, 691);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(518, 691);
             this.tableLayoutPanel5.TabIndex = 0;
-            // 
-            // guna2Panel6
-            // 
-            this.guna2Panel6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel6.BorderColor = System.Drawing.Color.Gainsboro;
-            this.guna2Panel6.BorderRadius = 15;
-            this.guna2Panel6.BorderThickness = 2;
-            this.guna2Panel6.Controls.Add(this.btncari);
-            this.guna2Panel6.Controls.Add(this.dateeditperbaikan);
-            this.guna2Panel6.Controls.Add(this.txtcari);
-            this.guna2Panel6.Controls.Add(this.dataGridView1);
-            this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel6.FillColor = System.Drawing.Color.White;
-            this.guna2Panel6.Location = new System.Drawing.Point(2, 102);
-            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2Panel6.Name = "guna2Panel6";
-            this.guna2Panel6.Size = new System.Drawing.Size(318, 587);
-            this.guna2Panel6.TabIndex = 2;
-            // 
-            // btncari
-            // 
-            this.btncari.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btncari.BorderRadius = 8;
-            this.btncari.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btncari.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btncari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btncari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btncari.ForeColor = System.Drawing.Color.White;
-            this.btncari.Location = new System.Drawing.Point(247, 17);
-            this.btncari.Margin = new System.Windows.Forms.Padding(2);
-            this.btncari.Name = "btncari";
-            this.btncari.Size = new System.Drawing.Size(60, 37);
-            this.btncari.TabIndex = 2;
-            this.btncari.Text = "Cari";
-            this.btncari.Click += new System.EventHandler(this.btncari_Click);
-            // 
-            // dateeditperbaikan
-            // 
-            this.dateeditperbaikan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dateeditperbaikan.BorderRadius = 5;
-            this.dateeditperbaikan.BorderThickness = 2;
-            this.dateeditperbaikan.Checked = true;
-            this.dateeditperbaikan.FillColor = System.Drawing.Color.White;
-            this.dateeditperbaikan.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.dateeditperbaikan.ForeColor = System.Drawing.Color.Black;
-            this.dateeditperbaikan.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dateeditperbaikan.Location = new System.Drawing.Point(13, 15);
-            this.dateeditperbaikan.Margin = new System.Windows.Forms.Padding(2);
-            this.dateeditperbaikan.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dateeditperbaikan.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dateeditperbaikan.Name = "dateeditperbaikan";
-            this.dateeditperbaikan.ShowCheckBox = true;
-            this.dateeditperbaikan.Size = new System.Drawing.Size(200, 39);
-            this.dateeditperbaikan.TabIndex = 0;
-            this.dateeditperbaikan.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
-            this.dateeditperbaikan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
-            // 
-            // txtcari
-            // 
-            this.txtcari.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtcari.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcari.BorderRadius = 5;
-            this.txtcari.BorderThickness = 2;
-            this.txtcari.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtcari.DefaultText = "";
-            this.txtcari.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtcari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtcari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcari.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcari.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcari.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtcari.ForeColor = System.Drawing.Color.Black;
-            this.txtcari.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.search;
-            this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
-            this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
-            this.txtcari.Location = new System.Drawing.Point(217, 15);
-            this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtcari.Name = "txtcari";
-            this.txtcari.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcari.PlaceholderText = "Nomor ROD";
-            this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(26, 39);
-            this.txtcari.TabIndex = 1;
-            this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
-            this.txtcari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.Gray;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 58);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(294, 519);
-            this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // guna2Panel7
             // 
@@ -1690,7 +1556,7 @@ namespace GOS_FxApps
             this.guna2Panel7.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel7.Name = "guna2Panel7";
             this.guna2Panel7.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
-            this.guna2Panel7.Size = new System.Drawing.Size(318, 96);
+            this.guna2Panel7.Size = new System.Drawing.Size(506, 96);
             this.guna2Panel7.TabIndex = 8;
             this.guna2Panel7.TabStop = true;
             // 
@@ -1717,7 +1583,7 @@ namespace GOS_FxApps
             this.txtcatatan.PlaceholderText = "Axxxx";
             this.txtcatatan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtcatatan.SelectedText = "";
-            this.txtcatatan.Size = new System.Drawing.Size(287, 41);
+            this.txtcatatan.Size = new System.Drawing.Size(475, 41);
             this.txtcatatan.TabIndex = 0;
             this.txtcatatan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txtcatatan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
@@ -1736,12 +1602,146 @@ namespace GOS_FxApps
             this.label12.Text = "Catatan";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // guna2Panel6
+            // 
+            this.guna2Panel6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel6.BorderColor = System.Drawing.Color.Gainsboro;
+            this.guna2Panel6.BorderRadius = 15;
+            this.guna2Panel6.BorderThickness = 2;
+            this.guna2Panel6.Controls.Add(this.btncari);
+            this.guna2Panel6.Controls.Add(this.dateeditperbaikan);
+            this.guna2Panel6.Controls.Add(this.txtcari);
+            this.guna2Panel6.Controls.Add(this.dataGridView1);
+            this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel6.FillColor = System.Drawing.Color.White;
+            this.guna2Panel6.Location = new System.Drawing.Point(2, 102);
+            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Panel6.Name = "guna2Panel6";
+            this.guna2Panel6.Size = new System.Drawing.Size(506, 587);
+            this.guna2Panel6.TabIndex = 2;
+            // 
+            // btncari
+            // 
+            this.btncari.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btncari.BorderRadius = 8;
+            this.btncari.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btncari.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btncari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btncari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btncari.ForeColor = System.Drawing.Color.White;
+            this.btncari.Location = new System.Drawing.Point(435, 17);
+            this.btncari.Margin = new System.Windows.Forms.Padding(2);
+            this.btncari.Name = "btncari";
+            this.btncari.Size = new System.Drawing.Size(60, 37);
+            this.btncari.TabIndex = 2;
+            this.btncari.Text = "Cari";
+            this.btncari.Click += new System.EventHandler(this.btncari_Click);
+            // 
+            // dateeditperbaikan
+            // 
+            this.dateeditperbaikan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dateeditperbaikan.BorderRadius = 5;
+            this.dateeditperbaikan.BorderThickness = 2;
+            this.dateeditperbaikan.Checked = true;
+            this.dateeditperbaikan.FillColor = System.Drawing.Color.White;
+            this.dateeditperbaikan.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.dateeditperbaikan.ForeColor = System.Drawing.Color.Black;
+            this.dateeditperbaikan.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateeditperbaikan.Location = new System.Drawing.Point(13, 15);
+            this.dateeditperbaikan.Margin = new System.Windows.Forms.Padding(2);
+            this.dateeditperbaikan.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dateeditperbaikan.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dateeditperbaikan.Name = "dateeditperbaikan";
+            this.dateeditperbaikan.ShowCheckBox = true;
+            this.dateeditperbaikan.Size = new System.Drawing.Size(233, 39);
+            this.dateeditperbaikan.TabIndex = 0;
+            this.dateeditperbaikan.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
+            this.dateeditperbaikan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            // 
+            // txtcari
+            // 
+            this.txtcari.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtcari.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcari.BorderRadius = 5;
+            this.txtcari.BorderThickness = 2;
+            this.txtcari.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtcari.DefaultText = "";
+            this.txtcari.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtcari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtcari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcari.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcari.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcari.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtcari.ForeColor = System.Drawing.Color.Black;
+            this.txtcari.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.search;
+            this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
+            this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
+            this.txtcari.Location = new System.Drawing.Point(250, 15);
+            this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtcari.Name = "txtcari";
+            this.txtcari.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcari.PlaceholderText = "Nomor ROD";
+            this.txtcari.SelectedText = "";
+            this.txtcari.Size = new System.Drawing.Size(181, 39);
+            this.txtcari.TabIndex = 1;
+            this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtcari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.Color.Gray;
+            this.dataGridView1.Location = new System.Drawing.Point(13, 58);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Name = "dataGridView1";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(482, 519);
+            this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
             // editperbaikan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.ClientSize = new System.Drawing.Size(735, 799);
+            this.ClientSize = new System.Drawing.Size(923, 799);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -1778,10 +1778,10 @@ namespace GOS_FxApps
             this.tableLayoutPanel6.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
-            this.guna2Panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.guna2Panel7.ResumeLayout(false);
             this.guna2Panel7.PerformLayout();
+            this.guna2Panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

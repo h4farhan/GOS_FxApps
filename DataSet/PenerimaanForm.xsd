@@ -208,30 +208,17 @@ SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3, s, 
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT
-    ISNULL(SUM(CASE WHEN jenis LIKE '%E%'  THEN 1 ELSE 0 END), 0) AS E,
-    ISNULL(SUM(CASE WHEN jenis LIKE '%S%'  THEN 1 ELSE 0 END), 0) AS S,
-    ISNULL(SUM(CASE WHEN jenis LIKE '%D%'  THEN 1 ELSE 0 END), 0) AS D,
-    ISNULL(SUM(CASE WHEN jenis LIKE '%B%'  THEN 1 ELSE 0 END), 0) AS B,
-    ISNULL(SUM(CASE WHEN jenis LIKE '%BA%' THEN 1 ELSE 0 END), 0) AS BA,
-    ISNULL(SUM(CASE WHEN jenis LIKE '%CR%' THEN 1 ELSE 0 END), 0) AS CR,
-    ISNULL(SUM(CASE WHEN jenis LIKE '%M%'  THEN 1 ELSE 0 END), 0) AS M,
-    ISNULL(SUM(CASE WHEN jenis LIKE '%R%'  THEN 1 ELSE 0 END), 0) AS R,
-    ISNULL(SUM(CASE WHEN jenis LIKE '%C%'  THEN 1 ELSE 0 END), 0) AS C,
-    ISNULL(SUM(CASE WHEN jenis LIKE '%RL%' THEN 1 ELSE 0 END), 0) AS RL,
-    ISNULL(
-        (
-            SUM(CASE WHEN jenis LIKE '%E%'  THEN 1 ELSE 0 END) +
-            SUM(CASE WHEN jenis LIKE '%S%'  THEN 1 ELSE 0 END) +
-            SUM(CASE WHEN jenis LIKE '%D%'  THEN 1 ELSE 0 END) +
-            SUM(CASE WHEN jenis LIKE '%B%'  THEN 1 ELSE 0 END) +
-            SUM(CASE WHEN jenis LIKE '%BA%' THEN 1 ELSE 0 END) +
-            SUM(CASE WHEN jenis LIKE '%CR%' THEN 1 ELSE 0 END) +
-            SUM(CASE WHEN jenis LIKE '%M%'  THEN 1 ELSE 0 END) +
-            SUM(CASE WHEN jenis LIKE '%R%'  THEN 1 ELSE 0 END) +
-            SUM(CASE WHEN jenis LIKE '%C%'  THEN 1 ELSE 0 END) +
-            SUM(CASE WHEN jenis LIKE '%RL%' THEN 1 ELSE 0 END)
-        ), 0
-    ) AS Total
+    ISNULL(SUM(CASE WHEN jenis = 'E'  THEN 1 ELSE 0 END), 0) AS E,
+    ISNULL(SUM(CASE WHEN jenis = 'S'  THEN 1 ELSE 0 END), 0) AS S,
+    ISNULL(SUM(CASE WHEN jenis = 'D'  THEN 1 ELSE 0 END), 0) AS D,
+    ISNULL(SUM(CASE WHEN jenis = 'B'  THEN 1 ELSE 0 END), 0) AS B,
+    ISNULL(SUM(CASE WHEN jenis = 'BA' THEN 1 ELSE 0 END), 0) AS BA,
+    ISNULL(SUM(CASE WHEN jenis = 'CR' THEN 1 ELSE 0 END), 0) AS CR,
+    ISNULL(SUM(CASE WHEN jenis = 'M'  THEN 1 ELSE 0 END), 0) AS M,
+    ISNULL(SUM(CASE WHEN jenis = 'R'  THEN 1 ELSE 0 END), 0) AS R,
+    ISNULL(SUM(CASE WHEN jenis = 'C'  THEN 1 ELSE 0 END), 0) AS C,
+    ISNULL(SUM(CASE WHEN jenis = 'RL' THEN 1 ELSE 0 END), 0) AS RL,
+    COUNT(*) AS Total
 FROM penerimaan_p
 WHERE tanggal_penerimaan BETWEEN @tanggal1 AND @tanggal2
   AND shift = @shift;
@@ -584,7 +571,7 @@ WHERE no = @no</CommandText>
               <xs:element name="c" msprop:Generator_ColumnPropNameInTable="cColumn" msprop:Generator_ColumnPropNameInRow="c" msprop:Generator_UserColumnName="c" msprop:Generator_ColumnVarNameInTable="columnc" type="xs:int" minOccurs="0" />
               <xs:element name="rl" msprop:Generator_ColumnPropNameInTable="rlColumn" msprop:Generator_ColumnPropNameInRow="rl" msprop:Generator_UserColumnName="rl" msprop:Generator_ColumnVarNameInTable="columnrl" type="xs:int" minOccurs="0" />
               <xs:element name="jumlah" msprop:Generator_ColumnPropNameInTable="jumlahColumn" msprop:Generator_ColumnPropNameInRow="jumlah" msprop:Generator_UserColumnName="jumlah" msprop:Generator_ColumnVarNameInTable="columnjumlah" type="xs:int" minOccurs="0" />
-              <xs:element name="catatan" msprop:Generator_ColumnPropNameInRow="catatan" msprop:Generator_ColumnPropNameInTable="catatanColumn" msprop:Generator_ColumnVarNameInTable="columncatatan" msprop:Generator_UserColumnName="catatan" minOccurs="0">
+              <xs:element name="catatan" msprop:Generator_UserColumnName="catatan" msprop:Generator_ColumnPropNameInTable="catatanColumn" msprop:Generator_ColumnPropNameInRow="catatan" msprop:Generator_ColumnVarNameInTable="columncatatan" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
@@ -714,8 +701,8 @@ WHERE no = @no</CommandText>
               <xs:element name="c" msprop:Generator_ColumnPropNameInTable="cColumn" msprop:Generator_ColumnPropNameInRow="c" msprop:Generator_UserColumnName="c" msprop:Generator_ColumnVarNameInTable="columnc" type="xs:int" minOccurs="0" />
               <xs:element name="rl" msprop:Generator_ColumnPropNameInTable="rlColumn" msprop:Generator_ColumnPropNameInRow="rl" msprop:Generator_UserColumnName="rl" msprop:Generator_ColumnVarNameInTable="columnrl" type="xs:int" minOccurs="0" />
               <xs:element name="jumlah" msprop:Generator_ColumnPropNameInTable="jumlahColumn" msprop:Generator_ColumnPropNameInRow="jumlah" msprop:Generator_UserColumnName="jumlah" msprop:Generator_ColumnVarNameInTable="columnjumlah" type="xs:int" minOccurs="0" />
-              <xs:element name="updated_at" msprop:Generator_UserColumnName="updated_at" msprop:Generator_ColumnPropNameInTable="updated_atColumn" msprop:Generator_ColumnPropNameInRow="updated_at" msprop:Generator_ColumnVarNameInTable="columnupdated_at" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="remaks" msprop:Generator_UserColumnName="remaks" msprop:Generator_ColumnPropNameInTable="remaksColumn" msprop:Generator_ColumnPropNameInRow="remaks" msprop:Generator_ColumnVarNameInTable="columnremaks" minOccurs="0">
+              <xs:element name="updated_at" msprop:Generator_ColumnPropNameInTable="updated_atColumn" msprop:Generator_ColumnPropNameInRow="updated_at" msprop:Generator_UserColumnName="updated_at" msprop:Generator_ColumnVarNameInTable="columnupdated_at" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="remaks" msprop:Generator_ColumnPropNameInTable="remaksColumn" msprop:Generator_ColumnPropNameInRow="remaks" msprop:Generator_UserColumnName="remaks" msprop:Generator_ColumnVarNameInTable="columnremaks" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
