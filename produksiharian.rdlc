@@ -2433,7 +2433,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -2849,16 +2848,17 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>4.19183cm</Height>
+          <Height>4.91112cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
             <Rectangle Name="Rectangle3">
               <ReportItems>
                 <Line Name="Line1">
-                  <Top>0.76997cm</Top>
+                  <Top>0.74687cm</Top>
+                  <Left>0.00014cm</Left>
                   <Height>0cm</Height>
-                  <Width>8.79248cm</Width>
+                  <Width>11.01646cm</Width>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
@@ -2867,9 +2867,9 @@
                   </Style>
                 </Line>
                 <Line Name="Line2">
-                  <Top>0.76997cm</Top>
-                  <Left>2.86529cm</Left>
-                  <Height>3.29788cm</Height>
+                  <Top>0.74687cm</Top>
+                  <Left>2.86691cm</Left>
+                  <Height>3.63508cm</Height>
                   <Width>0cm</Width>
                   <ZIndex>1</ZIndex>
                   <Style>
@@ -2880,9 +2880,9 @@
                   </Style>
                 </Line>
                 <Line Name="Line3">
-                  <Top>0.76997cm</Top>
-                  <Left>6.0224cm</Left>
-                  <Height>3.29788cm</Height>
+                  <Top>0.74687cm</Top>
+                  <Left>6.65902cm</Left>
+                  <Height>3.63508cm</Height>
                   <Width>0cm</Width>
                   <ZIndex>2</ZIndex>
                   <Style>
@@ -2893,9 +2893,9 @@
                   </Style>
                 </Line>
                 <Line Name="Line4">
-                  <Top>1.42249cm</Top>
+                  <Top>1.51015cm</Top>
                   <Height>0cm</Height>
-                  <Width>8.79248cm</Width>
+                  <Width>11.01496cm</Width>
                   <ZIndex>3</ZIndex>
                   <Style>
                     <Border>
@@ -2905,9 +2905,10 @@
                   </Style>
                 </Line>
                 <Line Name="Line5">
-                  <Top>2.10915cm</Top>
+                  <Top>2.27343cm</Top>
+                  <Left>0.00163cm</Left>
                   <Height>0cm</Height>
-                  <Width>8.79248cm</Width>
+                  <Width>11.01496cm</Width>
                   <ZIndex>4</ZIndex>
                   <Style>
                     <Border>
@@ -2917,9 +2918,9 @@
                   </Style>
                 </Line>
                 <Line Name="Line6">
-                  <Top>2.76281cm</Top>
+                  <Top>3.03671cm</Top>
                   <Height>0cm</Height>
-                  <Width>8.79248cm</Width>
+                  <Width>11.01496cm</Width>
                   <ZIndex>5</ZIndex>
                   <Style>
                     <Border>
@@ -2928,7 +2929,7 @@
                     </Border>
                   </Style>
                 </Line>
-                <Textbox Name="Textbox101">
+                <Textbox Name="Textbox116">
                   <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
@@ -2938,6 +2939,7 @@
                           <Value>APPROVED</Value>
                           <Style>
                             <FontFamily>Arial Narrow</FontFamily>
+                            <FontSize>8pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
@@ -2948,8 +2950,9 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Height>0.76997cm</Height>
-                  <Width>8.79248cm</Width>
+                  <Left>0.00014cm</Left>
+                  <Height>0.74687cm</Height>
+                  <Width>11.01646cm</Width>
                   <ZIndex>6</ZIndex>
                   <Style>
                     <Border>
@@ -2962,7 +2965,7 @@
                     <PaddingBottom>2pt</PaddingBottom>
                   </Style>
                 </Textbox>
-                <Textbox Name="Textbox102">
+                <Textbox Name="Textbox119">
                   <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
@@ -2972,19 +2975,21 @@
                           <Value>VICE PRESIDENT</Value>
                           <Style>
                             <FontFamily>Arial Narrow</FontFamily>
+                            <FontSize>8pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
                       </TextRuns>
                       <Style>
-                        <TextAlign>Left</TextAlign>
+                        <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>0.76997cm</Top>
-                  <Height>0.65252cm</Height>
-                  <Width>2.72418cm</Width>
+                  <Top>0.74687cm</Top>
+                  <Left>0.00165cm</Left>
+                  <Height>0.76328cm</Height>
+                  <Width>2.88078cm</Width>
                   <ZIndex>7</ZIndex>
                   <Style>
                     <Border>
@@ -2997,7 +3002,7 @@
                     <PaddingBottom>2pt</PaddingBottom>
                   </Style>
                 </Textbox>
-                <Textbox Name="Textbox103">
+                <Textbox Name="Textbox120">
                   <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
@@ -3007,18 +3012,20 @@
                           <Value>MANGER</Value>
                           <Style>
                             <FontFamily>Arial Narrow</FontFamily>
+                            <FontSize>8pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
                       </TextRuns>
                       <Style>
-                        <TextAlign>Left</TextAlign>
+                        <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>1.42249cm</Top>
-                  <Height>0.65252cm</Height>
+                  <Top>1.51015cm</Top>
+                  <Left>0.00165cm</Left>
+                  <Height>0.76328cm</Height>
                   <Width>2.88078cm</Width>
                   <ZIndex>8</ZIndex>
                   <Style>
@@ -3032,7 +3039,7 @@
                     <PaddingBottom>2pt</PaddingBottom>
                   </Style>
                 </Textbox>
-                <Textbox Name="Textbox104">
+                <Textbox Name="Textbox121">
                   <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
@@ -3042,18 +3049,20 @@
                           <Value>PENYELIA</Value>
                           <Style>
                             <FontFamily>Arial Narrow</FontFamily>
+                            <FontSize>8pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
                       </TextRuns>
                       <Style>
-                        <TextAlign>Left</TextAlign>
+                        <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>2.07501cm</Top>
-                  <Height>0.65252cm</Height>
+                  <Top>2.27343cm</Top>
+                  <Left>0.00165cm</Left>
+                  <Height>0.76328cm</Height>
                   <Width>2.88078cm</Width>
                   <ZIndex>9</ZIndex>
                   <Style>
@@ -3067,7 +3076,7 @@
                     <PaddingBottom>2pt</PaddingBottom>
                   </Style>
                 </Textbox>
-                <Textbox Name="Textbox105">
+                <Textbox Name="Textbox122">
                   <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
@@ -3077,19 +3086,21 @@
                           <Value>SECTION</Value>
                           <Style>
                             <FontFamily>Arial Narrow</FontFamily>
+                            <FontSize>8pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
                       </TextRuns>
                       <Style>
-                        <TextAlign>Left</TextAlign>
+                        <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>3.41533cm</Top>
-                  <Height>0.65252cm</Height>
-                  <Width>2.88078cm</Width>
+                  <Top>3.79999cm</Top>
+                  <Left>0.00162cm</Left>
+                  <Height>0.58196cm</Height>
+                  <Width>2.86529cm</Width>
                   <ZIndex>10</ZIndex>
                   <Style>
                     <Border>
@@ -3102,7 +3113,7 @@
                     <PaddingBottom>2pt</PaddingBottom>
                   </Style>
                 </Textbox>
-                <Textbox Name="Textbox115">
+                <Textbox Name="Textbox123">
                   <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
@@ -3123,15 +3134,16 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox5</rd:DefaultName>
-                  <Top>3.48589cm</Top>
-                  <Left>2.86529cm</Left>
+                  <Top>3.79999cm</Top>
+                  <Left>2.86691cm</Left>
                   <Height>0.58196cm</Height>
-                  <Width>3.15711cm</Width>
+                  <Width>3.79211cm</Width>
                   <ZIndex>11</ZIndex>
                   <Style>
                     <Border>
                       <Style>None</Style>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -3145,7 +3157,44 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>PT Inalum</Value>
+                          <Value>PT INDONESIA ASAHAN ALUMINIUM</Value>
+                          <Style>
+                            <FontFamily>Arial Narrow</FontFamily>
+                            <FontSize>7pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox5</rd:DefaultName>
+                  <Top>3.79999cm</Top>
+                  <Left>6.65902cm</Left>
+                  <Height>0.58196cm</Height>
+                  <Width>4.35758cm</Width>
+                  <ZIndex>12</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="Textbox124">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>DATE</Value>
                           <Style>
                             <FontFamily>Arial Narrow</FontFamily>
                             <FontSize>8pt</FontSize>
@@ -3158,44 +3207,10 @@
                       </Style>
                     </Paragraph>
                   </Paragraphs>
-                  <rd:DefaultName>Textbox5</rd:DefaultName>
-                  <Top>3.45061cm</Top>
-                  <Left>6.0224cm</Left>
-                  <Height>0.61724cm</Height>
-                  <Width>2.77008cm</Width>
-                  <ZIndex>12</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox106">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>DATE</Value>
-                          <Style>
-                            <FontFamily>Arial Narrow</FontFamily>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Left</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
                   <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>2.76281cm</Top>
-                  <Height>0.65252cm</Height>
+                  <Top>3.03671cm</Top>
+                  <Left>0.00162cm</Left>
+                  <Height>0.76328cm</Height>
                   <Width>2.88078cm</Width>
                   <ZIndex>13</ZIndex>
                   <Style>
@@ -3210,10 +3225,10 @@
                   </Style>
                 </Textbox>
                 <Line Name="Line7">
-                  <Top>3.45061cm</Top>
-                  <Left>0.00001cm</Left>
+                  <Top>3.79999cm</Top>
+                  <Left>0.00165cm</Left>
                   <Height>0cm</Height>
-                  <Width>8.79248cm</Width>
+                  <Width>11.01496cm</Width>
                   <ZIndex>14</ZIndex>
                   <Style>
                     <Border>
@@ -3224,13 +3239,10 @@
                 </Line>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0.07056cm</Top>
-              <Left>11.63739cm</Left>
-              <Height>4.06785cm</Height>
-              <Width>8.79249cm</Width>
-              <Visibility>
-                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
-              </Visibility>
+              <Top>0.3175cm</Top>
+              <Left>9.41326cm</Left>
+              <Height>4.38195cm</Height>
+              <Width>11.01661cm</Width>
               <Style>
                 <Border>
                   <Style>Solid</Style>

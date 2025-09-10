@@ -340,7 +340,33 @@ namespace GOS_FxApps
                     cmdDel.ExecuteNonQuery();
                 }
 
-                editpenerimaan();
+                SqlCommand cmdubah = new SqlCommand(@"
+                UPDATE penerimaan_p 
+                SET e1=@e1, e2=@e2, e3=@e3, s=@s, d=@d, 
+                    b=@b, ba=@ba, cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah,
+                    remaks=@remaks, updated_at=@diubah, catatan=@catatan
+                WHERE no=@no 
+                  AND CAST(tanggal_penerimaan AS DATE) = CAST(@tanggal AS DATE)", conn);
+
+                cmdubah.Parameters.AddWithValue("@e1", lbltotale1.Text);
+                cmdubah.Parameters.AddWithValue("@e2", lbltotale2.Text);
+                cmdubah.Parameters.AddWithValue("@e3", txte3.Text);
+                cmdubah.Parameters.AddWithValue("@s", txts.Text);
+                cmdubah.Parameters.AddWithValue("@d", txtd.Text);
+                cmdubah.Parameters.AddWithValue("@b", txtb.Text);
+                cmdubah.Parameters.AddWithValue("@ba", lbltotalba.Text);
+                cmdubah.Parameters.AddWithValue("@cr", txtcr.Text);
+                cmdubah.Parameters.AddWithValue("@m", txtm.Text);
+                cmdubah.Parameters.AddWithValue("@r", txtr.Text);
+                cmdubah.Parameters.AddWithValue("@c", txtc.Text);
+                cmdubah.Parameters.AddWithValue("@rl", txtrl.Text);
+                cmdubah.Parameters.AddWithValue("@jumlah", lbltotal.Text);
+                cmdubah.Parameters.AddWithValue("@remaks", loginform.login.name);
+                cmdubah.Parameters.AddWithValue("@no", noprimary);
+                cmdubah.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                cmdubah.Parameters.AddWithValue("@catatan", txtcatatan.Text);
+                cmdubah.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
+                cmdubah.ExecuteNonQuery();
 
                 MessageBox.Show("Data Berhasil Disimpan", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tampilpenerimaan();
@@ -360,56 +386,6 @@ namespace GOS_FxApps
                 conn.Close();
             }
         }
-
-        private void editpenerimaan()
-        {
-            try
-            {
-                conn.Open();
-
-                SqlCommand cmd1 = new SqlCommand(@"
-            UPDATE penerimaan_p 
-            SET e1=@e1, e2=@e2, e3=@e3, s=@s, d=@d, 
-                b=@b, ba=@ba, cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah,
-                remaks=@remaks, updated_at=@diubah, catatan = @catatan
-            WHERE no=@no AND tanggal_penerimaan = @tanggal", conn);
-
-                cmd1.Parameters.AddWithValue("@e1", lbltotale1.Text);
-                cmd1.Parameters.AddWithValue("@e2", lbltotale2.Text);
-                cmd1.Parameters.AddWithValue("@e3", txte3.Text);
-                cmd1.Parameters.AddWithValue("@s", txts.Text);
-                cmd1.Parameters.AddWithValue("@d", txtd.Text);
-                cmd1.Parameters.AddWithValue("@b", txtb.Text);
-                cmd1.Parameters.AddWithValue("@ba", lbltotalba.Text);
-                cmd1.Parameters.AddWithValue("@cr", txtcr.Text);
-                cmd1.Parameters.AddWithValue("@m", txtm.Text);
-                cmd1.Parameters.AddWithValue("@r", txtr.Text);
-                cmd1.Parameters.AddWithValue("@c", txtc.Text);
-                cmd1.Parameters.AddWithValue("@rl", txtrl.Text);
-                cmd1.Parameters.AddWithValue("@jumlah", lbltotal.Text);
-                cmd1.Parameters.AddWithValue("@remaks", loginform.login.name);
-                cmd1.Parameters.AddWithValue("@no", noprimary);
-                cmd1.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
-                cmd1.Parameters.AddWithValue("@catatan", txtcatatan.Text);
-                cmd1.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
-                cmd1.ExecuteNonQuery();
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
 
         private void hitung()
         {

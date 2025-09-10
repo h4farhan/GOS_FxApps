@@ -103,12 +103,12 @@
             this.label29 = new System.Windows.Forms.Label();
             this.txtb = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
-            this.txtcaripenerimaan = new Guna.UI2.WinForms.Guna2TextBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtcatatan = new Guna.UI2.WinForms.Guna2TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtcaripenerimaan = new Guna.UI2.WinForms.Guna2TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.btncancel = new Guna.UI2.WinForms.Guna2Button();
             this.btnsimpan = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
@@ -127,9 +127,9 @@
             this.guna2Panel3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            this.guna2Panel6.SuspendLayout();
             this.guna2Panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.guna2Panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -1424,18 +1424,78 @@
             this.tableLayoutPanel5.ColumnCount = 2;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel5.Controls.Add(this.guna2Panel7, 0, 2);
             this.tableLayoutPanel5.Controls.Add(this.guna2Panel6, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.guna2Panel7, 0, 2);
             this.tableLayoutPanel5.Location = new System.Drawing.Point(404, 46);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 4;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.41216F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.55405F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 6F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.58784F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.44595F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 6F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(518, 605);
             this.tableLayoutPanel5.TabIndex = 4;
+            // 
+            // guna2Panel6
+            // 
+            this.guna2Panel6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel6.BorderColor = System.Drawing.Color.Gainsboro;
+            this.guna2Panel6.BorderRadius = 10;
+            this.guna2Panel6.BorderThickness = 2;
+            this.guna2Panel6.Controls.Add(this.txtcatatan);
+            this.guna2Panel6.Controls.Add(this.label12);
+            this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel6.FillColor = System.Drawing.Color.White;
+            this.guna2Panel6.Location = new System.Drawing.Point(2, 2);
+            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Panel6.Name = "guna2Panel6";
+            this.guna2Panel6.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
+            this.guna2Panel6.Size = new System.Drawing.Size(506, 94);
+            this.guna2Panel6.TabIndex = 7;
+            this.guna2Panel6.TabStop = true;
+            // 
+            // txtcatatan
+            // 
+            this.txtcatatan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtcatatan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcatatan.BorderRadius = 5;
+            this.txtcatatan.BorderThickness = 2;
+            this.txtcatatan.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtcatatan.DefaultText = "";
+            this.txtcatatan.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtcatatan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtcatatan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcatatan.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcatatan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcatatan.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtcatatan.ForeColor = System.Drawing.Color.Black;
+            this.txtcatatan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcatatan.Location = new System.Drawing.Point(18, 41);
+            this.txtcatatan.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtcatatan.Name = "txtcatatan";
+            this.txtcatatan.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcatatan.PlaceholderText = "Axxxx";
+            this.txtcatatan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtcatatan.SelectedText = "";
+            this.txtcatatan.Size = new System.Drawing.Size(475, 41);
+            this.txtcatatan.TabIndex = 0;
+            this.txtcatatan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+            this.txtcatatan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
+            // 
+            // label12
+            // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label12.Location = new System.Drawing.Point(14, 12);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(63, 21);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Catatan";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // guna2Panel7
             // 
@@ -1446,10 +1506,10 @@
             this.guna2Panel7.Controls.Add(this.dataGridView2);
             this.guna2Panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel7.FillColor = System.Drawing.Color.White;
-            this.guna2Panel7.Location = new System.Drawing.Point(2, 117);
+            this.guna2Panel7.Location = new System.Drawing.Point(2, 106);
             this.guna2Panel7.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel7.Name = "guna2Panel7";
-            this.guna2Panel7.Size = new System.Drawing.Size(506, 479);
+            this.guna2Panel7.Size = new System.Drawing.Size(506, 490);
             this.guna2Panel7.TabIndex = 4;
             // 
             // txtcaripenerimaan
@@ -1525,69 +1585,9 @@
             this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(482, 411);
+            this.dataGridView2.Size = new System.Drawing.Size(482, 422);
             this.dataGridView2.TabIndex = 3;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
-            // 
-            // guna2Panel6
-            // 
-            this.guna2Panel6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel6.BorderColor = System.Drawing.Color.Gainsboro;
-            this.guna2Panel6.BorderRadius = 15;
-            this.guna2Panel6.BorderThickness = 2;
-            this.guna2Panel6.Controls.Add(this.txtcatatan);
-            this.guna2Panel6.Controls.Add(this.label12);
-            this.guna2Panel6.FillColor = System.Drawing.Color.White;
-            this.guna2Panel6.Location = new System.Drawing.Point(2, 2);
-            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2Panel6.Name = "guna2Panel6";
-            this.guna2Panel6.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
-            this.guna2Panel6.Size = new System.Drawing.Size(506, 105);
-            this.guna2Panel6.TabIndex = 8;
-            this.guna2Panel6.TabStop = true;
-            // 
-            // txtcatatan
-            // 
-            this.txtcatatan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtcatatan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcatatan.BorderRadius = 5;
-            this.txtcatatan.BorderThickness = 2;
-            this.txtcatatan.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtcatatan.DefaultText = "";
-            this.txtcatatan.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtcatatan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtcatatan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcatatan.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcatatan.Enabled = false;
-            this.txtcatatan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcatatan.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtcatatan.ForeColor = System.Drawing.Color.Black;
-            this.txtcatatan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcatatan.Location = new System.Drawing.Point(18, 46);
-            this.txtcatatan.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtcatatan.Name = "txtcatatan";
-            this.txtcatatan.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcatatan.PlaceholderText = "Axxxx";
-            this.txtcatatan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtcatatan.SelectedText = "";
-            this.txtcatatan.Size = new System.Drawing.Size(477, 40);
-            this.txtcatatan.TabIndex = 0;
-            this.txtcatatan.TextChanged += new System.EventHandler(this.txtcatatan_TextChanged);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(14, 17);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(63, 21);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "Catatan";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btncancel
             // 
@@ -1671,6 +1671,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(923, 714);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.btnambilfoto);
@@ -1708,10 +1709,10 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
-            this.guna2Panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.guna2Panel6.ResumeLayout(false);
             this.guna2Panel6.PerformLayout();
+            this.guna2Panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1792,12 +1793,12 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
         private Guna.UI2.WinForms.Guna2TextBox txtcaripenerimaan;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
-        private Guna.UI2.WinForms.Guna2TextBox txtcatatan;
-        private System.Windows.Forms.Label label12;
         private Guna.UI2.WinForms.Guna2Button btncancel;
         private Guna.UI2.WinForms.Guna2Button btnsimpan;
         private FontAwesome.Sharp.IconButton btnambilfoto;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
+        private Guna.UI2.WinForms.Guna2TextBox txtcatatan;
+        private System.Windows.Forms.Label label12;
     }
 }

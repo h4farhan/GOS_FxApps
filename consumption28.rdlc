@@ -508,6 +508,7 @@
                         <Value>No</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -519,8 +520,9 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox44</rd:DefaultName>
                 <Top>0.0048cm</Top>
-                <Height>1.18593cm</Height>
-                <Width>1.09776cm</Width>
+                <Left>0.00014cm</Left>
+                <Height>0.99997cm</Height>
+                <Width>0.80155cm</Width>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -543,6 +545,7 @@
                         <Value>DESCRIPTION</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -554,9 +557,9 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox44</rd:DefaultName>
                 <Top>0.0048cm</Top>
-                <Left>1.09776cm</Left>
-                <Height>1.18593cm</Height>
-                <Width>4.35962cm</Width>
+                <Left>0.80169cm</Left>
+                <Height>1.00286cm</Height>
+                <Width>4.06197cm</Width>
                 <ZIndex>1</ZIndex>
                 <Style>
                   <Border>
@@ -580,6 +583,7 @@
                         <Value>SPESIFIKASI</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -591,47 +595,10 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox44</rd:DefaultName>
                 <Top>0.0048cm</Top>
-                <Left>5.45738cm</Left>
-                <Height>1.18593cm</Height>
-                <Width>3.97157cm</Width>
+                <Left>4.86347cm</Left>
+                <Height>1.00286cm</Height>
+                <Width>3.7064cm</Width>
                 <ZIndex>2</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>Solid</Style>
-                    <Width>2pt</Width>
-                  </Border>
-                  <VerticalAlign>Middle</VerticalAlign>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-              <Textbox Name="Textbox51">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>I.Material Cost</Value>
-                        <Style>
-                          <FontFamily>Arial Narrow</FontFamily>
-                          <FontWeight>SemiBold</FontWeight>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Left</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox44</rd:DefaultName>
-                <Top>1.19073cm</Top>
-                <Left>0.00163cm</Left>
-                <Height>0.69665cm</Height>
-                <Width>37.51737cm</Width>
-                <ZIndex>3</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -657,6 +624,7 @@
 ) &amp; " " &amp; Parameters!tahun.Value</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -667,10 +635,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox44</rd:DefaultName>
-                <Left>10.64914cm</Left>
-                <Height>0.6556cm</Height>
-                <Width>23.35652cm</Width>
-                <ZIndex>4</ZIndex>
+                <Left>9.4714cm</Left>
+                <Height>0.47921cm</Height>
+                <Width>15.00504cm</Width>
+                <ZIndex>3</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -693,6 +661,7 @@
                         <Value>Total</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -704,10 +673,10 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox44</rd:DefaultName>
                 <Top>0.00381cm</Top>
-                <Left>34.00566cm</Left>
-                <Height>1.18593cm</Height>
-                <Width>2.09363cm</Width>
-                <ZIndex>5</ZIndex>
+                <Left>24.4799cm</Left>
+                <Height>1.00096cm</Height>
+                <Width>2.87132cm</Width>
+                <ZIndex>4</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -730,6 +699,7 @@
                         <Value>1</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -740,11 +710,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6556cm</Top>
-                <Left>10.6286cm</Left>
+                <Top>0.47733cm</Top>
+                <Left>9.47114cm</Left>
                 <Height>0.53033cm</Height>
-                <Width>0.8677cm</Width>
-                <ZIndex>6</ZIndex>
+                <Width>0.53532cm</Width>
+                <ZIndex>5</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -767,6 +737,7 @@
                         <Value>2</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -777,11 +748,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6556cm</Top>
-                <Left>11.4963cm</Left>
-                <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>7</ZIndex>
+                <Top>0.48213cm</Top>
+                <Left>10.00636cm</Left>
+                <Height>0.52264cm</Height>
+                <Width>0.53594cm</Width>
+                <ZIndex>6</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -804,6 +775,7 @@
                         <Value>3</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -814,11 +786,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6556cm</Top>
-                <Left>12.32998cm</Left>
+                <Top>0.47733cm</Top>
+                <Left>10.5422cm</Left>
                 <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>8</ZIndex>
+                <Width>0.53594cm</Width>
+                <ZIndex>7</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -841,6 +813,7 @@
                         <Value>4</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -851,11 +824,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6556cm</Top>
-                <Left>13.16366cm</Left>
+                <Top>0.47733cm</Top>
+                <Left>11.07881cm</Left>
                 <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>9</ZIndex>
+                <Width>0.53594cm</Width>
+                <ZIndex>8</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -878,6 +851,7 @@
                         <Value>5</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -888,11 +862,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6556cm</Top>
-                <Left>13.99734cm</Left>
+                <Top>0.47733cm</Top>
+                <Left>11.61388cm</Left>
                 <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>10</ZIndex>
+                <Width>0.53594cm</Width>
+                <ZIndex>9</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -915,6 +889,7 @@
                         <Value>6</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -925,11 +900,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6556cm</Top>
-                <Left>14.83102cm</Left>
+                <Top>0.47733cm</Top>
+                <Left>12.14982cm</Left>
                 <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>11</ZIndex>
+                <Width>0.53594cm</Width>
+                <ZIndex>10</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -952,6 +927,7 @@
                         <Value>7</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -962,11 +938,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6556cm</Top>
-                <Left>15.6647cm</Left>
+                <Top>0.47733cm</Top>
+                <Left>12.68576cm</Left>
                 <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>12</ZIndex>
+                <Width>0.53594cm</Width>
+                <ZIndex>11</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -989,6 +965,7 @@
                         <Value>8</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -999,11 +976,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6556cm</Top>
-                <Left>16.49838cm</Left>
+                <Top>0.47733cm</Top>
+                <Left>13.2217cm</Left>
                 <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>13</ZIndex>
+                <Width>0.53594cm</Width>
+                <ZIndex>12</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1026,6 +1003,7 @@
                         <Value>9</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1036,11 +1014,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6556cm</Top>
-                <Left>17.33206cm</Left>
+                <Top>0.47733cm</Top>
+                <Left>13.75764cm</Left>
                 <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>14</ZIndex>
+                <Width>0.53594cm</Width>
+                <ZIndex>13</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1063,6 +1041,7 @@
                         <Value>10</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1073,11 +1052,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6556cm</Top>
-                <Left>18.16195cm</Left>
+                <Top>0.47733cm</Top>
+                <Left>14.29358cm</Left>
                 <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>15</ZIndex>
+                <Width>0.53594cm</Width>
+                <ZIndex>14</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1100,6 +1079,7 @@
                         <Value>11</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1110,11 +1090,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6556cm</Top>
-                <Left>18.99563cm</Left>
+                <Top>0.47733cm</Top>
+                <Left>14.82952cm</Left>
                 <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>16</ZIndex>
+                <Width>0.53594cm</Width>
+                <ZIndex>15</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1137,6 +1117,7 @@
                         <Value>12</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1147,11 +1128,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6556cm</Top>
-                <Left>19.8331cm</Left>
+                <Top>0.47733cm</Top>
+                <Left>15.36546cm</Left>
                 <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>17</ZIndex>
+                <Width>0.53594cm</Width>
+                <ZIndex>16</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1174,6 +1155,7 @@
                         <Value>13</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1184,11 +1166,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6604cm</Top>
-                <Left>20.66678cm</Left>
-                <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>18</ZIndex>
+                <Top>0.48213cm</Top>
+                <Left>15.9014cm</Left>
+                <Height>0.52264cm</Height>
+                <Width>0.53594cm</Width>
+                <ZIndex>17</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1211,6 +1193,7 @@
                         <Value>14</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1221,11 +1204,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6604cm</Top>
-                <Left>21.50046cm</Left>
-                <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>19</ZIndex>
+                <Top>0.48213cm</Top>
+                <Left>16.43734cm</Left>
+                <Height>0.52264cm</Height>
+                <Width>0.53594cm</Width>
+                <ZIndex>18</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1248,6 +1231,7 @@
                         <Value>15</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1258,11 +1242,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6604cm</Top>
-                <Left>22.33414cm</Left>
-                <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>20</ZIndex>
+                <Top>0.48213cm</Top>
+                <Left>16.97328cm</Left>
+                <Height>0.52264cm</Height>
+                <Width>0.53594cm</Width>
+                <ZIndex>19</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1285,6 +1269,7 @@
                         <Value>16</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1295,11 +1280,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6556cm</Top>
-                <Left>23.16782cm</Left>
+                <Top>0.47733cm</Top>
+                <Left>17.50922cm</Left>
                 <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>21</ZIndex>
+                <Width>0.53594cm</Width>
+                <ZIndex>20</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1322,6 +1307,7 @@
                         <Value>17</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1332,11 +1318,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6556cm</Top>
-                <Left>24.0015cm</Left>
+                <Top>0.47733cm</Top>
+                <Left>18.04516cm</Left>
                 <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>22</ZIndex>
+                <Width>0.53594cm</Width>
+                <ZIndex>21</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1359,6 +1345,7 @@
                         <Value>18</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1369,11 +1356,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6604cm</Top>
-                <Left>24.83518cm</Left>
-                <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>23</ZIndex>
+                <Top>0.48213cm</Top>
+                <Left>18.5811cm</Left>
+                <Height>0.52264cm</Height>
+                <Width>0.53594cm</Width>
+                <ZIndex>22</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1396,6 +1383,7 @@
                         <Value>19</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1406,11 +1394,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6604cm</Top>
-                <Left>25.66886cm</Left>
-                <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>24</ZIndex>
+                <Top>0.48213cm</Top>
+                <Left>19.11704cm</Left>
+                <Height>0.52264cm</Height>
+                <Width>0.53594cm</Width>
+                <ZIndex>23</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1433,6 +1421,7 @@
                         <Value>20</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1443,11 +1432,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6604cm</Top>
-                <Left>26.50254cm</Left>
-                <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>25</ZIndex>
+                <Top>0.48213cm</Top>
+                <Left>19.65298cm</Left>
+                <Height>0.52264cm</Height>
+                <Width>0.53594cm</Width>
+                <ZIndex>24</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1470,6 +1459,7 @@
                         <Value>21</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1480,11 +1470,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6556cm</Top>
-                <Left>27.33622cm</Left>
+                <Top>0.47733cm</Top>
+                <Left>20.18892cm</Left>
                 <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>26</ZIndex>
+                <Width>0.53594cm</Width>
+                <ZIndex>25</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1507,6 +1497,7 @@
                         <Value>22</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1517,11 +1508,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6556cm</Top>
-                <Left>28.1699cm</Left>
+                <Top>0.47733cm</Top>
+                <Left>20.72486cm</Left>
                 <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>27</ZIndex>
+                <Width>0.53594cm</Width>
+                <ZIndex>26</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1544,6 +1535,7 @@
                         <Value>23</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1554,11 +1546,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6556cm</Top>
-                <Left>29.00358cm</Left>
+                <Top>0.47733cm</Top>
+                <Left>21.2608cm</Left>
                 <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>28</ZIndex>
+                <Width>0.53594cm</Width>
+                <ZIndex>27</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1581,6 +1573,7 @@
                         <Value>24</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1591,11 +1584,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6556cm</Top>
-                <Left>29.83726cm</Left>
+                <Top>0.47733cm</Top>
+                <Left>21.79674cm</Left>
                 <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>29</ZIndex>
+                <Width>0.53594cm</Width>
+                <ZIndex>28</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1618,6 +1611,7 @@
                         <Value>25</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1628,11 +1622,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6556cm</Top>
-                <Left>30.67094cm</Left>
+                <Top>0.47733cm</Top>
+                <Left>22.33268cm</Left>
                 <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>30</ZIndex>
+                <Width>0.53594cm</Width>
+                <ZIndex>29</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1655,6 +1649,7 @@
                         <Value>26</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1665,11 +1660,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6604cm</Top>
-                <Left>31.50462cm</Left>
-                <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>31</ZIndex>
+                <Top>0.48213cm</Top>
+                <Left>22.86862cm</Left>
+                <Height>0.52264cm</Height>
+                <Width>0.53594cm</Width>
+                <ZIndex>30</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1692,6 +1687,7 @@
                         <Value>27</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1702,11 +1698,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6604cm</Top>
-                <Left>32.3383cm</Left>
-                <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>32</ZIndex>
+                <Top>0.48213cm</Top>
+                <Left>23.40456cm</Left>
+                <Height>0.52264cm</Height>
+                <Width>0.53594cm</Width>
+                <ZIndex>31</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1729,6 +1725,7 @@
                         <Value>28</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1739,11 +1736,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.6604cm</Top>
-                <Left>33.17198cm</Left>
-                <Height>0.53033cm</Height>
-                <Width>0.83368cm</Width>
-                <ZIndex>33</ZIndex>
+                <Top>0.48213cm</Top>
+                <Left>23.9405cm</Left>
+                <Height>0.52264cm</Height>
+                <Width>0.53594cm</Width>
+                <ZIndex>32</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1766,6 +1763,7 @@
                         <Value>UNIT</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1777,10 +1775,10 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox44</rd:DefaultName>
                 <Top>0.00191cm</Top>
-                <Left>9.44747cm</Left>
-                <Height>1.18593cm</Height>
-                <Width>1.18113cm</Width>
-                <ZIndex>34</ZIndex>
+                <Left>8.56958cm</Left>
+                <Height>1.00286cm</Height>
+                <Width>0.90221cm</Width>
+                <ZIndex>33</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1803,6 +1801,7 @@
                         <Value>Unit</Value>
                         <Style>
                           <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1814,9 +1813,47 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox44</rd:DefaultName>
                 <Top>0.00381cm</Top>
-                <Left>36.09929cm</Left>
-                <Height>1.18593cm</Height>
-                <Width>1.41971cm</Width>
+                <Left>27.34968cm</Left>
+                <Height>1.00096cm</Height>
+                <Width>1.65404cm</Width>
+                <ZIndex>34</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                    <Width>2pt</Width>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox51">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>I.Material Cost</Value>
+                        <Style>
+                          <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>6pt</FontSize>
+                          <FontWeight>SemiBold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Left</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox44</rd:DefaultName>
+                <Top>1.00477cm</Top>
+                <Left>0.00195cm</Left>
+                <Height>0.55554cm</Height>
+                <Width>29.00362cm</Width>
                 <ZIndex>35</ZIndex>
                 <Style>
                   <Border>
@@ -1832,10 +1869,409 @@
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>0.16778cm</Top>
-            <Left>1.92498cm</Left>
-            <Height>1.88738cm</Height>
-            <Width>37.519cm</Width>
+            <Top>0.04872cm</Top>
+            <Left>0.33553cm</Left>
+            <Height>1.56031cm</Height>
+            <Width>29.00557cm</Width>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+                <Width>2pt</Width>
+              </Border>
+            </Style>
+          </Rectangle>
+          <Rectangle Name="Rectangle3">
+            <ReportItems>
+              <Line Name="Line1">
+                <Top>0.74687cm</Top>
+                <Left>0.00014cm</Left>
+                <Height>0cm</Height>
+                <Width>11.01646cm</Width>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                    <Width>2pt</Width>
+                  </Border>
+                </Style>
+              </Line>
+              <Line Name="Line2">
+                <Top>0.74687cm</Top>
+                <Left>2.86691cm</Left>
+                <Height>3.63508cm</Height>
+                <Width>0cm</Width>
+                <ZIndex>1</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                    <Width>2pt</Width>
+                  </Border>
+                </Style>
+              </Line>
+              <Line Name="Line3">
+                <Top>0.74687cm</Top>
+                <Left>6.65902cm</Left>
+                <Height>3.63508cm</Height>
+                <Width>0cm</Width>
+                <ZIndex>2</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                    <Width>2pt</Width>
+                  </Border>
+                </Style>
+              </Line>
+              <Line Name="Line4">
+                <Top>1.51015cm</Top>
+                <Height>0cm</Height>
+                <Width>11.01496cm</Width>
+                <ZIndex>3</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                    <Width>2pt</Width>
+                  </Border>
+                </Style>
+              </Line>
+              <Line Name="Line5">
+                <Top>2.27343cm</Top>
+                <Left>0.00163cm</Left>
+                <Height>0cm</Height>
+                <Width>11.01496cm</Width>
+                <ZIndex>4</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                    <Width>2pt</Width>
+                  </Border>
+                </Style>
+              </Line>
+              <Line Name="Line6">
+                <Top>3.03671cm</Top>
+                <Height>0cm</Height>
+                <Width>11.01496cm</Width>
+                <ZIndex>5</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                    <Width>2pt</Width>
+                  </Border>
+                </Style>
+              </Line>
+              <Textbox Name="Textbox116">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>APPROVED</Value>
+                        <Style>
+                          <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>8pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox101</rd:DefaultName>
+                <Left>0.00014cm</Left>
+                <Height>0.74687cm</Height>
+                <Width>11.01646cm</Width>
+                <ZIndex>6</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox119">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>VICE PRESIDENT</Value>
+                        <Style>
+                          <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>8pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox101</rd:DefaultName>
+                <Top>0.74687cm</Top>
+                <Left>0.00165cm</Left>
+                <Height>0.76328cm</Height>
+                <Width>2.88078cm</Width>
+                <ZIndex>7</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox120">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>MANGER</Value>
+                        <Style>
+                          <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>8pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox101</rd:DefaultName>
+                <Top>1.51015cm</Top>
+                <Left>0.00165cm</Left>
+                <Height>0.76328cm</Height>
+                <Width>2.88078cm</Width>
+                <ZIndex>8</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox121">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>PENYELIA</Value>
+                        <Style>
+                          <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>8pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox101</rd:DefaultName>
+                <Top>2.27343cm</Top>
+                <Left>0.00165cm</Left>
+                <Height>0.76328cm</Height>
+                <Width>2.88078cm</Width>
+                <ZIndex>9</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox122">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>SECTION</Value>
+                        <Style>
+                          <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>8pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox101</rd:DefaultName>
+                <Top>3.79999cm</Top>
+                <Left>0.00162cm</Left>
+                <Height>0.58196cm</Height>
+                <Width>2.86529cm</Width>
+                <ZIndex>10</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox123">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>PT GENTANUSA GEMILANG</Value>
+                        <Style>
+                          <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox5</rd:DefaultName>
+                <Top>3.79999cm</Top>
+                <Left>2.86691cm</Left>
+                <Height>0.58196cm</Height>
+                <Width>3.79211cm</Width>
+                <ZIndex>11</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox129">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>PT INDONESIA ASAHAN ALUMINIUM</Value>
+                        <Style>
+                          <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox5</rd:DefaultName>
+                <Top>3.79999cm</Top>
+                <Left>6.65902cm</Left>
+                <Height>0.58196cm</Height>
+                <Width>4.35758cm</Width>
+                <ZIndex>12</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox124">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>DATE</Value>
+                        <Style>
+                          <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>8pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox101</rd:DefaultName>
+                <Top>3.03671cm</Top>
+                <Left>0.00162cm</Left>
+                <Height>0.76328cm</Height>
+                <Width>2.88078cm</Width>
+                <ZIndex>13</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Line Name="Line7">
+                <Top>3.79999cm</Top>
+                <Left>0.00165cm</Left>
+                <Height>0cm</Height>
+                <Width>11.01496cm</Width>
+                <ZIndex>14</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                    <Width>2pt</Width>
+                  </Border>
+                </Style>
+              </Line>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Top>4.57391cm</Top>
+            <Left>18.32087cm</Left>
+            <Height>4.38195cm</Height>
+            <Width>11.01661cm</Width>
+            <ZIndex>1</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -1847,111 +2283,111 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.09776cm</Width>
+                  <Width>0.80007cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.35962cm</Width>
+                  <Width>4.06193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.00395cm</Width>
+                  <Width>3.70626cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.19966cm</Width>
+                  <Width>0.90197cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53599cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.09363cm</Width>
+                  <Width>2.87871cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.41971cm</Width>
+                  <Width>1.64696cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.62891cm</Height>
+                  <Height>0.45345cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1965,6 +2401,7 @@
                                   <Value>=Rownumber(Nothing)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>ExtraBold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -2000,6 +2437,7 @@
                                   <Value>=Fields!Description.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2034,7 +2472,7 @@
                                   <Value>=Fields!Spesifikasi.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2069,7 +2507,7 @@
                                   <Value>=Fields!Unit.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2104,7 +2542,7 @@
                                   <Value>=Fields!Kolom1.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2139,7 +2577,7 @@
                                   <Value>=Fields!Kolom2.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2174,7 +2612,7 @@
                                   <Value>=Fields!Kolom3.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2209,7 +2647,7 @@
                                   <Value>=Fields!Kolom4.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2244,7 +2682,7 @@
                                   <Value>=Fields!Kolom5.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2279,7 +2717,7 @@
                                   <Value>=Fields!Kolom6.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2314,7 +2752,7 @@
                                   <Value>=Fields!Kolom7.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2349,7 +2787,7 @@
                                   <Value>=Fields!Kolom8.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2384,7 +2822,7 @@
                                   <Value>=Fields!Kolom9.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2419,7 +2857,7 @@
                                   <Value>=Fields!Kolom10.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2454,7 +2892,7 @@
                                   <Value>=Fields!Kolom11.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2489,7 +2927,7 @@
                                   <Value>=Fields!Kolom12.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2524,7 +2962,7 @@
                                   <Value>=Fields!Kolom13.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2559,7 +2997,7 @@
                                   <Value>=Fields!Kolom14.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2594,7 +3032,7 @@
                                   <Value>=Fields!Kolom15.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2629,7 +3067,7 @@
                                   <Value>=Fields!Kolom16.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2664,7 +3102,7 @@
                                   <Value>=Fields!Kolom17.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2699,7 +3137,7 @@
                                   <Value>=Fields!Kolom18.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2734,7 +3172,7 @@
                                   <Value>=Fields!Kolom19.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2769,7 +3207,7 @@
                                   <Value>=Fields!Kolom20.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2804,7 +3242,7 @@
                                   <Value>=Fields!Kolom21.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2839,7 +3277,7 @@
                                   <Value>=Fields!Kolom22.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2874,7 +3312,7 @@
                                   <Value>=Fields!Kolom23.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2909,7 +3347,7 @@
                                   <Value>=Fields!Kolom24.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2944,7 +3382,7 @@
                                   <Value>=Fields!Kolom25.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2979,7 +3417,7 @@
                                   <Value>=Fields!Kolom26.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3014,7 +3452,7 @@
                                   <Value>=Fields!Kolom27.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3049,7 +3487,7 @@
                                   <Value>=Fields!Kolom28.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3084,7 +3522,7 @@
                                   <Value>=Fields!Total.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>ExtraBold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3120,7 +3558,7 @@
                                   <Value>=Fields!Unit.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>ExtraBold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3194,11 +3632,11 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>consumptionmaterial</DataSetName>
-            <Top>2.05516cm</Top>
-            <Left>1.92661cm</Left>
-            <Height>0.62891cm</Height>
-            <Width>37.51737cm</Width>
-            <ZIndex>1</ZIndex>
+            <Top>1.60964cm</Top>
+            <Left>0.33748cm</Left>
+            <Height>0.45345cm</Height>
+            <Width>29.00362cm</Width>
+            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -3206,152 +3644,115 @@
               </Border>
             </Style>
           </Tablix>
-          <Textbox Name="Textbox55">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>II.Consumable Cost</Value>
-                    <Style>
-                      <FontFamily>Arial Narrow</FontFamily>
-                      <FontWeight>SemiBold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox44</rd:DefaultName>
-            <Top>2.68408cm</Top>
-            <Left>1.92662cm</Left>
-            <Height>0.69665cm</Height>
-            <Width>37.51736cm</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-                <Width>2pt</Width>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Tablix Name="Tablix2">
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.09776cm</Width>
+                  <Width>0.80032cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.35962cm</Width>
+                  <Width>4.06218cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.00395cm</Width>
+                  <Width>3.70651cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.19966cm</Width>
+                  <Width>0.90222cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53445cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53439cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.09363cm</Width>
+                  <Width>2.87639cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.41971cm</Width>
+                  <Width>1.64696cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.62891cm</Height>
+                  <Height>0.45345cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -3365,6 +3766,7 @@
                                   <Value>=Rownumber(Nothing)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>ExtraBold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3400,6 +3802,7 @@
                                   <Value>=Fields!Description.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3434,7 +3837,7 @@
                                   <Value>=Fields!Spesifikasi.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3469,7 +3872,7 @@
                                   <Value>=Fields!Unit.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3504,7 +3907,7 @@
                                   <Value>=Fields!Kolom1.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3539,7 +3942,7 @@
                                   <Value>=Fields!Kolom2.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3574,7 +3977,7 @@
                                   <Value>=Fields!Kolom3.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3609,7 +4012,7 @@
                                   <Value>=Fields!Kolom4.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3644,7 +4047,7 @@
                                   <Value>=Fields!Kolom5.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3679,7 +4082,7 @@
                                   <Value>=Fields!Kolom6.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3714,7 +4117,7 @@
                                   <Value>=Fields!Kolom7.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3749,7 +4152,7 @@
                                   <Value>=Fields!Kolom8.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3784,7 +4187,7 @@
                                   <Value>=Fields!Kolom9.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3819,7 +4222,7 @@
                                   <Value>=Fields!Kolom10.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3854,7 +4257,7 @@
                                   <Value>=Fields!Kolom11.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3889,7 +4292,7 @@
                                   <Value>=Fields!Kolom12.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3924,7 +4327,7 @@
                                   <Value>=Fields!Kolom13.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3959,7 +4362,7 @@
                                   <Value>=Fields!Kolom14.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3994,7 +4397,7 @@
                                   <Value>=Fields!Kolom15.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4029,7 +4432,7 @@
                                   <Value>=Fields!Kolom16.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4064,7 +4467,7 @@
                                   <Value>=Fields!Kolom17.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4099,7 +4502,7 @@
                                   <Value>=Fields!Kolom18.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4134,7 +4537,7 @@
                                   <Value>=Fields!Kolom19.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4169,7 +4572,7 @@
                                   <Value>=Fields!Kolom20.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4204,7 +4607,7 @@
                                   <Value>=Fields!Kolom21.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4239,7 +4642,7 @@
                                   <Value>=Fields!Kolom22.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4274,7 +4677,7 @@
                                   <Value>=Fields!Kolom23.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4309,7 +4712,7 @@
                                   <Value>=Fields!Kolom24.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4344,7 +4747,7 @@
                                   <Value>=Fields!Kolom25.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4379,7 +4782,7 @@
                                   <Value>=Fields!Kolom26.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4414,7 +4817,7 @@
                                   <Value>=Fields!Kolom27.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4449,7 +4852,7 @@
                                   <Value>=Fields!Kolom28.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4484,7 +4887,7 @@
                                   <Value>=Fields!Total.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>ExtraBold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -4520,7 +4923,7 @@
                                   <Value>=Fields!Unit.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>ExtraBold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -4594,10 +4997,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>consumptionconsumable</DataSetName>
-            <Top>3.38377cm</Top>
-            <Left>1.92661cm</Left>
-            <Height>0.62891cm</Height>
-            <Width>37.51737cm</Width>
+            <Top>2.60752cm</Top>
+            <Left>0.33544cm</Left>
+            <Height>0.45345cm</Height>
+            <Width>29.00566cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -4606,16 +5009,17 @@
               </Border>
             </Style>
           </Tablix>
-          <Textbox Name="Textbox56">
+          <Textbox Name="Textbox55">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>III.Safety Protector Cost</Value>
+                    <Value>II.Consumable Cost</Value>
                     <Style>
                       <FontFamily>Arial Narrow</FontFamily>
+                      <FontSize>6pt</FontSize>
                       <FontWeight>SemiBold</FontWeight>
                     </Style>
                   </TextRun>
@@ -4626,10 +5030,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox44</rd:DefaultName>
-            <Top>4.01268cm</Top>
-            <Left>1.92498cm</Left>
-            <Height>0.69665cm</Height>
-            <Width>37.519cm</Width>
+            <Top>2.06309cm</Top>
+            <Left>0.33544cm</Left>
+            <Height>0.54443cm</Height>
+            <Width>29.00566cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -4647,111 +5051,111 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.09776cm</Width>
+                  <Width>0.80017cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.35962cm</Width>
+                  <Width>4.06203cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.00395cm</Width>
+                  <Width>3.70636cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.19966cm</Width>
+                  <Width>0.90207cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53425cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83368cm</Width>
+                  <Width>0.53609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.09363cm</Width>
+                  <Width>2.8774cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.41971cm</Width>
+                  <Width>1.64691cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.62891cm</Height>
+                  <Height>0.45345cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -4765,6 +5169,7 @@
                                   <Value>=Rownumber(Nothing)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>ExtraBold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -4800,6 +5205,7 @@
                                   <Value>=Fields!Description.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4834,7 +5240,7 @@
                                   <Value>=Fields!Spesifikasi.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4869,7 +5275,7 @@
                                   <Value>=Fields!Unit.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4904,7 +5310,7 @@
                                   <Value>=Fields!Kolom1.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4939,7 +5345,7 @@
                                   <Value>=Fields!Kolom2.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4974,7 +5380,7 @@
                                   <Value>=Fields!Kolom3.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5009,7 +5415,7 @@
                                   <Value>=Fields!Kolom4.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5044,7 +5450,7 @@
                                   <Value>=Fields!Kolom5.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5079,7 +5485,7 @@
                                   <Value>=Fields!Kolom6.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5114,7 +5520,7 @@
                                   <Value>=Fields!Kolom7.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5149,7 +5555,7 @@
                                   <Value>=Fields!Kolom8.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5184,7 +5590,7 @@
                                   <Value>=Fields!Kolom9.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5219,7 +5625,7 @@
                                   <Value>=Fields!Kolom10.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5254,7 +5660,7 @@
                                   <Value>=Fields!Kolom11.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5289,7 +5695,7 @@
                                   <Value>=Fields!Kolom12.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5324,7 +5730,7 @@
                                   <Value>=Fields!Kolom13.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5359,7 +5765,7 @@
                                   <Value>=Fields!Kolom14.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5394,7 +5800,7 @@
                                   <Value>=Fields!Kolom15.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5429,7 +5835,7 @@
                                   <Value>=Fields!Kolom16.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5464,7 +5870,7 @@
                                   <Value>=Fields!Kolom17.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5499,7 +5905,7 @@
                                   <Value>=Fields!Kolom18.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5534,7 +5940,7 @@
                                   <Value>=Fields!Kolom19.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5569,7 +5975,7 @@
                                   <Value>=Fields!Kolom20.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5604,7 +6010,7 @@
                                   <Value>=Fields!Kolom21.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5639,7 +6045,7 @@
                                   <Value>=Fields!Kolom22.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5674,7 +6080,7 @@
                                   <Value>=Fields!Kolom23.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5709,7 +6115,7 @@
                                   <Value>=Fields!Kolom24.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5744,7 +6150,7 @@
                                   <Value>=Fields!Kolom25.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5779,7 +6185,7 @@
                                   <Value>=Fields!Kolom26.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5814,7 +6220,7 @@
                                   <Value>=Fields!Kolom27.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5849,7 +6255,7 @@
                                   <Value>=Fields!Kolom28.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5884,7 +6290,7 @@
                                   <Value>=Fields!Total.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>ExtraBold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -5920,7 +6326,7 @@
                                   <Value>=Fields!Unit.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>ExtraBold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -5994,10 +6400,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>consumptionsafety</DataSetName>
-            <Top>4.71262cm</Top>
-            <Left>1.92661cm</Left>
-            <Height>0.62891cm</Height>
-            <Width>37.51737cm</Width>
+            <Top>3.61651cm</Top>
+            <Left>0.33748cm</Left>
+            <Height>0.45345cm</Height>
+            <Width>29.00362cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -6006,14 +6412,52 @@
               </Border>
             </Style>
           </Tablix>
+          <Textbox Name="Textbox56">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>III.Safety Protector Cost</Value>
+                    <Style>
+                      <FontFamily>Arial Narrow</FontFamily>
+                      <FontSize>6pt</FontSize>
+                      <FontWeight>SemiBold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox44</rd:DefaultName>
+            <Top>3.06097cm</Top>
+            <Left>0.33748cm</Left>
+            <Height>0.55554cm</Height>
+            <Width>29.00362cm</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+                <Width>2pt</Width>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>2.20764in</Height>
+        <Height>3.61756in</Height>
         <Style />
       </Body>
-      <Width>41.23744cm</Width>
+      <Width>29.51543cm</Width>
       <Page>
         <PageHeader>
-          <Height>3.22792cm</Height>
+          <Height>2.05401cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -6022,9 +6466,9 @@
               <Value>Picture1</Value>
               <Sizing>Fit</Sizing>
               <Top>0.17983cm</Top>
-              <Left>1.92498cm</Left>
-              <Height>1.20036cm</Height>
-              <Width>2.44224cm</Width>
+              <Left>0.33748cm</Left>
+              <Height>0.75939cm</Height>
+              <Width>1.79375cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -6036,9 +6480,9 @@
               <Value>Picture2</Value>
               <Sizing>Fit</Sizing>
               <Top>0.17983cm</Top>
-              <Left>4.54361cm</Left>
-              <Height>1.7019cm</Height>
-              <Width>1.6398cm</Width>
+              <Left>2.30762cm</Left>
+              <Height>1.07935cm</Height>
+              <Width>1.27665cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -6056,7 +6500,7 @@
                       <Value>PT. GENTANUSA GEMILANG</Value>
                       <Style>
                         <FontFamily>Arial Black</FontFamily>
-                        <FontSize>11pt</FontSize>
+                        <FontSize>7pt</FontSize>
                         <FontWeight>ExtraBold</FontWeight>
                         <Color>#00029a</Color>
                       </Style>
@@ -6068,10 +6512,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox99</rd:DefaultName>
-              <Top>2.05812cm</Top>
-              <Left>1.92498cm</Left>
-              <Height>0.73469cm</Height>
-              <Width>7.54392cm</Width>
+              <Top>1.40029cm</Top>
+              <Left>0.33748cm</Left>
+              <Height>0.48144cm</Height>
+              <Width>5.48884cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -6093,7 +6537,7 @@
                       <Value>ACTUAL CONSUMPTION OF MATERIAL &amp; PART</Value>
                       <Style>
                         <FontFamily>Consolas</FontFamily>
-                        <FontSize>15pt</FontSize>
+                        <FontSize>7pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -6108,7 +6552,7 @@
                       <Value>OF CARBON PLANT KUALA TANJUNG</Value>
                       <Style>
                         <FontFamily>Consolas</FontFamily>
-                        <FontSize>15pt</FontSize>
+                        <FontSize>7pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -6120,9 +6564,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox35</rd:DefaultName>
               <Top>0.49733cm</Top>
-              <Left>17.29836cm</Left>
-              <Height>1.3844cm</Height>
-              <Width>12.21382cm</Width>
+              <Left>12.49117cm</Left>
+              <Height>1.07313cm</Height>
+              <Width>5.3563cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -6142,417 +6586,12 @@
             </Border>
           </Style>
         </PageHeader>
-        <PageFooter>
-          <Height>4.45475cm</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <ReportItems>
-            <Rectangle Name="Rectangle3">
-              <ReportItems>
-                <Line Name="Line1">
-                  <Top>0.76997cm</Top>
-                  <Height>0cm</Height>
-                  <Width>11.01646cm</Width>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                      <Width>2pt</Width>
-                    </Border>
-                  </Style>
-                </Line>
-                <Line Name="Line2">
-                  <Top>0.76997cm</Top>
-                  <Left>2.86677cm</Left>
-                  <Height>3.29788cm</Height>
-                  <Width>0cm</Width>
-                  <ZIndex>1</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                      <Width>2pt</Width>
-                    </Border>
-                  </Style>
-                </Line>
-                <Line Name="Line3">
-                  <Top>0.76997cm</Top>
-                  <Left>6.65888cm</Left>
-                  <Height>3.29788cm</Height>
-                  <Width>0cm</Width>
-                  <ZIndex>2</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                      <Width>2pt</Width>
-                    </Border>
-                  </Style>
-                </Line>
-                <Line Name="Line4">
-                  <Top>1.42249cm</Top>
-                  <Left>0.00149cm</Left>
-                  <Height>0cm</Height>
-                  <Width>11.01496cm</Width>
-                  <ZIndex>3</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                      <Width>2pt</Width>
-                    </Border>
-                  </Style>
-                </Line>
-                <Line Name="Line5">
-                  <Top>2.10915cm</Top>
-                  <Left>0.00149cm</Left>
-                  <Height>0cm</Height>
-                  <Width>11.01496cm</Width>
-                  <ZIndex>4</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                      <Width>2pt</Width>
-                    </Border>
-                  </Style>
-                </Line>
-                <Line Name="Line6">
-                  <Top>2.76281cm</Top>
-                  <Left>0.00149cm</Left>
-                  <Height>0cm</Height>
-                  <Width>11.01496cm</Width>
-                  <ZIndex>5</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                      <Width>2pt</Width>
-                    </Border>
-                  </Style>
-                </Line>
-                <Textbox Name="Textbox116">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>APPROVED</Value>
-                          <Style>
-                            <FontFamily>Arial Narrow</FontFamily>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Center</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Height>0.73469cm</Height>
-                  <Width>11.01646cm</Width>
-                  <ZIndex>6</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox119">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>VICE PRESIDENT</Value>
-                          <Style>
-                            <FontFamily>Arial Narrow</FontFamily>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Left</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>0.76997cm</Top>
-                  <Left>0.00148cm</Left>
-                  <Height>0.65252cm</Height>
-                  <Width>2.88078cm</Width>
-                  <ZIndex>7</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox120">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>MANGER</Value>
-                          <Style>
-                            <FontFamily>Arial Narrow</FontFamily>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Left</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>1.42249cm</Top>
-                  <Left>0.00148cm</Left>
-                  <Height>0.65252cm</Height>
-                  <Width>2.88078cm</Width>
-                  <ZIndex>8</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox121">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>PENYELIA</Value>
-                          <Style>
-                            <FontFamily>Arial Narrow</FontFamily>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Left</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>2.07501cm</Top>
-                  <Left>0.00148cm</Left>
-                  <Height>0.65252cm</Height>
-                  <Width>2.88078cm</Width>
-                  <ZIndex>9</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox122">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>SECTION</Value>
-                          <Style>
-                            <FontFamily>Arial Narrow</FontFamily>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Left</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>3.41533cm</Top>
-                  <Left>0.00148cm</Left>
-                  <Height>0.65252cm</Height>
-                  <Width>2.88078cm</Width>
-                  <ZIndex>10</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox123">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>PT GENTANUSA GEMILANG</Value>
-                          <Style>
-                            <FontFamily>Arial Narrow</FontFamily>
-                            <FontSize>7pt</FontSize>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Center</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox5</rd:DefaultName>
-                  <Top>3.48589cm</Top>
-                  <Left>2.86677cm</Left>
-                  <Height>0.58196cm</Height>
-                  <Width>3.79211cm</Width>
-                  <ZIndex>11</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox129">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>PT INDONESIA ASAHAN ALUMINIUM</Value>
-                          <Style>
-                            <FontFamily>Arial Narrow</FontFamily>
-                            <FontSize>7pt</FontSize>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Center</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox5</rd:DefaultName>
-                  <Top>3.45061cm</Top>
-                  <Left>6.65888cm</Left>
-                  <Height>0.61724cm</Height>
-                  <Width>4.35758cm</Width>
-                  <ZIndex>12</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox124">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>DATE</Value>
-                          <Style>
-                            <FontFamily>Arial Narrow</FontFamily>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Left</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>2.76281cm</Top>
-                  <Left>0.00148cm</Left>
-                  <Height>0.65252cm</Height>
-                  <Width>2.88078cm</Width>
-                  <ZIndex>13</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Line Name="Line7">
-                  <Top>3.45061cm</Top>
-                  <Left>0.0015cm</Left>
-                  <Height>0cm</Height>
-                  <Width>11.01496cm</Width>
-                  <ZIndex>14</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                      <Width>2pt</Width>
-                    </Border>
-                  </Style>
-                </Line>
-              </ReportItems>
-              <KeepTogether>true</KeepTogether>
-              <Top>0.19345cm</Top>
-              <Left>28.42602cm</Left>
-              <Height>4.06785cm</Height>
-              <Width>11.01647cm</Width>
-              <Visibility>
-                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>Solid</Style>
-                  <Width>2pt</Width>
-                </Border>
-              </Style>
-            </Rectangle>
-          </ReportItems>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </PageFooter>
-        <PageHeight>29.7cm</PageHeight>
-        <PageWidth>42cm</PageWidth>
+        <PageHeight>21cm</PageHeight>
+        <PageWidth>29.7cm</PageWidth>
         <LeftMargin>0cm</LeftMargin>
         <RightMargin>0cm</RightMargin>
         <TopMargin>0cm</TopMargin>
-        <BottomMargin>0cm</BottomMargin>
+        <BottomMargin>0.5cm</BottomMargin>
         <ColumnSpacing>0.13cm</ColumnSpacing>
         <Style />
       </Page>

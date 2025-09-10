@@ -491,6 +491,7 @@
                       <TextRun>
                         <Value>No</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -501,8 +502,8 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox44</rd:DefaultName>
-                <Height>1.18593cm</Height>
-                <Width>1.10903cm</Width>
+                <Height>1.18974cm</Height>
+                <Width>0.79941cm</Width>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -524,6 +525,7 @@
                       <TextRun>
                         <Value>KIND</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -534,9 +536,9 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox44</rd:DefaultName>
-                <Left>1.10903cm</Left>
-                <Height>1.18593cm</Height>
-                <Width>2.98624cm</Width>
+                <Left>0.79941cm</Left>
+                <Height>1.18974cm</Height>
+                <Width>2.67867cm</Width>
                 <ZIndex>1</ZIndex>
                 <Style>
                   <Border>
@@ -562,6 +564,7 @@
 "Juli", "Agustus", "September", "Oktober", "November", "Desember") 
 &amp; " " &amp; Parameters!tahun.Value</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -572,9 +575,9 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox44</rd:DefaultName>
-                <Left>6.29076cm</Left>
-                <Height>0.61809cm</Height>
-                <Width>29.04509cm</Width>
+                <Left>5.36189cm</Left>
+                <Height>0.6556cm</Height>
+                <Width>20.06597cm</Width>
                 <ZIndex>2</ZIndex>
                 <Style>
                   <Border>
@@ -597,6 +600,7 @@
                       <TextRun>
                         <Value>Total</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -607,9 +611,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox44</rd:DefaultName>
-                <Left>35.33585cm</Left>
+                <Top>0.00381cm</Top>
+                <Left>25.42786cm</Left>
                 <Height>1.18593cm</Height>
-                <Width>4.42325cm</Width>
+                <Width>3.5907cm</Width>
                 <ZIndex>3</ZIndex>
                 <Style>
                   <Border>
@@ -632,6 +637,7 @@
                       <TextRun>
                         <Value>1</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -642,10 +648,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>6.29077cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>5.36189cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.69194cm</Width>
                 <ZIndex>4</ZIndex>
                 <Style>
                   <Border>
@@ -668,6 +674,7 @@
                       <TextRun>
                         <Value>2</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -678,10 +685,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>7.29232cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>6.0563cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.69193cm</Width>
                 <ZIndex>5</ZIndex>
                 <Style>
                   <Border>
@@ -704,6 +711,7 @@
                       <TextRun>
                         <Value>3</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -714,10 +722,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>8.29387cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>6.74823cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.68946cm</Width>
                 <ZIndex>6</ZIndex>
                 <Style>
                   <Border>
@@ -740,6 +748,7 @@
                       <TextRun>
                         <Value>4</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -750,10 +759,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>9.29542cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>7.43769cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.6944cm</Width>
                 <ZIndex>7</ZIndex>
                 <Style>
                   <Border>
@@ -776,6 +785,7 @@
                       <TextRun>
                         <Value>5</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -786,10 +796,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>10.29697cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>8.13209cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.69193cm</Width>
                 <ZIndex>8</ZIndex>
                 <Style>
                   <Border>
@@ -812,6 +822,7 @@
                       <TextRun>
                         <Value>6</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -822,10 +833,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>11.29856cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>8.82402cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.68946cm</Width>
                 <ZIndex>9</ZIndex>
                 <Style>
                   <Border>
@@ -848,6 +859,7 @@
                       <TextRun>
                         <Value>7</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -858,10 +870,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>12.30011cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>9.51349cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.6944cm</Width>
                 <ZIndex>10</ZIndex>
                 <Style>
                   <Border>
@@ -884,6 +896,7 @@
                       <TextRun>
                         <Value>8</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -894,10 +907,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>13.30166cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>10.20788cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.69193cm</Width>
                 <ZIndex>11</ZIndex>
                 <Style>
                   <Border>
@@ -920,6 +933,7 @@
                       <TextRun>
                         <Value>9</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -930,10 +944,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>14.30321cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>10.89981cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.69193cm</Width>
                 <ZIndex>12</ZIndex>
                 <Style>
                   <Border>
@@ -956,6 +970,7 @@
                       <TextRun>
                         <Value>10</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -966,10 +981,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>15.30476cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>11.59174cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.69193cm</Width>
                 <ZIndex>13</ZIndex>
                 <Style>
                   <Border>
@@ -992,6 +1007,7 @@
                       <TextRun>
                         <Value>11</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1002,10 +1018,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>16.30631cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>12.28367cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.68947cm</Width>
                 <ZIndex>14</ZIndex>
                 <Style>
                   <Border>
@@ -1028,6 +1044,7 @@
                       <TextRun>
                         <Value>12</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1038,10 +1055,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>17.30786cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>12.97314cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.69439cm</Width>
                 <ZIndex>15</ZIndex>
                 <Style>
                   <Border>
@@ -1064,6 +1081,7 @@
                       <TextRun>
                         <Value>13</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1074,10 +1092,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>18.30941cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>13.66753cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.68947cm</Width>
                 <ZIndex>16</ZIndex>
                 <Style>
                   <Border>
@@ -1100,6 +1118,7 @@
                       <TextRun>
                         <Value>14</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1110,10 +1129,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>19.31311cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>14.35701cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.69439cm</Width>
                 <ZIndex>17</ZIndex>
                 <Style>
                   <Border>
@@ -1136,6 +1155,7 @@
                       <TextRun>
                         <Value>15</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1146,10 +1166,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>20.31466cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>15.05139cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.69193cm</Width>
                 <ZIndex>18</ZIndex>
                 <Style>
                   <Border>
@@ -1172,6 +1192,7 @@
                       <TextRun>
                         <Value>16</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1182,10 +1203,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>21.31621cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>15.74332cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.68948cm</Width>
                 <ZIndex>19</ZIndex>
                 <Style>
                   <Border>
@@ -1208,6 +1229,7 @@
                       <TextRun>
                         <Value>17</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1218,10 +1240,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>22.31776cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>16.4328cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.69438cm</Width>
                 <ZIndex>20</ZIndex>
                 <Style>
                   <Border>
@@ -1244,6 +1266,7 @@
                       <TextRun>
                         <Value>18</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1254,10 +1277,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>23.31723cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>17.12718cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.69193cm</Width>
                 <ZIndex>21</ZIndex>
                 <Style>
                   <Border>
@@ -1280,6 +1303,7 @@
                       <TextRun>
                         <Value>19</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1290,10 +1314,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>24.31878cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>17.81911cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.69193cm</Width>
                 <ZIndex>22</ZIndex>
                 <Style>
                   <Border>
@@ -1316,6 +1340,7 @@
                       <TextRun>
                         <Value>20</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1326,10 +1351,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>25.32033cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>18.51104cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.69193cm</Width>
                 <ZIndex>23</ZIndex>
                 <Style>
                   <Border>
@@ -1352,6 +1377,7 @@
                       <TextRun>
                         <Value>21</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1362,10 +1388,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>26.32188cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>19.20297cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.69193cm</Width>
                 <ZIndex>24</ZIndex>
                 <Style>
                   <Border>
@@ -1388,6 +1414,7 @@
                       <TextRun>
                         <Value>22</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1398,10 +1425,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>27.32343cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>19.8949cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.69193cm</Width>
                 <ZIndex>25</ZIndex>
                 <Style>
                   <Border>
@@ -1424,6 +1451,7 @@
                       <TextRun>
                         <Value>23</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1434,10 +1462,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>28.32498cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>20.58683cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.68949cm</Width>
                 <ZIndex>26</ZIndex>
                 <Style>
                   <Border>
@@ -1460,6 +1488,7 @@
                       <TextRun>
                         <Value>24</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1470,10 +1499,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>29.32653cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>21.27632cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.69437cm</Width>
                 <ZIndex>27</ZIndex>
                 <Style>
                   <Border>
@@ -1496,6 +1525,7 @@
                       <TextRun>
                         <Value>25</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1506,10 +1536,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>30.32808cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>21.97069cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.69193cm</Width>
                 <ZIndex>28</ZIndex>
                 <Style>
                   <Border>
@@ -1532,6 +1562,7 @@
                       <TextRun>
                         <Value>26</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1542,10 +1573,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>31.32965cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>22.66262cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.6895cm</Width>
                 <ZIndex>29</ZIndex>
                 <Style>
                   <Border>
@@ -1568,6 +1599,7 @@
                       <TextRun>
                         <Value>27</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1578,10 +1610,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>32.3312cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>23.35212cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.69436cm</Width>
                 <ZIndex>30</ZIndex>
                 <Style>
                   <Border>
@@ -1604,6 +1636,7 @@
                       <TextRun>
                         <Value>28</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1614,10 +1647,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>33.33275cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>24.04648cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.69193cm</Width>
                 <ZIndex>31</ZIndex>
                 <Style>
                   <Border>
@@ -1640,6 +1673,7 @@
                       <TextRun>
                         <Value>29</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1650,10 +1684,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Top>0.61809cm</Top>
-                <Left>34.3343cm</Left>
-                <Height>0.56784cm</Height>
-                <Width>1.00155cm</Width>
+                <Top>0.6556cm</Top>
+                <Left>24.73841cm</Left>
+                <Height>0.53033cm</Height>
+                <Width>0.69193cm</Width>
                 <ZIndex>32</ZIndex>
                 <Style>
                   <Border>
@@ -1676,6 +1710,7 @@
                       <TextRun>
                         <Value>UNIT</Value>
                         <Style>
+                          <FontSize>7pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1686,9 +1721,9 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox44</rd:DefaultName>
-                <Left>4.09528cm</Left>
-                <Height>1.18593cm</Height>
-                <Width>2.19548cm</Width>
+                <Left>3.47603cm</Left>
+                <Height>1.18974cm</Height>
+                <Width>1.88586cm</Width>
                 <ZIndex>33</ZIndex>
                 <Style>
                   <Border>
@@ -1704,10 +1739,10 @@
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>0.02927cm</Top>
-            <Left>0.03104cm</Left>
-            <Height>1.18593cm</Height>
-            <Width>39.7591cm</Width>
+            <Top>0.03589cm</Top>
+            <Left>0.34257cm</Left>
+            <Height>1.18974cm</Height>
+            <Width>29.01856cm</Width>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -1719,111 +1754,111 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.10903cm</Width>
+                  <Width>0.79941cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.98624cm</Width>
+                  <Width>2.67662cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.19548cm</Width>
+                  <Width>1.88586cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.33326cm</Width>
+                  <Width>1.98155cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.08998cm</Width>
+                  <Width>1.6108cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.53408cm</Height>
+                  <Height>0.53033cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1834,10 +1869,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Rownumber(Nothing)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1873,7 +1908,7 @@
                                   <Value>=Fields!namaKolom.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1909,7 +1944,7 @@
                                   <Value>=Fields!unit.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1945,7 +1980,7 @@
                                   <Value>=Fields!kolom1.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1981,7 +2016,7 @@
                                   <Value>=Fields!kolom2.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2017,7 +2052,7 @@
                                   <Value>=Fields!kolom3.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2053,7 +2088,7 @@
                                   <Value>=Fields!kolom4.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2089,7 +2124,7 @@
                                   <Value>=Fields!kolom5.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2125,7 +2160,7 @@
                                   <Value>=Fields!kolom6.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2161,7 +2196,7 @@
                                   <Value>=Fields!kolom7.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2197,7 +2232,7 @@
                                   <Value>=Fields!kolom8.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2233,7 +2268,7 @@
                                   <Value>=Fields!kolom9.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2269,7 +2304,7 @@
                                   <Value>=Fields!kolom10.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2305,7 +2340,7 @@
                                   <Value>=Fields!kolom11.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2341,7 +2376,7 @@
                                   <Value>=Fields!kolom12.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2377,7 +2412,7 @@
                                   <Value>=Fields!kolom13.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2413,7 +2448,7 @@
                                   <Value>=Fields!kolom14.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2449,7 +2484,7 @@
                                   <Value>=Fields!kolom15.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2485,7 +2520,7 @@
                                   <Value>=Fields!kolom16.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2521,7 +2556,7 @@
                                   <Value>=Fields!kolom17.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2557,7 +2592,7 @@
                                   <Value>=Fields!kolom18.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2593,7 +2628,7 @@
                                   <Value>=Fields!kolom19.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2629,7 +2664,7 @@
                                   <Value>=Fields!kolom20.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2665,7 +2700,7 @@
                                   <Value>=Fields!kolom21.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2701,7 +2736,7 @@
                                   <Value>=Fields!kolom22.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2737,7 +2772,7 @@
                                   <Value>=Fields!kolom23.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2773,7 +2808,7 @@
                                   <Value>=Fields!kolom24.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2809,7 +2844,7 @@
                                   <Value>=Fields!kolom25.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2845,7 +2880,7 @@
                                   <Value>=Fields!kolom26.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2881,7 +2916,7 @@
                                   <Value>=Fields!kolom27.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2917,7 +2952,7 @@
                                   <Value>=Fields!kolom28.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2953,7 +2988,7 @@
                                   <Value>=Fields!kolom29.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2989,7 +3024,7 @@
                                   <Value>=Fields!Total.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3025,7 +3060,7 @@
                                   <Value>=Fields!unit.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3052,7 +3087,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.52783cm</Height>
+                  <Height>0.53033cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -3066,7 +3101,7 @@
                                   <Value>Total</Value>
                                   <Style>
                                     <FontFamily>Consolas</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3106,7 +3141,7 @@
                                   <Value>=Sum(Fields!kolom1.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3143,7 +3178,7 @@
                                   <Value>=Sum(Fields!kolom2.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3180,7 +3215,7 @@
                                   <Value>=Sum(Fields!kolom3.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3217,7 +3252,7 @@
                                   <Value>=Sum(Fields!kolom4.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3254,7 +3289,7 @@
                                   <Value>=Sum(Fields!kolom5.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3291,7 +3326,7 @@
                                   <Value>=Sum(Fields!kolom6.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3328,7 +3363,7 @@
                                   <Value>=Sum(Fields!kolom7.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3365,7 +3400,7 @@
                                   <Value>=Sum(Fields!kolom8.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3402,7 +3437,7 @@
                                   <Value>=Sum(Fields!kolom9.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3439,7 +3474,7 @@
                                   <Value>=Sum(Fields!kolom10.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3476,7 +3511,7 @@
                                   <Value>=Sum(Fields!kolom11.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3513,7 +3548,7 @@
                                   <Value>=Sum(Fields!kolom12.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3550,7 +3585,7 @@
                                   <Value>=Sum(Fields!kolom13.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3587,7 +3622,7 @@
                                   <Value>=Sum(Fields!kolom14.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3624,7 +3659,7 @@
                                   <Value>=Sum(Fields!kolom15.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3661,7 +3696,7 @@
                                   <Value>=Sum(Fields!kolom16.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3698,7 +3733,7 @@
                                   <Value>=Sum(Fields!kolom16.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3735,7 +3770,7 @@
                                   <Value>=Sum(Fields!kolom18.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3772,7 +3807,7 @@
                                   <Value>=Sum(Fields!kolom19.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3809,7 +3844,7 @@
                                   <Value>=Sum(Fields!kolom20.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3846,7 +3881,7 @@
                                   <Value>=Sum(Fields!kolom21.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3883,7 +3918,7 @@
                                   <Value>=Sum(Fields!kolom22.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3920,7 +3955,7 @@
                                   <Value>=Sum(Fields!kolom23.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3957,7 +3992,7 @@
                                   <Value>=Sum(Fields!kolom24.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -3994,7 +4029,7 @@
                                   <Value>=Sum(Fields!kolom25.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -4031,7 +4066,7 @@
                                   <Value>=Sum(Fields!kolom26.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -4068,7 +4103,7 @@
                                   <Value>=Sum(Fields!kolom27.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -4105,7 +4140,7 @@
                                   <Value>=Sum(Fields!kolom28.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -4142,7 +4177,7 @@
                                   <Value>=Sum(Fields!kolom29.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -4179,7 +4214,7 @@
                                   <Value>=Sum(Fields!Total.Value, "datasetactual")</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -4291,7 +4326,7 @@
                                   <Value>Grand Total</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -4374,10 +4409,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>datasetactual</DataSetName>
-            <Top>1.2152cm</Top>
-            <Left>0.03104cm</Left>
-            <Height>1.65001cm</Height>
-            <Width>39.75894cm</Width>
+            <Top>1.22182cm</Top>
+            <Left>0.34257cm</Left>
+            <Height>1.64876cm</Height>
+            <Width>29.02021cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -4389,106 +4424,106 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.10903cm</Width>
+                  <Width>0.80154cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.98624cm</Width>
+                  <Width>2.67654cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.19548cm</Width>
+                  <Width>1.88798cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69185cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.692cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69185cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69406cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69185cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69406cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.68979cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69406cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69185cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69406cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69185cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.692cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69185cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69406cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69185cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69406cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.68979cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69406cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69185cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69406cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69185cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.692cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69185cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69406cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69185cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69406cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.68979cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69406cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69185cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.31471cm</Width>
+                  <Width>1.96112cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.08998cm</Width>
+                  <Width>1.60915cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -4507,7 +4542,7 @@
                                   <Value>=Rownumber(Nothing)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4543,7 +4578,7 @@
                                   <Value>=Fields!Shift.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4579,7 +4614,7 @@
                                   <Value>=Fields!ShiftKe.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4615,7 +4650,7 @@
                                   <Value>=Fields!kolom1.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4651,7 +4686,7 @@
                                   <Value>=Fields!kolom2.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4687,7 +4722,7 @@
                                   <Value>=Fields!kolom3.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4723,7 +4758,7 @@
                                   <Value>=Fields!kolom4.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4759,7 +4794,7 @@
                                   <Value>=Fields!kolom5.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4795,7 +4830,7 @@
                                   <Value>=Fields!kolom6.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4831,7 +4866,7 @@
                                   <Value>=Fields!kolom7.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4867,7 +4902,7 @@
                                   <Value>=Fields!kolom8.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4903,7 +4938,7 @@
                                   <Value>=Fields!kolom9.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4939,7 +4974,7 @@
                                   <Value>=Fields!kolom10.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4975,7 +5010,7 @@
                                   <Value>=Fields!kolom11.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5011,7 +5046,7 @@
                                   <Value>=Fields!kolom12.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5047,7 +5082,7 @@
                                   <Value>=Fields!kolom13.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5083,7 +5118,7 @@
                                   <Value>=Fields!kolom14.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5119,7 +5154,7 @@
                                   <Value>=Fields!kolom15.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5155,7 +5190,7 @@
                                   <Value>=Fields!kolom16.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5191,7 +5226,7 @@
                                   <Value>=Fields!kolom17.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5227,7 +5262,7 @@
                                   <Value>=Fields!kolom18.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5263,7 +5298,7 @@
                                   <Value>=Fields!kolom19.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5299,7 +5334,7 @@
                                   <Value>=Fields!kolom20.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5335,7 +5370,7 @@
                                   <Value>=Fields!kolom21.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5371,7 +5406,7 @@
                                   <Value>=Fields!kolom22.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5407,7 +5442,7 @@
                                   <Value>=Fields!kolom23.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5443,7 +5478,7 @@
                                   <Value>=Fields!kolom24.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5479,7 +5514,7 @@
                                   <Value>=Fields!kolom25.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5515,7 +5550,7 @@
                                   <Value>=Fields!kolom26.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5551,7 +5586,7 @@
                                   <Value>=Fields!kolom27.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5587,7 +5622,7 @@
                                   <Value>=Fields!kolom28.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5623,7 +5658,7 @@
                                   <Value>=Fields!kolom29.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5659,7 +5694,7 @@
                                   <Value>=Fields!Total.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5695,7 +5730,7 @@
                                   <Value>=Fields!Unit.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5736,7 +5771,7 @@
                                   <Value>Total</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -5776,7 +5811,7 @@
                                   <Value>=Sum(Fields!kolom1.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5812,7 +5847,7 @@
                                   <Value>=Sum(Fields!kolom2.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5848,7 +5883,7 @@
                                   <Value>=Sum(Fields!kolom3.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5884,7 +5919,7 @@
                                   <Value>=Sum(Fields!kolom4.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5920,7 +5955,7 @@
                                   <Value>=Sum(Fields!kolom5.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5956,7 +5991,7 @@
                                   <Value>=Sum(Fields!kolom6.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5992,7 +6027,7 @@
                                   <Value>=Sum(Fields!kolom7.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6028,7 +6063,7 @@
                                   <Value>=Sum(Fields!kolom8.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6064,7 +6099,7 @@
                                   <Value>=Sum(Fields!kolom9.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6100,7 +6135,7 @@
                                   <Value>=Sum(Fields!kolom10.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6136,7 +6171,7 @@
                                   <Value>=Sum(Fields!kolom11.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6172,7 +6207,7 @@
                                   <Value>=Sum(Fields!kolom12.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6208,7 +6243,7 @@
                                   <Value>=Sum(Fields!kolom13.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6244,7 +6279,7 @@
                                   <Value>=Sum(Fields!kolom14.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6280,7 +6315,7 @@
                                   <Value>=Sum(Fields!kolom15.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6316,7 +6351,7 @@
                                   <Value>=Sum(Fields!kolom16.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6352,7 +6387,7 @@
                                   <Value>=Sum(Fields!kolom17.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6388,7 +6423,7 @@
                                   <Value>=Sum(Fields!kolom18.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6424,7 +6459,7 @@
                                   <Value>=Sum(Fields!kolom19.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6460,7 +6495,7 @@
                                   <Value>=Sum(Fields!kolom20.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6496,7 +6531,7 @@
                                   <Value>=Sum(Fields!kolom21.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6532,7 +6567,7 @@
                                   <Value>=Sum(Fields!kolom22.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6568,7 +6603,7 @@
                                   <Value>=Sum(Fields!kolom23.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6604,7 +6639,7 @@
                                   <Value>=Sum(Fields!kolom24.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6640,7 +6675,7 @@
                                   <Value>=Sum(Fields!kolom25.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6676,7 +6711,7 @@
                                   <Value>=Sum(Fields!kolom26.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6712,7 +6747,7 @@
                                   <Value>=Sum(Fields!kolom27.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6748,7 +6783,7 @@
                                   <Value>=Sum(Fields!kolom28.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6784,7 +6819,7 @@
                                   <Value>=Sum(Fields!kolom29.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6820,7 +6855,7 @@
                                   <Value>=Sum(Fields!Total.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6856,7 +6891,7 @@
                                   <Value>Assy</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6933,10 +6968,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>datasetshiftpenerimaan</DataSetName>
-            <Top>3.70044cm</Top>
-            <Left>0.04959cm</Left>
+            <Top>3.44248cm</Top>
+            <Left>0.34257cm</Left>
             <Height>1.08628cm</Height>
-            <Width>39.74039cm</Width>
+            <Width>29.01856cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -6948,106 +6983,106 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.10903cm</Width>
+                  <Width>0.80117cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.98624cm</Width>
+                  <Width>2.67611cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.19548cm</Width>
+                  <Width>1.88761cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69142cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69369cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69142cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69369cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69142cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69369cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69142cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69369cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69142cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69369cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69142cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69369cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69142cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69369cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69142cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69369cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69142cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69369cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69142cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69369cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69142cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69369cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69142cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69369cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69142cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69369cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69142cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69369cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.00155cm</Width>
+                  <Width>0.69142cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.3147cm</Width>
+                  <Width>1.96156cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.08998cm</Width>
+                  <Width>1.60915cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -7066,7 +7101,7 @@
                                   <Value>=Rownumber(Nothing)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7102,7 +7137,7 @@
                                   <Value>=Fields!Shift.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7138,7 +7173,7 @@
                                   <Value>=Fields!ShiftKe.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7174,7 +7209,7 @@
                                   <Value>=Fields!kolom1.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7210,7 +7245,7 @@
                                   <Value>=Fields!kolom2.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7246,7 +7281,7 @@
                                   <Value>=Fields!kolom3.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7282,7 +7317,7 @@
                                   <Value>=Fields!kolom4.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7318,7 +7353,7 @@
                                   <Value>=Fields!kolom5.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7354,7 +7389,7 @@
                                   <Value>=Fields!kolom6.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7390,7 +7425,7 @@
                                   <Value>=Fields!kolom7.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7426,7 +7461,7 @@
                                   <Value>=Fields!kolom8.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7462,7 +7497,7 @@
                                   <Value>=Fields!kolom9.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7498,7 +7533,7 @@
                                   <Value>=Fields!kolom10.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7534,7 +7569,7 @@
                                   <Value>=Fields!kolom11.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7570,7 +7605,7 @@
                                   <Value>=Fields!kolom12.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7606,7 +7641,7 @@
                                   <Value>=Fields!kolom13.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7642,7 +7677,7 @@
                                   <Value>=Fields!kolom14.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7678,7 +7713,7 @@
                                   <Value>=Fields!kolom15.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7714,7 +7749,7 @@
                                   <Value>=Fields!kolom16.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7750,7 +7785,7 @@
                                   <Value>=Fields!kolom17.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7786,7 +7821,7 @@
                                   <Value>=Fields!kolom18.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7822,7 +7857,7 @@
                                   <Value>=Fields!kolom19.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7858,7 +7893,7 @@
                                   <Value>=Fields!kolom20.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7894,7 +7929,7 @@
                                   <Value>=Fields!kolom21.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7930,7 +7965,7 @@
                                   <Value>=Fields!kolom22.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -7966,7 +8001,7 @@
                                   <Value>=Fields!kolom23.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8002,7 +8037,7 @@
                                   <Value>=Fields!kolom24.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8038,7 +8073,7 @@
                                   <Value>=Fields!kolom25.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8074,7 +8109,7 @@
                                   <Value>=Fields!kolom26.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8110,7 +8145,7 @@
                                   <Value>=Fields!kolom27.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8146,7 +8181,7 @@
                                   <Value>=Fields!kolom28.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8182,7 +8217,7 @@
                                   <Value>=Fields!kolom29.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8218,7 +8253,7 @@
                                   <Value>=Fields!Total.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8254,7 +8289,7 @@
                                   <Value>=Fields!Unit.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8295,7 +8330,7 @@
                                   <Value>Total</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -8335,7 +8370,7 @@
                                   <Value>=Sum(Fields!kolom1.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8371,7 +8406,7 @@
                                   <Value>=Sum(Fields!kolom2.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8407,7 +8442,7 @@
                                   <Value>=Sum(Fields!kolom3.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8443,7 +8478,7 @@
                                   <Value>=Sum(Fields!kolom4.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8479,7 +8514,7 @@
                                   <Value>=Sum(Fields!kolom5.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8515,7 +8550,7 @@
                                   <Value>=Sum(Fields!kolom6.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8551,7 +8586,7 @@
                                   <Value>=Sum(Fields!kolom7.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8587,7 +8622,7 @@
                                   <Value>=Sum(Fields!kolom8.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8623,7 +8658,7 @@
                                   <Value>=Sum(Fields!kolom9.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8659,7 +8694,7 @@
                                   <Value>=Sum(Fields!kolom10.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8695,7 +8730,7 @@
                                   <Value>=Sum(Fields!kolom11.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8731,7 +8766,7 @@
                                   <Value>=Sum(Fields!kolom12.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8767,7 +8802,7 @@
                                   <Value>=Sum(Fields!kolom13.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8803,7 +8838,7 @@
                                   <Value>=Sum(Fields!kolom14.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8839,7 +8874,7 @@
                                   <Value>=Sum(Fields!kolom15.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8875,7 +8910,7 @@
                                   <Value>=Sum(Fields!kolom16.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8911,7 +8946,7 @@
                                   <Value>=Sum(Fields!kolom17.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8947,7 +8982,7 @@
                                   <Value>=Sum(Fields!kolom18.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -8983,7 +9018,7 @@
                                   <Value>=Sum(Fields!kolom19.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -9019,7 +9054,7 @@
                                   <Value>=Sum(Fields!kolom20.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -9055,7 +9090,7 @@
                                   <Value>=Sum(Fields!kolom21.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -9091,7 +9126,7 @@
                                   <Value>=Sum(Fields!kolom22.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -9127,7 +9162,7 @@
                                   <Value>=Sum(Fields!kolom23.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -9163,7 +9198,7 @@
                                   <Value>=Sum(Fields!kolom24.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -9199,7 +9234,7 @@
                                   <Value>=Sum(Fields!kolom25.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -9235,7 +9270,7 @@
                                   <Value>=Sum(Fields!kolom26.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -9271,7 +9306,7 @@
                                   <Value>=Sum(Fields!kolom27.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -9307,7 +9342,7 @@
                                   <Value>=Sum(Fields!kolom28.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -9343,7 +9378,7 @@
                                   <Value>=Sum(Fields!kolom29.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -9379,7 +9414,7 @@
                                   <Value>=Sum(Fields!Total.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -9415,7 +9450,7 @@
                                   <Value>Assy</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -9492,10 +9527,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>datasetshiftperbaikan</DataSetName>
-            <Top>5.58417cm</Top>
-            <Left>0.0496cm</Left>
+            <Top>5.13571cm</Top>
+            <Left>0.34257cm</Left>
             <Height>1.06067cm</Height>
-            <Width>39.74038cm</Width>
+            <Width>29.01856cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -9513,6 +9548,7 @@
                     <Value>ANODE ROD RECEVID QTY. (ASS'Y)</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>7pt</FontSize>
                       <FontWeight>SemiBold</FontWeight>
                     </Style>
                   </TextRun>
@@ -9521,10 +9557,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox153</rd:DefaultName>
-            <Top>2.92405cm</Top>
-            <Left>0.04959cm</Left>
-            <Height>0.6cm</Height>
-            <Width>8.18073cm</Width>
+            <Top>2.93067cm</Top>
+            <Left>0.36112cm</Left>
+            <Height>0.46771cm</Height>
+            <Width>29.00001cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -9546,6 +9582,7 @@
                     <Value>ANODE ROD REPAIR QTY. (ASS'Y)</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>7pt</FontSize>
                       <FontWeight>SemiBold</FontWeight>
                     </Style>
                   </TextRun>
@@ -9554,10 +9591,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox153</rd:DefaultName>
-            <Top>4.85526cm</Top>
-            <Left>0.02723cm</Left>
-            <Height>0.6cm</Height>
-            <Width>8.18073cm</Width>
+            <Top>4.56403cm</Top>
+            <Left>0.33876cm</Left>
+            <Height>0.49417cm</Height>
+            <Width>29.02237cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -9569,11 +9606,402 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Rectangle Name="Rectangle3">
+            <ReportItems>
+              <Line Name="Line1">
+                <Top>0.74687cm</Top>
+                <Left>0.00014cm</Left>
+                <Height>0cm</Height>
+                <Width>11.01646cm</Width>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                  </Border>
+                </Style>
+              </Line>
+              <Line Name="Line2">
+                <Top>0.74687cm</Top>
+                <Left>2.86691cm</Left>
+                <Height>3.63508cm</Height>
+                <Width>0cm</Width>
+                <ZIndex>1</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                  </Border>
+                </Style>
+              </Line>
+              <Line Name="Line3">
+                <Top>0.74687cm</Top>
+                <Left>6.65902cm</Left>
+                <Height>3.63508cm</Height>
+                <Width>0cm</Width>
+                <ZIndex>2</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                  </Border>
+                </Style>
+              </Line>
+              <Line Name="Line4">
+                <Top>1.51015cm</Top>
+                <Height>0cm</Height>
+                <Width>11.01496cm</Width>
+                <ZIndex>3</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                  </Border>
+                </Style>
+              </Line>
+              <Line Name="Line5">
+                <Top>2.27343cm</Top>
+                <Left>0.00163cm</Left>
+                <Height>0cm</Height>
+                <Width>11.01496cm</Width>
+                <ZIndex>4</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                  </Border>
+                </Style>
+              </Line>
+              <Line Name="Line6">
+                <Top>3.03671cm</Top>
+                <Height>0cm</Height>
+                <Width>11.01496cm</Width>
+                <ZIndex>5</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                  </Border>
+                </Style>
+              </Line>
+              <Textbox Name="Textbox116">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>APPROVED</Value>
+                        <Style>
+                          <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>8pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox101</rd:DefaultName>
+                <Left>0.00014cm</Left>
+                <Height>0.74687cm</Height>
+                <Width>11.01646cm</Width>
+                <ZIndex>6</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox119">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>VICE PRESIDENT</Value>
+                        <Style>
+                          <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>8pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox101</rd:DefaultName>
+                <Top>0.74687cm</Top>
+                <Left>0.00165cm</Left>
+                <Height>0.76328cm</Height>
+                <Width>2.88078cm</Width>
+                <ZIndex>7</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox120">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>MANGER</Value>
+                        <Style>
+                          <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>8pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox101</rd:DefaultName>
+                <Top>1.51015cm</Top>
+                <Left>0.00165cm</Left>
+                <Height>0.76328cm</Height>
+                <Width>2.88078cm</Width>
+                <ZIndex>8</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox121">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>PENYELIA</Value>
+                        <Style>
+                          <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>8pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox101</rd:DefaultName>
+                <Top>2.27343cm</Top>
+                <Left>0.00165cm</Left>
+                <Height>0.76328cm</Height>
+                <Width>2.88078cm</Width>
+                <ZIndex>9</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox122">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>SECTION</Value>
+                        <Style>
+                          <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>8pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox101</rd:DefaultName>
+                <Top>3.79999cm</Top>
+                <Left>0.00162cm</Left>
+                <Height>0.58196cm</Height>
+                <Width>2.86529cm</Width>
+                <ZIndex>10</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox123">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>PT GENTANUSA GEMILANG</Value>
+                        <Style>
+                          <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox5</rd:DefaultName>
+                <Top>3.79999cm</Top>
+                <Left>2.86691cm</Left>
+                <Height>0.58196cm</Height>
+                <Width>3.79211cm</Width>
+                <ZIndex>11</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox129">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>PT INDONESIA ASAHAN ALUMINIUM</Value>
+                        <Style>
+                          <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>7pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox5</rd:DefaultName>
+                <Top>3.79999cm</Top>
+                <Left>6.65902cm</Left>
+                <Height>0.58196cm</Height>
+                <Width>4.35758cm</Width>
+                <ZIndex>12</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox124">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>DATE</Value>
+                        <Style>
+                          <FontFamily>Arial Narrow</FontFamily>
+                          <FontSize>8pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox101</rd:DefaultName>
+                <Top>3.03671cm</Top>
+                <Left>0.00162cm</Left>
+                <Height>0.76328cm</Height>
+                <Width>2.88078cm</Width>
+                <ZIndex>13</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Line Name="Line7">
+                <Top>3.79999cm</Top>
+                <Left>0.00165cm</Left>
+                <Height>0cm</Height>
+                <Width>11.01496cm</Width>
+                <ZIndex>14</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                  </Border>
+                </Style>
+              </Line>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Top>6.56848cm</Top>
+            <Left>18.34617cm</Left>
+            <Height>4.38195cm</Height>
+            <Width>11.01661cm</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Rectangle>
         </ReportItems>
-        <Height>2.65775in</Height>
+        <Height>4.42032in</Height>
         <Style />
       </Body>
-      <Width>15.7001in</Width>
+      <Width>29.6cm</Width>
       <Page>
         <PageHeader>
           <Height>2.57242cm</Height>
@@ -9585,7 +10013,7 @@
               <Value>Logo</Value>
               <Sizing>Fit</Sizing>
               <Top>0.31496cm</Top>
-              <Left>1.94579cm</Left>
+              <Left>2.08465cm</Left>
               <Height>1.36834cm</Height>
               <Width>1.7919cm</Width>
               <Style>
@@ -9617,7 +10045,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox34</rd:DefaultName>
               <Top>1.82441cm</Top>
-              <Left>0.20371cm</Left>
+              <Left>0.34257cm</Left>
               <Height>0.64508cm</Height>
               <Width>5.27606cm</Width>
               <ZIndex>1</ZIndex>
@@ -9653,8 +10081,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox35</rd:DefaultName>
-              <Top>0.6774cm</Top>
-              <Left>15.82859cm</Left>
+              <Top>0.9949cm</Top>
+              <Left>10.8679cm</Left>
               <Height>0.74863cm</Height>
               <Width>10.52431cm</Width>
               <ZIndex>2</ZIndex>
@@ -9676,398 +10104,12 @@
             </Border>
           </Style>
         </PageHeader>
-        <PageFooter>
-          <Height>4.48189cm</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <ReportItems>
-            <Rectangle Name="Rectangle3">
-              <ReportItems>
-                <Line Name="Line1">
-                  <Top>0.76997cm</Top>
-                  <Height>0cm</Height>
-                  <Width>8.79248cm</Width>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                    </Border>
-                  </Style>
-                </Line>
-                <Line Name="Line2">
-                  <Top>0.76997cm</Top>
-                  <Left>2.86529cm</Left>
-                  <Height>3.29788cm</Height>
-                  <Width>0cm</Width>
-                  <ZIndex>1</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                    </Border>
-                  </Style>
-                </Line>
-                <Line Name="Line3">
-                  <Top>0.76997cm</Top>
-                  <Left>6.0224cm</Left>
-                  <Height>3.29788cm</Height>
-                  <Width>0cm</Width>
-                  <ZIndex>2</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                    </Border>
-                  </Style>
-                </Line>
-                <Line Name="Line4">
-                  <Top>1.42249cm</Top>
-                  <Height>0cm</Height>
-                  <Width>8.79248cm</Width>
-                  <ZIndex>3</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                    </Border>
-                  </Style>
-                </Line>
-                <Line Name="Line5">
-                  <Top>2.10915cm</Top>
-                  <Height>0cm</Height>
-                  <Width>8.79248cm</Width>
-                  <ZIndex>4</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                    </Border>
-                  </Style>
-                </Line>
-                <Line Name="Line6">
-                  <Top>2.76281cm</Top>
-                  <Height>0cm</Height>
-                  <Width>8.79248cm</Width>
-                  <ZIndex>5</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                    </Border>
-                  </Style>
-                </Line>
-                <Textbox Name="Textbox115">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>APPROVED</Value>
-                          <Style>
-                            <FontFamily>Arial Narrow</FontFamily>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Center</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Height>0.76997cm</Height>
-                  <Width>8.79248cm</Width>
-                  <ZIndex>6</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox116">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>VICE PRESIDENT</Value>
-                          <Style>
-                            <FontFamily>Arial Narrow</FontFamily>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Left</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>0.76997cm</Top>
-                  <Height>0.65252cm</Height>
-                  <Width>2.88078cm</Width>
-                  <ZIndex>7</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox118">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>MANGER</Value>
-                          <Style>
-                            <FontFamily>Arial Narrow</FontFamily>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Left</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>1.42249cm</Top>
-                  <Height>0.65252cm</Height>
-                  <Width>2.88078cm</Width>
-                  <ZIndex>8</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox119">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>PENYELIA</Value>
-                          <Style>
-                            <FontFamily>Arial Narrow</FontFamily>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Left</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>2.07501cm</Top>
-                  <Height>0.65252cm</Height>
-                  <Width>2.88078cm</Width>
-                  <ZIndex>9</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox120">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>SECTION</Value>
-                          <Style>
-                            <FontFamily>Arial Narrow</FontFamily>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Left</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>3.41533cm</Top>
-                  <Height>0.65252cm</Height>
-                  <Width>2.88078cm</Width>
-                  <ZIndex>10</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox121">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>PT GENTANUSA GEMILANG</Value>
-                          <Style>
-                            <FontFamily>Arial Narrow</FontFamily>
-                            <FontSize>7pt</FontSize>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Center</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox5</rd:DefaultName>
-                  <Top>3.48589cm</Top>
-                  <Left>2.86529cm</Left>
-                  <Height>0.58196cm</Height>
-                  <Width>3.15711cm</Width>
-                  <ZIndex>11</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox129">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>PT Inalum</Value>
-                          <Style>
-                            <FontFamily>Arial Narrow</FontFamily>
-                            <FontSize>8pt</FontSize>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Center</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox5</rd:DefaultName>
-                  <Top>3.45061cm</Top>
-                  <Left>6.0224cm</Left>
-                  <Height>0.61724cm</Height>
-                  <Width>2.77008cm</Width>
-                  <ZIndex>12</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox122">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>DATE</Value>
-                          <Style>
-                            <FontFamily>Arial Narrow</FontFamily>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Left</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>2.76281cm</Top>
-                  <Height>0.65252cm</Height>
-                  <Width>2.88078cm</Width>
-                  <ZIndex>13</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Line Name="Line7">
-                  <Top>3.45061cm</Top>
-                  <Left>0.00001cm</Left>
-                  <Height>0cm</Height>
-                  <Width>8.79248cm</Width>
-                  <ZIndex>14</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                    </Border>
-                  </Style>
-                </Line>
-              </ReportItems>
-              <KeepTogether>true</KeepTogether>
-              <Top>0.13594cm</Top>
-              <Left>30.51705cm</Left>
-              <Height>4.06785cm</Height>
-              <Width>8.79249cm</Width>
-              <Style>
-                <Border>
-                  <Style>Solid</Style>
-                </Border>
-              </Style>
-            </Rectangle>
-          </ReportItems>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </PageFooter>
-        <PageHeight>29.7cm</PageHeight>
-        <PageWidth>42cm</PageWidth>
-        <LeftMargin>1cm</LeftMargin>
-        <RightMargin>1cm</RightMargin>
-        <TopMargin>1cm</TopMargin>
-        <BottomMargin>1cm</BottomMargin>
+        <PageHeight>21cm</PageHeight>
+        <PageWidth>29.7cm</PageWidth>
+        <LeftMargin>0cm</LeftMargin>
+        <RightMargin>0cm</RightMargin>
+        <TopMargin>0cm</TopMargin>
+        <BottomMargin>0.5cm</BottomMargin>
         <ColumnSpacing>0.13cm</ColumnSpacing>
         <Style />
       </Page>

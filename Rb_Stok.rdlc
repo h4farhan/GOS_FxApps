@@ -164,76 +164,76 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.94036cm</Width>
+                  <Width>2.4868cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.31485cm</Width>
+                  <Width>0.86129cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.42025cm</Width>
+                  <Width>0.96669cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.42025cm</Width>
+                  <Width>0.96669cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.42025cm</Width>
+                  <Width>0.96669cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.77371cm</Width>
+                  <Width>2.32015cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.42025cm</Width>
+                  <Width>0.96669cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.42025cm</Width>
+                  <Width>0.96669cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.42025cm</Width>
+                  <Width>0.96669cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.42025cm</Width>
+                  <Width>0.96669cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.42025cm</Width>
+                  <Width>0.96669cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.42025cm</Width>
+                  <Width>0.96669cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.42025cm</Width>
+                  <Width>0.96669cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.42025cm</Width>
+                  <Width>0.96669cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.42025cm</Width>
+                  <Width>0.96669cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.42025cm</Width>
+                  <Width>0.96669cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.42025cm</Width>
+                  <Width>0.96669cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.42025cm</Width>
+                  <Width>0.96669cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.42025cm</Width>
+                  <Width>0.96669cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.29162cm</Width>
+                  <Width>2.83806cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.7102cm</Width>
+                  <Width>1.25664cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.7102cm</Width>
+                  <Width>1.25664cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.7102cm</Width>
+                  <Width>1.25664cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.7102cm</Width>
+                  <Width>1.25664cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -251,7 +251,7 @@
                                 <TextRun>
                                   <Value>=Fields!tanggal.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -286,7 +286,7 @@
                                 <TextRun>
                                   <Value>=Fields!shift.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -321,7 +321,7 @@
                                 <TextRun>
                                   <Value>=Fields!bmasuk.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -356,7 +356,7 @@
                                 <TextRun>
                                   <Value>=Fields!bkeluar.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -391,7 +391,7 @@
                                 <TextRun>
                                   <Value>=Fields!bstok.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -426,7 +426,7 @@
                                 <TextRun>
                                   <Value>=Fields!bpanjang.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -461,7 +461,7 @@
                                 <TextRun>
                                   <Value>=Fields!bsisamm.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -496,7 +496,7 @@
                                 <TextRun>
                                   <Value>=Fields!bpe1.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                     <Color>=IIf(Fields!tanggal.Value = "Total", "Blue", "Black")</Color>
                                   </Style>
                                 </TextRun>
@@ -532,7 +532,7 @@
                                 <TextRun>
                                   <Value>=Fields!bpe2.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                     <Color>=IIf(Fields!tanggal.Value = "Total", "Blue", "Black")</Color>
                                   </Style>
                                 </TextRun>
@@ -568,7 +568,7 @@
                                 <TextRun>
                                   <Value>=Fields!bbe1.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                     <Color>=IIf(Fields!tanggal.Value = "Total", "Blue", "Black")</Color>
                                   </Style>
                                 </TextRun>
@@ -604,7 +604,7 @@
                                 <TextRun>
                                   <Value>=Fields!bbe2.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                     <Color>=IIf(Fields!tanggal.Value = "Total", "Blue", "Black")</Color>
                                   </Style>
                                 </TextRun>
@@ -640,7 +640,7 @@
                                 <TextRun>
                                   <Value>=Fields!rbkeluare1.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                     <Color>=IIf(Fields!tanggal.Value = "Total", "Blue", "Black")</Color>
                                   </Style>
                                 </TextRun>
@@ -676,7 +676,7 @@
                                 <TextRun>
                                   <Value>=Fields!rbkeluare2.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                     <Color>=IIf(Fields!tanggal.Value = "Total", "Blue", "Black")</Color>
                                   </Style>
                                 </TextRun>
@@ -712,7 +712,7 @@
                                 <TextRun>
                                   <Value>=Fields!wpe1.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -748,7 +748,7 @@
                                 <TextRun>
                                   <Value>=Fields!wpe2.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -784,7 +784,7 @@
                                 <TextRun>
                                   <Value>=Fields!wbe1.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -820,7 +820,7 @@
                                 <TextRun>
                                   <Value>=Fields!wbe2.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -856,7 +856,7 @@
                                 <TextRun>
                                   <Value>=Fields!bsisakg.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -891,7 +891,7 @@
                                 <TextRun>
                                   <Value>=Fields!wastekg.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -926,7 +926,7 @@
                                 <TextRun>
                                   <Value>=Fields!keterangan.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -961,7 +961,7 @@
                                 <TextRun>
                                   <Value>=Fields!e1mm.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -996,7 +996,7 @@
                                 <TextRun>
                                   <Value>=Fields!e2mm.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1031,7 +1031,7 @@
                                 <TextRun>
                                   <Value>=Fields!ttle1e2.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1066,7 +1066,7 @@
                                 <TextRun>
                                   <Value>=Fields!waste.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1131,9 +1131,9 @@
             </TablixRowHierarchy>
             <DataSetName>datasetrbstok</DataSetName>
             <Top>3.30203cm</Top>
-            <Left>0.81812cm</Left>
+            <Left>0.26229cm</Left>
             <Height>0.82778cm</Height>
-            <Width>39.88534cm</Width>
+            <Width>29cm</Width>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -1153,7 +1153,7 @@
                         <Value>Tanggal</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>9pt</FontSize>
+                          <FontSize>6pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1165,7 +1165,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox37</rd:DefaultName>
                 <Height>2.26258cm</Height>
-                <Width>2.94036cm</Width>
+                <Width>2.4868cm</Width>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1189,7 +1189,7 @@
                         <Value>Shift</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>9pt</FontSize>
+                          <FontSize>6pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1200,9 +1200,9 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>2.94036cm</Left>
+                <Left>2.4868cm</Left>
                 <Height>2.26258cm</Height>
-                <Width>1.31485cm</Width>
+                <Width>0.86129cm</Width>
                 <ZIndex>1</ZIndex>
                 <Style>
                   <Border>
@@ -1227,7 +1227,7 @@
                         <Value>Masuk</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>9pt</FontSize>
+                          <FontSize>6pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1239,9 +1239,9 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>1.18226cm</Top>
-                <Left>4.25521cm</Left>
+                <Left>3.3481cm</Left>
                 <Height>1.08032cm</Height>
-                <Width>1.42025cm</Width>
+                <Width>0.96669cm</Width>
                 <ZIndex>2</ZIndex>
                 <Style>
                   <Border>
@@ -1266,7 +1266,7 @@
                         <Value>Keluar</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>9pt</FontSize>
+                          <FontSize>6pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1278,9 +1278,9 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>1.18226cm</Top>
-                <Left>5.67546cm</Left>
+                <Left>4.31479cm</Left>
                 <Height>1.08032cm</Height>
-                <Width>1.42025cm</Width>
+                <Width>0.96669cm</Width>
                 <ZIndex>3</ZIndex>
                 <Style>
                   <Border>
@@ -1305,7 +1305,7 @@
                         <Value>Stok</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>9pt</FontSize>
+                          <FontSize>6pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1317,9 +1317,9 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>1.18226cm</Top>
-                <Left>7.09571cm</Left>
+                <Left>5.28149cm</Left>
                 <Height>1.08032cm</Height>
-                <Width>1.42025cm</Width>
+                <Width>0.96669cm</Width>
                 <ZIndex>4</ZIndex>
                 <Style>
                   <Border>
@@ -1344,7 +1344,7 @@
                         <Value>Round Bar Ø 180 mm</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>9pt</FontSize>
+                          <FontSize>6pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1355,48 +1355,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>4.25521cm</Left>
+                <Left>3.3481cm</Left>
                 <Height>1.18225cm</Height>
-                <Width>4.26075cm</Width>
+                <Width>2.90008cm</Width>
                 <ZIndex>5</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>Solid</Style>
-                    <Width>0.25pt</Width>
-                  </Border>
-                  <BackgroundColor>#ddebf7</BackgroundColor>
-                  <VerticalAlign>Middle</VerticalAlign>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-              <Textbox Name="Textbox43">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>Panjang Round Bar (mm)</Value>
-                        <Style>
-                          <FontFamily>Consolas</FontFamily>
-                          <FontSize>9pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>8.51596cm</Left>
-                <Height>2.26258cm</Height>
-                <Width>2.77371cm</Width>
-                <ZIndex>6</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1419,7 +1381,7 @@
                       <TextRun>
                         <Value>Sisa Potongan Round Bar (mm)</Value>
                         <Style>
-                          <FontSize>7pt</FontSize>
+                          <FontSize>5pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1430,10 +1392,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>11.28967cm</Left>
+                <Left>8.56833cm</Left>
                 <Height>2.26258cm</Height>
-                <Width>1.42025cm</Width>
-                <ZIndex>7</ZIndex>
+                <Width>0.96669cm</Width>
+                <ZIndex>6</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1457,7 +1419,7 @@
                         <Value>E1-155 mm</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>7pt</FontSize>
+                          <FontSize>4pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1469,10 +1431,10 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>1.52147cm</Top>
-                <Left>12.70992cm</Left>
+                <Left>9.53503cm</Left>
                 <Height>0.74111cm</Height>
-                <Width>1.42025cm</Width>
-                <ZIndex>8</ZIndex>
+                <Width>0.96669cm</Width>
+                <ZIndex>7</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1495,7 +1457,7 @@
                         <Value>E2-220 mm</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>7pt</FontSize>
+                          <FontSize>4pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1507,10 +1469,10 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>1.52147cm</Top>
-                <Left>14.13017cm</Left>
+                <Left>10.50172cm</Left>
                 <Height>0.74111cm</Height>
-                <Width>1.42025cm</Width>
-                <ZIndex>9</ZIndex>
+                <Width>0.96669cm</Width>
+                <ZIndex>8</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1533,7 +1495,7 @@
                         <Value>E1-155 mm</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>7pt</FontSize>
+                          <FontSize>4pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1545,10 +1507,10 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>1.52147cm</Top>
-                <Left>15.55042cm</Left>
+                <Left>11.46842cm</Left>
                 <Height>0.74111cm</Height>
-                <Width>1.42025cm</Width>
-                <ZIndex>10</ZIndex>
+                <Width>0.96669cm</Width>
+                <ZIndex>9</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1571,7 +1533,7 @@
                         <Value>E2-220 mm</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>7pt</FontSize>
+                          <FontSize>4pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1583,10 +1545,10 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>1.52147cm</Top>
-                <Left>16.97067cm</Left>
+                <Left>12.43511cm</Left>
                 <Height>0.74111cm</Height>
-                <Width>1.42025cm</Width>
-                <ZIndex>11</ZIndex>
+                <Width>0.96669cm</Width>
+                <ZIndex>10</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1609,7 +1571,7 @@
                         <Value>E2-220 mm</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>7pt</FontSize>
+                          <FontSize>4pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1621,10 +1583,10 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>1.52147cm</Top>
-                <Left>22.65167cm</Left>
+                <Left>16.30189cm</Left>
                 <Height>0.74111cm</Height>
-                <Width>1.42025cm</Width>
-                <ZIndex>12</ZIndex>
+                <Width>0.96669cm</Width>
+                <ZIndex>11</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1648,7 +1610,7 @@
                         <Value>E1-155 mm</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>7pt</FontSize>
+                          <FontSize>4pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1660,10 +1622,10 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>1.52147cm</Top>
-                <Left>21.23142cm</Left>
+                <Left>15.33519cm</Left>
                 <Height>0.74111cm</Height>
-                <Width>1.42025cm</Width>
-                <ZIndex>13</ZIndex>
+                <Width>0.96669cm</Width>
+                <ZIndex>12</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1687,7 +1649,7 @@
                         <Value>E2-220 mm</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>7pt</FontSize>
+                          <FontSize>4pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1699,10 +1661,10 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>1.52147cm</Top>
-                <Left>19.81117cm</Left>
+                <Left>14.3685cm</Left>
                 <Height>0.74111cm</Height>
-                <Width>1.42025cm</Width>
-                <ZIndex>14</ZIndex>
+                <Width>0.96669cm</Width>
+                <ZIndex>13</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1725,7 +1687,7 @@
                         <Value>E1-155 mm</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>7pt</FontSize>
+                          <FontSize>4pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1737,10 +1699,10 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>1.52147cm</Top>
-                <Left>18.39092cm</Left>
+                <Left>13.40181cm</Left>
                 <Height>0.74111cm</Height>
-                <Width>1.42025cm</Width>
-                <ZIndex>15</ZIndex>
+                <Width>0.96669cm</Width>
+                <ZIndex>14</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1763,7 +1725,7 @@
                         <Value>Waste (Kg)</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>9pt</FontSize>
+                          <FontSize>6pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1774,10 +1736,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>28.33267cm</Left>
+                <Left>20.16866cm</Left>
                 <Height>2.26258cm</Height>
-                <Width>1.42025cm</Width>
-                <ZIndex>16</ZIndex>
+                <Width>0.96669cm</Width>
+                <ZIndex>15</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1800,7 +1762,7 @@
                         <Value>E2-220 mm</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>7pt</FontSize>
+                          <FontSize>4pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1812,10 +1774,10 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>1.52147cm</Top>
-                <Left>25.49217cm</Left>
+                <Left>18.23528cm</Left>
                 <Height>0.74111cm</Height>
-                <Width>1.42025cm</Width>
-                <ZIndex>17</ZIndex>
+                <Width>0.96669cm</Width>
+                <ZIndex>16</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1839,7 +1801,7 @@
                         <Value>E1-155 mm</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>7pt</FontSize>
+                          <FontSize>4pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1851,10 +1813,10 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>1.52147cm</Top>
-                <Left>24.07192cm</Left>
+                <Left>17.26858cm</Left>
                 <Height>0.74111cm</Height>
-                <Width>1.42025cm</Width>
-                <ZIndex>18</ZIndex>
+                <Width>0.96669cm</Width>
+                <ZIndex>17</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1878,7 +1840,7 @@
                         <Value>Katerangan</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>9pt</FontSize>
+                          <FontSize>6pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1889,10 +1851,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>29.75292cm</Left>
+                <Left>21.13536cm</Left>
                 <Height>2.26258cm</Height>
-                <Width>3.29162cm</Width>
-                <ZIndex>19</ZIndex>
+                <Width>2.83806cm</Width>
+                <ZIndex>18</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1915,7 +1877,7 @@
                         <Value>E1 (MM)</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>9pt</FontSize>
+                          <FontSize>6pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1926,10 +1888,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>33.04454cm</Left>
+                <Left>23.97342cm</Left>
                 <Height>2.26258cm</Height>
-                <Width>1.7102cm</Width>
-                <ZIndex>20</ZIndex>
+                <Width>1.25664cm</Width>
+                <ZIndex>19</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1952,7 +1914,7 @@
                         <Value>E2 (MM)</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>9pt</FontSize>
+                          <FontSize>6pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1963,10 +1925,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>34.75474cm</Left>
+                <Left>25.23007cm</Left>
                 <Height>2.26258cm</Height>
-                <Width>1.7102cm</Width>
-                <ZIndex>21</ZIndex>
+                <Width>1.25664cm</Width>
+                <ZIndex>20</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1989,7 +1951,7 @@
                         <Value>Total E1&amp;E2</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>9pt</FontSize>
+                          <FontSize>6pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -2000,10 +1962,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>36.46494cm</Left>
+                <Left>26.48671cm</Left>
                 <Height>2.26258cm</Height>
-                <Width>1.7102cm</Width>
-                <ZIndex>22</ZIndex>
+                <Width>1.25664cm</Width>
+                <ZIndex>21</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -2026,7 +1988,7 @@
                         <Value>Waste</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>9pt</FontSize>
+                          <FontSize>6pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -2037,10 +1999,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>38.17514cm</Left>
+                <Left>27.74336cm</Left>
                 <Height>2.26258cm</Height>
-                <Width>1.7102cm</Width>
-                <ZIndex>23</ZIndex>
+                <Width>1.25664cm</Width>
+                <ZIndex>22</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -2063,7 +2025,7 @@
                         <Value>Round Bar </Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>9pt</FontSize>
+                          <FontSize>6pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -2078,7 +2040,7 @@
                         <Value>Sawing (Potong)</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>9pt</FontSize>
+                          <FontSize>6pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -2089,10 +2051,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>12.70992cm</Left>
+                <Left>9.53503cm</Left>
                 <Height>1.52146cm</Height>
-                <Width>2.8405cm</Width>
-                <ZIndex>24</ZIndex>
+                <Width>1.93339cm</Width>
+                <ZIndex>23</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -2116,7 +2078,7 @@
                         <Value>Round Bar </Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>9pt</FontSize>
+                          <FontSize>6pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -2131,7 +2093,7 @@
                         <Value>Lathe (Bubut)</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>9pt</FontSize>
+                          <FontSize>6pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -2142,10 +2104,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>15.55042cm</Left>
+                <Left>11.46842cm</Left>
                 <Height>1.52147cm</Height>
-                <Width>2.8405cm</Width>
-                <ZIndex>25</ZIndex>
+                <Width>1.93339cm</Width>
+                <ZIndex>24</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -2169,7 +2131,7 @@
                         <Value>Produksi Round Bar Yang Keluar</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>9pt</FontSize>
+                          <FontSize>6pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -2180,10 +2142,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>18.39092cm</Left>
+                <Left>13.40181cm</Left>
                 <Height>1.52147cm</Height>
-                <Width>2.8405cm</Width>
-                <ZIndex>26</ZIndex>
+                <Width>1.93339cm</Width>
+                <ZIndex>25</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -2207,7 +2169,7 @@
                         <Value>Stock Welding Piece Sawing (Potong)</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>9pt</FontSize>
+                          <FontSize>6pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -2218,16 +2180,17 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>21.23142cm</Left>
+                <Left>15.33519cm</Left>
                 <Height>1.52147cm</Height>
-                <Width>2.8405cm</Width>
-                <ZIndex>27</ZIndex>
+                <Width>1.93339cm</Width>
+                <ZIndex>26</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
                     <Width>0.25pt</Width>
                   </Border>
                   <BackgroundColor>#66ffcc</BackgroundColor>
+                  <VerticalAlign>Middle</VerticalAlign>
                   <PaddingLeft>2pt</PaddingLeft>
                   <PaddingRight>2pt</PaddingRight>
                   <PaddingTop>2pt</PaddingTop>
@@ -2244,7 +2207,7 @@
                         <Value>Stock Welding Piece Lathe (Bubut)</Value>
                         <Style>
                           <FontFamily>Consolas</FontFamily>
-                          <FontSize>9pt</FontSize>
+                          <FontSize>6pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -2255,10 +2218,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>24.07192cm</Left>
+                <Left>17.26858cm</Left>
                 <Height>1.52147cm</Height>
-                <Width>2.8405cm</Width>
-                <ZIndex>28</ZIndex>
+                <Width>1.93339cm</Width>
+                <ZIndex>27</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -2281,7 +2244,7 @@
                       <TextRun>
                         <Value>Sisa Potongan Round Bar (Kg)</Value>
                         <Style>
-                          <FontSize>7pt</FontSize>
+                          <FontSize>4pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -2292,10 +2255,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>26.91242cm</Left>
+                <Left>19.20197cm</Left>
                 <Height>2.26258cm</Height>
-                <Width>1.42025cm</Width>
-                <ZIndex>29</ZIndex>
+                <Width>0.96669cm</Width>
+                <ZIndex>28</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -2312,76 +2275,76 @@
                 <TablixBody>
                   <TablixColumns>
                     <TablixColumn>
-                      <Width>2.94036cm</Width>
+                      <Width>2.4868cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.31485cm</Width>
+                      <Width>0.86129cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.42025cm</Width>
+                      <Width>0.96669cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.42025cm</Width>
+                      <Width>0.96669cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.42025cm</Width>
+                      <Width>0.96669cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>2.77371cm</Width>
+                      <Width>2.32015cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.42025cm</Width>
+                      <Width>0.96669cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.42025cm</Width>
+                      <Width>0.96669cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.42025cm</Width>
+                      <Width>0.96669cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.42025cm</Width>
+                      <Width>0.96669cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.42025cm</Width>
+                      <Width>0.96669cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.42025cm</Width>
+                      <Width>0.96669cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.42025cm</Width>
+                      <Width>0.96669cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.42025cm</Width>
+                      <Width>0.96669cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.42025cm</Width>
+                      <Width>0.96669cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.42025cm</Width>
+                      <Width>0.96669cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.42025cm</Width>
+                      <Width>0.96669cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.42025cm</Width>
+                      <Width>0.96669cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.42025cm</Width>
+                      <Width>0.96669cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>3.29162cm</Width>
+                      <Width>2.83806cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.7102cm</Width>
+                      <Width>1.25664cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.7102cm</Width>
+                      <Width>1.25664cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.7102cm</Width>
+                      <Width>1.25664cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.7102cm</Width>
+                      <Width>1.25664cm</Width>
                     </TablixColumn>
                   </TablixColumns>
                   <TablixRows>
@@ -2400,7 +2363,7 @@
                                       <Value>Stok Awal</Value>
                                       <Style>
                                         <FontFamily>Consolas</FontFamily>
-                                        <FontSize>9pt</FontSize>
+                                        <FontSize>7pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -2755,7 +2718,8 @@
                                     <TextRun>
                                       <Value>=Fields!wpe1.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontFamily />
+                                        <FontSize>7pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -2791,7 +2755,8 @@
                                     <TextRun>
                                       <Value>=Fields!wpe2.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontFamily />
+                                        <FontSize>7pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -2827,7 +2792,8 @@
                                     <TextRun>
                                       <Value>=Fields!wbe1.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontFamily />
+                                        <FontSize>7pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -2863,7 +2829,8 @@
                                     <TextRun>
                                       <Value>=Fields!wbe2.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontFamily />
+                                        <FontSize>7pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -3175,8 +3142,8 @@
                 <DataSetName>datasetfirstrbstok</DataSetName>
                 <Top>2.26258cm</Top>
                 <Height>0.86306cm</Height>
-                <Width>39.88534cm</Width>
-                <ZIndex>30</ZIndex>
+                <Width>29cm</Width>
+                <ZIndex>29</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -3184,12 +3151,50 @@
                   </Border>
                 </Style>
               </Tablix>
+              <Textbox Name="Textbox43">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Panjang Round Bar (mm)</Value>
+                        <Style>
+                          <FontFamily>Consolas</FontFamily>
+                          <FontSize>6pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox38</rd:DefaultName>
+                <Left>6.24818cm</Left>
+                <Height>2.26258cm</Height>
+                <Width>2.32015cm</Width>
+                <ZIndex>30</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                    <Width>0.25pt</Width>
+                  </Border>
+                  <BackgroundColor>#ddebf7</BackgroundColor>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.17639cm</Top>
-            <Left>0.81812cm</Left>
+            <Left>0.26229cm</Left>
             <Height>3.12564cm</Height>
-            <Width>39.88534cm</Width>
+            <Width>29cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -3202,10 +3207,10 @@
         <Height>1.66968in</Height>
         <Style />
       </Body>
-      <Width>16.08679in</Width>
+      <Width>11.6177in</Width>
       <Page>
         <PageHeader>
-          <Height>4.86958cm</Height>
+          <Height>4.44283cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -3214,9 +3219,9 @@
               <Value>Logo</Value>
               <Sizing>Fit</Sizing>
               <Top>0.3175cm</Top>
-              <Left>2.8865cm</Left>
-              <Height>3.01553cm</Height>
-              <Width>3.85408cm</Width>
+              <Left>2.24553cm</Left>
+              <Height>2.68352cm</Height>
+              <Width>3.29825cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -3233,7 +3238,7 @@
                       <Value>PT. GENTANUSA GEMILANG</Value>
                       <Style>
                         <FontFamily>Arial Black</FontFamily>
-                        <FontSize>15pt</FontSize>
+                        <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                         <Color>DimGray</Color>
                       </Style>
@@ -3245,10 +3250,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox34</rd:DefaultName>
-              <Top>3.62878cm</Top>
-              <Left>0.81812cm</Left>
+              <Top>3.31128cm</Top>
+              <Left>0.17715cm</Left>
               <Height>0.85371cm</Height>
-              <Width>8.5528cm</Width>
+              <Width>7.84155cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -3271,7 +3276,7 @@
                       <Value>STOCK ROUND BAR &amp; WELDING PIECE Ø 180 MM</Value>
                       <Style>
                         <FontFamily>Consolas</FontFamily>
-                        <FontSize>18pt</FontSize>
+                        <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -3286,7 +3291,7 @@
                       <Value />
                       <Style>
                         <FontFamily>Consolas</FontFamily>
-                        <FontSize>18pt</FontSize>
+                        <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -3296,9 +3301,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox35</rd:DefaultName>
               <Top>1.2468cm</Top>
-              <Left>14.94829cm</Left>
+              <Left>10.50329cm</Left>
               <Height>0.87711cm</Height>
-              <Width>14.64184cm</Width>
+              <Width>11.79686cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -3324,7 +3329,7 @@
 &amp; " " &amp; Parameters!tahun.Value</Value>
                       <Style>
                         <FontFamily>Consolas</FontFamily>
-                        <FontSize>18pt</FontSize>
+                        <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -3336,9 +3341,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox35</rd:DefaultName>
               <Top>2.12391cm</Top>
-              <Left>14.94829cm</Left>
+              <Left>10.50329cm</Left>
               <Height>0.87711cm</Height>
-              <Width>14.64184cm</Width>
+              <Width>11.79686cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -3358,12 +3363,12 @@
             </Border>
           </Style>
         </PageHeader>
-        <PageHeight>29.7cm</PageHeight>
-        <PageWidth>42cm</PageWidth>
+        <PageHeight>21cm</PageHeight>
+        <PageWidth>29.7cm</PageWidth>
         <LeftMargin>0cm</LeftMargin>
         <RightMargin>0cm</RightMargin>
         <TopMargin>0cm</TopMargin>
-        <BottomMargin>0cm</BottomMargin>
+        <BottomMargin>0.5cm</BottomMargin>
         <ColumnSpacing>0.13cm</ColumnSpacing>
         <Style />
       </Page>
