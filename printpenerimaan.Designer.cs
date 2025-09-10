@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmbpilihdata = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,6 +38,11 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.panelbukti = new Guna.UI2.WinForms.Guna2Panel();
+            this.lbljumlahbukti = new System.Windows.Forms.Label();
+            this.datecaribukti = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.shiftbukti = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.paneldata2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.datecari = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -57,20 +62,15 @@
             this.cmbnamamaterial = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lbljumlahdatamaterial = new System.Windows.Forms.Label();
             this.datematerial = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.panelbukti = new Guna.UI2.WinForms.Guna2Panel();
-            this.lbljumlahbukti = new System.Windows.Forms.Label();
-            this.datecaribukti = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.shiftbukti = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
+            this.panelbukti.SuspendLayout();
             this.paneldata2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.paneldata1.SuspendLayout();
             this.paneldata3.SuspendLayout();
-            this.panelbukti.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -195,6 +195,91 @@
             this.guna2Panel4.Size = new System.Drawing.Size(988, 827);
             this.guna2Panel4.TabIndex = 36;
             // 
+            // panelbukti
+            // 
+            this.panelbukti.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelbukti.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.panelbukti.BorderRadius = 15;
+            this.panelbukti.Controls.Add(this.lbljumlahbukti);
+            this.panelbukti.Controls.Add(this.datecaribukti);
+            this.panelbukti.Controls.Add(this.shiftbukti);
+            this.panelbukti.Controls.Add(this.label6);
+            this.panelbukti.Location = new System.Drawing.Point(11, 25);
+            this.panelbukti.Margin = new System.Windows.Forms.Padding(2);
+            this.panelbukti.Name = "panelbukti";
+            this.panelbukti.Size = new System.Drawing.Size(738, 73);
+            this.panelbukti.TabIndex = 57;
+            this.panelbukti.Visible = false;
+            // 
+            // lbljumlahbukti
+            // 
+            this.lbljumlahbukti.AutoSize = true;
+            this.lbljumlahbukti.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.lbljumlahbukti.ForeColor = System.Drawing.Color.Black;
+            this.lbljumlahbukti.Location = new System.Drawing.Point(411, 30);
+            this.lbljumlahbukti.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbljumlahbukti.Name = "lbljumlahbukti";
+            this.lbljumlahbukti.Size = new System.Drawing.Size(181, 20);
+            this.lbljumlahbukti.TabIndex = 56;
+            this.lbljumlahbukti.Text = "Jumlah Data : 40000000";
+            this.lbljumlahbukti.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // datecaribukti
+            // 
+            this.datecaribukti.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.datecaribukti.BorderRadius = 5;
+            this.datecaribukti.BorderThickness = 2;
+            this.datecaribukti.Checked = true;
+            this.datecaribukti.FillColor = System.Drawing.Color.White;
+            this.datecaribukti.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.datecaribukti.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.datecaribukti.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.datecaribukti.Location = new System.Drawing.Point(10, 20);
+            this.datecaribukti.Margin = new System.Windows.Forms.Padding(2);
+            this.datecaribukti.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.datecaribukti.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.datecaribukti.Name = "datecaribukti";
+            this.datecaribukti.Size = new System.Drawing.Size(237, 41);
+            this.datecaribukti.TabIndex = 46;
+            this.datecaribukti.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
+            // 
+            // shiftbukti
+            // 
+            this.shiftbukti.BackColor = System.Drawing.Color.Transparent;
+            this.shiftbukti.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.shiftbukti.BorderRadius = 5;
+            this.shiftbukti.BorderThickness = 2;
+            this.shiftbukti.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.shiftbukti.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.shiftbukti.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.shiftbukti.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.shiftbukti.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.shiftbukti.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.shiftbukti.ItemHeight = 30;
+            this.shiftbukti.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.shiftbukti.Location = new System.Drawing.Point(305, 22);
+            this.shiftbukti.Margin = new System.Windows.Forms.Padding(2);
+            this.shiftbukti.Name = "shiftbukti";
+            this.shiftbukti.Size = new System.Drawing.Size(86, 36);
+            this.shiftbukti.TabIndex = 55;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(255, 30);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 20);
+            this.label6.TabIndex = 49;
+            this.label6.Text = "Shift :";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // paneldata2
             // 
             this.paneldata2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -219,7 +304,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(524, 30);
+            this.label4.Location = new System.Drawing.Point(535, 30);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(181, 20);
@@ -242,7 +327,7 @@
             this.datecari.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.datecari.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datecari.Name = "datecari";
-            this.datecari.Size = new System.Drawing.Size(237, 41);
+            this.datecari.Size = new System.Drawing.Size(252, 41);
             this.datecari.TabIndex = 46;
             this.datecari.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
             // 
@@ -263,7 +348,7 @@
             "1",
             "2",
             "3"});
-            this.cbShift.Location = new System.Drawing.Point(305, 22);
+            this.cbShift.Location = new System.Drawing.Point(316, 22);
             this.cbShift.Margin = new System.Windows.Forms.Padding(2);
             this.cbShift.Name = "cbShift";
             this.cbShift.Size = new System.Drawing.Size(86, 36);
@@ -274,7 +359,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(255, 30);
+            this.label7.Location = new System.Drawing.Point(266, 30);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(50, 20);
@@ -287,7 +372,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(395, 30);
+            this.label8.Location = new System.Drawing.Point(406, 30);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(44, 20);
@@ -310,7 +395,7 @@
             this.txttim.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txttim.ForeColor = System.Drawing.Color.Black;
             this.txttim.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txttim.Location = new System.Drawing.Point(441, 26);
+            this.txttim.Location = new System.Drawing.Point(452, 26);
             this.txttim.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txttim.Name = "txttim";
             this.txttim.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -369,36 +454,36 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.Gray;
             this.dataGridView1.Location = new System.Drawing.Point(11, 102);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -564,91 +649,6 @@
             this.datematerial.Value = new System.DateTime(2025, 5, 20, 0, 0, 0, 0);
             this.datematerial.MouseDown += new System.Windows.Forms.MouseEventHandler(this.datematerial_MouseDown);
             // 
-            // panelbukti
-            // 
-            this.panelbukti.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelbukti.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.panelbukti.BorderRadius = 15;
-            this.panelbukti.Controls.Add(this.lbljumlahbukti);
-            this.panelbukti.Controls.Add(this.datecaribukti);
-            this.panelbukti.Controls.Add(this.shiftbukti);
-            this.panelbukti.Controls.Add(this.label6);
-            this.panelbukti.Location = new System.Drawing.Point(11, 25);
-            this.panelbukti.Margin = new System.Windows.Forms.Padding(2);
-            this.panelbukti.Name = "panelbukti";
-            this.panelbukti.Size = new System.Drawing.Size(738, 73);
-            this.panelbukti.TabIndex = 57;
-            this.panelbukti.Visible = false;
-            // 
-            // lbljumlahbukti
-            // 
-            this.lbljumlahbukti.AutoSize = true;
-            this.lbljumlahbukti.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lbljumlahbukti.ForeColor = System.Drawing.Color.Black;
-            this.lbljumlahbukti.Location = new System.Drawing.Point(411, 30);
-            this.lbljumlahbukti.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbljumlahbukti.Name = "lbljumlahbukti";
-            this.lbljumlahbukti.Size = new System.Drawing.Size(181, 20);
-            this.lbljumlahbukti.TabIndex = 56;
-            this.lbljumlahbukti.Text = "Jumlah Data : 40000000";
-            this.lbljumlahbukti.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // datecaribukti
-            // 
-            this.datecaribukti.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.datecaribukti.BorderRadius = 5;
-            this.datecaribukti.BorderThickness = 2;
-            this.datecaribukti.Checked = true;
-            this.datecaribukti.FillColor = System.Drawing.Color.White;
-            this.datecaribukti.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.datecaribukti.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.datecaribukti.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.datecaribukti.Location = new System.Drawing.Point(10, 20);
-            this.datecaribukti.Margin = new System.Windows.Forms.Padding(2);
-            this.datecaribukti.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.datecaribukti.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.datecaribukti.Name = "datecaribukti";
-            this.datecaribukti.Size = new System.Drawing.Size(237, 41);
-            this.datecaribukti.TabIndex = 46;
-            this.datecaribukti.Value = new System.DateTime(2025, 5, 20, 10, 10, 59, 90);
-            // 
-            // shiftbukti
-            // 
-            this.shiftbukti.BackColor = System.Drawing.Color.Transparent;
-            this.shiftbukti.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.shiftbukti.BorderRadius = 5;
-            this.shiftbukti.BorderThickness = 2;
-            this.shiftbukti.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.shiftbukti.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.shiftbukti.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.shiftbukti.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.shiftbukti.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.shiftbukti.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.shiftbukti.ItemHeight = 30;
-            this.shiftbukti.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-            this.shiftbukti.Location = new System.Drawing.Point(305, 22);
-            this.shiftbukti.Margin = new System.Windows.Forms.Padding(2);
-            this.shiftbukti.Name = "shiftbukti";
-            this.shiftbukti.Size = new System.Drawing.Size(86, 36);
-            this.shiftbukti.TabIndex = 55;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(255, 30);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 20);
-            this.label6.TabIndex = 49;
-            this.label6.Text = "Shift :";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // printpenerimaan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -667,6 +667,8 @@
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.guna2Panel4.ResumeLayout(false);
+            this.panelbukti.ResumeLayout(false);
+            this.panelbukti.PerformLayout();
             this.paneldata2.ResumeLayout(false);
             this.paneldata2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -674,8 +676,6 @@
             this.paneldata1.PerformLayout();
             this.paneldata3.ResumeLayout(false);
             this.paneldata3.PerformLayout();
-            this.panelbukti.ResumeLayout(false);
-            this.panelbukti.PerformLayout();
             this.ResumeLayout(false);
 
         }

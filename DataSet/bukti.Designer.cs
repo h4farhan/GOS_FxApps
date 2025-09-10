@@ -28,9 +28,9 @@ namespace GOS_FxApps.DataSet {
         
         private sp_consumptionmaterialcostDataTable tablesp_consumptionmaterialcost;
         
-        private sp_consumptionconsumablecostDataTable tablesp_consumptionconsumablecost;
-        
         private sp_consumptionsafetycostDataTable tablesp_consumptionsafetycost;
+        
+        private sp_consumptionconsumablecostDataTable tablesp_consumptionconsumablecost;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -66,11 +66,11 @@ namespace GOS_FxApps.DataSet {
                 if ((ds.Tables["sp_consumptionmaterialcost"] != null)) {
                     base.Tables.Add(new sp_consumptionmaterialcostDataTable(ds.Tables["sp_consumptionmaterialcost"]));
                 }
-                if ((ds.Tables["sp_consumptionconsumablecost"] != null)) {
-                    base.Tables.Add(new sp_consumptionconsumablecostDataTable(ds.Tables["sp_consumptionconsumablecost"]));
-                }
                 if ((ds.Tables["sp_consumptionsafetycost"] != null)) {
                     base.Tables.Add(new sp_consumptionsafetycostDataTable(ds.Tables["sp_consumptionsafetycost"]));
+                }
+                if ((ds.Tables["sp_consumptionconsumablecost"] != null)) {
+                    base.Tables.Add(new sp_consumptionconsumablecostDataTable(ds.Tables["sp_consumptionconsumablecost"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -114,9 +114,9 @@ namespace GOS_FxApps.DataSet {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public sp_consumptionconsumablecostDataTable sp_consumptionconsumablecost {
+        public sp_consumptionsafetycostDataTable sp_consumptionsafetycost {
             get {
-                return this.tablesp_consumptionconsumablecost;
+                return this.tablesp_consumptionsafetycost;
             }
         }
         
@@ -124,9 +124,9 @@ namespace GOS_FxApps.DataSet {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public sp_consumptionsafetycostDataTable sp_consumptionsafetycost {
+        public sp_consumptionconsumablecostDataTable sp_consumptionconsumablecost {
             get {
-                return this.tablesp_consumptionsafetycost;
+                return this.tablesp_consumptionconsumablecost;
             }
         }
         
@@ -203,11 +203,11 @@ namespace GOS_FxApps.DataSet {
                 if ((ds.Tables["sp_consumptionmaterialcost"] != null)) {
                     base.Tables.Add(new sp_consumptionmaterialcostDataTable(ds.Tables["sp_consumptionmaterialcost"]));
                 }
-                if ((ds.Tables["sp_consumptionconsumablecost"] != null)) {
-                    base.Tables.Add(new sp_consumptionconsumablecostDataTable(ds.Tables["sp_consumptionconsumablecost"]));
-                }
                 if ((ds.Tables["sp_consumptionsafetycost"] != null)) {
                     base.Tables.Add(new sp_consumptionsafetycostDataTable(ds.Tables["sp_consumptionsafetycost"]));
+                }
+                if ((ds.Tables["sp_consumptionconsumablecost"] != null)) {
+                    base.Tables.Add(new sp_consumptionconsumablecostDataTable(ds.Tables["sp_consumptionconsumablecost"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -254,16 +254,16 @@ namespace GOS_FxApps.DataSet {
                     this.tablesp_consumptionmaterialcost.InitVars();
                 }
             }
-            this.tablesp_consumptionconsumablecost = ((sp_consumptionconsumablecostDataTable)(base.Tables["sp_consumptionconsumablecost"]));
-            if ((initTable == true)) {
-                if ((this.tablesp_consumptionconsumablecost != null)) {
-                    this.tablesp_consumptionconsumablecost.InitVars();
-                }
-            }
             this.tablesp_consumptionsafetycost = ((sp_consumptionsafetycostDataTable)(base.Tables["sp_consumptionsafetycost"]));
             if ((initTable == true)) {
                 if ((this.tablesp_consumptionsafetycost != null)) {
                     this.tablesp_consumptionsafetycost.InitVars();
+                }
+            }
+            this.tablesp_consumptionconsumablecost = ((sp_consumptionconsumablecostDataTable)(base.Tables["sp_consumptionconsumablecost"]));
+            if ((initTable == true)) {
+                if ((this.tablesp_consumptionconsumablecost != null)) {
+                    this.tablesp_consumptionconsumablecost.InitVars();
                 }
             }
         }
@@ -280,10 +280,10 @@ namespace GOS_FxApps.DataSet {
             base.Tables.Add(this.tablesp_buktiperubahan);
             this.tablesp_consumptionmaterialcost = new sp_consumptionmaterialcostDataTable();
             base.Tables.Add(this.tablesp_consumptionmaterialcost);
-            this.tablesp_consumptionconsumablecost = new sp_consumptionconsumablecostDataTable();
-            base.Tables.Add(this.tablesp_consumptionconsumablecost);
             this.tablesp_consumptionsafetycost = new sp_consumptionsafetycostDataTable();
             base.Tables.Add(this.tablesp_consumptionsafetycost);
+            this.tablesp_consumptionconsumablecost = new sp_consumptionconsumablecostDataTable();
+            base.Tables.Add(this.tablesp_consumptionconsumablecost);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -300,13 +300,13 @@ namespace GOS_FxApps.DataSet {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializesp_consumptionconsumablecost() {
+        private bool ShouldSerializesp_consumptionsafetycost() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializesp_consumptionsafetycost() {
+        private bool ShouldSerializesp_consumptionconsumablecost() {
             return false;
         }
         
@@ -372,10 +372,10 @@ namespace GOS_FxApps.DataSet {
         public delegate void sp_consumptionmaterialcostRowChangeEventHandler(object sender, sp_consumptionmaterialcostRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void sp_consumptionconsumablecostRowChangeEventHandler(object sender, sp_consumptionconsumablecostRowChangeEvent e);
+        public delegate void sp_consumptionsafetycostRowChangeEventHandler(object sender, sp_consumptionsafetycostRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void sp_consumptionsafetycostRowChangeEventHandler(object sender, sp_consumptionsafetycostRowChangeEvent e);
+        public delegate void sp_consumptionconsumablecostRowChangeEventHandler(object sender, sp_consumptionconsumablecostRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1847,829 +1847,6 @@ namespace GOS_FxApps.DataSet {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class sp_consumptionconsumablecostDataTable : global::System.Data.TypedTableBase<sp_consumptionconsumablecostRow> {
-            
-            private global::System.Data.DataColumn columnkodeBarang;
-            
-            private global::System.Data.DataColumn columnKolom1;
-            
-            private global::System.Data.DataColumn columnKolom2;
-            
-            private global::System.Data.DataColumn columnKolom3;
-            
-            private global::System.Data.DataColumn columnKolom4;
-            
-            private global::System.Data.DataColumn columnKolom5;
-            
-            private global::System.Data.DataColumn columnKolom6;
-            
-            private global::System.Data.DataColumn columnKolom7;
-            
-            private global::System.Data.DataColumn columnKolom8;
-            
-            private global::System.Data.DataColumn columnKolom9;
-            
-            private global::System.Data.DataColumn columnKolom10;
-            
-            private global::System.Data.DataColumn columnKolom11;
-            
-            private global::System.Data.DataColumn columnKolom12;
-            
-            private global::System.Data.DataColumn columnKolom13;
-            
-            private global::System.Data.DataColumn columnKolom14;
-            
-            private global::System.Data.DataColumn columnKolom15;
-            
-            private global::System.Data.DataColumn columnKolom16;
-            
-            private global::System.Data.DataColumn columnKolom17;
-            
-            private global::System.Data.DataColumn columnKolom18;
-            
-            private global::System.Data.DataColumn columnKolom19;
-            
-            private global::System.Data.DataColumn columnKolom20;
-            
-            private global::System.Data.DataColumn columnKolom21;
-            
-            private global::System.Data.DataColumn columnKolom22;
-            
-            private global::System.Data.DataColumn columnKolom23;
-            
-            private global::System.Data.DataColumn columnKolom24;
-            
-            private global::System.Data.DataColumn columnKolom25;
-            
-            private global::System.Data.DataColumn columnKolom26;
-            
-            private global::System.Data.DataColumn columnKolom27;
-            
-            private global::System.Data.DataColumn columnKolom28;
-            
-            private global::System.Data.DataColumn columnKolom29;
-            
-            private global::System.Data.DataColumn columnKolom30;
-            
-            private global::System.Data.DataColumn columnKolom31;
-            
-            private global::System.Data.DataColumn columnTotal;
-            
-            private global::System.Data.DataColumn columnDescription;
-            
-            private global::System.Data.DataColumn columnSpesifikasi;
-            
-            private global::System.Data.DataColumn columnUnit;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_consumptionconsumablecostDataTable() {
-                this.TableName = "sp_consumptionconsumablecost";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal sp_consumptionconsumablecostDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected sp_consumptionconsumablecostDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn kodeBarangColumn {
-                get {
-                    return this.columnkodeBarang;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom1Column {
-                get {
-                    return this.columnKolom1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom2Column {
-                get {
-                    return this.columnKolom2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom3Column {
-                get {
-                    return this.columnKolom3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom4Column {
-                get {
-                    return this.columnKolom4;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom5Column {
-                get {
-                    return this.columnKolom5;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom6Column {
-                get {
-                    return this.columnKolom6;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom7Column {
-                get {
-                    return this.columnKolom7;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom8Column {
-                get {
-                    return this.columnKolom8;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom9Column {
-                get {
-                    return this.columnKolom9;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom10Column {
-                get {
-                    return this.columnKolom10;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom11Column {
-                get {
-                    return this.columnKolom11;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom12Column {
-                get {
-                    return this.columnKolom12;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom13Column {
-                get {
-                    return this.columnKolom13;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom14Column {
-                get {
-                    return this.columnKolom14;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom15Column {
-                get {
-                    return this.columnKolom15;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom16Column {
-                get {
-                    return this.columnKolom16;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom17Column {
-                get {
-                    return this.columnKolom17;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom18Column {
-                get {
-                    return this.columnKolom18;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom19Column {
-                get {
-                    return this.columnKolom19;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom20Column {
-                get {
-                    return this.columnKolom20;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom21Column {
-                get {
-                    return this.columnKolom21;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom22Column {
-                get {
-                    return this.columnKolom22;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom23Column {
-                get {
-                    return this.columnKolom23;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom24Column {
-                get {
-                    return this.columnKolom24;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom25Column {
-                get {
-                    return this.columnKolom25;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom26Column {
-                get {
-                    return this.columnKolom26;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom27Column {
-                get {
-                    return this.columnKolom27;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom28Column {
-                get {
-                    return this.columnKolom28;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom29Column {
-                get {
-                    return this.columnKolom29;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom30Column {
-                get {
-                    return this.columnKolom30;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Kolom31Column {
-                get {
-                    return this.columnKolom31;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TotalColumn {
-                get {
-                    return this.columnTotal;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn DescriptionColumn {
-                get {
-                    return this.columnDescription;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn SpesifikasiColumn {
-                get {
-                    return this.columnSpesifikasi;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn UnitColumn {
-                get {
-                    return this.columnUnit;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_consumptionconsumablecostRow this[int index] {
-                get {
-                    return ((sp_consumptionconsumablecostRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event sp_consumptionconsumablecostRowChangeEventHandler sp_consumptionconsumablecostRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event sp_consumptionconsumablecostRowChangeEventHandler sp_consumptionconsumablecostRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event sp_consumptionconsumablecostRowChangeEventHandler sp_consumptionconsumablecostRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event sp_consumptionconsumablecostRowChangeEventHandler sp_consumptionconsumablecostRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Addsp_consumptionconsumablecostRow(sp_consumptionconsumablecostRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_consumptionconsumablecostRow Addsp_consumptionconsumablecostRow(
-                        string kodeBarang, 
-                        int Kolom1, 
-                        int Kolom2, 
-                        int Kolom3, 
-                        int Kolom4, 
-                        int Kolom5, 
-                        int Kolom6, 
-                        int Kolom7, 
-                        int Kolom8, 
-                        int Kolom9, 
-                        int Kolom10, 
-                        int Kolom11, 
-                        int Kolom12, 
-                        int Kolom13, 
-                        int Kolom14, 
-                        int Kolom15, 
-                        int Kolom16, 
-                        int Kolom17, 
-                        int Kolom18, 
-                        int Kolom19, 
-                        int Kolom20, 
-                        int Kolom21, 
-                        int Kolom22, 
-                        int Kolom23, 
-                        int Kolom24, 
-                        int Kolom25, 
-                        int Kolom26, 
-                        int Kolom27, 
-                        int Kolom28, 
-                        int Kolom29, 
-                        int Kolom30, 
-                        int Kolom31, 
-                        int Total, 
-                        string Description, 
-                        string Spesifikasi, 
-                        string Unit) {
-                sp_consumptionconsumablecostRow rowsp_consumptionconsumablecostRow = ((sp_consumptionconsumablecostRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        kodeBarang,
-                        Kolom1,
-                        Kolom2,
-                        Kolom3,
-                        Kolom4,
-                        Kolom5,
-                        Kolom6,
-                        Kolom7,
-                        Kolom8,
-                        Kolom9,
-                        Kolom10,
-                        Kolom11,
-                        Kolom12,
-                        Kolom13,
-                        Kolom14,
-                        Kolom15,
-                        Kolom16,
-                        Kolom17,
-                        Kolom18,
-                        Kolom19,
-                        Kolom20,
-                        Kolom21,
-                        Kolom22,
-                        Kolom23,
-                        Kolom24,
-                        Kolom25,
-                        Kolom26,
-                        Kolom27,
-                        Kolom28,
-                        Kolom29,
-                        Kolom30,
-                        Kolom31,
-                        Total,
-                        Description,
-                        Spesifikasi,
-                        Unit};
-                rowsp_consumptionconsumablecostRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowsp_consumptionconsumablecostRow);
-                return rowsp_consumptionconsumablecostRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_consumptionconsumablecostRow FindBykodeBarang(string kodeBarang) {
-                return ((sp_consumptionconsumablecostRow)(this.Rows.Find(new object[] {
-                            kodeBarang})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                sp_consumptionconsumablecostDataTable cln = ((sp_consumptionconsumablecostDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new sp_consumptionconsumablecostDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal void InitVars() {
-                this.columnkodeBarang = base.Columns["kodeBarang"];
-                this.columnKolom1 = base.Columns["Kolom1"];
-                this.columnKolom2 = base.Columns["Kolom2"];
-                this.columnKolom3 = base.Columns["Kolom3"];
-                this.columnKolom4 = base.Columns["Kolom4"];
-                this.columnKolom5 = base.Columns["Kolom5"];
-                this.columnKolom6 = base.Columns["Kolom6"];
-                this.columnKolom7 = base.Columns["Kolom7"];
-                this.columnKolom8 = base.Columns["Kolom8"];
-                this.columnKolom9 = base.Columns["Kolom9"];
-                this.columnKolom10 = base.Columns["Kolom10"];
-                this.columnKolom11 = base.Columns["Kolom11"];
-                this.columnKolom12 = base.Columns["Kolom12"];
-                this.columnKolom13 = base.Columns["Kolom13"];
-                this.columnKolom14 = base.Columns["Kolom14"];
-                this.columnKolom15 = base.Columns["Kolom15"];
-                this.columnKolom16 = base.Columns["Kolom16"];
-                this.columnKolom17 = base.Columns["Kolom17"];
-                this.columnKolom18 = base.Columns["Kolom18"];
-                this.columnKolom19 = base.Columns["Kolom19"];
-                this.columnKolom20 = base.Columns["Kolom20"];
-                this.columnKolom21 = base.Columns["Kolom21"];
-                this.columnKolom22 = base.Columns["Kolom22"];
-                this.columnKolom23 = base.Columns["Kolom23"];
-                this.columnKolom24 = base.Columns["Kolom24"];
-                this.columnKolom25 = base.Columns["Kolom25"];
-                this.columnKolom26 = base.Columns["Kolom26"];
-                this.columnKolom27 = base.Columns["Kolom27"];
-                this.columnKolom28 = base.Columns["Kolom28"];
-                this.columnKolom29 = base.Columns["Kolom29"];
-                this.columnKolom30 = base.Columns["Kolom30"];
-                this.columnKolom31 = base.Columns["Kolom31"];
-                this.columnTotal = base.Columns["Total"];
-                this.columnDescription = base.Columns["Description"];
-                this.columnSpesifikasi = base.Columns["Spesifikasi"];
-                this.columnUnit = base.Columns["Unit"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitClass() {
-                this.columnkodeBarang = new global::System.Data.DataColumn("kodeBarang", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnkodeBarang);
-                this.columnKolom1 = new global::System.Data.DataColumn("Kolom1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom1);
-                this.columnKolom2 = new global::System.Data.DataColumn("Kolom2", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom2);
-                this.columnKolom3 = new global::System.Data.DataColumn("Kolom3", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom3);
-                this.columnKolom4 = new global::System.Data.DataColumn("Kolom4", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom4);
-                this.columnKolom5 = new global::System.Data.DataColumn("Kolom5", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom5);
-                this.columnKolom6 = new global::System.Data.DataColumn("Kolom6", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom6);
-                this.columnKolom7 = new global::System.Data.DataColumn("Kolom7", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom7);
-                this.columnKolom8 = new global::System.Data.DataColumn("Kolom8", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom8);
-                this.columnKolom9 = new global::System.Data.DataColumn("Kolom9", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom9);
-                this.columnKolom10 = new global::System.Data.DataColumn("Kolom10", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom10);
-                this.columnKolom11 = new global::System.Data.DataColumn("Kolom11", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom11);
-                this.columnKolom12 = new global::System.Data.DataColumn("Kolom12", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom12);
-                this.columnKolom13 = new global::System.Data.DataColumn("Kolom13", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom13);
-                this.columnKolom14 = new global::System.Data.DataColumn("Kolom14", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom14);
-                this.columnKolom15 = new global::System.Data.DataColumn("Kolom15", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom15);
-                this.columnKolom16 = new global::System.Data.DataColumn("Kolom16", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom16);
-                this.columnKolom17 = new global::System.Data.DataColumn("Kolom17", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom17);
-                this.columnKolom18 = new global::System.Data.DataColumn("Kolom18", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom18);
-                this.columnKolom19 = new global::System.Data.DataColumn("Kolom19", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom19);
-                this.columnKolom20 = new global::System.Data.DataColumn("Kolom20", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom20);
-                this.columnKolom21 = new global::System.Data.DataColumn("Kolom21", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom21);
-                this.columnKolom22 = new global::System.Data.DataColumn("Kolom22", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom22);
-                this.columnKolom23 = new global::System.Data.DataColumn("Kolom23", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom23);
-                this.columnKolom24 = new global::System.Data.DataColumn("Kolom24", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom24);
-                this.columnKolom25 = new global::System.Data.DataColumn("Kolom25", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom25);
-                this.columnKolom26 = new global::System.Data.DataColumn("Kolom26", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom26);
-                this.columnKolom27 = new global::System.Data.DataColumn("Kolom27", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom27);
-                this.columnKolom28 = new global::System.Data.DataColumn("Kolom28", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom28);
-                this.columnKolom29 = new global::System.Data.DataColumn("Kolom29", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom29);
-                this.columnKolom30 = new global::System.Data.DataColumn("Kolom30", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom30);
-                this.columnKolom31 = new global::System.Data.DataColumn("Kolom31", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKolom31);
-                this.columnTotal = new global::System.Data.DataColumn("Total", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotal);
-                this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDescription);
-                this.columnSpesifikasi = new global::System.Data.DataColumn("Spesifikasi", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSpesifikasi);
-                this.columnUnit = new global::System.Data.DataColumn("Unit", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUnit);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnkodeBarang}, true));
-                this.columnkodeBarang.AllowDBNull = false;
-                this.columnkodeBarang.Unique = true;
-                this.columnkodeBarang.MaxLength = 50;
-                this.columnKolom1.ReadOnly = true;
-                this.columnKolom2.ReadOnly = true;
-                this.columnKolom3.ReadOnly = true;
-                this.columnKolom4.ReadOnly = true;
-                this.columnKolom5.ReadOnly = true;
-                this.columnKolom6.ReadOnly = true;
-                this.columnKolom7.ReadOnly = true;
-                this.columnKolom8.ReadOnly = true;
-                this.columnKolom9.ReadOnly = true;
-                this.columnKolom10.ReadOnly = true;
-                this.columnKolom11.ReadOnly = true;
-                this.columnKolom12.ReadOnly = true;
-                this.columnKolom13.ReadOnly = true;
-                this.columnKolom14.ReadOnly = true;
-                this.columnKolom15.ReadOnly = true;
-                this.columnKolom16.ReadOnly = true;
-                this.columnKolom17.ReadOnly = true;
-                this.columnKolom18.ReadOnly = true;
-                this.columnKolom19.ReadOnly = true;
-                this.columnKolom20.ReadOnly = true;
-                this.columnKolom21.ReadOnly = true;
-                this.columnKolom22.ReadOnly = true;
-                this.columnKolom23.ReadOnly = true;
-                this.columnKolom24.ReadOnly = true;
-                this.columnKolom25.ReadOnly = true;
-                this.columnKolom26.ReadOnly = true;
-                this.columnKolom27.ReadOnly = true;
-                this.columnKolom28.ReadOnly = true;
-                this.columnKolom29.ReadOnly = true;
-                this.columnKolom30.ReadOnly = true;
-                this.columnKolom31.ReadOnly = true;
-                this.columnTotal.ReadOnly = true;
-                this.columnDescription.ReadOnly = true;
-                this.columnDescription.MaxLength = 24;
-                this.columnSpesifikasi.ReadOnly = true;
-                this.columnSpesifikasi.MaxLength = 27;
-                this.columnUnit.ReadOnly = true;
-                this.columnUnit.MaxLength = 3;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_consumptionconsumablecostRow Newsp_consumptionconsumablecostRow() {
-                return ((sp_consumptionconsumablecostRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new sp_consumptionconsumablecostRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(sp_consumptionconsumablecostRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.sp_consumptionconsumablecostRowChanged != null)) {
-                    this.sp_consumptionconsumablecostRowChanged(this, new sp_consumptionconsumablecostRowChangeEvent(((sp_consumptionconsumablecostRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.sp_consumptionconsumablecostRowChanging != null)) {
-                    this.sp_consumptionconsumablecostRowChanging(this, new sp_consumptionconsumablecostRowChangeEvent(((sp_consumptionconsumablecostRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.sp_consumptionconsumablecostRowDeleted != null)) {
-                    this.sp_consumptionconsumablecostRowDeleted(this, new sp_consumptionconsumablecostRowChangeEvent(((sp_consumptionconsumablecostRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.sp_consumptionconsumablecostRowDeleting != null)) {
-                    this.sp_consumptionconsumablecostRowDeleting(this, new sp_consumptionconsumablecostRowChangeEvent(((sp_consumptionconsumablecostRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Removesp_consumptionconsumablecostRow(sp_consumptionconsumablecostRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                bukti ds = new bukti();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "sp_consumptionconsumablecostDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class sp_consumptionsafetycostDataTable : global::System.Data.TypedTableBase<sp_consumptionsafetycostRow> {
             
             private global::System.Data.DataColumn columnkodeBarang;
@@ -3448,6 +2625,819 @@ namespace GOS_FxApps.DataSet {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "sp_consumptionsafetycostDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class sp_consumptionconsumablecostDataTable : global::System.Data.TypedTableBase<sp_consumptionconsumablecostRow> {
+            
+            private global::System.Data.DataColumn columnkodeBarang;
+            
+            private global::System.Data.DataColumn columnDescription;
+            
+            private global::System.Data.DataColumn columnSpesifikasi;
+            
+            private global::System.Data.DataColumn columnUnit;
+            
+            private global::System.Data.DataColumn columnKolom1;
+            
+            private global::System.Data.DataColumn columnKolom2;
+            
+            private global::System.Data.DataColumn columnKolom3;
+            
+            private global::System.Data.DataColumn columnKolom4;
+            
+            private global::System.Data.DataColumn columnKolom5;
+            
+            private global::System.Data.DataColumn columnKolom6;
+            
+            private global::System.Data.DataColumn columnKolom7;
+            
+            private global::System.Data.DataColumn columnKolom8;
+            
+            private global::System.Data.DataColumn columnKolom9;
+            
+            private global::System.Data.DataColumn columnKolom10;
+            
+            private global::System.Data.DataColumn columnKolom11;
+            
+            private global::System.Data.DataColumn columnKolom12;
+            
+            private global::System.Data.DataColumn columnKolom13;
+            
+            private global::System.Data.DataColumn columnKolom14;
+            
+            private global::System.Data.DataColumn columnKolom15;
+            
+            private global::System.Data.DataColumn columnKolom16;
+            
+            private global::System.Data.DataColumn columnKolom17;
+            
+            private global::System.Data.DataColumn columnKolom18;
+            
+            private global::System.Data.DataColumn columnKolom19;
+            
+            private global::System.Data.DataColumn columnKolom20;
+            
+            private global::System.Data.DataColumn columnKolom21;
+            
+            private global::System.Data.DataColumn columnKolom22;
+            
+            private global::System.Data.DataColumn columnKolom23;
+            
+            private global::System.Data.DataColumn columnKolom24;
+            
+            private global::System.Data.DataColumn columnKolom25;
+            
+            private global::System.Data.DataColumn columnKolom26;
+            
+            private global::System.Data.DataColumn columnKolom27;
+            
+            private global::System.Data.DataColumn columnKolom28;
+            
+            private global::System.Data.DataColumn columnKolom29;
+            
+            private global::System.Data.DataColumn columnKolom30;
+            
+            private global::System.Data.DataColumn columnKolom31;
+            
+            private global::System.Data.DataColumn columnTotal;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public sp_consumptionconsumablecostDataTable() {
+                this.TableName = "sp_consumptionconsumablecost";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal sp_consumptionconsumablecostDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected sp_consumptionconsumablecostDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn kodeBarangColumn {
+                get {
+                    return this.columnkodeBarang;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DescriptionColumn {
+                get {
+                    return this.columnDescription;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SpesifikasiColumn {
+                get {
+                    return this.columnSpesifikasi;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn UnitColumn {
+                get {
+                    return this.columnUnit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom1Column {
+                get {
+                    return this.columnKolom1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom2Column {
+                get {
+                    return this.columnKolom2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom3Column {
+                get {
+                    return this.columnKolom3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom4Column {
+                get {
+                    return this.columnKolom4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom5Column {
+                get {
+                    return this.columnKolom5;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom6Column {
+                get {
+                    return this.columnKolom6;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom7Column {
+                get {
+                    return this.columnKolom7;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom8Column {
+                get {
+                    return this.columnKolom8;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom9Column {
+                get {
+                    return this.columnKolom9;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom10Column {
+                get {
+                    return this.columnKolom10;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom11Column {
+                get {
+                    return this.columnKolom11;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom12Column {
+                get {
+                    return this.columnKolom12;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom13Column {
+                get {
+                    return this.columnKolom13;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom14Column {
+                get {
+                    return this.columnKolom14;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom15Column {
+                get {
+                    return this.columnKolom15;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom16Column {
+                get {
+                    return this.columnKolom16;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom17Column {
+                get {
+                    return this.columnKolom17;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom18Column {
+                get {
+                    return this.columnKolom18;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom19Column {
+                get {
+                    return this.columnKolom19;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom20Column {
+                get {
+                    return this.columnKolom20;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom21Column {
+                get {
+                    return this.columnKolom21;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom22Column {
+                get {
+                    return this.columnKolom22;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom23Column {
+                get {
+                    return this.columnKolom23;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom24Column {
+                get {
+                    return this.columnKolom24;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom25Column {
+                get {
+                    return this.columnKolom25;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom26Column {
+                get {
+                    return this.columnKolom26;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom27Column {
+                get {
+                    return this.columnKolom27;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom28Column {
+                get {
+                    return this.columnKolom28;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom29Column {
+                get {
+                    return this.columnKolom29;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom30Column {
+                get {
+                    return this.columnKolom30;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Kolom31Column {
+                get {
+                    return this.columnKolom31;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TotalColumn {
+                get {
+                    return this.columnTotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public sp_consumptionconsumablecostRow this[int index] {
+                get {
+                    return ((sp_consumptionconsumablecostRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event sp_consumptionconsumablecostRowChangeEventHandler sp_consumptionconsumablecostRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event sp_consumptionconsumablecostRowChangeEventHandler sp_consumptionconsumablecostRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event sp_consumptionconsumablecostRowChangeEventHandler sp_consumptionconsumablecostRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event sp_consumptionconsumablecostRowChangeEventHandler sp_consumptionconsumablecostRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Addsp_consumptionconsumablecostRow(sp_consumptionconsumablecostRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public sp_consumptionconsumablecostRow Addsp_consumptionconsumablecostRow(
+                        string kodeBarang, 
+                        string Description, 
+                        string Spesifikasi, 
+                        string Unit, 
+                        int Kolom1, 
+                        int Kolom2, 
+                        int Kolom3, 
+                        int Kolom4, 
+                        int Kolom5, 
+                        int Kolom6, 
+                        int Kolom7, 
+                        int Kolom8, 
+                        int Kolom9, 
+                        int Kolom10, 
+                        int Kolom11, 
+                        int Kolom12, 
+                        int Kolom13, 
+                        int Kolom14, 
+                        int Kolom15, 
+                        int Kolom16, 
+                        int Kolom17, 
+                        int Kolom18, 
+                        int Kolom19, 
+                        int Kolom20, 
+                        int Kolom21, 
+                        int Kolom22, 
+                        int Kolom23, 
+                        int Kolom24, 
+                        int Kolom25, 
+                        int Kolom26, 
+                        int Kolom27, 
+                        int Kolom28, 
+                        int Kolom29, 
+                        int Kolom30, 
+                        int Kolom31, 
+                        int Total) {
+                sp_consumptionconsumablecostRow rowsp_consumptionconsumablecostRow = ((sp_consumptionconsumablecostRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        kodeBarang,
+                        Description,
+                        Spesifikasi,
+                        Unit,
+                        Kolom1,
+                        Kolom2,
+                        Kolom3,
+                        Kolom4,
+                        Kolom5,
+                        Kolom6,
+                        Kolom7,
+                        Kolom8,
+                        Kolom9,
+                        Kolom10,
+                        Kolom11,
+                        Kolom12,
+                        Kolom13,
+                        Kolom14,
+                        Kolom15,
+                        Kolom16,
+                        Kolom17,
+                        Kolom18,
+                        Kolom19,
+                        Kolom20,
+                        Kolom21,
+                        Kolom22,
+                        Kolom23,
+                        Kolom24,
+                        Kolom25,
+                        Kolom26,
+                        Kolom27,
+                        Kolom28,
+                        Kolom29,
+                        Kolom30,
+                        Kolom31,
+                        Total};
+                rowsp_consumptionconsumablecostRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowsp_consumptionconsumablecostRow);
+                return rowsp_consumptionconsumablecostRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                sp_consumptionconsumablecostDataTable cln = ((sp_consumptionconsumablecostDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new sp_consumptionconsumablecostDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnkodeBarang = base.Columns["kodeBarang"];
+                this.columnDescription = base.Columns["Description"];
+                this.columnSpesifikasi = base.Columns["Spesifikasi"];
+                this.columnUnit = base.Columns["Unit"];
+                this.columnKolom1 = base.Columns["Kolom1"];
+                this.columnKolom2 = base.Columns["Kolom2"];
+                this.columnKolom3 = base.Columns["Kolom3"];
+                this.columnKolom4 = base.Columns["Kolom4"];
+                this.columnKolom5 = base.Columns["Kolom5"];
+                this.columnKolom6 = base.Columns["Kolom6"];
+                this.columnKolom7 = base.Columns["Kolom7"];
+                this.columnKolom8 = base.Columns["Kolom8"];
+                this.columnKolom9 = base.Columns["Kolom9"];
+                this.columnKolom10 = base.Columns["Kolom10"];
+                this.columnKolom11 = base.Columns["Kolom11"];
+                this.columnKolom12 = base.Columns["Kolom12"];
+                this.columnKolom13 = base.Columns["Kolom13"];
+                this.columnKolom14 = base.Columns["Kolom14"];
+                this.columnKolom15 = base.Columns["Kolom15"];
+                this.columnKolom16 = base.Columns["Kolom16"];
+                this.columnKolom17 = base.Columns["Kolom17"];
+                this.columnKolom18 = base.Columns["Kolom18"];
+                this.columnKolom19 = base.Columns["Kolom19"];
+                this.columnKolom20 = base.Columns["Kolom20"];
+                this.columnKolom21 = base.Columns["Kolom21"];
+                this.columnKolom22 = base.Columns["Kolom22"];
+                this.columnKolom23 = base.Columns["Kolom23"];
+                this.columnKolom24 = base.Columns["Kolom24"];
+                this.columnKolom25 = base.Columns["Kolom25"];
+                this.columnKolom26 = base.Columns["Kolom26"];
+                this.columnKolom27 = base.Columns["Kolom27"];
+                this.columnKolom28 = base.Columns["Kolom28"];
+                this.columnKolom29 = base.Columns["Kolom29"];
+                this.columnKolom30 = base.Columns["Kolom30"];
+                this.columnKolom31 = base.Columns["Kolom31"];
+                this.columnTotal = base.Columns["Total"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnkodeBarang = new global::System.Data.DataColumn("kodeBarang", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnkodeBarang);
+                this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescription);
+                this.columnSpesifikasi = new global::System.Data.DataColumn("Spesifikasi", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSpesifikasi);
+                this.columnUnit = new global::System.Data.DataColumn("Unit", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUnit);
+                this.columnKolom1 = new global::System.Data.DataColumn("Kolom1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom1);
+                this.columnKolom2 = new global::System.Data.DataColumn("Kolom2", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom2);
+                this.columnKolom3 = new global::System.Data.DataColumn("Kolom3", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom3);
+                this.columnKolom4 = new global::System.Data.DataColumn("Kolom4", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom4);
+                this.columnKolom5 = new global::System.Data.DataColumn("Kolom5", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom5);
+                this.columnKolom6 = new global::System.Data.DataColumn("Kolom6", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom6);
+                this.columnKolom7 = new global::System.Data.DataColumn("Kolom7", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom7);
+                this.columnKolom8 = new global::System.Data.DataColumn("Kolom8", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom8);
+                this.columnKolom9 = new global::System.Data.DataColumn("Kolom9", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom9);
+                this.columnKolom10 = new global::System.Data.DataColumn("Kolom10", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom10);
+                this.columnKolom11 = new global::System.Data.DataColumn("Kolom11", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom11);
+                this.columnKolom12 = new global::System.Data.DataColumn("Kolom12", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom12);
+                this.columnKolom13 = new global::System.Data.DataColumn("Kolom13", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom13);
+                this.columnKolom14 = new global::System.Data.DataColumn("Kolom14", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom14);
+                this.columnKolom15 = new global::System.Data.DataColumn("Kolom15", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom15);
+                this.columnKolom16 = new global::System.Data.DataColumn("Kolom16", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom16);
+                this.columnKolom17 = new global::System.Data.DataColumn("Kolom17", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom17);
+                this.columnKolom18 = new global::System.Data.DataColumn("Kolom18", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom18);
+                this.columnKolom19 = new global::System.Data.DataColumn("Kolom19", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom19);
+                this.columnKolom20 = new global::System.Data.DataColumn("Kolom20", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom20);
+                this.columnKolom21 = new global::System.Data.DataColumn("Kolom21", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom21);
+                this.columnKolom22 = new global::System.Data.DataColumn("Kolom22", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom22);
+                this.columnKolom23 = new global::System.Data.DataColumn("Kolom23", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom23);
+                this.columnKolom24 = new global::System.Data.DataColumn("Kolom24", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom24);
+                this.columnKolom25 = new global::System.Data.DataColumn("Kolom25", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom25);
+                this.columnKolom26 = new global::System.Data.DataColumn("Kolom26", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom26);
+                this.columnKolom27 = new global::System.Data.DataColumn("Kolom27", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom27);
+                this.columnKolom28 = new global::System.Data.DataColumn("Kolom28", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom28);
+                this.columnKolom29 = new global::System.Data.DataColumn("Kolom29", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom29);
+                this.columnKolom30 = new global::System.Data.DataColumn("Kolom30", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom30);
+                this.columnKolom31 = new global::System.Data.DataColumn("Kolom31", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKolom31);
+                this.columnTotal = new global::System.Data.DataColumn("Total", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotal);
+                this.columnkodeBarang.ReadOnly = true;
+                this.columnkodeBarang.MaxLength = 14;
+                this.columnDescription.ReadOnly = true;
+                this.columnDescription.MaxLength = 25;
+                this.columnSpesifikasi.ReadOnly = true;
+                this.columnSpesifikasi.MaxLength = 27;
+                this.columnUnit.ReadOnly = true;
+                this.columnUnit.MaxLength = 3;
+                this.columnKolom1.ReadOnly = true;
+                this.columnKolom2.ReadOnly = true;
+                this.columnKolom3.ReadOnly = true;
+                this.columnKolom4.ReadOnly = true;
+                this.columnKolom5.ReadOnly = true;
+                this.columnKolom6.ReadOnly = true;
+                this.columnKolom7.ReadOnly = true;
+                this.columnKolom8.ReadOnly = true;
+                this.columnKolom9.ReadOnly = true;
+                this.columnKolom10.ReadOnly = true;
+                this.columnKolom11.ReadOnly = true;
+                this.columnKolom12.ReadOnly = true;
+                this.columnKolom13.ReadOnly = true;
+                this.columnKolom14.ReadOnly = true;
+                this.columnKolom15.ReadOnly = true;
+                this.columnKolom16.ReadOnly = true;
+                this.columnKolom17.ReadOnly = true;
+                this.columnKolom18.ReadOnly = true;
+                this.columnKolom19.ReadOnly = true;
+                this.columnKolom20.ReadOnly = true;
+                this.columnKolom21.ReadOnly = true;
+                this.columnKolom22.ReadOnly = true;
+                this.columnKolom23.ReadOnly = true;
+                this.columnKolom24.ReadOnly = true;
+                this.columnKolom25.ReadOnly = true;
+                this.columnKolom26.ReadOnly = true;
+                this.columnKolom27.ReadOnly = true;
+                this.columnKolom28.ReadOnly = true;
+                this.columnKolom29.ReadOnly = true;
+                this.columnKolom30.ReadOnly = true;
+                this.columnKolom31.ReadOnly = true;
+                this.columnTotal.ReadOnly = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public sp_consumptionconsumablecostRow Newsp_consumptionconsumablecostRow() {
+                return ((sp_consumptionconsumablecostRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new sp_consumptionconsumablecostRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(sp_consumptionconsumablecostRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.sp_consumptionconsumablecostRowChanged != null)) {
+                    this.sp_consumptionconsumablecostRowChanged(this, new sp_consumptionconsumablecostRowChangeEvent(((sp_consumptionconsumablecostRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.sp_consumptionconsumablecostRowChanging != null)) {
+                    this.sp_consumptionconsumablecostRowChanging(this, new sp_consumptionconsumablecostRowChangeEvent(((sp_consumptionconsumablecostRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.sp_consumptionconsumablecostRowDeleted != null)) {
+                    this.sp_consumptionconsumablecostRowDeleted(this, new sp_consumptionconsumablecostRowChangeEvent(((sp_consumptionconsumablecostRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.sp_consumptionconsumablecostRowDeleting != null)) {
+                    this.sp_consumptionconsumablecostRowDeleting(this, new sp_consumptionconsumablecostRowChangeEvent(((sp_consumptionconsumablecostRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Removesp_consumptionconsumablecostRow(sp_consumptionconsumablecostRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                bukti ds = new bukti();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "sp_consumptionconsumablecostDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -5271,1036 +5261,6 @@ namespace GOS_FxApps.DataSet {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class sp_consumptionconsumablecostRow : global::System.Data.DataRow {
-            
-            private sp_consumptionconsumablecostDataTable tablesp_consumptionconsumablecost;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal sp_consumptionconsumablecostRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablesp_consumptionconsumablecost = ((sp_consumptionconsumablecostDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string kodeBarang {
-                get {
-                    return ((string)(this[this.tablesp_consumptionconsumablecost.kodeBarangColumn]));
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.kodeBarangColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom1 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom1\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom2 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom2\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom3 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom3\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom4 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom4Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom4\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom4Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom5 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom5Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom5\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom5Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom6 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom6Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom6\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom6Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom7 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom7Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom7\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom7Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom8 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom8Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom8\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom8Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom9 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom9Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom9\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom9Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom10 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom10Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom10\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom10Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom11 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom11Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom11\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom11Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom12 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom12Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom12\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom12Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom13 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom13Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom13\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom13Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom14 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom14Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom14\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom14Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom15 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom15Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom15\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom15Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom16 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom16Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom16\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom16Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom17 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom17Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom17\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom17Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom18 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom18Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom18\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom18Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom19 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom19Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom19\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom19Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom20 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom20Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom20\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom20Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom21 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom21Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom21\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom21Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom22 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom22Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom22\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom22Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom23 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom23Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom23\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom23Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom24 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom24Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom24\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom24Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom25 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom25Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom25\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom25Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom26 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom26Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom26\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom26Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom27 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom27Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom27\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom27Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom28 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom28Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom28\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom28Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom29 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom29Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom29\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom29Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom30 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom30Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom30\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom30Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Kolom31 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom31Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom31\' in table \'sp_consumptionconsumablecost\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.Kolom31Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Total {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_consumptionconsumablecost.TotalColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Total\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.TotalColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Description {
-                get {
-                    try {
-                        return ((string)(this[this.tablesp_consumptionconsumablecost.DescriptionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Description\' in table \'sp_consumptionconsumablecost\' is DBN" +
-                                "ull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.DescriptionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Spesifikasi {
-                get {
-                    try {
-                        return ((string)(this[this.tablesp_consumptionconsumablecost.SpesifikasiColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Spesifikasi\' in table \'sp_consumptionconsumablecost\' is DBN" +
-                                "ull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.SpesifikasiColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Unit {
-                get {
-                    try {
-                        return ((string)(this[this.tablesp_consumptionconsumablecost.UnitColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Unit\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_consumptionconsumablecost.UnitColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom1Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom1Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom2Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom2Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom3Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom3Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom3Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom4Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom4Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom4Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom4Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom5Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom5Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom5Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom5Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom6Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom6Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom6Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom6Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom7Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom7Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom7Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom7Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom8Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom8Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom8Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom8Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom9Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom9Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom9Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom9Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom10Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom10Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom10Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom10Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom11Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom11Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom11Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom11Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom12Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom12Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom12Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom12Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom13Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom13Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom13Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom13Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom14Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom14Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom14Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom14Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom15Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom15Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom15Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom15Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom16Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom16Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom16Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom16Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom17Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom17Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom17Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom17Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom18Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom18Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom18Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom18Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom19Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom19Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom19Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom19Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom20Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom20Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom20Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom20Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom21Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom21Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom21Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom21Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom22Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom22Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom22Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom22Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom23Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom23Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom23Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom23Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom24Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom24Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom24Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom24Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom25Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom25Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom25Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom25Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom26Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom26Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom26Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom26Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom27Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom27Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom27Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom27Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom28Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom28Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom28Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom28Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom29Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom29Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom29Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom29Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom30Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom30Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom30Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom30Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsKolom31Null() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom31Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetKolom31Null() {
-                this[this.tablesp_consumptionconsumablecost.Kolom31Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTotalNull() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.TotalColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTotalNull() {
-                this[this.tablesp_consumptionconsumablecost.TotalColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDescriptionNull() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.DescriptionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDescriptionNull() {
-                this[this.tablesp_consumptionconsumablecost.DescriptionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsSpesifikasiNull() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.SpesifikasiColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetSpesifikasiNull() {
-                this[this.tablesp_consumptionconsumablecost.SpesifikasiColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsUnitNull() {
-                return this.IsNull(this.tablesp_consumptionconsumablecost.UnitColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetUnitNull() {
-                this[this.tablesp_consumptionconsumablecost.UnitColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
         public partial class sp_consumptionsafetycostRow : global::System.Data.DataRow {
             
             private sp_consumptionsafetycostDataTable tablesp_consumptionsafetycost;
@@ -7307,6 +6267,1054 @@ namespace GOS_FxApps.DataSet {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class sp_consumptionconsumablecostRow : global::System.Data.DataRow {
+            
+            private sp_consumptionconsumablecostDataTable tablesp_consumptionconsumablecost;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal sp_consumptionconsumablecostRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablesp_consumptionconsumablecost = ((sp_consumptionconsumablecostDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string kodeBarang {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_consumptionconsumablecost.kodeBarangColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'kodeBarang\' in table \'sp_consumptionconsumablecost\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.kodeBarangColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Description {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_consumptionconsumablecost.DescriptionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Description\' in table \'sp_consumptionconsumablecost\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.DescriptionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Spesifikasi {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_consumptionconsumablecost.SpesifikasiColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Spesifikasi\' in table \'sp_consumptionconsumablecost\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.SpesifikasiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Unit {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_consumptionconsumablecost.UnitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Unit\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.UnitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom1 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom1\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom2 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom2\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom3 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom3\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom4 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom4\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom5 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom5Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom5\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom5Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom6 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom6Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom6\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom6Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom7 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom7Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom7\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom7Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom8 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom8Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom8\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom8Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom9 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom9Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom9\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom9Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom10 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom10Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom10\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom10Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom11 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom11Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom11\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom11Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom12 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom12Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom12\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom12Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom13 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom13Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom13\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom13Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom14 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom14Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom14\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom14Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom15 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom15Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom15\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom15Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom16 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom16Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom16\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom16Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom17 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom17Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom17\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom17Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom18 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom18Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom18\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom18Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom19 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom19Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom19\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom19Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom20 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom20Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom20\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom20Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom21 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom21Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom21\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom21Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom22 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom22Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom22\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom22Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom23 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom23Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom23\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom23Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom24 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom24Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom24\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom24Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom25 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom25Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom25\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom25Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom26 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom26Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom26\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom26Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom27 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom27Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom27\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom27Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom28 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom28Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom28\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom28Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom29 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom29Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom29\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom29Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom30 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom30Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom30\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom30Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Kolom31 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.Kolom31Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kolom31\' in table \'sp_consumptionconsumablecost\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.Kolom31Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Total {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_consumptionconsumablecost.TotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Total\' in table \'sp_consumptionconsumablecost\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_consumptionconsumablecost.TotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IskodeBarangNull() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.kodeBarangColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetkodeBarangNull() {
+                this[this.tablesp_consumptionconsumablecost.kodeBarangColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDescriptionNull() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.DescriptionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDescriptionNull() {
+                this[this.tablesp_consumptionconsumablecost.DescriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsSpesifikasiNull() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.SpesifikasiColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetSpesifikasiNull() {
+                this[this.tablesp_consumptionconsumablecost.SpesifikasiColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsUnitNull() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.UnitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetUnitNull() {
+                this[this.tablesp_consumptionconsumablecost.UnitColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom1Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom1Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom2Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom2Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom3Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom3Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom4Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom4Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom4Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom5Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom5Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom5Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom5Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom6Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom6Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom6Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom6Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom7Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom7Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom7Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom7Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom8Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom8Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom8Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom8Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom9Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom9Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom9Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom9Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom10Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom10Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom10Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom10Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom11Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom11Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom11Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom11Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom12Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom12Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom12Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom12Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom13Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom13Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom13Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom13Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom14Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom14Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom14Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom14Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom15Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom15Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom15Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom15Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom16Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom16Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom16Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom16Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom17Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom17Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom17Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom17Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom18Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom18Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom18Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom18Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom19Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom19Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom19Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom19Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom20Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom20Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom20Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom20Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom21Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom21Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom21Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom21Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom22Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom22Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom22Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom22Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom23Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom23Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom23Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom23Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom24Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom24Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom24Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom24Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom25Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom25Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom25Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom25Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom26Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom26Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom26Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom26Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom27Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom27Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom27Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom27Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom28Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom28Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom28Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom28Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom29Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom29Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom29Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom29Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom30Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom30Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom30Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom30Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKolom31Null() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.Kolom31Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKolom31Null() {
+                this[this.tablesp_consumptionconsumablecost.Kolom31Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTotalNull() {
+                return this.IsNull(this.tablesp_consumptionconsumablecost.TotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTotalNull() {
+                this[this.tablesp_consumptionconsumablecost.TotalColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -7378,22 +7386,22 @@ namespace GOS_FxApps.DataSet {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class sp_consumptionconsumablecostRowChangeEvent : global::System.EventArgs {
+        public class sp_consumptionsafetycostRowChangeEvent : global::System.EventArgs {
             
-            private sp_consumptionconsumablecostRow eventRow;
+            private sp_consumptionsafetycostRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_consumptionconsumablecostRowChangeEvent(sp_consumptionconsumablecostRow row, global::System.Data.DataRowAction action) {
+            public sp_consumptionsafetycostRowChangeEvent(sp_consumptionsafetycostRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_consumptionconsumablecostRow Row {
+            public sp_consumptionsafetycostRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -7412,22 +7420,22 @@ namespace GOS_FxApps.DataSet {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class sp_consumptionsafetycostRowChangeEvent : global::System.EventArgs {
+        public class sp_consumptionconsumablecostRowChangeEvent : global::System.EventArgs {
             
-            private sp_consumptionsafetycostRow eventRow;
+            private sp_consumptionconsumablecostRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_consumptionsafetycostRowChangeEvent(sp_consumptionsafetycostRow row, global::System.Data.DataRowAction action) {
+            public sp_consumptionconsumablecostRowChangeEvent(sp_consumptionconsumablecostRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_consumptionsafetycostRow Row {
+            public sp_consumptionconsumablecostRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -7904,235 +7912,6 @@ namespace GOS_FxApps.DataSet.buktiTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class sp_consumptionconsumablecostTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public sp_consumptionconsumablecostTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "sp_consumptionconsumablecost";
-            tableMapping.ColumnMappings.Add("kodeBarang", "kodeBarang");
-            tableMapping.ColumnMappings.Add("Kolom1", "Kolom1");
-            tableMapping.ColumnMappings.Add("Kolom2", "Kolom2");
-            tableMapping.ColumnMappings.Add("Kolom3", "Kolom3");
-            tableMapping.ColumnMappings.Add("Kolom4", "Kolom4");
-            tableMapping.ColumnMappings.Add("Kolom5", "Kolom5");
-            tableMapping.ColumnMappings.Add("Kolom6", "Kolom6");
-            tableMapping.ColumnMappings.Add("Kolom7", "Kolom7");
-            tableMapping.ColumnMappings.Add("Kolom8", "Kolom8");
-            tableMapping.ColumnMappings.Add("Kolom9", "Kolom9");
-            tableMapping.ColumnMappings.Add("Kolom10", "Kolom10");
-            tableMapping.ColumnMappings.Add("Kolom11", "Kolom11");
-            tableMapping.ColumnMappings.Add("Kolom12", "Kolom12");
-            tableMapping.ColumnMappings.Add("Kolom13", "Kolom13");
-            tableMapping.ColumnMappings.Add("Kolom14", "Kolom14");
-            tableMapping.ColumnMappings.Add("Kolom15", "Kolom15");
-            tableMapping.ColumnMappings.Add("Kolom16", "Kolom16");
-            tableMapping.ColumnMappings.Add("Kolom17", "Kolom17");
-            tableMapping.ColumnMappings.Add("Kolom18", "Kolom18");
-            tableMapping.ColumnMappings.Add("Kolom19", "Kolom19");
-            tableMapping.ColumnMappings.Add("Kolom20", "Kolom20");
-            tableMapping.ColumnMappings.Add("Kolom21", "Kolom21");
-            tableMapping.ColumnMappings.Add("Kolom22", "Kolom22");
-            tableMapping.ColumnMappings.Add("Kolom23", "Kolom23");
-            tableMapping.ColumnMappings.Add("Kolom24", "Kolom24");
-            tableMapping.ColumnMappings.Add("Kolom25", "Kolom25");
-            tableMapping.ColumnMappings.Add("Kolom26", "Kolom26");
-            tableMapping.ColumnMappings.Add("Kolom27", "Kolom27");
-            tableMapping.ColumnMappings.Add("Kolom28", "Kolom28");
-            tableMapping.ColumnMappings.Add("Kolom29", "Kolom29");
-            tableMapping.ColumnMappings.Add("Kolom30", "Kolom30");
-            tableMapping.ColumnMappings.Add("Kolom31", "Kolom31");
-            tableMapping.ColumnMappings.Add("Total", "Total");
-            tableMapping.ColumnMappings.Add("Description", "Description");
-            tableMapping.ColumnMappings.Add("Spesifikasi", "Spesifikasi");
-            tableMapping.ColumnMappings.Add("Unit", "Unit");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::GOS_FxApps.Properties.Settings.Default.gos_appsserver;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.sp_consumptionconsumablecost";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Bulan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tahun", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(bukti.sp_consumptionconsumablecostDataTable dataTable, global::System.Nullable<int> Bulan, global::System.Nullable<int> Tahun) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Bulan.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Tahun.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual bukti.sp_consumptionconsumablecostDataTable GetData(global::System.Nullable<int> Bulan, global::System.Nullable<int> Tahun) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Bulan.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Tahun.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            bukti.sp_consumptionconsumablecostDataTable dataTable = new bukti.sp_consumptionconsumablecostDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class sp_consumptionsafetycostTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -8348,6 +8127,235 @@ namespace GOS_FxApps.DataSet.buktiTableAdapters {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             bukti.sp_consumptionsafetycostDataTable dataTable = new bukti.sp_consumptionsafetycostDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class sp_consumptionconsumablecostTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public sp_consumptionconsumablecostTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "sp_consumptionconsumablecost";
+            tableMapping.ColumnMappings.Add("kodeBarang", "kodeBarang");
+            tableMapping.ColumnMappings.Add("Description", "Description");
+            tableMapping.ColumnMappings.Add("Spesifikasi", "Spesifikasi");
+            tableMapping.ColumnMappings.Add("Unit", "Unit");
+            tableMapping.ColumnMappings.Add("Kolom1", "Kolom1");
+            tableMapping.ColumnMappings.Add("Kolom2", "Kolom2");
+            tableMapping.ColumnMappings.Add("Kolom3", "Kolom3");
+            tableMapping.ColumnMappings.Add("Kolom4", "Kolom4");
+            tableMapping.ColumnMappings.Add("Kolom5", "Kolom5");
+            tableMapping.ColumnMappings.Add("Kolom6", "Kolom6");
+            tableMapping.ColumnMappings.Add("Kolom7", "Kolom7");
+            tableMapping.ColumnMappings.Add("Kolom8", "Kolom8");
+            tableMapping.ColumnMappings.Add("Kolom9", "Kolom9");
+            tableMapping.ColumnMappings.Add("Kolom10", "Kolom10");
+            tableMapping.ColumnMappings.Add("Kolom11", "Kolom11");
+            tableMapping.ColumnMappings.Add("Kolom12", "Kolom12");
+            tableMapping.ColumnMappings.Add("Kolom13", "Kolom13");
+            tableMapping.ColumnMappings.Add("Kolom14", "Kolom14");
+            tableMapping.ColumnMappings.Add("Kolom15", "Kolom15");
+            tableMapping.ColumnMappings.Add("Kolom16", "Kolom16");
+            tableMapping.ColumnMappings.Add("Kolom17", "Kolom17");
+            tableMapping.ColumnMappings.Add("Kolom18", "Kolom18");
+            tableMapping.ColumnMappings.Add("Kolom19", "Kolom19");
+            tableMapping.ColumnMappings.Add("Kolom20", "Kolom20");
+            tableMapping.ColumnMappings.Add("Kolom21", "Kolom21");
+            tableMapping.ColumnMappings.Add("Kolom22", "Kolom22");
+            tableMapping.ColumnMappings.Add("Kolom23", "Kolom23");
+            tableMapping.ColumnMappings.Add("Kolom24", "Kolom24");
+            tableMapping.ColumnMappings.Add("Kolom25", "Kolom25");
+            tableMapping.ColumnMappings.Add("Kolom26", "Kolom26");
+            tableMapping.ColumnMappings.Add("Kolom27", "Kolom27");
+            tableMapping.ColumnMappings.Add("Kolom28", "Kolom28");
+            tableMapping.ColumnMappings.Add("Kolom29", "Kolom29");
+            tableMapping.ColumnMappings.Add("Kolom30", "Kolom30");
+            tableMapping.ColumnMappings.Add("Kolom31", "Kolom31");
+            tableMapping.ColumnMappings.Add("Total", "Total");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::GOS_FxApps.Properties.Settings.Default.gos_appsserver;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.sp_consumptionconsumablecost";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Bulan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tahun", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(bukti.sp_consumptionconsumablecostDataTable dataTable, global::System.Nullable<int> Bulan, global::System.Nullable<int> Tahun) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Bulan.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Bulan.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Tahun.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Tahun.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual bukti.sp_consumptionconsumablecostDataTable GetData(global::System.Nullable<int> Bulan, global::System.Nullable<int> Tahun) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Bulan.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Bulan.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Tahun.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Tahun.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            bukti.sp_consumptionconsumablecostDataTable dataTable = new bukti.sp_consumptionconsumablecostDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

@@ -834,5 +834,10 @@ namespace GOS_FxApps
                 }
             }
         }
+
+        private void txtcatatan_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

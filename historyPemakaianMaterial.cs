@@ -48,7 +48,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM pemakaian_material ORDER BY tanggalPemakaian DESC";
+                string query = "SELECT idPemakaian, kodeBarang, namaBarang, spesifikasi, type, tanggalPemakaian, jumlahPemakaian, updated_at, remaks FROM pemakaian_material ORDER BY tanggalPemakaian DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -62,10 +62,12 @@ namespace GOS_FxApps
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "Kode Barang";
                 dataGridView1.Columns[2].HeaderText = "Nama Barang";
-                dataGridView1.Columns[3].HeaderText = "Tanggal Pemakaian";
-                dataGridView1.Columns[4].HeaderText = "Jumlah Pemakaian";
-                dataGridView1.Columns[5].HeaderText = "Diubah";
-                dataGridView1.Columns[6].HeaderText = "Remaks";
+                dataGridView1.Columns[3].HeaderText = "Spesifikasi";
+                dataGridView1.Columns[4].HeaderText = "Tipe";
+                dataGridView1.Columns[5].HeaderText = "Tanggal Pemakaian";
+                dataGridView1.Columns[6].HeaderText = "Jumlah Pemakaian";
+                dataGridView1.Columns[7].HeaderText = "Diubah";
+                dataGridView1.Columns[8].HeaderText = "Remaks";
             }
             catch (SqlException)
             {
@@ -74,7 +76,7 @@ namespace GOS_FxApps
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi kesalahan sistem: " + ex.Message,
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
                                 "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

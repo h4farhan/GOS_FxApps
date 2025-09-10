@@ -1479,15 +1479,15 @@ namespace GOS_FxApps
             this.tableLayoutPanel5.ColumnCount = 2;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel5.Controls.Add(this.guna2Panel7, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.guna2Panel6, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.guna2Panel7, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.guna2Panel6, 0, 0);
             this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 4;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.56757F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.58108F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 6F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.43243F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.41892F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 6F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(330, 605);
             this.tableLayoutPanel5.TabIndex = 0;
@@ -1501,10 +1501,10 @@ namespace GOS_FxApps
             this.guna2Panel7.Controls.Add(this.dataGridView2);
             this.guna2Panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel7.FillColor = System.Drawing.Color.White;
-            this.guna2Panel7.Location = new System.Drawing.Point(2, 2);
+            this.guna2Panel7.Location = new System.Drawing.Point(2, 118);
             this.guna2Panel7.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel7.Name = "guna2Panel7";
-            this.guna2Panel7.Size = new System.Drawing.Size(318, 396);
+            this.guna2Panel7.Size = new System.Drawing.Size(318, 478);
             this.guna2Panel7.TabIndex = 4;
             // 
             // txtcaripenerimaan
@@ -1580,7 +1580,7 @@ namespace GOS_FxApps
             this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(294, 328);
+            this.dataGridView2.Size = new System.Drawing.Size(294, 410);
             this.dataGridView2.TabIndex = 3;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
@@ -1594,11 +1594,11 @@ namespace GOS_FxApps
             this.guna2Panel6.Controls.Add(this.label12);
             this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel6.FillColor = System.Drawing.Color.White;
-            this.guna2Panel6.Location = new System.Drawing.Point(2, 408);
+            this.guna2Panel6.Location = new System.Drawing.Point(2, 2);
             this.guna2Panel6.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel6.Name = "guna2Panel6";
             this.guna2Panel6.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
-            this.guna2Panel6.Size = new System.Drawing.Size(318, 188);
+            this.guna2Panel6.Size = new System.Drawing.Size(318, 106);
             this.guna2Panel6.TabIndex = 8;
             this.guna2Panel6.TabStop = true;
             // 
@@ -1623,14 +1623,16 @@ namespace GOS_FxApps
             this.txtcatatan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtcatatan.Location = new System.Drawing.Point(18, 46);
             this.txtcatatan.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtcatatan.Multiline = true;
             this.txtcatatan.Name = "txtcatatan";
             this.txtcatatan.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtcatatan.PlaceholderText = "Axxxx";
             this.txtcatatan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtcatatan.SelectedText = "";
-            this.txtcatatan.Size = new System.Drawing.Size(287, 123);
+            this.txtcatatan.Size = new System.Drawing.Size(287, 41);
             this.txtcatatan.TabIndex = 0;
+            this.txtcatatan.TextChanged += new System.EventHandler(this.txtcatatan_TextChanged);
+            this.txtcatatan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+            this.txtcatatan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             // 
             // label12
             // 

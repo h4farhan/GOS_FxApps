@@ -47,29 +47,6 @@ namespace GOS_FxApps
             }
         }
 
-        //private void registertampilperbaikan()
-        //{
-        //    using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-        //    using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.perbaikan_s", conn))
-        //    {
-        //        cmd.Notification = null;
-        //        var dep = new SqlDependency(cmd);
-        //        dep.OnChange += (s, e) =>
-        //        {
-        //            if (e.Type == SqlNotificationType.Change)
-        //            {
-        //                this.Invoke(new Action(() =>
-        //                {
-        //                    tampilperbaikan();
-        //                    registertampilperbaikan();
-        //                }));
-        //            }
-        //        };
-        //        conn.Open();
-        //        cmd.ExecuteReader();
-        //    }
-        //}
-
         private void Perbaikan_Load(object sender, EventArgs e)
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
@@ -177,63 +154,6 @@ namespace GOS_FxApps
                 return dt.Rows.Count > 0;
             }
         }
-
-        //private void tampilperbaikan()
-        //{
-        //    try
-        //    {
-        //        string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, bac, nba, ba, ba1, r, m, cr, c, rl, jumlah, tanggal_penerimaan, updated_at, remaks FROM perbaikan_s ORDER BY tanggal_perbaikan DESC";
-        //        SqlDataAdapter ad = new SqlDataAdapter(query,conn);
-        //        DataTable dt = new DataTable();
-        //        ad.Fill(dt);
-        //        dataGridView1.DataSource = dt;
-        //        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-        //        dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-        //        dataGridView1.RowTemplate.Height = 35;
-        //        dataGridView1.ReadOnly = true;
-
-        //        dataGridView1.Columns[0].Visible = false;
-        //        dataGridView1.Columns[1].HeaderText = "Tanggal Perbaikan";
-        //        dataGridView1.Columns[2].HeaderText = "Shift";
-        //        dataGridView1.Columns[3].HeaderText = "Nomor ROD";
-        //        dataGridView1.Columns[4].HeaderText = "Jenis";
-        //        dataGridView1.Columns[5].HeaderText = "E1 Ers";
-        //        dataGridView1.Columns[6].HeaderText = "E1 Est";
-        //        dataGridView1.Columns[7].HeaderText = "E1 Jumlah";
-        //        dataGridView1.Columns[8].HeaderText = "E2 Ers";
-        //        dataGridView1.Columns[9].HeaderText = "E2 Cst";
-        //        dataGridView1.Columns[10].HeaderText = "E2 Cstub";
-        //        dataGridView1.Columns[11].HeaderText = "E2 Jumlah";
-        //        dataGridView1.Columns[12].HeaderText = "E3";
-        //        dataGridView1.Columns[13].HeaderText = "E4";
-        //        dataGridView1.Columns[14].HeaderText = "S";
-        //        dataGridView1.Columns[15].HeaderText = "D";
-        //        dataGridView1.Columns[16].HeaderText = "B";
-        //        dataGridView1.Columns[17].HeaderText = "BAC";
-        //        dataGridView1.Columns[18].HeaderText = "NBA";
-        //        dataGridView1.Columns[19].HeaderText = "BA";
-        //        dataGridView1.Columns[20].HeaderText = "BA-1";
-        //        dataGridView1.Columns[21].HeaderText = "R";
-        //        dataGridView1.Columns[22].HeaderText = "M";
-        //        dataGridView1.Columns[23].HeaderText = "CR";
-        //        dataGridView1.Columns[24].HeaderText = "C";
-        //        dataGridView1.Columns[25].HeaderText = "RL";
-        //        dataGridView1.Columns[26].HeaderText = "Jumlah";
-        //        dataGridView1.Columns[27].HeaderText = "Tanggal Penerimaan";
-        //        dataGridView1.Columns[28].HeaderText = "Diubah"; 
-        //        dataGridView1.Columns[29].HeaderText = "Remaks"; 
-        //    }
-        //    catch (SqlException)
-        //    {
-        //        MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-        //                            "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-        //                        "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
 
         private void setdefault()
         {
@@ -420,8 +340,9 @@ namespace GOS_FxApps
                     cmdDel.ExecuteNonQuery();
                 }
 
+                editpenerimaan();
+
                 MessageBox.Show("Data Berhasil Disimpan", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //tampilperbaikan();
                 tampilpenerimaan();
             }
             catch (SqlException)
@@ -440,97 +361,55 @@ namespace GOS_FxApps
             }
         }
 
-        //private void editdata()
-        //{
-        //    try
-        //    {
-        //        DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+        private void editpenerimaan()
+        {
+            try
+            {
+                conn.Open();
 
-        //        if (result == DialogResult.OK)
-        //        {
-        //            conn.Open();
-        //            SqlCommand cmd = new SqlCommand("UPDATE perbaikan_s SET jenis = @jenis, e1_ers = @e1ers, e1_est = @e1est, e1_jumlah = @e1jumlah, e2_ers = @e2ers, e2_cst = @e2cst, e2_cstub = @e2cstub, e2_jumlah = @e2jumlah," +
-        //                "e3 = @e3, e4 = @e4, s = @s, d = @d, bac = @bac, nba = @nba, b = @b, ba = @ba, ba1 = @ba1, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = @diubah WHERE no = @no ", conn);
+                SqlCommand cmd1 = new SqlCommand(@"
+            UPDATE penerimaan_p 
+            SET e1=@e1, e2=@e2, e3=@e3, s=@s, d=@d, 
+                b=@b, ba=@ba, cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah,
+                remaks=@remaks, updated_at=@diubah, catatan = @catatan
+            WHERE no=@no AND tanggal_penerimaan = @tanggal", conn);
 
-        //            SqlCommand cmd2 = new SqlCommand("UPDATE perbaikan_p SET jenis = @jenis, e1_ers = @e1ers, e1_est = @e1est, e1_jumlah = @e1jumlah, e2_ers = @e2ers, e2_cst = @e2cst, e2_cstub = @e2cstub, e2_jumlah = @e2jumlah," +
-        //                "e3 = @e3, e4 = @e4, s = @s, d = @d, bac = @bac, nba = @nba, b = @b, ba = @ba, ba1 = @ba1, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = @diubah WHERE no = @no ", conn);
+                cmd1.Parameters.AddWithValue("@e1", lbltotale1.Text);
+                cmd1.Parameters.AddWithValue("@e2", lbltotale2.Text);
+                cmd1.Parameters.AddWithValue("@e3", txte3.Text);
+                cmd1.Parameters.AddWithValue("@s", txts.Text);
+                cmd1.Parameters.AddWithValue("@d", txtd.Text);
+                cmd1.Parameters.AddWithValue("@b", txtb.Text);
+                cmd1.Parameters.AddWithValue("@ba", lbltotalba.Text);
+                cmd1.Parameters.AddWithValue("@cr", txtcr.Text);
+                cmd1.Parameters.AddWithValue("@m", txtm.Text);
+                cmd1.Parameters.AddWithValue("@r", txtr.Text);
+                cmd1.Parameters.AddWithValue("@c", txtc.Text);
+                cmd1.Parameters.AddWithValue("@rl", txtrl.Text);
+                cmd1.Parameters.AddWithValue("@jumlah", lbltotal.Text);
+                cmd1.Parameters.AddWithValue("@remaks", loginform.login.name);
+                cmd1.Parameters.AddWithValue("@no", noprimary);
+                cmd1.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                cmd1.Parameters.AddWithValue("@catatan", txtcatatan.Text);
+                cmd1.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
+                cmd1.ExecuteNonQuery();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
 
-
-        //            cmd.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
-        //            cmd.Parameters.AddWithValue("@jenis", txtjenis.Text);
-        //            cmd.Parameters.AddWithValue("@e1ers", txte1ers.Text);
-        //            cmd.Parameters.AddWithValue("@e1est", txte1est.Text);
-        //            cmd.Parameters.AddWithValue("@e1jumlah", lbltotale1.Text);
-        //            cmd.Parameters.AddWithValue("@e2ers", txte2ers.Text);
-        //            cmd.Parameters.AddWithValue("@e2cst", txte2cst.Text);
-        //            cmd.Parameters.AddWithValue("@e2cstub", txte2cstub.Text);
-        //            cmd.Parameters.AddWithValue("@e2jumlah", lbltotale2.Text);
-        //            cmd.Parameters.AddWithValue("@e3", txte3.Text);
-        //            cmd.Parameters.AddWithValue("@e4", txte4.Text);
-        //            cmd.Parameters.AddWithValue("@s", txts.Text);
-        //            cmd.Parameters.AddWithValue("@d", txtd.Text);
-        //            cmd.Parameters.AddWithValue("@b", txtb.Text);
-        //            cmd.Parameters.AddWithValue("@bac", txtbac.Text);
-        //            cmd.Parameters.AddWithValue("@nba", txtnba.Text);
-        //            cmd.Parameters.AddWithValue("@ba", lbltotalba.Text);
-        //            cmd.Parameters.AddWithValue("@ba1", txtba1.Text);
-        //            cmd.Parameters.AddWithValue("@cr", txtcr.Text);
-        //            cmd.Parameters.AddWithValue("@m", txtm.Text);
-        //            cmd.Parameters.AddWithValue("@r", txtr.Text);
-        //            cmd.Parameters.AddWithValue("@c", txtc.Text);
-        //            cmd.Parameters.AddWithValue("@rl", txtrl.Text);
-        //            cmd.Parameters.AddWithValue("@jumlah", lbltotal.Text);
-        //            cmd.Parameters.AddWithValue("@no", noprimary);
-        //            cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
-
-        //            cmd2.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
-        //            cmd2.Parameters.AddWithValue("@jenis", txtjenis.Text);
-        //            cmd2.Parameters.AddWithValue("@e1ers", txte1ers.Text);
-        //            cmd2.Parameters.AddWithValue("@e1est", txte1est.Text);
-        //            cmd2.Parameters.AddWithValue("@e1jumlah", lbltotale1.Text);
-        //            cmd2.Parameters.AddWithValue("@e2ers", txte2ers.Text);
-        //            cmd2.Parameters.AddWithValue("@e2cst", txte2cst.Text);
-        //            cmd2.Parameters.AddWithValue("@e2cstub", txte2cstub.Text);
-        //            cmd2.Parameters.AddWithValue("@e2jumlah", lbltotale2.Text);
-        //            cmd2.Parameters.AddWithValue("@e3", txte3.Text);
-        //            cmd2.Parameters.AddWithValue("@e4", txte4.Text);
-        //            cmd2.Parameters.AddWithValue("@s", txts.Text);
-        //            cmd2.Parameters.AddWithValue("@d", txtd.Text);
-        //            cmd2.Parameters.AddWithValue("@b", txtb.Text);
-        //            cmd2.Parameters.AddWithValue("@bac", txtbac.Text);
-        //            cmd2.Parameters.AddWithValue("@nba", txtnba.Text);
-        //            cmd2.Parameters.AddWithValue("@ba", lbltotalba.Text);
-        //            cmd2.Parameters.AddWithValue("@ba1", txtba1.Text);
-        //            cmd2.Parameters.AddWithValue("@cr", txtcr.Text);
-        //            cmd2.Parameters.AddWithValue("@m", txtm.Text);
-        //            cmd2.Parameters.AddWithValue("@r", txtr.Text);
-        //            cmd2.Parameters.AddWithValue("@c", txtc.Text);
-        //            cmd2.Parameters.AddWithValue("@rl", txtrl.Text);
-        //            cmd2.Parameters.AddWithValue("@jumlah", lbltotal.Text);
-        //            cmd2.Parameters.AddWithValue("@no", noprimary);
-        //            cmd2.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
-
-        //            cmd.ExecuteNonQuery();
-        //            cmd2.ExecuteNonQuery();
-        //            MessageBox.Show("Data Berhasil Diedit", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //            tampilperbaikan();
-        //        }
-        //    }
-        //    catch (SqlException ex)
-        //    {
-        //        MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif. " + ex.Message,
-        //                            "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-        //                        "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    finally
-        //    {
-        //        conn.Close();
-        //    }
-        //}
 
         private void hitung()
         {
@@ -544,6 +423,7 @@ namespace GOS_FxApps
             int angka5 = SafeParse(txte2cstub);
             int hasile2 = angka3 + angka4 + angka5;
             lbltotale2.Text = hasile2.ToString();
+
             int angka6 = SafeParse(txte3);
             int angka7 = 0;
             int angka7a = SafeParse(txts);
@@ -555,7 +435,6 @@ namespace GOS_FxApps
             {
                 angka7 = 0;
             }
-
             int angka8 = SafeParse(txtd);
             int angka9 = SafeParse(txtb);
             int angka10 = SafeParse(txtba1);
@@ -619,20 +498,6 @@ namespace GOS_FxApps
                 MessageBox.Show("Jenis Tidak Boleh Kosong", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            //if (btnsimpan.Text == "Edit Data")
-            //{
-            //    editdata();
-            //    txtnomorrod.Enabled = true;
-            //    setdefault();
-            //    txtnomorrod.Enabled = false;
-            //    setfalse();
-            //    btncancel.Enabled = false;
-            //    btnsimpan.Enabled = false;
-            //    btnsimpan.Text = "Simpan Data";
-            //}
-            //else
-            //{
                 simpandata();
                 txtnomorrod.Enabled = true;
                 setdefault();
@@ -640,46 +505,6 @@ namespace GOS_FxApps
                 setfalse();
                 btnsimpan.Enabled = false;
                 btncancel.Enabled = false;
-            //}
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //if (MainForm.Instance.role != "Manajer") return;
-            //if (e.RowIndex >= 0)
-            //{
-            //    DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-
-                
-            //    txtnomorrod.Text = row.Cells["nomor_rod"].Value.ToString();
-            //    txtjenis.Text = row.Cells["jenis"].Value.ToString();
-            //    txte1ers.Text = row.Cells["e1_ers"].Value.ToString();
-            //    txte1est.Text = row.Cells["e1_est"].Value.ToString();
-            //    lbltotale1.Text = row.Cells["e1_jumlah"].Value.ToString();
-            //    txte2ers.Text = row.Cells["e2_ers"].Value.ToString();
-            //    txte2cst.Text = row.Cells["e2_cst"].Value.ToString();
-            //    txte2cstub.Text = row.Cells["e2_cstub"].Value.ToString();
-            //    lbltotale2.Text = row.Cells["e2_jumlah"].Value.ToString();
-            //    txte3.Text = row.Cells["e3"].Value.ToString();
-            //    txte4.Text = row.Cells["e4"].Value.ToString();
-            //    txts.Text = row.Cells["s"].Value.ToString();
-            //    txtd.Text = row.Cells["d"].Value.ToString();
-            //    txtb.Text = row.Cells["b"].Value.ToString();
-            //    txtbac.Text = row.Cells["bac"].Value.ToString();
-            //    txtnba.Text = row.Cells["nba"].Value.ToString();
-            //    lbltotalba.Text = row.Cells["ba"].Value.ToString();
-            //    txtba1.Text = row.Cells["ba1"].Value.ToString();
-            //    txtcr.Text = row.Cells["cr"].Value.ToString();
-            //    txtm.Text = row.Cells["m"].Value.ToString();
-            //    txtr.Text = row.Cells["r"].Value.ToString();
-            //    txtc.Text = row.Cells["c"].Value.ToString();
-            //    txtrl.Text = row.Cells["rl"].Value.ToString();
-            //    lbltotal.Text = row.Cells["jumlah"].Value.ToString();
-            //    settrue();
-            //    btncancel.Enabled = true;
-            //    btnsimpan.Text = "Edit Data";
-            //    txtnomorrod.Enabled = false;                
-            //}
         }
 
         private void btncancel_Click(object sender, EventArgs e)
@@ -822,6 +647,11 @@ namespace GOS_FxApps
         private void txtcaripenerimaan_TextChanged(object sender, EventArgs e)
         {
             caripenerimaan();
+        }
+
+        private void txtcatatan_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -93,7 +93,7 @@ namespace GOS_FxApps
                                                     SELECT COUNT(*) 
                                                     FROM penerimaan_p
                                                     WHERE nomor_rod = @nomor_rod
-                                                      AND @tgl BETWEEN tanggal_penerimaan AND DATEADD(DAY, 30, tanggal_penerimaan)", conn))
+                                                      AND @tgl BETWEEN tanggal_penerimaan AND DATEADD(DAY, 22, tanggal_penerimaan)", conn))
                 {
                     cmd.Parameters.AddWithValue("@nomor_rod", txtnomorrod.Text);
                     cmd.Parameters.AddWithValue("@tgl", MainForm.Instance.tanggal);
@@ -103,7 +103,7 @@ namespace GOS_FxApps
                     if (count > 0)
                     {
                         DialogResult result1 = MessageBox.Show(
-                            $"Nomor ROD {txtnomorrod.Text} sudah ada dalam 30 hari dari penerimaan sebelumnya.\n" +
+                            $"Nomor ROD {txtnomorrod.Text} sudah ada dalam 22 hari dari penerimaan sebelumnya.\n" +
                             $"Apakah Anda Ingin Melanjutkan Simpan?",
                             "Peringatan", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning
                         );
@@ -183,119 +183,6 @@ namespace GOS_FxApps
             }
         }
 
-        //private void editdata()
-        //{
-        //    try
-        //    {
-        //        DialogResult result = MessageBox.Show(
-        //            "Apakah Anda yakin dengan data Anda?",
-        //            "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning
-        //        );
-
-        //        if (result != DialogResult.OK) return;
-
-        //        conn.Open();
-
-        //        string query = @"
-        //                        SELECT 'penerimaan_s' AS sumber, nomor_rod 
-        //                        FROM penerimaan_s 
-        //                        WHERE nomor_rod = @rod
-        //                        UNION
-        //                        SELECT 'perbaikan_s' AS sumber, nomor_rod 
-        //                        FROM perbaikan_s
-        //                        WHERE nomor_rod = @rod";
-
-        //        using (SqlCommand cmd = new SqlCommand(query, conn))
-        //        {
-        //            cmd.Parameters.AddWithValue("@rod", txtnomorrod.Text);
-
-        //            using (SqlDataReader dr = cmd.ExecuteReader())
-        //            {
-        //                if (dr.Read())
-        //                {
-        //                    string sumber = dr["sumber"].ToString();
-        //                    string pesan = (sumber == "penerimaan_s")
-        //                        ? "Nomor ROD ini sudah ada di data penerimaan dan belum diperbaiki."
-        //                        : "Nomor ROD ini sudah ada di data perbaikan dan belum dikirim.";
-
-        //                    MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //                    return;
-        //                }
-        //            }
-        //        }
-
-        //        using (SqlCommand cmd = new SqlCommand(@"
-        //                                            SELECT COUNT(*) 
-        //                                            FROM penerimaan_p
-        //                                            WHERE nomor_rod = @nomor_rod
-        //                                              AND @tgl BETWEEN tanggal_penerimaan AND DATEADD(DAY, 30, tanggal_penerimaan)", conn))
-        //        {
-        //            cmd.Parameters.AddWithValue("@nomor_rod", txtnomorrod.Text);
-        //            cmd.Parameters.AddWithValue("@tgl", MainForm.Instance.tanggal);
-
-        //            int count = (int)cmd.ExecuteScalar();
-
-        //            if (count > 0)
-        //            {
-        //                DialogResult result1 = MessageBox.Show(
-        //                    $"Nomor ROD {txtnomorrod.Text} sudah ada dalam 30 hari dari penerimaan sebelumnya.\n" +
-        //                    $"Apakah Anda Ingin Melanjutkan Edit Data?",
-        //                    "Peringatan", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning
-        //                );
-
-        //                if (result1 != DialogResult.OK) return;
-        //            }
-
-        //            SqlCommand cmd1 = new SqlCommand("UPDATE penerimaan_s SET nomor_rod = @nomorrod, jenis = @jenis, stasiun = @stasiun, e1 = @e1, e2 = @e2, e3 = @e3, s = @s, d = @d," +
-        //                            "b = @b, ba = @ba, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = @diubah WHERE no = @no ", conn);
-        //            SqlCommand cmd2 = new SqlCommand("UPDATE penerimaan_p SET nomor_rod = @nomorrod, jenis = @jenis, stasiun = @stasiun, e1 = @e1, e2 = @e2, e3 = @e3, s = @s, d = @d," +
-        //                "b = @b, ba = @ba, cr = @cr, m = @m, r = @r, c = @c, rl = @rl, jumlah = @jumlah, updated_at = @diubah WHERE no = @no ", conn);
-
-        //            foreach (var command in new[] { cmd1, cmd2 })
-        //            {
-        //                command.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
-        //                command.Parameters.AddWithValue("@jenis", txtjenis.Text);
-        //                command.Parameters.AddWithValue("@stasiun", txtstasiun.Text);
-        //                command.Parameters.AddWithValue("@e1", txte1.Text);
-        //                command.Parameters.AddWithValue("@e2", txte2.Text);
-        //                command.Parameters.AddWithValue("@e3", txte3.Text);
-        //                command.Parameters.AddWithValue("@s", txts.Text);
-        //                command.Parameters.AddWithValue("@d", txtd.Text);
-        //                command.Parameters.AddWithValue("@b", txtb.Text);
-        //                command.Parameters.AddWithValue("@ba", txtba.Text);
-        //                command.Parameters.AddWithValue("@cr", txtcr.Text);
-        //                command.Parameters.AddWithValue("@m", txtm.Text);
-        //                command.Parameters.AddWithValue("@r", txtr.Text);
-        //                command.Parameters.AddWithValue("@c", txtc.Text);
-        //                command.Parameters.AddWithValue("@rl", txtrl.Text);
-        //                command.Parameters.AddWithValue("@jumlah", lbltotal.Text);
-        //                command.Parameters.AddWithValue("@no", noprimary);
-        //                command.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
-        //            }
-
-        //            cmd1.ExecuteNonQuery();
-        //            cmd2.ExecuteNonQuery();
-
-        //            MessageBox.Show("Data Berhasil Diedit", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //            setdefault();
-        //        }
-        //    }
-        //    catch (SqlException)
-        //    {
-        //        MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-        //                            "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-        //                        "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    finally
-        //    {
-        //        conn.Close();
-        //    }
-        //}
-
         private void tampil()
         {
             try
@@ -369,24 +256,12 @@ namespace GOS_FxApps
                 MessageBox.Show("Nomor ROD, Jenis dan Stasiun Tidak Boleh Kosong", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            simpandata();
+            tampil();
+            btnsimpan.Enabled = false;
+            btncancel.Enabled = false;
+            txtnomorrod.Focus();
 
-            //if (btnsimpan.Text == "Edit Data")
-            //{
-            //    editdata();
-            //    setdefault();
-            //    btnsimpan.Text = "Simpan Data";
-            //    btncancel.Enabled = false;
-            //    btnsimpan.Enabled = false;
-            //    txtnomorrod.Focus();
-            //}
-            //else
-            //{
-                simpandata();
-                tampil();
-                btnsimpan.Enabled = false;
-                btncancel.Enabled= false;
-                txtnomorrod.Focus();
-            //}
         }
 
         private void AngkaOnly_KeyPress(object sender, KeyPressEventArgs e)
@@ -414,6 +289,7 @@ namespace GOS_FxApps
             txtr.Clear();
             txtc.Clear();
             txtrl.Clear();
+            txtcatatan.Clear();
             lbltotal.Text = "-";
         }
 
@@ -516,36 +392,6 @@ namespace GOS_FxApps
                 }
                 return dt.Rows.Count > 0;
             }
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //if (MainForm.Instance.role != "Manajer") return;
-            //if (e.RowIndex >= 0)
-            //{
-            //    DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-
-            //    noprimary = Convert.ToInt32(row.Cells["no"].Value);
-            //    txtnomorrod.Text = row.Cells["nomor_rod"].Value.ToString();
-            //    txtjenis.Text = row.Cells["jenis"].Value.ToString();
-            //    txtstasiun.Text = row.Cells["stasiun"].Value.ToString();
-            //    txte1.Text = row.Cells["e1"].Value.ToString();
-            //    txte2.Text = row.Cells["e2"].Value.ToString();
-            //    txte3.Text = row.Cells["e3"].Value.ToString();
-            //    txts.Text = row.Cells["s"].Value.ToString();
-            //    txtd.Text = row.Cells["d"].Value.ToString();
-            //    txtb.Text = row.Cells["b"].Value.ToString();
-            //    txtba.Text = row.Cells["ba"].Value.ToString();
-            //    txtcr.Text = row.Cells["cr"].Value.ToString();
-            //    txtm.Text = row.Cells["m"].Value.ToString();
-            //    txtr.Text = row.Cells["r"].Value.ToString();
-            //    txtc.Text = row.Cells["c"].Value.ToString();
-            //    txtrl.Text = row.Cells["rl"].Value.ToString();
-            //    lbltotal.Text = row.Cells["jumlah"].Value.ToString();
-            //    btncancel.Enabled = true;
-            //    btnsimpan.Text = "Edit Data";
-
-            //}
         }
 
         private void btncancel_Click(object sender, EventArgs e)
@@ -660,6 +506,12 @@ namespace GOS_FxApps
         private void txtcari_TextChanged(object sender, EventArgs e)
         {
             cari();
+        }
+
+        private void txtcatatan_TextChanged(object sender, EventArgs e)
+        {
+            btnsimpan.Enabled = true;
+            btncancel.Enabled = true;
         }
     }
 }

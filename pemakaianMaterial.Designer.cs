@@ -194,9 +194,9 @@
             this.label7.Location = new System.Drawing.Point(47, 382);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 19);
+            this.label7.Size = new System.Drawing.Size(70, 19);
             this.label7.TabIndex = 45;
-            this.label7.Text = "Tipe Material";
+            this.label7.Text = "Spesifikasi";
             // 
             // txttipe
             // 

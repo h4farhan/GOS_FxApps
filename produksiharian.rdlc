@@ -473,7 +473,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>CR</Value>
+                        <Value>R</Value>
                         <Style>
                           <FontFamily>Segoe UI</FontFamily>
                           <FontSize>8pt</FontSize>
@@ -701,7 +701,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>R</Value>
+                        <Value>CR</Value>
                         <Style>
                           <FontFamily>Segoe UI</FontFamily>
                           <FontSize>8pt</FontSize>
@@ -1662,14 +1662,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="cr">
+                        <Textbox Name="r1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!cr.Value</Value>
+                                  <Value>=Fields!r.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>=IIf(Fields!nomor_rod.Value = "Total", "Bold", "Normal")</FontWeight>
@@ -1681,7 +1681,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>cr</rd:DefaultName>
+                          <rd:DefaultName>r1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1758,14 +1758,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="r">
+                        <Textbox Name="cr">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!r.Value</Value>
+                                  <Value>=Fields!cr.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>=IIf(Fields!nomor_rod.Value = "Total", "Bold", "Normal")</FontWeight>
@@ -1777,7 +1777,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>r</rd:DefaultName>
+                          <rd:DefaultName>cr</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1993,7 +1993,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -2229,7 +2228,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total", Fields!s.Value, 0))</Value>
+                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total" And Fields!s.Value &gt; 0, 1, 0))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2409,7 +2408,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total", Fields!cr.Value, 0))</Value>
+                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total", Fields!r.Value, 0))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2434,6 +2433,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -2481,7 +2481,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total", Fields!r.Value, 0))</Value>
+                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total" And Fields!cr.Value &gt; 0, 1, 0))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2517,7 +2517,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total", Fields!c.Value, 0))</Value>
+                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total" And Fields!c.Value &gt; 0, 1, 0))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>

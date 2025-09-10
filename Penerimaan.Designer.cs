@@ -83,9 +83,9 @@ namespace GOS_FxApps
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label23 = new System.Windows.Forms.Label();
-            this.txtcatatan = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtcatatan = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -946,14 +946,14 @@ namespace GOS_FxApps
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel2.Controls.Add(this.guna2Panel4, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.guna2Panel5, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.guna2Panel4, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.guna2Panel5, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.14519F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.85481F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(330, 551);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -967,11 +967,11 @@ namespace GOS_FxApps
             this.guna2Panel4.Controls.Add(this.dataGridView1);
             this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel4.FillColor = System.Drawing.Color.White;
-            this.guna2Panel4.Location = new System.Drawing.Point(2, 2);
+            this.guna2Panel4.Location = new System.Drawing.Point(2, 113);
             this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
-            this.guna2Panel4.Size = new System.Drawing.Size(318, 363);
+            this.guna2Panel4.Size = new System.Drawing.Size(318, 436);
             this.guna2Panel4.TabIndex = 3;
             // 
             // txtcari
@@ -1048,22 +1048,26 @@ namespace GOS_FxApps
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(294, 296);
+            this.dataGridView1.Size = new System.Drawing.Size(294, 369);
             this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // label23
+            // guna2Panel5
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label23.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label23.Location = new System.Drawing.Point(14, 17);
-            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(63, 21);
-            this.label23.TabIndex = 4;
-            this.label23.Text = "Catatan";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.guna2Panel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel5.BorderColor = System.Drawing.Color.Gainsboro;
+            this.guna2Panel5.BorderRadius = 15;
+            this.guna2Panel5.BorderThickness = 2;
+            this.guna2Panel5.Controls.Add(this.txtcatatan);
+            this.guna2Panel5.Controls.Add(this.label23);
+            this.guna2Panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel5.FillColor = System.Drawing.Color.White;
+            this.guna2Panel5.Location = new System.Drawing.Point(2, 2);
+            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Panel5.Name = "guna2Panel5";
+            this.guna2Panel5.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
+            this.guna2Panel5.Size = new System.Drawing.Size(318, 107);
+            this.guna2Panel5.TabIndex = 6;
+            this.guna2Panel5.TabStop = true;
             // 
             // txtcatatan
             // 
@@ -1085,32 +1089,29 @@ namespace GOS_FxApps
             this.txtcatatan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtcatatan.Location = new System.Drawing.Point(18, 46);
             this.txtcatatan.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtcatatan.Multiline = true;
             this.txtcatatan.Name = "txtcatatan";
             this.txtcatatan.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtcatatan.PlaceholderText = "Axxxx";
             this.txtcatatan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtcatatan.SelectedText = "";
-            this.txtcatatan.Size = new System.Drawing.Size(287, 115);
+            this.txtcatatan.Size = new System.Drawing.Size(287, 42);
             this.txtcatatan.TabIndex = 0;
+            this.txtcatatan.TextChanged += new System.EventHandler(this.txtcatatan_TextChanged);
+            this.txtcatatan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+            this.txtcatatan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
-            // guna2Panel5
+            // label23
             // 
-            this.guna2Panel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel5.BorderColor = System.Drawing.Color.Gainsboro;
-            this.guna2Panel5.BorderRadius = 15;
-            this.guna2Panel5.BorderThickness = 2;
-            this.guna2Panel5.Controls.Add(this.txtcatatan);
-            this.guna2Panel5.Controls.Add(this.label23);
-            this.guna2Panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel5.FillColor = System.Drawing.Color.White;
-            this.guna2Panel5.Location = new System.Drawing.Point(2, 369);
-            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2Panel5.Name = "guna2Panel5";
-            this.guna2Panel5.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
-            this.guna2Panel5.Size = new System.Drawing.Size(318, 180);
-            this.guna2Panel5.TabIndex = 6;
-            this.guna2Panel5.TabStop = true;
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label23.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label23.Location = new System.Drawing.Point(14, 17);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(63, 21);
+            this.label23.TabIndex = 4;
+            this.label23.Text = "Catatan";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Penerimaan
             // 

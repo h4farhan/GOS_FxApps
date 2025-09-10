@@ -47,7 +47,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM material_masuk ORDER BY tanggalMasuk DESC";
+                string query = "SELECT idMasuk, kodeBarang, namaBarang, spesifikasi, type, tanggalMasuk, jumlahMasuk, updated_at, remaks FROM material_masuk ORDER BY tanggalMasuk DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -61,11 +61,12 @@ namespace GOS_FxApps
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "Kode Barang";
                 dataGridView1.Columns[2].HeaderText = "Nama Barang";
-                dataGridView1.Columns[3].HeaderText = "Tipe";
-                dataGridView1.Columns[4].HeaderText = "Tanggal Masuk";
-                dataGridView1.Columns[5].HeaderText = "Jumlah Masuk";
-                dataGridView1.Columns[6].HeaderText = "Diubah";
-                dataGridView1.Columns[7].HeaderText = "Remaks";
+                dataGridView1.Columns[3].HeaderText = "Spesifikasi";
+                dataGridView1.Columns[4].HeaderText = "Tipe";
+                dataGridView1.Columns[5].HeaderText = "Tanggal Masuk";
+                dataGridView1.Columns[6].HeaderText = "Jumlah Masuk";
+                dataGridView1.Columns[7].HeaderText = "Diubah";
+                dataGridView1.Columns[8].HeaderText = "Remaks";
             }
             catch (SqlException)
             {

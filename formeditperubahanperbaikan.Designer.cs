@@ -1635,6 +1635,7 @@
             this.txtcatatan.SelectedText = "";
             this.txtcatatan.Size = new System.Drawing.Size(477, 123);
             this.txtcatatan.TabIndex = 0;
+            this.txtcatatan.TextChanged += new System.EventHandler(this.txtcatatan_TextChanged);
             // 
             // label12
             // 

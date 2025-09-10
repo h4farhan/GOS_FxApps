@@ -94,7 +94,9 @@ namespace GOS_FxApps
         {
             using (FormLoading loading = new FormLoading())
             {
-                loading.Show();
+                Form mainform = this.FindForm()?.ParentForm;
+                mainform.Enabled = false;
+                loading.Show(mainform);
                 loading.Refresh();
 
                 await Task.Run(() =>
@@ -129,6 +131,9 @@ namespace GOS_FxApps
 
                         this.Invoke(new Action(() =>
                         {
+                            loading.Close();
+                            mainform.Enabled = true;
+
                             SaveFileDialog saveFileDialog = new SaveFileDialog
                             {
                                 Title = "Simpan File Excel",
@@ -136,7 +141,7 @@ namespace GOS_FxApps
                                 FileName = $"STOCK BARANG KTJ PER {namaBulan} {tahun}.xlsx"
                             };
 
-                            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                            if (saveFileDialog.ShowDialog(mainform) == DialogResult.OK)
                             {
                                 string savePath = saveFileDialog.FileName;
                                 if (File.Exists(savePath))
@@ -144,7 +149,10 @@ namespace GOS_FxApps
                                     File.Delete(savePath);
                                 }
                                 xlWorkBook.SaveCopyAs(savePath);
-                                MessageBox.Show("Export selesai ke: " + savePath, "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show(mainform,
+                                                        "Export selesai ke: " + savePath,
+                                                        "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             }
                         }));
 
@@ -166,12 +174,12 @@ namespace GOS_FxApps
                     {
                         this.Invoke(new Action(() =>
                         {
+                            loading.Close();
+                            mainform.Enabled = true;
                             MessageBox.Show("Error: " + ex.Message);
                         }));
                     }
                 });
-
-                loading.Close();
             }
         }
 

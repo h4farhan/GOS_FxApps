@@ -161,10 +161,14 @@ namespace GOS_FxApps
         {
             using (FormLoading loading = new FormLoading())
             {
-                loading.Show();
+                Form mainform = this.FindForm()?.ParentForm;
+
+                mainform.Enabled = false;
+                loading.Show(mainform);
                 loading.Refresh();
+
                 await Task.Run(() =>
-            {
+                {
                     try
                     {
                         int bulan = datejadwal.Value.Month;
@@ -220,6 +224,9 @@ namespace GOS_FxApps
 
                         this.Invoke(new Action(() =>
                         {
+                            loading.Close();
+                            mainform.Enabled = true;
+
                             SaveFileDialog saveFileDialog = new SaveFileDialog
                             {
                                 Title = "Simpan File Excel",
@@ -227,39 +234,41 @@ namespace GOS_FxApps
                                 FileName = $"DATA BARANG KTJ PER {namaBulan} {tahun}.xlsx"
                             };
 
-                            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                            if (saveFileDialog.ShowDialog(mainform) == DialogResult.OK)
                             {
                                 string savePath = saveFileDialog.FileName;
                                 if (File.Exists(savePath)) File.Delete(savePath);
 
                                 xlWorkBook.SaveCopyAs(savePath);
-                                MessageBox.Show("Export selesai ke: " + savePath, "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show(mainform, "Export selesai ke: " + savePath,
+                                    "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
+
+                            xlWorkBook.Close(false);
+                            xlApp.Quit();
+
+                            Marshal.ReleaseComObject(xlWorkSheet);
+                            Marshal.ReleaseComObject(xlWorkBook);
+                            Marshal.ReleaseComObject(xlApp);
+
+                            xlWorkSheet = null;
+                            xlWorkBook = null;
+                            xlApp = null;
+
+                            GC.Collect();
+                            GC.WaitForPendingFinalizers();
                         }));
-
-                        xlWorkBook.Close(false);
-                        xlApp.Quit();
-
-                        Marshal.ReleaseComObject(xlWorkSheet);
-                        Marshal.ReleaseComObject(xlWorkBook);
-                        Marshal.ReleaseComObject(xlApp);
-
-                        xlWorkSheet = null;
-                        xlWorkBook = null;
-                        xlApp = null;
-
-                        GC.Collect();
-                        GC.WaitForPendingFinalizers();
                     }
                     catch (Exception ex)
                     {
                         this.Invoke(new Action(() =>
                         {
+                            loading.Close();
+                            mainform.Enabled = true;
                             MessageBox.Show("Error: " + ex.Message);
                         }));
                     }
                 });
-                loading.Close();
             }
         }
 

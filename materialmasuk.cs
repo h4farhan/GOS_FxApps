@@ -22,6 +22,8 @@ namespace GOS_FxApps
         int noprimary = 0;
         int jumlahlama;
 
+        string type;
+
         private bool isBinding = false;
         bool isProgrammaticChange = false;
 
@@ -57,7 +59,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM material_masuk ORDER BY tanggalMasuk DESC";
+                string query = "SELECT idMasuk, kodeBarang, namaBarang, spesifikasi, type, tanggalMasuk, jumlahMasuk, updated_at, remaks FROM material_masuk ORDER BY tanggalMasuk DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -71,11 +73,12 @@ namespace GOS_FxApps
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "Kode Barang";
                 dataGridView1.Columns[2].HeaderText = "Nama Barang";
-                dataGridView1.Columns[3].HeaderText = "Tipe";
-                dataGridView1.Columns[4].HeaderText = "Tanggal Masuk";
-                dataGridView1.Columns[5].HeaderText = "Jumlah Masuk";
-                dataGridView1.Columns[6].HeaderText = "Diubah";
-                dataGridView1.Columns[7].HeaderText = "Remaks";
+                dataGridView1.Columns[3].HeaderText = "Spesifikasi";
+                dataGridView1.Columns[4].HeaderText = "Tipe";
+                dataGridView1.Columns[5].HeaderText = "Tanggal Masuk";
+                dataGridView1.Columns[6].HeaderText = "Jumlah Masuk";
+                dataGridView1.Columns[7].HeaderText = "Diubah";
+                dataGridView1.Columns[8].HeaderText = "Remaks";
             }
             catch (SqlException)
             {
@@ -214,10 +217,11 @@ namespace GOS_FxApps
             try
             {
                 conn.Open();
-                SqlCommand cmdPakai = new SqlCommand("INSERT INTO material_masuk (kodeBarang, namaBarang, type, tanggalMasuk, jumlahMasuk, updated_at, remaks) VALUES (@kode, @nama, @type, @tgl, @jumlah, @diubah, @remaks)", conn);
+                SqlCommand cmdPakai = new SqlCommand("INSERT INTO material_masuk (kodeBarang, namaBarang, type, tanggalMasuk, jumlahMasuk, updated_at, remaks, spesifikasi) VALUES (@kode, @nama, @type, @tgl, @jumlah, @diubah, @remaks, @spesifikasi)", conn);
                 cmdPakai.Parameters.AddWithValue("@kode", kodeBarang);
                 cmdPakai.Parameters.AddWithValue("@nama", namaBarang);
-                cmdPakai.Parameters.AddWithValue("@type", txttipe.Text);
+                cmdPakai.Parameters.AddWithValue("@spesifikasi", txttipe.Text);
+                cmdPakai.Parameters.AddWithValue("@type", type);
                 cmdPakai.Parameters.AddWithValue("@tgl", datemasuk.Value);
                 cmdPakai.Parameters.AddWithValue("@jumlah", jumlahMasuk);
                 cmdPakai.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
@@ -319,6 +323,7 @@ namespace GOS_FxApps
                         btnbatal.Enabled = false;
                         btnsimpan.Enabled = false;
                         txtcarimaterial.Clear();
+                        type = null;
                     }
                 }
             }
@@ -346,6 +351,7 @@ namespace GOS_FxApps
                         cmbnama.Enabled = true;
                         txtcarimaterial.Enabled = true;
                         txtcarimaterial.Clear();
+                        type = null;
                     }
                 }
             }
@@ -368,6 +374,7 @@ namespace GOS_FxApps
             cmbnama.Enabled = true;
             txtcarimaterial.Enabled = true;
             txtcarimaterial.Clear();
+            type = null;
         }
 
         private void materialmasuk_Load(object sender, EventArgs e)
@@ -396,7 +403,8 @@ namespace GOS_FxApps
                 cmbnama.SelectedValue = row.Cells["kodeBarang"].Value.ToString();
                 datemasuk.Value = Convert.ToDateTime(row.Cells["tanggalMasuk"].Value);
                 txtjumlah.Text = row.Cells["jumlahMasuk"].Value.ToString();
-                txttipe.Text = row.Cells["type"].Value.ToString();
+                txttipe.Text = row.Cells["spesifikasi"].Value.ToString();
+                type = row.Cells["type"].Value.ToString();
                 jumlahlama = Convert.ToInt32(row.Cells["jumlahMasuk"].Value);
 
                 cmbnama.Enabled = false;
@@ -490,7 +498,7 @@ namespace GOS_FxApps
             {
                 using (SqlConnection conn = Koneksi.GetConnection())
                 using (SqlCommand cmd = new SqlCommand(
-                    "SELECT foto, jumlahStok, type, namaBarang FROM stok_material WHERE kodeBarang = @kodeBarang", conn))
+                    "SELECT foto, jumlahStok, type, namaBarang, spesifikasi FROM stok_material WHERE kodeBarang = @kodeBarang", conn))
                 {
                     cmd.Parameters.AddWithValue("@kodeBarang", kodeBarang);
 
@@ -500,7 +508,8 @@ namespace GOS_FxApps
                         if (reader.Read())
                         {
                             lblstoksaatini.Text = "Stok Saat Ini: " + reader["jumlahStok"]?.ToString();
-                            txttipe.Text = reader["type"]?.ToString();
+                            txttipe.Text = reader["spesifikasi"]?.ToString();
+                            type = reader["type"]?.ToString();
 
                             isProgrammaticChange = true;
                             txtcarimaterial.Text = reader["namaBarang"]?.ToString();

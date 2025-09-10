@@ -763,7 +763,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
               <xs:element name="c" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="cColumn" msprop:Generator_ColumnPropNameInRow="c" msprop:Generator_UserColumnName="c" msprop:Generator_ColumnVarNameInTable="columnc" type="xs:int" minOccurs="0" />
               <xs:element name="rl" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="rlColumn" msprop:Generator_ColumnPropNameInRow="rl" msprop:Generator_UserColumnName="rl" msprop:Generator_ColumnVarNameInTable="columnrl" type="xs:int" minOccurs="0" />
               <xs:element name="jumlah" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="jumlahColumn" msprop:Generator_ColumnPropNameInRow="jumlah" msprop:Generator_UserColumnName="jumlah" msprop:Generator_ColumnVarNameInTable="columnjumlah" type="xs:int" minOccurs="0" />
-              <xs:element name="catatan" msdata:ReadOnly="true" msprop:Generator_UserColumnName="catatan" msprop:Generator_ColumnPropNameInTable="catatanColumn" msprop:Generator_ColumnPropNameInRow="catatan" msprop:Generator_ColumnVarNameInTable="columncatatan" minOccurs="0">
+              <xs:element name="catatan" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="catatanColumn" msprop:Generator_ColumnPropNameInRow="catatan" msprop:Generator_UserColumnName="catatan" msprop:Generator_ColumnVarNameInTable="columncatatan" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />

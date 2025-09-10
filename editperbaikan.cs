@@ -300,7 +300,6 @@ namespace GOS_FxApps
                 conn.Open();
                 trans = conn.BeginTransaction();
 
-                // === UPDATE perbaikan_p ===
                 SqlCommand cmd1 = new SqlCommand(@"
             UPDATE perbaikan_p 
             SET nomor_rod = @nomorrod, jenis=@jenis, e1_ers=@e1ers, e1_est=@e1est, e1_jumlah=@e1jumlah,
@@ -345,7 +344,6 @@ namespace GOS_FxApps
                 log1.Parameters.AddWithValue("@no", noprimary);
                 log1.ExecuteNonQuery();
 
-                // === UPDATE perbaikan_s jika ada ===
                 SqlCommand cek2 = new SqlCommand(
                     "SELECT COUNT(*) FROM perbaikan_s WHERE no=@no", conn, trans);
                 cek2.Parameters.AddWithValue("@no", noprimary);
@@ -393,7 +391,6 @@ namespace GOS_FxApps
                     cmd2.ExecuteNonQuery();
                 }
 
-                //UPDATE penerimaan_p jika ada
                 SqlCommand cek3 = new SqlCommand(
                     "SELECT COUNT(*) FROM penerimaan_p WHERE no=@no", conn, trans);
                 cek3.Parameters.AddWithValue("@no", noprimary);
@@ -581,14 +578,41 @@ namespace GOS_FxApps
             lbltotale2.Text = hasile2.ToString();
 
             int angka6 = SafeParse(txte3);
-            int angka7 = SafeParse(txts);
+            int angka7 = 0;
+            int angka7a = SafeParse(txts);
+            if (angka7a > 0)
+            {
+                angka7 = 1;
+            }
+            else
+            {
+                angka7 = 0;
+            }
             int angka8 = SafeParse(txtd);
             int angka9 = SafeParse(txtb);
             int angka10 = SafeParse(txtba1);
-            int angka11 = SafeParse(txtcr);
+            int angka11 = 0;
+            int angka11a = SafeParse(txtcr);
+            if (angka11a > 0)
+            {
+                angka11 = 1;
+            }
+            else
+            {
+                angka11 = 0;
+            }
             int angka12 = SafeParse(txtm);
             int angka13 = SafeParse(txtr);
-            int angka14 = SafeParse(txtc);
+            int angka14 = 0;
+            int angka14a = SafeParse(txtc);
+            if (angka14a > 0)
+            {
+                angka14 = 1;
+            }
+            else
+            {
+                angka14 = 0;
+            }
             int angka15 = SafeParse(txtrl);
             int angka16 = SafeParse(txte4);
 
