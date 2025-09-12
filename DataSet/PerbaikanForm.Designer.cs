@@ -10870,26 +10870,35 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT
-    ISNULL(SUM(CASE WHEN jenis = 'E'     THEN 1 ELSE 0 END), 0) AS E,
-    ISNULL(SUM(CASE WHEN jenis = 'S'     THEN 1 ELSE 0 END), 0) AS S,
-    ISNULL(SUM(CASE WHEN jenis = 'D'     THEN 1 ELSE 0 END), 0) AS D,
-    ISNULL(SUM(CASE WHEN jenis = 'B'     THEN 1 ELSE 0 END), 0) AS B,
-    ISNULL(SUM(CASE WHEN jenis = 'BA'    THEN 1 ELSE 0 END), 0) AS BA,
-    ISNULL(SUM(CASE WHEN jenis = 'BA-1'  THEN 1 ELSE 0 END), 0) AS BA_1,
-    ISNULL(SUM(CASE WHEN jenis = 'CR'    THEN 1 ELSE 0 END), 0) AS CR,
-    ISNULL(SUM(CASE WHEN jenis = 'M'     THEN 1 ELSE 0 END), 0) AS M,
-    ISNULL(SUM(CASE WHEN jenis = 'R'     THEN 1 ELSE 0 END), 0) AS R,
-    ISNULL(SUM(CASE WHEN jenis = 'C'     THEN 1 ELSE 0 END), 0) AS C,
-    ISNULL(SUM(CASE WHEN jenis = 'RL'    THEN 1 ELSE 0 END), 0) AS RL,
+    ISNULL(SUM(CASE WHEN jenis_mapped = 'E'  THEN 1 ELSE 0 END), 0) AS E,
+    ISNULL(SUM(CASE WHEN jenis_mapped = 'S'  THEN 1 ELSE 0 END), 0) AS S,
+    ISNULL(SUM(CASE WHEN jenis_mapped = 'D'  THEN 1 ELSE 0 END), 0) AS D,
+    ISNULL(SUM(CASE WHEN jenis_mapped = 'B'  THEN 1 ELSE 0 END), 0) AS B,
+    ISNULL(SUM(CASE WHEN jenis_mapped = 'BA' THEN 1 ELSE 0 END), 0) AS BA,    
+    ISNULL(SUM(CASE WHEN jenis_mapped = 'BA-1'  THEN 1 ELSE 0 END), 0) AS BA_1,
+    ISNULL(SUM(CASE WHEN jenis_mapped = 'CR' THEN 1 ELSE 0 END), 0) AS CR,
+    ISNULL(SUM(CASE WHEN jenis_mapped = 'M'  THEN 1 ELSE 0 END), 0) AS M,
+    ISNULL(SUM(CASE WHEN jenis_mapped = 'R'  THEN 1 ELSE 0 END), 0) AS R,
+    ISNULL(SUM(CASE WHEN jenis_mapped = 'C'  THEN 1 ELSE 0 END), 0) AS C,
+    ISNULL(SUM(CASE WHEN jenis_mapped = 'RL' THEN 1 ELSE 0 END), 0) AS RL,
     COUNT(*) AS Total
-FROM perbaikan_p
-WHERE tanggal_perbaikan BETWEEN @tanggal1 AND @tanggal2
-  AND shift = @shift;
+FROM (
+    SELECT 
+        CASE 
+            WHEN LEFT(jenis, CHARINDEX('/', jenis + '/') - 1) = 'SP' THEN 'R'
+            WHEN LEFT(jenis, CHARINDEX('/', jenis + '/') - 1) = 'L'  THEN 'C'
+            ELSE LEFT(jenis, CHARINDEX('/', jenis + '/') - 1)
+        END AS jenis_mapped
+    FROM penerimaan_p
+    WHERE tanggal_penerimaan BETWEEN @tanggal1 AND @tanggal2
+      AND shift = @shift
+) AS mapped;
+
 ";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal1", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal2", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shift", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal1", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal2", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shift", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

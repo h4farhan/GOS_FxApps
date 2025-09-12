@@ -212,16 +212,24 @@ namespace GOS_FxApps
             }
         }
 
+        private void jumlahdata()
+        {
+            int total = dataGridView1.Rows.Count;
+            lbljumlahdata.Text = "Jumlah data: " + total.ToString();
+        }
+
         private void historyStokMaterial_Load(object sender, EventArgs e)
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
             tampil();
             registertampil();
+            jumlahdata();
         }
 
         private void txtcari_TextChanged(object sender, EventArgs e)
         {
             cari();
+            jumlahdata();
         }
 
         private void historyStokMaterial_FormClosing(object sender, FormClosingEventArgs e)

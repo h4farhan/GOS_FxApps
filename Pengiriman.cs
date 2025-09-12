@@ -20,15 +20,17 @@ namespace GOS_FxApps
         SqlConnection conn = Koneksi.GetConnection();
 
         Guna.UI2.WinForms.Guna2TextBox[] txtrods;
-        int noprimary;
+
         public class Perbaikan
         {
-            public int? NomorRod { get; set; }
+            public int No { get; set; }                  
+            public string NomorRod { get; set; }        
 
             public Perbaikan() { }
 
-            public Perbaikan(int? nomorRod)
+            public Perbaikan(int no, string nomorRod)
             {
+                No = no;
                 NomorRod = nomorRod;
             }
         }
@@ -184,6 +186,7 @@ namespace GOS_FxApps
             txtrod8.Clear();
             txtrod9.Clear();
             txtrod10.Clear();
+            txtcari.Clear();
 
             txtrod1.PlaceholderText = "4xxxx";
             txtrod2.PlaceholderText = "4xxxx";
@@ -272,7 +275,7 @@ namespace GOS_FxApps
             SqlConnection conn = Koneksi.GetConnection();
 
             SqlCommand cmd1 = new SqlCommand(
-                "SELECT nomor_rod FROM perbaikan_s WHERE nomor_rod IN (@A,@B,@C,@D,@E,@F,@G,@H,@I,@J)", conn);
+                "SELECT no, nomor_rod FROM perbaikan_s WHERE nomor_rod IN (@A,@B,@C,@D,@E,@F,@G,@H,@I,@J)", conn);
 
             cmd1.Parameters.AddWithValue("@A", txtrod1.Text);
             cmd1.Parameters.AddWithValue("@B", txtrod2.Text);
@@ -290,11 +293,24 @@ namespace GOS_FxApps
                 conn.Open();
                 using (SqlDataReader reader = cmd1.ExecuteReader())
                 {
+                    HashSet<int> seenNo = new HashSet<int>();
+
                     while (reader.Read())
                     {
+                        int no = Convert.ToInt32(reader["no"]);
+                        string nomorRod = reader["nomor_rod"]?.ToString();
+
+                        if (!seenNo.Add(no))
+                        {
+                            MessageBox.Show($"Nomor 'no' {no} terdeteksi duplikat!\nProses dibatalkan.",
+                                            "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return; 
+                        }
+
                         list.Add(new Perbaikan
                         {
-                            NomorRod = reader["nomor_rod"] == DBNull.Value ? null : (int?)Convert.ToInt32(reader["nomor_rod"])
+                            No = no,
+                            NomorRod = nomorRod
                         });
                     }
                 }
@@ -323,10 +339,10 @@ namespace GOS_FxApps
             }
 
             string queryInsertp = @"INSERT INTO pengiriman (no, tanggal_pengiriman, shift, nomor_rod, updated_at, remaks) 
-                           VALUES (@no, @tanggal, @shift, @nomor_rod, @diubah, @remaks)";
+                            VALUES (@no, @tanggal, @shift, @nomor_rod, @diubah, @remaks)";
 
             string queryInsertm = @"INSERT INTO pengiriman_m (no, tanggal_pengiriman, shift, nomor_rod, updated_at, remaks) 
-                           VALUES (@no, @tanggal, @shift, @nomor_rod, @diubah, @remaks)";
+                            VALUES (@no, @tanggal, @shift, @nomor_rod, @diubah, @remaks)";
 
             try
             {
@@ -336,7 +352,7 @@ namespace GOS_FxApps
                 {
                     using (SqlCommand cmdp = new SqlCommand(queryInsertp, conn))
                     {
-                        cmdp.Parameters.AddWithValue("@no", noprimary);
+                        cmdp.Parameters.AddWithValue("@no", item.No);
                         cmdp.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
                         cmdp.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
                         cmdp.Parameters.AddWithValue("@nomor_rod", item.NomorRod ?? (object)DBNull.Value);
@@ -345,9 +361,10 @@ namespace GOS_FxApps
 
                         cmdp.ExecuteNonQuery();
                     }
+
                     using (SqlCommand cmdm = new SqlCommand(queryInsertm, conn))
                     {
-                        cmdm.Parameters.AddWithValue("@no", noprimary);
+                        cmdm.Parameters.AddWithValue("@no", item.No);
                         cmdm.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
                         cmdm.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
                         cmdm.Parameters.AddWithValue("@nomor_rod", item.NomorRod ?? (object)DBNull.Value);
@@ -380,9 +397,9 @@ namespace GOS_FxApps
                 tampil();
                 setdefault();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.\n" + ex.Message,
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.\n",
                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
@@ -526,7 +543,6 @@ namespace GOS_FxApps
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 string value = row.Cells["nomor_rod"].Value.ToString();
-                noprimary = Convert.ToInt32(row.Cells["no"].Value);
 
                 foreach (var txt in txtrods)
                 {

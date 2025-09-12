@@ -40,6 +40,7 @@
             this.btncari = new Guna.UI2.WinForms.Guna2Button();
             this.cbShift = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnreset = new Guna.UI2.WinForms.Guna2Button();
+            this.lbljumlahdata = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -54,7 +55,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(735, 57);
+            this.panel1.Size = new System.Drawing.Size(1008, 57);
             this.panel1.TabIndex = 57;
             // 
             // label2
@@ -115,7 +116,7 @@
             this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
-            this.guna2Panel4.Size = new System.Drawing.Size(713, 527);
+            this.guna2Panel4.Size = new System.Drawing.Size(986, 527);
             this.guna2Panel4.TabIndex = 53;
             // 
             // dataGridView1
@@ -158,7 +159,7 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(691, 503);
+            this.dataGridView1.Size = new System.Drawing.Size(964, 503);
             this.dataGridView1.TabIndex = 1;
             // 
             // btncari
@@ -171,7 +172,7 @@
             this.btncari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btncari.ForeColor = System.Drawing.Color.White;
-            this.btncari.Location = new System.Drawing.Point(593, 83);
+            this.btncari.Location = new System.Drawing.Point(866, 83);
             this.btncari.Margin = new System.Windows.Forms.Padding(2);
             this.btncari.Name = "btncari";
             this.btncari.Size = new System.Drawing.Size(60, 37);
@@ -216,19 +217,33 @@
             this.btnreset.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(53)))));
             this.btnreset.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnreset.ForeColor = System.Drawing.Color.White;
-            this.btnreset.Location = new System.Drawing.Point(658, 83);
+            this.btnreset.Location = new System.Drawing.Point(931, 83);
             this.btnreset.Name = "btnreset";
             this.btnreset.Size = new System.Drawing.Size(66, 37);
             this.btnreset.TabIndex = 62;
             this.btnreset.Text = "Reset";
             this.btnreset.Click += new System.EventHandler(this.btnreset_Click);
             // 
+            // lbljumlahdata
+            // 
+            this.lbljumlahdata.AutoSize = true;
+            this.lbljumlahdata.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.lbljumlahdata.ForeColor = System.Drawing.Color.Black;
+            this.lbljumlahdata.Location = new System.Drawing.Point(391, 91);
+            this.lbljumlahdata.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbljumlahdata.Name = "lbljumlahdata";
+            this.lbljumlahdata.Size = new System.Drawing.Size(181, 20);
+            this.lbljumlahdata.TabIndex = 70;
+            this.lbljumlahdata.Text = "Jumlah Data : 40000000";
+            this.lbljumlahdata.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // historyWelding
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(735, 677);
+            this.ClientSize = new System.Drawing.Size(1008, 677);
+            this.Controls.Add(this.lbljumlahdata);
             this.Controls.Add(this.btnreset);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cbShift);
@@ -245,6 +260,7 @@
             this.guna2Panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -259,5 +275,6 @@
         private Guna.UI2.WinForms.Guna2Button btncari;
         private Guna.UI2.WinForms.Guna2ComboBox cbShift;
         private Guna.UI2.WinForms.Guna2Button btnreset;
+        private System.Windows.Forms.Label lbljumlahdata;
     }
 }

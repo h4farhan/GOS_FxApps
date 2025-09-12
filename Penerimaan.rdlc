@@ -1549,7 +1549,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>1.22914cm</Height>
+        <Height>1.19023cm</Height>
         <Style />
       </Body>
       <Width>21cm</Width>
@@ -1644,7 +1644,6 @@
                           <Value>Diperiksa</Value>
                           <Style>
                             <FontFamily>Segoe UI</FontFamily>
-                            <FontSize>11pt</FontSize>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -3103,7 +3102,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>5.27334cm</Height>
+          <Height>5.31959cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>

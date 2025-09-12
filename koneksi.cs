@@ -19,7 +19,7 @@ namespace GOS_FxApps
         //    "User ID=tii;Password=mm;" +
         //    "TrustServerCertificate=True;";
 
-        //Data Source = 198.168.1.64; Initial Catalog = gos_apps; User ID = sa; Password=$Genta2025$;TrustServerCertificate=True
+        //Data Source = 192.168.1.64; Initial Catalog = gos_apps; User ID = sa; Password=$Genta2025$;TrustServerCertificate=True
         private static readonly string connectionString = "Data Source=192.168.1.64;" +
             "Initial Catalog=gos_apps;" +
             "Persist Security Info=True;" +

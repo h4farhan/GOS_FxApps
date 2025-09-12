@@ -34,6 +34,7 @@ namespace GOS_FxApps {
 
         public string role = null;
 
+        public string shift;
         public DateTime tanggal;
 
         public void ResetButtonColors()
@@ -132,9 +133,7 @@ namespace GOS_FxApps {
         public MainForm()
         {
             InitializeComponent();
-            shiftcontrol();
-            lbluser.Text = "";
-            setvisiblefalse();
+            Instance = this;
         }
 
         public void LoadNotifikasi()
@@ -306,17 +305,22 @@ namespace GOS_FxApps {
         private void MainForm_Load(object sender, EventArgs e)
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
+            shiftcontrol();
+            lbluser.Text = "";
+            tanggal = DateTime.Now;
+
             SwitchPanel(new Dashboard());
             dashboardButton.FillColor = Color.FromArgb(52, 52, 57);
             dashboardButton.ForeColor = Color.White;
-            Instance = this;
+
             if (!loginstatus)
             {
                 setvisiblefalse();
             }
+
             defaulhistorycontainer = historycontainer.Size;
             defaultentrycontainer = entryContainer.Size;
-            defaulteditcontainer = EditContainer.Size;
+            defaulteditcontainer = EditContainer.Size;           
 
             LoadNotifikasi();
             registerSetminRb();
@@ -688,7 +692,17 @@ namespace GOS_FxApps {
             iconButton12.Visible = true;
             btnHistori.Visible = true;
             btnlaporan.Visible = true;
+
             historycontainer.Visible = true;
+            historycontainer.MaximumSize = new Size(232, 348);
+            iconButton24.Visible = true;
+            iconButton11.Visible = true;
+            iconButton10.Visible = true;
+            iconButton6.Visible = true;
+            iconButton5.Visible = true;
+            guna2Button1.Visible = true;
+            iconButton13.Visible = true;
+
             btnestimasi.Visible = true;
             gudangContainer.Visible = true;
         }
@@ -696,56 +710,86 @@ namespace GOS_FxApps {
         {
             btnlaporan.Visible=true;
             historycontainer.Visible= true;
+            historycontainer.Visible = true;
+            historycontainer.MaximumSize = new Size(232, 348);
+            iconButton24.Visible = true;
+            iconButton11.Visible = true;
+            iconButton10.Visible = true;
+            iconButton6.Visible = true;
+            iconButton5.Visible = true;
+            guna2Button1.Visible = true;
+            iconButton13.Visible = true;
         }
         public void trueoperatorgudang()
         {
             btnestimasi.Visible = true;
             gudangContainer.Visible = true;
-            btnlaporan.Visible = true;            
-        }
-        //public void trueoperatorperbaikan()
-        //{
-        //    penerimaanButton1.Visible = false;
-        //    iconButton2.Visible=false;
-        //    iconButton15.Visible = false;
+            btnlaporan.Visible = true;
 
-        //    entryContainer.Visible = true;
-        //    entryContainer.MaximumSize = new Size(232, 95);    
-        //    iconButton1.Visible=true;
-        //    btnlaporan.Visible=true;
-        //}
+            iconButton24.Visible = false;
+            iconButton11.Visible = false;
+            iconButton10.Visible = false;
+
+            historycontainer.Visible = true;
+            historycontainer.MaximumSize = new Size(232, 215);
+            iconButton6.Visible = true;
+            iconButton5.Visible = true;
+            guna2Button1.Visible = true;
+            iconButton13.Visible = true;
+        }
         public void trueoperator()
         {
             iconButton1.Visible = false;
             iconButton15.Visible = false;
+            iconButton12.Visible = false;
+
+            iconButton6.Visible = false;
+            iconButton5.Visible = false;
+            guna2Button1.Visible = false;
+            iconButton13.Visible = false;
 
             entryContainer.Visible = true;
             entryContainer.MaximumSize = new Size(232, 215);
-            penerimaanButton1.Visible = true;
-            btnbuktiperubahan.Visible=true;
-            iconButton1.Visible = true;
-            iconButton2.Visible = true;
-            btnlaporan.Visible = true;
-        }
-        public void trueforeman()
-        {
-            entryContainer.MaximumSize = new Size(232, 255);
-            entryContainer.Visible = true;
+            EditContainer.Visible = true;
+            EditContainer.MaximumSize = new Size(232, 178);
             penerimaanButton1.Visible = true;
             btnbuktiperubahan.Visible = true;
             iconButton1.Visible = true;
             iconButton2.Visible = true;
-            iconButton3.Visible = true;
-            btnpemakaian.Visible = true;
-            iconButton15.Visible = true;
-            EditContainer.MaximumSize = new Size(232, 178);
-            EditContainer.Visible = true;
-            iconButton12.Visible = false;
-            btnHistori.Visible = true;
+            iconButton15.Visible = false;
             btnlaporan.Visible = true;
-            historycontainer.Visible = false;
-            btnestimasi.Visible = false;
-            gudangContainer.Visible = false;
+            historycontainer.Visible = true;
+            historycontainer.MaximumSize = new Size(232, 177);
+            iconButton24.Visible = true;
+            iconButton11.Visible = true;
+            iconButton10.Visible = true;
+        }
+        public void trueforeman()
+        {
+            iconButton1.Visible = false;
+            iconButton15.Visible = false;
+            iconButton12.Visible = false;
+
+            iconButton6.Visible = false;
+            iconButton5.Visible = false;
+            guna2Button1.Visible = false;
+            iconButton13.Visible = false;
+
+            entryContainer.Visible = true;
+            entryContainer.MaximumSize = new Size(232, 255);
+            EditContainer.Visible = true;
+            EditContainer.MaximumSize = new Size(232, 178);
+            penerimaanButton1.Visible = true;
+            btnbuktiperubahan.Visible = true;
+            iconButton1.Visible = true;
+            iconButton2.Visible = true;
+            iconButton15.Visible = true;
+            btnlaporan.Visible = true;
+            historycontainer.Visible = true;
+            historycontainer.MaximumSize = new Size(232, 177);
+            iconButton24.Visible = true;
+            iconButton11.Visible = true;
+            iconButton10.Visible = true;
         }
 
 
@@ -755,16 +799,15 @@ namespace GOS_FxApps {
             TimeSpan sekarang = DateTime.Now.TimeOfDay;
 
             if (sekarang >= TimeSpan.Parse("00:00:00") && sekarang <= TimeSpan.Parse("07:59:59"))
-            {
-                lblshift.Text = "1";
-            }else if (sekarang >= TimeSpan.Parse("08:00:00") && sekarang <= TimeSpan.Parse("15:59:59"))
-            {
-                lblshift.Text = "2";
-            } else if (sekarang >= TimeSpan.Parse("16:00:00") && sekarang <= TimeSpan.Parse("23:59:59"))
-            {
-                lblshift.Text = "3";
-            }
+                shift = "1";
+            else if (sekarang >= TimeSpan.Parse("08:00:00") && sekarang <= TimeSpan.Parse("15:59:59"))
+                shift = "2";
+            else if (sekarang >= TimeSpan.Parse("16:00:00") && sekarang <= TimeSpan.Parse("23:59:59"))
+                shift = "3";
+
+            lblshift.Text = shift;
         }
+
         private void jam_Tick(object sender, EventArgs e)
         {
             lbldate.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy  [HH:mm:ss]");

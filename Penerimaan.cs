@@ -290,6 +290,7 @@ namespace GOS_FxApps
             txtc.Clear();
             txtrl.Clear();
             txtcatatan.Clear();
+            txtcari.Clear();
             lbltotal.Text = "-";
         }
 

@@ -179,6 +179,7 @@ namespace GOS_FxApps
             txtc.Clear();
             txtrl.Clear();
             txtcatatan.Clear();
+            txtcaripenerimaan.Clear();
             lbltotal.Text = "-";
             lbltotale1.Text = "-";
             lbltotale2.Text = "-";

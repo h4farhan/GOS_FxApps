@@ -143,6 +143,12 @@ namespace GOS_FxApps
             }
         }
 
+        private void jumlahdata()
+        {
+            int total = dataGridView1.Rows.Count;
+            lbljumlahdata.Text = "Jumlah data: " + total.ToString();
+        }
+
         private void historymaterialmasuk_Load(object sender, EventArgs e)
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
@@ -150,6 +156,7 @@ namespace GOS_FxApps
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
             registertampil();
+            jumlahdata();
         }
 
         private void btnreset_Click(object sender, EventArgs e)
@@ -158,11 +165,13 @@ namespace GOS_FxApps
             txtcari.Text = "";
             datecari.Checked = false;
             btnreset.Enabled = false;
+            jumlahdata();
         }
 
         private void btncari_Click(object sender, EventArgs e)
         {
             cari();
+            jumlahdata();
         }
 
         private void historymaterialmasuk_FormClosing(object sender, FormClosingEventArgs e)

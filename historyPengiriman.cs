@@ -155,9 +155,16 @@ namespace GOS_FxApps
             }
         }
 
+        private void jumlahdata()
+        {
+            int total = dataGridView1.Rows.Count;
+            lbljumlahdata.Text = "Jumlah data: " + total.ToString();
+        }
+
         private void btncari_Click(object sender, EventArgs e)
         {
             cari();
+            jumlahdata();
         }
 
         private void historyPengiriman_Load(object sender, EventArgs e)
@@ -167,6 +174,7 @@ namespace GOS_FxApps
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
             registertampil();
+            jumlahdata();
         }
 
         private void btnreset_Click_1(object sender, EventArgs e)
@@ -176,26 +184,12 @@ namespace GOS_FxApps
             txtcari.Text = "";
             datecari.Checked = false;
             btnreset.Enabled = false;
+            jumlahdata();
         }
 
         private void historyPengiriman_FormClosing(object sender, FormClosingEventArgs e)
         {
             SqlDependency.Stop(Koneksi.GetConnectionString());
         }
-
-        //private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    if (e.RowIndex >= 0)
-        //    {
-        //        DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-
-        //        noprimary = Convert.ToInt32(row.Cells["no"].Value);
-        //        nomorrod = row.Cells["nomor_rod"].Value.ToString();
-
-        //        datapengirimanedit data = new datapengirimanedit();
-        //        data.lbljudul.Text = "Riwayat Perubahan ROD No = " + nomorrod;
-        //        data.ShowDialog();
-        //    }
-        //}
     }
 }

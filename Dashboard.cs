@@ -37,6 +37,10 @@ namespace GOS_FxApps
                 int jumlah2 = 0;
                 int jumlah3 = 0;
 
+                int penerimaanshift = 0;
+                int perbaikanhift = 0;
+                int pengirimanshift = 0;
+
                 string query1 = "SELECT COUNT(*) FROM penerimaan_s";
                 using (SqlCommand cmd1 = new SqlCommand(query1, conn))
                 {
@@ -49,6 +53,33 @@ namespace GOS_FxApps
                 {
                     jumlah2 = Convert.ToInt32(cmd2.ExecuteScalar());
                     label15.Text = jumlah2.ToString();
+                }
+
+                string query3 = "SELECT COUNT(*) FROM penerimaan_p WHERE shift = @shift AND CAST(tanggal_penerimaan AS DATE) = CAST(@tanggal AS DATE)";
+                using (SqlCommand cmd3 = new SqlCommand(query3, conn))
+                {
+                    cmd3.Parameters.AddWithValue("@shift", MainForm.Instance.shift);
+                    cmd3.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
+                    penerimaanshift = Convert.ToInt32(cmd3.ExecuteScalar());
+                    lblpenerimaanshif.Text = penerimaanshift.ToString();
+                }
+
+                string query4 = "SELECT COUNT(*) FROM perbaikan_p WHERE shift = @shift AND CAST(tanggal_perbaikan AS DATE) = CAST(@tanggal AS DATE)";
+                using (SqlCommand cmd4 = new SqlCommand(query4, conn))
+                {
+                    cmd4.Parameters.AddWithValue("@shift", MainForm.Instance.shift);
+                    cmd4.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
+                    perbaikanhift = Convert.ToInt32(cmd4.ExecuteScalar());
+                    lblperbaikanshift.Text = perbaikanhift.ToString();
+                }
+
+                string query5 = "SELECT COUNT(*) FROM pengiriman WHERE shift = @shift AND CAST(tanggal_pengiriman AS DATE) = CAST(@tanggal AS DATE)";
+                using (SqlCommand cmd5 = new SqlCommand(query5, conn))
+                {
+                    cmd5.Parameters.AddWithValue("@shift", MainForm.Instance.shift);
+                    cmd5.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
+                    pengirimanshift = Convert.ToInt32(cmd5.ExecuteScalar());
+                    lblpengirimanshift.Text = pengirimanshift.ToString();
                 }
 
                 jumlah3 = jumlah1 + jumlah2;
