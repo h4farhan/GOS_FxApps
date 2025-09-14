@@ -209,6 +209,8 @@ namespace GOS_FxApps
             lbltotale1.Text = "-";
             lbltotale2.Text = "-";
             lbltotalba.Text = "-";
+            txtcari.Clear();
+            btncari.Text = "Cari";
         }
 
         private void settrue()
@@ -400,11 +402,10 @@ namespace GOS_FxApps
                 {
                     SqlCommand cmd3 = new SqlCommand(@"
                 UPDATE penerimaan_p
-                SET nomor_rod=@nomorrod, jenis=@jenis, remaks=@remaks, updated_at=@diubah
+                SET nomor_rod=@nomorrod, remaks=@remaks, updated_at=@diubah
                 WHERE no=@no", conn, trans);
 
                     cmd3.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
-                    cmd3.Parameters.AddWithValue("@jenis", txtjenis.Text);
                     cmd3.Parameters.AddWithValue("@remaks", loginform.login.name);
                     cmd3.Parameters.AddWithValue("@no", noprimary);
                     cmd3.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);

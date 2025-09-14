@@ -69,7 +69,12 @@ namespace GOS_FxApps
             {
                 using (SqlConnection conn = Koneksi.GetConnection())
                 {
-                    string query = "SELECT * FROM stok_material";
+                    string query = @"
+                SELECT *
+                FROM stok_material
+                WHERE type IN ('Material Cost', 'Consumable Cost', 'Safety Cost')
+                ORDER BY namaBarang";
+
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
@@ -92,10 +97,6 @@ namespace GOS_FxApps
             {
                 MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
                                 "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally 
-            { 
-                conn.Close();
             }
         }
 
@@ -181,8 +182,8 @@ namespace GOS_FxApps
 
             string query = @"SELECT * 
                      FROM koefisiensi_material 
-                     WHERE YEAR(tanggal) = @year 
-                       AND MONTH(tanggal) = @bulan ORDER BY tanggal DESC";
+                     WHERE YEAR(updated_at) = @year 
+                       AND MONTH(updated_at) = @bulan ORDER BY updated_at DESC";
 
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
@@ -200,9 +201,9 @@ namespace GOS_FxApps
 
                     dataGridView1.DataSource = dt;
                 }
-                catch (SqlException)
+                catch (SqlException ex)
                 {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif." + ex.Message,
                                         "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)

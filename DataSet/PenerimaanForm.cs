@@ -13,3 +13,12 @@ namespace GOS_FxApps.DataSet
         }
     }
 }
+
+namespace GOS_FxApps.DataSet.PenerimaanFormTableAdapters
+{
+
+
+    public partial class jumlahpenerimaan2TableAdapter
+    {
+    }
+}

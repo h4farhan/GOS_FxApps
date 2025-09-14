@@ -2549,6 +2549,8 @@ namespace GOS_FxApps.DataSet {
             
             private global::System.Data.DataColumn columnTotal;
             
+            private global::System.Data.DataColumn columnShift;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public jumlahperbaikan2DataTable() {
@@ -2680,6 +2682,14 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ShiftColumn {
+                get {
+                    return this.columnShift;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2715,7 +2725,7 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public jumlahperbaikan2Row Addjumlahperbaikan2Row(int E, int S, int D, int B, int BA, int BA_1, int CR, int M, int R, int C, int RL, int Total) {
+            public jumlahperbaikan2Row Addjumlahperbaikan2Row(int E, int S, int D, int B, int BA, int BA_1, int CR, int M, int R, int C, int RL, int Total, int Shift) {
                 jumlahperbaikan2Row rowjumlahperbaikan2Row = ((jumlahperbaikan2Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         E,
@@ -2729,7 +2739,8 @@ namespace GOS_FxApps.DataSet {
                         R,
                         C,
                         RL,
-                        Total};
+                        Total,
+                        Shift};
                 rowjumlahperbaikan2Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowjumlahperbaikan2Row);
                 return rowjumlahperbaikan2Row;
@@ -2764,6 +2775,7 @@ namespace GOS_FxApps.DataSet {
                 this.columnC = base.Columns["C"];
                 this.columnRL = base.Columns["RL"];
                 this.columnTotal = base.Columns["Total"];
+                this.columnShift = base.Columns["Shift"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2793,6 +2805,8 @@ namespace GOS_FxApps.DataSet {
                 base.Columns.Add(this.columnRL);
                 this.columnTotal = new global::System.Data.DataColumn("Total", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal);
+                this.columnShift = new global::System.Data.DataColumn("Shift", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnShift);
                 this.columnE.ReadOnly = true;
                 this.columnS.ReadOnly = true;
                 this.columnD.ReadOnly = true;
@@ -2805,6 +2819,7 @@ namespace GOS_FxApps.DataSet {
                 this.columnC.ReadOnly = true;
                 this.columnRL.ReadOnly = true;
                 this.columnTotal.ReadOnly = true;
+                this.columnShift.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6901,6 +6916,22 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Shift {
+                get {
+                    try {
+                        return ((int)(this[this.tablejumlahperbaikan2.ShiftColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Shift\' in table \'jumlahperbaikan2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablejumlahperbaikan2.ShiftColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsENull() {
                 return this.IsNull(this.tablejumlahperbaikan2.EColumn);
             }
@@ -7041,6 +7072,18 @@ namespace GOS_FxApps.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTotalNull() {
                 this[this.tablejumlahperbaikan2.TotalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsShiftNull() {
+                return this.IsNull(this.tablejumlahperbaikan2.ShiftColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetShiftNull() {
+                this[this.tablejumlahperbaikan2.ShiftColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -10853,6 +10896,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
             tableMapping.ColumnMappings.Add("C", "C");
             tableMapping.ColumnMappings.Add("RL", "RL");
             tableMapping.ColumnMappings.Add("Total", "Total");
+            tableMapping.ColumnMappings.Add("Shift", "Shift");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -10869,43 +10913,36 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT
-    ISNULL(SUM(CASE WHEN jenis_mapped = 'E'  THEN 1 ELSE 0 END), 0) AS E,
-    ISNULL(SUM(CASE WHEN jenis_mapped = 'S'  THEN 1 ELSE 0 END), 0) AS S,
-    ISNULL(SUM(CASE WHEN jenis_mapped = 'D'  THEN 1 ELSE 0 END), 0) AS D,
-    ISNULL(SUM(CASE WHEN jenis_mapped = 'B'  THEN 1 ELSE 0 END), 0) AS B,
-    ISNULL(SUM(CASE WHEN jenis_mapped = 'BA' THEN 1 ELSE 0 END), 0) AS BA,    
-    ISNULL(SUM(CASE WHEN jenis_mapped = 'BA-1'  THEN 1 ELSE 0 END), 0) AS BA_1,
-    ISNULL(SUM(CASE WHEN jenis_mapped = 'CR' THEN 1 ELSE 0 END), 0) AS CR,
-    ISNULL(SUM(CASE WHEN jenis_mapped = 'M'  THEN 1 ELSE 0 END), 0) AS M,
-    ISNULL(SUM(CASE WHEN jenis_mapped = 'R'  THEN 1 ELSE 0 END), 0) AS R,
-    ISNULL(SUM(CASE WHEN jenis_mapped = 'C'  THEN 1 ELSE 0 END), 0) AS C,
-    ISNULL(SUM(CASE WHEN jenis_mapped = 'RL' THEN 1 ELSE 0 END), 0) AS RL,
-    COUNT(*) AS Total
-FROM (
-    SELECT 
-        CASE 
-            WHEN LEFT(jenis, CHARINDEX('/', jenis + '/') - 1) = 'SP' THEN 'R'
-            WHEN LEFT(jenis, CHARINDEX('/', jenis + '/') - 1) = 'L'  THEN 'C'
-            ELSE LEFT(jenis, CHARINDEX('/', jenis + '/') - 1)
-        END AS jenis_mapped
-    FROM penerimaan_p
-    WHERE tanggal_penerimaan BETWEEN @tanggal1 AND @tanggal2
-      AND shift = @shift
-) AS mapped;
-
-";
+            this._commandCollection[0].CommandText = "WITH Shifts AS (\r\n    SELECT 1 AS Shift\r\n    UNION ALL\r\n    SELECT 2\r\n    UNION A" +
+                "LL\r\n    SELECT 3\r\n),\r\nData AS (\r\n    SELECT \r\n        p.Shift,\r\n        CASE \r\n " +
+                "           WHEN LEFT(p.jenis, CHARINDEX(\'/\', p.jenis + \'/\') - 1) = \'SP\' THEN \'R\'" +
+                "\r\n            WHEN LEFT(p.jenis, CHARINDEX(\'/\', p.jenis + \'/\') - 1) = \'L\'  THEN " +
+                "\'C\'\r\n            ELSE LEFT(p.jenis, CHARINDEX(\'/\', p.jenis + \'/\') - 1)\r\n        " +
+                "END AS jenis_mapped\r\n    FROM perbaikan_p p\r\n    WHERE p.tanggal_perbaikan BETWE" +
+                "EN @tanggal1 AND @tanggal2\r\n)\r\nSELECT \r\n    s.Shift,\r\n    ISNULL(SUM(CASE WHEN d" +
+                ".jenis_mapped = \'E\'  THEN 1 ELSE 0 END), 0) AS E,\r\n    ISNULL(SUM(CASE WHEN d.je" +
+                "nis_mapped = \'S\'  THEN 1 ELSE 0 END), 0) AS S,\r\n    ISNULL(SUM(CASE WHEN d.jenis" +
+                "_mapped = \'D\'  THEN 1 ELSE 0 END), 0) AS D,\r\n    ISNULL(SUM(CASE WHEN d.jenis_ma" +
+                "pped = \'B\'  THEN 1 ELSE 0 END), 0) AS B,\r\n    ISNULL(SUM(CASE WHEN d.jenis_mappe" +
+                "d = \'BA\' THEN 1 ELSE 0 END), 0) AS BA,\r\n    ISNULL(SUM(CASE WHEN jenis_mapped = " +
+                "\'BA-1\'  THEN 1 ELSE 0 END), 0) AS BA_1,\r\n    ISNULL(SUM(CASE WHEN d.jenis_mapped" +
+                " = \'CR\' THEN 1 ELSE 0 END), 0) AS CR,\r\n    ISNULL(SUM(CASE WHEN d.jenis_mapped =" +
+                " \'M\'  THEN 1 ELSE 0 END), 0) AS M,\r\n    ISNULL(SUM(CASE WHEN d.jenis_mapped = \'R" +
+                "\'  THEN 1 ELSE 0 END), 0) AS R,\r\n    ISNULL(SUM(CASE WHEN d.jenis_mapped = \'C\'  " +
+                "THEN 1 ELSE 0 END), 0) AS C,\r\n    ISNULL(SUM(CASE WHEN d.jenis_mapped = \'RL\' THE" +
+                "N 1 ELSE 0 END), 0) AS RL,\r\n    ISNULL(COUNT(d.jenis_mapped),0) AS Total\r\nFROM S" +
+                "hifts s\r\nLEFT JOIN Data d ON s.Shift = d.Shift\r\nGROUP BY s.Shift\r\nORDER BY s.Shi" +
+                "ft;";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal1", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal2", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shift", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PerbaikanForm.jumlahperbaikan2DataTable dataTable, global::System.Nullable<global::System.DateTime> tanggal1, global::System.Nullable<global::System.DateTime> tanggal2, string shift) {
+        public virtual int Fill(PerbaikanForm.jumlahperbaikan2DataTable dataTable, global::System.Nullable<global::System.DateTime> tanggal1, global::System.Nullable<global::System.DateTime> tanggal2) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((tanggal1.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(tanggal1.Value));
@@ -10918,12 +10955,6 @@ FROM (
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((shift == null)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(shift));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -10936,7 +10967,7 @@ FROM (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PerbaikanForm.jumlahperbaikan2DataTable GetData(global::System.Nullable<global::System.DateTime> tanggal1, global::System.Nullable<global::System.DateTime> tanggal2, string shift) {
+        public virtual PerbaikanForm.jumlahperbaikan2DataTable GetData(global::System.Nullable<global::System.DateTime> tanggal1, global::System.Nullable<global::System.DateTime> tanggal2) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((tanggal1.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(tanggal1.Value));
@@ -10949,12 +10980,6 @@ FROM (
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((shift == null)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(shift));
             }
             PerbaikanForm.jumlahperbaikan2DataTable dataTable = new PerbaikanForm.jumlahperbaikan2DataTable();
             this.Adapter.Fill(dataTable);

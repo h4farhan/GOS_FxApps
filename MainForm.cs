@@ -731,7 +731,7 @@ namespace GOS_FxApps {
             iconButton10.Visible = false;
 
             historycontainer.Visible = true;
-            historycontainer.MaximumSize = new Size(232, 215);
+            historycontainer.MaximumSize = new Size(232, 225);
             iconButton6.Visible = true;
             iconButton5.Visible = true;
             guna2Button1.Visible = true;

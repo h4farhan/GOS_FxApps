@@ -196,6 +196,10 @@
           <DataField>Total</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="Shift">
+          <DataField>Shift</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>PerbaikanForm</rd:DataSetName>
@@ -204,6 +208,106 @@
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
         <rd:TableAdapterName>jumlahperbaikan2TableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="datasetjumlahperbaikan1">
+      <Query>
+        <DataSourceName>PenerimaanForm</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Shift">
+          <DataField>Shift</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="e1_ers">
+          <DataField>e1_ers</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="e1_est">
+          <DataField>e1_est</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="e1_jumlah">
+          <DataField>e1_jumlah</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="e2_ers">
+          <DataField>e2_ers</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="e2_cst">
+          <DataField>e2_cst</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="e2_cstub">
+          <DataField>e2_cstub</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="e2_jumlah">
+          <DataField>e2_jumlah</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="e3">
+          <DataField>e3</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="e4">
+          <DataField>e4</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="s">
+          <DataField>s</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="d">
+          <DataField>d</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="b">
+          <DataField>b</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ba">
+          <DataField>ba</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ba1">
+          <DataField>ba1</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="cr">
+          <DataField>cr</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="m">
+          <DataField>m</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="r">
+          <DataField>r</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="c">
+          <DataField>c</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="rl">
+          <DataField>rl</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="total">
+          <DataField>total</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>PenerimaanForm</rd:DataSetName>
+        <rd:SchemaPath>E:\GitHub\GOS_FxApps\DataSet\PenerimaanForm.xsd</rd:SchemaPath>
+        <rd:TableName>jumlahperbaikan1</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>jumlahperbaikan1TableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -3988,7 +4092,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>5.73153cm</Height>
+          <Height>6cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -4553,7 +4657,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!e1_ers.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!e1_ers.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4590,7 +4694,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!e1_est.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!e1_est.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4627,7 +4731,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!d.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!d.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4664,7 +4768,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!b.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!b.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4701,7 +4805,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!e3.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!e3.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4738,7 +4842,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1,ReportItems!Textbox68.Value, "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!s.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4775,7 +4879,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!ba.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!ba.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4812,7 +4916,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!r.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!r.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4849,7 +4953,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1,ReportItems!Textbox75.Value, "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!c.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4886,7 +4990,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!rl.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!rl.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4923,7 +5027,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!m.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!m.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4960,7 +5064,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1,ReportItems!Textbox74.Value, "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!cr.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4997,7 +5101,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!jumlah.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!total.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5071,7 +5175,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!e1_ers.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5108,7 +5212,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!e1_est.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5145,7 +5249,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!d.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5182,7 +5286,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!b.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5219,7 +5323,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!e3.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5256,7 +5360,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!s.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5293,7 +5397,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!ba.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5330,7 +5434,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!r.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5367,7 +5471,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!c.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5404,7 +5508,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!rl.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5441,7 +5545,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!m.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5478,7 +5582,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!cr.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5515,7 +5619,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!total.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5589,7 +5693,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!e1_ers.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!e1_ers.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5626,7 +5730,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!e1_est.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!e1_est.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5663,7 +5767,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!d.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!d.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5700,7 +5804,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!b.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!b.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5737,7 +5841,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!e3.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!e3.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5774,7 +5878,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2,ReportItems!Textbox68.Value, "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!s.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5811,7 +5915,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!ba.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!ba.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5848,7 +5952,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!r.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!r.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5885,7 +5989,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2,ReportItems!Textbox75.Value, "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!c.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5922,7 +6026,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!rl.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!rl.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5959,7 +6063,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!m.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!m.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5996,7 +6100,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2,ReportItems!Textbox74.Value, "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!cr.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6033,7 +6137,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!jumlah.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!total.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6107,7 +6211,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!e1_ers.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!e1_ers.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6144,7 +6248,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!e1_est.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!e1_est.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6181,7 +6285,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!d.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!d.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6218,7 +6322,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!b.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!b.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6255,7 +6359,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!e3.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!e3.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6292,7 +6396,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3,ReportItems!Textbox68.Value, "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!s.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6329,7 +6433,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!ba.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!ba.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6366,7 +6470,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!r.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!r.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6403,7 +6507,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3,ReportItems!Textbox75.Value, "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!c.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6440,7 +6544,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!rl.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!rl.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6477,7 +6581,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!m.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!m.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6514,7 +6618,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3,ReportItems!Textbox74.Value, "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!cr.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6551,7 +6655,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!jumlah.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!total.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7106,7 +7210,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!E.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!E.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7143,7 +7247,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!S.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!S.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7180,7 +7284,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!BA.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!BA.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7217,7 +7321,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!R.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!R.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7254,7 +7358,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!D.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!D.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7291,7 +7395,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!B.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!B.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7328,7 +7432,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!M.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!M.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7365,7 +7469,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!CR.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!CR.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7402,7 +7506,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!Total.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!Total.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7439,7 +7543,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!C.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!C.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7476,7 +7580,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!RL.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!RL.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7587,7 +7691,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!E.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7624,7 +7728,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!S.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7661,7 +7765,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!BA.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7698,7 +7802,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!R.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7735,7 +7839,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!D.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7772,7 +7876,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!B.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7809,7 +7913,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!M.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7846,7 +7950,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!CR.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7883,7 +7987,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!Total.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7920,7 +8024,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!C.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7957,7 +8061,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!RL.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8068,7 +8172,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!E.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!E.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8105,7 +8209,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!S.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!S.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8142,7 +8246,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!BA.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!BA.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8179,7 +8283,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!R.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!R.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8216,7 +8320,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!D.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!D.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8253,7 +8357,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!B.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!B.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8290,7 +8394,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!M.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!M.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8327,7 +8431,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!CR.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!CR.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8364,7 +8468,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!Total.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!Total.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8401,7 +8505,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!C.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!C.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8438,7 +8542,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!RL.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!RL.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8549,7 +8653,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!E.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!E.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8586,7 +8690,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!S.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!S.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8623,7 +8727,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!BA.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!BA.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8660,7 +8764,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!R.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!R.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8697,7 +8801,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!D.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!D.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8734,7 +8838,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!B.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!B.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8771,7 +8875,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!M.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!M.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8808,7 +8912,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!CR.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!CR.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8845,7 +8949,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!Total.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!Total.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8882,7 +8986,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!C.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!C.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8919,7 +9023,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!RL.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!RL.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9067,7 +9171,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!ba1.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!ba1.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9104,7 +9208,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!ba1.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9141,7 +9245,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!ba1.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!ba1.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9178,7 +9282,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!ba1.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!ba1.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9252,7 +9356,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!BA_1.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!BA_1.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9289,7 +9393,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!BA_1.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9326,7 +9430,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!BA_1.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!BA_1.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9363,7 +9467,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!BA_1.Value, "datasetjumlahperbaikan2"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!BA_1.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9437,7 +9541,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!e4.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!e4.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9474,7 +9578,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!e4.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9511,7 +9615,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!e4.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!e4.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9548,7 +9652,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!e4.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!e4.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9821,7 +9925,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!e1_jumlah.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!e1_jumlah.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9858,7 +9962,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!e1_jumlah.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9895,7 +9999,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!e1_jumlah.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!e1_jumlah.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9932,7 +10036,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!e1_jumlah.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!e1_jumlah.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -9969,7 +10073,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!e2_ers.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!e2_ers.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -10006,7 +10110,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!e2_cst.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!e2_cst.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -10043,7 +10147,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!e2_ers.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -10080,7 +10184,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!e2_cst.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -10117,7 +10221,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!e2_ers.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!e2_ers.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -10154,7 +10258,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!e2_cst.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!e2_cst.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -10191,7 +10295,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!e2_ers.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!e2_ers.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -10228,7 +10332,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!e2_cst.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!e2_cst.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -10376,7 +10480,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!e2_cstub.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!e2_cstub.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -10413,7 +10517,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!e2_cstub.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -10450,7 +10554,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!e2_cstub.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!e2_cstub.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -10487,7 +10591,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!e2_cstub.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!e2_cstub.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -10561,7 +10665,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 1, Sum(Fields!e2_jumlah.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!e2_jumlah.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -10598,7 +10702,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Sum(Fields!e2_jumlah.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -10635,7 +10739,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 2, Sum(Fields!e2_jumlah.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!e2_jumlah.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -10672,7 +10776,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!shift.Value = 3, Sum(Fields!e2_jumlah.Value, "DataSetPerbaikan"), "")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!e2_jumlah.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>

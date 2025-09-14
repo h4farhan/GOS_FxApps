@@ -184,6 +184,8 @@ namespace GOS_FxApps
             lbltotalsebelum.Text = "-";
             lbltotalupdate.Text = "-";
             txtcatatan.Clear();
+            txtcari.Clear();
+            btncari.Text = "Cari";
         }
 
         private void settrue()
@@ -288,6 +290,8 @@ namespace GOS_FxApps
                 lbltotalsebelum.Text = row.Cells["jumlah"].Value.ToString();
                 txtcatatan.Text = row.Cells["catatan"].Value.ToString();
                 settrue();
+                
+                btndelete.Enabled = true;
                 btnclear.Enabled = true;
                 txtjenis.Focus();
             }
@@ -298,6 +302,7 @@ namespace GOS_FxApps
             setdefault();
             btnclear.Enabled = false;
             btnupdate.Enabled = false;
+            btndelete.Enabled = false;
             setfalse();
         }
 
@@ -480,10 +485,9 @@ namespace GOS_FxApps
                 {
                     SqlCommand cmd3 = new SqlCommand(@"
             UPDATE perbaikan_p 
-            SET nomor_rod=@nomorrod, jenis=@jenis, remaks=@remaks, updated_at=@diubah
+            SET nomor_rod=@nomorrod, remaks=@remaks, updated_at=@diubah
             WHERE no=@no", conn, trans);
                     cmd3.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
-                    cmd3.Parameters.AddWithValue("@jenis", txtjenis.Text);
                     cmd3.Parameters.AddWithValue("@remaks", loginform.login.name);
                     cmd3.Parameters.AddWithValue("@no", noprimary);
                     cmd3.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
@@ -503,10 +507,9 @@ namespace GOS_FxApps
                 {
                     SqlCommand cmd4 = new SqlCommand(@"
             UPDATE perbaikan_s 
-            SET nomor_rod=@nomorrod, jenis=@jenis, remaks=@remaks, updated_at=@diubah
+            SET nomor_rod=@nomorrod, remaks=@remaks, updated_at=@diubah
             WHERE no=@no", conn, trans);
                     cmd4.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
-                    cmd4.Parameters.AddWithValue("@jenis", txtjenis.Text);
                     cmd4.Parameters.AddWithValue("@remaks", loginform.login.name);
                     cmd4.Parameters.AddWithValue("@no", noprimary);
                     cmd4.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
@@ -548,6 +551,7 @@ namespace GOS_FxApps
                 tampil();
                 btnupdate.Enabled = false;
                 btnclear.Enabled = false;
+                btndelete.Enabled = false;
                 setfalse();
             }
             catch (SqlException ex)
@@ -561,6 +565,82 @@ namespace GOS_FxApps
                 if (trans != null) trans.Rollback();
                 MessageBox.Show("Terjadi kesalahan sistem:\n\n" + ex.Message,
                                 "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void hapusdata()
+        {
+            DialogResult konfirmasi = MessageBox.Show(
+                "Apakah Anda yakin ingin menghapus data ini?\n\n" +
+                "Semua data terkait (penerimaan, perbaikan, pengiriman) juga akan dihapus permanen.",
+                "Konfirmasi Hapus Data",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (konfirmasi != DialogResult.Yes)
+            {
+                return;
+            }
+
+            try
+            {
+                conn.Open();
+                SqlTransaction trans = conn.BeginTransaction();
+
+                try
+                {
+                    string[] tables = {
+                "penerimaan_p",
+                "penerimaan_s",
+                "penerimaan_e",
+                "penerimaan_m",
+                "perbaikan_p",
+                "perbaikan_s",
+                "perbaikan_e",
+                "perbaikan_m",
+                "pengiriman",
+                "pengiriman_m"
+            };
+
+                    foreach (var table in tables)
+                    {
+                        using (SqlCommand cmd = new SqlCommand(
+                            $"DELETE FROM {table} WHERE no=@no", conn, trans))
+                        {
+                            cmd.Parameters.AddWithValue("@no", noprimary);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+
+                    trans.Commit();
+                    MessageBox.Show(
+                        "Semua data terkait berhasil dihapus permanen dari sistem.",
+                        "Penghapusan Berhasil",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                }
+                catch (Exception ex2)
+                {
+                    trans.Rollback();
+                    MessageBox.Show("Penghapusan dibatalkan:\n\n" + ex2.Message,
+                        "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Koneksi ke database gagal atau terputus.\n\nDetail: " + ex.Message,
+                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n\n" + ex.Message,
+                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -631,6 +711,17 @@ namespace GOS_FxApps
         private void editpenerimaan_FormClosing(object sender, FormClosingEventArgs e)
         {
             SqlDependency.Stop(Koneksi.GetConnectionString());
+        }
+
+        private void btndelete_Click(object sender, EventArgs e)
+        {
+            hapusdata();
+            setdefault();
+            setfalse();
+            btnupdate.Enabled = false;
+            btndelete.Enabled = false;
+            btnclear.Enabled = false;
+            noprimary = 0;
         }
     }
 }

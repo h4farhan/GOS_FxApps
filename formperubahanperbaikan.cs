@@ -457,61 +457,125 @@ namespace GOS_FxApps
                 if (result1 != DialogResult.OK) return;
 
                 using (SqlConnection conn = new SqlConnection(Koneksi.GetConnectionString()))
-                using (SqlCommand cmd = conn.CreateCommand())
                 {
                     conn.Open();
+                    using (SqlTransaction trans = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            using (SqlCommand cmd = conn.CreateCommand())
+                            using (SqlCommand cmdubah1 = conn.CreateCommand())
+                            using (SqlCommand cmdubah2 = conn.CreateCommand())
+                            {
+                                cmd.Transaction = trans;
+                                cmdubah1.Transaction = trans;
+                                cmdubah2.Transaction = trans;
 
-                    cmd.CommandText = @"INSERT INTO buktiperubahan 
-                (nounikpenerimaan, tanggal_penerimaan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, 
-                 e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, bac, nba, ba, ba1, 
-                 cr, m, r, c, rl, jumlah, tanggal_perbaikan, updated_at, remaks, catatan, foto) 
-                VALUES
-                (@nounikpenerimaan, @tanggalpenerimaan, @shift, @nomorrod, @jenis, @e1ers, @e1est, @e1jumlah, 
-                 @e2ers, @e2cst, @e2cstub, @e2jumlah, @e3, @e4, @s, @d, @b, @bac, @nba, @ba, @ba1, 
-                 @cr, @m, @r, @c, @rl, @jumlah, @tanggal, @diubah, @remaks, @catatan, @foto)";
+                                cmd.CommandText = @"INSERT INTO buktiperubahan 
+                            (nounikpenerimaan, tanggal_penerimaan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, 
+                             e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, bac, nba, ba, ba1, 
+                             cr, m, r, c, rl, jumlah, tanggal_perbaikan, updated_at, remaks, catatan, foto) 
+                            VALUES
+                            (@nounikpenerimaan, @tanggalpenerimaan, @shift, @nomorrod, @jenis, @e1ers, @e1est, @e1jumlah, 
+                             @e2ers, @e2cst, @e2cstub, @e2jumlah, @e3, @e4, @s, @d, @b, @bac, @nba, @ba, @ba1, 
+                             @cr, @m, @r, @c, @rl, @jumlah, @tanggal, @diubah, @remaks, @catatan, @foto)";
 
-                    cmd.Parameters.AddWithValue("@nounikpenerimaan", noprimary);
-                    cmd.Parameters.AddWithValue("@tanggalpenerimaan", tanggalpenerimaan);
-                    cmd.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
-                    cmd.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
-                    cmd.Parameters.AddWithValue("@jenis", txtjenis.Text);
-                    cmd.Parameters.AddWithValue("@e1ers", txte1ers.Text);
-                    cmd.Parameters.AddWithValue("@e1est", txte1est.Text);
-                    cmd.Parameters.AddWithValue("@e1jumlah", lbltotale1.Text);
-                    cmd.Parameters.AddWithValue("@e2ers", txte2ers.Text);
-                    cmd.Parameters.AddWithValue("@e2cst", txte2cst.Text);
-                    cmd.Parameters.AddWithValue("@e2cstub", txte2cstub.Text);
-                    cmd.Parameters.AddWithValue("@e2jumlah", lbltotale2.Text);
-                    cmd.Parameters.AddWithValue("@e3", txte3.Text);
-                    cmd.Parameters.AddWithValue("@e4", txte4.Text);
-                    cmd.Parameters.AddWithValue("@s", txts.Text);
-                    cmd.Parameters.AddWithValue("@d", txtd.Text);
-                    cmd.Parameters.AddWithValue("@b", txtb.Text);
-                    cmd.Parameters.AddWithValue("@bac", txtbac.Text);
-                    cmd.Parameters.AddWithValue("@nba", txtnba.Text);
-                    cmd.Parameters.AddWithValue("@ba", lbltotalba.Text);
-                    cmd.Parameters.AddWithValue("@ba1", txtba1.Text);
-                    cmd.Parameters.AddWithValue("@cr", txtcr.Text);
-                    cmd.Parameters.AddWithValue("@m", txtm.Text);
-                    cmd.Parameters.AddWithValue("@r", txtr.Text);
-                    cmd.Parameters.AddWithValue("@c", txtc.Text);
-                    cmd.Parameters.AddWithValue("@rl", txtrl.Text);
-                    cmd.Parameters.AddWithValue("@jumlah", lbltotal.Text);
-                    cmd.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
-                    cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
-                    cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
-                    cmd.Parameters.AddWithValue("@catatan", txtcatatan.Text);
+                                cmd.Parameters.AddWithValue("@nounikpenerimaan", noprimary);
+                                cmd.Parameters.AddWithValue("@tanggalpenerimaan", tanggalpenerimaan);
+                                cmd.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
+                                cmd.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
+                                cmd.Parameters.AddWithValue("@jenis", txtjenis.Text);
+                                cmd.Parameters.AddWithValue("@e1ers", txte1ers.Text);
+                                cmd.Parameters.AddWithValue("@e1est", txte1est.Text);
+                                cmd.Parameters.AddWithValue("@e1jumlah", lbltotale1.Text);
+                                cmd.Parameters.AddWithValue("@e2ers", txte2ers.Text);
+                                cmd.Parameters.AddWithValue("@e2cst", txte2cst.Text);
+                                cmd.Parameters.AddWithValue("@e2cstub", txte2cstub.Text);
+                                cmd.Parameters.AddWithValue("@e2jumlah", lbltotale2.Text);
+                                cmd.Parameters.AddWithValue("@e3", txte3.Text);
+                                cmd.Parameters.AddWithValue("@e4", txte4.Text);
+                                cmd.Parameters.AddWithValue("@s", txts.Text);
+                                cmd.Parameters.AddWithValue("@d", txtd.Text);
+                                cmd.Parameters.AddWithValue("@b", txtb.Text);
+                                cmd.Parameters.AddWithValue("@bac", txtbac.Text);
+                                cmd.Parameters.AddWithValue("@nba", txtnba.Text);
+                                cmd.Parameters.AddWithValue("@ba", lbltotalba.Text);
+                                cmd.Parameters.AddWithValue("@ba1", txtba1.Text);
+                                cmd.Parameters.AddWithValue("@cr", txtcr.Text);
+                                cmd.Parameters.AddWithValue("@m", txtm.Text);
+                                cmd.Parameters.AddWithValue("@r", txtr.Text);
+                                cmd.Parameters.AddWithValue("@c", txtc.Text);
+                                cmd.Parameters.AddWithValue("@rl", txtrl.Text);
+                                cmd.Parameters.AddWithValue("@jumlah", lbltotal.Text);
+                                cmd.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
+                                cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                                cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
+                                cmd.Parameters.AddWithValue("@catatan", txtcatatan.Text);
 
-                    if (fotoSementara != null)
-                        cmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = ImageToByteArray(fotoSementara);
-                    else
-                        cmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = DBNull.Value;
+                                if (fotoSementara != null)
+                                    cmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = ImageToByteArray(fotoSementara);
+                                else
+                                    cmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = DBNull.Value;
 
-                    cmd.ExecuteNonQuery();
+                                cmdubah1.CommandText = @"
+                            UPDATE penerimaan_p 
+                            SET jenis = @jenis, e1=@e1, e2=@e2, e3=@e3, s=@s, d=@d, 
+                                b=@b, ba=@ba, cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah,
+                                remaks=@remaks, updated_at=@diubah, catatan=@catatan
+                            WHERE no=@no 
+                              AND CAST(tanggal_penerimaan AS DATE) = CAST(@tanggal AS DATE) 
+                              AND shift = @shift";
+
+                                cmdubah2.CommandText = @"
+                            UPDATE penerimaan_s 
+                            SET jenis = @jenis, e1=@e1, e2=@e2, e3=@e3, s=@s, d=@d, 
+                                b=@b, ba=@ba, cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah,
+                                remaks=@remaks, updated_at=@diubah, catatan=@catatan
+                            WHERE no=@no 
+                              AND CAST(tanggal_penerimaan AS DATE) = CAST(@tanggal AS DATE) 
+                              AND shift = @shift";
+
+                                foreach (var cmdx in new[] { cmdubah1, cmdubah2 })
+                                {
+                                    cmdx.Parameters.AddWithValue("@jenis", txtjenis.Text);
+                                    cmdx.Parameters.AddWithValue("@e1", lbltotale1.Text);
+                                    cmdx.Parameters.AddWithValue("@e2", lbltotale2.Text);
+                                    cmdx.Parameters.AddWithValue("@e3", txte3.Text);
+                                    cmdx.Parameters.AddWithValue("@s", txts.Text);
+                                    cmdx.Parameters.AddWithValue("@d", txtd.Text);
+                                    cmdx.Parameters.AddWithValue("@b", txtb.Text);
+                                    cmdx.Parameters.AddWithValue("@ba", lbltotalba.Text);
+                                    cmdx.Parameters.AddWithValue("@cr", txtcr.Text);
+                                    cmdx.Parameters.AddWithValue("@m", txtm.Text);
+                                    cmdx.Parameters.AddWithValue("@r", txtr.Text);
+                                    cmdx.Parameters.AddWithValue("@c", txtc.Text);
+                                    cmdx.Parameters.AddWithValue("@rl", txtrl.Text);
+                                    cmdx.Parameters.AddWithValue("@jumlah", lbltotal.Text);
+                                    cmdx.Parameters.AddWithValue("@remaks", loginform.login.name);
+                                    cmdx.Parameters.AddWithValue("@no", noprimary);
+                                    cmdx.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                                    cmdx.Parameters.AddWithValue("@catatan", txtcatatan.Text);
+                                    cmdx.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
+                                    cmdx.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
+                                }
+
+                                cmd.ExecuteNonQuery();
+                                cmdubah1.ExecuteNonQuery();
+                                cmdubah2.ExecuteNonQuery();
+                            }
+
+                            trans.Commit();
+                            MessageBox.Show("Data Berhasil Disimpan", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            tampilpenerimaan();
+                        }
+                        catch (Exception ex)
+                        {
+                            trans.Rollback();
+                            MessageBox.Show("Transaksi dibatalkan:\n" + ex.Message,
+                                "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
-
-                MessageBox.Show("Data Berhasil Disimpan", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                tampilpenerimaan();
             }
             catch (SqlException)
             {

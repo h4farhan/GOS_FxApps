@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnprint = new Guna.UI2.WinForms.Guna2Button();
-            this.cmbpilihdata = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
@@ -97,6 +95,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbltanggal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnreset = new Guna.UI2.WinForms.Guna2Button();
+            this.btncari = new Guna.UI2.WinForms.Guna2Button();
+            this.datejadwal = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
@@ -108,9 +109,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.btnreset);
+            this.panel1.Controls.Add(this.btncari);
+            this.panel1.Controls.Add(this.datejadwal);
             this.panel1.Controls.Add(this.btnprint);
-            this.panel1.Controls.Add(this.cmbpilihdata);
-            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -137,45 +139,6 @@
             this.btnprint.TabIndex = 58;
             this.btnprint.Text = "Ekspor Ke Excel";
             this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
-            // 
-            // cmbpilihdata
-            // 
-            this.cmbpilihdata.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbpilihdata.BackColor = System.Drawing.Color.Transparent;
-            this.cmbpilihdata.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cmbpilihdata.BorderRadius = 5;
-            this.cmbpilihdata.BorderThickness = 2;
-            this.cmbpilihdata.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbpilihdata.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbpilihdata.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbpilihdata.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbpilihdata.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbpilihdata.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cmbpilihdata.ItemHeight = 30;
-            this.cmbpilihdata.Items.AddRange(new object[] {
-            "Hari Ini",
-            "Bulan Ini",
-            "Tahun Ini"});
-            this.cmbpilihdata.Location = new System.Drawing.Point(780, 10);
-            this.cmbpilihdata.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbpilihdata.Name = "cmbpilihdata";
-            this.cmbpilihdata.Size = new System.Drawing.Size(213, 36);
-            this.cmbpilihdata.TabIndex = 57;
-            this.cmbpilihdata.SelectedIndexChanged += new System.EventHandler(this.cmbpilihdata_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(678, 18);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 20);
-            this.label3.TabIndex = 56;
-            this.label3.Text = "Pilih Jadwal";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
             // 
@@ -224,14 +187,14 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(11, 135);
             this.dataGridView1.Name = "dataGridView1";
@@ -1062,6 +1025,66 @@
             this.label1.Text = "Estimasi Pemakaian Material";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnreset
+            // 
+            this.btnreset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnreset.BorderRadius = 6;
+            this.btnreset.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnreset.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnreset.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnreset.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnreset.Enabled = false;
+            this.btnreset.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnreset.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnreset.ForeColor = System.Drawing.Color.White;
+            this.btnreset.Location = new System.Drawing.Point(903, 10);
+            this.btnreset.Margin = new System.Windows.Forms.Padding(2);
+            this.btnreset.Name = "btnreset";
+            this.btnreset.Size = new System.Drawing.Size(103, 36);
+            this.btnreset.TabIndex = 65;
+            this.btnreset.Text = "Reset";
+            this.btnreset.Click += new System.EventHandler(this.btnreset_Click);
+            // 
+            // btncari
+            // 
+            this.btncari.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btncari.BorderRadius = 6;
+            this.btncari.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btncari.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btncari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btncari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btncari.ForeColor = System.Drawing.Color.White;
+            this.btncari.Location = new System.Drawing.Point(818, 10);
+            this.btncari.Margin = new System.Windows.Forms.Padding(2);
+            this.btncari.Name = "btncari";
+            this.btncari.Size = new System.Drawing.Size(81, 36);
+            this.btncari.TabIndex = 64;
+            this.btncari.Text = "Cari";
+            this.btncari.Click += new System.EventHandler(this.btncari_Click);
+            // 
+            // datejadwal
+            // 
+            this.datejadwal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.datejadwal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.datejadwal.BorderRadius = 5;
+            this.datejadwal.BorderThickness = 2;
+            this.datejadwal.Checked = true;
+            this.datejadwal.CustomFormat = "MM/yyyy";
+            this.datejadwal.FillColor = System.Drawing.Color.White;
+            this.datejadwal.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.datejadwal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.datejadwal.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datejadwal.Location = new System.Drawing.Point(584, 10);
+            this.datejadwal.Margin = new System.Windows.Forms.Padding(2);
+            this.datejadwal.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.datejadwal.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.datejadwal.Name = "datejadwal";
+            this.datejadwal.Size = new System.Drawing.Size(230, 36);
+            this.datejadwal.TabIndex = 63;
+            this.datejadwal.Value = new System.DateTime(2025, 5, 20, 0, 0, 0, 0);
+            this.datejadwal.MouseDown += new System.Windows.Forms.MouseEventHandler(this.datejadwal_MouseDown);
+            // 
             // EstimasiPemakaianMaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1089,8 +1112,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private Guna.UI2.WinForms.Guna2ComboBox cmbpilihdata;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
@@ -1156,5 +1177,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private Guna.UI2.WinForms.Guna2Button btnprint;
         private System.Windows.Forms.Label label28;
+        private Guna.UI2.WinForms.Guna2Button btnreset;
+        private Guna.UI2.WinForms.Guna2Button btncari;
+        private Guna.UI2.WinForms.Guna2DateTimePicker datejadwal;
     }
 }

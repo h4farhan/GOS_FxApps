@@ -319,7 +319,7 @@ namespace GOS_FxApps
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MainForm.Instance.role != "Manajer") return;
+            if (MainForm.Instance.role != "Manajer" && MainForm.Instance.role != "Developer") return;
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];

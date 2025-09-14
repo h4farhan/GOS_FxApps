@@ -9,7 +9,7 @@
     <Shape ID="DesignTable:sp_Laporan_Harian" ZOrder="6" X="521" Y="389" Height="305" Width="254" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:sp_LaporanPerbaikan" ZOrder="5" X="823" Y="404" Height="305" Width="268" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:perbaikan_p" ZOrder="4" X="204" Y="389" Height="305" Width="259" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
-    <Shape ID="DesignTable:jumlahperbaikan2" ZOrder="3" X="1129" Y="409" Height="305" Width="259" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:jumlahperbaikan2" ZOrder="3" X="1129" Y="409" Height="305" Width="249" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:perbaikan_m" ZOrder="2" X="120" Y="747" Height="305" Width="219" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:perbaikan_e" ZOrder="1" X="401" Y="746" Height="305" Width="214" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
   </Shapes>

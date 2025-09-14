@@ -273,6 +273,8 @@ namespace GOS_FxApps
             lbltotale2.Text = "-";
             lbltotalba.Text = "-";
             fotoSementara = null;
+            txtcari.Clear();
+            btncari.Text = "Cari";
         }
 
         private void settrue()

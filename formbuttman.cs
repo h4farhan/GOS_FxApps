@@ -362,7 +362,7 @@ namespace GOS_FxApps
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MainForm.Instance.role != "Manajer") return;
+            if (MainForm.Instance.role != "Manajer" && MainForm.Instance.role != "Developer") return;
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
@@ -399,7 +399,6 @@ namespace GOS_FxApps
             if (btndelete.Text == "Hapus Data")
             {
                 hapusdata();
-                btnsimpan.Text = "Simpan Data";
                 setdefault();
                 btnsimpan.Text = "Simpan Data";
                 btnsimpan.Enabled = false;

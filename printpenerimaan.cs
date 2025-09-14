@@ -171,17 +171,22 @@ namespace GOS_FxApps
                 var adapter = new GOS_FxApps.DataSet.PenerimaanFormTableAdapters.penerimaan_sTableAdapter();
                 GOS_FxApps.DataSet.PenerimaanForm.penerimaan_sDataTable data = adapter.GetData(tanggal1, tanggal2, shift);
 
-                var adapter2 = new GOS_FxApps.DataSet.PenerimaanFormTableAdapters.jumlahpenerimaan2TableAdapter();
-                GOS_FxApps.DataSet.PenerimaanForm.jumlahpenerimaan2DataTable data2 = adapter2.GetData(tanggal1, tanggal2, shift);
+                var adapter1 = new GOS_FxApps.DataSet.PenerimaanFormTableAdapters.jumlahpenerimaan1TableAdapter();
+                GOS_FxApps.DataSet.PenerimaanForm.jumlahpenerimaan1DataTable data1 = adapter1.GetData(tanggal1, tanggal2);
 
-                frmrpt = new reportviewr();
+                var adapter2 = new GOS_FxApps.DataSet.PenerimaanFormTableAdapters.jumlahpenerimaan2TableAdapter();
+                GOS_FxApps.DataSet.PenerimaanForm.jumlahpenerimaan2DataTable data2 = adapter2.GetData(tanggal1, tanggal2);
+
+            frmrpt = new reportviewr();
                 frmrpt.reportViewer1.Reset();
                 frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "penerimaan.rdlc");
 
                 frmrpt.reportViewer1.LocalReport.DataSources.Clear();
                 frmrpt.reportViewer1.LocalReport.DataSources.Add(
                     new ReportDataSource("DataSetPenerimaan", (DataTable)data));
-                frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                        new ReportDataSource("datasetjumlahpenerimaan1", (DataTable)data1));
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
                         new ReportDataSource("datasetjumlahpenerimaan2", (DataTable)data2));
 
             ReportParameter[] parameters = new ReportParameter[]
@@ -266,8 +271,11 @@ namespace GOS_FxApps
             var adapter = new GOS_FxApps.DataSet.PerbaikanFormTableAdapters.perbaikan_pTableAdapter();
             GOS_FxApps.DataSet.PerbaikanForm.perbaikan_pDataTable data = adapter.GetData(tanggal1, tanggal2, shift);
 
+            var adapter1 = new GOS_FxApps.DataSet.PenerimaanFormTableAdapters.jumlahperbaikan1TableAdapter();
+            GOS_FxApps.DataSet.PenerimaanForm.jumlahperbaikan1DataTable data1 = adapter1.GetData(tanggal1, tanggal2);
+
             var adapter2 = new GOS_FxApps.DataSet.PerbaikanFormTableAdapters.jumlahperbaikan2TableAdapter();
-            GOS_FxApps.DataSet.PerbaikanForm.jumlahperbaikan2DataTable data2 = adapter2.GetData(tanggal1, tanggal2, shift);
+            GOS_FxApps.DataSet.PerbaikanForm.jumlahperbaikan2DataTable data2 = adapter2.GetData(tanggal1, tanggal2);
 
             frmrpt = new reportviewr();
             frmrpt.reportViewer1.Reset();
@@ -276,6 +284,9 @@ namespace GOS_FxApps
             frmrpt.reportViewer1.LocalReport.DataSources.Clear();
             frmrpt.reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("DataSetPerbaikan", (DataTable)data));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetjumlahperbaikan1", (DataTable)data1));
 
             frmrpt.reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetjumlahperbaikan2", (DataTable)data2));
