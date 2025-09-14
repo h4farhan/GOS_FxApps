@@ -394,6 +394,22 @@ namespace GOS_FxApps
             dataGridView1.Columns["bq"].Width = label57.Width;
             dataGridView1.Columns["aktual"].Width = label56.Width;
             dataGridView1.Columns["Persentase"].Width = label59.Width;
+
+            dataGridView1.Columns["Hasil E1"].DefaultCellStyle.Format = "N0";   
+            dataGridView1.Columns["Hasil E2"].DefaultCellStyle.Format = "N0";   
+            dataGridView1.Columns["Hasil E3"].DefaultCellStyle.Format = "N0";
+            dataGridView1.Columns["Hasil E4"].DefaultCellStyle.Format = "N0";
+            dataGridView1.Columns["Hasil S"].DefaultCellStyle.Format = "N0";
+            dataGridView1.Columns["Hasil D"].DefaultCellStyle.Format = "N0";
+            dataGridView1.Columns["Hasil B"].DefaultCellStyle.Format = "N0";
+            dataGridView1.Columns["Hasil BA"].DefaultCellStyle.Format = "N0";
+            dataGridView1.Columns["Hasil BA1"].DefaultCellStyle.Format = "N0";
+            dataGridView1.Columns["Hasil R"].DefaultCellStyle.Format = "N0";
+            dataGridView1.Columns["Hasil M"].DefaultCellStyle.Format = "N0";
+            dataGridView1.Columns["Hasil CR"].DefaultCellStyle.Format = "N0";
+            dataGridView1.Columns["Hasil C"].DefaultCellStyle.Format = "N0";
+            dataGridView1.Columns["Hasil RL"].DefaultCellStyle.Format = "N0";
+
         }
         private async void ExportToExcelBulan()
         {
@@ -514,7 +530,7 @@ namespace GOS_FxApps
                                 FileName = "Koefisien Material Bulan " + bulan + " " + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx"
                             };
 
-                            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                            if (saveFileDialog.ShowDialog(mainform) == DialogResult.OK)
                             {
                                 string savePath = saveFileDialog.FileName;
                                 if (File.Exists(savePath)) File.Delete(savePath);
