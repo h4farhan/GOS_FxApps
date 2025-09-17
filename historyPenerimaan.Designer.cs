@@ -253,6 +253,7 @@
             this.txtcari.Size = new System.Drawing.Size(197, 39);
             this.txtcari.TabIndex = 45;
             this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtcari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             // 
             // lbljumlahdata
             // 

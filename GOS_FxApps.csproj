@@ -741,6 +741,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Rb_Stokhari.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="registrasi.resx">
       <DependentUpon>registrasi.cs</DependentUpon>
     </EmbeddedResource>

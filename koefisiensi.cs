@@ -78,6 +78,13 @@ namespace GOS_FxApps
             }
         }
 
+        private void hurufbesar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.KeyChar = char.ToUpper(e.KeyChar);
+            }
+        }
         public void combonama()
         {
             try

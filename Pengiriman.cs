@@ -213,10 +213,7 @@ namespace GOS_FxApps
 
         private void AngkaOnly_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+
         }
 
         private void TextBox_Validating(object sender, CancelEventArgs e)

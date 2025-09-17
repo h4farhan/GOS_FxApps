@@ -26,6 +26,8 @@ namespace GOS_FxApps.DataSet {
         
         private sp_Rb_StokDataTable tablesp_Rb_Stok;
         
+        private sp_Rb_StokhariDataTable tablesp_Rb_Stokhari;
+        
         private Rb_StokDataTable tableRb_Stok;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
@@ -59,6 +61,9 @@ namespace GOS_FxApps.DataSet {
                 if ((ds.Tables["sp_Rb_Stok"] != null)) {
                     base.Tables.Add(new sp_Rb_StokDataTable(ds.Tables["sp_Rb_Stok"]));
                 }
+                if ((ds.Tables["sp_Rb_Stokhari"] != null)) {
+                    base.Tables.Add(new sp_Rb_StokhariDataTable(ds.Tables["sp_Rb_Stokhari"]));
+                }
                 if ((ds.Tables["Rb_Stok"] != null)) {
                     base.Tables.Add(new Rb_StokDataTable(ds.Tables["Rb_Stok"]));
                 }
@@ -87,6 +92,16 @@ namespace GOS_FxApps.DataSet {
         public sp_Rb_StokDataTable sp_Rb_Stok {
             get {
                 return this.tablesp_Rb_Stok;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public sp_Rb_StokhariDataTable sp_Rb_Stokhari {
+            get {
+                return this.tablesp_Rb_Stokhari;
             }
         }
         
@@ -170,6 +185,9 @@ namespace GOS_FxApps.DataSet {
                 if ((ds.Tables["sp_Rb_Stok"] != null)) {
                     base.Tables.Add(new sp_Rb_StokDataTable(ds.Tables["sp_Rb_Stok"]));
                 }
+                if ((ds.Tables["sp_Rb_Stokhari"] != null)) {
+                    base.Tables.Add(new sp_Rb_StokhariDataTable(ds.Tables["sp_Rb_Stokhari"]));
+                }
                 if ((ds.Tables["Rb_Stok"] != null)) {
                     base.Tables.Add(new Rb_StokDataTable(ds.Tables["Rb_Stok"]));
                 }
@@ -212,6 +230,12 @@ namespace GOS_FxApps.DataSet {
                     this.tablesp_Rb_Stok.InitVars();
                 }
             }
+            this.tablesp_Rb_Stokhari = ((sp_Rb_StokhariDataTable)(base.Tables["sp_Rb_Stokhari"]));
+            if ((initTable == true)) {
+                if ((this.tablesp_Rb_Stokhari != null)) {
+                    this.tablesp_Rb_Stokhari.InitVars();
+                }
+            }
             this.tableRb_Stok = ((Rb_StokDataTable)(base.Tables["Rb_Stok"]));
             if ((initTable == true)) {
                 if ((this.tableRb_Stok != null)) {
@@ -230,6 +254,8 @@ namespace GOS_FxApps.DataSet {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tablesp_Rb_Stok = new sp_Rb_StokDataTable();
             base.Tables.Add(this.tablesp_Rb_Stok);
+            this.tablesp_Rb_Stokhari = new sp_Rb_StokhariDataTable();
+            base.Tables.Add(this.tablesp_Rb_Stokhari);
             this.tableRb_Stok = new Rb_StokDataTable();
             base.Tables.Add(this.tableRb_Stok);
         }
@@ -237,6 +263,12 @@ namespace GOS_FxApps.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializesp_Rb_Stok() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializesp_Rb_Stokhari() {
             return false;
         }
         
@@ -303,6 +335,9 @@ namespace GOS_FxApps.DataSet {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void sp_Rb_StokRowChangeEventHandler(object sender, sp_Rb_StokRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void sp_Rb_StokhariRowChangeEventHandler(object sender, sp_Rb_StokhariRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void Rb_StokRowChangeEventHandler(object sender, Rb_StokRowChangeEvent e);
@@ -932,7 +967,29 @@ namespace GOS_FxApps.DataSet {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class Rb_StokDataTable : global::System.Data.TypedTableBase<Rb_StokRow> {
+        public partial class sp_Rb_StokhariDataTable : global::System.Data.TypedTableBase<sp_Rb_StokhariRow> {
+            
+            private global::System.Data.DataColumn columntanggal;
+            
+            private global::System.Data.DataColumn columnbmasuk;
+            
+            private global::System.Data.DataColumn columnbkeluar;
+            
+            private global::System.Data.DataColumn columnbstok;
+            
+            private global::System.Data.DataColumn columnbpanjang;
+            
+            private global::System.Data.DataColumn columnbpe1;
+            
+            private global::System.Data.DataColumn columnbpe2;
+            
+            private global::System.Data.DataColumn columnbbe1;
+            
+            private global::System.Data.DataColumn columnbbe2;
+            
+            private global::System.Data.DataColumn columnrbkeluare1;
+            
+            private global::System.Data.DataColumn columnrbkeluare2;
             
             private global::System.Data.DataColumn columnwpe1;
             
@@ -941,6 +998,498 @@ namespace GOS_FxApps.DataSet {
             private global::System.Data.DataColumn columnwbe1;
             
             private global::System.Data.DataColumn columnwbe2;
+            
+            private global::System.Data.DataColumn columnbsisakg;
+            
+            private global::System.Data.DataColumn columnwastekg;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public sp_Rb_StokhariDataTable() {
+                this.TableName = "sp_Rb_Stokhari";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal sp_Rb_StokhariDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected sp_Rb_StokhariDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn tanggalColumn {
+                get {
+                    return this.columntanggal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn bmasukColumn {
+                get {
+                    return this.columnbmasuk;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn bkeluarColumn {
+                get {
+                    return this.columnbkeluar;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn bstokColumn {
+                get {
+                    return this.columnbstok;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn bpanjangColumn {
+                get {
+                    return this.columnbpanjang;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn bpe1Column {
+                get {
+                    return this.columnbpe1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn bpe2Column {
+                get {
+                    return this.columnbpe2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn bbe1Column {
+                get {
+                    return this.columnbbe1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn bbe2Column {
+                get {
+                    return this.columnbbe2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn rbkeluare1Column {
+                get {
+                    return this.columnrbkeluare1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn rbkeluare2Column {
+                get {
+                    return this.columnrbkeluare2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn wpe1Column {
+                get {
+                    return this.columnwpe1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn wpe2Column {
+                get {
+                    return this.columnwpe2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn wbe1Column {
+                get {
+                    return this.columnwbe1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn wbe2Column {
+                get {
+                    return this.columnwbe2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn bsisakgColumn {
+                get {
+                    return this.columnbsisakg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn wastekgColumn {
+                get {
+                    return this.columnwastekg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public sp_Rb_StokhariRow this[int index] {
+                get {
+                    return ((sp_Rb_StokhariRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event sp_Rb_StokhariRowChangeEventHandler sp_Rb_StokhariRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event sp_Rb_StokhariRowChangeEventHandler sp_Rb_StokhariRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event sp_Rb_StokhariRowChangeEventHandler sp_Rb_StokhariRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event sp_Rb_StokhariRowChangeEventHandler sp_Rb_StokhariRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Addsp_Rb_StokhariRow(sp_Rb_StokhariRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public sp_Rb_StokhariRow Addsp_Rb_StokhariRow(
+                        string tanggal, 
+                        int bmasuk, 
+                        int bkeluar, 
+                        int bstok, 
+                        int bpanjang, 
+                        int bpe1, 
+                        int bpe2, 
+                        int bbe1, 
+                        int bbe2, 
+                        int rbkeluare1, 
+                        int rbkeluare2, 
+                        int wpe1, 
+                        int wpe2, 
+                        int wbe1, 
+                        int wbe2, 
+                        int bsisakg, 
+                        double wastekg) {
+                sp_Rb_StokhariRow rowsp_Rb_StokhariRow = ((sp_Rb_StokhariRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        tanggal,
+                        bmasuk,
+                        bkeluar,
+                        bstok,
+                        bpanjang,
+                        bpe1,
+                        bpe2,
+                        bbe1,
+                        bbe2,
+                        rbkeluare1,
+                        rbkeluare2,
+                        wpe1,
+                        wpe2,
+                        wbe1,
+                        wbe2,
+                        bsisakg,
+                        wastekg};
+                rowsp_Rb_StokhariRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowsp_Rb_StokhariRow);
+                return rowsp_Rb_StokhariRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                sp_Rb_StokhariDataTable cln = ((sp_Rb_StokhariDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new sp_Rb_StokhariDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columntanggal = base.Columns["tanggal"];
+                this.columnbmasuk = base.Columns["bmasuk"];
+                this.columnbkeluar = base.Columns["bkeluar"];
+                this.columnbstok = base.Columns["bstok"];
+                this.columnbpanjang = base.Columns["bpanjang"];
+                this.columnbpe1 = base.Columns["bpe1"];
+                this.columnbpe2 = base.Columns["bpe2"];
+                this.columnbbe1 = base.Columns["bbe1"];
+                this.columnbbe2 = base.Columns["bbe2"];
+                this.columnrbkeluare1 = base.Columns["rbkeluare1"];
+                this.columnrbkeluare2 = base.Columns["rbkeluare2"];
+                this.columnwpe1 = base.Columns["wpe1"];
+                this.columnwpe2 = base.Columns["wpe2"];
+                this.columnwbe1 = base.Columns["wbe1"];
+                this.columnwbe2 = base.Columns["wbe2"];
+                this.columnbsisakg = base.Columns["bsisakg"];
+                this.columnwastekg = base.Columns["wastekg"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columntanggal = new global::System.Data.DataColumn("tanggal", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntanggal);
+                this.columnbmasuk = new global::System.Data.DataColumn("bmasuk", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbmasuk);
+                this.columnbkeluar = new global::System.Data.DataColumn("bkeluar", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbkeluar);
+                this.columnbstok = new global::System.Data.DataColumn("bstok", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbstok);
+                this.columnbpanjang = new global::System.Data.DataColumn("bpanjang", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbpanjang);
+                this.columnbpe1 = new global::System.Data.DataColumn("bpe1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbpe1);
+                this.columnbpe2 = new global::System.Data.DataColumn("bpe2", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbpe2);
+                this.columnbbe1 = new global::System.Data.DataColumn("bbe1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbbe1);
+                this.columnbbe2 = new global::System.Data.DataColumn("bbe2", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbbe2);
+                this.columnrbkeluare1 = new global::System.Data.DataColumn("rbkeluare1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrbkeluare1);
+                this.columnrbkeluare2 = new global::System.Data.DataColumn("rbkeluare2", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrbkeluare2);
+                this.columnwpe1 = new global::System.Data.DataColumn("wpe1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnwpe1);
+                this.columnwpe2 = new global::System.Data.DataColumn("wpe2", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnwpe2);
+                this.columnwbe1 = new global::System.Data.DataColumn("wbe1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnwbe1);
+                this.columnwbe2 = new global::System.Data.DataColumn("wbe2", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnwbe2);
+                this.columnbsisakg = new global::System.Data.DataColumn("bsisakg", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbsisakg);
+                this.columnwastekg = new global::System.Data.DataColumn("wastekg", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnwastekg);
+                this.columntanggal.ReadOnly = true;
+                this.columntanggal.MaxLength = 4000;
+                this.columnbmasuk.ReadOnly = true;
+                this.columnbkeluar.ReadOnly = true;
+                this.columnbstok.ReadOnly = true;
+                this.columnbpanjang.ReadOnly = true;
+                this.columnbpe1.ReadOnly = true;
+                this.columnbpe2.ReadOnly = true;
+                this.columnbbe1.ReadOnly = true;
+                this.columnbbe2.ReadOnly = true;
+                this.columnrbkeluare1.ReadOnly = true;
+                this.columnrbkeluare2.ReadOnly = true;
+                this.columnwpe1.ReadOnly = true;
+                this.columnwpe2.ReadOnly = true;
+                this.columnwbe1.ReadOnly = true;
+                this.columnwbe2.ReadOnly = true;
+                this.columnbsisakg.ReadOnly = true;
+                this.columnwastekg.ReadOnly = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public sp_Rb_StokhariRow Newsp_Rb_StokhariRow() {
+                return ((sp_Rb_StokhariRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new sp_Rb_StokhariRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(sp_Rb_StokhariRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.sp_Rb_StokhariRowChanged != null)) {
+                    this.sp_Rb_StokhariRowChanged(this, new sp_Rb_StokhariRowChangeEvent(((sp_Rb_StokhariRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.sp_Rb_StokhariRowChanging != null)) {
+                    this.sp_Rb_StokhariRowChanging(this, new sp_Rb_StokhariRowChangeEvent(((sp_Rb_StokhariRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.sp_Rb_StokhariRowDeleted != null)) {
+                    this.sp_Rb_StokhariRowDeleted(this, new sp_Rb_StokhariRowChangeEvent(((sp_Rb_StokhariRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.sp_Rb_StokhariRowDeleting != null)) {
+                    this.sp_Rb_StokhariRowDeleting(this, new sp_Rb_StokhariRowChangeEvent(((sp_Rb_StokhariRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Removesp_Rb_StokhariRow(sp_Rb_StokhariRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                rb_stok ds = new rb_stok();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "sp_Rb_StokhariDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Rb_StokDataTable : global::System.Data.TypedTableBase<Rb_StokRow> {
+            
+            private global::System.Data.DataColumn columnbstok;
+            
+            private global::System.Data.DataColumn columnwpe1;
+            
+            private global::System.Data.DataColumn columnwpe2;
+            
+            private global::System.Data.DataColumn columnwbe1;
+            
+            private global::System.Data.DataColumn columnwbe2;
+            
+            private global::System.Data.DataColumn columnbsisakg;
+            
+            private global::System.Data.DataColumn columnwastekg;
+            
+            private global::System.Data.DataColumn columntanggal;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -977,6 +1526,14 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn bstokColumn {
+                get {
+                    return this.columnbstok;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn wpe1Column {
                 get {
                     return this.columnwpe1;
@@ -1004,6 +1561,30 @@ namespace GOS_FxApps.DataSet {
             public global::System.Data.DataColumn wbe2Column {
                 get {
                     return this.columnwbe2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn bsisakgColumn {
+                get {
+                    return this.columnbsisakg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn wastekgColumn {
+                get {
+                    return this.columnwastekg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn tanggalColumn {
+                get {
+                    return this.columntanggal;
                 }
             }
             
@@ -1044,13 +1625,17 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Rb_StokRow AddRb_StokRow(int wpe1, int wpe2, int wbe1, int wbe2) {
+            public Rb_StokRow AddRb_StokRow(int bstok, int wpe1, int wpe2, int wbe1, int wbe2, int bsisakg, double wastekg, System.DateTime tanggal) {
                 Rb_StokRow rowRb_StokRow = ((Rb_StokRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        bstok,
                         wpe1,
                         wpe2,
                         wbe1,
-                        wbe2};
+                        wbe2,
+                        bsisakg,
+                        wastekg,
+                        tanggal};
                 rowRb_StokRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRb_StokRow);
                 return rowRb_StokRow;
@@ -1073,15 +1658,21 @@ namespace GOS_FxApps.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
+                this.columnbstok = base.Columns["bstok"];
                 this.columnwpe1 = base.Columns["wpe1"];
                 this.columnwpe2 = base.Columns["wpe2"];
                 this.columnwbe1 = base.Columns["wbe1"];
                 this.columnwbe2 = base.Columns["wbe2"];
+                this.columnbsisakg = base.Columns["bsisakg"];
+                this.columnwastekg = base.Columns["wastekg"];
+                this.columntanggal = base.Columns["tanggal"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
+                this.columnbstok = new global::System.Data.DataColumn("bstok", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbstok);
                 this.columnwpe1 = new global::System.Data.DataColumn("wpe1", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnwpe1);
                 this.columnwpe2 = new global::System.Data.DataColumn("wpe2", typeof(int), null, global::System.Data.MappingType.Element);
@@ -1090,6 +1681,20 @@ namespace GOS_FxApps.DataSet {
                 base.Columns.Add(this.columnwbe1);
                 this.columnwbe2 = new global::System.Data.DataColumn("wbe2", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnwbe2);
+                this.columnbsisakg = new global::System.Data.DataColumn("bsisakg", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbsisakg);
+                this.columnwastekg = new global::System.Data.DataColumn("wastekg", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnwastekg);
+                this.columntanggal = new global::System.Data.DataColumn("tanggal", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntanggal);
+                this.columnbstok.ReadOnly = true;
+                this.columnwpe1.ReadOnly = true;
+                this.columnwpe2.ReadOnly = true;
+                this.columnwbe1.ReadOnly = true;
+                this.columnwbe2.ReadOnly = true;
+                this.columnbsisakg.ReadOnly = true;
+                this.columnwastekg.ReadOnly = true;
+                this.columntanggal.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1906,6 +2511,497 @@ namespace GOS_FxApps.DataSet {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
+        public partial class sp_Rb_StokhariRow : global::System.Data.DataRow {
+            
+            private sp_Rb_StokhariDataTable tablesp_Rb_Stokhari;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal sp_Rb_StokhariRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablesp_Rb_Stokhari = ((sp_Rb_StokhariDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string tanggal {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_Rb_Stokhari.tanggalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'tanggal\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stokhari.tanggalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int bmasuk {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Rb_Stokhari.bmasukColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'bmasuk\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stokhari.bmasukColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int bkeluar {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Rb_Stokhari.bkeluarColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'bkeluar\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stokhari.bkeluarColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int bstok {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Rb_Stokhari.bstokColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'bstok\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stokhari.bstokColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int bpanjang {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Rb_Stokhari.bpanjangColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'bpanjang\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stokhari.bpanjangColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int bpe1 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Rb_Stokhari.bpe1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'bpe1\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stokhari.bpe1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int bpe2 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Rb_Stokhari.bpe2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'bpe2\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stokhari.bpe2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int bbe1 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Rb_Stokhari.bbe1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'bbe1\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stokhari.bbe1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int bbe2 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Rb_Stokhari.bbe2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'bbe2\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stokhari.bbe2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int rbkeluare1 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Rb_Stokhari.rbkeluare1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'rbkeluare1\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stokhari.rbkeluare1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int rbkeluare2 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Rb_Stokhari.rbkeluare2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'rbkeluare2\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stokhari.rbkeluare2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int wpe1 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Rb_Stokhari.wpe1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'wpe1\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stokhari.wpe1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int wpe2 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Rb_Stokhari.wpe2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'wpe2\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stokhari.wpe2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int wbe1 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Rb_Stokhari.wbe1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'wbe1\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stokhari.wbe1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int wbe2 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Rb_Stokhari.wbe2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'wbe2\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stokhari.wbe2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int bsisakg {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Rb_Stokhari.bsisakgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'bsisakg\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stokhari.bsisakgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double wastekg {
+                get {
+                    try {
+                        return ((double)(this[this.tablesp_Rb_Stokhari.wastekgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'wastekg\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stokhari.wastekgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IstanggalNull() {
+                return this.IsNull(this.tablesp_Rb_Stokhari.tanggalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SettanggalNull() {
+                this[this.tablesp_Rb_Stokhari.tanggalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsbmasukNull() {
+                return this.IsNull(this.tablesp_Rb_Stokhari.bmasukColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetbmasukNull() {
+                this[this.tablesp_Rb_Stokhari.bmasukColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsbkeluarNull() {
+                return this.IsNull(this.tablesp_Rb_Stokhari.bkeluarColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetbkeluarNull() {
+                this[this.tablesp_Rb_Stokhari.bkeluarColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsbstokNull() {
+                return this.IsNull(this.tablesp_Rb_Stokhari.bstokColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetbstokNull() {
+                this[this.tablesp_Rb_Stokhari.bstokColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsbpanjangNull() {
+                return this.IsNull(this.tablesp_Rb_Stokhari.bpanjangColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetbpanjangNull() {
+                this[this.tablesp_Rb_Stokhari.bpanjangColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isbpe1Null() {
+                return this.IsNull(this.tablesp_Rb_Stokhari.bpe1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setbpe1Null() {
+                this[this.tablesp_Rb_Stokhari.bpe1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isbpe2Null() {
+                return this.IsNull(this.tablesp_Rb_Stokhari.bpe2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setbpe2Null() {
+                this[this.tablesp_Rb_Stokhari.bpe2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isbbe1Null() {
+                return this.IsNull(this.tablesp_Rb_Stokhari.bbe1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setbbe1Null() {
+                this[this.tablesp_Rb_Stokhari.bbe1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isbbe2Null() {
+                return this.IsNull(this.tablesp_Rb_Stokhari.bbe2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setbbe2Null() {
+                this[this.tablesp_Rb_Stokhari.bbe2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isrbkeluare1Null() {
+                return this.IsNull(this.tablesp_Rb_Stokhari.rbkeluare1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setrbkeluare1Null() {
+                this[this.tablesp_Rb_Stokhari.rbkeluare1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isrbkeluare2Null() {
+                return this.IsNull(this.tablesp_Rb_Stokhari.rbkeluare2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setrbkeluare2Null() {
+                this[this.tablesp_Rb_Stokhari.rbkeluare2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iswpe1Null() {
+                return this.IsNull(this.tablesp_Rb_Stokhari.wpe1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setwpe1Null() {
+                this[this.tablesp_Rb_Stokhari.wpe1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iswpe2Null() {
+                return this.IsNull(this.tablesp_Rb_Stokhari.wpe2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setwpe2Null() {
+                this[this.tablesp_Rb_Stokhari.wpe2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iswbe1Null() {
+                return this.IsNull(this.tablesp_Rb_Stokhari.wbe1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setwbe1Null() {
+                this[this.tablesp_Rb_Stokhari.wbe1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iswbe2Null() {
+                return this.IsNull(this.tablesp_Rb_Stokhari.wbe2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setwbe2Null() {
+                this[this.tablesp_Rb_Stokhari.wbe2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsbsisakgNull() {
+                return this.IsNull(this.tablesp_Rb_Stokhari.bsisakgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetbsisakgNull() {
+                this[this.tablesp_Rb_Stokhari.bsisakgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IswastekgNull() {
+                return this.IsNull(this.tablesp_Rb_Stokhari.wastekgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetwastekgNull() {
+                this[this.tablesp_Rb_Stokhari.wastekgColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
         public partial class Rb_StokRow : global::System.Data.DataRow {
             
             private Rb_StokDataTable tableRb_Stok;
@@ -1915,6 +3011,22 @@ namespace GOS_FxApps.DataSet {
             internal Rb_StokRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tableRb_Stok = ((Rb_StokDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int bstok {
+                get {
+                    try {
+                        return ((int)(this[this.tableRb_Stok.bstokColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'bstok\' in table \'Rb_Stok\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRb_Stok.bstokColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1983,6 +3095,66 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int bsisakg {
+                get {
+                    try {
+                        return ((int)(this[this.tableRb_Stok.bsisakgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'bsisakg\' in table \'Rb_Stok\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRb_Stok.bsisakgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double wastekg {
+                get {
+                    try {
+                        return ((double)(this[this.tableRb_Stok.wastekgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'wastekg\' in table \'Rb_Stok\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRb_Stok.wastekgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime tanggal {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableRb_Stok.tanggalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'tanggal\' in table \'Rb_Stok\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRb_Stok.tanggalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsbstokNull() {
+                return this.IsNull(this.tableRb_Stok.bstokColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetbstokNull() {
+                this[this.tableRb_Stok.bstokColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Iswpe1Null() {
                 return this.IsNull(this.tableRb_Stok.wpe1Column);
             }
@@ -2028,6 +3200,42 @@ namespace GOS_FxApps.DataSet {
             public void Setwbe2Null() {
                 this[this.tableRb_Stok.wbe2Column] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsbsisakgNull() {
+                return this.IsNull(this.tableRb_Stok.bsisakgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetbsisakgNull() {
+                this[this.tableRb_Stok.bsisakgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IswastekgNull() {
+                return this.IsNull(this.tableRb_Stok.wastekgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetwastekgNull() {
+                this[this.tableRb_Stok.wastekgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IstanggalNull() {
+                return this.IsNull(this.tableRb_Stok.tanggalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SettanggalNull() {
+                this[this.tableRb_Stok.tanggalColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -2050,6 +3258,40 @@ namespace GOS_FxApps.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public sp_Rb_StokRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class sp_Rb_StokhariRowChangeEvent : global::System.EventArgs {
+            
+            private sp_Rb_StokhariRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public sp_Rb_StokhariRowChangeEvent(sp_Rb_StokhariRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public sp_Rb_StokhariRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -2328,6 +3570,216 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class sp_Rb_StokhariTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public sp_Rb_StokhariTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "sp_Rb_Stokhari";
+            tableMapping.ColumnMappings.Add("tanggal", "tanggal");
+            tableMapping.ColumnMappings.Add("bmasuk", "bmasuk");
+            tableMapping.ColumnMappings.Add("bkeluar", "bkeluar");
+            tableMapping.ColumnMappings.Add("bstok", "bstok");
+            tableMapping.ColumnMappings.Add("bpanjang", "bpanjang");
+            tableMapping.ColumnMappings.Add("bpe1", "bpe1");
+            tableMapping.ColumnMappings.Add("bpe2", "bpe2");
+            tableMapping.ColumnMappings.Add("bbe1", "bbe1");
+            tableMapping.ColumnMappings.Add("bbe2", "bbe2");
+            tableMapping.ColumnMappings.Add("rbkeluare1", "rbkeluare1");
+            tableMapping.ColumnMappings.Add("rbkeluare2", "rbkeluare2");
+            tableMapping.ColumnMappings.Add("wpe1", "wpe1");
+            tableMapping.ColumnMappings.Add("wpe2", "wpe2");
+            tableMapping.ColumnMappings.Add("wbe1", "wbe1");
+            tableMapping.ColumnMappings.Add("wbe2", "wbe2");
+            tableMapping.ColumnMappings.Add("bsisakg", "bsisakg");
+            tableMapping.ColumnMappings.Add("wastekg", "wastekg");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::GOS_FxApps.Properties.Settings.Default.gos_appsserver;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.sp_Rb_Stokhari";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bulan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tahun", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(rb_stok.sp_Rb_StokhariDataTable dataTable, global::System.Nullable<int> bulan, global::System.Nullable<int> tahun) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((bulan.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(bulan.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((tahun.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(tahun.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual rb_stok.sp_Rb_StokhariDataTable GetData(global::System.Nullable<int> bulan, global::System.Nullable<int> tahun) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((bulan.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(bulan.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((tahun.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(tahun.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            rb_stok.sp_Rb_StokhariDataTable dataTable = new rb_stok.sp_Rb_StokhariDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class Rb_StokTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -2440,20 +3892,15 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Rb_Stok";
+            tableMapping.ColumnMappings.Add("bstok", "bstok");
             tableMapping.ColumnMappings.Add("wpe1", "wpe1");
             tableMapping.ColumnMappings.Add("wpe2", "wpe2");
             tableMapping.ColumnMappings.Add("wbe1", "wbe1");
             tableMapping.ColumnMappings.Add("wbe2", "wbe2");
+            tableMapping.ColumnMappings.Add("bsisakg", "bsisakg");
+            tableMapping.ColumnMappings.Add("wastekg", "wastekg");
+            tableMapping.ColumnMappings.Add("tanggal", "tanggal");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [Rb_Stok] ([wpe1], [wpe2], [wbe1], [wbe2]) VALUES (@wpe1, @wpe2, @wbe" +
-                "1, @wbe2)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@wpe1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "wpe1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@wpe2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "wpe2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@wbe1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "wbe1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@wbe2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "wbe2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2469,21 +3916,31 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT TOP (1) wpe1, wpe2, wbe1, wbe2 FROM Rb_Stok WHERE (MONTH(tanggal) = @bulan" +
-                ") AND (YEAR(tanggal) = @tahun) ORDER BY tanggal";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bulan", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tahun", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].CommandText = "dbo.sp_StockAwalRbStok";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bulan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tahun", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(rb_stok.Rb_StokDataTable dataTable, decimal bulan, decimal tahun) {
+        public virtual int Fill(rb_stok.Rb_StokDataTable dataTable, global::System.Nullable<int> bulan, global::System.Nullable<int> tahun) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(bulan));
-            this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(tahun));
+            if ((bulan.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(bulan.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((tahun.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(tahun.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -2495,87 +3952,23 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual rb_stok.Rb_StokDataTable GetData(decimal bulan, decimal tahun) {
+        public virtual rb_stok.Rb_StokDataTable GetData(global::System.Nullable<int> bulan, global::System.Nullable<int> tahun) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(bulan));
-            this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(tahun));
+            if ((bulan.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(bulan.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((tahun.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(tahun.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
             rb_stok.Rb_StokDataTable dataTable = new rb_stok.Rb_StokDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(rb_stok.Rb_StokDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(rb_stok dataSet) {
-            return this.Adapter.Update(dataSet, "Rb_Stok");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> wpe1, global::System.Nullable<int> wpe2, global::System.Nullable<int> wbe1, global::System.Nullable<int> wbe2) {
-            if ((wpe1.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(wpe1.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((wpe2.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(wpe2.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((wbe1.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(wbe1.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((wbe2.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(wbe2.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
         }
     }
     
@@ -2591,8 +3984,6 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private Rb_StokTableAdapter _rb_StokTableAdapter;
-        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -2605,20 +3996,6 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public Rb_StokTableAdapter Rb_StokTableAdapter {
-            get {
-                return this._rb_StokTableAdapter;
-            }
-            set {
-                this._rb_StokTableAdapter = value;
             }
         }
         
@@ -2641,10 +4018,6 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._rb_StokTableAdapter != null) 
-                            && (this._rb_StokTableAdapter.Connection != null))) {
-                    return this._rb_StokTableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -2658,9 +4031,6 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._rb_StokTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 return count;
             }
         }
@@ -2672,15 +4042,6 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateUpdatedRows(rb_stok dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._rb_StokTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Rb_Stok.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._rb_StokTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -2691,14 +4052,6 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateInsertedRows(rb_stok dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._rb_StokTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Rb_Stok.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._rb_StokTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -2709,14 +4062,6 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(rb_stok dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._rb_StokTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Rb_Stok.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._rb_StokTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             return result;
         }
         
@@ -2756,11 +4101,6 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._rb_StokTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._rb_StokTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
@@ -2793,15 +4133,6 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._rb_StokTableAdapter != null)) {
-                    revertConnections.Add(this._rb_StokTableAdapter, this._rb_StokTableAdapter.Connection);
-                    this._rb_StokTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._rb_StokTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._rb_StokTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._rb_StokTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._rb_StokTableAdapter.Adapter);
-                    }
-                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -2859,10 +4190,6 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._rb_StokTableAdapter != null)) {
-                    this._rb_StokTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._rb_StokTableAdapter]));
-                    this._rb_StokTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

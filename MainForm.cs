@@ -673,7 +673,6 @@ namespace GOS_FxApps {
             EditContainer.Visible = false; 
             btnlaporan.Visible = false;
             historycontainer.Visible = false;
-            btnestimasi.Visible = false;
             gudangContainer.Visible = false;
         }
         public void truemanajer()
@@ -703,7 +702,6 @@ namespace GOS_FxApps {
             guna2Button1.Visible = true;
             iconButton13.Visible = true;
 
-            btnestimasi.Visible = true;
             gudangContainer.Visible = true;
         }
         public void trueadmin()
@@ -722,7 +720,6 @@ namespace GOS_FxApps {
         }
         public void trueoperatorgudang()
         {
-            btnestimasi.Visible = true;
             gudangContainer.Visible = true;
             btnlaporan.Visible = true;
 

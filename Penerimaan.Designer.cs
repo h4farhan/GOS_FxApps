@@ -1004,7 +1004,7 @@ namespace GOS_FxApps
             this.txtcari.TabIndex = 1;
             this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
             this.txtcari.TextChanged += new System.EventHandler(this.txtcari_TextChanged);
-            this.txtcari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            this.txtcari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             // 
             // dataGridView1
             // 

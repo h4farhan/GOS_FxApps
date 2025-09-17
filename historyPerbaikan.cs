@@ -196,6 +196,14 @@ namespace GOS_FxApps
             jumlahdata();
         }
 
+        private void hurufbesar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.KeyChar = char.ToUpper(e.KeyChar);
+            }
+        }
+
         private void btnreset_Click(object sender, EventArgs e)
         {
             tampil();

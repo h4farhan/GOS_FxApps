@@ -389,6 +389,40 @@ namespace GOS_FxApps
             frmrpt.Show();
         }
 
+        private void formweldinghari()
+        {
+            int bulan = datecaripemakaian.Value.Month;
+            int tahun = datecaripemakaian.Value.Year;
+
+            var adapter = new GOS_FxApps.DataSet.rb_stokTableAdapters.sp_Rb_StokhariTableAdapter();
+            GOS_FxApps.DataSet.rb_stok.sp_Rb_StokhariDataTable data = adapter.GetData(bulan, tahun);
+
+            var adapterfirst = new GOS_FxApps.DataSet.rb_stokTableAdapters.Rb_StokTableAdapter();
+            GOS_FxApps.DataSet.rb_stok.Rb_StokDataTable datafirst = adapterfirst.GetData(bulan, tahun);
+
+            frmrpt = new reportviewr();
+            frmrpt.reportViewer1.Reset();
+            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "Rb_Stokhari.rdlc");
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetrbstokhari", (DataTable)data));
+
+            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("datasetstokawal", (DataTable)datafirst));
+
+            ReportParameter[] parameters = new ReportParameter[]
+            {
+        new ReportParameter("bulan", bulan.ToString()),
+        new ReportParameter("tahun", tahun.ToString())
+            };
+
+            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
+            frmrpt.reportViewer1.RefreshReport();
+            frmrpt.Show();
+        }
+
         private void formlaporanharian()
         {
             int bulan = datecaripemakaian.Value.Month;
@@ -719,9 +753,13 @@ namespace GOS_FxApps
             {
                 formpengiriman();
             }
-            else if (pilihan == "Welding Pieces")
+            else if (pilihan == "Welding Pieces (Detail Shift)")
             {
                 formwelding();
+            }
+            else if (pilihan == "Welding Pieces (Rekap Harian)")
+            {
+                formweldinghari();
             }
             else if (pilihan == "Hasil Produksi & Pemakaian Material")
             {
@@ -755,15 +793,6 @@ namespace GOS_FxApps
 
         private void printpenerimaan_Load(object sender, EventArgs e)
         {
-            if (!(MainForm.Instance.role == "Operator Gudang"
-               || MainForm.Instance.role == "Manajer"
-               || MainForm.Instance.role == "Admin"))
-            {
-                if (cmbpilihdata.Items.Contains("Kartu Stock Material"))
-                {
-                    cmbpilihdata.Items.Remove("Kartu Stock Material");
-                }
-            }
             datecari.Value = DateTime.Now.Date;
             datecaripemakaian.Value = DateTime.Now.Date;
             datematerial.Value = DateTime.Now.Date;
@@ -1903,7 +1932,38 @@ namespace GOS_FxApps
                     guna2Panel4.ResetText();
                 }
             }
-            else if (pilihan == "Welding Pieces")
+            else if (pilihan == "Welding Pieces (Detail Shift)")
+            {
+                if (!infocari)
+                {
+                    bool hasilCari = cariwelding();
+                    if (hasilCari)
+                    {
+                        infocari = true;
+                        btnprint.Enabled = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                    else
+                    {
+                        infocari = true;
+                        btncari.Text = "Reset";
+                        jumlahdata();
+                    }
+                }
+                else
+                {
+                    tampilwelding();
+                    infocari = false;
+                    btncari.Text = "Cari";
+                    jumlahdata();
+
+                    btnprint.Enabled = false;
+
+                    guna2Panel4.ResetText();
+                }
+            }
+            else if (pilihan == "Welding Pieces (Rekap Harian)")
             {
                 if (!infocari)
                 {
@@ -2225,7 +2285,25 @@ namespace GOS_FxApps
                 tampilpengiriman();
                 jumlahdata();
             }
-            else if (pilihan == "Welding Pieces")
+            else if (pilihan == "Welding Pieces (Detail Shift)")
+            {
+                //reset dulu
+                infocari = false;
+                btncari.Text = "Cari";
+                btnprint.Enabled = false;
+                guna2Panel4.ResetText();
+                datecaripemakaian.Checked = false;
+                paneldata2.Visible = false;
+                paneldata3.Visible = false;
+                panelbukti.Visible = false;
+
+                paneldata1.Visible = true;
+                btncari.Enabled = true;
+                btnprint.Text = "Print Data";
+                tampilwelding();
+                jumlahdata();
+            }
+            else if (pilihan == "Welding Pieces (Rekap Harian)")
             {
                 //reset dulu
                 infocari = false;

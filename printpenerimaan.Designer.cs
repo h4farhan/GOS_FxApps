@@ -104,13 +104,14 @@
             "Penerimaan",
             "Perbaikan",
             "Pengiriman",
-            "Welding Pieces",
+            "Welding Pieces (Detail Shift)",
+            "Welding Pieces (Rekap Harian)",
             "Hasil Produksi & Pemakaian Material",
             "Summary Data for Anode ROD Repair",
             "Actual Quantity for Repaired ROD Assy",
             "Kondisi ROD Reject di Rod Repair Shop",
-            "Kartu Stock Material",
             "Actual Consumption Of Material & Part",
+            "Kartu Stock Material",
             "Bukti Perubahan"});
             this.cmbpilihdata.Location = new System.Drawing.Point(692, 13);
             this.cmbpilihdata.Margin = new System.Windows.Forms.Padding(2);

@@ -1597,6 +1597,7 @@ namespace GOS_FxApps
             this.txtcaripenerimaan.TabIndex = 1;
             this.txtcaripenerimaan.TextOffset = new System.Drawing.Point(5, 0);
             this.txtcaripenerimaan.TextChanged += new System.EventHandler(this.txtcaripenerimaan_TextChanged);
+            this.txtcaripenerimaan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             // 
             // dataGridView2
             // 

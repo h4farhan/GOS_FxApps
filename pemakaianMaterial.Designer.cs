@@ -37,9 +37,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.txtcarimaterial = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cmbSpesifikasi = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txttipe = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblstoksaatini = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.picture1 = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -139,9 +138,8 @@
             this.guna2Panel1.BorderColor = System.Drawing.Color.Gainsboro;
             this.guna2Panel1.BorderRadius = 15;
             this.guna2Panel1.BorderThickness = 2;
-            this.guna2Panel1.Controls.Add(this.txtcarimaterial);
+            this.guna2Panel1.Controls.Add(this.cmbSpesifikasi);
             this.guna2Panel1.Controls.Add(this.label7);
-            this.guna2Panel1.Controls.Add(this.txttipe);
             this.guna2Panel1.Controls.Add(this.lblstoksaatini);
             this.guna2Panel1.Controls.Add(this.label3);
             this.guna2Panel1.Controls.Add(this.picture1);
@@ -159,31 +157,27 @@
             this.guna2Panel1.Size = new System.Drawing.Size(376, 668);
             this.guna2Panel1.TabIndex = 2;
             // 
-            // txtcarimaterial
+            // cmbSpesifikasi
             // 
-            this.txtcarimaterial.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtcarimaterial.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcarimaterial.BorderRadius = 5;
-            this.txtcarimaterial.BorderThickness = 0;
-            this.txtcarimaterial.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtcarimaterial.DefaultText = "";
-            this.txtcarimaterial.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtcarimaterial.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtcarimaterial.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcarimaterial.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcarimaterial.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcarimaterial.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtcarimaterial.ForeColor = System.Drawing.Color.Black;
-            this.txtcarimaterial.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcarimaterial.Location = new System.Drawing.Point(51, 340);
-            this.txtcarimaterial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtcarimaterial.Name = "txtcarimaterial";
-            this.txtcarimaterial.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcarimaterial.PlaceholderText = "Axxxx";
-            this.txtcarimaterial.SelectedText = "";
-            this.txtcarimaterial.Size = new System.Drawing.Size(255, 29);
-            this.txtcarimaterial.TabIndex = 50;
-            this.txtcarimaterial.TextChanged += new System.EventHandler(this.txtcarimaterial_TextChanged_1);
+            this.cmbSpesifikasi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbSpesifikasi.BackColor = System.Drawing.Color.Transparent;
+            this.cmbSpesifikasi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cmbSpesifikasi.BorderRadius = 5;
+            this.cmbSpesifikasi.BorderThickness = 2;
+            this.cmbSpesifikasi.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbSpesifikasi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSpesifikasi.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbSpesifikasi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbSpesifikasi.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbSpesifikasi.ForeColor = System.Drawing.Color.Black;
+            this.cmbSpesifikasi.ItemHeight = 30;
+            this.cmbSpesifikasi.Location = new System.Drawing.Point(47, 408);
+            this.cmbSpesifikasi.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbSpesifikasi.Name = "cmbSpesifikasi";
+            this.cmbSpesifikasi.Size = new System.Drawing.Size(287, 36);
+            this.cmbSpesifikasi.TabIndex = 51;
+            this.cmbSpesifikasi.SelectedIndexChanged += new System.EventHandler(this.cmbSpesifikasi_SelectedIndexChanged);
+            this.cmbSpesifikasi.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label7
             // 
@@ -198,32 +192,6 @@
             this.label7.TabIndex = 45;
             this.label7.Text = "Spesifikasi";
             // 
-            // txttipe
-            // 
-            this.txttipe.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txttipe.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txttipe.BorderRadius = 5;
-            this.txttipe.BorderThickness = 2;
-            this.txttipe.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txttipe.DefaultText = "";
-            this.txttipe.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txttipe.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txttipe.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txttipe.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txttipe.Enabled = false;
-            this.txttipe.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txttipe.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txttipe.ForeColor = System.Drawing.Color.Black;
-            this.txttipe.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txttipe.Location = new System.Drawing.Point(47, 409);
-            this.txttipe.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txttipe.Name = "txttipe";
-            this.txttipe.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txttipe.PlaceholderText = "Axxxx";
-            this.txttipe.SelectedText = "";
-            this.txttipe.Size = new System.Drawing.Size(287, 36);
-            this.txttipe.TabIndex = 44;
-            // 
             // lblstoksaatini
             // 
             this.lblstoksaatini.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -234,7 +202,7 @@
             this.lblstoksaatini.Name = "lblstoksaatini";
             this.lblstoksaatini.Size = new System.Drawing.Size(161, 25);
             this.lblstoksaatini.TabIndex = 43;
-            this.lblstoksaatini.Text = "Stok Saat Ini: 10";
+            this.lblstoksaatini.Text = "Stok Saat Ini: -";
             this.lblstoksaatini.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
@@ -318,9 +286,9 @@
             this.label4.Location = new System.Drawing.Point(47, 308);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 19);
+            this.label4.Size = new System.Drawing.Size(99, 19);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Pilih Nama Material";
+            this.label4.Text = "Nama Material";
             // 
             // txtjumlah
             // 
@@ -523,11 +491,12 @@
             this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtcari.Name = "txtcari";
             this.txtcari.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcari.PlaceholderText = "Kode Barang";
+            this.txtcari.PlaceholderText = "Kode Barang atau Nama Barang";
             this.txtcari.SelectedText = "";
             this.txtcari.Size = new System.Drawing.Size(46, 39);
             this.txtcari.TabIndex = 42;
             this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtcari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             // 
             // dataGridView1
             // 
@@ -632,7 +601,6 @@
         public Guna.UI2.WinForms.Guna2PictureBox picture1;
         public System.Windows.Forms.Label lblstoksaatini;
         private System.Windows.Forms.Label label7;
-        private Guna.UI2.WinForms.Guna2TextBox txttipe;
-        private Guna.UI2.WinForms.Guna2TextBox txtcarimaterial;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbSpesifikasi;
     }
 }
