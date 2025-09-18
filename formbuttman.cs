@@ -93,19 +93,19 @@ namespace GOS_FxApps
             }
 
             DataTable dt = new DataTable();
-            string query = "SELECT * FROM kondisiROD WHERE 1=1";
+            string query = "SELECT * FROM kondisiROD WHERE 1=1 ";
 
             using (SqlCommand cmd = new SqlCommand())
             {
                 if (tanggal.HasValue)
                 {
-                    query += " AND CAST(tanggal AS DATE) = @tgl";
+                    query += "AND CAST(tanggal AS DATE) = @tgl";
                     cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
                 }
 
                 if (shiftValid)
                 {
-                    query += " AND shift = @shift";
+                    query += "AND shift = @shift";
                     cmd.Parameters.AddWithValue("@shift", cbShift.SelectedItem.ToString());
                 }
 

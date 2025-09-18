@@ -473,7 +473,10 @@ namespace GOS_FxApps
             registertampil();
             cmbnama.DropDownStyle = ComboBoxStyle.DropDown;
             cmbnama.MaxDropDownItems = 10;
-            cmbnama.DropDownHeight = 200;
+            cmbnama.DropDownHeight = 300;
+            cmbSpesifikasi.DropDownStyle = ComboBoxStyle.DropDown;
+            cmbSpesifikasi.MaxDropDownItems = 10;
+            cmbSpesifikasi.DropDownHeight = 300;
         }
 
         private void btncari_Click(object sender, EventArgs e)

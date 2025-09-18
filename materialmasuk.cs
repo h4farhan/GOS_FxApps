@@ -142,7 +142,7 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@kode", "%" + keyword + "%");
                 }
 
-                query += "ORDER BY tanggalMasuk DESC, updated_at DESC";
+                query += " ORDER BY tanggalMasuk DESC, updated_at DESC";
 
                 cmd.CommandText = query;
                 cmd.Connection = conn;
@@ -157,22 +157,10 @@ namespace GOS_FxApps
 
                     dataGridView1.DataSource = dt;
                 }
-                catch (SqlException ex)
+                catch (SqlException)
                 {
-                    string paramInfo = "";
-                    foreach (SqlParameter p in cmd.Parameters)
-                    {
-                        paramInfo += $"{p.ParameterName} = {p.Value}\n";
-                    }
-
-                    MessageBox.Show(
-                        "Koneksi terputus. Pastikan jaringan aktif cari.\n\n"
-                        + "Pesan Error: " + ex.Message + "\n\n"
-                        + "Query:\n" + cmd.CommandText + "\n\n"
-                        + "Parameter:\n" + paramInfo,
-                        "Kesalahan Jaringan",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error
-                    );
+                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
@@ -412,7 +400,10 @@ namespace GOS_FxApps
             registertampil();
             cmbnama.DropDownStyle = ComboBoxStyle.DropDown;
             cmbnama.MaxDropDownItems = 10;
-            cmbnama.DropDownHeight = 200;
+            cmbnama.DropDownHeight = 300;
+            cmbSpesifikasi.DropDownStyle = ComboBoxStyle.DropDown;
+            cmbSpesifikasi.MaxDropDownItems = 10;
+            cmbSpesifikasi.DropDownHeight = 300;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

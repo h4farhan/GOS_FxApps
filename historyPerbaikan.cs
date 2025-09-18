@@ -119,7 +119,7 @@ namespace GOS_FxApps
 
             DataTable dt = new DataTable();
 
-            string query = "SELECT * FROM perbaikan_p WHERE 1=1";
+            string query = "SELECT * FROM perbaikan_p WHERE 1=1 ";
 
             using (SqlCommand cmd = new SqlCommand())
             {
@@ -131,13 +131,13 @@ namespace GOS_FxApps
 
                 if (!string.IsNullOrEmpty(inputRod))
                 {
-                    query += " AND nomor_rod = @rod";
+                    query += "AND nomor_rod = @rod";
                     cmd.Parameters.AddWithValue("@rod", inputRod);
                 }
 
                 if (shiftValid)
                 {
-                    query += " AND shift = @shift";
+                    query += "AND shift = @shift";
                     cmd.Parameters.AddWithValue("@shift", cbShift.SelectedItem.ToString());
                 }
 

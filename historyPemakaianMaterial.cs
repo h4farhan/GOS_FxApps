@@ -48,7 +48,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT idPemakaian, kodeBarang, namaBarang, spesifikasi, type, tanggalPemakaian, jumlahPemakaian, updated_at, remaks FROM pemakaian_material ORDER BY tanggalPemakaian DESC";
+                string query = "SELECT idPemakaian, kodeBarang, namaBarang, spesifikasi, type, tanggalPemakaian, jumlahPemakaian, updated_at, remaks FROM pemakaian_material ORDER BY tanggalPemakaian DESC, updated_at DESC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
@@ -84,33 +84,45 @@ namespace GOS_FxApps
         private bool cari()
         {
             DateTime? tanggal = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
-            string kodeBarang = txtcari.Text.Trim();
+            string keyword = txtcari.Text.Trim();
 
-            if (!tanggal.HasValue && string.IsNullOrEmpty(kodeBarang))
+            if (!tanggal.HasValue && string.IsNullOrEmpty(keyword))
             {
-                MessageBox.Show("Silakan isi Tanggal atau Kode Barang untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Silakan isi Tanggal atau Kode/Nama Barang untuk melakukan pencarian.",
+                                "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
             DataTable dt = new DataTable();
-
-            string query = "SELECT * FROM pemakaian_material WHERE 1=1";
+            string query = @"
+        SELECT 
+            idPemakaian, 
+            kodeBarang, 
+            namaBarang, 
+            spesifikasi, 
+            type, 
+            tanggalPemakaian, 
+            jumlahPemakaian, 
+            updated_at, 
+            remaks
+        FROM pemakaian_material
+        WHERE 1=1 ";
 
             using (SqlCommand cmd = new SqlCommand())
             {
                 if (tanggal.HasValue)
                 {
-                    query += "AND CAST(tanggalPemakaian AS DATE) = @tgl";
+                    query += "AND CAST(tanggalPemakaian AS DATE) = @tgl ";
                     cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
                 }
 
-                if (!string.IsNullOrEmpty(kodeBarang))
+                if (!string.IsNullOrEmpty(keyword))
                 {
-                    query += " AND kodeBarang = @kode";
-                    cmd.Parameters.AddWithValue("@kode", kodeBarang);
+                    query += "AND (kodeBarang LIKE @kode OR namaBarang LIKE @kode) ";
+                    cmd.Parameters.AddWithValue("@kode", "%" + keyword + "%");
                 }
 
-                query += " ORDER BY tanggalPemakaian DESC";
+                query += "ORDER BY tanggalPemakaian DESC, updated_at DESC";
 
                 cmd.CommandText = query;
                 cmd.Connection = conn;
@@ -125,11 +137,28 @@ namespace GOS_FxApps
                     }
 
                     dataGridView1.DataSource = dt;
+
+                    dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
+                    dataGridView1.RowTemplate.Height = 35;
+                    dataGridView1.ReadOnly = true;
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                    if (dataGridView1.Columns.Contains("idPemakaian"))
+                        dataGridView1.Columns["idPemakaian"].Visible = false;
+
+                    dataGridView1.Columns["kodeBarang"].HeaderText = "Kode Barang";
+                    dataGridView1.Columns["namaBarang"].HeaderText = "Nama Barang";
+                    dataGridView1.Columns["spesifikasi"].HeaderText = "Spesifikasi";
+                    dataGridView1.Columns["type"].HeaderText = "Tipe";
+                    dataGridView1.Columns["tanggalPemakaian"].HeaderText = "Tanggal Pemakaian";
+                    dataGridView1.Columns["jumlahPemakaian"].HeaderText = "Jumlah Pemakaian";
+                    dataGridView1.Columns["updated_at"].HeaderText = "Diubah";
+                    dataGridView1.Columns["remaks"].HeaderText = "Remaks";
                 }
                 catch (SqlException)
                 {
                     MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
@@ -140,8 +169,9 @@ namespace GOS_FxApps
                 {
                     conn.Close();
                 }
-                return dt.Rows.Count > 0;
             }
+
+            return dt.Rows.Count > 0;
         }
 
         private void jumlahdata()

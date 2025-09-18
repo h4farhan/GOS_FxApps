@@ -22,6 +22,7 @@ namespace GOS_FxApps
         public static Dashboard Instance;
 
         bool bukatutupfilter = false;
+        private Action shiftChangedHandler;
 
         public Dashboard()
         {
@@ -1995,6 +1996,133 @@ namespace GOS_FxApps
             }
         }
 
+        private void registerwelding()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.Rb_Stok", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            LoadchartRB();
+                            registerwelding();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+        private void registerpenerimaanp()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.penerimaan_p", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            LoadPanel();
+                            LoadChartPenerimaanHarian();
+                            LoadChartPenerimaanBulanan();
+                            LoadChartPenerimaanTahunan();
+                            LoadChartPenerimaanCustom();
+                            registerpenerimaans();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+        private void registerperbaikanp()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.perbaikan_p", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            LoadPanel();
+
+                            loadChartPerbaikanHarian();
+                            LoadChartPerbaikanBulanan();
+                            LoadChartPenerimaanTahunan();
+                            LoadChartPerbaikanCustom();
+
+                            LoadChartMaterialCostHarian();
+                            LoadChartMaterialCostBulan();
+                            LoadChartMaterialCostTahun();
+                            LoadChartmaterialCostCustom();
+
+                            LoadChartConsumableCostHarian();
+                            LoadChartConsumableCostBulan();
+                            LoadChartConsumableCostTahun();
+                            LoadChartConsumableCostCustom();
+
+                            LoadChartSafetyCostHarian();
+                            LoadChartSafetyCostBulan();
+                            LoadChartSafetyCostTahun();
+                            LoadChartsafetyCostCustom();
+
+                            registerperbaikans();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+        private void registerpemakaian()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.pemakaian_material", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            LoadChartMaterialCostHarian();
+                            LoadChartMaterialCostBulan();
+                            LoadChartMaterialCostTahun();
+                            LoadChartmaterialCostCustom();
+
+                            LoadChartConsumableCostHarian();
+                            LoadChartConsumableCostBulan();
+                            LoadChartConsumableCostTahun();
+                            LoadChartConsumableCostCustom();
+
+                            LoadChartSafetyCostHarian();
+                            LoadChartSafetyCostBulan();
+                            LoadChartSafetyCostTahun();
+                            LoadChartsafetyCostCustom();
+
+                            registerperbaikans();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
         private void registerpenerimaans()
         {
             using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
@@ -2039,10 +2167,10 @@ namespace GOS_FxApps
                 cmd.ExecuteReader();
             }
         }
-        private void registerwelding()
+        private void registerpengiriman()
         {
             using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.Rb_Stok", conn))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.pengiriman", conn))
             {
                 cmd.Notification = null;
                 var dep = new SqlDependency(cmd);
@@ -2052,8 +2180,8 @@ namespace GOS_FxApps
                     {
                         this.Invoke(new Action(() =>
                         {
-                            LoadchartRB();
-                            registerwelding();
+                            LoadPanel();
+                            registerperbaikans();
                         }));
                     }
                 };
@@ -2066,6 +2194,9 @@ namespace GOS_FxApps
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
 
+            shiftChangedHandler = () => LoadPanel();
+            MainForm.Instance.ShiftChanged += shiftChangedHandler;
+
             tanggalcustom1.Value = DateTime.Today;
             tanggalcustom2.Value = DateTime.Today;
             datebulan.Value = DateTime.Now;
@@ -2075,9 +2206,13 @@ namespace GOS_FxApps
             containertanggal1.Visible = true;
             lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
 
+            registerwelding();
             registerpenerimaans();
             registerperbaikans();
-            registerwelding();
+            registerpenerimaanp();
+            registerperbaikanp();
+            registerpemakaian();
+            registerpengiriman();
         }
 
         private void cmbpilihdata_SelectedIndexChanged(object sender, EventArgs e)
@@ -2120,11 +2255,6 @@ namespace GOS_FxApps
                 cmbtipe.SelectedIndex = 0;
                 tanggalcustom1.Value = DateTime.Now;
             }
-        }
-
-        private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            SqlDependency.Stop(Koneksi.GetConnectionString());
         }
 
         private void cmbrentang_SelectedIndexChanged(object sender, EventArgs e)
@@ -2470,6 +2600,16 @@ namespace GOS_FxApps
                 bukatutupfilter = true;
                 HamburgerButton.IconChar = FontAwesome.Sharp.IconChar.AngleRight;
             }
+        }
+
+        private void Dashboard_FormClosing_1(object sender, FormClosingEventArgs e)
+        {
+            if (shiftChangedHandler != null)
+            {
+                MainForm.Instance.ShiftChanged -= shiftChangedHandler;
+                shiftChangedHandler = null;
+            }
+            SqlDependency.Stop(Koneksi.GetConnectionString());
         }
     }
 }

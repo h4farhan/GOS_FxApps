@@ -93,7 +93,7 @@ namespace GOS_FxApps
 
             DataTable dt = new DataTable();
 
-            string query = "SELECT * FROM material_masuk WHERE 1=1";
+            string query = "SELECT * FROM material_masuk WHERE 1=1 ";
 
             using (SqlCommand cmd = new SqlCommand())
             {
@@ -105,7 +105,7 @@ namespace GOS_FxApps
 
                 if (!string.IsNullOrEmpty(kodeBarang))
                 {
-                    query += " AND kodeBarang = @kode";
+                    query += "AND kodeBarang = @kode";
                     cmd.Parameters.AddWithValue("@kode", kodeBarang);
                 }
 

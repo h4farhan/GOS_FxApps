@@ -49,34 +49,32 @@ namespace GOS_FxApps
                 cmd.ExecuteReader();
             }
         }
-        private void AngkaOnly_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (sender is TextBox txt)
+            TextBox tb = sender as TextBox;
+            if (tb == null) return;
+
+            // hanya boleh angka, kontrol (Backspace, Delete), atau koma
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
             {
-                string text = txt.Text;
+                e.Handled = true;
+                return;
+            }
 
-                string valid = "";
-                bool komaSudahAda = false;
+            // koma tidak boleh lebih dari 1
+            if (e.KeyChar == ',' && tb.Text.Contains(","))
+            {
+                e.Handled = true;
+            }
 
-                foreach (char c in text)
-                {
-                    if (char.IsDigit(c))
-                        valid += c;
-                    else if (c == ',' && !komaSudahAda)
-                    {
-                        valid += c;
-                        komaSudahAda = true;
-                    }
-                }
-
-                if (txt.Text != valid)
-                {
-                    int pos = txt.SelectionStart;
-                    txt.Text = valid;
-                    txt.SelectionStart = Math.Min(pos, txt.Text.Length);
-                }
+            // koma tidak boleh di awal
+            if (e.KeyChar == ',' && tb.SelectionStart == 0)
+            {
+                e.Handled = true;
             }
         }
+
 
         private void hurufbesar_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -326,7 +324,7 @@ namespace GOS_FxApps
                         cmd1.Parameters.AddWithValue("@c", string.IsNullOrWhiteSpace(txtkoefc.Text) ? 0 : Convert.ToDecimal(txtkoefc.Text));
                         cmd1.Parameters.AddWithValue("@rl", string.IsNullOrWhiteSpace(txtkoefrl.Text) ? 0 : Convert.ToDecimal(txtkoefrl.Text));
 
-                        cmd1.Parameters.AddWithValue("@diubah", DateTime.Now);
+                        cmd1.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
 
                         cmd1.ExecuteNonQuery();
                     }
@@ -670,6 +668,9 @@ namespace GOS_FxApps
             registertampilmaterial();
             tampilmaterial();
             combonama();
+            cmbmaterial.DropDownStyle = ComboBoxStyle.DropDown;
+            cmbmaterial.MaxDropDownItems = 10;
+            cmbmaterial.DropDownHeight = 500;
         }
 
         private void koefisiensi_FormClosing(object sender, FormClosingEventArgs e)

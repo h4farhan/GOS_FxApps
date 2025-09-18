@@ -34,8 +34,22 @@ namespace GOS_FxApps {
 
         public string role = null;
 
-        public string shift;
         public DateTime tanggal;
+
+        public event Action ShiftChanged;
+        private string _shift;
+        public string shift
+        {
+            get => _shift;
+            private set
+            {
+                if (_shift != value)
+                {
+                    _shift = value;
+                    ShiftChanged?.Invoke();
+                }
+            }
+        }
 
         public void ResetButtonColors()
         {
@@ -291,6 +305,7 @@ namespace GOS_FxApps {
                 cmd.ExecuteReader();
             }
         }
+        
 
         //kode utama
         public void SwitchPanel(Form panel)
