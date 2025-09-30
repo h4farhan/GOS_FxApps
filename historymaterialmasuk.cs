@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Input;
 
 namespace GOS_FxApps
 {
@@ -83,9 +84,9 @@ namespace GOS_FxApps
         private bool cari()
         {
             DateTime? tanggal = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
-            string kodeBarang = txtcari.Text.Trim();
+            string keyword = txtcari.Text.Trim();
 
-            if (!tanggal.HasValue && string.IsNullOrEmpty(kodeBarang))
+            if (!tanggal.HasValue && string.IsNullOrEmpty(keyword))
             {
                 MessageBox.Show("Silakan isi Tanggal atau Kode Barang untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
@@ -103,10 +104,10 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
                 }
 
-                if (!string.IsNullOrEmpty(kodeBarang))
+                if (!string.IsNullOrEmpty(keyword))
                 {
-                    query += "AND kodeBarang = @kode";
-                    cmd.Parameters.AddWithValue("@kode", kodeBarang);
+                    query += "AND (kodeBarang LIKE @kode OR namaBarang LIKE @kode) ";
+                    cmd.Parameters.AddWithValue("@kode", "%" + keyword + "%");
                 }
 
                 query += " ORDER BY tanggalMasuk DESC";

@@ -129,6 +129,22 @@
           <DataField>wastekg</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
+        <Field Name="bpanjang1">
+          <DataField>bpanjang</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="konversi_e1">
+          <DataField>konversi_e1</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="konversi_e2">
+          <DataField>konversi_e2</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="konversiroundbar">
+          <DataField>konversiroundbar</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>rb_stok</rd:DataSetName>
@@ -401,6 +417,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -481,14 +498,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox87">
+                        <Textbox Name="konversi_e1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!konversi_e1.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -502,7 +519,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox87</rd:DefaultName>
+                          <rd:DefaultName>konversi_e1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -519,14 +536,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox88">
+                        <Textbox Name="konversi_e2">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!konversi_e2.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -540,7 +557,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox88</rd:DefaultName>
+                          <rd:DefaultName>konversi_e2</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -557,14 +574,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox89">
+                        <Textbox Name="konversiroundbar">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!konversiroundbar.Value</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -578,7 +595,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox89</rd:DefaultName>
+                          <rd:DefaultName>konversiroundbar</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1065,6 +1082,7 @@
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>SemiBold</FontWeight>
+                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1090,7 +1108,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox9">
+                        <Textbox Name="Textbox1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -1111,7 +1129,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox9</rd:DefaultName>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1211,7 +1229,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Sum(Fields!konversi_e1.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -1249,7 +1267,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Sum(Fields!konversi_e2.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -1287,7 +1305,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Sum(Fields!konversiroundbar.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -1330,7 +1348,7 @@
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>SemiBold</FontWeight>
-                                    <Color>#0070bf</Color>
+                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1368,7 +1386,7 @@
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>SemiBold</FontWeight>
-                                    <Color>#0070bf</Color>
+                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1406,7 +1424,7 @@
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>SemiBold</FontWeight>
-                                    <Color>#0070bf</Color>
+                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1444,7 +1462,7 @@
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>SemiBold</FontWeight>
-                                    <Color>#0070bf</Color>
+                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1482,6 +1500,7 @@
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>SemiBold</FontWeight>
+                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1520,6 +1539,7 @@
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>SemiBold</FontWeight>
+                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1558,6 +1578,7 @@
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>SemiBold</FontWeight>
+                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1596,6 +1617,7 @@
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>SemiBold</FontWeight>
+                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1634,6 +1656,7 @@
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>SemiBold</FontWeight>
+                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1671,6 +1694,7 @@
                                     <FontFamily>Arial Narrow</FontFamily>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>SemiBold</FontWeight>
+                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>

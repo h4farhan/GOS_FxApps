@@ -168,9 +168,9 @@
             this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtcari.Name = "txtcari";
             this.txtcari.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcari.PlaceholderText = "Kode Barang";
+            this.txtcari.PlaceholderText = "Kode Barang atau Nama Barang";
             this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(231, 39);
+            this.txtcari.Size = new System.Drawing.Size(313, 39);
             this.txtcari.TabIndex = 51;
             this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
             this.txtcari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
@@ -235,7 +235,7 @@
             this.lbljumlahdata.AutoSize = true;
             this.lbljumlahdata.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.lbljumlahdata.ForeColor = System.Drawing.Color.Black;
-            this.lbljumlahdata.Location = new System.Drawing.Point(491, 94);
+            this.lbljumlahdata.Location = new System.Drawing.Point(570, 94);
             this.lbljumlahdata.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbljumlahdata.Name = "lbljumlahdata";
             this.lbljumlahdata.Size = new System.Drawing.Size(181, 20);

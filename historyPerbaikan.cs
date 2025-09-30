@@ -131,8 +131,8 @@ namespace GOS_FxApps
 
                 if (!string.IsNullOrEmpty(inputRod))
                 {
-                    query += "AND nomor_rod = @rod";
-                    cmd.Parameters.AddWithValue("@rod", inputRod);
+                    query += "AND nomor_rod LIKE @rod";
+                    cmd.Parameters.AddWithValue("@rod", "%" + inputRod + "%");
                 }
 
                 if (shiftValid)

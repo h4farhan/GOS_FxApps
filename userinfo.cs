@@ -72,6 +72,7 @@ namespace GOS_FxApps
             MainForm.Instance.entryContainer.Size = MainForm.Instance.defaultentrycontainer;
             MainForm.Instance.EditContainer.Size = MainForm.Instance.defaulteditcontainer;
             MainForm.Instance.historycontainer.Size = MainForm.Instance.defaulhistorycontainer;
+            MainForm.Instance.gudangContainer.Size = MainForm.Instance.defaulgudangcontainer;
             MainForm.Instance.role = null;
             this.Close();
         }

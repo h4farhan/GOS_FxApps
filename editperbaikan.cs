@@ -142,8 +142,8 @@ namespace GOS_FxApps
 
                 if (!string.IsNullOrEmpty(inputRod))
                 {
-                    query += "AND nomor_rod = @rod";
-                    cmd.Parameters.AddWithValue("@rod", inputRod);
+                    query += "AND nomor_rod LIKE @rod";
+                    cmd.Parameters.AddWithValue("@rod", "%" + inputRod + "%");
                 }
 
                 query += " ORDER BY tanggal_perbaikan DESC";
@@ -336,7 +336,7 @@ namespace GOS_FxApps
                 cmd1.Parameters.AddWithValue("@jumlah", lbltotalupdate.Text);
                 cmd1.Parameters.AddWithValue("@no", noprimary);
                 cmd1.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
-                cmd1.Parameters.AddWithValue("@remaks", MainForm.Instance.Name);
+                cmd1.Parameters.AddWithValue("@remaks", loginform.login.name);
                 cmd1.Parameters.AddWithValue("@catatan", txtcatatan.Text);
                 cmd1.ExecuteNonQuery();
 
@@ -387,7 +387,7 @@ namespace GOS_FxApps
                     cmd2.Parameters.AddWithValue("@jumlah", lbltotalupdate.Text);
                     cmd2.Parameters.AddWithValue("@no", noprimary);
                     cmd2.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
-                    cmd2.Parameters.AddWithValue("@remaks", MainForm.Instance.Name);
+                    cmd2.Parameters.AddWithValue("@remaks", loginform.login.name);
                     cmd2.Parameters.AddWithValue("@catatan", txtcatatan.Text);
 
                     cmd2.ExecuteNonQuery();
@@ -436,12 +436,6 @@ namespace GOS_FxApps
                     cmd5.Parameters.AddWithValue("@no", noprimary);
                     cmd5.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                     cmd5.ExecuteNonQuery();
-
-                    SqlCommand log5 = new SqlCommand(
-                        "INSERT INTO pengiriman_e SELECT * FROM pengiriman WHERE no=@no",
-                        conn, trans);
-                    log5.Parameters.AddWithValue("@no", noprimary);
-                    log5.ExecuteNonQuery();
                 }
 
                 //Commit transaksi

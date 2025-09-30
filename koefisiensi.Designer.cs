@@ -36,8 +36,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.cmbKodeBarang = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtkodebarang = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtspesifikasi = new Guna.UI2.WinForms.Guna2TextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.txttipe = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtkoefrl = new Guna.UI2.WinForms.Guna2TextBox();
@@ -71,7 +72,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtuom = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtspesifikasi = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbmaterial = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -153,8 +153,9 @@
             this.guna2Panel1.BorderColor = System.Drawing.Color.Gainsboro;
             this.guna2Panel1.BorderRadius = 15;
             this.guna2Panel1.BorderThickness = 2;
+            this.guna2Panel1.Controls.Add(this.cmbKodeBarang);
             this.guna2Panel1.Controls.Add(this.label4);
-            this.guna2Panel1.Controls.Add(this.txtkodebarang);
+            this.guna2Panel1.Controls.Add(this.txtspesifikasi);
             this.guna2Panel1.Controls.Add(this.label38);
             this.guna2Panel1.Controls.Add(this.txttipe);
             this.guna2Panel1.Controls.Add(this.txtkoefrl);
@@ -188,7 +189,6 @@
             this.guna2Panel1.Controls.Add(this.label7);
             this.guna2Panel1.Controls.Add(this.txtuom);
             this.guna2Panel1.Controls.Add(this.label6);
-            this.guna2Panel1.Controls.Add(this.txtspesifikasi);
             this.guna2Panel1.Controls.Add(this.label5);
             this.guna2Panel1.Controls.Add(this.cmbmaterial);
             this.guna2Panel1.Controls.Add(this.label3);
@@ -200,6 +200,28 @@
             this.guna2Panel1.TabIndex = 1;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
+            // cmbKodeBarang
+            // 
+            this.cmbKodeBarang.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbKodeBarang.BackColor = System.Drawing.Color.Transparent;
+            this.cmbKodeBarang.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cmbKodeBarang.BorderRadius = 5;
+            this.cmbKodeBarang.BorderThickness = 2;
+            this.cmbKodeBarang.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbKodeBarang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbKodeBarang.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbKodeBarang.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbKodeBarang.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbKodeBarang.ForeColor = System.Drawing.Color.Black;
+            this.cmbKodeBarang.ItemHeight = 30;
+            this.cmbKodeBarang.Location = new System.Drawing.Point(35, 173);
+            this.cmbKodeBarang.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbKodeBarang.Name = "cmbKodeBarang";
+            this.cmbKodeBarang.Size = new System.Drawing.Size(428, 36);
+            this.cmbKodeBarang.TabIndex = 64;
+            this.cmbKodeBarang.SelectedIndexChanged += new System.EventHandler(this.cmbKodeBarang_SelectedIndexChanged);
+            // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -207,39 +229,39 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(33, 141);
+            this.label4.Location = new System.Drawing.Point(33, 227);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 21);
+            this.label4.Size = new System.Drawing.Size(83, 21);
             this.label4.TabIndex = 63;
-            this.label4.Text = "Kode Barang";
+            this.label4.Text = "Spesifikasi";
             // 
-            // txtkodebarang
+            // txtspesifikasi
             // 
-            this.txtkodebarang.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtspesifikasi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtkodebarang.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtkodebarang.BorderRadius = 5;
-            this.txtkodebarang.BorderThickness = 2;
-            this.txtkodebarang.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtkodebarang.DefaultText = "";
-            this.txtkodebarang.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtkodebarang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtkodebarang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtkodebarang.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtkodebarang.Enabled = false;
-            this.txtkodebarang.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtkodebarang.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtkodebarang.ForeColor = System.Drawing.Color.Black;
-            this.txtkodebarang.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtkodebarang.Location = new System.Drawing.Point(35, 168);
-            this.txtkodebarang.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txtkodebarang.Name = "txtkodebarang";
-            this.txtkodebarang.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtkodebarang.PlaceholderText = "Axxxx";
-            this.txtkodebarang.SelectedText = "";
-            this.txtkodebarang.Size = new System.Drawing.Size(428, 41);
-            this.txtkodebarang.TabIndex = 62;
+            this.txtspesifikasi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtspesifikasi.BorderRadius = 5;
+            this.txtspesifikasi.BorderThickness = 2;
+            this.txtspesifikasi.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtspesifikasi.DefaultText = "";
+            this.txtspesifikasi.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtspesifikasi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtspesifikasi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtspesifikasi.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtspesifikasi.Enabled = false;
+            this.txtspesifikasi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtspesifikasi.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtspesifikasi.ForeColor = System.Drawing.Color.Black;
+            this.txtspesifikasi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtspesifikasi.Location = new System.Drawing.Point(35, 254);
+            this.txtspesifikasi.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtspesifikasi.Name = "txtspesifikasi";
+            this.txtspesifikasi.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtspesifikasi.PlaceholderText = "Axxxx";
+            this.txtspesifikasi.SelectedText = "";
+            this.txtspesifikasi.Size = new System.Drawing.Size(428, 41);
+            this.txtspesifikasi.TabIndex = 62;
             // 
             // label38
             // 
@@ -932,39 +954,12 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(33, 225);
+            this.label6.Location = new System.Drawing.Point(33, 144);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 21);
+            this.label6.Size = new System.Drawing.Size(98, 21);
             this.label6.TabIndex = 12;
-            this.label6.Text = "Spesifikasi";
-            // 
-            // txtspesifikasi
-            // 
-            this.txtspesifikasi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtspesifikasi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtspesifikasi.BorderRadius = 5;
-            this.txtspesifikasi.BorderThickness = 2;
-            this.txtspesifikasi.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtspesifikasi.DefaultText = "";
-            this.txtspesifikasi.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtspesifikasi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtspesifikasi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtspesifikasi.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtspesifikasi.Enabled = false;
-            this.txtspesifikasi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtspesifikasi.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtspesifikasi.ForeColor = System.Drawing.Color.Black;
-            this.txtspesifikasi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtspesifikasi.Location = new System.Drawing.Point(35, 252);
-            this.txtspesifikasi.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txtspesifikasi.Name = "txtspesifikasi";
-            this.txtspesifikasi.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtspesifikasi.PlaceholderText = "Axxxx";
-            this.txtspesifikasi.SelectedText = "";
-            this.txtspesifikasi.Size = new System.Drawing.Size(428, 41);
-            this.txtspesifikasi.TabIndex = 11;
+            this.label6.Text = "Kode Barang";
             // 
             // label5
             // 
@@ -976,9 +971,9 @@
             this.label5.Location = new System.Drawing.Point(32, 64);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(147, 21);
+            this.label5.Size = new System.Drawing.Size(113, 21);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Pilih Nama Material";
+            this.label5.Text = "Nama Material";
             // 
             // cmbmaterial
             // 
@@ -1256,7 +1251,6 @@
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2TextBox txtuom;
         private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2TextBox txtspesifikasi;
         private Guna.UI2.WinForms.Guna2TextBox txtkoefcr;
         private Guna.UI2.WinForms.Guna2TextBox txtkoefm;
         private System.Windows.Forms.Label label16;
@@ -1291,7 +1285,8 @@
         private System.Windows.Forms.Panel panel2;
         private Guna.UI2.WinForms.Guna2TextBox txtcari;
         private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2TextBox txtkodebarang;
+        private Guna.UI2.WinForms.Guna2TextBox txtspesifikasi;
         private Guna.UI2.WinForms.Guna2Button btndelete;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbKodeBarang;
     }
 }

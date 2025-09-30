@@ -951,7 +951,7 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT * FROM Rb_Stok ORDER BY tanggal DESC";
+                string query = "SELECT * FROM Rb_Stok ORDER BY tanggal ASC, id_stok ASC";
                 SqlDataAdapter ad = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);

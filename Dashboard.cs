@@ -1996,28 +1996,6 @@ namespace GOS_FxApps
             }
         }
 
-        private void registerwelding()
-        {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.Rb_Stok", conn))
-            {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
-                {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            LoadchartRB();
-                            registerwelding();
-                        }));
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
-            }
-        }
         private void registerpenerimaanp()
         {
             using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
@@ -2032,10 +2010,6 @@ namespace GOS_FxApps
                         this.Invoke(new Action(() =>
                         {
                             LoadPanel();
-                            LoadChartPenerimaanHarian();
-                            LoadChartPenerimaanBulanan();
-                            LoadChartPenerimaanTahunan();
-                            LoadChartPenerimaanCustom();
                             registerpenerimaans();
                         }));
                     }
@@ -2058,63 +2032,6 @@ namespace GOS_FxApps
                         this.Invoke(new Action(() =>
                         {
                             LoadPanel();
-
-                            loadChartPerbaikanHarian();
-                            LoadChartPerbaikanBulanan();
-                            LoadChartPenerimaanTahunan();
-                            LoadChartPerbaikanCustom();
-
-                            LoadChartMaterialCostHarian();
-                            LoadChartMaterialCostBulan();
-                            LoadChartMaterialCostTahun();
-                            LoadChartmaterialCostCustom();
-
-                            LoadChartConsumableCostHarian();
-                            LoadChartConsumableCostBulan();
-                            LoadChartConsumableCostTahun();
-                            LoadChartConsumableCostCustom();
-
-                            LoadChartSafetyCostHarian();
-                            LoadChartSafetyCostBulan();
-                            LoadChartSafetyCostTahun();
-                            LoadChartsafetyCostCustom();
-
-                            registerperbaikans();
-                        }));
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
-            }
-        }
-        private void registerpemakaian()
-        {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.pemakaian_material", conn))
-            {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
-                {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            LoadChartMaterialCostHarian();
-                            LoadChartMaterialCostBulan();
-                            LoadChartMaterialCostTahun();
-                            LoadChartmaterialCostCustom();
-
-                            LoadChartConsumableCostHarian();
-                            LoadChartConsumableCostBulan();
-                            LoadChartConsumableCostTahun();
-                            LoadChartConsumableCostCustom();
-
-                            LoadChartSafetyCostHarian();
-                            LoadChartSafetyCostBulan();
-                            LoadChartSafetyCostTahun();
-                            LoadChartsafetyCostCustom();
-
                             registerperbaikans();
                         }));
                     }
@@ -2206,12 +2123,10 @@ namespace GOS_FxApps
             containertanggal1.Visible = true;
             lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
 
-            registerwelding();
             registerpenerimaans();
             registerperbaikans();
             registerpenerimaanp();
             registerperbaikanp();
-            registerpemakaian();
             registerpengiriman();
         }
 

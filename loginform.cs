@@ -28,7 +28,7 @@ namespace GOS_FxApps
         {
             if (txtid.Text == "" || txtpw.Text == "")
             {
-                MessageBox.Show("Harap Isi Data Terlebih Dahulu!!", "Warning");
+                MessageBox.Show("Harap Isi Data Terlebih Dahulu!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -71,7 +71,7 @@ namespace GOS_FxApps
                                     MainForm.Instance.trueforeman();
                                     break;
                                 default:
-                                    MessageBox.Show("Level tidak dikenali!", "Warning");
+                                    MessageBox.Show("Level tidak dikenali!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     txtid.Clear();
                                     txtpw.Clear();
                                     return;
@@ -84,57 +84,10 @@ namespace GOS_FxApps
                         }
                         else
                         {
-                            MessageBox.Show("Id Dan Password Anda Salah!!", "Warning");
+                            MessageBox.Show("Id Dan Password Anda Salah!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             txtid.Clear();
                             txtpw.Clear();
                         }
-
-                        //if (dr.Read())
-                        //{
-                        //    string level = dr["lvl"].ToString();
-                        //    string name = dr["username"].ToString();
-
-                        //    string allowedRole = ""; //Belum ditentukan
-
-                        //    if (level == allowedRole)
-                        //    {
-                        //        switch (allowedRole)
-                        //        {
-                        //            case "Manajer":
-                        //                MainForm.Instance.truemanajer();
-                        //                break;
-                        //            case "Admin":
-                        //                MainForm.Instance.trueadmin();
-                        //                break;
-                        //            case "Operator Gudang":
-                        //                MainForm.Instance.trueoperatorgudang();
-                        //                break;
-                        //            case "Operator Perbaikan":
-                        //                MainForm.Instance.trueoperatorperbaikan();
-                        //                break;
-                        //            case "Operator Penerimaan/Pengiriman":
-                        //                MainForm.Instance.trueoperatorpenerimaan();
-                        //                break;
-                        //        }
-
-                        //        MainForm.Instance.lbluser.Text = name + " [" + allowedRole + "]";
-                        //        MainForm.Instance.role = allowedRole;
-                        //        MainForm.Instance.loginstatus = true;
-                        //        this.Close();
-                        //    }
-                        //    else
-                        //    {
-                        //        MessageBox.Show("Akses hanya untuk " + allowedRole + "!", "Warning");
-                        //        txtid.Clear();
-                        //        txtpw.Clear();
-                        //    }
-                        //}
-                        //else
-                        //{
-                        //    MessageBox.Show("Id Dan Password Anda Salah!!", "Warning");
-                        //    txtid.Clear();
-                        //    txtpw.Clear();
-                        //}
                     }
                 }
                 catch (SqlException)

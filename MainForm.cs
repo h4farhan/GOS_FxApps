@@ -31,6 +31,7 @@ namespace GOS_FxApps {
         public Size defaultentrycontainer;
         public Size defaulteditcontainer;
         public Size defaulhistorycontainer;
+        public Size defaulgudangcontainer;
 
         public string role = null;
 
@@ -139,6 +140,9 @@ namespace GOS_FxApps {
 
             Editbutton.FillColor = Color.White;
             Editbutton.ForeColor = Color.Black;
+
+            btngudang.FillColor = Color.White;
+            btngudang.ForeColor = Color.Black;
 
             btnHistori.FillColor = Color.White;
             btnHistori.ForeColor = Color.Black;
@@ -335,7 +339,8 @@ namespace GOS_FxApps {
 
             defaulhistorycontainer = historycontainer.Size;
             defaultentrycontainer = entryContainer.Size;
-            defaulteditcontainer = EditContainer.Size;           
+            defaulteditcontainer = EditContainer.Size;
+            defaulgudangcontainer = gudangContainer.Size;
 
             LoadNotifikasi();
             registerSetminRb();
@@ -718,9 +723,27 @@ namespace GOS_FxApps {
             iconButton13.Visible = true;
 
             gudangContainer.Visible = true;
+            gudangContainer.MaximumSize = new Size(231, 335);
+            iconButton3.Visible=true;
+            btnmaterialmasuk.Visible = true;
+            btnpemakaian.Visible=true;
+            btntambahmaterial.Visible = true;
+            btnestimasi.Visible=true;
+            btnlaporanpersediaan.Visible=true;
+            btndata.Visible=true;
         }
         public void trueadmin()
         {
+            gudangContainer.Visible = true;
+            gudangContainer.MaximumSize = new Size(231,175);
+            iconButton3.Visible = false;
+            btnmaterialmasuk.Visible = false;
+            btnpemakaian.Visible = false;
+            btntambahmaterial.Visible = false;
+            btnestimasi.Visible = true;
+            btnlaporanpersediaan.Visible = true;
+            btndata.Visible = true;
+
             btnlaporan.Visible=true;
             historycontainer.Visible= true;
             historycontainer.Visible = true;
@@ -736,6 +759,14 @@ namespace GOS_FxApps {
         public void trueoperatorgudang()
         {
             gudangContainer.Visible = true;
+            gudangContainer.MaximumSize = new Size(231, 335);
+            iconButton3.Visible = true;
+            btnmaterialmasuk.Visible = true;
+            btnpemakaian.Visible = true;
+            btntambahmaterial.Visible = true;
+            btnestimasi.Visible = true;
+            btnlaporanpersediaan.Visible = true;
+            btndata.Visible = true;
             btnlaporan.Visible = true;
 
             iconButton24.Visible = false;

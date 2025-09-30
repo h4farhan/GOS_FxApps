@@ -85,13 +85,13 @@ namespace GOS_FxApps
             this.gudangContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.btndata = new Guna.UI2.WinForms.Guna2Button();
             this.btnlaporanpersediaan = new Guna.UI2.WinForms.Guna2Button();
+            this.btnestimasi = new Guna.UI2.WinForms.Guna2Button();
             this.btntambahmaterial = new Guna.UI2.WinForms.Guna2Button();
             this.btnpemakaian = new Guna.UI2.WinForms.Guna2Button();
             this.btnmaterialmasuk = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton3 = new Guna.UI2.WinForms.Guna2Button();
             this.btngudang = new Guna.UI2.WinForms.Guna2Button();
             this.btnlaporan = new Guna.UI2.WinForms.Guna2Button();
-            this.btnestimasi = new Guna.UI2.WinForms.Guna2Button();
             this.gudangtimer = new System.Windows.Forms.Timer(this.components);
             this.titlePanel.SuspendLayout();
             this.historycontainer.SuspendLayout();
@@ -1038,6 +1038,29 @@ namespace GOS_FxApps
             this.btnlaporanpersediaan.TextOffset = new System.Drawing.Point(5, 0);
             this.btnlaporanpersediaan.Click += new System.EventHandler(this.btnlaporanpersediaan_Click);
             // 
+            // btnestimasi
+            // 
+            this.btnestimasi.BorderRadius = 8;
+            this.btnestimasi.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnestimasi.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnestimasi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnestimasi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnestimasi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnestimasi.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnestimasi.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnestimasi.ForeColor = System.Drawing.Color.Black;
+            this.btnestimasi.Image = global::GOS_FxApps.Properties.Resources.calculator;
+            this.btnestimasi.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnestimasi.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnestimasi.Location = new System.Drawing.Point(0, 215);
+            this.btnestimasi.Name = "btnestimasi";
+            this.btnestimasi.Size = new System.Drawing.Size(231, 40);
+            this.btnestimasi.TabIndex = 16;
+            this.btnestimasi.Text = "Estimasi Pemakaian Material";
+            this.btnestimasi.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnestimasi.TextOffset = new System.Drawing.Point(5, 0);
+            this.btnestimasi.Click += new System.EventHandler(this.btnestimasi_Click);
+            // 
             // btntambahmaterial
             // 
             this.btntambahmaterial.BorderRadius = 8;
@@ -1174,29 +1197,6 @@ namespace GOS_FxApps
             this.btnlaporan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnlaporan.TextOffset = new System.Drawing.Point(5, 0);
             this.btnlaporan.Click += new System.EventHandler(this.btnlaporan_Click_1);
-            // 
-            // btnestimasi
-            // 
-            this.btnestimasi.BorderRadius = 8;
-            this.btnestimasi.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnestimasi.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnestimasi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnestimasi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnestimasi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnestimasi.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnestimasi.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnestimasi.ForeColor = System.Drawing.Color.Black;
-            this.btnestimasi.Image = global::GOS_FxApps.Properties.Resources.calculator;
-            this.btnestimasi.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnestimasi.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnestimasi.Location = new System.Drawing.Point(0, 215);
-            this.btnestimasi.Name = "btnestimasi";
-            this.btnestimasi.Size = new System.Drawing.Size(231, 40);
-            this.btnestimasi.TabIndex = 16;
-            this.btnestimasi.Text = "Estimasi Pemakaian Material";
-            this.btnestimasi.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnestimasi.TextOffset = new System.Drawing.Point(5, 0);
-            this.btnestimasi.Click += new System.EventHandler(this.btnestimasi_Click);
             // 
             // gudangtimer
             // 

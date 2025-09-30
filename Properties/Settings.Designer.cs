@@ -61,8 +61,8 @@ namespace GOS_FxApps.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source = TII_NB2_1122; Initial Catalog = gos_apps; User ID = tii; Password=m" +
-            "m;TrustServerCertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source = TII_NB2_1122; Initial Catalog = gos_apps; User ID = tii; Password=t" +
+            "ii2025;TrustServerCertificate=True")]
         public string gos_appsserver {
             get {
                 return ((string)(this["gos_appsserver"]));

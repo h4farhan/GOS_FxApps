@@ -206,7 +206,6 @@ namespace GOS_FxApps
             return dt.Rows.Count > 0;
         }
 
-
         private void editdata()
         {
             string kodeBarang = cmbSpesifikasi.SelectedValue.ToString();
@@ -524,33 +523,33 @@ namespace GOS_FxApps
 
                     cmbnama.SelectedValue = namaBarang;
 
-                    using (SqlConnection conn = Koneksi.GetConnection())
-                    {
-                        string query = @"
-                    SELECT kodeBarang, spesifikasi, jumlahStok, type, foto 
-                    FROM stok_material 
-                    WHERE namaBarang = @nama
-                    ORDER BY spesifikasi ASC";
-
-                        SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                        da.SelectCommand.Parameters.AddWithValue("@nama", namaBarang.Trim());
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
-
-                        DataRow dr = dt.NewRow();
-                        dr["kodeBarang"] = DBNull.Value;
-                        dr["spesifikasi"] = "Pilih Spesifikasi";
-                        dt.Rows.InsertAt(dr, 0);
-
-                        cmbSpesifikasi.DataSource = dt;
-                        cmbSpesifikasi.DisplayMember = "spesifikasi";
-                        cmbSpesifikasi.ValueMember = "kodeBarang";
-
-                        int index = cmbSpesifikasi.FindStringExact(spesifikasi);
-                        cmbSpesifikasi.SelectedIndex = index >= 0 ? index : 0;
-
-                        if (index >= 0)
+                        using (SqlConnection conn = Koneksi.GetConnection())
                         {
+                            string query = @"
+                        SELECT kodeBarang, spesifikasi, jumlahStok, type, foto 
+                        FROM stok_material 
+                        WHERE namaBarang = @nama
+                        ORDER BY spesifikasi ASC";
+
+                            SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                            da.SelectCommand.Parameters.AddWithValue("@nama", namaBarang.Trim());
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+
+                            DataRow dr = dt.NewRow();
+                            dr["kodeBarang"] = DBNull.Value;
+                            dr["spesifikasi"] = "Pilih Spesifikasi";
+                            dt.Rows.InsertAt(dr, 0);
+
+                            cmbSpesifikasi.DataSource = dt;
+                            cmbSpesifikasi.DisplayMember = "spesifikasi";
+                            cmbSpesifikasi.ValueMember = "kodeBarang";
+
+                            int index = cmbSpesifikasi.FindStringExact(spesifikasi);
+                            cmbSpesifikasi.SelectedIndex = index >= 0 ? index : 0;
+
+                            if (index >= 0)
+                            {
                             DataRow selectedRow = dt.Rows[index];
                             lblstoksaatini.Text = "Stok Saat Ini: " + selectedRow["jumlahStok"]?.ToString();
                             type = selectedRow["type"]?.ToString();

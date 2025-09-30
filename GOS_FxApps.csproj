@@ -521,6 +521,12 @@
     <Content Include="Data Barang Template.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Rb_Stokhari.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="weldingp.resx">
+      <DependentUpon>weldingp.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DataSet\bukti.xsc">
       <DependentUpon>bukti.xsd</DependentUpon>
     </None>
@@ -741,9 +747,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Rb_Stokhari.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
     <EmbeddedResource Include="registrasi.resx">
       <DependentUpon>registrasi.cs</DependentUpon>
     </EmbeddedResource>
@@ -764,9 +767,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="userinfo.resx">
       <DependentUpon>userinfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="weldingp.resx">
-      <DependentUpon>weldingp.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DataSet\actual.xsc">
       <DependentUpon>actual.xsd</DependentUpon>

@@ -1003,6 +1003,12 @@ namespace GOS_FxApps.DataSet {
             
             private global::System.Data.DataColumn columnwastekg;
             
+            private global::System.Data.DataColumn columnkonversi_e1;
+            
+            private global::System.Data.DataColumn columnkonversi_e2;
+            
+            private global::System.Data.DataColumn columnkonversiroundbar;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public sp_Rb_StokhariDataTable() {
@@ -1174,6 +1180,30 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn konversi_e1Column {
+                get {
+                    return this.columnkonversi_e1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn konversi_e2Column {
+                get {
+                    return this.columnkonversi_e2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn konversiroundbarColumn {
+                get {
+                    return this.columnkonversiroundbar;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1214,7 +1244,7 @@ namespace GOS_FxApps.DataSet {
                         int bmasuk, 
                         int bkeluar, 
                         int bstok, 
-                        int bpanjang, 
+                        string bpanjang, 
                         int bpe1, 
                         int bpe2, 
                         int bbe1, 
@@ -1226,7 +1256,10 @@ namespace GOS_FxApps.DataSet {
                         int wbe1, 
                         int wbe2, 
                         int bsisakg, 
-                        double wastekg) {
+                        double wastekg, 
+                        int konversi_e1, 
+                        int konversi_e2, 
+                        decimal konversiroundbar) {
                 sp_Rb_StokhariRow rowsp_Rb_StokhariRow = ((sp_Rb_StokhariRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         tanggal,
@@ -1245,7 +1278,10 @@ namespace GOS_FxApps.DataSet {
                         wbe1,
                         wbe2,
                         bsisakg,
-                        wastekg};
+                        wastekg,
+                        konversi_e1,
+                        konversi_e2,
+                        konversiroundbar};
                 rowsp_Rb_StokhariRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_Rb_StokhariRow);
                 return rowsp_Rb_StokhariRow;
@@ -1285,6 +1321,9 @@ namespace GOS_FxApps.DataSet {
                 this.columnwbe2 = base.Columns["wbe2"];
                 this.columnbsisakg = base.Columns["bsisakg"];
                 this.columnwastekg = base.Columns["wastekg"];
+                this.columnkonversi_e1 = base.Columns["konversi_e1"];
+                this.columnkonversi_e2 = base.Columns["konversi_e2"];
+                this.columnkonversiroundbar = base.Columns["konversiroundbar"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1298,7 +1337,7 @@ namespace GOS_FxApps.DataSet {
                 base.Columns.Add(this.columnbkeluar);
                 this.columnbstok = new global::System.Data.DataColumn("bstok", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbstok);
-                this.columnbpanjang = new global::System.Data.DataColumn("bpanjang", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnbpanjang = new global::System.Data.DataColumn("bpanjang", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbpanjang);
                 this.columnbpe1 = new global::System.Data.DataColumn("bpe1", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbpe1);
@@ -1324,6 +1363,12 @@ namespace GOS_FxApps.DataSet {
                 base.Columns.Add(this.columnbsisakg);
                 this.columnwastekg = new global::System.Data.DataColumn("wastekg", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnwastekg);
+                this.columnkonversi_e1 = new global::System.Data.DataColumn("konversi_e1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnkonversi_e1);
+                this.columnkonversi_e2 = new global::System.Data.DataColumn("konversi_e2", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnkonversi_e2);
+                this.columnkonversiroundbar = new global::System.Data.DataColumn("konversiroundbar", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnkonversiroundbar);
                 this.columntanggal.ReadOnly = true;
                 this.columntanggal.MaxLength = 4000;
                 this.columnbmasuk.ReadOnly = true;
@@ -1342,6 +1387,9 @@ namespace GOS_FxApps.DataSet {
                 this.columnwbe2.ReadOnly = true;
                 this.columnbsisakg.ReadOnly = true;
                 this.columnwastekg.ReadOnly = true;
+                this.columnkonversi_e1.ReadOnly = true;
+                this.columnkonversi_e2.ReadOnly = true;
+                this.columnkonversiroundbar.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2588,10 +2636,10 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int bpanjang {
+            public string bpanjang {
                 get {
                     try {
-                        return ((int)(this[this.tablesp_Rb_Stokhari.bpanjangColumn]));
+                        return ((string)(this[this.tablesp_Rb_Stokhari.bpanjangColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'bpanjang\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
@@ -2791,6 +2839,54 @@ namespace GOS_FxApps.DataSet {
                 }
                 set {
                     this[this.tablesp_Rb_Stokhari.wastekgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int konversi_e1 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Rb_Stokhari.konversi_e1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'konversi_e1\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stokhari.konversi_e1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int konversi_e2 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Rb_Stokhari.konversi_e2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'konversi_e2\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stokhari.konversi_e2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal konversiroundbar {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_Rb_Stokhari.konversiroundbarColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'konversiroundbar\' in table \'sp_Rb_Stokhari\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stokhari.konversiroundbarColumn] = value;
                 }
             }
             
@@ -2996,6 +3092,42 @@ namespace GOS_FxApps.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetwastekgNull() {
                 this[this.tablesp_Rb_Stokhari.wastekgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iskonversi_e1Null() {
+                return this.IsNull(this.tablesp_Rb_Stokhari.konversi_e1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setkonversi_e1Null() {
+                this[this.tablesp_Rb_Stokhari.konversi_e1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iskonversi_e2Null() {
+                return this.IsNull(this.tablesp_Rb_Stokhari.konversi_e2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setkonversi_e2Null() {
+                this[this.tablesp_Rb_Stokhari.konversi_e2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IskonversiroundbarNull() {
+                return this.IsNull(this.tablesp_Rb_Stokhari.konversiroundbarColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetkonversiroundbarNull() {
+                this[this.tablesp_Rb_Stokhari.konversiroundbarColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3686,7 +3818,6 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
             tableMapping.ColumnMappings.Add("bmasuk", "bmasuk");
             tableMapping.ColumnMappings.Add("bkeluar", "bkeluar");
             tableMapping.ColumnMappings.Add("bstok", "bstok");
-            tableMapping.ColumnMappings.Add("bpanjang", "bpanjang");
             tableMapping.ColumnMappings.Add("bpe1", "bpe1");
             tableMapping.ColumnMappings.Add("bpe2", "bpe2");
             tableMapping.ColumnMappings.Add("bbe1", "bbe1");
@@ -3699,6 +3830,9 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
             tableMapping.ColumnMappings.Add("wbe2", "wbe2");
             tableMapping.ColumnMappings.Add("bsisakg", "bsisakg");
             tableMapping.ColumnMappings.Add("wastekg", "wastekg");
+            tableMapping.ColumnMappings.Add("konversi_e1", "konversi_e1");
+            tableMapping.ColumnMappings.Add("konversi_e2", "konversi_e2");
+            tableMapping.ColumnMappings.Add("konversiroundbar", "konversiroundbar");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

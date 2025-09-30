@@ -125,8 +125,8 @@ namespace GOS_FxApps
 
                 if (!string.IsNullOrEmpty(inputRod))
                 {
-                     query += "AND nomor_rod = @rod";
-                     cmd.Parameters.AddWithValue("@rod", inputRod);
+                     query += "AND nomor_rod LIKE @rod";
+                     cmd.Parameters.AddWithValue("@rod", "%" + inputRod + "%");
                 }
 
                 query += " ORDER BY tanggal_penerimaan DESC";
@@ -536,10 +536,6 @@ namespace GOS_FxApps
                     cmd5.Parameters.AddWithValue("@no", noprimary);
                     cmd5.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                     cmd5.ExecuteNonQuery();
-
-                    SqlCommand log5 = new SqlCommand("INSERT INTO pengiriman_e SELECT * FROM pengiriman WHERE no=@no", conn, trans);
-                    log5.Parameters.AddWithValue("@no", noprimary);
-                    log5.ExecuteNonQuery();
                 }
 
                 trans.Commit();

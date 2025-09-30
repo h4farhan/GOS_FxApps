@@ -491,7 +491,7 @@
             this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtcari.Name = "txtcari";
             this.txtcari.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcari.PlaceholderText = "Kode Barang";
+            this.txtcari.PlaceholderText = "Kode Barang atau Nama Barang";
             this.txtcari.SelectedText = "";
             this.txtcari.Size = new System.Drawing.Size(46, 39);
             this.txtcari.TabIndex = 42;

@@ -91,27 +91,28 @@ namespace GOS_FxApps
 
                     dataGridView1.DataSource = dt;
                     dataGridView1.Columns[0].Visible = false;
-                    dataGridView1.Columns[1].HeaderText = "Tanggal Penerimaan";
-                    dataGridView1.Columns[2].HeaderText = "Shift";
-                    dataGridView1.Columns[3].HeaderText = "Nomor ROD";
-                    dataGridView1.Columns[4].HeaderText = "Jenis";
-                    dataGridView1.Columns[5].HeaderText = "Stasiun";
-                    dataGridView1.Columns[6].HeaderText = "E1";
-                    dataGridView1.Columns[7].HeaderText = "E2";
-                    dataGridView1.Columns[8].HeaderText = "E3";
-                    dataGridView1.Columns[9].HeaderText = "S";
-                    dataGridView1.Columns[10].HeaderText = "D";
-                    dataGridView1.Columns[11].HeaderText = "B";
-                    dataGridView1.Columns[12].HeaderText = "BA";
-                    dataGridView1.Columns[13].HeaderText = "CR";
-                    dataGridView1.Columns[14].HeaderText = "M";
-                    dataGridView1.Columns[15].HeaderText = "R";
-                    dataGridView1.Columns[16].HeaderText = "C";
-                    dataGridView1.Columns[17].HeaderText = "RL";
-                    dataGridView1.Columns[18].HeaderText = "Jumlah";
-                    dataGridView1.Columns[19].HeaderText = "Diubah";
-                    dataGridView1.Columns[20].HeaderText = "Remaks";
-                    dataGridView1.Columns[21].HeaderText = "Catatan";
+                    dataGridView1.Columns[1].Visible = false;
+                    dataGridView1.Columns[2].HeaderText = "Tanggal Penerimaan";
+                    dataGridView1.Columns[3].HeaderText = "Shift";
+                    dataGridView1.Columns[4].HeaderText = "Nomor ROD";
+                    dataGridView1.Columns[5].HeaderText = "Jenis";
+                    dataGridView1.Columns[6].HeaderText = "Stasiun";
+                    dataGridView1.Columns[7].HeaderText = "E1";
+                    dataGridView1.Columns[8].HeaderText = "E2";
+                    dataGridView1.Columns[9].HeaderText = "E3";
+                    dataGridView1.Columns[10].HeaderText = "S";
+                    dataGridView1.Columns[11].HeaderText = "D";
+                    dataGridView1.Columns[12].HeaderText = "B";
+                    dataGridView1.Columns[13].HeaderText = "BA";
+                    dataGridView1.Columns[14].HeaderText = "CR";
+                    dataGridView1.Columns[15].HeaderText = "M";
+                    dataGridView1.Columns[16].HeaderText = "R";
+                    dataGridView1.Columns[17].HeaderText = "C";
+                    dataGridView1.Columns[18].HeaderText = "RL";
+                    dataGridView1.Columns[19].HeaderText = "Jumlah";
+                    dataGridView1.Columns[20].HeaderText = "Diubah";
+                    dataGridView1.Columns[21].HeaderText = "Remaks";
+                    dataGridView1.Columns[22].HeaderText = "Catatan";
                 }
             }
             catch (SqlException)

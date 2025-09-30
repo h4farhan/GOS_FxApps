@@ -8,9 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.IO;
 using Guna.UI2.WinForms;
-using Microsoft.Reporting.Map.WebForms.BingMaps;
+using System.IO;
 
 namespace GOS_FxApps
 {
@@ -173,8 +172,8 @@ namespace GOS_FxApps
 
                 if (!string.IsNullOrEmpty(nomorrod))
                 {
-                    query += " AND nomor_rod = @nomor_rod";
-                    cmd.Parameters.AddWithValue("@nomor_rod", nomorrod);
+                    query += " AND nomor_rod LIKE @nomor_rod";
+                    cmd.Parameters.AddWithValue("@nomor_rod", "%" + nomorrod + "%");
                 }
 
                 query += " ORDER BY tanggal_penerimaan DESC";
