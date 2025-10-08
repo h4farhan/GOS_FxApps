@@ -166,13 +166,13 @@ namespace GOS_FxApps
             {
                 if (tanggal.HasValue)
                 {
-                    query += " AND CAST(tanggal_penerimaan AS DATE) = @tgl";
+                    query += " AND CAST(tanggal_penerimaan AS DATE) = @tgl ";
                     cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
                 }
 
                 if (!string.IsNullOrEmpty(nomorrod))
                 {
-                    query += " AND nomor_rod LIKE @nomor_rod";
+                    query += " AND nomor_rod LIKE @nomor_rod ";
                     cmd.Parameters.AddWithValue("@nomor_rod", "%" + nomorrod + "%");
                 }
 

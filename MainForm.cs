@@ -35,6 +35,7 @@ namespace GOS_FxApps {
 
         public string role = null;
 
+        public bool isManual = false;
         public DateTime tanggal;
 
         public event Action ShiftChanged;
@@ -324,6 +325,7 @@ namespace GOS_FxApps {
         private void MainForm_Load(object sender, EventArgs e)
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
+            jam.Start();
             shiftcontrol();
             lbluser.Text = "";
             tanggal = DateTime.Now;
@@ -694,6 +696,7 @@ namespace GOS_FxApps {
             btnlaporan.Visible = false;
             historycontainer.Visible = false;
             gudangContainer.Visible = false;
+            btnaturjam.Visible = false;
         }
         public void truemanajer()
         {
@@ -731,6 +734,8 @@ namespace GOS_FxApps {
             btnestimasi.Visible=true;
             btnlaporanpersediaan.Visible=true;
             btndata.Visible=true;
+
+            btnaturjam.Visible=true;
         }
         public void trueadmin()
         {
@@ -755,6 +760,8 @@ namespace GOS_FxApps {
             iconButton5.Visible = true;
             guna2Button1.Visible = true;
             iconButton13.Visible = true;
+
+            btnaturjam.Visible = true;
         }
         public void trueoperatorgudang()
         {
@@ -779,6 +786,8 @@ namespace GOS_FxApps {
             iconButton5.Visible = true;
             guna2Button1.Visible = true;
             iconButton13.Visible = true;
+
+            btnaturjam.Visible = true;
         }
         public void trueoperator()
         {
@@ -806,6 +815,8 @@ namespace GOS_FxApps {
             iconButton24.Visible = true;
             iconButton11.Visible = true;
             iconButton10.Visible = true;
+
+            btnaturjam.Visible = true;
         }
         public void trueforeman()
         {
@@ -833,13 +844,15 @@ namespace GOS_FxApps {
             iconButton24.Visible = true;
             iconButton11.Visible = true;
             iconButton10.Visible = true;
+
+            btnaturjam.Visible = true;
         }
 
 
         //kode untuk panel atas
-        private void shiftcontrol()
+        public void shiftcontrol()
         {
-            TimeSpan sekarang = DateTime.Now.TimeOfDay;
+            TimeSpan sekarang = tanggal.TimeOfDay;
 
             if (sekarang >= TimeSpan.Parse("00:00:00") && sekarang <= TimeSpan.Parse("07:59:59"))
                 shift = "1";
@@ -851,10 +864,18 @@ namespace GOS_FxApps {
             lblshift.Text = shift;
         }
 
-        private void jam_Tick(object sender, EventArgs e)
+        public void jam_Tick(object sender, EventArgs e)
         {
-            lbldate.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy  [HH:mm:ss]");
-            tanggal = DateTime.Now;
+            if (isManual)
+            {
+                tanggal = tanggal.AddSeconds(1);
+            }
+            else
+            {
+                tanggal = DateTime.Now;
+            }
+
+            lbldate.Text = tanggal.ToString("dddd, dd MMMM yyyy  [HH:mm:ss]");
             shiftcontrol();
         }
 
@@ -943,6 +964,12 @@ namespace GOS_FxApps {
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             SqlDependency.Stop(Koneksi.GetConnectionString());
+        }
+
+        private void btnaturjam_Click(object sender, EventArgs e)
+        {
+            Form aturjam = new aturjam();
+            aturjam.ShowDialog();
         }
     }
 }

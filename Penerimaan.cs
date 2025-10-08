@@ -89,26 +89,47 @@ namespace GOS_FxApps
                     }
                 }
 
-                using (SqlCommand cmd = new SqlCommand(@"
-                                                    SELECT COUNT(*) 
-                                                    FROM penerimaan_p
-                                                    WHERE nomor_rod = @nomor_rod
-                                                      AND @tgl BETWEEN tanggal_penerimaan AND DATEADD(DAY, 22, tanggal_penerimaan)", conn))
+                using (SqlCommand cmdCekTanggal = new SqlCommand(@"
+                SELECT COUNT(*) 
+                FROM penerimaan_p
+                WHERE nomor_rod = @nomor_rod
+                  AND CONVERT(date, tanggal_penerimaan) = CONVERT(date, @tgl)", conn))
                 {
-                    cmd.Parameters.AddWithValue("@nomor_rod", txtnomorrod.Text);
-                    cmd.Parameters.AddWithValue("@tgl", MainForm.Instance.tanggal);
+                    cmdCekTanggal.Parameters.AddWithValue("@nomor_rod", txtnomorrod.Text);
+                    cmdCekTanggal.Parameters.AddWithValue("@tgl", MainForm.Instance.tanggal);
 
-                    int count = (int)cmd.ExecuteScalar();
+                    int sudahAda = (int)cmdCekTanggal.ExecuteScalar();
 
-                    if (count > 0)
+                    if (sudahAda > 0)
+                    {
+                        MessageBox.Show(
+                            $"Nomor ROD {txtnomorrod.Text} sudah pernah diterima pada tanggal yang sama ({MainForm.Instance.tanggal:dd MMMM yyyy}).",
+                            "Tanggal Duplikat", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+                using (SqlCommand cmdCekRentang = new SqlCommand(@"
+                SELECT COUNT(*) 
+                FROM penerimaan_p
+                WHERE nomor_rod = @nomor_rod
+                  AND tanggal_penerimaan BETWEEN DATEADD(DAY, -24, @tgl) AND DATEADD(DAY, 24, @tgl)", conn))
+                {
+                    cmdCekRentang.Parameters.AddWithValue("@nomor_rod", txtnomorrod.Text);
+                    cmdCekRentang.Parameters.AddWithValue("@tgl", MainForm.Instance.tanggal);
+
+                    int terlaluDekat = (int)cmdCekRentang.ExecuteScalar();
+
+                    if (terlaluDekat > 0)
                     {
                         DialogResult result1 = MessageBox.Show(
-                            $"Nomor ROD {txtnomorrod.Text} sudah ada dalam 22 hari dari penerimaan sebelumnya.\n" +
-                            $"Apakah Anda Ingin Melanjutkan Simpan?",
+                            $"Nomor ROD {txtnomorrod.Text} sudah pernah diterima dalam rentang ±24 hari dari tanggal ini.\n" +
+                            $"Apakah Anda ingin tetap melanjutkan penyimpanan?",
                             "Peringatan", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning
                         );
 
-                        if (result1 != DialogResult.OK) return;
+                        if (result1 != DialogResult.OK)
+                            return;
                     }
 
                     SqlCommand cmd1 = new SqlCommand(@"

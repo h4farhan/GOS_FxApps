@@ -100,13 +100,13 @@ namespace GOS_FxApps
             {
                 if (tanggal.HasValue)
                 {
-                    query += "AND CAST(tanggalMasuk AS DATE) = @tgl";
+                    query += " AND CAST(tanggalMasuk AS DATE) = @tgl ";
                     cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
                 }
 
                 if (!string.IsNullOrEmpty(keyword))
                 {
-                    query += "AND (kodeBarang LIKE @kode OR namaBarang LIKE @kode) ";
+                    query += " AND (kodeBarang LIKE @kode OR namaBarang LIKE @kode) ";
                     cmd.Parameters.AddWithValue("@kode", "%" + keyword + "%");
                 }
 

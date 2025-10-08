@@ -145,17 +145,17 @@ namespace GOS_FxApps
             {
                 if (tanggal.HasValue)
                 {
-                    query += "AND CAST(tanggalPemakaian AS DATE) = @tgl ";
+                    query += " AND CAST(tanggalPemakaian AS DATE) = @tgl ";
                     cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
                 }
 
                 if (!string.IsNullOrEmpty(keyword))
                 {
-                    query += "AND (kodeBarang LIKE @kode OR namaBarang LIKE @kode) ";
+                    query += " AND (kodeBarang LIKE @kode OR namaBarang LIKE @kode) ";
                     cmd.Parameters.AddWithValue("@kode", "%" + keyword + "%");
                 }
 
-                query += "ORDER BY tanggalPemakaian DESC, updated_at DESC";
+                query += " ORDER BY tanggalPemakaian DESC, updated_at DESC";
 
                 cmd.CommandText = query;
                 cmd.Connection = conn;

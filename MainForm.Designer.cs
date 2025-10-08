@@ -46,13 +46,13 @@ namespace GOS_FxApps
             this.iconButton24 = new Guna.UI2.WinForms.Guna2Button();
             this.btnHistori = new Guna.UI2.WinForms.Guna2Button();
             this.headerPanel = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lbluser = new System.Windows.Forms.Label();
+            this.iconButton14 = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblshift = new System.Windows.Forms.Label();
             this.lblinfo = new System.Windows.Forms.Label();
             this.lbldate = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lbluser = new System.Windows.Forms.Label();
-            this.iconButton14 = new FontAwesome.Sharp.IconButton();
             this.btnnotif = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -67,6 +67,9 @@ namespace GOS_FxApps
             this.historitimer = new System.Windows.Forms.Timer(this.components);
             this.sidebarPanel = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lblalert = new System.Windows.Forms.Label();
+            this.btnaturjam = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dashboardButton = new Guna.UI2.WinForms.Guna2Button();
             this.entryContainer = new Guna.UI2.WinForms.Guna2Panel();
@@ -96,13 +99,14 @@ namespace GOS_FxApps
             this.titlePanel.SuspendLayout();
             this.historycontainer.SuspendLayout();
             this.headerPanel.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.sidebarPanel.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.entryContainer.SuspendLayout();
             this.EditContainer.SuspendLayout();
@@ -367,9 +371,9 @@ namespace GOS_FxApps
             // headerPanel
             // 
             this.headerPanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.headerPanel.Controls.Add(this.panel3);
             this.headerPanel.Controls.Add(this.panel2);
             this.headerPanel.Controls.Add(this.lbldate);
-            this.headerPanel.Controls.Add(this.panel3);
             this.headerPanel.Controls.Add(this.btnnotif);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.ForeColor = System.Drawing.Color.Gainsboro;
@@ -378,6 +382,50 @@ namespace GOS_FxApps
             this.headerPanel.Name = "headerPanel";
             this.headerPanel.Size = new System.Drawing.Size(1008, 46);
             this.headerPanel.TabIndex = 3;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.lbluser);
+            this.panel3.Controls.Add(this.iconButton14);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(587, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(3);
+            this.panel3.Size = new System.Drawing.Size(421, 46);
+            this.panel3.TabIndex = 8;
+            // 
+            // lbluser
+            // 
+            this.lbluser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbluser.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbluser.ForeColor = System.Drawing.Color.Black;
+            this.lbluser.Location = new System.Drawing.Point(3, 3);
+            this.lbluser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbluser.Name = "lbluser";
+            this.lbluser.Size = new System.Drawing.Size(366, 40);
+            this.lbluser.TabIndex = 8;
+            this.lbluser.Text = "Robert Danuarta [Manajer]";
+            this.lbluser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // iconButton14
+            // 
+            this.iconButton14.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.iconButton14.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconButton14.FlatAppearance.BorderSize = 0;
+            this.iconButton14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton14.ForeColor = System.Drawing.Color.Transparent;
+            this.iconButton14.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
+            this.iconButton14.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(132)))));
+            this.iconButton14.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton14.IconSize = 40;
+            this.iconButton14.Location = new System.Drawing.Point(369, 3);
+            this.iconButton14.Margin = new System.Windows.Forms.Padding(2);
+            this.iconButton14.Name = "iconButton14";
+            this.iconButton14.Size = new System.Drawing.Size(49, 40);
+            this.iconButton14.TabIndex = 7;
+            this.iconButton14.UseVisualStyleBackColor = false;
+            this.iconButton14.Click += new System.EventHandler(this.iconButton14_Click);
             // 
             // panel2
             // 
@@ -428,49 +476,6 @@ namespace GOS_FxApps
             this.lbldate.TabIndex = 0;
             this.lbldate.Text = "Tanggal Dan Jam";
             this.lbldate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.lbluser);
-            this.panel3.Controls.Add(this.iconButton14);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(98, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(910, 46);
-            this.panel3.TabIndex = 8;
-            // 
-            // lbluser
-            // 
-            this.lbluser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbluser.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbluser.ForeColor = System.Drawing.Color.Black;
-            this.lbluser.Location = new System.Drawing.Point(0, 0);
-            this.lbluser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbluser.Name = "lbluser";
-            this.lbluser.Size = new System.Drawing.Size(861, 46);
-            this.lbluser.TabIndex = 8;
-            this.lbluser.Text = "Robert Danuarta [Manajer]";
-            this.lbluser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // iconButton14
-            // 
-            this.iconButton14.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.iconButton14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.iconButton14.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton14.FlatAppearance.BorderSize = 0;
-            this.iconButton14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton14.ForeColor = System.Drawing.Color.Transparent;
-            this.iconButton14.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
-            this.iconButton14.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(132)))));
-            this.iconButton14.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton14.IconSize = 40;
-            this.iconButton14.Location = new System.Drawing.Point(861, 0);
-            this.iconButton14.Margin = new System.Windows.Forms.Padding(2);
-            this.iconButton14.Name = "iconButton14";
-            this.iconButton14.Size = new System.Drawing.Size(49, 46);
-            this.iconButton14.TabIndex = 7;
-            this.iconButton14.UseVisualStyleBackColor = false;
-            this.iconButton14.Click += new System.EventHandler(this.iconButton14_Click);
             // 
             // btnnotif
             // 
@@ -602,7 +607,6 @@ namespace GOS_FxApps
             // 
             // jam
             // 
-            this.jam.Enabled = true;
             this.jam.Interval = 1000;
             this.jam.Tick += new System.EventHandler(this.jam_Tick);
             // 
@@ -635,6 +639,7 @@ namespace GOS_FxApps
             this.guna2Panel1.BorderColor = System.Drawing.Color.Gainsboro;
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.BorderThickness = 2;
+            this.guna2Panel1.Controls.Add(this.panel5);
             this.guna2Panel1.Controls.Add(this.flowLayoutPanel1);
             this.guna2Panel1.Controls.Add(this.tableLayoutPanel2);
             this.guna2Panel1.Controls.Add(this.tableLayoutPanel1);
@@ -644,6 +649,52 @@ namespace GOS_FxApps
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(243, 855);
             this.guna2Panel1.TabIndex = 0;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.lblalert);
+            this.panel5.Controls.Add(this.btnaturjam);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 807);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(5);
+            this.panel5.Size = new System.Drawing.Size(243, 48);
+            this.panel5.TabIndex = 1;
+            // 
+            // lblalert
+            // 
+            this.lblalert.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblalert.Font = new System.Drawing.Font("Century Gothic", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblalert.ForeColor = System.Drawing.Color.Red;
+            this.lblalert.Location = new System.Drawing.Point(5, 5);
+            this.lblalert.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblalert.Name = "lblalert";
+            this.lblalert.Size = new System.Drawing.Size(174, 38);
+            this.lblalert.TabIndex = 9;
+            this.lblalert.Text = "Mode manual aktif";
+            this.lblalert.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblalert.Visible = false;
+            // 
+            // btnaturjam
+            // 
+            this.btnaturjam.BorderRadius = 8;
+            this.btnaturjam.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnaturjam.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnaturjam.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnaturjam.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnaturjam.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnaturjam.FillColor = System.Drawing.Color.Transparent;
+            this.btnaturjam.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnaturjam.ForeColor = System.Drawing.Color.White;
+            this.btnaturjam.HoverState.ForeColor = System.Drawing.Color.Transparent;
+            this.btnaturjam.Image = global::GOS_FxApps.Properties.Resources.wall_clock;
+            this.btnaturjam.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnaturjam.Location = new System.Drawing.Point(179, 5);
+            this.btnaturjam.Name = "btnaturjam";
+            this.btnaturjam.Size = new System.Drawing.Size(59, 38);
+            this.btnaturjam.TabIndex = 3;
+            this.btnaturjam.Click += new System.EventHandler(this.btnaturjam_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -1223,13 +1274,14 @@ namespace GOS_FxApps
             this.titlePanel.ResumeLayout(false);
             this.historycontainer.ResumeLayout(false);
             this.headerPanel.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.sidebarPanel.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.entryContainer.ResumeLayout(false);
             this.EditContainer.ResumeLayout(false);
@@ -1253,7 +1305,7 @@ namespace GOS_FxApps
         private System.Windows.Forms.Timer edittimer;
         private Guna.UI2.WinForms.Guna2ControlBox ControlBoxButton;
         public Label lbldate;
-        private System.Windows.Forms.Timer jam;
+        public System.Windows.Forms.Timer jam;
         private Timer historitimer;
         private Panel panel3;
         public Label lbluser;
@@ -1300,5 +1352,8 @@ namespace GOS_FxApps
         public Guna.UI2.WinForms.Guna2Button btnnotif;
         private Guna.UI2.WinForms.Guna2Button btnbuktiperubahan;
         private Guna.UI2.WinForms.Guna2Button btneditbuktiperubahan;
+        private Panel panel5;
+        private Guna.UI2.WinForms.Guna2Button btnaturjam;
+        public Label lblalert;
     }
 }

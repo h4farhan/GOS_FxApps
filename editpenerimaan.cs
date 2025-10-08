@@ -119,13 +119,13 @@ namespace GOS_FxApps
             {
                 if (tanggal.HasValue)
                 {
-                     query += "AND CAST(tanggal_penerimaan AS DATE) = @tgl";
+                     query += " AND CAST(tanggal_penerimaan AS DATE) = @tgl ";
                      cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
                 }
 
                 if (!string.IsNullOrEmpty(inputRod))
                 {
-                     query += "AND nomor_rod LIKE @rod";
+                     query += " AND nomor_rod LIKE @rod ";
                      cmd.Parameters.AddWithValue("@rod", "%" + inputRod + "%");
                 }
 

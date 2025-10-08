@@ -221,6 +221,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="aturjam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="aturjam.Designer.cs">
+      <DependentUpon>aturjam.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -521,6 +527,9 @@
     <Content Include="Data Barang Template.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="aturjam.resx">
+      <DependentUpon>aturjam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Rb_Stokhari.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -865,6 +874,7 @@
     <None Include="Resources\check.png" />
     <None Include="Resources\close.png" />
     <None Include="Resources\checklist.png" />
+    <None Include="Resources\wall-clock.png" />
     <Content Include="Stock Barang Template.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
