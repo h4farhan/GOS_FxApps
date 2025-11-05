@@ -709,7 +709,7 @@ namespace GOS_FxApps {
             iconButton3.Visible = true;
             btnpemakaian.Visible = true;
             iconButton15.Visible = true;
-            EditContainer.MaximumSize = new Size(232, 218);
+            EditContainer.MaximumSize = new Size(232, 178);
             EditContainer.Visible = true;
             iconButton12.Visible = true;
             btnHistori.Visible = true;
@@ -761,7 +761,7 @@ namespace GOS_FxApps {
             guna2Button1.Visible = true;
             iconButton13.Visible = true;
 
-            btnaturjam.Visible = true;
+            btnaturjam.Visible = false;
         }
         public void trueoperatorgudang()
         {
@@ -787,7 +787,7 @@ namespace GOS_FxApps {
             guna2Button1.Visible = true;
             iconButton13.Visible = true;
 
-            btnaturjam.Visible = true;
+            btnaturjam.Visible = false;
         }
         public void trueoperator()
         {

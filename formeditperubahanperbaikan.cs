@@ -176,7 +176,7 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@nomor_rod", "%" + nomorrod + "%");
                 }
 
-                query += " ORDER BY tanggal_penerimaan DESC";
+                query += " ORDER BY tanggal_penerimaan ASC";
 
                 cmd.CommandText = query;
                 cmd.Connection = conn;

@@ -133,7 +133,7 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@shift", cbShift.SelectedItem.ToString());
                 }
 
-                query += " ORDER BY tanggal_penerimaan DESC";
+                query += " ORDER BY tanggal_penerimaan ASC";
 
                 cmd.CommandText = query;
                 cmd.Connection = conn;
@@ -218,12 +218,20 @@ namespace GOS_FxApps
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
-                noprimary = Convert.ToInt32(row.Cells["no"].Value);
-                nomorrod = row.Cells["nomor_rod"].Value.ToString();
+                if (dataGridView1.Columns.Contains("no") && dataGridView1.Columns.Contains("nomor_rod"))
+                {
+                    noprimary = Convert.ToInt32(row.Cells["no"].Value);
+                    nomorrod = row.Cells["nomor_rod"].Value.ToString();
 
-                datapenerimaanedit data = new datapenerimaanedit();
-                data.lbljudul.Text = "Nomor ROD = " + nomorrod;
-                data.ShowDialog();
+                    datapenerimaanedit data = new datapenerimaanedit();
+                    data.lbljudul.Text = "Nomor ROD = " + nomorrod;
+                    data.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Kolom 'no' atau 'nomor_rod' tidak ditemukan di DataGridView.",
+                                    "Kesalahan Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

@@ -903,32 +903,33 @@ namespace GOS_FxApps.DataSet.PengirimanFormTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_shift", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_shift", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nomor_rod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nomor_rod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nomor_rod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nomor_rod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nomor_rod", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nomor_rod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [pengiriman] ([tanggal_pengiriman], [shift], [nomor_rod]) VALUES (@ta" +
-                "nggal_pengiriman, @shift, @nomor_rod);\r\nSELECT no, tanggal_pengiriman, shift, no" +
-                "mor_rod FROM pengiriman WHERE (no = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [pengiriman] ([no], [tanggal_pengiriman], [shift], [nomor_rod]) VALUE" +
+                "S (@no, @tanggal_pengiriman, @shift, @nomor_rod);\r\nSELECT no, tanggal_pengiriman" +
+                ", shift, nomor_rod FROM pengiriman WHERE (no = @no) ORDER BY tanggal_pengiriman";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal_pengiriman", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_pengiriman", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shift", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nomor_rod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nomor_rod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nomor_rod", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nomor_rod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [pengiriman] SET [tanggal_pengiriman] = @tanggal_pengiriman, [shift] = @shift, [nomor_rod] = @nomor_rod WHERE (([no] = @Original_no) AND ((@IsNull_tanggal_pengiriman = 1 AND [tanggal_pengiriman] IS NULL) OR ([tanggal_pengiriman] = @Original_tanggal_pengiriman)) AND ((@IsNull_shift = 1 AND [shift] IS NULL) OR ([shift] = @Original_shift)) AND ((@IsNull_nomor_rod = 1 AND [nomor_rod] IS NULL) OR ([nomor_rod] = @Original_nomor_rod)));
-SELECT no, tanggal_pengiriman, shift, nomor_rod FROM pengiriman WHERE (no = @no)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [pengiriman] SET [no] = @no, [tanggal_pengiriman] = @tanggal_pengiriman, [shift] = @shift, [nomor_rod] = @nomor_rod WHERE (([no] = @Original_no) AND ((@IsNull_tanggal_pengiriman = 1 AND [tanggal_pengiriman] IS NULL) OR ([tanggal_pengiriman] = @Original_tanggal_pengiriman)) AND ((@IsNull_shift = 1 AND [shift] IS NULL) OR ([shift] = @Original_shift)) AND ((@IsNull_nomor_rod = 1 AND [nomor_rod] IS NULL) OR ([nomor_rod] = @Original_nomor_rod)));
+SELECT no, tanggal_pengiriman, shift, nomor_rod FROM pengiriman WHERE (no = @no) ORDER BY tanggal_pengiriman";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal_pengiriman", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_pengiriman", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shift", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nomor_rod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nomor_rod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nomor_rod", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nomor_rod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tanggal_pengiriman", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_pengiriman", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tanggal_pengiriman", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_pengiriman", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_shift", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_shift", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nomor_rod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nomor_rod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nomor_rod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nomor_rod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@no", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nomor_rod", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nomor_rod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -945,7 +946,8 @@ SELECT no, tanggal_pengiriman, shift, nomor_rod FROM pengiriman WHERE (no = @no)
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT no, \r\ntanggal_pengiriman, \r\nshift, \r\nnomor_rod \r\nFROM pengiriman WHERE (ta" +
-                "nggal_pengiriman BETWEEN @tanggal1 AND @tanggal2) AND (shift = @shift)";
+                "nggal_pengiriman BETWEEN @tanggal1 AND @tanggal2) AND (shift = @shift)\r\nORDER BY" +
+                " tanggal_pengiriman ASC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal1", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_pengiriman", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal2", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_pengiriman", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1045,7 +1047,7 @@ SELECT no, tanggal_pengiriman, shift, nomor_rod FROM pengiriman WHERE (no = @no)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_no, global::System.Nullable<global::System.DateTime> Original_tanggal_pengiriman, string Original_shift, global::System.Nullable<int> Original_nomor_rod) {
+        public virtual int Delete(int Original_no, global::System.Nullable<global::System.DateTime> Original_tanggal_pengiriman, string Original_shift, string Original_nomor_rod) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_no));
             if ((Original_tanggal_pengiriman.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -1063,13 +1065,13 @@ SELECT no, tanggal_pengiriman, shift, nomor_rod FROM pengiriman WHERE (no = @no)
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_shift));
             }
-            if ((Original_nomor_rod.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_nomor_rod.Value));
-            }
-            else {
+            if ((Original_nomor_rod == null)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_nomor_rod));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1091,24 +1093,25 @@ SELECT no, tanggal_pengiriman, shift, nomor_rod FROM pengiriman WHERE (no = @no)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<global::System.DateTime> tanggal_pengiriman, string shift, global::System.Nullable<int> nomor_rod) {
+        public virtual int Insert(int no, global::System.Nullable<global::System.DateTime> tanggal_pengiriman, string shift, string nomor_rod) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(no));
             if ((tanggal_pengiriman.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(tanggal_pengiriman.Value));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(tanggal_pengiriman.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((shift == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(shift));
-            }
-            if ((nomor_rod.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(nomor_rod.Value));
-            }
-            else {
+            if ((shift == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(shift));
+            }
+            if ((nomor_rod == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(nomor_rod));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1130,51 +1133,51 @@ SELECT no, tanggal_pengiriman, shift, nomor_rod FROM pengiriman WHERE (no = @no)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> tanggal_pengiriman, string shift, global::System.Nullable<int> nomor_rod, int Original_no, global::System.Nullable<global::System.DateTime> Original_tanggal_pengiriman, string Original_shift, global::System.Nullable<int> Original_nomor_rod, int no) {
+        public virtual int Update(int no, global::System.Nullable<global::System.DateTime> tanggal_pengiriman, string shift, string nomor_rod, int Original_no, global::System.Nullable<global::System.DateTime> Original_tanggal_pengiriman, string Original_shift, string Original_nomor_rod) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(no));
             if ((tanggal_pengiriman.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(tanggal_pengiriman.Value));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(tanggal_pengiriman.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((shift == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(shift));
-            }
-            if ((nomor_rod.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(nomor_rod.Value));
-            }
-            else {
+            if ((shift == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_no));
-            if ((Original_tanggal_pengiriman.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Original_tanggal_pengiriman.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(shift));
+            }
+            if ((nomor_rod == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(nomor_rod));
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_no));
+            if ((Original_tanggal_pengiriman.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(Original_tanggal_pengiriman.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             if ((Original_shift == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_shift));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_shift));
             }
-            if ((Original_nomor_rod.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_nomor_rod.Value));
+            if ((Original_nomor_rod == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_nomor_rod));
             }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(no));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1195,8 +1198,8 @@ SELECT no, tanggal_pengiriman, shift, nomor_rod FROM pengiriman WHERE (no = @no)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> tanggal_pengiriman, string shift, global::System.Nullable<int> nomor_rod, int Original_no, global::System.Nullable<global::System.DateTime> Original_tanggal_pengiriman, string Original_shift, global::System.Nullable<int> Original_nomor_rod) {
-            return this.Update(tanggal_pengiriman, shift, nomor_rod, Original_no, Original_tanggal_pengiriman, Original_shift, Original_nomor_rod, Original_no);
+        public virtual int Update(global::System.Nullable<global::System.DateTime> tanggal_pengiriman, string shift, string nomor_rod, int Original_no, global::System.Nullable<global::System.DateTime> Original_tanggal_pengiriman, string Original_shift, string Original_nomor_rod) {
+            return this.Update(Original_no, tanggal_pengiriman, shift, nomor_rod, Original_no, Original_tanggal_pengiriman, Original_shift, Original_nomor_rod);
         }
     }
     

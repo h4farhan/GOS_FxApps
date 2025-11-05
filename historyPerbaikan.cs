@@ -141,7 +141,7 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@shift", cbShift.SelectedItem.ToString());
                 }
 
-                query += " ORDER BY tanggal_perbaikan DESC";
+                query += " ORDER BY tanggal_perbaikan ASC";
 
                 cmd.CommandText = query;
                 cmd.Connection = conn;

@@ -895,14 +895,13 @@ namespace GOS_FxApps
             // EditContainer
             // 
             this.EditContainer.BorderRadius = 8;
-            this.EditContainer.Controls.Add(this.iconButton12);
             this.EditContainer.Controls.Add(this.btneditbuktiperubahan);
             this.EditContainer.Controls.Add(this.iconButton8);
             this.EditContainer.Controls.Add(this.iconButton9);
             this.EditContainer.Controls.Add(this.Editbutton);
             this.EditContainer.FillColor = System.Drawing.Color.WhiteSmoke;
             this.EditContainer.Location = new System.Drawing.Point(6, 142);
-            this.EditContainer.MaximumSize = new System.Drawing.Size(231, 218);
+            this.EditContainer.MaximumSize = new System.Drawing.Size(231, 178);
             this.EditContainer.MinimumSize = new System.Drawing.Size(231, 55);
             this.EditContainer.Name = "EditContainer";
             this.EditContainer.Size = new System.Drawing.Size(231, 55);
@@ -922,7 +921,7 @@ namespace GOS_FxApps
             this.iconButton12.Image = global::GOS_FxApps.Properties.Resources.optimization;
             this.iconButton12.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.iconButton12.ImageSize = new System.Drawing.Size(30, 30);
-            this.iconButton12.Location = new System.Drawing.Point(0, 175);
+            this.iconButton12.Location = new System.Drawing.Point(0, 55);
             this.iconButton12.Name = "iconButton12";
             this.iconButton12.Size = new System.Drawing.Size(231, 40);
             this.iconButton12.TabIndex = 17;
@@ -1034,10 +1033,11 @@ namespace GOS_FxApps
             this.gudangContainer.Controls.Add(this.btnpemakaian);
             this.gudangContainer.Controls.Add(this.btnmaterialmasuk);
             this.gudangContainer.Controls.Add(this.iconButton3);
+            this.gudangContainer.Controls.Add(this.iconButton12);
             this.gudangContainer.Controls.Add(this.btngudang);
             this.gudangContainer.FillColor = System.Drawing.Color.WhiteSmoke;
             this.gudangContainer.Location = new System.Drawing.Point(6, 203);
-            this.gudangContainer.MaximumSize = new System.Drawing.Size(231, 335);
+            this.gudangContainer.MaximumSize = new System.Drawing.Size(231, 375);
             this.gudangContainer.MinimumSize = new System.Drawing.Size(231, 55);
             this.gudangContainer.Name = "gudangContainer";
             this.gudangContainer.Size = new System.Drawing.Size(231, 55);
@@ -1057,7 +1057,7 @@ namespace GOS_FxApps
             this.btndata.Image = global::GOS_FxApps.Properties.Resources.books;
             this.btndata.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btndata.ImageSize = new System.Drawing.Size(30, 30);
-            this.btndata.Location = new System.Drawing.Point(0, 295);
+            this.btndata.Location = new System.Drawing.Point(0, 335);
             this.btndata.Name = "btndata";
             this.btndata.Size = new System.Drawing.Size(231, 40);
             this.btndata.TabIndex = 22;
@@ -1080,7 +1080,7 @@ namespace GOS_FxApps
             this.btnlaporanpersediaan.Image = global::GOS_FxApps.Properties.Resources.checklists;
             this.btnlaporanpersediaan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnlaporanpersediaan.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnlaporanpersediaan.Location = new System.Drawing.Point(0, 255);
+            this.btnlaporanpersediaan.Location = new System.Drawing.Point(0, 295);
             this.btnlaporanpersediaan.Name = "btnlaporanpersediaan";
             this.btnlaporanpersediaan.Size = new System.Drawing.Size(231, 40);
             this.btnlaporanpersediaan.TabIndex = 21;
@@ -1103,7 +1103,7 @@ namespace GOS_FxApps
             this.btnestimasi.Image = global::GOS_FxApps.Properties.Resources.calculator;
             this.btnestimasi.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnestimasi.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnestimasi.Location = new System.Drawing.Point(0, 215);
+            this.btnestimasi.Location = new System.Drawing.Point(0, 255);
             this.btnestimasi.Name = "btnestimasi";
             this.btnestimasi.Size = new System.Drawing.Size(231, 40);
             this.btnestimasi.TabIndex = 16;
@@ -1126,7 +1126,7 @@ namespace GOS_FxApps
             this.btntambahmaterial.Image = global::GOS_FxApps.Properties.Resources.membrane;
             this.btntambahmaterial.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btntambahmaterial.ImageSize = new System.Drawing.Size(30, 30);
-            this.btntambahmaterial.Location = new System.Drawing.Point(0, 175);
+            this.btntambahmaterial.Location = new System.Drawing.Point(0, 215);
             this.btntambahmaterial.Name = "btntambahmaterial";
             this.btntambahmaterial.Size = new System.Drawing.Size(231, 40);
             this.btntambahmaterial.TabIndex = 20;
@@ -1149,7 +1149,7 @@ namespace GOS_FxApps
             this.btnpemakaian.Image = global::GOS_FxApps.Properties.Resources.recycled_material;
             this.btnpemakaian.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnpemakaian.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnpemakaian.Location = new System.Drawing.Point(0, 135);
+            this.btnpemakaian.Location = new System.Drawing.Point(0, 175);
             this.btnpemakaian.Name = "btnpemakaian";
             this.btnpemakaian.Size = new System.Drawing.Size(231, 40);
             this.btnpemakaian.TabIndex = 18;
@@ -1172,7 +1172,7 @@ namespace GOS_FxApps
             this.btnmaterialmasuk.Image = global::GOS_FxApps.Properties.Resources.processing;
             this.btnmaterialmasuk.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnmaterialmasuk.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnmaterialmasuk.Location = new System.Drawing.Point(0, 95);
+            this.btnmaterialmasuk.Location = new System.Drawing.Point(0, 135);
             this.btnmaterialmasuk.Name = "btnmaterialmasuk";
             this.btnmaterialmasuk.Size = new System.Drawing.Size(231, 40);
             this.btnmaterialmasuk.TabIndex = 19;
@@ -1195,7 +1195,7 @@ namespace GOS_FxApps
             this.iconButton3.Image = global::GOS_FxApps.Properties.Resources.welding_machine;
             this.iconButton3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.iconButton3.ImageSize = new System.Drawing.Size(30, 30);
-            this.iconButton3.Location = new System.Drawing.Point(0, 55);
+            this.iconButton3.Location = new System.Drawing.Point(0, 95);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(231, 40);
             this.iconButton3.TabIndex = 20;

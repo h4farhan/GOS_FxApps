@@ -51,9 +51,48 @@ namespace GOS_FxApps
             }
         }
 
-        private void textBox_KeyPress(object sender, KeyPressEventArgs e)
+        private bool ValidasiInputKoefisiensi()
         {
-            var tb = sender as TextBoxBase;
+            Guna2TextBox[] daftarTextBox = {
+        txtkoefe1, txtkoefe2, txtkoefe3, txtkoefe4,
+        txtkoefs, txtkoefd, txtkoefb, txtkoefba,
+        txtkoefba1, txtkoefcr, txtkoefm, txtkoefr,
+        txtkoefc, txtkoefrl
+            };
+
+            foreach (var tb in daftarTextBox)
+            {
+                string text = tb.Text.Trim();
+
+                if (string.IsNullOrEmpty(text))
+                    continue; // boleh kosong
+
+                // ❌ Cek kalau ada huruf atau simbol selain angka dan koma
+                if (!System.Text.RegularExpressions.Regex.IsMatch(text, @"^[0-9,]+$"))
+                {
+                    MessageBox.Show($"Kolom '{tb.Name}' hanya boleh berisi angka dan koma!",
+                                    "Input Tidak Valid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    tb.Focus();
+                    return false;
+                }
+
+                // ❌ Cek kalau ada lebih dari satu koma
+                if (text.Count(c => c == ',') > 1)
+                {
+                    MessageBox.Show($"Kolom '{tb.Name}' tidak boleh memiliki lebih dari satu koma!",
+                                    "Input Tidak Valid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    tb.Focus();
+                    return false;
+                }
+            }
+
+            return true; // semua valid
+        }
+
+
+        private void textBoxx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            var tb = sender as TextBox;
             if (tb == null) return;
 
             if (char.IsControl(e.KeyChar))
@@ -65,8 +104,7 @@ namespace GOS_FxApps
             if (e.KeyChar == ',')
             {
                 if (tb.Text.Contains(",") || tb.SelectionStart == 0)
-                    e.Handled = true;
-
+                    e.Handled = true; 
                 return;
             }
 
@@ -440,7 +478,11 @@ namespace GOS_FxApps
                 return;
             }
 
-            if(btnsimpanmaterial.Text == "Edit Data")
+
+            if (!ValidasiInputKoefisiensi())
+                return;
+
+            if (btnsimpanmaterial.Text == "Edit Data")
             {
                 editmaterial();
                 txtuom.Enabled = true;

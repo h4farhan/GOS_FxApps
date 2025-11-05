@@ -9539,7 +9539,7 @@ namespace GOS_FxApps.DataSet.PerbaikanFormTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [perbaikan_p] ([no], [tanggal_perbaikan], [shift], [nomor_rod], [jenis], [e1_ers], [e1_est], [e1_jumlah], [e2_ers], [e2_cst], [e2_cstub], [e2_jumlah], [e3], [e4], [s], [d], [b], [ba], [ba1], [cr], [m], [r], [c], [rl], [jumlah], [tanggal_penerimaan], [catatan]) VALUES (@no, @tanggal_perbaikan, @shift, @nomor_rod, @jenis, @e1_ers, @e1_est, @e1_jumlah, @e2_ers, @e2_cst, @e2_cstub, @e2_jumlah, @e3, @e4, @s, @d, @b, @ba, @ba1, @cr, @m, @r, @c, @rl, @jumlah, @tanggal_penerimaan, @catatan);
-SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, ba, ba1, cr, m, r, c, rl, jumlah, tanggal_penerimaan, catatan FROM perbaikan_p WHERE (no = @no)";
+SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, ba, ba1, cr, m, r, c, rl, jumlah, tanggal_penerimaan, catatan FROM perbaikan_p WHERE (no = @no) ORDER BY tanggal_perbaikan";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal_perbaikan", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -9605,7 +9605,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
                 "catatan)));\r\nSELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_e" +
                 "st, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, ba, ba1, cr" +
                 ", m, r, c, rl, jumlah, tanggal_penerimaan, catatan FROM perbaikan_p WHERE (no = " +
-                "@no)";
+                "@no) ORDER BY tanggal_perbaikan";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal_perbaikan", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -9702,7 +9702,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, ba, ba1, cr, m, r, c, rl, jumlah, tanggal_penerimaan,catatan FROM perbaikan_p WHERE (tanggal_perbaikan BETWEEN @tanggal1 AND @tanggal2) AND (shift = @shift)";
+            this._commandCollection[0].CommandText = @"SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, ba, ba1, cr, m, r, c, rl, jumlah, tanggal_penerimaan,catatan FROM perbaikan_p WHERE (tanggal_perbaikan BETWEEN @tanggal1 AND @tanggal2) AND (shift = @shift) ORDER BY tanggal_perbaikan ASC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal1", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal2", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

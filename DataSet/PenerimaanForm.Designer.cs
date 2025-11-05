@@ -7031,7 +7031,7 @@ namespace GOS_FxApps.DataSet.PenerimaanFormTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [penerimaan_p] ([tanggal_penerimaan], [shift], [nomor_rod], [jenis], [stasiun], [e1], [e2], [e3], [s], [d], [b], [ba], [cr], [m], [r], [c], [rl], [jumlah], [catatan]) VALUES (@tanggal_penerimaan, @shift, @nomor_rod, @jenis, @stasiun, @e1, @e2, @e3, @s, @d, @b, @ba, @cr, @m, @r, @c, @rl, @jumlah, @catatan);
-SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3, s, d, b, ba, cr, m, r, c, rl, jumlah, catatan FROM penerimaan_p WHERE (no = SCOPE_IDENTITY())";
+SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3, s, d, b, ba, cr, m, r, c, rl, jumlah, catatan FROM penerimaan_p WHERE (no = SCOPE_IDENTITY()) ORDER BY tanggal_penerimaan";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal_penerimaan", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_penerimaan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shift", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7077,7 +7077,8 @@ SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3, s, 
                 " [jumlah] IS NULL) OR ([jumlah] = @Original_jumlah)) AND ((@IsNull_catatan = 1 A" +
                 "ND [catatan] IS NULL) OR ([catatan] = @Original_catatan)));\r\nSELECT no, tanggal_" +
                 "penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3, s, d, b, ba, cr, m, r," +
-                " c, rl, jumlah, catatan FROM penerimaan_p WHERE (no = @no)";
+                " c, rl, jumlah, catatan FROM penerimaan_p WHERE (no = @no) ORDER BY tanggal_pene" +
+                "rimaan";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal_penerimaan", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_penerimaan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shift", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shift", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7166,7 +7167,8 @@ SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3, s, 
     ,[catatan]
 FROM penerimaan_p
 WHERE tanggal_penerimaan BETWEEN @tanggal1 AND @tanggal2 
-AND shift = @shift";
+AND shift = @shift
+ORDER BY tanggal_penerimaan ASC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal1", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_penerimaan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal2", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_penerimaan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

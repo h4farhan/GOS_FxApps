@@ -1239,7 +1239,7 @@ namespace GOS_FxApps
 
             DataTable dt = new DataTable();
 
-            string query = "SELECT * FROM penerimaan_p WHERE tanggal_penerimaan >= @tanggal1 AND tanggal_penerimaan < @tanggal2 AND shift = @shift";
+            string query = "SELECT * FROM penerimaan_p WHERE tanggal_penerimaan >= @tanggal1 AND tanggal_penerimaan < @tanggal2 AND shift = @shift ORDER BY tanggal_penerimaan ASC";
 
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
@@ -1291,7 +1291,7 @@ namespace GOS_FxApps
 
             DataTable dt = new DataTable();
 
-            string query = "SELECT * FROM perbaikan_p WHERE tanggal_perbaikan >= @tanggal1 AND tanggal_perbaikan < @tanggal2 AND shift = @shift";
+            string query = "SELECT * FROM perbaikan_p WHERE tanggal_perbaikan >= @tanggal1 AND tanggal_perbaikan < @tanggal2 AND shift = @shift ORDER BY tanggal_perbaikan ASC";
 
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
@@ -1343,7 +1343,7 @@ namespace GOS_FxApps
 
             DataTable dt = new DataTable();
 
-            string query = "SELECT * FROM pengiriman WHERE tanggal_pengiriman >= @tanggal1 AND tanggal_pengiriman < @tanggal2 AND shift = @shift";
+            string query = "SELECT * FROM pengiriman WHERE tanggal_pengiriman >= @tanggal1 AND tanggal_pengiriman < @tanggal2 AND shift = @shift ORDER BY tanggal_pengiriman ASC";
 
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
@@ -1388,7 +1388,7 @@ namespace GOS_FxApps
 
             DataTable dt = new DataTable();
 
-            string query = "SELECT * FROM pemakaian_material WHERE YEAR(tanggalPemakaian) = @year AND MONTH(tanggalPemakaian) = @bulan;";
+            string query = "SELECT * FROM pemakaian_material WHERE YEAR(tanggalPemakaian) = @year AND MONTH(tanggalPemakaian) = @bulan ORDER BY tanggalPemakaian ASC";
 
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
@@ -1475,7 +1475,7 @@ namespace GOS_FxApps
 
             DataTable dt = new DataTable();
 
-            string query = "SELECT * FROM perbaikan_p WHERE YEAR(tanggal_perbaikan) = @year AND MONTH(tanggal_perbaikan) = @bulan;";
+            string query = "SELECT * FROM perbaikan_p WHERE YEAR(tanggal_perbaikan) = @year AND MONTH(tanggal_perbaikan) = @bulan ORDER BY tanggal_perbaikan ASC, shift ASC";
 
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
@@ -1518,7 +1518,7 @@ namespace GOS_FxApps
 
             DataTable dt = new DataTable();
 
-            string query = "SELECT * FROM perbaikan_p WHERE YEAR(tanggal_perbaikan) = @year AND MONTH(tanggal_perbaikan) = @bulan;";
+            string query = "SELECT * FROM perbaikan_p WHERE YEAR(tanggal_perbaikan) = @year AND MONTH(tanggal_perbaikan) = @bulan ORDER BY tanggal_perbaikan ASC, shift ASC";
 
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
@@ -1561,7 +1561,7 @@ namespace GOS_FxApps
 
             DataTable dt = new DataTable();
 
-            string query = "SELECT * FROM perbaikan_p WHERE YEAR(tanggal_perbaikan) = @year AND MONTH(tanggal_perbaikan) = @bulan;";
+            string query = "SELECT * FROM perbaikan_p WHERE YEAR(tanggal_perbaikan) = @year AND MONTH(tanggal_perbaikan) = @bulan ORDER BY tanggal_perbaikan ASC, shift ASC";
 
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
@@ -1761,7 +1761,7 @@ namespace GOS_FxApps
                      FROM buktiperubahan
                      WHERE CAST(tanggal_penerimaan AS DATE) = @tgl
                        AND shift = @shift
-                     ORDER BY tanggal_penerimaan DESC";
+                     ORDER BY tanggal_penerimaan ASC";
 
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {

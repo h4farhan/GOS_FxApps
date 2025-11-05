@@ -530,6 +530,12 @@
     <EmbeddedResource Include="aturjam.resx">
       <DependentUpon>aturjam.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formkamera.resx">
+      <DependentUpon>formkamera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="koefisiensi.resx">
+      <DependentUpon>koefisiensi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Rb_Stokhari.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -641,9 +647,6 @@
     <EmbeddedResource Include="formeditperubahanperbaikan.resx">
       <DependentUpon>formeditperubahanperbaikan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formkamera.resx">
-      <DependentUpon>formkamera.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormLoading.resx">
       <DependentUpon>FormLoading.cs</DependentUpon>
     </EmbeddedResource>
@@ -679,9 +682,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="infoalluser.resx">
       <DependentUpon>infoalluser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="koefisiensi.resx">
-      <DependentUpon>koefisiensi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="kondisi_28.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

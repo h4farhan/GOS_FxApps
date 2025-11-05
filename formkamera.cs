@@ -44,7 +44,7 @@ namespace GOS_FxApps
                 }
             }
 
-            if (indexBelakang == -1)
+            if (indexBelakang == -1) 
                 indexBelakang = videoDevices.Count - 1;
 
             videoSource = new VideoCaptureDevice(videoDevices[indexBelakang].MonikerString);
@@ -60,6 +60,7 @@ namespace GOS_FxApps
             {
                 Bitmap bmp = (Bitmap)eventArgs.Frame.Clone();
                 bmp.RotateFlip(RotateFlipType.Rotate180FlipNone);
+
 
                 if (pictureBoxPreview.InvokeRequired)
                 {

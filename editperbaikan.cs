@@ -146,7 +146,7 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@rod", "%" + inputRod + "%");
                 }
 
-                query += " ORDER BY tanggal_perbaikan DESC";
+                query += " ORDER BY tanggal_perbaikan ASC";
 
                 cmd.CommandText = query;
                 cmd.Connection = conn;

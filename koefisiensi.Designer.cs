@@ -331,7 +331,7 @@
             this.txtkoefrl.TabIndex = 56;
             this.txtkoefrl.TextChanged += new System.EventHandler(this.txtkoefrl_TextChanged);
             this.txtkoefrl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtkoefrl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.txtkoefrl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxx_KeyPress);
             // 
             // label21
             // 
@@ -374,7 +374,7 @@
             this.txtkoefc.TabIndex = 54;
             this.txtkoefc.TextChanged += new System.EventHandler(this.txtkoefc_TextChanged);
             this.txtkoefc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtkoefc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.txtkoefc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxx_KeyPress);
             // 
             // label20
             // 
@@ -417,7 +417,7 @@
             this.txtkoefcr.TabIndex = 39;
             this.txtkoefcr.TextChanged += new System.EventHandler(this.txtkoefcr_TextChanged);
             this.txtkoefcr.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtkoefcr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.txtkoefcr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxx_KeyPress);
             // 
             // txtkoefm
             // 
@@ -446,7 +446,7 @@
             this.txtkoefm.TabIndex = 41;
             this.txtkoefm.TextChanged += new System.EventHandler(this.txtkoefm_TextChanged);
             this.txtkoefm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtkoefm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.txtkoefm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxx_KeyPress);
             // 
             // label16
             // 
@@ -503,7 +503,7 @@
             this.txtkoefr.TabIndex = 44;
             this.txtkoefr.TextChanged += new System.EventHandler(this.txtkoefr_TextChanged);
             this.txtkoefr.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtkoefr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.txtkoefr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxx_KeyPress);
             // 
             // label18
             // 
@@ -546,7 +546,7 @@
             this.txtkoefb.TabIndex = 36;
             this.txtkoefb.TextChanged += new System.EventHandler(this.txtkoefb_TextChanged);
             this.txtkoefb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtkoefb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.txtkoefb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxx_KeyPress);
             // 
             // txtkoefba
             // 
@@ -575,7 +575,7 @@
             this.txtkoefba.TabIndex = 37;
             this.txtkoefba.TextChanged += new System.EventHandler(this.txtkoefba_TextChanged);
             this.txtkoefba.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtkoefba.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.txtkoefba.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxx_KeyPress);
             // 
             // label13
             // 
@@ -632,7 +632,7 @@
             this.txtkoefba1.TabIndex = 38;
             this.txtkoefba1.TextChanged += new System.EventHandler(this.txtkoefba1_TextChanged);
             this.txtkoefba1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtkoefba1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.txtkoefba1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxx_KeyPress);
             // 
             // label15
             // 
@@ -675,7 +675,7 @@
             this.txtkoefe4.TabIndex = 33;
             this.txtkoefe4.TextChanged += new System.EventHandler(this.txtkoefe4_TextChanged);
             this.txtkoefe4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtkoefe4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.txtkoefe4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxx_KeyPress);
             // 
             // txtkoefs
             // 
@@ -704,7 +704,7 @@
             this.txtkoefs.TabIndex = 34;
             this.txtkoefs.TextChanged += new System.EventHandler(this.txtkoefs_TextChanged);
             this.txtkoefs.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtkoefs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.txtkoefs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxx_KeyPress);
             // 
             // label10
             // 
@@ -761,7 +761,7 @@
             this.txtkoefd.TabIndex = 35;
             this.txtkoefd.TextChanged += new System.EventHandler(this.txtkoefd_TextChanged);
             this.txtkoefd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtkoefd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.txtkoefd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxx_KeyPress);
             // 
             // label12
             // 
@@ -804,7 +804,7 @@
             this.txtkoefe3.TabIndex = 32;
             this.txtkoefe3.TextChanged += new System.EventHandler(this.txtkoefe3_TextChanged);
             this.txtkoefe3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtkoefe3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.txtkoefe3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxx_KeyPress);
             // 
             // txtkoefe2
             // 
@@ -833,7 +833,7 @@
             this.txtkoefe2.TabIndex = 31;
             this.txtkoefe2.TextChanged += new System.EventHandler(this.txtkoefe2_TextChanged);
             this.txtkoefe2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtkoefe2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.txtkoefe2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxx_KeyPress);
             // 
             // label8
             // 
@@ -890,7 +890,7 @@
             this.txtkoefe1.TabIndex = 30;
             this.txtkoefe1.TextChanged += new System.EventHandler(this.txtkoefe1_TextChanged);
             this.txtkoefe1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtkoefe1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.txtkoefe1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxx_KeyPress);
             // 
             // label19
             // 
