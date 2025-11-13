@@ -1174,6 +1174,8 @@ namespace GOS_FxApps.DataSet {
             
             private global::System.Data.DataColumn columnTotal;
             
+            private global::System.Data.DataColumn columnunit;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public sp_LaporanPerbaikanDataTable() {
@@ -1473,6 +1475,14 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn unitColumn {
+                get {
+                    return this.columnunit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1541,7 +1551,8 @@ namespace GOS_FxApps.DataSet {
                         int kolom29, 
                         int kolom30, 
                         int kolom31, 
-                        int Total) {
+                        int Total, 
+                        string unit) {
                 sp_LaporanPerbaikanRow rowsp_LaporanPerbaikanRow = ((sp_LaporanPerbaikanRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         namaKolom,
@@ -1576,7 +1587,8 @@ namespace GOS_FxApps.DataSet {
                         kolom29,
                         kolom30,
                         kolom31,
-                        Total};
+                        Total,
+                        unit};
                 rowsp_LaporanPerbaikanRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_LaporanPerbaikanRow);
                 return rowsp_LaporanPerbaikanRow;
@@ -1632,6 +1644,7 @@ namespace GOS_FxApps.DataSet {
                 this.columnkolom30 = base.Columns["kolom30"];
                 this.columnkolom31 = base.Columns["kolom31"];
                 this.columnTotal = base.Columns["Total"];
+                this.columnunit = base.Columns["unit"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1703,6 +1716,8 @@ namespace GOS_FxApps.DataSet {
                 base.Columns.Add(this.columnkolom31);
                 this.columnTotal = new global::System.Data.DataColumn("Total", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal);
+                this.columnunit = new global::System.Data.DataColumn("unit", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnunit);
                 this.columnnamaKolom.ReadOnly = true;
                 this.columnnamaKolom.MaxLength = 12;
                 this.columnkolom1.ReadOnly = true;
@@ -1737,6 +1752,8 @@ namespace GOS_FxApps.DataSet {
                 this.columnkolom30.ReadOnly = true;
                 this.columnkolom31.ReadOnly = true;
                 this.columnTotal.ReadOnly = true;
+                this.columnunit.ReadOnly = true;
+                this.columnunit.MaxLength = 4;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5559,6 +5576,22 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string unit {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_LaporanPerbaikan.unitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'unit\' in table \'sp_LaporanPerbaikan\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_LaporanPerbaikan.unitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsnamaKolomNull() {
                 return this.IsNull(this.tablesp_LaporanPerbaikan.namaKolomColumn);
             }
@@ -5951,6 +5984,18 @@ namespace GOS_FxApps.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTotalNull() {
                 this[this.tablesp_LaporanPerbaikan.TotalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsunitNull() {
+                return this.IsNull(this.tablesp_LaporanPerbaikan.unitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetunitNull() {
+                this[this.tablesp_LaporanPerbaikan.unitColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -9232,6 +9277,7 @@ namespace GOS_FxApps.DataSet.PerbaikanFormTableAdapters {
             tableMapping.ColumnMappings.Add("kolom30", "kolom30");
             tableMapping.ColumnMappings.Add("kolom31", "kolom31");
             tableMapping.ColumnMappings.Add("Total", "Total");
+            tableMapping.ColumnMappings.Add("unit", "unit");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

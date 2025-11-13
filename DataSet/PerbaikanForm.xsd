@@ -104,6 +104,7 @@
               <Mapping SourceColumn="kolom30" DataSetColumn="kolom30" />
               <Mapping SourceColumn="kolom31" DataSetColumn="kolom31" />
               <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="unit" DataSetColumn="unit" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -828,6 +829,13 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
               <xs:element name="kolom30" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="kolom30Column" msprop:Generator_ColumnPropNameInRow="kolom30" msprop:Generator_UserColumnName="kolom30" msprop:Generator_ColumnVarNameInTable="columnkolom30" type="xs:int" minOccurs="0" />
               <xs:element name="kolom31" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="kolom31Column" msprop:Generator_ColumnPropNameInRow="kolom31" msprop:Generator_UserColumnName="kolom31" msprop:Generator_ColumnVarNameInTable="columnkolom31" type="xs:int" minOccurs="0" />
               <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" type="xs:int" minOccurs="0" />
+              <xs:element name="unit" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="unit" msprop:Generator_ColumnPropNameInTable="unitColumn" msprop:Generator_ColumnVarNameInTable="columnunit" msprop:Generator_UserColumnName="unit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -897,7 +905,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
               <xs:element name="C" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="CColumn" msprop:Generator_ColumnPropNameInRow="C" msprop:Generator_UserColumnName="C" msprop:Generator_ColumnVarNameInTable="columnC" type="xs:int" minOccurs="0" />
               <xs:element name="RL" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="RLColumn" msprop:Generator_ColumnPropNameInRow="RL" msprop:Generator_UserColumnName="RL" msprop:Generator_ColumnVarNameInTable="columnRL" type="xs:int" minOccurs="0" />
               <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" type="xs:int" minOccurs="0" />
-              <xs:element name="Shift" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Shift" msprop:Generator_ColumnPropNameInTable="ShiftColumn" msprop:Generator_ColumnPropNameInRow="Shift" msprop:Generator_ColumnVarNameInTable="columnShift" type="xs:int" minOccurs="0" />
+              <xs:element name="Shift" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="ShiftColumn" msprop:Generator_ColumnPropNameInRow="Shift" msprop:Generator_UserColumnName="Shift" msprop:Generator_ColumnVarNameInTable="columnShift" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

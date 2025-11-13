@@ -971,5 +971,6 @@ namespace GOS_FxApps {
             Form aturjam = new aturjam();
             aturjam.ShowDialog();
         }
+
     }
 }

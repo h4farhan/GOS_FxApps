@@ -67,9 +67,6 @@ namespace GOS_FxApps
             this.historitimer = new System.Windows.Forms.Timer(this.components);
             this.sidebarPanel = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.lblalert = new System.Windows.Forms.Label();
-            this.btnaturjam = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dashboardButton = new Guna.UI2.WinForms.Guna2Button();
             this.entryContainer = new Guna.UI2.WinForms.Guna2Panel();
@@ -80,7 +77,6 @@ namespace GOS_FxApps
             this.penerimaanButton1 = new Guna.UI2.WinForms.Guna2Button();
             this.entryButton = new Guna.UI2.WinForms.Guna2Button();
             this.EditContainer = new Guna.UI2.WinForms.Guna2Panel();
-            this.iconButton12 = new Guna.UI2.WinForms.Guna2Button();
             this.btneditbuktiperubahan = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton8 = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton9 = new Guna.UI2.WinForms.Guna2Button();
@@ -93,8 +89,12 @@ namespace GOS_FxApps
             this.btnpemakaian = new Guna.UI2.WinForms.Guna2Button();
             this.btnmaterialmasuk = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton3 = new Guna.UI2.WinForms.Guna2Button();
+            this.iconButton12 = new Guna.UI2.WinForms.Guna2Button();
             this.btngudang = new Guna.UI2.WinForms.Guna2Button();
             this.btnlaporan = new Guna.UI2.WinForms.Guna2Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lblalert = new System.Windows.Forms.Label();
+            this.btnaturjam = new Guna.UI2.WinForms.Guna2Button();
             this.gudangtimer = new System.Windows.Forms.Timer(this.components);
             this.titlePanel.SuspendLayout();
             this.historycontainer.SuspendLayout();
@@ -106,11 +106,11 @@ namespace GOS_FxApps
             this.tableLayoutPanel1.SuspendLayout();
             this.sidebarPanel.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.entryContainer.SuspendLayout();
             this.EditContainer.SuspendLayout();
             this.gudangContainer.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // titlePanel
@@ -152,10 +152,10 @@ namespace GOS_FxApps
             // 
             this.panel4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(254, 76);
+            this.panel4.Location = new System.Drawing.Point(279, 76);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1008, 820);
+            this.panel4.Size = new System.Drawing.Size(983, 820);
             this.panel4.TabIndex = 3;
             // 
             // historycontainer
@@ -172,10 +172,10 @@ namespace GOS_FxApps
             this.historycontainer.Controls.Add(this.btnHistori);
             this.historycontainer.FillColor = System.Drawing.Color.WhiteSmoke;
             this.historycontainer.Location = new System.Drawing.Point(6, 325);
-            this.historycontainer.MaximumSize = new System.Drawing.Size(232, 348);
-            this.historycontainer.MinimumSize = new System.Drawing.Size(232, 55);
+            this.historycontainer.MaximumSize = new System.Drawing.Size(258, 348);
+            this.historycontainer.MinimumSize = new System.Drawing.Size(258, 55);
             this.historycontainer.Name = "historycontainer";
-            this.historycontainer.Size = new System.Drawing.Size(232, 55);
+            this.historycontainer.Size = new System.Drawing.Size(258, 55);
             this.historycontainer.TabIndex = 14;
             // 
             // iconButton13
@@ -195,7 +195,7 @@ namespace GOS_FxApps
             this.iconButton13.ImageSize = new System.Drawing.Size(35, 35);
             this.iconButton13.Location = new System.Drawing.Point(0, 295);
             this.iconButton13.Name = "iconButton13";
-            this.iconButton13.Size = new System.Drawing.Size(232, 50);
+            this.iconButton13.Size = new System.Drawing.Size(258, 50);
             this.iconButton13.TabIndex = 20;
             this.iconButton13.Text = "Stok Material";
             this.iconButton13.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -219,7 +219,7 @@ namespace GOS_FxApps
             this.iconButton5.ImageSize = new System.Drawing.Size(30, 30);
             this.iconButton5.Location = new System.Drawing.Point(0, 255);
             this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(232, 40);
+            this.iconButton5.Size = new System.Drawing.Size(258, 40);
             this.iconButton5.TabIndex = 19;
             this.iconButton5.Text = "Pemakaian Material";
             this.iconButton5.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -242,7 +242,7 @@ namespace GOS_FxApps
             this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2Button1.Location = new System.Drawing.Point(0, 215);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(232, 40);
+            this.guna2Button1.Size = new System.Drawing.Size(258, 40);
             this.guna2Button1.TabIndex = 20;
             this.guna2Button1.Text = "Material Masuk";
             this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -266,7 +266,7 @@ namespace GOS_FxApps
             this.iconButton6.ImageSize = new System.Drawing.Size(30, 30);
             this.iconButton6.Location = new System.Drawing.Point(0, 175);
             this.iconButton6.Name = "iconButton6";
-            this.iconButton6.Size = new System.Drawing.Size(232, 40);
+            this.iconButton6.Size = new System.Drawing.Size(258, 40);
             this.iconButton6.TabIndex = 18;
             this.iconButton6.Text = "Welding Pieces";
             this.iconButton6.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -290,7 +290,7 @@ namespace GOS_FxApps
             this.iconButton10.ImageSize = new System.Drawing.Size(30, 30);
             this.iconButton10.Location = new System.Drawing.Point(0, 135);
             this.iconButton10.Name = "iconButton10";
-            this.iconButton10.Size = new System.Drawing.Size(232, 40);
+            this.iconButton10.Size = new System.Drawing.Size(258, 40);
             this.iconButton10.TabIndex = 17;
             this.iconButton10.Text = "Pengiriman";
             this.iconButton10.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -314,7 +314,7 @@ namespace GOS_FxApps
             this.iconButton11.ImageSize = new System.Drawing.Size(30, 30);
             this.iconButton11.Location = new System.Drawing.Point(0, 95);
             this.iconButton11.Name = "iconButton11";
-            this.iconButton11.Size = new System.Drawing.Size(232, 40);
+            this.iconButton11.Size = new System.Drawing.Size(258, 40);
             this.iconButton11.TabIndex = 16;
             this.iconButton11.Text = "Perbaikan";
             this.iconButton11.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -333,12 +333,12 @@ namespace GOS_FxApps
             this.iconButton24.FillColor = System.Drawing.Color.Transparent;
             this.iconButton24.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.iconButton24.ForeColor = System.Drawing.Color.Black;
-            this.iconButton24.Image = global::GOS_FxApps.Properties.Resources.delivery_service1;
+            this.iconButton24.Image = global::GOS_FxApps.Properties.Resources.delivery_service;
             this.iconButton24.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.iconButton24.ImageSize = new System.Drawing.Size(30, 30);
             this.iconButton24.Location = new System.Drawing.Point(0, 55);
             this.iconButton24.Name = "iconButton24";
-            this.iconButton24.Size = new System.Drawing.Size(232, 40);
+            this.iconButton24.Size = new System.Drawing.Size(258, 40);
             this.iconButton24.TabIndex = 15;
             this.iconButton24.Text = "Penerimaan";
             this.iconButton24.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -361,7 +361,7 @@ namespace GOS_FxApps
             this.btnHistori.ImageSize = new System.Drawing.Size(30, 30);
             this.btnHistori.Location = new System.Drawing.Point(0, 0);
             this.btnHistori.Name = "btnHistori";
-            this.btnHistori.Size = new System.Drawing.Size(232, 55);
+            this.btnHistori.Size = new System.Drawing.Size(258, 55);
             this.btnHistori.TabIndex = 14;
             this.btnHistori.Text = "Riwayat Data";
             this.btnHistori.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -377,10 +377,10 @@ namespace GOS_FxApps
             this.headerPanel.Controls.Add(this.btnnotif);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.headerPanel.Location = new System.Drawing.Point(254, 30);
+            this.headerPanel.Location = new System.Drawing.Point(279, 30);
             this.headerPanel.Margin = new System.Windows.Forms.Padding(2);
             this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(1008, 46);
+            this.headerPanel.Size = new System.Drawing.Size(983, 46);
             this.headerPanel.TabIndex = 3;
             // 
             // panel3
@@ -391,7 +391,7 @@ namespace GOS_FxApps
             this.panel3.Location = new System.Drawing.Point(587, 0);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(3);
-            this.panel3.Size = new System.Drawing.Size(421, 46);
+            this.panel3.Size = new System.Drawing.Size(396, 46);
             this.panel3.TabIndex = 8;
             // 
             // lbluser
@@ -402,7 +402,7 @@ namespace GOS_FxApps
             this.lbluser.Location = new System.Drawing.Point(3, 3);
             this.lbluser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbluser.Name = "lbluser";
-            this.lbluser.Size = new System.Drawing.Size(366, 40);
+            this.lbluser.Size = new System.Drawing.Size(341, 40);
             this.lbluser.TabIndex = 8;
             this.lbluser.Text = "Robert Danuarta [Manajer]";
             this.lbluser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -419,7 +419,7 @@ namespace GOS_FxApps
             this.iconButton14.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(132)))));
             this.iconButton14.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton14.IconSize = 40;
-            this.iconButton14.Location = new System.Drawing.Point(369, 3);
+            this.iconButton14.Location = new System.Drawing.Point(344, 3);
             this.iconButton14.Margin = new System.Windows.Forms.Padding(2);
             this.iconButton14.Name = "iconButton14";
             this.iconButton14.Size = new System.Drawing.Size(49, 40);
@@ -503,7 +503,7 @@ namespace GOS_FxApps
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(232, 10);
+            this.panel1.Size = new System.Drawing.Size(258, 10);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -518,34 +518,44 @@ namespace GOS_FxApps
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 198F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(243, 212);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(268, 230);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::GOS_FxApps.Properties.Resources.Logo;
+            this.pictureBox1.Image = global::GOS_FxApps.Properties.Resources.Logo_Genta;
             this.pictureBox1.Location = new System.Drawing.Point(52, 2);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(189, 146);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(20);
+            this.pictureBox1.Size = new System.Drawing.Size(214, 194);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(52, 150);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label2.Location = new System.Drawing.Point(52, 198);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(189, 62);
+            this.label2.Size = new System.Drawing.Size(214, 32);
             this.label2.TabIndex = 2;
-            this.label2.Text = "PT\r\nGENTANUSA GEMILANG";
+            this.label2.Text = "PT GENTANUSA GEMILANG";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel1
@@ -561,7 +571,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(243, 50);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(268, 50);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // HamburgerButton
@@ -590,7 +600,7 @@ namespace GOS_FxApps
             this.label1.Location = new System.Drawing.Point(52, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 50);
+            this.label1.Size = new System.Drawing.Size(214, 50);
             this.label1.TabIndex = 1;
             this.label1.Text = "Powered by :\r\nPT Digital Transformasi Industri";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -624,13 +634,13 @@ namespace GOS_FxApps
             this.sidebarPanel.Controls.Add(this.guna2Panel1, 1, 0);
             this.sidebarPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebarPanel.Location = new System.Drawing.Point(0, 30);
-            this.sidebarPanel.MaximumSize = new System.Drawing.Size(254, 0);
+            this.sidebarPanel.MaximumSize = new System.Drawing.Size(279, 0);
             this.sidebarPanel.MinimumSize = new System.Drawing.Size(60, 0);
             this.sidebarPanel.Name = "sidebarPanel";
             this.sidebarPanel.RowCount = 2;
             this.sidebarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.sidebarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.sidebarPanel.Size = new System.Drawing.Size(254, 866);
+            this.sidebarPanel.Size = new System.Drawing.Size(279, 866);
             this.sidebarPanel.TabIndex = 4;
             // 
             // guna2Panel1
@@ -639,62 +649,16 @@ namespace GOS_FxApps
             this.guna2Panel1.BorderColor = System.Drawing.Color.Gainsboro;
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.BorderThickness = 2;
-            this.guna2Panel1.Controls.Add(this.panel5);
             this.guna2Panel1.Controls.Add(this.flowLayoutPanel1);
             this.guna2Panel1.Controls.Add(this.tableLayoutPanel2);
             this.guna2Panel1.Controls.Add(this.tableLayoutPanel1);
+            this.guna2Panel1.Controls.Add(this.panel5);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
             this.guna2Panel1.Location = new System.Drawing.Point(8, 3);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(243, 855);
+            this.guna2Panel1.Size = new System.Drawing.Size(268, 855);
             this.guna2Panel1.TabIndex = 0;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.lblalert);
-            this.panel5.Controls.Add(this.btnaturjam);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 807);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(5);
-            this.panel5.Size = new System.Drawing.Size(243, 48);
-            this.panel5.TabIndex = 1;
-            // 
-            // lblalert
-            // 
-            this.lblalert.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblalert.Font = new System.Drawing.Font("Century Gothic", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblalert.ForeColor = System.Drawing.Color.Red;
-            this.lblalert.Location = new System.Drawing.Point(5, 5);
-            this.lblalert.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblalert.Name = "lblalert";
-            this.lblalert.Size = new System.Drawing.Size(174, 38);
-            this.lblalert.TabIndex = 9;
-            this.lblalert.Text = "Mode manual aktif";
-            this.lblalert.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblalert.Visible = false;
-            // 
-            // btnaturjam
-            // 
-            this.btnaturjam.BorderRadius = 8;
-            this.btnaturjam.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnaturjam.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnaturjam.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnaturjam.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnaturjam.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnaturjam.FillColor = System.Drawing.Color.Transparent;
-            this.btnaturjam.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnaturjam.ForeColor = System.Drawing.Color.White;
-            this.btnaturjam.HoverState.ForeColor = System.Drawing.Color.Transparent;
-            this.btnaturjam.Image = global::GOS_FxApps.Properties.Resources.wall_clock;
-            this.btnaturjam.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnaturjam.Location = new System.Drawing.Point(179, 5);
-            this.btnaturjam.Name = "btnaturjam";
-            this.btnaturjam.Size = new System.Drawing.Size(59, 38);
-            this.btnaturjam.TabIndex = 3;
-            this.btnaturjam.Click += new System.EventHandler(this.btnaturjam_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -707,11 +671,11 @@ namespace GOS_FxApps
             this.flowLayoutPanel1.Controls.Add(this.btnlaporan);
             this.flowLayoutPanel1.Controls.Add(this.historycontainer);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 262);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 280);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(3);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(243, 593);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(268, 524);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // dashboardButton
@@ -729,7 +693,7 @@ namespace GOS_FxApps
             this.dashboardButton.ImageSize = new System.Drawing.Size(30, 30);
             this.dashboardButton.Location = new System.Drawing.Point(6, 20);
             this.dashboardButton.Name = "dashboardButton";
-            this.dashboardButton.Size = new System.Drawing.Size(231, 55);
+            this.dashboardButton.Size = new System.Drawing.Size(258, 55);
             this.dashboardButton.TabIndex = 13;
             this.dashboardButton.Text = "Dashboard";
             this.dashboardButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -748,10 +712,10 @@ namespace GOS_FxApps
             this.entryContainer.Controls.Add(this.entryButton);
             this.entryContainer.FillColor = System.Drawing.Color.WhiteSmoke;
             this.entryContainer.Location = new System.Drawing.Point(6, 81);
-            this.entryContainer.MaximumSize = new System.Drawing.Size(231, 255);
-            this.entryContainer.MinimumSize = new System.Drawing.Size(231, 55);
+            this.entryContainer.MaximumSize = new System.Drawing.Size(258, 255);
+            this.entryContainer.MinimumSize = new System.Drawing.Size(258, 55);
             this.entryContainer.Name = "entryContainer";
-            this.entryContainer.Size = new System.Drawing.Size(231, 55);
+            this.entryContainer.Size = new System.Drawing.Size(258, 55);
             this.entryContainer.TabIndex = 15;
             // 
             // iconButton15
@@ -770,7 +734,7 @@ namespace GOS_FxApps
             this.iconButton15.ImageSize = new System.Drawing.Size(30, 30);
             this.iconButton15.Location = new System.Drawing.Point(0, 215);
             this.iconButton15.Name = "iconButton15";
-            this.iconButton15.Size = new System.Drawing.Size(231, 40);
+            this.iconButton15.Size = new System.Drawing.Size(258, 40);
             this.iconButton15.TabIndex = 19;
             this.iconButton15.Text = "Butt Ratio dan Man Power";
             this.iconButton15.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -793,7 +757,7 @@ namespace GOS_FxApps
             this.iconButton2.ImageSize = new System.Drawing.Size(30, 30);
             this.iconButton2.Location = new System.Drawing.Point(0, 175);
             this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(231, 40);
+            this.iconButton2.Size = new System.Drawing.Size(258, 40);
             this.iconButton2.TabIndex = 17;
             this.iconButton2.Text = "Pengiriman";
             this.iconButton2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -816,7 +780,7 @@ namespace GOS_FxApps
             this.iconButton1.ImageSize = new System.Drawing.Size(30, 30);
             this.iconButton1.Location = new System.Drawing.Point(0, 135);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(231, 40);
+            this.iconButton1.Size = new System.Drawing.Size(258, 40);
             this.iconButton1.TabIndex = 16;
             this.iconButton1.Text = "Perbaikan";
             this.iconButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -839,7 +803,7 @@ namespace GOS_FxApps
             this.btnbuktiperubahan.ImageSize = new System.Drawing.Size(30, 30);
             this.btnbuktiperubahan.Location = new System.Drawing.Point(0, 95);
             this.btnbuktiperubahan.Name = "btnbuktiperubahan";
-            this.btnbuktiperubahan.Size = new System.Drawing.Size(231, 40);
+            this.btnbuktiperubahan.Size = new System.Drawing.Size(258, 40);
             this.btnbuktiperubahan.TabIndex = 20;
             this.btnbuktiperubahan.Text = "Bukti Perubahan";
             this.btnbuktiperubahan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -862,7 +826,7 @@ namespace GOS_FxApps
             this.penerimaanButton1.ImageSize = new System.Drawing.Size(30, 30);
             this.penerimaanButton1.Location = new System.Drawing.Point(0, 55);
             this.penerimaanButton1.Name = "penerimaanButton1";
-            this.penerimaanButton1.Size = new System.Drawing.Size(231, 40);
+            this.penerimaanButton1.Size = new System.Drawing.Size(258, 40);
             this.penerimaanButton1.TabIndex = 15;
             this.penerimaanButton1.Text = "Penerimaan";
             this.penerimaanButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -885,7 +849,7 @@ namespace GOS_FxApps
             this.entryButton.ImageSize = new System.Drawing.Size(30, 30);
             this.entryButton.Location = new System.Drawing.Point(0, 0);
             this.entryButton.Name = "entryButton";
-            this.entryButton.Size = new System.Drawing.Size(231, 55);
+            this.entryButton.Size = new System.Drawing.Size(258, 55);
             this.entryButton.TabIndex = 14;
             this.entryButton.Text = "Form Entry Data";
             this.entryButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -901,34 +865,11 @@ namespace GOS_FxApps
             this.EditContainer.Controls.Add(this.Editbutton);
             this.EditContainer.FillColor = System.Drawing.Color.WhiteSmoke;
             this.EditContainer.Location = new System.Drawing.Point(6, 142);
-            this.EditContainer.MaximumSize = new System.Drawing.Size(231, 178);
-            this.EditContainer.MinimumSize = new System.Drawing.Size(231, 55);
+            this.EditContainer.MaximumSize = new System.Drawing.Size(258, 178);
+            this.EditContainer.MinimumSize = new System.Drawing.Size(258, 55);
             this.EditContainer.Name = "EditContainer";
-            this.EditContainer.Size = new System.Drawing.Size(231, 55);
+            this.EditContainer.Size = new System.Drawing.Size(258, 55);
             this.EditContainer.TabIndex = 14;
-            // 
-            // iconButton12
-            // 
-            this.iconButton12.BorderRadius = 8;
-            this.iconButton12.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton12.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.iconButton12.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.iconButton12.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.iconButton12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton12.FillColor = System.Drawing.Color.Transparent;
-            this.iconButton12.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.iconButton12.ForeColor = System.Drawing.Color.Black;
-            this.iconButton12.Image = global::GOS_FxApps.Properties.Resources.optimization;
-            this.iconButton12.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.iconButton12.ImageSize = new System.Drawing.Size(30, 30);
-            this.iconButton12.Location = new System.Drawing.Point(0, 55);
-            this.iconButton12.Name = "iconButton12";
-            this.iconButton12.Size = new System.Drawing.Size(231, 40);
-            this.iconButton12.TabIndex = 17;
-            this.iconButton12.Text = "Koefisiensi Material";
-            this.iconButton12.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.iconButton12.TextOffset = new System.Drawing.Point(5, 0);
-            this.iconButton12.Click += new System.EventHandler(this.iconButton12_Click);
             // 
             // btneditbuktiperubahan
             // 
@@ -946,7 +887,7 @@ namespace GOS_FxApps
             this.btneditbuktiperubahan.ImageSize = new System.Drawing.Size(30, 30);
             this.btneditbuktiperubahan.Location = new System.Drawing.Point(0, 135);
             this.btneditbuktiperubahan.Name = "btneditbuktiperubahan";
-            this.btneditbuktiperubahan.Size = new System.Drawing.Size(231, 40);
+            this.btneditbuktiperubahan.Size = new System.Drawing.Size(258, 40);
             this.btneditbuktiperubahan.TabIndex = 18;
             this.btneditbuktiperubahan.Text = "Bukti Perubahan";
             this.btneditbuktiperubahan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -969,7 +910,7 @@ namespace GOS_FxApps
             this.iconButton8.ImageSize = new System.Drawing.Size(30, 30);
             this.iconButton8.Location = new System.Drawing.Point(0, 95);
             this.iconButton8.Name = "iconButton8";
-            this.iconButton8.Size = new System.Drawing.Size(231, 40);
+            this.iconButton8.Size = new System.Drawing.Size(258, 40);
             this.iconButton8.TabIndex = 16;
             this.iconButton8.Text = "Perbaikan";
             this.iconButton8.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -987,12 +928,12 @@ namespace GOS_FxApps
             this.iconButton9.FillColor = System.Drawing.Color.Transparent;
             this.iconButton9.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.iconButton9.ForeColor = System.Drawing.Color.Black;
-            this.iconButton9.Image = global::GOS_FxApps.Properties.Resources.delivery_service1;
+            this.iconButton9.Image = global::GOS_FxApps.Properties.Resources.delivery_service;
             this.iconButton9.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.iconButton9.ImageSize = new System.Drawing.Size(30, 30);
             this.iconButton9.Location = new System.Drawing.Point(0, 55);
             this.iconButton9.Name = "iconButton9";
-            this.iconButton9.Size = new System.Drawing.Size(231, 40);
+            this.iconButton9.Size = new System.Drawing.Size(258, 40);
             this.iconButton9.TabIndex = 15;
             this.iconButton9.Text = "Penerimaan";
             this.iconButton9.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1015,7 +956,7 @@ namespace GOS_FxApps
             this.Editbutton.ImageSize = new System.Drawing.Size(30, 30);
             this.Editbutton.Location = new System.Drawing.Point(0, 0);
             this.Editbutton.Name = "Editbutton";
-            this.Editbutton.Size = new System.Drawing.Size(231, 55);
+            this.Editbutton.Size = new System.Drawing.Size(258, 55);
             this.Editbutton.TabIndex = 14;
             this.Editbutton.Text = "Form Edit Data";
             this.Editbutton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1037,10 +978,10 @@ namespace GOS_FxApps
             this.gudangContainer.Controls.Add(this.btngudang);
             this.gudangContainer.FillColor = System.Drawing.Color.WhiteSmoke;
             this.gudangContainer.Location = new System.Drawing.Point(6, 203);
-            this.gudangContainer.MaximumSize = new System.Drawing.Size(231, 375);
-            this.gudangContainer.MinimumSize = new System.Drawing.Size(231, 55);
+            this.gudangContainer.MaximumSize = new System.Drawing.Size(258, 375);
+            this.gudangContainer.MinimumSize = new System.Drawing.Size(258, 55);
             this.gudangContainer.Name = "gudangContainer";
-            this.gudangContainer.Size = new System.Drawing.Size(231, 55);
+            this.gudangContainer.Size = new System.Drawing.Size(258, 55);
             this.gudangContainer.TabIndex = 21;
             // 
             // btndata
@@ -1059,7 +1000,7 @@ namespace GOS_FxApps
             this.btndata.ImageSize = new System.Drawing.Size(30, 30);
             this.btndata.Location = new System.Drawing.Point(0, 335);
             this.btndata.Name = "btndata";
-            this.btndata.Size = new System.Drawing.Size(231, 40);
+            this.btndata.Size = new System.Drawing.Size(258, 40);
             this.btndata.TabIndex = 22;
             this.btndata.Text = "Data";
             this.btndata.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1082,7 +1023,7 @@ namespace GOS_FxApps
             this.btnlaporanpersediaan.ImageSize = new System.Drawing.Size(30, 30);
             this.btnlaporanpersediaan.Location = new System.Drawing.Point(0, 295);
             this.btnlaporanpersediaan.Name = "btnlaporanpersediaan";
-            this.btnlaporanpersediaan.Size = new System.Drawing.Size(231, 40);
+            this.btnlaporanpersediaan.Size = new System.Drawing.Size(258, 40);
             this.btnlaporanpersediaan.TabIndex = 21;
             this.btnlaporanpersediaan.Text = "Laporan Persediaan";
             this.btnlaporanpersediaan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1105,7 +1046,7 @@ namespace GOS_FxApps
             this.btnestimasi.ImageSize = new System.Drawing.Size(30, 30);
             this.btnestimasi.Location = new System.Drawing.Point(0, 255);
             this.btnestimasi.Name = "btnestimasi";
-            this.btnestimasi.Size = new System.Drawing.Size(231, 40);
+            this.btnestimasi.Size = new System.Drawing.Size(258, 40);
             this.btnestimasi.TabIndex = 16;
             this.btnestimasi.Text = "Estimasi Pemakaian Material";
             this.btnestimasi.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1128,7 +1069,7 @@ namespace GOS_FxApps
             this.btntambahmaterial.ImageSize = new System.Drawing.Size(30, 30);
             this.btntambahmaterial.Location = new System.Drawing.Point(0, 215);
             this.btntambahmaterial.Name = "btntambahmaterial";
-            this.btntambahmaterial.Size = new System.Drawing.Size(231, 40);
+            this.btntambahmaterial.Size = new System.Drawing.Size(258, 40);
             this.btntambahmaterial.TabIndex = 20;
             this.btntambahmaterial.Text = "Tambah Material";
             this.btntambahmaterial.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1151,7 +1092,7 @@ namespace GOS_FxApps
             this.btnpemakaian.ImageSize = new System.Drawing.Size(30, 30);
             this.btnpemakaian.Location = new System.Drawing.Point(0, 175);
             this.btnpemakaian.Name = "btnpemakaian";
-            this.btnpemakaian.Size = new System.Drawing.Size(231, 40);
+            this.btnpemakaian.Size = new System.Drawing.Size(258, 40);
             this.btnpemakaian.TabIndex = 18;
             this.btnpemakaian.Text = "Pemakaian Material";
             this.btnpemakaian.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1174,7 +1115,7 @@ namespace GOS_FxApps
             this.btnmaterialmasuk.ImageSize = new System.Drawing.Size(30, 30);
             this.btnmaterialmasuk.Location = new System.Drawing.Point(0, 135);
             this.btnmaterialmasuk.Name = "btnmaterialmasuk";
-            this.btnmaterialmasuk.Size = new System.Drawing.Size(231, 40);
+            this.btnmaterialmasuk.Size = new System.Drawing.Size(258, 40);
             this.btnmaterialmasuk.TabIndex = 19;
             this.btnmaterialmasuk.Text = "Material Masuk";
             this.btnmaterialmasuk.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1197,12 +1138,35 @@ namespace GOS_FxApps
             this.iconButton3.ImageSize = new System.Drawing.Size(30, 30);
             this.iconButton3.Location = new System.Drawing.Point(0, 95);
             this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(231, 40);
+            this.iconButton3.Size = new System.Drawing.Size(258, 40);
             this.iconButton3.TabIndex = 20;
             this.iconButton3.Text = "Welding Pieces";
             this.iconButton3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.iconButton3.TextOffset = new System.Drawing.Point(5, 0);
             this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click_1);
+            // 
+            // iconButton12
+            // 
+            this.iconButton12.BorderRadius = 8;
+            this.iconButton12.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton12.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.iconButton12.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.iconButton12.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.iconButton12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton12.FillColor = System.Drawing.Color.Transparent;
+            this.iconButton12.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.iconButton12.ForeColor = System.Drawing.Color.Black;
+            this.iconButton12.Image = global::GOS_FxApps.Properties.Resources.optimization;
+            this.iconButton12.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton12.ImageSize = new System.Drawing.Size(30, 30);
+            this.iconButton12.Location = new System.Drawing.Point(0, 55);
+            this.iconButton12.Name = "iconButton12";
+            this.iconButton12.Size = new System.Drawing.Size(258, 40);
+            this.iconButton12.TabIndex = 17;
+            this.iconButton12.Text = "Koefisiensi Material";
+            this.iconButton12.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iconButton12.TextOffset = new System.Drawing.Point(5, 0);
+            this.iconButton12.Click += new System.EventHandler(this.iconButton12_Click);
             // 
             // btngudang
             // 
@@ -1220,7 +1184,7 @@ namespace GOS_FxApps
             this.btngudang.ImageSize = new System.Drawing.Size(30, 30);
             this.btngudang.Location = new System.Drawing.Point(0, 0);
             this.btngudang.Name = "btngudang";
-            this.btngudang.Size = new System.Drawing.Size(231, 55);
+            this.btngudang.Size = new System.Drawing.Size(258, 55);
             this.btngudang.TabIndex = 14;
             this.btngudang.Text = "Form Gudang";
             this.btngudang.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1242,12 +1206,58 @@ namespace GOS_FxApps
             this.btnlaporan.ImageSize = new System.Drawing.Size(30, 30);
             this.btnlaporan.Location = new System.Drawing.Point(6, 264);
             this.btnlaporan.Name = "btnlaporan";
-            this.btnlaporan.Size = new System.Drawing.Size(231, 55);
+            this.btnlaporan.Size = new System.Drawing.Size(258, 55);
             this.btnlaporan.TabIndex = 14;
             this.btnlaporan.Text = "Laporan";
             this.btnlaporan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnlaporan.TextOffset = new System.Drawing.Point(5, 0);
             this.btnlaporan.Click += new System.EventHandler(this.btnlaporan_Click_1);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.lblalert);
+            this.panel5.Controls.Add(this.btnaturjam);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 804);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(5);
+            this.panel5.Size = new System.Drawing.Size(268, 51);
+            this.panel5.TabIndex = 1;
+            // 
+            // lblalert
+            // 
+            this.lblalert.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblalert.Font = new System.Drawing.Font("Century Gothic", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblalert.ForeColor = System.Drawing.Color.Red;
+            this.lblalert.Location = new System.Drawing.Point(5, 5);
+            this.lblalert.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblalert.Name = "lblalert";
+            this.lblalert.Size = new System.Drawing.Size(199, 41);
+            this.lblalert.TabIndex = 9;
+            this.lblalert.Text = "Mode manual aktif";
+            this.lblalert.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblalert.Visible = false;
+            // 
+            // btnaturjam
+            // 
+            this.btnaturjam.BorderRadius = 8;
+            this.btnaturjam.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnaturjam.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnaturjam.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnaturjam.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnaturjam.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnaturjam.FillColor = System.Drawing.Color.Transparent;
+            this.btnaturjam.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnaturjam.ForeColor = System.Drawing.Color.White;
+            this.btnaturjam.HoverState.ForeColor = System.Drawing.Color.Transparent;
+            this.btnaturjam.Image = global::GOS_FxApps.Properties.Resources.wall_clock;
+            this.btnaturjam.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnaturjam.Location = new System.Drawing.Point(204, 5);
+            this.btnaturjam.Name = "btnaturjam";
+            this.btnaturjam.Size = new System.Drawing.Size(59, 41);
+            this.btnaturjam.TabIndex = 3;
+            this.btnaturjam.Click += new System.EventHandler(this.btnaturjam_Click);
             // 
             // gudangtimer
             // 
@@ -1281,11 +1291,11 @@ namespace GOS_FxApps
             this.tableLayoutPanel1.ResumeLayout(false);
             this.sidebarPanel.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.entryContainer.ResumeLayout(false);
             this.EditContainer.ResumeLayout(false);
             this.gudangContainer.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1297,7 +1307,6 @@ namespace GOS_FxApps
         private TableLayoutPanel tableLayoutPanel1;
         private FontAwesome.Sharp.IconButton HamburgerButton;
         private TableLayoutPanel tableLayoutPanel2;
-        private PictureBox pictureBox1;
         private Label label1;
         private Label label2;
         private Panel panel1;
@@ -1355,5 +1364,6 @@ namespace GOS_FxApps
         private Panel panel5;
         private Guna.UI2.WinForms.Guna2Button btnaturjam;
         public Label lblalert;
+        private PictureBox pictureBox1;
     }
 }

@@ -19,13 +19,6 @@ namespace GOS_FxApps
             "User ID=tii;Password=tii2025;" +
             "TrustServerCertificate=True;";
 
-        //untuk koneksi lokal laptop kantor bang kur
-        //Data Source = TII-DELL\\SQLEXPRESS;Initial Catalog = gos_apps;Integrated Security=True;TrustServerCertificate=True;
-        //private static readonly string connectionString = "Data Source=TII-DELL\\SQLEXPRESS;" +
-        //"Initial Catalog=gos_apps;" +
-        //"Integrated Security=True;" +
-        //"TrustServerCertificate=True;";
-
         //untuk server
         //Data Source = 192.168.1.64; Initial Catalog = gos_apps; User ID = sa; Password=$Genta2025$;TrustServerCertificate=True
         //private static readonly string connectionString = "Data Source=192.168.1.64;" +

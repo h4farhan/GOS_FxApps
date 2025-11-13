@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+
 namespace GOS_FxApps
 {
     public partial class pemakaianMaterial : Form
@@ -24,6 +25,10 @@ namespace GOS_FxApps
         int jumlahlama;
 
         string type;
+
+        private System.Windows.Forms.Timer searchTimer;
+        private bool formSiap = false;
+
         private bool isLoading = false;
 
         public pemakaianMaterial()
@@ -464,7 +469,14 @@ namespace GOS_FxApps
         private void pemakaianMaterial_Load(object sender, EventArgs e)
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
+
+            searchTimer = new System.Windows.Forms.Timer();
+            searchTimer.Interval = 300;
+            searchTimer.Tick += SearchTimer_Tick;
+
             combonama();
+            formSiap = true;
+
             tampil();
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
@@ -615,6 +627,7 @@ namespace GOS_FxApps
                     {
                         simpandata();
                         combonama();
+                        txtcarinamabarang.Clear();
                         txtjumlah.Clear();
                         lblstoksaatini.Text = "Stok Saat Ini: -";
                         picture1.Image = null;
@@ -639,6 +652,7 @@ namespace GOS_FxApps
                     {
                         editdata();
                         datepemakaian.Value = DateTime.Now.Date;
+                        txtcarinamabarang.Clear();
                         txtjumlah.Clear();
                         jumlahlama = 0;
                         noprimary = 0;
@@ -666,6 +680,7 @@ namespace GOS_FxApps
         private void btnbatal_Click(object sender, EventArgs e)
         {
             datepemakaian.Value = DateTime.Now.Date;
+            txtcarinamabarang.Clear();
             txtjumlah.Clear();
             jumlahlama = 0;
             noprimary = 0;
@@ -696,6 +711,72 @@ namespace GOS_FxApps
         {
             btnbatal.Enabled = true;
             btnsimpan.Enabled = true;
+        }
+
+        private void SearchTimer_Tick(object sender, EventArgs e)
+        {
+            searchTimer.Stop();
+
+            if (!formSiap || cmbnama == null || txtcarinamabarang == null)
+                return;
+
+            string keyword = txtcarinamabarang.Text?.Trim() ?? "";
+
+            try
+            {
+                using (SqlConnection conn = Koneksi.GetConnection())
+                {
+                    string query = @"
+                SELECT DISTINCT namaBarang
+                FROM stok_material
+                WHERE namaBarang LIKE @keyword
+                   OR kodeBarang LIKE @keyword
+                ORDER BY namaBarang ASC";
+
+                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    da.SelectCommand.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    DataRow dr = dt.NewRow();
+                    dr["namaBarang"] = "Pilih Material";
+                    dt.Rows.InsertAt(dr, 0);
+
+                    cmbnama.DataSource = dt;
+                    cmbnama.DisplayMember = "namaBarang";
+                    cmbnama.ValueMember = "namaBarang";
+
+                    if (cmbnama.Items.Count > 0)
+                        cmbnama.SelectedIndex = 0;
+                }
+
+                if (cmbnama.Items.Count > 1)
+                {
+                    cmbnama.DroppedDown = true;
+                    Cursor.Current = Cursors.Default;
+                }
+                else
+                {
+                    cmbnama.DroppedDown = false;
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtcarinamabarang_TextChanged(object sender, EventArgs e)
+        {
+            searchTimer.Stop();
+            searchTimer.Start();
         }
     }
 }
