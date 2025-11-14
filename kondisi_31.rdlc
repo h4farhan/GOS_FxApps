@@ -6528,7 +6528,7 @@
             <Top>1.12648cm</Top>
             <Left>0.29303cm</Left>
             <Height>1.39755cm</Height>
-            <Width>29.06318cm</Width>
+            <Width>29.06322cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -13996,8 +13996,8 @@ Val(ReportItems!Textbox279.Value)</Value>
             <DataSetName>datasetkondisishiftpenerimaan</DataSetName>
             <Top>2.99456cm</Top>
             <Left>0.29303cm</Left>
-            <Height>2.68613cm</Height>
-            <Width>29.05165cm</Width>
+            <Height>2.68614cm</Height>
+            <Width>29.05158cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -23903,7 +23903,7 @@ Val(ReportItems!Textbox279.Value)</Value>
             <Top>6.17267cm</Top>
             <Left>0.29303cm</Left>
             <Height>3.90866cm</Height>
-            <Width>29.05165cm</Width>
+            <Width>29.05158cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -27704,8 +27704,8 @@ Val(ReportItems!Textbox279.Value)</Value>
             <DataSetName>datasetkondisirejectba</DataSetName>
             <Top>10.25772cm</Top>
             <Left>0.29303cm</Left>
-            <Height>1.37777cm</Height>
-            <Width>29.05165cm</Width>
+            <Height>1.37776cm</Height>
+            <Width>29.05158cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -30425,7 +30425,7 @@ Val(ReportItems!Textbox279.Value)</Value>
             <Top>13.84037cm</Top>
             <Left>2.56559cm</Left>
             <Height>0.99276cm</Height>
-            <Width>26.77908cm</Width>
+            <Width>26.77909cm</Width>
             <ZIndex>8</ZIndex>
             <Style>
               <Border>
@@ -33144,7 +33144,7 @@ Val(ReportItems!Textbox279.Value)</Value>
             <Top>11.81188cm</Top>
             <Left>2.56559cm</Left>
             <Height>0.91026cm</Height>
-            <Width>26.77908cm</Width>
+            <Width>26.77915cm</Width>
             <ZIndex>10</ZIndex>
             <Style>
               <Border>
@@ -33246,6 +33246,47 @@ Val(ReportItems!Textbox279.Value)</Value>
                   <Style>None</Style>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox612">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Choose(CInt(Parameters!bulan.Value), 
+"Januari", "Februari", "Maret", "April", "Mei", "Juni", 
+"Juli", "Agustus", "September", "Oktober", "November", "Desember") 
+&amp; " " &amp; Parameters!tahun.Value &amp; ", Page " &amp; Globals!PageNumber</Value>
+                      <Style>
+                        <FontStyle>Italic</FontStyle>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>6pt</FontSize>
+                        <FontWeight>Light</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>1.04088cm</Top>
+              <Left>21.06969cm</Left>
+              <Height>0.6cm</Height>
+              <Width>8.27107cm</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Bottom</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>

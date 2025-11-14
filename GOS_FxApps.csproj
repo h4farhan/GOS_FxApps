@@ -514,6 +514,12 @@
     <Compile Include="setmin_rb.Designer.cs">
       <DependentUpon>setmin_rb.cs</DependentUpon>
     </Compile>
+    <Compile Include="setperputaran_rod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="setperputaran_rod.Designer.cs">
+      <DependentUpon>setperputaran_rod.cs</DependentUpon>
+    </Compile>
     <Compile Include="userinfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -546,6 +552,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rb_Stokhari.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="setperputaran_rod.resx">
+      <DependentUpon>setperputaran_rod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="weldingp.resx">
       <DependentUpon>weldingp.cs</DependentUpon>
@@ -877,6 +886,7 @@
     <None Include="Resources\wall-clock.png" />
     <None Include="Resources\Logo-Genta.png" />
     <None Include="Resources\logo1.png" />
+    <None Include="Resources\repeat.png" />
     <Content Include="Stock Barang Template.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

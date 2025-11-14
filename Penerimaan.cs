@@ -20,12 +20,9 @@ namespace GOS_FxApps
         public Penerimaan()
         {
             InitializeComponent();
-            setdefault();
-            tampil();
-            btnsimpan.Enabled = false;
         }
 
-        private void registertampil()
+        private void registertampilpenerimaan()
         {
             using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
             using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.penerimaan_s", conn))
@@ -39,7 +36,30 @@ namespace GOS_FxApps
                         this.Invoke(new Action(() =>
                         {
                             tampil();
-                            registertampil();
+                            registertampilpenerimaan();
+                        }));
+                    }
+                };
+                conn.Open();
+                cmd.ExecuteReader();
+            }
+        }
+
+        private void registertampilperputaran()
+        {
+            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.perputaran_rod", conn))
+            {
+                cmd.Notification = null;
+                var dep = new SqlDependency(cmd);
+                dep.OnChange += (s, e) =>
+                {
+                    if (e.Type == SqlNotificationType.Change)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            tampilperputaranrod();
+                            registertampilperputaran();
                         }));
                     }
                 };
@@ -109,21 +129,34 @@ namespace GOS_FxApps
                     }
                 }
 
+                int hariRentang = 24;
+
+                using (SqlCommand cmdHari = new SqlCommand("SELECT hari FROM perputaran_rod", conn))
+                {
+                    object val = cmdHari.ExecuteScalar();
+                    if (val != null && val != DBNull.Value)
+                    {
+                        hariRentang = Convert.ToInt32(val);
+                    }
+                }
+
                 using (SqlCommand cmdCekRentang = new SqlCommand(@"
                 SELECT COUNT(*) 
                 FROM penerimaan_p
                 WHERE nomor_rod = @nomor_rod
-                  AND tanggal_penerimaan BETWEEN DATEADD(DAY, -24, @tgl) AND DATEADD(DAY, 24, @tgl)", conn))
+                  AND tanggal_penerimaan BETWEEN DATEADD(DAY, -@rentang, @tgl) 
+                                            AND DATEADD(DAY, @rentang, @tgl)", conn))
                 {
                     cmdCekRentang.Parameters.AddWithValue("@nomor_rod", txtnomorrod.Text);
                     cmdCekRentang.Parameters.AddWithValue("@tgl", MainForm.Instance.tanggal);
+                    cmdCekRentang.Parameters.AddWithValue("@rentang", hariRentang);
 
                     int terlaluDekat = (int)cmdCekRentang.ExecuteScalar();
 
                     if (terlaluDekat > 0)
                     {
                         DialogResult result1 = MessageBox.Show(
-                            $"Nomor ROD {txtnomorrod.Text} sudah pernah diterima dalam rentang ±24 hari dari tanggal ini.\n" +
+                            $"Nomor ROD {txtnomorrod.Text} sudah pernah diterima dalam rentang ±{hariRentang} hari dari tanggal ini.\n" +
                             $"Apakah Anda ingin tetap melanjutkan penyimpanan?",
                             "Peringatan", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning
                         );
@@ -131,6 +164,7 @@ namespace GOS_FxApps
                         if (result1 != DialogResult.OK)
                             return;
                     }
+                
 
                     SqlCommand cmd1 = new SqlCommand(@"
                                                     INSERT INTO penerimaan_s 
@@ -201,6 +235,40 @@ namespace GOS_FxApps
             finally
             {
                 conn.Close();
+            }
+        }
+
+        private void tampilperputaranrod()
+        {
+            try
+            {
+                string query = "SELECT hari FROM perputaran_rod";
+
+                using (SqlDataAdapter ad = new SqlDataAdapter(query, conn))
+                {
+                    DataTable dt = new DataTable();
+                    ad.Fill(dt);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        string hari = dt.Rows[0]["hari"].ToString();
+                        lblhari.Text = "Perputaran ROD " + hari + " Hari";
+                    }
+                    else
+                    {
+                        lblhari.Text = "Data tidak ditemukan";
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
+                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -429,7 +497,12 @@ namespace GOS_FxApps
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
             txtnomorrod.Focus();
-            registertampil();
+            setdefault();
+            tampil();
+            tampilperputaranrod();
+            btnsimpan.Enabled = false;
+            registertampilpenerimaan();
+            registertampilperputaran();
         }
 
         private void txtrl_TextChanged(object sender, EventArgs e)
@@ -534,6 +607,12 @@ namespace GOS_FxApps
         {
             btnsimpan.Enabled = true;
             btncancel.Enabled = true;
+        }
+
+        private void btnaturjam_Click(object sender, EventArgs e)
+        {
+            Form setperputaran = new setperputaran_rod();
+            setperputaran.ShowDialog();
         }
     }
 }
