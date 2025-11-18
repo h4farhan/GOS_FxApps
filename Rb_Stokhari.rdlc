@@ -79,7 +79,7 @@
         </Field>
         <Field Name="bpanjang">
           <DataField>bpanjang</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="bpe1">
           <DataField>bpe1</DataField>
@@ -129,10 +129,6 @@
           <DataField>wastekg</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-        <Field Name="bpanjang1">
-          <DataField>bpanjang</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="konversi_e1">
           <DataField>konversi_e1</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -148,7 +144,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>rb_stok</rd:DataSetName>
-        <rd:SchemaPath>E:\GitHub\GOS_FxApps\DataSet\rb_stok.xsd</rd:SchemaPath>
+        <rd:SchemaPath>E:\All Project GOS Apps\Gudang\GOS_FxApps\DataSet\rb_stok.xsd</rd:SchemaPath>
         <rd:TableName>sp_Rb_Stokhari</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -417,7 +413,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1108,7 +1103,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox1">
+                        <Textbox Name="Textbox9">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -1129,7 +1124,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox1</rd:DefaultName>
+                          <rd:DefaultName>Textbox9</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -4056,9 +4051,9 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>="BULAN :" &amp; Choose(CInt(Parameters!bulan.Value), 
-"JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", 
-"JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESERMBER") 
+                      <Value>="MONTH :" &amp; Choose(CInt(Parameters!bulan.Value), 
+"JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", 
+"JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER") 
 &amp; " " &amp; Parameters!tahun.Value</Value>
                       <Style>
                         <FontFamily>Palatino Linotype</FontFamily>

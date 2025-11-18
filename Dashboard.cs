@@ -383,6 +383,7 @@ namespace GOS_FxApps
 
             chartUssageMaterial.Series.Add(series);
         }
+        //customrb masih salah di aplikasi operator, gudang dan admin
         private void LoadchartRBCustom()
         {
             double rbStock = 0;
@@ -399,10 +400,19 @@ namespace GOS_FxApps
             {
                 conn.Open();
                 string query = @"
-            SELECT TOP 1 bstok, bpe1, bpe2, bbe1, bbe2, wpe1, wpe2, wbe1, wbe2, tanggal, id_stok
-            FROM Rb_Stok
-            WHERE tanggal >= @TanggalMulai AND tanggal <= @TanggalAkhir
-            ORDER BY tanggal DESC, id_stok DESC";
+        SELECT 
+        SUM(bstok) AS bstok,
+        SUM(bpe1) AS bpe1,
+        SUM(bpe2) AS bpe2,
+        SUM(bbe1) AS bbe1,
+        SUM(bbe2) AS bbe2,
+        SUM(wpe1) AS wpe1,
+        SUM(wpe2) AS wpe2,
+        SUM(wbe1) AS wbe1,
+        SUM(wbe2) AS wbe2
+    FROM Rb_Stok
+    WHERE tanggal >= @TanggalMulai
+      AND tanggal < DATEADD(DAY, 1, @TanggalAkhir);";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -429,7 +439,7 @@ namespace GOS_FxApps
             catch (SqlException)
             {
                 MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
@@ -441,7 +451,6 @@ namespace GOS_FxApps
                 conn.Close();
             }
 
-            // ===== Grafik =====
             chartUssageMaterial.Series.Clear();
             chartUssageMaterial.ChartAreas.Clear();
 
@@ -452,8 +461,6 @@ namespace GOS_FxApps
             area.AxisX.MajorGrid.LineWidth = 0;
             area.AxisY.MajorGrid.LineWidth = 0;
 
-            area.AxisX.MinorGrid.LineWidth = 0;
-            area.AxisY.MinorGrid.LineWidth = 0;
             chartUssageMaterial.ChartAreas.Add(area);
 
             Series series = new Series
@@ -477,6 +484,7 @@ namespace GOS_FxApps
 
             chartUssageMaterial.Series.Add(series);
         }
+
 
         private void LoadChartPenerimaanHarian()
         {
@@ -541,7 +549,6 @@ namespace GOS_FxApps
                     conn.Close();
                 }
 
-                // ===== Refresh Chart =====
                 chartUssageMaterial.Series.Clear();
                 chartUssageMaterial.ChartAreas.Clear();
 
