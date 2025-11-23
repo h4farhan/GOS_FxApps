@@ -26,26 +26,27 @@ namespace GOS_FxApps
         }
 
 
-        private DataTable GetDataFromSPbulan(string spName, int bulan, int tahun)
+        private DataTable GetDataFromSPtanggal(string spName, DateTime tanggalMulai, DateTime tanggalAkhir)
         {
             using (SqlConnection conn = Koneksi.GetConnection())
             using (SqlCommand cmd = new SqlCommand(spName, conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Bulan", bulan);
-                cmd.Parameters.AddWithValue("@Tahun", tahun);
+                cmd.Parameters.AddWithValue("@tanggalMulai", tanggalMulai);
+                cmd.Parameters.AddWithValue("@tanggalAkhir", tanggalAkhir);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 return dt;
             }
         }
+
         private void loadsp1()
         {
-            int bulan = datejadwal.Value.Month;
-            int tahun = datejadwal.Value.Year;
+            DateTime tanggalMulai = datejadwalMulai.Value.Date;
+            DateTime tanggalAkhir = datejadwalAkhir.Value.Date;
 
-            DataTable dt1 = GetDataFromSPbulan("sp_LaporanPersediaanMaterial", bulan, tahun);
+            DataTable dt1 = GetDataFromSPtanggal("sp_LaporanPersediaanMaterial", tanggalMulai, tanggalAkhir);
 
             dt1.Columns.Add("No", typeof(int)).SetOrdinal(0);
 
@@ -103,11 +104,12 @@ namespace GOS_FxApps
                 {
                     try
                     {
-                        int bulan = datejadwal.Value.Month;
-                        int tahun = datejadwal.Value.Year;
-                        string namaBulan = new DateTime(tahun, bulan, 1).ToString("MMMM");
+                        DateTime tanggalMulai = datejadwalMulai.Value.Date;
+                        DateTime tanggalAkhir = datejadwalAkhir.Value.Date;
 
-                        DataTable dtMaterial = GetDataFromSPbulan("sp_LaporanPersediaanMaterial", bulan, tahun);
+                        string judulRange = $"{tanggalMulai:dd MMMM yyyy} s/d {tanggalAkhir:dd MMMM yyyy}";
+
+                        DataTable dtMaterial = GetDataFromSPtanggal("sp_LaporanPersediaanMaterial",tanggalMulai,tanggalAkhir);
 
                         Excel.Application xlApp = new Excel.Application();
                         string templatePath = Path.Combine(Application.StartupPath, "Stock Barang Template.xlsx");
@@ -116,7 +118,7 @@ namespace GOS_FxApps
 
                         xlWorkSheet.Cells[1, 1] = "LAPORAN PERSEDIAAN MATERIAL DI KUALA TANJUNG";
                         xlWorkSheet.Cells[2, 1] = "PT.GENTANUSA GEMILANG";
-                        xlWorkSheet.Cells[3, 1] = $"Per Tanggal {namaBulan} {tahun}";
+                        xlWorkSheet.Cells[3, 1] = $"Per Tanggal {judulRange}";
 
                         int rowStart = 6;
                         int colStart = 1;
@@ -138,7 +140,7 @@ namespace GOS_FxApps
                             {
                                 Title = "Simpan File Excel",
                                 Filter = "Excel Files|*.xlsx",
-                                FileName = $"STOCK BARANG KTJ PER {namaBulan} {tahun}.xlsx"
+                                FileName = $"STOCK BARANG KTJ PER {tanggalMulai:ddMMMyyyy} - {tanggalAkhir:ddMMMyyyy}.xlsx"
                             };
 
                             if (saveFileDialog.ShowDialog(mainform) == DialogResult.OK)
@@ -183,98 +185,32 @@ namespace GOS_FxApps
             }
         }
 
-        private void datejadwal_MouseDown(object sender, MouseEventArgs e)
-        {
-            using (Form pickerForm = new Form())
-            {
-                pickerForm.StartPosition = FormStartPosition.Manual;
-                pickerForm.FormBorderStyle = FormBorderStyle.FixedDialog;
-                pickerForm.ControlBox = false;
-                pickerForm.Size = new Size(250, 200);
-                pickerForm.Text = "Pilih Bulan & Tahun";
-
-                var screenPos = datejadwal.PointToScreen(DrawingPoint.Empty);
-                pickerForm.Location = new DrawingPoint(screenPos.X, screenPos.Y + datejadwal.Height);
-
-                var cmbBulan = new Guna2ComboBox
-                {
-                    Font = new Font("Segoe UI", 11F),
-                    Left = 10,
-                    Top = 10,
-                    Width = 200,
-                    BorderRadius = 6,
-                    ForeColor = Color.Black,
-                    DropDownStyle = ComboBoxStyle.DropDownList,
-                    BorderColor = Color.FromArgb(64, 64, 64),
-                    BorderThickness = 2,
-                };
-                string[] bulan = {
-                                    "01 - Januari", "02 - Februari", "03 - Maret", "04 - April", "05 - Mei", "06 - Juni",
-                                    "07 - Juli", "08 - Agustus", "09 - September", "10 - Oktober", "11 - November", "12 - Desember"
-                                };
-                cmbBulan.Items.AddRange(bulan);
-                cmbBulan.SelectedIndex = datejadwal.Value.Month - 1;
-
-                var numTahun = new Guna2NumericUpDown
-                {
-                    Font = new Font("Segoe UI", 11F),
-                    Left = 10,
-                    Top = 55,
-                    Width = 200,
-                    BorderRadius = 6,
-                    Minimum = 1900,
-                    Maximum = 2100,
-                    ForeColor = Color.Black,
-                    Value = datejadwal.Value.Year,
-                    BorderColor = Color.FromArgb(64, 64, 64),
-                    BorderThickness = 2,
-                };
-
-                var btnOK = new Guna2Button
-                {
-                    Text = "OK",
-                    Font = new Font("Segoe UI", 10F),
-                    Left = 10,
-                    Top = 110,
-                    Width = 80,
-                    Height = 35,
-                    BorderRadius = 6,
-                    FillColor = Color.FromArgb(53, 53, 58)
-                };
-                btnOK.Click += (s, ev) =>
-                {
-                    datejadwal.Value = new DateTime((int)numTahun.Value, cmbBulan.SelectedIndex + 1, 1);
-                    pickerForm.DialogResult = DialogResult.OK;
-                };
-
-                pickerForm.Controls.Add(cmbBulan);
-                pickerForm.Controls.Add(numTahun);
-                pickerForm.Controls.Add(btnOK);
-
-                pickerForm.ShowDialog();
-            }
-        }
-
         private void btncari_Click(object sender, EventArgs e)
         {
+            if (datejadwalMulai.Value.Date > datejadwalAkhir.Value.Date)
+            {
+                MessageBox.Show("Tanggal Mulai harus kurang dari atau sama dengan Tanggal Akhir agar valid", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             loadsp1();
-            lbltanggal.Text = "Per " + datejadwal.Value.ToString("MMMM yyyy");
+            lbltanggal.Text = "Per " + datejadwalMulai.Value.ToString("dd MMM yyyy") + " - " + datejadwalAkhir.Value.ToString("dd MMM yyyy");
             btnreset.Enabled = true;
         }
 
         private void btnreset_Click(object sender, EventArgs e)
         {
-            datejadwal.Value = DateTime.Now;
-            loadsp1();
-            lbltanggal.Text = "Per " + datejadwal.Value.ToString("MMMM yyyy");
+            datejadwalMulai.Value = DateTime.Now;
+            datejadwalAkhir.Value = DateTime.Now;
+            dataGridView1.DataSource = null;
+            lbltanggal.Text = "";
             btnreset.Enabled = false;
         }
 
         private void laporanpersediaan_Load(object sender, EventArgs e)
         {
-            datejadwal.Value = DateTime.Now;
-            loadsp1();
-            lbltanggal.Text = "Per " + datejadwal.Value.ToString("MMMM yyyy");
+            datejadwalMulai.Value = DateTime.Now;
+            datejadwalAkhir.Value = DateTime.Now;
         }
 
         private void btnprint_Click(object sender, EventArgs e)

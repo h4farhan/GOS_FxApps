@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnreset = new Guna.UI2.WinForms.Guna2Button();
             this.label3 = new System.Windows.Forms.Label();
             this.btncari = new Guna.UI2.WinForms.Guna2Button();
-            this.datejadwal = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.datejadwalMulai = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.btnprint = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -114,6 +114,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbltanggal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label74 = new System.Windows.Forms.Label();
+            this.datejadwalAkhir = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
@@ -125,17 +127,19 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.label74);
+            this.panel1.Controls.Add(this.datejadwalAkhir);
             this.panel1.Controls.Add(this.btnreset);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.btncari);
-            this.panel1.Controls.Add(this.datejadwal);
+            this.panel1.Controls.Add(this.datejadwalMulai);
             this.panel1.Controls.Add(this.btnprint);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1148, 57);
+            this.panel1.Size = new System.Drawing.Size(1561, 57);
             this.panel1.TabIndex = 4;
             // 
             // btnreset
@@ -150,7 +154,7 @@
             this.btnreset.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnreset.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnreset.ForeColor = System.Drawing.Color.White;
-            this.btnreset.Location = new System.Drawing.Point(887, 10);
+            this.btnreset.Location = new System.Drawing.Point(1300, 10);
             this.btnreset.Margin = new System.Windows.Forms.Padding(2);
             this.btnreset.Name = "btnreset";
             this.btnreset.Size = new System.Drawing.Size(103, 36);
@@ -180,7 +184,7 @@
             this.btncari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btncari.ForeColor = System.Drawing.Color.White;
-            this.btncari.Location = new System.Drawing.Point(802, 10);
+            this.btncari.Location = new System.Drawing.Point(1215, 10);
             this.btncari.Margin = new System.Windows.Forms.Padding(2);
             this.btncari.Name = "btncari";
             this.btncari.Size = new System.Drawing.Size(81, 36);
@@ -188,27 +192,26 @@
             this.btncari.Text = "Cari";
             this.btncari.Click += new System.EventHandler(this.btncari_Click);
             // 
-            // datejadwal
+            // datejadwalMulai
             // 
-            this.datejadwal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.datejadwal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.datejadwal.BorderRadius = 5;
-            this.datejadwal.BorderThickness = 2;
-            this.datejadwal.Checked = true;
-            this.datejadwal.CustomFormat = "MM/yyyy";
-            this.datejadwal.FillColor = System.Drawing.Color.White;
-            this.datejadwal.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.datejadwal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.datejadwal.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datejadwal.Location = new System.Drawing.Point(568, 10);
-            this.datejadwal.Margin = new System.Windows.Forms.Padding(2);
-            this.datejadwal.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.datejadwal.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.datejadwal.Name = "datejadwal";
-            this.datejadwal.Size = new System.Drawing.Size(230, 36);
-            this.datejadwal.TabIndex = 59;
-            this.datejadwal.Value = new System.DateTime(2025, 5, 20, 0, 0, 0, 0);
-            this.datejadwal.MouseDown += new System.Windows.Forms.MouseEventHandler(this.datejadwal_MouseDown);
+            this.datejadwalMulai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.datejadwalMulai.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.datejadwalMulai.BorderRadius = 5;
+            this.datejadwalMulai.BorderThickness = 2;
+            this.datejadwalMulai.Checked = true;
+            this.datejadwalMulai.CustomFormat = "MM/yyyy";
+            this.datejadwalMulai.FillColor = System.Drawing.Color.White;
+            this.datejadwalMulai.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.datejadwalMulai.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.datejadwalMulai.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.datejadwalMulai.Location = new System.Drawing.Point(671, 10);
+            this.datejadwalMulai.Margin = new System.Windows.Forms.Padding(2);
+            this.datejadwalMulai.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.datejadwalMulai.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.datejadwalMulai.Name = "datejadwalMulai";
+            this.datejadwalMulai.Size = new System.Drawing.Size(250, 36);
+            this.datejadwalMulai.TabIndex = 59;
+            this.datejadwalMulai.Value = new System.DateTime(2025, 5, 20, 0, 0, 0, 0);
             // 
             // btnprint
             // 
@@ -221,7 +224,7 @@
             this.btnprint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(58)))));
             this.btnprint.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnprint.ForeColor = System.Drawing.Color.White;
-            this.btnprint.Location = new System.Drawing.Point(998, 10);
+            this.btnprint.Location = new System.Drawing.Point(1411, 10);
             this.btnprint.Margin = new System.Windows.Forms.Padding(2);
             this.btnprint.Name = "btnprint";
             this.btnprint.Size = new System.Drawing.Size(133, 36);
@@ -251,7 +254,7 @@
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(10);
-            this.panel3.Size = new System.Drawing.Size(1148, 422);
+            this.panel3.Size = new System.Drawing.Size(1561, 422);
             this.panel3.TabIndex = 6;
             // 
             // guna2Panel4
@@ -276,14 +279,14 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(11, 135);
             this.dataGridView1.Name = "dataGridView1";
@@ -1323,12 +1326,47 @@
             this.label1.Text = "LAPORAN DATA MATERIAL";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label74
+            // 
+            this.label74.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label74.AutoSize = true;
+            this.label74.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.label74.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label74.Location = new System.Drawing.Point(925, 19);
+            this.label74.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(32, 20);
+            this.label74.TabIndex = 66;
+            this.label74.Text = "s/d";
+            this.label74.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // datejadwalAkhir
+            // 
+            this.datejadwalAkhir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.datejadwalAkhir.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.datejadwalAkhir.BorderRadius = 5;
+            this.datejadwalAkhir.BorderThickness = 2;
+            this.datejadwalAkhir.Checked = true;
+            this.datejadwalAkhir.CustomFormat = "MM/yyyy";
+            this.datejadwalAkhir.FillColor = System.Drawing.Color.White;
+            this.datejadwalAkhir.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.datejadwalAkhir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.datejadwalAkhir.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.datejadwalAkhir.Location = new System.Drawing.Point(961, 10);
+            this.datejadwalAkhir.Margin = new System.Windows.Forms.Padding(2);
+            this.datejadwalAkhir.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.datejadwalAkhir.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.datejadwalAkhir.Name = "datejadwalAkhir";
+            this.datejadwalAkhir.Size = new System.Drawing.Size(250, 36);
+            this.datejadwalAkhir.TabIndex = 65;
+            this.datejadwalAkhir.Value = new System.DateTime(2025, 5, 20, 0, 0, 0, 0);
+            // 
             // datamaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1148, 479);
+            this.ClientSize = new System.Drawing.Size(1561, 479);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1352,7 +1390,7 @@
         private Guna.UI2.WinForms.Guna2Button btnreset;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2Button btncari;
-        private Guna.UI2.WinForms.Guna2DateTimePicker datejadwal;
+        private Guna.UI2.WinForms.Guna2DateTimePicker datejadwalMulai;
         private Guna.UI2.WinForms.Guna2Button btnprint;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
@@ -1433,5 +1471,7 @@
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.Label label74;
+        private Guna.UI2.WinForms.Guna2DateTimePicker datejadwalAkhir;
     }
 }

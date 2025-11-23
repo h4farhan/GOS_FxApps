@@ -16,15 +16,25 @@ namespace GOS_FxApps
 
         SqlConnection conn = Koneksi.GetConnection();
 
+        int pageSize = 30;
+        int currentPage = 1;
+        int totalRecords = 0;
+        int totalPages = 0;
+
+        bool isSearching = false;
+        string lastSearchWhere = "";
+        SqlCommand lastSearchCmd;
+        int searchTotalRecords = 0;
+
         public historyPemakaianMaterial()
         {
             InitializeComponent();
         }
 
-        private void registertampil()
+        private void registertampilpemakaian()
         {
             using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.pemakaian_material", conn))
+            using (var cmd = new SqlCommand("SELECT updated_at FROM dbo.pemakaian_material", conn))
             {
                 cmd.Notification = null;
                 var dep = new SqlDependency(cmd);
@@ -34,22 +44,94 @@ namespace GOS_FxApps
                     {
                         this.Invoke(new Action(() =>
                         {
-                            tampil();
-                            registertampil();
+                            if (!isSearching)
+                            {
+                                HitungTotalData();
+                                currentPage = 1;
+                                tampil();
+                            }
+                            else
+                            {
+                                int oldTotal = searchTotalRecords;
+                                HitungTotalDataPencarian();
+                                if (searchTotalRecords > oldTotal)
+                                {
+                                    tampil();
+                                }
+                            }
+
+                            registertampilpemakaian();
                         }));
                     }
                 };
+
                 conn.Open();
                 cmd.ExecuteReader();
             }
+        }
+
+        private void HitungTotalData()
+        {
+            string query = "SELECT COUNT(*) FROM pemakaian_material";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            conn.Open();
+            totalRecords = (int)cmd.ExecuteScalar();
+            conn.Close();
+
+            totalPages = (int)Math.Ceiling(totalRecords / (double)pageSize);
+        }
+
+        private void HitungTotalDataPencarian()
+        {
+            string countQuery = "SELECT COUNT(*) " + lastSearchWhere;
+
+            lastSearchCmd.CommandText = countQuery;
+            lastSearchCmd.Connection = conn;
+
+            conn.Open();
+            searchTotalRecords = (int)lastSearchCmd.ExecuteScalar();
+            conn.Close();
+
+            totalPages = (int)Math.Ceiling(searchTotalRecords / (double)pageSize);
         }
 
         private void tampil()
         {
             try
             {
-                string query = "SELECT idPemakaian, kodeBarang, namaBarang, spesifikasi, type, tanggalPemakaian, jumlahPemakaian, updated_at, remaks FROM pemakaian_material ORDER BY tanggalPemakaian DESC, updated_at DESC";
-                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
+                int offset = (currentPage - 1) * pageSize;
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+
+                string query;
+
+                if (!isSearching)
+                {
+                    query = $@"
+                SELECT *
+                FROM pemakaian_material
+                ORDER BY tanggalPemakaian DESC
+                OFFSET {offset} ROWS
+                FETCH NEXT {pageSize} ROWS ONLY";
+                }
+                else
+                {
+                    query = $@"
+                SELECT *
+                {lastSearchWhere}
+                ORDER BY tanggalPemakaian DESC
+                OFFSET {offset} ROWS
+                FETCH NEXT {pageSize} ROWS ONLY";
+
+                    foreach (SqlParameter p in lastSearchCmd.Parameters)
+                        cmd.Parameters.Add(new SqlParameter(p.ParameterName, p.Value));
+                }
+
+                cmd.CommandText = query;
+
+                SqlDataAdapter ad = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
@@ -68,6 +150,20 @@ namespace GOS_FxApps
                 dataGridView1.Columns[6].HeaderText = "Jumlah Pemakaian";
                 dataGridView1.Columns[7].HeaderText = "Diubah";
                 dataGridView1.Columns[8].HeaderText = "Remaks";
+
+                if (!isSearching)
+                {
+                    lbljumlahdata.Text = "Jumlah data: " + totalRecords;
+                }
+                else
+                {
+                    lbljumlahdata.Text = "Hasil pencarian: " + searchTotalRecords;
+                }
+
+                lblhalaman.Text = $"Halaman {currentPage} dari {totalPages}";
+
+                btnleft.Enabled = currentPage > 1;
+                btnright.Enabled = currentPage < totalPages;
             }
             catch (SqlException)
             {
@@ -93,97 +189,33 @@ namespace GOS_FxApps
                 return false;
             }
 
-            DataTable dt = new DataTable();
-            string query = @"
-        SELECT 
-            idPemakaian, 
-            kodeBarang, 
-            namaBarang, 
-            spesifikasi, 
-            type, 
-            tanggalPemakaian, 
-            jumlahPemakaian, 
-            updated_at, 
-            remaks
-        FROM pemakaian_material
-        WHERE 1=1 ";
+            isSearching = true;
+            lastSearchCmd = new SqlCommand();
+            lastSearchWhere = "FROM pemakaian_material WHERE 1=1 ";
 
-            using (SqlCommand cmd = new SqlCommand())
+            if (tanggal.HasValue)
             {
-                if (tanggal.HasValue)
-                {
-                    query += " AND CAST(tanggalPemakaian AS DATE) = @tgl ";
-                    cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
-                }
-
-                if (!string.IsNullOrEmpty(keyword))
-                {
-                    query += " AND (kodeBarang LIKE @kode OR namaBarang LIKE @kode) ";
-                    cmd.Parameters.AddWithValue("@kode", "%" + keyword + "%");
-                }
-
-                query += "ORDER BY tanggalPemakaian DESC, updated_at DESC";
-
-                cmd.CommandText = query;
-                cmd.Connection = conn;
-
-                try
-                {
-                    conn.Open();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                        btnreset.Enabled = true;
-                    }
-
-                    dataGridView1.DataSource = dt;
-
-                    dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-                    dataGridView1.RowTemplate.Height = 35;
-                    dataGridView1.ReadOnly = true;
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-                    if (dataGridView1.Columns.Contains("idPemakaian"))
-                        dataGridView1.Columns["idPemakaian"].Visible = false;
-
-                    dataGridView1.Columns["kodeBarang"].HeaderText = "Kode Barang";
-                    dataGridView1.Columns["namaBarang"].HeaderText = "Nama Barang";
-                    dataGridView1.Columns["spesifikasi"].HeaderText = "Spesifikasi";
-                    dataGridView1.Columns["type"].HeaderText = "Tipe";
-                    dataGridView1.Columns["tanggalPemakaian"].HeaderText = "Tanggal Pemakaian";
-                    dataGridView1.Columns["jumlahPemakaian"].HeaderText = "Jumlah Pemakaian";
-                    dataGridView1.Columns["updated_at"].HeaderText = "Diubah";
-                    dataGridView1.Columns["remaks"].HeaderText = "Remaks";
-                }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
+                lastSearchWhere += " AND CAST(tanggalPemakaian AS DATE) = @tgl ";
+                lastSearchCmd.Parameters.AddWithValue("@tgl", tanggal.Value);
             }
 
-            return dt.Rows.Count > 0;
-        }
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                lastSearchWhere += " AND (kodeBarang LIKE @kode OR namaBarang LIKE @kode) ";
+                lastSearchCmd.Parameters.AddWithValue("@kode", "%" + keyword + "%");
+            }
 
-        private void jumlahdata()
-        {
-            int total = dataGridView1.Rows.Count;
-            lbljumlahdata.Text = "Jumlah data: " + total.ToString();
+            HitungTotalDataPencarian();
+            currentPage = 1;
+            tampil();
+
+            btnreset.Enabled = true;
+            return true;
         }
 
         private void btncari_Click(object sender, EventArgs e)
         {
             cari();
-            jumlahdata();
         }
 
         private void hurufbesar_KeyPress(object sender, KeyPressEventArgs e)
@@ -197,25 +229,48 @@ namespace GOS_FxApps
         private void historyPemakaianMaterial_Load(object sender, EventArgs e)
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
+            HitungTotalData();
             tampil();
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
-            registertampil();
-            jumlahdata();
+            registertampilpemakaian();
         }
 
         private void btnreset_Click(object sender, EventArgs e)
         {
-            tampil();
+            isSearching = false;
+
             txtcari.Text = "";
             datecari.Checked = false;
+
             btnreset.Enabled = false;
-            jumlahdata();
+
+            HitungTotalData();
+            currentPage = 1;
+            tampil();
         }
 
         private void historyPemakaianMaterial_FormClosing(object sender, FormClosingEventArgs e)
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
+        }
+
+        private void btnleft_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+            {
+                currentPage--;
+                tampil();
+            }
+        }
+
+        private void btnright_Click(object sender, EventArgs e)
+        {
+            if (currentPage < totalPages)
+            {
+                currentPage++;
+                tampil();
+            }
         }
     }
 }

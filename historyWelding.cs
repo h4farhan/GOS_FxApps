@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Input;
 
 namespace GOS_FxApps
 {
@@ -16,15 +17,25 @@ namespace GOS_FxApps
 
         SqlConnection conn = Koneksi.GetConnection();
 
+        int pageSize = 30;
+        int currentPage = 1;
+        int totalRecords = 0;
+        int totalPages = 0;
+
+        bool isSearching = false;
+        string lastSearchWhere = "";
+        SqlCommand lastSearchCmd;
+        int searchTotalRecords = 0;
+
         public historyWelding()
         {
             InitializeComponent();
         }
 
-        private void registertampil()
+        private void registertampilwelding()
         {
             using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.Rb_Stok", conn))
+            using (var cmd = new SqlCommand("SELECT updated_at FROM dbo.Rb_Stok", conn))
             {
                 cmd.Notification = null;
                 var dep = new SqlDependency(cmd);
@@ -34,22 +45,94 @@ namespace GOS_FxApps
                     {
                         this.Invoke(new Action(() =>
                         {
-                            tampil();
-                            registertampil();
+                            if (!isSearching)
+                            {
+                                HitungTotalData();
+                                currentPage = 1;
+                                tampil();
+                            }
+                            else
+                            {
+                                int oldTotal = searchTotalRecords;
+                                HitungTotalDataPencarian();
+                                if (searchTotalRecords > oldTotal)
+                                {
+                                    tampil();
+                                }
+                            }
+
+                            registertampilwelding();
                         }));
                     }
                 };
+
                 conn.Open();
                 cmd.ExecuteReader();
             }
+        }
+
+        private void HitungTotalData()
+        {
+            string query = "SELECT COUNT(*) FROM Rb_Stok";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            conn.Open();
+            totalRecords = (int)cmd.ExecuteScalar();
+            conn.Close();
+
+            totalPages = (int)Math.Ceiling(totalRecords / (double)pageSize);
+        }
+
+        private void HitungTotalDataPencarian()
+        {
+            string countQuery = "SELECT COUNT(*) " + lastSearchWhere;
+
+            lastSearchCmd.CommandText = countQuery;
+            lastSearchCmd.Connection = conn;
+
+            conn.Open();
+            searchTotalRecords = (int)lastSearchCmd.ExecuteScalar();
+            conn.Close();
+
+            totalPages = (int)Math.Ceiling(searchTotalRecords / (double)pageSize);
         }
 
         private void tampil()
         {
             try
             {
-                string query = "SELECT * FROM Rb_Stok ORDER BY tanggal ASC, id_stok ASC";
-                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
+                int offset = (currentPage - 1) * pageSize;
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+
+                string query;
+
+                if (!isSearching)
+                {
+                    query = $@"
+                SELECT *
+                FROM Rb_Stok
+                ORDER BY tanggal DESC
+                OFFSET {offset} ROWS
+                FETCH NEXT {pageSize} ROWS ONLY";
+                }
+                else
+                {
+                    query = $@"
+                SELECT *
+                {lastSearchWhere}
+                ORDER BY tanggal DESC
+                OFFSET {offset} ROWS
+                FETCH NEXT {pageSize} ROWS ONLY";
+
+                    foreach (SqlParameter p in lastSearchCmd.Parameters)
+                        cmd.Parameters.Add(new SqlParameter(p.ParameterName, p.Value));
+                }
+
+                cmd.CommandText = query;
+
+                SqlDataAdapter ad = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
@@ -84,7 +167,20 @@ namespace GOS_FxApps
                 dataGridView1.Columns[23].HeaderText = "Waste";
                 dataGridView1.Columns[24].HeaderText = "Keterangan";
                 dataGridView1.Columns[25].HeaderText = "Diubah";
-                dataGridView1.Columns[26].HeaderText = "Remaks";
+
+                if (!isSearching)
+                {
+                    lbljumlahdata.Text = "Jumlah data: " + totalRecords;
+                }
+                else
+                {
+                    lbljumlahdata.Text = "Hasil pencarian: " + searchTotalRecords;
+                }
+
+                lblhalaman.Text = $"Halaman {currentPage} dari {totalPages}";
+
+                btnleft.Enabled = currentPage > 1;
+                btnright.Enabled = currentPage < totalPages;
             }
             catch (SqlException)
             {
@@ -109,87 +205,80 @@ namespace GOS_FxApps
                 return false;
             }
 
-            DataTable dt = new DataTable();
-            string query = "SELECT * FROM Rb_Stok WHERE 1=1 ";
+            isSearching = true;
+            lastSearchCmd = new SqlCommand();
+            lastSearchWhere = "FROM Rb_Stok WHERE 1=1 ";
 
-            using (SqlCommand cmd = new SqlCommand())
+            if (tanggal.HasValue)
             {
-                if (tanggal.HasValue)
-                {
-                    query += " AND CAST(tanggal AS DATE) = @tgl ";
-                    cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
-                }
-
-                if (shiftValid)
-                {
-                    query += " AND shift = @shift ";
-                    cmd.Parameters.AddWithValue("@shift", cbShift.SelectedItem.ToString());
-                }
-
-                query += " ORDER BY tanggal DESC";
-
-                cmd.CommandText = query;
-                cmd.Connection = conn;
-
-                try
-                {
-                    conn.Open();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                        btnreset.Enabled = true;
-                    }
-
-                    dataGridView1.DataSource = dt;
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-
-                return dt.Rows.Count > 0;
+                lastSearchWhere += " AND CAST(tanggal AS DATE) = @tgl ";
+                lastSearchCmd.Parameters.AddWithValue("@tgl", tanggal.Value);
             }
-        }
 
-        private void jumlahdata()
-        {
-            int total = dataGridView1.Rows.Count;
-            lbljumlahdata.Text = "Jumlah data: " + total.ToString();
+            if (shiftValid)
+            {
+                lastSearchWhere += " AND shift = @shift ";
+                lastSearchCmd.Parameters.AddWithValue("@shift", cbShift.SelectedItem.ToString());
+            }
+
+            HitungTotalDataPencarian();
+            currentPage = 1;
+            tampil();
+
+            btnreset.Enabled = true;
+            return true;
         }
 
         private void btncari_Click(object sender, EventArgs e)
         {
             cari();
-            jumlahdata();
         }
 
         private void historyWelding_Load(object sender, EventArgs e)
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
+            HitungTotalData();
             tampil();
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
-            registertampil();
-            jumlahdata();
+            registertampilwelding();
         }
 
         private void btnreset_Click(object sender, EventArgs e)
         {
-            tampil();
-            cbShift.StartIndex = 0;
+            isSearching = false;
+
+            cbShift.SelectedIndex = 0;
             datecari.Checked = false;
+
             btnreset.Enabled = false;
-            jumlahdata();
+
+            HitungTotalData();
+            currentPage = 1;
+            tampil();
         }
 
         private void historyWelding_FormClosing(object sender, FormClosingEventArgs e)
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
+        }
+
+        private void btnleft_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+            {
+                currentPage--;
+                tampil();
+            }
+        }
+
+        private void btnright_Click(object sender, EventArgs e)
+        {
+            if (currentPage < totalPages)
+            {
+                currentPage++;
+                tampil();
+            }
         }
     }
 }

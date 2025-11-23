@@ -541,8 +541,35 @@
     <EmbeddedResource Include="aturjam.resx">
       <DependentUpon>aturjam.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="datamaterial.resx">
+      <DependentUpon>datamaterial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formkamera.resx">
       <DependentUpon>formkamera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="historymaterialmasuk.resx">
+      <DependentUpon>historymaterialmasuk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="historyPemakaianMaterial.resx">
+      <DependentUpon>historyPemakaianMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="historyPenerimaan.resx">
+      <DependentUpon>historyPenerimaan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="historyPengiriman.resx">
+      <DependentUpon>historyPengiriman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="historyPerbaikan.resx">
+      <DependentUpon>historyPerbaikan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="historyStokMaterial.resx">
+      <DependentUpon>historyStokMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="historyWelding.resx">
+      <DependentUpon>historyWelding.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="koefisiensi.resx">
       <DependentUpon>koefisiensi.cs</DependentUpon>
@@ -570,6 +597,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="laporanpemakaian_31.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="laporanpersediaan.resx">
+      <DependentUpon>laporanpersediaan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="materialmasuk.resx">
       <DependentUpon>materialmasuk.cs</DependentUpon>
@@ -661,12 +691,6 @@
     <EmbeddedResource Include="consumption31.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard.resx">
-      <DependentUpon>Dashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="datamaterial.resx">
-      <DependentUpon>datamaterial.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="datapenerimaanedit.resx">
       <DependentUpon>datapenerimaanedit.cs</DependentUpon>
     </EmbeddedResource>
@@ -703,32 +727,8 @@
     <EmbeddedResource Include="formstok.resx">
       <DependentUpon>formstok.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="historymaterialmasuk.resx">
-      <DependentUpon>historymaterialmasuk.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="historyPemakaianMaterial.resx">
-      <DependentUpon>historyPemakaianMaterial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="historyPenerimaan.resx">
-      <DependentUpon>historyPenerimaan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="historyPengiriman.resx">
-      <DependentUpon>historyPengiriman.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="historyPerbaikan.resx">
-      <DependentUpon>historyPerbaikan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="historyStokMaterial.resx">
-      <DependentUpon>historyStokMaterial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="historyWelding.resx">
-      <DependentUpon>historyWelding.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="infoalluser.resx">
       <DependentUpon>infoalluser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="laporanpersediaan.resx">
-      <DependentUpon>laporanpersediaan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="loginform.resx">
       <DependentUpon>loginform.cs</DependentUpon>

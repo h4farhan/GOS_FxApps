@@ -175,7 +175,7 @@ namespace GOS_FxApps
             chartUssageMaterial.ChartAreas.Add(area);
             Series series = new Series
             {
-                Name = "DataSeries",
+                Name = "Jumlah Harian",
                 ChartType = SeriesChartType.Column,
                 IsXValueIndexed = true,
                 IsValueShownAsLabel = true,
@@ -193,6 +193,7 @@ namespace GOS_FxApps
             series.Points.AddXY("Welding Pieces Lathe E2", wplathee2);
 
             chartUssageMaterial.Series.Add(series);
+            chartUssageMaterial.Legends.Clear();
         }
         private void LoadchartRBByMonth()
         {
@@ -272,7 +273,7 @@ namespace GOS_FxApps
 
             Series series = new Series
             {
-                Name = "DataSeries",
+                Name = "Jumlah Bulanan",
                 ChartType = SeriesChartType.Column,
                 IsXValueIndexed = true,
                 IsValueShownAsLabel = true,
@@ -290,6 +291,7 @@ namespace GOS_FxApps
             series.Points.AddXY("Welding Pieces Lathe E2", wplathee2);
 
             chartUssageMaterial.Series.Add(series);
+            chartUssageMaterial.Legends.Clear();
         }
         private void LoadchartRBByYear()
         {
@@ -364,7 +366,7 @@ namespace GOS_FxApps
 
             Series series = new Series
             {
-                Name = "DataSeries",
+                Name = "Jumlah Tahunan",
                 ChartType = SeriesChartType.Column,
                 IsXValueIndexed = true,
                 IsValueShownAsLabel = true,
@@ -382,8 +384,8 @@ namespace GOS_FxApps
             series.Points.AddXY("Welding Pieces Lathe E2", wplathee2);
 
             chartUssageMaterial.Series.Add(series);
+            chartUssageMaterial.Legends.Clear();
         }
-        //customrb masih salah di aplikasi operator, gudang dan admin
         private void LoadchartRBCustom()
         {
             double rbStock = 0;
@@ -439,7 +441,7 @@ namespace GOS_FxApps
             catch (SqlException)
             {
                 MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
@@ -451,6 +453,7 @@ namespace GOS_FxApps
                 conn.Close();
             }
 
+            // ===== Grafik =====
             chartUssageMaterial.Series.Clear();
             chartUssageMaterial.ChartAreas.Clear();
 
@@ -461,11 +464,13 @@ namespace GOS_FxApps
             area.AxisX.MajorGrid.LineWidth = 0;
             area.AxisY.MajorGrid.LineWidth = 0;
 
+            area.AxisX.MinorGrid.LineWidth = 0;
+            area.AxisY.MinorGrid.LineWidth = 0;
             chartUssageMaterial.ChartAreas.Add(area);
 
             Series series = new Series
             {
-                Name = "DataSeries",
+                Name = "Jumlah Periode",
                 ChartType = SeriesChartType.Column,
                 IsXValueIndexed = true,
                 IsValueShownAsLabel = true,
@@ -483,8 +488,8 @@ namespace GOS_FxApps
             series.Points.AddXY("Welding Pieces Lathe E2", wplathee2);
 
             chartUssageMaterial.Series.Add(series);
+            chartUssageMaterial.Legends.Clear();
         }
-
 
         private void LoadChartPenerimaanHarian()
         {
@@ -549,6 +554,7 @@ namespace GOS_FxApps
                     conn.Close();
                 }
 
+                // ===== Refresh Chart =====
                 chartUssageMaterial.Series.Clear();
                 chartUssageMaterial.ChartAreas.Clear();
 
@@ -559,7 +565,7 @@ namespace GOS_FxApps
                 area.AxisY.MajorGrid.LineWidth = 0;
                 chartUssageMaterial.ChartAreas.Add(area);
 
-                Series series = new Series("Jumlah Harian")
+                Series series = new Series("Jumlah Penerimaan Harian")
                 {
                     ChartType = SeriesChartType.Column,
                     IsXValueIndexed = true,
@@ -581,6 +587,7 @@ namespace GOS_FxApps
                 series.Points.AddXY("RL", totalRL);
 
                 chartUssageMaterial.Series.Add(series);
+                chartUssageMaterial.Legends.Clear();
             }
         }
         private void LoadChartPenerimaanBulanan()
@@ -659,7 +666,7 @@ namespace GOS_FxApps
                 area.AxisY.MajorGrid.LineWidth = 0;
                 chartUssageMaterial.ChartAreas.Add(area);
 
-                Series series = new Series("Jumlah Bulanan")
+                Series series = new Series("Jumlah Penerimaan Bulanan")
                 {
                     ChartType = SeriesChartType.Column,
                     IsXValueIndexed = true,
@@ -681,6 +688,7 @@ namespace GOS_FxApps
                 series.Points.AddXY("RL", totalRL);
 
                 chartUssageMaterial.Series.Add(series);
+                chartUssageMaterial.Legends.Clear();
             }
         }
         private void LoadChartPenerimaanTahunan()
@@ -757,7 +765,7 @@ namespace GOS_FxApps
                 area.AxisY.MajorGrid.LineWidth = 0;
                 chartUssageMaterial.ChartAreas.Add(area);
 
-                Series series = new Series("Jumlah Tahunan")
+                Series series = new Series("Jumlah Penerimaan Tahunan")
                 {
                     ChartType = SeriesChartType.Column,
                     IsXValueIndexed = true,
@@ -779,6 +787,7 @@ namespace GOS_FxApps
                 series.Points.AddXY("RL", totalRL);
 
                 chartUssageMaterial.Series.Add(series);
+                chartUssageMaterial.Legends.Clear();
             }
         }
         private void LoadChartPenerimaanCustom()
@@ -857,7 +866,7 @@ namespace GOS_FxApps
                 area.AxisY.MajorGrid.LineWidth = 0;
                 chartUssageMaterial.ChartAreas.Add(area);
 
-                Series series = new Series("Jumlah Periode")
+                Series series = new Series("Jumlah Penerimaan Periode")
                 {
                     ChartType = SeriesChartType.Column,
                     IsXValueIndexed = true,
@@ -879,6 +888,7 @@ namespace GOS_FxApps
                 series.Points.AddXY("RL", totalRL);
 
                 chartUssageMaterial.Series.Add(series);
+                chartUssageMaterial.Legends.Clear();
             }
         }
 
@@ -985,6 +995,7 @@ namespace GOS_FxApps
                 series.Points.AddXY("RL", totalRL);
 
                 chartUssageMaterial.Series.Add(series);
+                chartUssageMaterial.Legends.Clear();
             }
         }
         private void LoadChartPerbaikanBulanan()
@@ -1093,6 +1104,7 @@ namespace GOS_FxApps
                 series.Points.AddXY("RL", totalRL);
 
                 chartUssageMaterial.Series.Add(series);
+                chartUssageMaterial.Legends.Clear();
             }
         }
         private void LoadChartPerbaikanTahunan()
@@ -1200,6 +1212,7 @@ namespace GOS_FxApps
                 series.Points.AddXY("RL", totalRL);
 
                 chartUssageMaterial.Series.Add(series);
+                chartUssageMaterial.Legends.Clear();
             }
         }
         private void LoadChartPerbaikanCustom()
@@ -1307,6 +1320,7 @@ namespace GOS_FxApps
                 series.Points.AddXY("RL", totalRL);
 
                 chartUssageMaterial.Series.Add(series);
+                chartUssageMaterial.Legends.Clear();
             }
         }
 
@@ -1339,7 +1353,7 @@ namespace GOS_FxApps
                 area.RecalculateAxesScale();
 
                 // ===== Tambahkan series baru =====
-                Series seriesBQ = new Series("TotalBQ")
+                Series seriesBQ = new Series("Estimasi")
                 {
                     ChartType = SeriesChartType.Column,
                     XValueMember = "Deskripsi",
@@ -1348,7 +1362,7 @@ namespace GOS_FxApps
                 };
                 seriesBQ["PointWidth"] = "0.4";
 
-                Series seriesPemakaian = new Series("TotalPemakaian")
+                Series seriesPemakaian = new Series("Actual")
                 {
                     ChartType = SeriesChartType.Column,
                     XValueMember = "Deskripsi",
@@ -1359,6 +1373,13 @@ namespace GOS_FxApps
 
                 chartUssageMaterial.Series.Add(seriesBQ);
                 chartUssageMaterial.Series.Add(seriesPemakaian);
+
+                chartUssageMaterial.Legends.Clear();
+                Legend legend = new Legend("LegendMaterial");
+                legend.Docking = Docking.Top;
+                legend.Alignment = StringAlignment.Center;
+                legend.LegendStyle = LegendStyle.Row;
+                chartUssageMaterial.Legends.Add(legend);
 
                 // ===== Setup axis X =====
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
@@ -1402,14 +1423,14 @@ namespace GOS_FxApps
                 area.AxisX.ScaleView.ZoomReset();
                 area.RecalculateAxesScale();
 
-                Series seriesBQ = new Series("TotalBQ");
+                Series seriesBQ = new Series("Estimasi");
                 seriesBQ.ChartType = SeriesChartType.Column;
                 seriesBQ.XValueMember = "Deskripsi";
                 seriesBQ.YValueMembers = "TotalBQ";
                 seriesBQ.IsValueShownAsLabel = true;
                 seriesBQ["PointWidth"] = "0.4";
 
-                Series seriesPemakaian = new Series("TotalPemakaian");
+                Series seriesPemakaian = new Series("Actual");
                 seriesPemakaian.ChartType = SeriesChartType.Column;
                 seriesPemakaian.XValueMember = "Deskripsi";
                 seriesPemakaian.YValueMembers = "TotalPemakaian";
@@ -1418,6 +1439,13 @@ namespace GOS_FxApps
 
                 chartUssageMaterial.Series.Add(seriesBQ);
                 chartUssageMaterial.Series.Add(seriesPemakaian);
+
+                chartUssageMaterial.Legends.Clear();
+                Legend legend = new Legend("LegendMaterial");
+                legend.Docking = Docking.Top;
+                legend.Alignment = StringAlignment.Center;
+                legend.LegendStyle = LegendStyle.Row;
+                chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
                 axisX.Interval = 1;
@@ -1458,14 +1486,14 @@ namespace GOS_FxApps
                 area.AxisX.ScaleView.ZoomReset();
                 area.RecalculateAxesScale();
 
-                Series seriesBQ = new Series("TotalBQ");
+                Series seriesBQ = new Series("Estimasi");
                 seriesBQ.ChartType = SeriesChartType.Column;
                 seriesBQ.XValueMember = "Deskripsi";
                 seriesBQ.YValueMembers = "TotalBQ";
                 seriesBQ.IsValueShownAsLabel = true;
                 seriesBQ["PointWidth"] = "0.4";
 
-                Series seriesPemakaian = new Series("TotalPemakaian");
+                Series seriesPemakaian = new Series("Actual");
                 seriesPemakaian.ChartType = SeriesChartType.Column;
                 seriesPemakaian.XValueMember = "Deskripsi";
                 seriesPemakaian.YValueMembers = "TotalPemakaian";
@@ -1474,6 +1502,13 @@ namespace GOS_FxApps
 
                 chartUssageMaterial.Series.Add(seriesBQ);
                 chartUssageMaterial.Series.Add(seriesPemakaian);
+
+                chartUssageMaterial.Legends.Clear();
+                Legend legend = new Legend("LegendMaterial");
+                legend.Docking = Docking.Top;
+                legend.Alignment = StringAlignment.Center;
+                legend.LegendStyle = LegendStyle.Row;
+                chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
                 axisX.Interval = 1;
@@ -1514,14 +1549,14 @@ namespace GOS_FxApps
                 area.AxisX.ScaleView.ZoomReset();
                 area.RecalculateAxesScale();
 
-                Series seriesBQ = new Series("TotalBQ");
+                Series seriesBQ = new Series("Estimasi");
                 seriesBQ.ChartType = SeriesChartType.Column;
                 seriesBQ.XValueMember = "Deskripsi";
                 seriesBQ.YValueMembers = "TotalBQ";
                 seriesBQ.IsValueShownAsLabel = true;
                 seriesBQ["PointWidth"] = "0.4";
 
-                Series seriesPemakaian = new Series("TotalPemakaian");
+                Series seriesPemakaian = new Series("Actual");
                 seriesPemakaian.ChartType = SeriesChartType.Column;
                 seriesPemakaian.XValueMember = "Deskripsi";
                 seriesPemakaian.YValueMembers = "TotalPemakaian";
@@ -1530,6 +1565,13 @@ namespace GOS_FxApps
 
                 chartUssageMaterial.Series.Add(seriesBQ);
                 chartUssageMaterial.Series.Add(seriesPemakaian);
+
+                chartUssageMaterial.Legends.Clear();
+                Legend legend = new Legend("LegendMaterial");
+                legend.Docking = Docking.Top;
+                legend.Alignment = StringAlignment.Center;
+                legend.LegendStyle = LegendStyle.Row;
+                chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
                 axisX.Interval = 1;
@@ -1573,14 +1615,14 @@ namespace GOS_FxApps
                 area.AxisX.ScaleView.ZoomReset();
                 area.RecalculateAxesScale();
 
-                Series seriesBQ = new Series("TotalBQ");
+                Series seriesBQ = new Series("Estimasi");
                 seriesBQ.ChartType = SeriesChartType.Column;
                 seriesBQ.XValueMember = "Deskripsi";
                 seriesBQ.YValueMembers = "TotalBQ";
                 seriesBQ.IsValueShownAsLabel = true;
                 seriesBQ["PointWidth"] = "0.4";
 
-                Series seriesPemakaian = new Series("TotalPemakaian");
+                Series seriesPemakaian = new Series("Actual");
                 seriesPemakaian.ChartType = SeriesChartType.Column;
                 seriesPemakaian.XValueMember = "Deskripsi";
                 seriesPemakaian.YValueMembers = "TotalPemakaian";
@@ -1589,6 +1631,13 @@ namespace GOS_FxApps
 
                 chartUssageMaterial.Series.Add(seriesBQ);
                 chartUssageMaterial.Series.Add(seriesPemakaian);
+
+                chartUssageMaterial.Legends.Clear();
+                Legend legend = new Legend("LegendMaterial");
+                legend.Docking = Docking.Top;
+                legend.Alignment = StringAlignment.Center;
+                legend.LegendStyle = LegendStyle.Row;
+                chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
                 axisX.Interval = 1;
@@ -1630,14 +1679,14 @@ namespace GOS_FxApps
                 area.AxisX.ScaleView.ZoomReset();
                 area.RecalculateAxesScale();
 
-                Series seriesBQ = new Series("TotalBQ");
+                Series seriesBQ = new Series("Estimasi");
                 seriesBQ.ChartType = SeriesChartType.Column;
                 seriesBQ.XValueMember = "Deskripsi";
                 seriesBQ.YValueMembers = "TotalBQ";
                 seriesBQ.IsValueShownAsLabel = true;
                 seriesBQ["PointWidth"] = "0.4";
 
-                Series seriesPemakaian = new Series("TotalPemakaian");
+                Series seriesPemakaian = new Series("Actual");
                 seriesPemakaian.ChartType = SeriesChartType.Column;
                 seriesPemakaian.XValueMember = "Deskripsi";
                 seriesPemakaian.YValueMembers = "TotalPemakaian";
@@ -1646,6 +1695,13 @@ namespace GOS_FxApps
 
                 chartUssageMaterial.Series.Add(seriesBQ);
                 chartUssageMaterial.Series.Add(seriesPemakaian);
+
+                chartUssageMaterial.Legends.Clear();
+                Legend legend = new Legend("LegendMaterial");
+                legend.Docking = Docking.Top;
+                legend.Alignment = StringAlignment.Center;
+                legend.LegendStyle = LegendStyle.Row;
+                chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
                 axisX.Interval = 1;
@@ -1686,14 +1742,14 @@ namespace GOS_FxApps
                 area.AxisX.ScaleView.ZoomReset();
                 area.RecalculateAxesScale();
 
-                Series seriesBQ = new Series("TotalBQ");
+                Series seriesBQ = new Series("Estimasi");
                 seriesBQ.ChartType = SeriesChartType.Column;
                 seriesBQ.XValueMember = "Deskripsi";
                 seriesBQ.YValueMembers = "TotalBQ";
                 seriesBQ.IsValueShownAsLabel = true;
                 seriesBQ["PointWidth"] = "0.4";
 
-                Series seriesPemakaian = new Series("TotalPemakaian");
+                Series seriesPemakaian = new Series("Actual");
                 seriesPemakaian.ChartType = SeriesChartType.Column;
                 seriesPemakaian.XValueMember = "Deskripsi";
                 seriesPemakaian.YValueMembers = "TotalPemakaian";
@@ -1702,6 +1758,13 @@ namespace GOS_FxApps
 
                 chartUssageMaterial.Series.Add(seriesBQ);
                 chartUssageMaterial.Series.Add(seriesPemakaian);
+                chartUssageMaterial.Legends.Clear();
+
+                Legend legend = new Legend("LegendMaterial");
+                legend.Docking = Docking.Top;
+                legend.Alignment = StringAlignment.Center;
+                legend.LegendStyle = LegendStyle.Row;
+                chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
                 axisX.Interval = 1;
@@ -1742,14 +1805,14 @@ namespace GOS_FxApps
                 area.AxisX.ScaleView.ZoomReset();
                 area.RecalculateAxesScale();
 
-                Series seriesBQ = new Series("TotalBQ");
+                Series seriesBQ = new Series("Estimasi");
                 seriesBQ.ChartType = SeriesChartType.Column;
                 seriesBQ.XValueMember = "Deskripsi";
                 seriesBQ.YValueMembers = "TotalBQ";
                 seriesBQ.IsValueShownAsLabel = true;
                 seriesBQ["PointWidth"] = "0.4";
 
-                Series seriesPemakaian = new Series("TotalPemakaian");
+                Series seriesPemakaian = new Series("Actual");
                 seriesPemakaian.ChartType = SeriesChartType.Column;
                 seriesPemakaian.XValueMember = "Deskripsi";
                 seriesPemakaian.YValueMembers = "TotalPemakaian";
@@ -1758,6 +1821,13 @@ namespace GOS_FxApps
 
                 chartUssageMaterial.Series.Add(seriesBQ);
                 chartUssageMaterial.Series.Add(seriesPemakaian);
+
+                chartUssageMaterial.Legends.Clear();
+                Legend legend = new Legend("LegendMaterial");
+                legend.Docking = Docking.Top;
+                legend.Alignment = StringAlignment.Center;
+                legend.LegendStyle = LegendStyle.Row;
+                chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
                 axisX.Interval = 1;
@@ -1801,14 +1871,14 @@ namespace GOS_FxApps
                 area.AxisX.ScaleView.ZoomReset();
                 area.RecalculateAxesScale();
 
-                Series seriesBQ = new Series("TotalBQ");
+                Series seriesBQ = new Series("Estimasi");
                 seriesBQ.ChartType = SeriesChartType.Column;
                 seriesBQ.XValueMember = "Deskripsi";
                 seriesBQ.YValueMembers = "TotalBQ";
                 seriesBQ.IsValueShownAsLabel = true;
                 seriesBQ["PointWidth"] = "0.4";
 
-                Series seriesPemakaian = new Series("TotalPemakaian");
+                Series seriesPemakaian = new Series("Actual");
                 seriesPemakaian.ChartType = SeriesChartType.Column;
                 seriesPemakaian.XValueMember = "Deskripsi";
                 seriesPemakaian.YValueMembers = "TotalPemakaian";
@@ -1817,6 +1887,13 @@ namespace GOS_FxApps
 
                 chartUssageMaterial.Series.Add(seriesBQ);
                 chartUssageMaterial.Series.Add(seriesPemakaian);
+
+                chartUssageMaterial.Legends.Clear();
+                Legend legend = new Legend("LegendMaterial");
+                legend.Docking = Docking.Top;
+                legend.Alignment = StringAlignment.Center;
+                legend.LegendStyle = LegendStyle.Row;
+                chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
                 axisX.Interval = 1;
@@ -1858,14 +1935,14 @@ namespace GOS_FxApps
                 area.AxisX.ScaleView.ZoomReset();
                 area.RecalculateAxesScale();
 
-                Series seriesBQ = new Series("TotalBQ");
+                Series seriesBQ = new Series("Estimasi");
                 seriesBQ.ChartType = SeriesChartType.Column;
                 seriesBQ.XValueMember = "Deskripsi";
                 seriesBQ.YValueMembers = "TotalBQ";
                 seriesBQ.IsValueShownAsLabel = true;
                 seriesBQ["PointWidth"] = "0.4";
 
-                Series seriesPemakaian = new Series("TotalPemakaian");
+                Series seriesPemakaian = new Series("Actual");
                 seriesPemakaian.ChartType = SeriesChartType.Column;
                 seriesPemakaian.XValueMember = "Deskripsi";
                 seriesPemakaian.YValueMembers = "TotalPemakaian";
@@ -1874,6 +1951,13 @@ namespace GOS_FxApps
 
                 chartUssageMaterial.Series.Add(seriesBQ);
                 chartUssageMaterial.Series.Add(seriesPemakaian);
+
+                chartUssageMaterial.Legends.Clear();
+                Legend legend = new Legend("LegendMaterial");
+                legend.Docking = Docking.Top;
+                legend.Alignment = StringAlignment.Center;
+                legend.LegendStyle = LegendStyle.Row;
+                chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
                 axisX.Interval = 1;
@@ -1914,14 +1998,14 @@ namespace GOS_FxApps
                 area.AxisX.ScaleView.ZoomReset();
                 area.RecalculateAxesScale();
 
-                Series seriesBQ = new Series("TotalBQ");
+                Series seriesBQ = new Series("Estimasi");
                 seriesBQ.ChartType = SeriesChartType.Column;
                 seriesBQ.XValueMember = "Deskripsi";
                 seriesBQ.YValueMembers = "TotalBQ";
                 seriesBQ.IsValueShownAsLabel = true;
                 seriesBQ["PointWidth"] = "0.4";
 
-                Series seriesPemakaian = new Series("TotalPemakaian");
+                Series seriesPemakaian = new Series("Actual");
                 seriesPemakaian.ChartType = SeriesChartType.Column;
                 seriesPemakaian.XValueMember = "Deskripsi";
                 seriesPemakaian.YValueMembers = "TotalPemakaian";
@@ -1930,6 +2014,13 @@ namespace GOS_FxApps
 
                 chartUssageMaterial.Series.Add(seriesBQ);
                 chartUssageMaterial.Series.Add(seriesPemakaian);
+
+                chartUssageMaterial.Legends.Clear();
+                Legend legend = new Legend("LegendMaterial");
+                legend.Docking = Docking.Top;
+                legend.Alignment = StringAlignment.Center;
+                legend.LegendStyle = LegendStyle.Row;
+                chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
                 axisX.Interval = 1;
@@ -1970,14 +2061,14 @@ namespace GOS_FxApps
                 area.AxisX.ScaleView.ZoomReset();
                 area.RecalculateAxesScale();
 
-                Series seriesBQ = new Series("TotalBQ");
+                Series seriesBQ = new Series("Estimasi");
                 seriesBQ.ChartType = SeriesChartType.Column;
                 seriesBQ.XValueMember = "Deskripsi";
                 seriesBQ.YValueMembers = "TotalBQ";
                 seriesBQ.IsValueShownAsLabel = true;
                 seriesBQ["PointWidth"] = "0.4";
 
-                Series seriesPemakaian = new Series("TotalPemakaian");
+                Series seriesPemakaian = new Series("Actual");
                 seriesPemakaian.ChartType = SeriesChartType.Column;
                 seriesPemakaian.XValueMember = "Deskripsi";
                 seriesPemakaian.YValueMembers = "TotalPemakaian";
@@ -1986,6 +2077,13 @@ namespace GOS_FxApps
 
                 chartUssageMaterial.Series.Add(seriesBQ);
                 chartUssageMaterial.Series.Add(seriesPemakaian);
+
+                chartUssageMaterial.Legends.Clear();
+                Legend legend = new Legend("LegendMaterial");
+                legend.Docking = Docking.Top;
+                legend.Alignment = StringAlignment.Center;
+                legend.LegendStyle = LegendStyle.Row;
+                chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
                 axisX.Interval = 1;
