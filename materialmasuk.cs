@@ -17,7 +17,6 @@ namespace GOS_FxApps
 
         SqlConnection conn = Koneksi.GetConnection();
 
-        bool infocari = false;
         int noprimary = 0;
         int jumlahlama;
 
@@ -26,6 +25,17 @@ namespace GOS_FxApps
 
         string type;
         private bool isLoading = false;
+
+        bool infocari = false;
+        int pageSize = 30;
+        int currentPage = 1;
+        int totalRecords = 0;
+        int totalPages = 0;
+
+        bool isSearching = false;
+        string lastSearchWhere = "";
+        SqlCommand lastSearchCmd;
+        int searchTotalRecords = 0;
 
         public materialmasuk()
         {
@@ -45,7 +55,23 @@ namespace GOS_FxApps
                     {
                         this.Invoke(new Action(() =>
                         {
-                            tampil();
+                            if (!isSearching)
+                            {
+                                HitungTotalData();
+                                currentPage = 1;
+                                tampil();
+                            }
+                            else
+                            {
+                                int oldTotal = searchTotalRecords;
+                                HitungTotalDataPencarian();
+
+                                if (searchTotalRecords > oldTotal)
+                                {
+                                    tampil();
+                                }
+                            }
+
                             registertampil();
                         }));
                     }
@@ -53,6 +79,49 @@ namespace GOS_FxApps
                 conn.Open();
                 cmd.ExecuteReader();
             }
+        }
+
+        private void HitungTotalData()
+        {
+            string query = "SELECT COUNT(*) FROM material_masuk";
+            using (var connLocal = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand(query, connLocal))
+            {
+                connLocal.Open();
+                totalRecords = (int)cmd.ExecuteScalar();
+                connLocal.Close();
+            }
+
+            totalPages = (int)Math.Ceiling(totalRecords / (double)pageSize);
+        }
+
+        private void HitungTotalDataPencarian()
+        {
+            if (string.IsNullOrWhiteSpace(lastSearchWhere))
+            {
+                searchTotalRecords = 0;
+                totalPages = 0;
+                return;
+            }
+
+            string countQuery = "SELECT COUNT(*) " + lastSearchWhere;
+
+            using (var connLocal = new SqlConnection(Koneksi.GetConnectionString()))
+            using (var cmd = new SqlCommand(countQuery, connLocal))
+            {
+                if (lastSearchCmd?.Parameters.Count > 0)
+                {
+                    foreach (SqlParameter p in lastSearchCmd.Parameters)
+                    {
+                        cmd.Parameters.Add(new SqlParameter(p.ParameterName, p.Value));
+                    }
+                }
+
+                connLocal.Open();
+                searchTotalRecords = (int)cmd.ExecuteScalar();
+            }
+
+            totalPages = (int)Math.Ceiling(searchTotalRecords / (double)pageSize);
         }
 
         private void AngkaOnly_KeyPress(object sender, KeyPressEventArgs e)
@@ -69,7 +138,8 @@ namespace GOS_FxApps
                 e.KeyChar = char.ToUpper(e.KeyChar);
             }
         }
-        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+
+        private void TextBox_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -82,8 +152,38 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT idMasuk, kodeBarang, namaBarang, spesifikasi, type, tanggalMasuk, jumlahMasuk, updated_at, remaks FROM material_masuk ORDER BY tanggalMasuk DESC, updated_at DESC";
-                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
+                int offset = (currentPage - 1) * pageSize;
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+
+                string query;
+
+                if (!isSearching)
+                {
+                    query = $@"
+                SELECT idMasuk, kodeBarang, namaBarang, spesifikasi, type, tanggalMasuk, jumlahMasuk, updated_at, remaks
+                FROM material_masuk
+                ORDER BY tanggalMasuk DESC, updated_at DESC
+                OFFSET {offset} ROWS
+                FETCH NEXT {pageSize} ROWS ONLY";
+                }
+                else
+                {
+                    query = $@"
+                SELECT idMasuk, kodeBarang, namaBarang, spesifikasi, type, tanggalMasuk, jumlahMasuk, updated_at, remaks
+                {lastSearchWhere}
+                ORDER BY tanggalMasuk DESC, updated_at DESC
+                OFFSET {offset} ROWS
+                FETCH NEXT {pageSize} ROWS ONLY";
+
+                    foreach (SqlParameter p in lastSearchCmd.Parameters)
+                        cmd.Parameters.Add(new SqlParameter(p.ParameterName, p.Value));
+                }
+
+                cmd.CommandText = query;
+
+                SqlDataAdapter ad = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
@@ -102,6 +202,11 @@ namespace GOS_FxApps
                 dataGridView1.Columns[6].HeaderText = "Jumlah Masuk";
                 dataGridView1.Columns[7].HeaderText = "Diubah";
                 dataGridView1.Columns[8].HeaderText = "Remaks";
+
+                lblhalaman.Text = $"Halaman {currentPage} dari {totalPages}";
+
+                btnleft.Enabled = currentPage > 1;
+                btnright.Enabled = currentPage < totalPages;
             }
             catch (SqlException)
             {
@@ -127,55 +232,29 @@ namespace GOS_FxApps
                 return false;
             }
 
-            DataTable dt = new DataTable();
+            isSearching = true;
+            lastSearchCmd = new SqlCommand();
+            lastSearchWhere = "FROM material_masuk WHERE 1=1 ";
 
-            string query = "SELECT * FROM material_masuk WHERE 1=1 ";
-
-            using (SqlCommand cmd = new SqlCommand())
+            if (tanggal.HasValue)
             {
-                if (tanggal.HasValue)
-                {
-                    query += " AND CAST(tanggalMasuk AS DATE) = @tgl ";
-                    cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
-                }
-
-                if (!string.IsNullOrEmpty(keyword))
-                {
-                    query += " AND (kodeBarang LIKE @kode OR namaBarang LIKE @kode) ";
-                    cmd.Parameters.AddWithValue("@kode", "%" + keyword + "%");
-                }
-
-                query += " ORDER BY tanggalMasuk DESC, updated_at DESC";
-
-                cmd.CommandText = query;
-                cmd.Connection = conn;
-
-                try
-                {
-                    conn.Open();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-
-                    dataGridView1.DataSource = dt;
-                }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-                return dt.Rows.Count > 0;
+                lastSearchWhere += " AND CAST(tanggalMasuk AS DATE) = @tgl ";
+                lastSearchCmd.Parameters.AddWithValue("@tgl", tanggal.Value);
             }
+
+
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                lastSearchWhere += " AND (kodeBarang LIKE @kode OR namaBarang LIKE @kode) ";
+                lastSearchCmd.Parameters.AddWithValue("@kode", "%" + keyword + "%");
+            }
+
+            HitungTotalDataPencarian();
+            currentPage = 1;
+            tampil();
+
+            btncari.Text = "Reset";
+            return true;
         }
 
         private void editdata()
@@ -296,12 +375,19 @@ namespace GOS_FxApps
             }
             else
             {
-                tampil();
+
                 infocari = false;
-                btncari.Text = "Cari";
+                isSearching = false;
 
                 txtcari.Text = "";
                 datecari.Checked = false;
+
+                btncari.Text = "Cari";
+
+                HitungTotalData();
+                currentPage = 1;
+                tampil();
+
             }
         }
 
@@ -406,6 +492,7 @@ namespace GOS_FxApps
             combonama();
             formSiap = true;
 
+            HitungTotalData();
             tampil();
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
@@ -719,6 +806,24 @@ namespace GOS_FxApps
         {
             searchTimer.Stop();
             searchTimer.Start();
+        }
+
+        private void btnleft_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+            {
+                currentPage--;
+                tampil();
+            }
+        }
+
+        private void btnright_Click(object sender, EventArgs e)
+        {
+            if (currentPage < totalPages)
+            {
+                currentPage++;
+                tampil();
+            }
         }
     }
 }

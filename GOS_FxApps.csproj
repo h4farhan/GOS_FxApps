@@ -887,6 +887,8 @@
     <None Include="Resources\Logo-Genta.png" />
     <None Include="Resources\logo1.png" />
     <None Include="Resources\repeat.png" />
+    <None Include="Resources\left-arrow.png" />
+    <None Include="Resources\right-arrow.png" />
     <Content Include="Stock Barang Template.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

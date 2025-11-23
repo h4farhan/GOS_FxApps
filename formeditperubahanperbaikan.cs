@@ -26,6 +26,16 @@ namespace GOS_FxApps
 
         bool infocari = false;
 
+        int pageSize = 30;
+        int currentPage = 1;
+        int totalRecords = 0;
+        int totalPages = 0;
+
+        bool isSearching = false;
+        string lastSearchWhere = "";
+        SqlCommand lastSearchCmd;
+        int searchTotalRecords = 0;
+
         public formeditperubahanperbaikan()
         {
             InitializeComponent();
@@ -44,7 +54,23 @@ namespace GOS_FxApps
                     {
                         this.Invoke(new Action(() =>
                         {
-                            tampilbukti();
+                            if (!isSearching)
+                            {
+                                HitungTotalData();
+                                currentPage = 1;
+                                tampil();
+                            }
+                            else
+                            {
+                                int oldTotal = searchTotalRecords;
+                                HitungTotalDataPencarian();
+
+                                if (searchTotalRecords > oldTotal)
+                                {
+                                    tampil();
+                                }
+                            }
+
                             registertampil();
                         }));
                     }
@@ -54,18 +80,90 @@ namespace GOS_FxApps
             }
         }
 
-        private void tampilbukti()
+        private void HitungTotalData()
+        {
+            string query = "SELECT COUNT(*) FROM buktiperubahan";
+            using (var connLocal = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand(query, connLocal))
+            {
+                connLocal.Open();
+                totalRecords = (int)cmd.ExecuteScalar();
+                connLocal.Close();
+            }
+
+            totalPages = (int)Math.Ceiling(totalRecords / (double)pageSize);
+        }
+
+        private void HitungTotalDataPencarian()
+        {
+            if (string.IsNullOrWhiteSpace(lastSearchWhere))
+            {
+                searchTotalRecords = 0;
+                totalPages = 0;
+                return;
+            }
+
+            string countQuery = "SELECT COUNT(*) " + lastSearchWhere;
+
+            using (var connLocal = new SqlConnection(Koneksi.GetConnectionString()))
+            using (var cmd = new SqlCommand(countQuery, connLocal))
+            {
+                if (lastSearchCmd?.Parameters.Count > 0)
+                {
+                    foreach (SqlParameter p in lastSearchCmd.Parameters)
+                    {
+                        cmd.Parameters.Add(new SqlParameter(p.ParameterName, p.Value));
+                    }
+                }
+
+                connLocal.Open();
+                searchTotalRecords = (int)cmd.ExecuteScalar();
+            }
+
+            totalPages = (int)Math.Ceiling(searchTotalRecords / (double)pageSize);
+        }
+
+        private void tampil()
         {
             try
             {
-                string query = @"SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis, 
-                                e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, 
-                                e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl, 
-                                jumlah, tanggal_perbaikan, updated_at, remaks, catatan, foto 
-                         FROM buktiperubahan 
-                         ORDER BY tanggal_perbaikan DESC";
+                int offset = (currentPage - 1) * pageSize;
 
-                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+
+                string query;
+
+                if (!isSearching)
+                {
+                    query = $@"
+                SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis,
+                       e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah,
+                       e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl,
+                       jumlah, tanggal_perbaikan, updated_at, remaks, catatan, foto
+                FROM buktiperubahan
+                ORDER BY tanggal_perbaikan DESC
+                OFFSET {offset} ROWS
+                FETCH NEXT {pageSize} ROWS ONLY";
+                }
+                else
+                {
+                    query = $@"
+                SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis,
+                       e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah,
+                       e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl,
+                       jumlah, tanggal_perbaikan, updated_at, remaks, catatan, foto
+                {lastSearchWhere}
+                ORDER BY tanggal_perbaikan DESC
+                OFFSET {offset} ROWS
+                FETCH NEXT {pageSize} ROWS ONLY";
+
+                    foreach (SqlParameter p in lastSearchCmd.Parameters)
+                        cmd.Parameters.Add(new SqlParameter(p.ParameterName, p.Value));
+                }
+
+                cmd.CommandText = query;
+                SqlDataAdapter ad = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
 
@@ -86,58 +184,68 @@ namespace GOS_FxApps
 
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                dataGridView1.Columns["fotoImage"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 80;
                 dataGridView1.ReadOnly = true;
 
-                dataGridView1.Columns["foto"].Visible = false;
+                if (dataGridView1.Columns.Contains("foto"))
+                    dataGridView1.Columns["foto"].Visible = false;
 
-                DataGridViewImageColumn imgCol = (DataGridViewImageColumn)dataGridView1.Columns["fotoImage"];
-                imgCol.HeaderText = "Foto";
-                imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                if (dataGridView1.Columns.Contains("fotoImage"))
+                {
+                    DataGridViewImageColumn imgCol = (DataGridViewImageColumn)dataGridView1.Columns["fotoImage"];
+                    imgCol.HeaderText = "Foto";
+                    imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                }
 
-                dataGridView1.Columns[0].Visible = false; 
-                dataGridView1.Columns[1].HeaderText = "Tanggal Penerimaan";
-                dataGridView1.Columns[2].HeaderText = "Shift";
-                dataGridView1.Columns[3].HeaderText = "Nomor ROD";
-                dataGridView1.Columns[4].HeaderText = "Jenis";
-                dataGridView1.Columns[5].HeaderText = "E1 Ers";
-                dataGridView1.Columns[6].HeaderText = "E1 Est";
-                dataGridView1.Columns[7].HeaderText = "E1 Jumlah";
-                dataGridView1.Columns[8].HeaderText = "E2 Ers";
-                dataGridView1.Columns[9].HeaderText = "E2 Cst";
-                dataGridView1.Columns[10].HeaderText = "E2 Cstub";
-                dataGridView1.Columns[11].HeaderText = "E2 Jumlah";
-                dataGridView1.Columns[12].HeaderText = "E3";
-                dataGridView1.Columns[13].HeaderText = "E4";
-                dataGridView1.Columns[14].HeaderText = "S";
-                dataGridView1.Columns[15].HeaderText = "D";
-                dataGridView1.Columns[16].HeaderText = "B";
-                dataGridView1.Columns[17].HeaderText = "BAC";
-                dataGridView1.Columns[18].HeaderText = "NBA";
-                dataGridView1.Columns[19].HeaderText = "BA";
-                dataGridView1.Columns[20].HeaderText = "BA-1";
-                dataGridView1.Columns[21].HeaderText = "CR";
-                dataGridView1.Columns[22].HeaderText = "M";
-                dataGridView1.Columns[23].HeaderText = "R";
-                dataGridView1.Columns[24].HeaderText = "C";
-                dataGridView1.Columns[25].HeaderText = "RL";
-                dataGridView1.Columns[26].HeaderText = "Jumlah";
-                dataGridView1.Columns[27].HeaderText = "Tanggal Perbaikan";
-                dataGridView1.Columns[28].HeaderText = "Diubah";
-                dataGridView1.Columns[29].HeaderText = "Remaks";
-                dataGridView1.Columns[30].HeaderText = "Catatan";
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (dataGridView1.Columns.Count >= 30)
+                {
+                    dataGridView1.Columns["no"].Visible = false;
+                    dataGridView1.Columns["tanggal_penerimaan"].HeaderText = "Tanggal Penerimaan";
+                    dataGridView1.Columns["shift"].HeaderText = "Shift";
+                    dataGridView1.Columns["nomor_rod"].HeaderText = "Nomor ROD";
+                    dataGridView1.Columns["jenis"].HeaderText = "Jenis";
+
+                    dataGridView1.Columns["e1_ers"].HeaderText = "E1 Ers";
+                    dataGridView1.Columns["e1_est"].HeaderText = "E1 Est";
+                    dataGridView1.Columns["e1_jumlah"].HeaderText = "E1 Jumlah";
+
+                    dataGridView1.Columns["e2_ers"].HeaderText = "E2 Ers";
+                    dataGridView1.Columns["e2_cst"].HeaderText = "E2 Cst";
+                    dataGridView1.Columns["e2_cstub"].HeaderText = "E2 Cstub";
+                    dataGridView1.Columns["e2_jumlah"].HeaderText = "E2 Jumlah";
+
+                    dataGridView1.Columns["e3"].HeaderText = "E3";
+                    dataGridView1.Columns["e4"].HeaderText = "E4";
+                    dataGridView1.Columns["s"].HeaderText = "S";
+                    dataGridView1.Columns["d"].HeaderText = "D";
+                    dataGridView1.Columns["b"].HeaderText = "B";
+                    dataGridView1.Columns["bac"].HeaderText = "BAC";
+                    dataGridView1.Columns["nba"].HeaderText = "NBA";
+                    dataGridView1.Columns["ba"].HeaderText = "BA";
+                    dataGridView1.Columns["ba1"].HeaderText = "BA-1";
+
+                    dataGridView1.Columns["cr"].HeaderText = "CR";
+                    dataGridView1.Columns["m"].HeaderText = "M";
+                    dataGridView1.Columns["r"].HeaderText = "R";
+                    dataGridView1.Columns["c"].HeaderText = "C";
+                    dataGridView1.Columns["rl"].HeaderText = "RL";
+
+                    dataGridView1.Columns["jumlah"].HeaderText = "Jumlah";
+                    dataGridView1.Columns["tanggal_perbaikan"].HeaderText = "Tanggal Perbaikan";
+                    dataGridView1.Columns["updated_at"].HeaderText = "Diubah";
+                    dataGridView1.Columns["remaks"].HeaderText = "Remaks";
+                    dataGridView1.Columns["catatan"].HeaderText = "Catatan";
+                }
+
+                lblhalaman.Text = $"Halaman {currentPage} dari {totalPages}";
+                btnleft.Enabled = currentPage > 1;
+                btnright.Enabled = currentPage < totalPages;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -153,95 +261,30 @@ namespace GOS_FxApps
                 return false;
             }
 
-            DataTable dt = new DataTable();
+            isSearching = true;
+            lastSearchCmd = new SqlCommand();
+            lastSearchWhere = "FROM buktiperubahan WHERE 1=1 ";
 
-            string query = @"SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis,
-                            e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah,
-                            e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl,
-                            jumlah, tanggal_perbaikan, updated_at, remaks, catatan, foto
-                     FROM buktiperubahan
-                     WHERE 1=1 ";
-
-            using (SqlCommand cmd = new SqlCommand())
+            if (tanggal.HasValue)
             {
-                if (tanggal.HasValue)
-                {
-                    query += " AND CAST(tanggal_penerimaan AS DATE) = @tgl ";
-                    cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
-                }
-
-                if (!string.IsNullOrEmpty(nomorrod))
-                {
-                    query += " AND nomor_rod LIKE @nomor_rod ";
-                    cmd.Parameters.AddWithValue("@nomor_rod", "%" + nomorrod + "%");
-                }
-
-                query += " ORDER BY tanggal_penerimaan ASC";
-
-                cmd.CommandText = query;
-                cmd.Connection = conn;
-
-                try
-                {
-                    conn.Open();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-
-                    if (!dt.Columns.Contains("fotoImage"))
-                        dt.Columns.Add("fotoImage", typeof(Image));
-
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        if (row["foto"] != DBNull.Value)
-                        {
-                            byte[] bytes = (byte[])row["foto"];
-                            using (MemoryStream ms = new MemoryStream(bytes))
-                            {
-                                row["fotoImage"] = Image.FromStream(ms);
-                            }
-                        }
-                    }
-
-                    dataGridView1.DataSource = dt;
-
-                    if (dataGridView1.Columns.Contains("no"))
-                        dataGridView1.Columns["no"].Visible = false;
-
-                    if (dataGridView1.Columns.Contains("foto"))
-                        dataGridView1.Columns["foto"].Visible = false;
-
-                    if (dataGridView1.Columns.Contains("fotoImage"))
-                    {
-                        DataGridViewImageColumn imgCol = (DataGridViewImageColumn)dataGridView1.Columns["fotoImage"];
-                        imgCol.HeaderText = "Foto";
-                        imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
-                    }
-
-                    dataGridView1.RowTemplate.Height = 80;
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                    dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-                    dataGridView1.ReadOnly = true;
-                }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-
-                return dt.Rows.Count > 0;
+                lastSearchWhere += " AND CAST(tanggal_penerimaan AS DATE) = @tgl ";
+                lastSearchCmd.Parameters.AddWithValue("@tgl", tanggal.Value);
             }
+
+            if (!string.IsNullOrEmpty(nomorrod))
+            {
+                lastSearchWhere += " AND nomor_rod LIKE @rod ";
+                lastSearchCmd.Parameters.AddWithValue("@rod", "%" + nomorrod + "%");
+            }
+
+            HitungTotalDataPencarian(); 
+            currentPage = 1;            
+            tampil();                  
+
+            btncari.Text = "Reset";
+            return true;
         }
+
 
         private void setdefault()
         {
@@ -445,7 +488,8 @@ namespace GOS_FxApps
 
         private void formeditperubahanperbaikan_Load(object sender, EventArgs e)
         {
-            tampilbukti();
+            HitungTotalData();
+            tampil();
             datecari.Value = DateTime.Now;
             datecari.Checked = false;
         }
@@ -698,7 +742,7 @@ namespace GOS_FxApps
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Data berhasil diperbarui!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                tampilbukti();
+                tampil();
                 fotoDiganti = false;
             }
             catch (SqlException)
@@ -770,12 +814,17 @@ namespace GOS_FxApps
             }
             else
             {
-                tampilbukti();
+                isSearching = false;
                 infocari = false;
-                btncari.Text = "Cari";
 
                 txtcari.Text = "";
                 datecari.Checked = false;
+
+                btncari.Text = "Cari";
+
+                HitungTotalData();
+                currentPage = 1;
+                tampil();
             }
         }
 
@@ -839,6 +888,24 @@ namespace GOS_FxApps
         private void txtcatatan_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnleft_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+            {
+                currentPage--;
+                tampil();
+            }
+        }
+
+        private void btnright_Click(object sender, EventArgs e)
+        {
+            if (currentPage < totalPages)
+            {
+                currentPage++;
+                tampil();
+            }
         }
     }
 }

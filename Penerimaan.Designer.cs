@@ -35,6 +35,7 @@ namespace GOS_FxApps
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblhari = new System.Windows.Forms.Label();
             this.btnaturjam = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -87,7 +88,10 @@ namespace GOS_FxApps
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtcatatan = new Guna.UI2.WinForms.Guna2TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.lblhari = new System.Windows.Forms.Label();
+            this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblhalaman = new System.Windows.Forms.Label();
+            this.btnleft = new Guna.UI2.WinForms.Guna2Button();
+            this.btnright = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -100,6 +104,7 @@ namespace GOS_FxApps
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.guna2Panel5.SuspendLayout();
+            this.guna2Panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -113,8 +118,21 @@ namespace GOS_FxApps
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(735, 57);
+            this.panel1.Size = new System.Drawing.Size(861, 57);
             this.panel1.TabIndex = 0;
+            // 
+            // lblhari
+            // 
+            this.lblhari.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblhari.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblhari.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblhari.Location = new System.Drawing.Point(531, 0);
+            this.lblhari.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblhari.Name = "lblhari";
+            this.lblhari.Size = new System.Drawing.Size(271, 57);
+            this.lblhari.TabIndex = 5;
+            this.lblhari.Text = "Perputaran ROD 30 Hari";
+            this.lblhari.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnaturjam
             // 
@@ -130,7 +148,7 @@ namespace GOS_FxApps
             this.btnaturjam.HoverState.ForeColor = System.Drawing.Color.Transparent;
             this.btnaturjam.Image = global::GOS_FxApps.Properties.Resources.repeat;
             this.btnaturjam.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnaturjam.Location = new System.Drawing.Point(676, 0);
+            this.btnaturjam.Location = new System.Drawing.Point(802, 0);
             this.btnaturjam.Name = "btnaturjam";
             this.btnaturjam.Size = new System.Drawing.Size(59, 57);
             this.btnaturjam.TabIndex = 4;
@@ -920,7 +938,7 @@ namespace GOS_FxApps
             this.panel3.Location = new System.Drawing.Point(405, 57);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(330, 620);
+            this.panel3.Size = new System.Drawing.Size(456, 620);
             this.panel3.TabIndex = 2;
             // 
             // btncancel
@@ -935,7 +953,7 @@ namespace GOS_FxApps
             this.btncancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btncancel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btncancel.ForeColor = System.Drawing.Color.White;
-            this.btncancel.Location = new System.Drawing.Point(71, 555);
+            this.btncancel.Location = new System.Drawing.Point(197, 555);
             this.btncancel.Margin = new System.Windows.Forms.Padding(2);
             this.btncancel.Name = "btncancel";
             this.btncancel.Size = new System.Drawing.Size(122, 35);
@@ -954,7 +972,7 @@ namespace GOS_FxApps
             this.btnsimpan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnsimpan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnsimpan.ForeColor = System.Drawing.Color.White;
-            this.btnsimpan.Location = new System.Drawing.Point(197, 554);
+            this.btnsimpan.Location = new System.Drawing.Point(323, 554);
             this.btnsimpan.Margin = new System.Windows.Forms.Padding(2);
             this.btnsimpan.Name = "btnsimpan";
             this.btnsimpan.Size = new System.Drawing.Size(122, 35);
@@ -978,7 +996,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.8784F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.1216F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(330, 551);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(456, 551);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // guna2Panel4
@@ -987,15 +1005,16 @@ namespace GOS_FxApps
             this.guna2Panel4.BorderColor = System.Drawing.Color.Gainsboro;
             this.guna2Panel4.BorderRadius = 15;
             this.guna2Panel4.BorderThickness = 2;
-            this.guna2Panel4.Controls.Add(this.txtcari);
             this.guna2Panel4.Controls.Add(this.dataGridView1);
+            this.guna2Panel4.Controls.Add(this.guna2Panel6);
+            this.guna2Panel4.Controls.Add(this.txtcari);
             this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel4.FillColor = System.Drawing.Color.White;
             this.guna2Panel4.Location = new System.Drawing.Point(2, 94);
             this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
-            this.guna2Panel4.Size = new System.Drawing.Size(318, 455);
+            this.guna2Panel4.Size = new System.Drawing.Size(444, 455);
             this.guna2Panel4.TabIndex = 3;
             // 
             // txtcari
@@ -1024,7 +1043,7 @@ namespace GOS_FxApps
             this.txtcari.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtcari.PlaceholderText = "Nomor Rod";
             this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(294, 39);
+            this.txtcari.Size = new System.Drawing.Size(420, 39);
             this.txtcari.TabIndex = 1;
             this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
             this.txtcari.TextChanged += new System.EventHandler(this.txtcari_TextChanged);
@@ -1072,7 +1091,7 @@ namespace GOS_FxApps
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(294, 388);
+            this.dataGridView1.Size = new System.Drawing.Size(420, 314);
             this.dataGridView1.TabIndex = 3;
             // 
             // guna2Panel5
@@ -1089,7 +1108,7 @@ namespace GOS_FxApps
             this.guna2Panel5.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
-            this.guna2Panel5.Size = new System.Drawing.Size(318, 88);
+            this.guna2Panel5.Size = new System.Drawing.Size(444, 88);
             this.guna2Panel5.TabIndex = 6;
             this.guna2Panel5.TabStop = true;
             // 
@@ -1116,7 +1135,7 @@ namespace GOS_FxApps
             this.txtcatatan.PlaceholderText = "Axxxx";
             this.txtcatatan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtcatatan.SelectedText = "";
-            this.txtcatatan.Size = new System.Drawing.Size(287, 41);
+            this.txtcatatan.Size = new System.Drawing.Size(413, 41);
             this.txtcatatan.TabIndex = 0;
             this.txtcatatan.TextChanged += new System.EventHandler(this.txtcatatan_TextChanged);
             this.txtcatatan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
@@ -1136,18 +1155,73 @@ namespace GOS_FxApps
             this.label23.Text = "Catatan";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblhari
+            // guna2Panel6
             // 
-            this.lblhari.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblhari.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblhari.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblhari.Location = new System.Drawing.Point(405, 0);
-            this.lblhari.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblhari.Name = "lblhari";
-            this.lblhari.Size = new System.Drawing.Size(271, 57);
-            this.lblhari.TabIndex = 5;
-            this.lblhari.Text = "Perputaran ROD 30 Hari";
-            this.lblhari.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.guna2Panel6.BackColor = System.Drawing.Color.White;
+            this.guna2Panel6.Controls.Add(this.lblhalaman);
+            this.guna2Panel6.Controls.Add(this.btnleft);
+            this.guna2Panel6.Controls.Add(this.btnright);
+            this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.guna2Panel6.Location = new System.Drawing.Point(11, 378);
+            this.guna2Panel6.Name = "guna2Panel6";
+            this.guna2Panel6.Size = new System.Drawing.Size(422, 65);
+            this.guna2Panel6.TabIndex = 5;
+            // 
+            // lblhalaman
+            // 
+            this.lblhalaman.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblhalaman.AutoSize = true;
+            this.lblhalaman.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblhalaman.ForeColor = System.Drawing.Color.Black;
+            this.lblhalaman.Location = new System.Drawing.Point(14, 26);
+            this.lblhalaman.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblhalaman.Name = "lblhalaman";
+            this.lblhalaman.Size = new System.Drawing.Size(100, 15);
+            this.lblhalaman.TabIndex = 64;
+            this.lblhalaman.Text = "Halaman 1 dari 2";
+            this.lblhalaman.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnleft
+            // 
+            this.btnleft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnleft.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnleft.BorderRadius = 8;
+            this.btnleft.BorderThickness = 2;
+            this.btnleft.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnleft.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnleft.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnleft.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnleft.FillColor = System.Drawing.Color.White;
+            this.btnleft.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnleft.ForeColor = System.Drawing.Color.White;
+            this.btnleft.Image = global::GOS_FxApps.Properties.Resources.left_arrow;
+            this.btnleft.Location = new System.Drawing.Point(277, 15);
+            this.btnleft.Margin = new System.Windows.Forms.Padding(2);
+            this.btnleft.Name = "btnleft";
+            this.btnleft.Size = new System.Drawing.Size(60, 37);
+            this.btnleft.TabIndex = 64;
+            this.btnleft.Click += new System.EventHandler(this.btnleft_Click);
+            // 
+            // btnright
+            // 
+            this.btnright.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnright.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnright.BorderRadius = 8;
+            this.btnright.BorderThickness = 2;
+            this.btnright.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnright.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnright.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnright.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnright.FillColor = System.Drawing.Color.White;
+            this.btnright.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnright.ForeColor = System.Drawing.Color.White;
+            this.btnright.Image = global::GOS_FxApps.Properties.Resources.right_arrow;
+            this.btnright.Location = new System.Drawing.Point(349, 15);
+            this.btnright.Margin = new System.Windows.Forms.Padding(2);
+            this.btnright.Name = "btnright";
+            this.btnright.Size = new System.Drawing.Size(60, 37);
+            this.btnright.TabIndex = 44;
+            this.btnright.Click += new System.EventHandler(this.btnright_Click);
             // 
             // Penerimaan
             // 
@@ -1155,7 +1229,7 @@ namespace GOS_FxApps
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.ClientSize = new System.Drawing.Size(735, 677);
+            this.ClientSize = new System.Drawing.Size(861, 677);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -1182,6 +1256,8 @@ namespace GOS_FxApps
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.guna2Panel5.ResumeLayout(false);
             this.guna2Panel5.PerformLayout();
+            this.guna2Panel6.ResumeLayout(false);
+            this.guna2Panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1242,5 +1318,9 @@ namespace GOS_FxApps
         private Label label23;
         private Guna.UI2.WinForms.Guna2Button btnaturjam;
         private Label lblhari;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
+        private Label lblhalaman;
+        private Guna.UI2.WinForms.Guna2Button btnleft;
+        private Guna.UI2.WinForms.Guna2Button btnright;
     }
 }

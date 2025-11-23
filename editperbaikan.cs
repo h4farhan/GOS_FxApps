@@ -22,6 +22,16 @@ namespace GOS_FxApps
         int shift;
         int noprimary;
 
+        int pageSize = 30;
+        int currentPage = 1;
+        int totalRecords = 0;
+        int totalPages = 0;
+
+        bool isSearching = false;
+        string lastSearchWhere = "";
+        SqlCommand lastSearchCmd;
+        int searchTotalRecords = 0;
+
         public editperbaikan()
         {
             InitializeComponent();
@@ -40,7 +50,23 @@ namespace GOS_FxApps
                     {
                         this.Invoke(new Action(() =>
                         {
-                            tampil();
+                            if (!isSearching)
+                            {
+                                HitungTotalData();
+                                currentPage = 1;
+                                tampil();
+                            }
+                            else
+                            {
+                                int oldTotal = searchTotalRecords;
+                                HitungTotalDataPencarian();
+
+                                if (searchTotalRecords > oldTotal)
+                                {
+                                    tampil();
+                                }
+                            }
+
                             registertampil();
                         }));
                     }
@@ -50,9 +76,53 @@ namespace GOS_FxApps
             }
         }
 
+        private void HitungTotalData()
+        {
+            string query = "SELECT COUNT(*) FROM perbaikan_p";
+            using (var connLocal = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand(query, connLocal))
+            {
+                connLocal.Open();
+                totalRecords = (int)cmd.ExecuteScalar();
+                connLocal.Close();
+            }
+
+            totalPages = (int)Math.Ceiling(totalRecords / (double)pageSize);
+        }
+
+        private void HitungTotalDataPencarian()
+        {
+            if (string.IsNullOrWhiteSpace(lastSearchWhere))
+            {
+                searchTotalRecords = 0;
+                totalPages = 0;
+                return;
+            }
+
+            string countQuery = "SELECT COUNT(*) " + lastSearchWhere;
+
+            using (var connLocal = new SqlConnection(Koneksi.GetConnectionString()))
+            using (var cmd = new SqlCommand(countQuery, connLocal))
+            {
+                if (lastSearchCmd?.Parameters.Count > 0)
+                {
+                    foreach (SqlParameter p in lastSearchCmd.Parameters)
+                    {
+                        cmd.Parameters.Add(new SqlParameter(p.ParameterName, p.Value));
+                    }
+                }
+
+                connLocal.Open();
+                searchTotalRecords = (int)cmd.ExecuteScalar();
+            }
+
+            totalPages = (int)Math.Ceiling(searchTotalRecords / (double)pageSize);
+        }
+
         private void editperbaikan_Load(object sender, EventArgs e)
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
+            HitungTotalData();
             tampil();
             dateeditperbaikan.Value = DateTime.Now.Date;
             dateeditperbaikan.Checked = false;
@@ -63,8 +133,38 @@ namespace GOS_FxApps
         {
             try
             {
-                string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, bac, nba, ba, ba1, r, m, cr, c, rl, jumlah, tanggal_penerimaan, updated_at, remaks, catatan FROM perbaikan_p ORDER BY tanggal_perbaikan DESC";
-                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
+                int offset = (currentPage - 1) * pageSize;
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+
+                string query;
+
+                if (!isSearching)
+                {
+                    query = $@"
+                SELECT *
+                FROM perbaikan_p
+                ORDER BY tanggal_perbaikan DESC
+                OFFSET {offset} ROWS
+                FETCH NEXT {pageSize} ROWS ONLY";
+                }
+                else
+                {
+                    query = $@"
+                SELECT *
+                {lastSearchWhere}
+                ORDER BY tanggal_perbaikan DESC
+                OFFSET {offset} ROWS
+                FETCH NEXT {pageSize} ROWS ONLY";
+
+                    foreach (SqlParameter p in lastSearchCmd.Parameters)
+                        cmd.Parameters.Add(new SqlParameter(p.ParameterName, p.Value));
+                }
+
+                cmd.CommandText = query;
+
+                SqlDataAdapter ad = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
@@ -104,6 +204,11 @@ namespace GOS_FxApps
                 dataGridView1.Columns[28].HeaderText = "Diubah";
                 dataGridView1.Columns[29].HeaderText = "Remaks";
                 dataGridView1.Columns[30].HeaderText = "Catatan";
+
+                lblhalaman.Text = $"Halaman {currentPage} dari {totalPages}";
+
+                btnleft.Enabled = currentPage > 1;
+                btnright.Enabled = currentPage < totalPages;
             }
             catch (SqlException)
             {
@@ -128,55 +233,28 @@ namespace GOS_FxApps
                 return false;
             }
 
-            DataTable dt = new DataTable();
+            isSearching = true;
+            lastSearchCmd = new SqlCommand();
+            lastSearchWhere = "FROM perbaikan_p WHERE 1=1 ";
 
-            string query = "SELECT * FROM perbaikan_p WHERE 1=1 ";
-
-            using (SqlCommand cmd = new SqlCommand())
+            if (tanggal.HasValue)
             {
-                if (tanggal.HasValue)
-                {
-                    query += " AND CAST(tanggal_perbaikan AS DATE) = @tgl ";
-                    cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
-                }
-
-                if (!string.IsNullOrEmpty(inputRod))
-                {
-                    query += " AND nomor_rod LIKE @rod ";
-                    cmd.Parameters.AddWithValue("@rod", "%" + inputRod + "%");
-                }
-
-                query += " ORDER BY tanggal_perbaikan ASC";
-
-                cmd.CommandText = query;
-                cmd.Connection = conn;
-
-                try
-                {
-                    conn.Open();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-
-                    dataGridView1.DataSource = dt;
-                }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-                return dt.Rows.Count > 0;
+                lastSearchWhere += " AND CAST(tanggal_perbaikan AS DATE) = @tgl ";
+                lastSearchCmd.Parameters.AddWithValue("@tgl", tanggal.Value);
             }
+
+            if (!string.IsNullOrEmpty(inputRod))
+            {
+                lastSearchWhere += " AND nomor_rod LIKE @rod ";
+                lastSearchCmd.Parameters.AddWithValue("@rod", "%" + inputRod + "%");
+            }
+
+            HitungTotalDataPencarian();
+            currentPage = 1;
+            tampil();
+
+            btncari.Text = "Reset";
+            return true;
         }
 
         private void setdefault()
@@ -494,12 +572,17 @@ namespace GOS_FxApps
             }
             else
             {
-                tampil();
-                infocari = false;
-                btncari.Text = "Cari";
+                isSearching = false;
 
                 txtcari.Text = "";
-                dateeditperbaikan.Checked = false;
+
+                btncari.Text = "Cari";
+
+                HitungTotalData();
+                currentPage = 1;
+                tampil();
+
+                infocari = false;
             }
         }
 
@@ -716,5 +799,22 @@ namespace GOS_FxApps
             SqlDependency.Start(Koneksi.GetConnectionString());
         }
 
+        private void btnleft_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+            {
+                currentPage--;
+                tampil();
+            }
+        }
+
+        private void btnright_Click(object sender, EventArgs e)
+        {
+            if (currentPage < totalPages)
+            {
+                currentPage++;
+                tampil();
+            }
+        }
     }
 }

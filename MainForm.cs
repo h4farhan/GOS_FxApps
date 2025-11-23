@@ -726,7 +726,7 @@ namespace GOS_FxApps {
             iconButton13.Visible = true;
 
             gudangContainer.Visible = true;
-            gudangContainer.MaximumSize = new Size(231, 335);
+            gudangContainer.MaximumSize = new Size(231, 375);
             iconButton3.Visible=true;
             btnmaterialmasuk.Visible = true;
             btnpemakaian.Visible=true;
@@ -766,7 +766,7 @@ namespace GOS_FxApps {
         public void trueoperatorgudang()
         {
             gudangContainer.Visible = true;
-            gudangContainer.MaximumSize = new Size(231, 335);
+            gudangContainer.MaximumSize = new Size(231, 375);
             iconButton3.Visible = true;
             btnmaterialmasuk.Visible = true;
             btnpemakaian.Visible = true;

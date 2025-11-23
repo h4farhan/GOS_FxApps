@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Input;
 
 namespace GOS_FxApps
 {
@@ -15,8 +16,18 @@ namespace GOS_FxApps
     {
         SqlConnection conn = Koneksi.GetConnection();
 
-        bool infocari = false;
         int noprimary = 0;
+
+        bool infocari = false;
+        int pageSize = 30;
+        int currentPage = 1;
+        int totalRecords = 0;
+        int totalPages = 0;
+
+        bool isSearching = false;
+        string lastSearchWhere = "";
+        SqlCommand lastSearchCmd;
+        int searchTotalRecords = 0;
 
         public formbuttman()
         {
@@ -36,7 +47,23 @@ namespace GOS_FxApps
                     {
                         this.Invoke(new Action(() =>
                         {
-                            tampil();
+                            if (!isSearching)
+                            {
+                                HitungTotalData();
+                                currentPage = 1;
+                                tampil();
+                            }
+                            else
+                            {
+                                int oldTotal = searchTotalRecords;
+                                HitungTotalDataPencarian();
+
+                                if (searchTotalRecords > oldTotal)
+                                {
+                                    tampil();
+                                }
+                            }
+
                             registertampil();
                         }));
                     }
@@ -46,14 +73,71 @@ namespace GOS_FxApps
             }
         }
 
+        private void HitungTotalData()
+        {
+            string query = "SELECT COUNT(*) FROM kondisiROD";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            conn.Open();
+            totalRecords = (int)cmd.ExecuteScalar();
+            conn.Close();
+
+            totalPages = (int)Math.Ceiling(totalRecords / (double)pageSize);
+        }
+
+        private void HitungTotalDataPencarian()
+        {
+            string countQuery = "SELECT COUNT(*) " + lastSearchWhere;
+
+            lastSearchCmd.CommandText = countQuery;
+            lastSearchCmd.Connection = conn;
+
+            conn.Open();
+            searchTotalRecords = (int)lastSearchCmd.ExecuteScalar();
+            conn.Close();
+
+            totalPages = (int)Math.Ceiling(searchTotalRecords / (double)pageSize);
+        }
+
         private void tampil()
         {
             try
             {
-                string query = "SELECT no,tanggal,shift,butt_ratio,man_power,updated_at,remaks FROM kondisiROD ORDER BY tanggal DESC, updated_at DESC";
-                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
+                int offset = (currentPage - 1) * pageSize;
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+
+                string query;
+
+                if (!isSearching)
+                {
+                    query = $@"
+                SELECT no,tanggal,shift,butt_ratio,man_power,updated_at,remaks
+                FROM kondisiROD
+                ORDER BY tanggal DESC
+                OFFSET {offset} ROWS
+                FETCH NEXT {pageSize} ROWS ONLY";
+                }
+                else
+                {
+                    query = $@"
+                SELECT no,tanggal,shift,butt_ratio,man_power,updated_at,remaks
+                {lastSearchWhere}
+                ORDER BY tanggal DESC
+                OFFSET {offset} ROWS
+                FETCH NEXT {pageSize} ROWS ONLY";
+
+                    foreach (SqlParameter p in lastSearchCmd.Parameters)
+                        cmd.Parameters.Add(new SqlParameter(p.ParameterName, p.Value));
+                }
+
+                cmd.CommandText = query;
+
+                SqlDataAdapter ad = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
+
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
@@ -68,6 +152,11 @@ namespace GOS_FxApps
                 dataGridView1.Columns[4].HeaderText = "Man Power";
                 dataGridView1.Columns[5].HeaderText = "Diubah";
                 dataGridView1.Columns[6].HeaderText = "Remaks";
+
+                lblhalaman.Text = $"Halaman {currentPage} dari {totalPages}";
+
+                btnleft.Enabled = currentPage > 1;
+                btnright.Enabled = currentPage < totalPages;
             }
             catch (SqlException)
             {
@@ -92,50 +181,29 @@ namespace GOS_FxApps
                 return false;
             }
 
-            DataTable dt = new DataTable();
-            string query = "SELECT * FROM kondisiROD WHERE 1=1 ";
+            isSearching = true;
+            lastSearchCmd = new SqlCommand();
+            lastSearchWhere = "FROM kondisiROD WHERE 1=1 ";
 
-            using (SqlCommand cmd = new SqlCommand())
+            if (tanggal.HasValue)
             {
-                if (tanggal.HasValue)
-                {
-                    query += " AND CAST(tanggal AS DATE) = @tgl ";
-                    cmd.Parameters.AddWithValue("@tgl", tanggal.Value);
-                }
-
-                if (shiftValid)
-                {
-                    query += " AND shift = @shift ";
-                    cmd.Parameters.AddWithValue("@shift", cbShift.SelectedItem.ToString());
-                }
-
-                query += " ORDER BY tanggal DESC";
-
-                cmd.CommandText = query;
-                cmd.Connection = conn;
-
-                try
-                {
-                    conn.Open();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-
-                    dataGridView1.DataSource = dt;
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-
-                return dt.Rows.Count > 0;
+                lastSearchWhere += " AND CAST(tanggal AS DATE) = @tgl ";
+                lastSearchCmd.Parameters.AddWithValue("@tgl", tanggal.Value);
             }
+
+
+            if (shiftValid)
+            {
+                lastSearchWhere += " AND shift = @shift ";
+                lastSearchCmd.Parameters.AddWithValue("@shift", cbShift.SelectedItem.ToString());
+            }
+
+            HitungTotalDataPencarian();
+            currentPage = 1;
+            tampil();
+
+            btncari.Text = "Reset";
+            return true;
         }
 
         private void editdata()
@@ -266,7 +334,7 @@ namespace GOS_FxApps
             }
         }
 
-        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        private void TextBox_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -333,12 +401,17 @@ namespace GOS_FxApps
             }
             else
             {
-                tampil();
                 infocari = false;
-                btncari.Text = "Cari";
+                isSearching = false;
 
                 cbShift.StartIndex = 0;
                 datecari.Checked = false;
+
+                btncari.Text = "Cari";
+
+                HitungTotalData();
+                currentPage = 1;
+                tampil();
             }
         }
 
@@ -426,6 +499,24 @@ namespace GOS_FxApps
         private void formbuttman_FormClosing(object sender, FormClosingEventArgs e)
         {
             SqlDependency.Stop(Koneksi.GetConnectionString());
+        }
+
+        private void btnleft_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+            {
+                currentPage--;
+                tampil();
+            }
+        }
+
+        private void btnright_Click(object sender, EventArgs e)
+        {
+            if (currentPage < totalPages)
+            {
+                currentPage++;
+                tampil();
+            }
         }
     }
 }

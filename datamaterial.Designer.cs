@@ -1310,7 +1310,6 @@
             this.lbltanggal.Name = "lbltanggal";
             this.lbltanggal.Size = new System.Drawing.Size(8653, 33);
             this.lbltanggal.TabIndex = 1;
-            this.lbltanggal.Text = "Per Tanggal  Agustus 2025";
             this.lbltanggal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1

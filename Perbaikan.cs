@@ -19,6 +19,16 @@ namespace GOS_FxApps
         SqlConnection conn = Koneksi.GetConnection();
         int noprimary;
 
+        int pageSize = 30;
+        int currentPage = 1;
+        int totalRecords = 0;
+        int totalPages = 0;
+
+        bool isSearching = false;
+        string lastSearchWhere = "";
+        SqlCommand lastSearchCmd;
+        int searchTotalRecords = 0;
+
         public Perbaikan()
         {
             InitializeComponent();
@@ -27,7 +37,7 @@ namespace GOS_FxApps
         private void registertampilpenerimaan()
         {
             using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.perbaikan_s", conn))
+            using (var cmd = new SqlCommand("SELECT updated_at FROM dbo.penerimaan_s", conn))
             {
                 cmd.Notification = null;
                 var dep = new SqlDependency(cmd);
@@ -37,33 +47,122 @@ namespace GOS_FxApps
                     {
                         this.Invoke(new Action(() =>
                         {
-                            tampilpenerimaan();
+                            if (!isSearching)
+                            {
+                                HitungTotalData();
+                                currentPage = 1;
+                                tampilpenerimaan();
+                            }
+                            else
+                            {
+                                int oldTotal = searchTotalRecords;
+                                HitungTotalDataPencarian();
+                                if (searchTotalRecords > oldTotal)
+                                {
+                                    tampilpenerimaan();
+                                }
+                            }
+
                             registertampilpenerimaan();
                         }));
                     }
                 };
+
                 conn.Open();
                 cmd.ExecuteReader();
             }
+        }
+
+        private void HitungTotalData()
+        {
+            string query = "SELECT COUNT(*) FROM penerimaan_s";
+            using (var connLocal = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand(query, connLocal))
+            {
+                connLocal.Open();
+                totalRecords = (int)cmd.ExecuteScalar();
+                connLocal.Close();
+            }
+
+            totalPages = (int)Math.Ceiling(totalRecords / (double)pageSize);
+        }
+
+        private void HitungTotalDataPencarian()
+        {
+            if (string.IsNullOrWhiteSpace(lastSearchWhere))
+            {
+                searchTotalRecords = 0;
+                totalPages = 0;
+                return;
+            }
+
+            string countQuery = "SELECT COUNT(*) " + lastSearchWhere;
+
+            using (var connLocal = new SqlConnection(Koneksi.GetConnectionString()))
+            using (var cmd = new SqlCommand(countQuery, connLocal))
+            {
+                if (lastSearchCmd?.Parameters.Count > 0)
+                {
+                    foreach (SqlParameter p in lastSearchCmd.Parameters)
+                    {
+                        cmd.Parameters.Add(new SqlParameter(p.ParameterName, p.Value));
+                    }
+                }
+
+                connLocal.Open();
+                searchTotalRecords = (int)cmd.ExecuteScalar();
+            }
+
+            totalPages = (int)Math.Ceiling(searchTotalRecords / (double)pageSize);
         }
 
         private void Perbaikan_Load(object sender, EventArgs e)
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
             setdefault();
+            HitungTotalData();
             tampilpenerimaan();
             btnsimpan.Enabled = false;
             txtnomorrod.Focus();
             registertampilpenerimaan();
-            //registertampilperbaikan();
         }
 
         private void tampilpenerimaan()
         {
             try
             {
-                string query = "SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3, s, d, b, ba, r, m, cr, c, rl, jumlah, updated_at, remaks, catatan FROM penerimaan_s ORDER BY tanggal_penerimaan DESC";
-                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
+                int offset = (currentPage - 1) * pageSize;
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+
+                string query;
+
+                if (!isSearching)
+                {
+                    query = $@"
+                SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3, s, d, b, ba, r, m, cr, c, rl, jumlah, updated_at, remaks, catatan
+                FROM penerimaan_s
+                ORDER BY tanggal_penerimaan DESC
+                OFFSET {offset} ROWS
+                FETCH NEXT {pageSize} ROWS ONLY";
+                }
+                else
+                {
+                    query = $@"
+                SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3, s, d, b, ba, r, m, cr, c, rl, jumlah, updated_at, remaks, catatan
+                {lastSearchWhere}
+                ORDER BY tanggal_penerimaan DESC
+                OFFSET {offset} ROWS
+                FETCH NEXT {pageSize} ROWS ONLY";
+
+                    foreach (SqlParameter p in lastSearchCmd.Parameters)
+                        cmd.Parameters.Add(new SqlParameter(p.ParameterName, p.Value));
+                }
+
+                cmd.CommandText = query;
+
+                SqlDataAdapter ad = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
                 dataGridView2.DataSource = dt;
@@ -94,6 +193,11 @@ namespace GOS_FxApps
                 dataGridView2.Columns[19].HeaderText = "Diubah";
                 dataGridView2.Columns[20].HeaderText = "Remaks";
                 dataGridView2.Columns[21].HeaderText = "Catatan";
+
+                lblhalaman.Text = $"Halaman {currentPage} dari {totalPages}";
+
+                btnleft.Enabled = currentPage > 1;
+                btnright.Enabled = currentPage < totalPages;
             }
             catch (SqlException)
             {
@@ -104,54 +208,6 @@ namespace GOS_FxApps
             {
                 MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
                                 "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private bool caripenerimaan()
-        {
-            string inputRod = txtcaripenerimaan.Text.Trim();
-            DataTable dt = new DataTable();
-
-            string query = "SELECT * FROM penerimaan_s WHERE 1=1";
-
-            using (SqlCommand cmd = new SqlCommand())
-            {
-                if (!string.IsNullOrEmpty(inputRod))
-                {
-                    query += " AND CAST(nomor_rod AS VARCHAR) LIKE @rod";
-                    cmd.Parameters.AddWithValue("@rod", "%" + inputRod + "%");
-                }
-
-                query += " ORDER BY tanggal_penerimaan DESC";
-
-                cmd.CommandText = query;
-                cmd.Connection = conn;
-
-                try
-                {
-                    conn.Open();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-
-                    dataGridView2.DataSource = dt;
-                }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-                return dt.Rows.Count > 0;
             }
         }
 
@@ -403,7 +459,6 @@ namespace GOS_FxApps
             }
         }
 
-
         private void hitung()
         {
             int angka1 = SafeParse(txte1ers);
@@ -639,12 +694,48 @@ namespace GOS_FxApps
 
         private void txtcaripenerimaan_TextChanged(object sender, EventArgs e)
         {
-            caripenerimaan();
+            string inputRod = txtcaripenerimaan.Text.Trim();
+            if (string.IsNullOrEmpty(inputRod))
+            {
+                isSearching = false;
+                currentPage = 1;
+                HitungTotalData();
+                tampilpenerimaan();
+            }
+            else
+            {
+                isSearching = true;
+                lastSearchCmd = new SqlCommand();
+                lastSearchWhere = "FROM penerimaan_s WHERE nomor_rod LIKE @rod";
+                lastSearchCmd.Parameters.AddWithValue("@rod", "%" + inputRod + "%");
+
+                HitungTotalDataPencarian();
+                currentPage = 1;
+                tampilpenerimaan();
+            }
         }
 
         private void txtcatatan_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnleft_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+            {
+                currentPage--;
+                tampilpenerimaan();
+            }
+        }
+
+        private void btnright_Click(object sender, EventArgs e)
+        {
+            if (currentPage < totalPages)
+            {
+                currentPage++;
+                tampilpenerimaan();
+            }
         }
     }
 }

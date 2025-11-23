@@ -58,6 +58,10 @@ namespace GOS_FxApps
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblhalaman = new System.Windows.Forms.Label();
+            this.btnleft = new Guna.UI2.WinForms.Guna2Button();
+            this.btnright = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -66,6 +70,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel2.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.guna2Panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -110,7 +115,7 @@ namespace GOS_FxApps
             this.panel2.Location = new System.Drawing.Point(0, 58);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(405, 656);
+            this.panel2.Size = new System.Drawing.Size(365, 656);
             this.panel2.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -128,7 +133,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 7F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(405, 656);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(365, 656);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // guna2Panel1
@@ -153,7 +158,7 @@ namespace GOS_FxApps
             this.guna2Panel1.Location = new System.Drawing.Point(18, 2);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(376, 645);
+            this.guna2Panel1.Size = new System.Drawing.Size(336, 645);
             this.guna2Panel1.TabIndex = 2;
             // 
             // txtrod10
@@ -171,7 +176,7 @@ namespace GOS_FxApps
             this.txtrod10.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtrod10.ForeColor = System.Drawing.Color.Black;
             this.txtrod10.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod10.Location = new System.Drawing.Point(51, 492);
+            this.txtrod10.Location = new System.Drawing.Point(28, 492);
             this.txtrod10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod10.Name = "txtrod10";
             this.txtrod10.PlaceholderForeColor = System.Drawing.Color.Gray;
@@ -198,7 +203,7 @@ namespace GOS_FxApps
             this.txtrod9.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtrod9.ForeColor = System.Drawing.Color.Black;
             this.txtrod9.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod9.Location = new System.Drawing.Point(51, 443);
+            this.txtrod9.Location = new System.Drawing.Point(28, 443);
             this.txtrod9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod9.Name = "txtrod9";
             this.txtrod9.PlaceholderForeColor = System.Drawing.Color.Gray;
@@ -225,7 +230,7 @@ namespace GOS_FxApps
             this.txtrod8.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtrod8.ForeColor = System.Drawing.Color.Black;
             this.txtrod8.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod8.Location = new System.Drawing.Point(51, 394);
+            this.txtrod8.Location = new System.Drawing.Point(28, 394);
             this.txtrod8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod8.Name = "txtrod8";
             this.txtrod8.PlaceholderForeColor = System.Drawing.Color.Gray;
@@ -252,7 +257,7 @@ namespace GOS_FxApps
             this.txtrod7.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtrod7.ForeColor = System.Drawing.Color.Black;
             this.txtrod7.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod7.Location = new System.Drawing.Point(51, 345);
+            this.txtrod7.Location = new System.Drawing.Point(28, 345);
             this.txtrod7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod7.Name = "txtrod7";
             this.txtrod7.PlaceholderForeColor = System.Drawing.Color.Gray;
@@ -279,7 +284,7 @@ namespace GOS_FxApps
             this.txtrod6.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtrod6.ForeColor = System.Drawing.Color.Black;
             this.txtrod6.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod6.Location = new System.Drawing.Point(51, 297);
+            this.txtrod6.Location = new System.Drawing.Point(28, 297);
             this.txtrod6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod6.Name = "txtrod6";
             this.txtrod6.PlaceholderForeColor = System.Drawing.Color.Gray;
@@ -306,7 +311,7 @@ namespace GOS_FxApps
             this.txtrod5.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtrod5.ForeColor = System.Drawing.Color.Black;
             this.txtrod5.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod5.Location = new System.Drawing.Point(51, 248);
+            this.txtrod5.Location = new System.Drawing.Point(28, 248);
             this.txtrod5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod5.Name = "txtrod5";
             this.txtrod5.PlaceholderForeColor = System.Drawing.Color.Gray;
@@ -333,7 +338,7 @@ namespace GOS_FxApps
             this.txtrod4.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtrod4.ForeColor = System.Drawing.Color.Black;
             this.txtrod4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod4.Location = new System.Drawing.Point(51, 199);
+            this.txtrod4.Location = new System.Drawing.Point(28, 199);
             this.txtrod4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod4.Name = "txtrod4";
             this.txtrod4.PlaceholderForeColor = System.Drawing.Color.Gray;
@@ -360,7 +365,7 @@ namespace GOS_FxApps
             this.txtrod3.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtrod3.ForeColor = System.Drawing.Color.Black;
             this.txtrod3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod3.Location = new System.Drawing.Point(51, 150);
+            this.txtrod3.Location = new System.Drawing.Point(28, 150);
             this.txtrod3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod3.Name = "txtrod3";
             this.txtrod3.PlaceholderForeColor = System.Drawing.Color.Gray;
@@ -387,7 +392,7 @@ namespace GOS_FxApps
             this.txtrod2.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtrod2.ForeColor = System.Drawing.Color.Black;
             this.txtrod2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod2.Location = new System.Drawing.Point(51, 102);
+            this.txtrod2.Location = new System.Drawing.Point(28, 102);
             this.txtrod2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod2.Name = "txtrod2";
             this.txtrod2.PlaceholderForeColor = System.Drawing.Color.Gray;
@@ -404,7 +409,7 @@ namespace GOS_FxApps
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(100, 17);
+            this.label3.Location = new System.Drawing.Point(77, 17);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(184, 21);
             this.label3.TabIndex = 0;
@@ -425,7 +430,7 @@ namespace GOS_FxApps
             this.txtrod1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtrod1.ForeColor = System.Drawing.Color.Black;
             this.txtrod1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtrod1.Location = new System.Drawing.Point(51, 53);
+            this.txtrod1.Location = new System.Drawing.Point(28, 53);
             this.txtrod1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtrod1.Name = "txtrod1";
             this.txtrod1.PlaceholderForeColor = System.Drawing.Color.Gray;
@@ -444,10 +449,10 @@ namespace GOS_FxApps
             this.panel3.Controls.Add(this.guna2Button2);
             this.panel3.Controls.Add(this.tableLayoutPanel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(405, 58);
+            this.panel3.Location = new System.Drawing.Point(365, 58);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(330, 656);
+            this.panel3.Size = new System.Drawing.Size(370, 656);
             this.panel3.TabIndex = 3;
             // 
             // btnclear
@@ -462,7 +467,7 @@ namespace GOS_FxApps
             this.btnclear.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnclear.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnclear.ForeColor = System.Drawing.Color.White;
-            this.btnclear.Location = new System.Drawing.Point(69, 595);
+            this.btnclear.Location = new System.Drawing.Point(109, 595);
             this.btnclear.Margin = new System.Windows.Forms.Padding(2);
             this.btnclear.Name = "btnclear";
             this.btnclear.Size = new System.Drawing.Size(122, 35);
@@ -482,7 +487,7 @@ namespace GOS_FxApps
             this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(196, 595);
+            this.guna2Button2.Location = new System.Drawing.Point(236, 595);
             this.guna2Button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(122, 35);
@@ -505,7 +510,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 6F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(330, 592);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(370, 592);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // guna2Panel2
@@ -513,6 +518,7 @@ namespace GOS_FxApps
             this.guna2Panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.guna2Panel2.BorderRadius = 15;
             this.guna2Panel2.BorderThickness = 2;
+            this.guna2Panel2.Controls.Add(this.guna2Panel8);
             this.guna2Panel2.Controls.Add(this.txtcari);
             this.guna2Panel2.Controls.Add(this.dataGridView1);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -520,7 +526,8 @@ namespace GOS_FxApps
             this.guna2Panel2.Location = new System.Drawing.Point(3, 2);
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(316, 582);
+            this.guna2Panel2.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
+            this.guna2Panel2.Size = new System.Drawing.Size(356, 582);
             this.guna2Panel2.TabIndex = 2;
             // 
             // txtcari
@@ -543,13 +550,13 @@ namespace GOS_FxApps
             this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.search;
             this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
-            this.txtcari.Location = new System.Drawing.Point(11, 16);
+            this.txtcari.Location = new System.Drawing.Point(11, 15);
             this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtcari.Name = "txtcari";
             this.txtcari.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.txtcari.PlaceholderText = "Nomor ROD";
             this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(293, 39);
+            this.txtcari.Size = new System.Drawing.Size(334, 39);
             this.txtcari.TabIndex = 1;
             this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
             this.txtcari.TextChanged += new System.EventHandler(this.txtcari_TextChanged);
@@ -598,9 +605,77 @@ namespace GOS_FxApps
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(293, 512);
+            this.dataGridView1.Size = new System.Drawing.Size(334, 441);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // guna2Panel8
+            // 
+            this.guna2Panel8.BackColor = System.Drawing.Color.White;
+            this.guna2Panel8.Controls.Add(this.lblhalaman);
+            this.guna2Panel8.Controls.Add(this.btnleft);
+            this.guna2Panel8.Controls.Add(this.btnright);
+            this.guna2Panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.guna2Panel8.Location = new System.Drawing.Point(11, 505);
+            this.guna2Panel8.Name = "guna2Panel8";
+            this.guna2Panel8.Size = new System.Drawing.Size(334, 65);
+            this.guna2Panel8.TabIndex = 7;
+            // 
+            // lblhalaman
+            // 
+            this.lblhalaman.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblhalaman.AutoSize = true;
+            this.lblhalaman.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblhalaman.ForeColor = System.Drawing.Color.Black;
+            this.lblhalaman.Location = new System.Drawing.Point(14, 26);
+            this.lblhalaman.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblhalaman.Name = "lblhalaman";
+            this.lblhalaman.Size = new System.Drawing.Size(100, 15);
+            this.lblhalaman.TabIndex = 64;
+            this.lblhalaman.Text = "Halaman 1 dari 2";
+            this.lblhalaman.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnleft
+            // 
+            this.btnleft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnleft.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnleft.BorderRadius = 8;
+            this.btnleft.BorderThickness = 2;
+            this.btnleft.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnleft.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnleft.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnleft.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnleft.FillColor = System.Drawing.Color.White;
+            this.btnleft.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnleft.ForeColor = System.Drawing.Color.White;
+            this.btnleft.Image = global::GOS_FxApps.Properties.Resources.left_arrow;
+            this.btnleft.Location = new System.Drawing.Point(189, 15);
+            this.btnleft.Margin = new System.Windows.Forms.Padding(2);
+            this.btnleft.Name = "btnleft";
+            this.btnleft.Size = new System.Drawing.Size(60, 37);
+            this.btnleft.TabIndex = 64;
+            this.btnleft.Click += new System.EventHandler(this.btnleft_Click);
+            // 
+            // btnright
+            // 
+            this.btnright.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnright.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnright.BorderRadius = 8;
+            this.btnright.BorderThickness = 2;
+            this.btnright.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnright.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnright.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnright.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnright.FillColor = System.Drawing.Color.White;
+            this.btnright.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnright.ForeColor = System.Drawing.Color.White;
+            this.btnright.Image = global::GOS_FxApps.Properties.Resources.right_arrow;
+            this.btnright.Location = new System.Drawing.Point(261, 15);
+            this.btnright.Margin = new System.Windows.Forms.Padding(2);
+            this.btnright.Name = "btnright";
+            this.btnright.Size = new System.Drawing.Size(60, 37);
+            this.btnright.TabIndex = 44;
+            this.btnright.Click += new System.EventHandler(this.btnright_Click);
             // 
             // Pengiriman
             // 
@@ -629,6 +704,8 @@ namespace GOS_FxApps
             this.tableLayoutPanel2.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.guna2Panel8.ResumeLayout(false);
+            this.guna2Panel8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -659,5 +736,9 @@ namespace GOS_FxApps
         private DataGridView dataGridView1;
         private Guna.UI2.WinForms.Guna2TextBox txtcari;
         private Guna.UI2.WinForms.Guna2Button btnclear;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
+        private Label lblhalaman;
+        private Guna.UI2.WinForms.Guna2Button btnleft;
+        private Guna.UI2.WinForms.Guna2Button btnright;
     }
 }

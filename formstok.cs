@@ -18,6 +18,17 @@ namespace GOS_FxApps
 
         private byte[] imageBytes = null;
 
+        bool infocari = false;
+        int pageSize = 30;
+        int currentPage = 1;
+        int totalRecords = 0;
+        int totalPages = 0;
+
+        bool isSearching = false;
+        string lastSearchWhere = "";
+        SqlCommand lastSearchCmd;
+        int searchTotalRecords = 0;
+
         public formstok()
         {
             InitializeComponent();
@@ -26,6 +37,7 @@ namespace GOS_FxApps
         private void formstok_Load(object sender, EventArgs e)
         {
             SqlDependency.Start(Koneksi.GetConnectionString());
+            HitungTotalData();
             tampil();
             btnupdate.Enabled = false;
             registertampil();
@@ -34,7 +46,7 @@ namespace GOS_FxApps
         private void registertampil()
         {
             using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.stok_material", conn))
+            using (var cmd = new SqlCommand("SELECT updated_at FROM dbo.stok_material", conn))
             {
                 cmd.Notification = null;
                 var dep = new SqlDependency(cmd);
@@ -42,27 +54,29 @@ namespace GOS_FxApps
                 {
                     if (e.Type == SqlNotificationType.Change)
                     {
-                        if (this.IsHandleCreated)
+                        this.Invoke(new Action(() =>
                         {
-                            this.BeginInvoke(new Action(() =>
+                            if (!isSearching)
                             {
+                                HitungTotalData();
+                                currentPage = 1;
                                 tampil();
-                                registertampil();
-                            }));
-                        }
-                        else
-                        {
-                            this.HandleCreated += (s2, e2) =>
+                            }
+                            else
                             {
-                                this.BeginInvoke(new Action(() =>
+                                int oldTotal = searchTotalRecords;
+                                HitungTotalDataPencarian();
+                                if (searchTotalRecords > oldTotal)
                                 {
                                     tampil();
-                                    registertampil();
-                                }));
-                            };
-                        }
+                                }
+                            }
+
+                            registertampil();
+                        }));
                     }
                 };
+
                 conn.Open();
                 cmd.ExecuteReader();
             }
@@ -76,187 +90,183 @@ namespace GOS_FxApps
             }
         }
 
+        private void HitungTotalData()
+        {
+            string query = "SELECT COUNT(*) FROM stok_material";
+            using (var connLocal = new SqlConnection(Koneksi.GetConnectionString()))
+            using (SqlCommand cmd = new SqlCommand(query, connLocal))
+            {
+                connLocal.Open();
+                totalRecords = (int)cmd.ExecuteScalar();
+                connLocal.Close();
+            }
+
+            totalPages = (int)Math.Ceiling(totalRecords / (double)pageSize);
+        }
+
+        private void HitungTotalDataPencarian()
+        {
+            if (string.IsNullOrWhiteSpace(lastSearchWhere))
+            {
+                searchTotalRecords = 0;
+                totalPages = 0;
+                return;
+            }
+
+            string countQuery = "SELECT COUNT(*) " + lastSearchWhere;
+
+            using (var connLocal = new SqlConnection(Koneksi.GetConnectionString()))
+            using (var cmd = new SqlCommand(countQuery, connLocal))
+            {
+                if (lastSearchCmd?.Parameters.Count > 0)
+                {
+                    foreach (SqlParameter p in lastSearchCmd.Parameters)
+                    {
+                        cmd.Parameters.Add(new SqlParameter(p.ParameterName, p.Value));
+                    }
+                }
+
+                connLocal.Open();
+                searchTotalRecords = (int)cmd.ExecuteScalar();
+            }
+
+            totalPages = (int)Math.Ceiling(searchTotalRecords / (double)pageSize);
+        }
+
+        private void LoadDataToGrid(DataTable dt)
+        {
+            dt.Columns["foto"].ColumnName = "Gambar";
+
+            DataTable dtWithImage = new DataTable();
+            dtWithImage.Columns.Add("No", typeof(int));
+            dtWithImage.Columns.Add("Kode Barang", typeof(string));
+            dtWithImage.Columns.Add("Nama Barang", typeof(string));
+            dtWithImage.Columns.Add("Spesifikasi", typeof(string));
+            dtWithImage.Columns.Add("UoM", typeof(string));
+            dtWithImage.Columns.Add("Tipe", typeof(string));
+            dtWithImage.Columns.Add("Jumlah Stok", typeof(int));
+            dtWithImage.Columns.Add("Min Stok", typeof(int));
+            dtWithImage.Columns.Add("Gambar", typeof(Image));
+            dtWithImage.Columns.Add("Disimpan", typeof(DateTime));
+            dtWithImage.Columns.Add("Diubah", typeof(DateTime));
+
+            int no = 1;
+            foreach (DataRow row in dt.Rows)
+            {
+                DataRow newRow = dtWithImage.NewRow();
+                newRow["No"] = no++;
+                newRow["Kode Barang"] = row["kodeBarang"];
+                newRow["Nama Barang"] = row["namaBarang"];
+                newRow["Spesifikasi"] = row["spesifikasi"];
+                newRow["UoM"] = row["uom"];
+                newRow["Tipe"] = row["type"];
+                newRow["Jumlah Stok"] = row["jumlahStok"];
+                newRow["Min Stok"] = row["min_stok"];
+                newRow["Disimpan"] = row["created_at"];
+                newRow["Diubah"] = row["updated_at"];
+
+                if (row["Gambar"] != DBNull.Value)
+                {
+                    byte[] imageBytes = (byte[])row["Gambar"];
+                    using (MemoryStream ms = new MemoryStream(imageBytes))
+                    {
+                        newRow["Gambar"] = Image.FromStream(ms);
+                    }
+                }
+
+                dtWithImage.Rows.Add(newRow);
+            }
+
+            dataGridView1.DataSource = dtWithImage;
+
+            dataGridView1.RowTemplate.Height = 100;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            foreach (DataGridViewRow r in dataGridView1.Rows)
+                r.Height = 100;
+
+            DataGridViewImageColumn imageCol =
+                (DataGridViewImageColumn)dataGridView1.Columns["Gambar"];
+            imageCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+
+            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor =
+                Color.FromArgb(213, 213, 214);
+            dataGridView1.RowHeadersVisible = false;
+        }
         private void tampil()
         {
             try
             {
-                string query = "SELECT * FROM stok_material ORDER BY created_at DESC";
-                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
+                int offset = (currentPage - 1) * pageSize;
+
+                string query = @"
+            SELECT * FROM stok_material
+            ORDER BY updated_at DESC
+            OFFSET @offset ROWS 
+            FETCH NEXT @pageSize ROWS ONLY";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@offset", offset);
+                cmd.Parameters.AddWithValue("@pageSize", pageSize);
+
+                SqlDataAdapter ad = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
 
-                dt.Columns["foto"].ColumnName = "Gambar";
+                LoadDataToGrid(dt);
 
-                DataTable dtWithImage = new DataTable();
-                dtWithImage.Columns.Add("No", typeof(int));
-                dtWithImage.Columns.Add("Kode Barang", typeof(string));
-                dtWithImage.Columns.Add("Nama Barang", typeof(string));
-                dtWithImage.Columns.Add("Spesifikasi", typeof(string));
-                dtWithImage.Columns.Add("UoM", typeof(string));
-                dtWithImage.Columns.Add("Tipe", typeof(string));
-                dtWithImage.Columns.Add("Jumlah Stok", typeof(int));
-                dtWithImage.Columns.Add("Min Stok", typeof(int));
-                dtWithImage.Columns.Add("Gambar", typeof(Image)); 
-                dtWithImage.Columns.Add("Disimpan", typeof(DateTime));
-                dtWithImage.Columns.Add("Diubah", typeof(DateTime));
-                dtWithImage.Columns.Add("Remaks", typeof(string));
+                lblhalaman.Text = $"Halaman {currentPage} dari {totalPages}";
 
-                int no = 1;
-                foreach (DataRow row in dt.Rows)
-                {
-                    DataRow newRow = dtWithImage.NewRow();
-                    newRow["No"] = no++;
-                    newRow["Kode Barang"] = row["kodeBarang"];
-                    newRow["Nama Barang"] = row["namaBarang"];
-                    newRow["Spesifikasi"] = row["spesifikasi"];
-                    newRow["UoM"] = row["uom"];
-                    newRow["Tipe"] = row["type"];
-                    newRow["Jumlah Stok"] = row["jumlahStok"];
-                    newRow["Min Stok"] = row["min_stok"];
-                    newRow["Disimpan"] = row["created_at"];
-                    newRow["Diubah"] = row["updated_at"];
-                    newRow["Remaks"] = row["remaks"];
-
-                    if (row["Gambar"] != DBNull.Value)
-                    {
-                        byte[] imageBytes = (byte[])row["Gambar"];
-                        using (MemoryStream ms = new MemoryStream(imageBytes))
-                        {
-                            newRow["Gambar"] = Image.FromStream(ms);
-                        }
-                    }
-                    else
-                    {
-                        newRow["Gambar"] = null;
-                    }
-
-                    dtWithImage.Rows.Add(newRow);
-                }
-
-                dataGridView1.DataSource = dtWithImage;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.Columns["No"].FillWeight = 50;
-                dataGridView1.RowTemplate.Height = 130;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-                dataGridView1.ReadOnly = true;
-
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    row.Height = 100;
-                }
-
-                DataGridViewImageColumn imageCol = (DataGridViewImageColumn)dataGridView1.Columns["Gambar"];
-                imageCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
-                dataGridView1.RowHeadersVisible = false;
-                dataGridView1.DefaultCellStyle.Padding = new Padding(5);
-                dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif." + ex.Message,
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnleft.Enabled = currentPage > 1;
+                btnright.Enabled = currentPage < totalPages;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Terjadi kesalahan:\n" + ex.Message);
             }
         }
-
         private void cari()
         {
-            string keyword = txtcari.Text;
+            string keyword = "%" + txtcari.Text + "%";
+            currentPage = Math.Max(1, currentPage);
 
-            using (SqlCommand cmd = new SqlCommand("SELECT * FROM stok_material WHERE kodeBarang LIKE @keyword OR namaBarang LIKE @keyword ORDER BY created_at DESC;", conn))
+            isSearching = true;
+
+            lastSearchWhere = "FROM stok_material WHERE kodeBarang LIKE @key OR namaBarang LIKE @key";
+
+            lastSearchCmd = new SqlCommand();
+            lastSearchCmd.Parameters.AddWithValue("@key", keyword);
+
+            int offset = (currentPage - 1) * pageSize;
+
+            string query = @"
+        SELECT * FROM stok_material
+        WHERE kodeBarang LIKE @key OR namaBarang LIKE @key
+        ORDER BY updated_at DESC
+        OFFSET @offset ROWS 
+        FETCH NEXT @pageSize ROWS ONLY";
+
+            using (SqlCommand cmd = new SqlCommand(query, conn))
             {
-                cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                cmd.Parameters.AddWithValue("@key", keyword);
+                cmd.Parameters.AddWithValue("@offset", offset);
+                cmd.Parameters.AddWithValue("@pageSize", pageSize);
+
+                SqlDataAdapter ad = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
 
-                try
-                {
-                    conn.Open();
-                    da.Fill(dt);
+                conn.Open();
+                ad.Fill(dt);
+                conn.Close();
 
-                    dt.Columns["foto"].ColumnName = "Gambar";
+                HitungTotalDataPencarian();
 
-                    DataTable dtWithImage = new DataTable();
-                    dtWithImage.Columns.Add("No", typeof(int));
-                    dtWithImage.Columns.Add("Kode Barang", typeof(string));
-                    dtWithImage.Columns.Add("Nama Barang", typeof(string));
-                    dtWithImage.Columns.Add("Spesifikasi", typeof(string));
-                    dtWithImage.Columns.Add("UoM", typeof(string));
-                    dtWithImage.Columns.Add("Tipe", typeof(string));
-                    dtWithImage.Columns.Add("Jumlah Stok", typeof(int));
-                    dtWithImage.Columns.Add("Min Stok", typeof(int));
-                    dtWithImage.Columns.Add("Gambar", typeof(Image));
-                    dtWithImage.Columns.Add("Disimpan", typeof(DateTime));
-                    dtWithImage.Columns.Add("Diubah", typeof(DateTime));
-                    dtWithImage.Columns.Add("Remaks", typeof(string));
+                LoadDataToGrid(dt);
 
-                    int no = 1;
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        DataRow newRow = dtWithImage.NewRow();
-                        newRow["No"] = no++;
-                        newRow["Kode Barang"] = row["kodeBarang"];
-                        newRow["Nama Barang"] = row["namaBarang"];
-                        newRow["Spesifikasi"] = row["spesifikasi"];
-                        newRow["UoM"] = row["uom"];
-                        newRow["Tipe"] = row["type"];
-                        newRow["Jumlah Stok"] = row["jumlahStok"];
-                        newRow["Min Stok"] = row["min_stok"];
-                        newRow["Disimpan"] = row["created_at"];
-                        newRow["Diubah"] = row["updated_at"];
-                        newRow["Remaks"] = row["remaks"];
+                lblhalaman.Text = $"Halaman {currentPage} dari {totalPages}";
 
-                        if (row["Gambar"] != DBNull.Value)
-                        {
-                            byte[] imageBytes = (byte[])row["Gambar"];
-                            using (MemoryStream ms = new MemoryStream(imageBytes))
-                            {
-                                newRow["Gambar"] = Image.FromStream(ms);
-                            }
-                        }
-                        else
-                        {
-                            newRow["Gambar"] = null;
-                        }
-
-                        dtWithImage.Rows.Add(newRow);
-                    }
-
-                    dataGridView1.DataSource = dtWithImage;
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                    dataGridView1.Columns["No"].FillWeight = 50;
-                    dataGridView1.RowTemplate.Height = 130;
-                    dataGridView1.ReadOnly = true;
-
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
-                    {
-                        row.Height = 100;
-                    }
-
-                    DataGridViewImageColumn imageCol = (DataGridViewImageColumn)dataGridView1.Columns["Gambar"];
-                    imageCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
-                    dataGridView1.RowHeadersVisible = false;
-                    dataGridView1.DefaultCellStyle.Padding = new Padding(5);
-                    dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
+                btnleft.Enabled = currentPage > 1;
+                btnright.Enabled = currentPage < totalPages;
+                btnreset.Enabled = true;
             }
         }
 
@@ -480,11 +490,6 @@ namespace GOS_FxApps
             }
         }
 
-        private void txtcari_TextChanged(object sender, EventArgs e)
-        {
-            cari();
-        }
-
         private void btnopenfile_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -508,6 +513,53 @@ namespace GOS_FxApps
         private void picturebox_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btncari_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtcari.Text))
+            {
+                MessageBox.Show("Masukkan Kode Barang atau Nama Barang terlebih dahulu.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            currentPage = 1;
+            cari();
+        }
+
+        private void btnleft_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+            {
+                currentPage--;
+                if (isSearching) cari();
+                else tampil();
+            }
+        }
+
+        private void btnright_Click(object sender, EventArgs e)
+        {
+            if (currentPage < totalPages)
+            {
+                currentPage++;
+                if (isSearching) cari();
+                else tampil();
+            }
+        }
+
+        private void btnreset_Click(object sender, EventArgs e)
+        {
+            txtcari.Text = "";
+            isSearching = false;
+            currentPage = 1;
+            lastSearchCmd = null;
+            lastSearchWhere = "";
+            searchTotalRecords = 0;
+
+            btnreset.Enabled = false;
+
+            HitungTotalData();
+            tampil();
         }
     }
 }
