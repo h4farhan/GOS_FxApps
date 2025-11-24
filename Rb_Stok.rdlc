@@ -3383,10 +3383,22 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>="Month : " &amp; Choose(CInt(Parameters!bulan.Value), 
-"January", "February", "March", "April", "May", "June", 
-"July", "August", "September", "October", "November", "December") 
-&amp; " " &amp; Parameters!tahun.Value</Value>
+                      <Value>=IIF(
+    Month(CDate(Parameters!tanggalMulai.Value)) = Month(CDate(Parameters!tanggalAkhir.Value)) 
+    AND 
+    Year(CDate(Parameters!tanggalMulai.Value)) = Year(CDate(Parameters!tanggalAkhir.Value)),
+    
+    "Month : " &amp; 
+    MonthName(Month(CDate(Parameters!tanggalMulai.Value))) &amp; " " &amp;
+    Year(CDate(Parameters!tanggalMulai.Value)),
+
+    "Month : " &amp;
+    MonthName(Month(CDate(Parameters!tanggalMulai.Value))) &amp; " " &amp; 
+    Year(CDate(Parameters!tanggalMulai.Value)) &amp;
+    " - " &amp;
+    MonthName(Month(CDate(Parameters!tanggalAkhir.Value))) &amp; " " &amp; 
+    Year(CDate(Parameters!tanggalAkhir.Value))
+)</Value>
                       <Style>
                         <FontFamily>Consolas</FontFamily>
                         <FontWeight>Bold</FontWeight>
@@ -3434,11 +3446,11 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="bulan">
+    <ReportParameter Name="tanggalMulai">
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
-    <ReportParameter Name="tahun">
+    <ReportParameter Name="tanggalAkhir">
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
@@ -3451,12 +3463,12 @@
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>bulan</ParameterName>
+          <ParameterName>tanggalMulai</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>tahun</ParameterName>
+          <ParameterName>tanggalAkhir</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

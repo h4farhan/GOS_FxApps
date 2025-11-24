@@ -390,7 +390,11 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!TanggalMasuk.Value</Value>
+                                      <Value>=IIF(
+    Month(Parameters!tanggalMulai.Value) = Month(Parameters!tanggalAkhir.Value),
+    Format(Fields!TanggalMasuk.Value, "dd"),
+    Format(Fields!TanggalMasuk.Value, "dd MMM")
+)</Value>
                                       <Style>
                                         <FontFamily>Arial Narrow</FontFamily>
                                         <FontSize>9pt</FontSize>
@@ -497,7 +501,11 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!TanggalKeluar.Value</Value>
+                                      <Value>=IIF(
+    Month(Parameters!tanggalMulai.Value) = Month(Parameters!tanggalAkhir.Value),
+    Format(Fields!TanggalKeluar.Value, "dd"),
+    Format(Fields!TanggalKeluar.Value, "dd MMM")
+)</Value>
                                       <Style>
                                         <FontFamily>Arial Narrow</FontFamily>
                                         <FontSize>9pt</FontSize>
@@ -522,6 +530,7 @@
                                 <PaddingBottom>2pt</PaddingBottom>
                               </Style>
                             </Textbox>
+                            <rd:Selected>true</rd:Selected>
                           </CellContents>
                         </TablixCell>
                         <TablixCell>
@@ -1061,9 +1070,15 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Choose(CInt(Parameters!bulan.Value), 
-"Januari", "Februari", "Maret", "April", "Mei", "Juni", 
-"Juli", "Agustus", "September", "Oktober", "November", "Desember")</Value>
+                              <Value>=IIF(
+    Month(CDate(Parameters!tanggalMulai.Value)) = Month(CDate(Parameters!tanggalAkhir.Value)),
+
+    Format(CDate(Parameters!tanggalMulai.Value), "MMM"),
+
+    Format(CDate(Parameters!tanggalMulai.Value), "MMM") &amp;
+    " - " &amp;
+    Format(CDate(Parameters!tanggalAkhir.Value), "MMM")
+)</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                               </Style>
@@ -1076,7 +1091,7 @@
                       <Top>3.39958cm</Top>
                       <Left>1.85957cm</Left>
                       <Height>0.6cm</Height>
-                      <Width>2.8867cm</Width>
+                      <Width>4.82698cm</Width>
                       <ZIndex>5</ZIndex>
                       <Style>
                         <Border>
@@ -1107,7 +1122,7 @@
                       </Paragraphs>
                       <rd:DefaultName>Textbox22</rd:DefaultName>
                       <Top>3.39958cm</Top>
-                      <Left>4.92266cm</Left>
+                      <Left>6.82766cm</Left>
                       <Height>0.6cm</Height>
                       <Width>1.40096cm</Width>
                       <ZIndex>6</ZIndex>
@@ -1134,7 +1149,14 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Parameters!tahun.Value</Value>
+                              <Value>=IIF(
+    Year(CDate(Parameters!tanggalMulai.Value)) = Year(CDate(Parameters!tanggalAkhir.Value)),
+
+    Year(CDate(Parameters!tanggalMulai.Value)),
+
+    Year(CDate(Parameters!tanggalMulai.Value)) &amp; " - " &amp;
+    Year(CDate(Parameters!tanggalAkhir.Value))
+)</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                               </Style>
@@ -1145,9 +1167,9 @@
                       </Paragraphs>
                       <rd:DefaultName>Textbox22</rd:DefaultName>
                       <Top>3.39958cm</Top>
-                      <Left>6.50001cm</Left>
+                      <Left>8.40501cm</Left>
                       <Height>0.6cm</Height>
-                      <Width>2.8867cm</Width>
+                      <Width>4.50917cm</Width>
                       <ZIndex>7</ZIndex>
                       <Style>
                         <Border>
@@ -1639,11 +1661,11 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="bulan">
+    <ReportParameter Name="tanggalMulai">
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
-    <ReportParameter Name="tahun">
+    <ReportParameter Name="tanggalAkhir">
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
@@ -1660,12 +1682,12 @@
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>bulan</ParameterName>
+          <ParameterName>tanggalMulai</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>tahun</ParameterName>
+          <ParameterName>tanggalAkhir</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>2</ColumnIndex>
