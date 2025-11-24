@@ -44,6 +44,7 @@
             this.shadowform = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             this.btnregis.HoverState.BorderColor = System.Drawing.Color.RoyalBlue;
             this.btnregis.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnregis.HoverState.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnregis.Location = new System.Drawing.Point(294, 444);
+            this.btnregis.Location = new System.Drawing.Point(294, 464);
             this.btnregis.Margin = new System.Windows.Forms.Padding(2);
             this.btnregis.Name = "btnregis";
             this.btnregis.Size = new System.Drawing.Size(134, 35);
@@ -161,7 +162,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(204, 356);
+            this.label4.Location = new System.Drawing.Point(204, 376);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 20);
@@ -199,6 +200,7 @@
             this.txtpass.Location = new System.Drawing.Point(204, 303);
             this.txtpass.Margin = new System.Windows.Forms.Padding(2);
             this.txtpass.Name = "txtpass";
+            this.txtpass.PasswordChar = '*';
             this.txtpass.PlaceholderText = "";
             this.txtpass.SelectedText = "";
             this.txtpass.Size = new System.Drawing.Size(333, 40);
@@ -226,7 +228,7 @@
             "Operator Gudang",
             "Foreman",
             "Asisten Foreman"});
-            this.cmblevel.Location = new System.Drawing.Point(204, 383);
+            this.cmblevel.Location = new System.Drawing.Point(204, 403);
             this.cmblevel.Margin = new System.Windows.Forms.Padding(2);
             this.cmblevel.Name = "cmblevel";
             this.cmblevel.Size = new System.Drawing.Size(333, 36);
@@ -293,12 +295,26 @@
             this.iconButton1.UseVisualStyleBackColor = false;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.ForeColor = System.Drawing.Color.White;
+            this.checkBox1.Location = new System.Drawing.Point(204, 348);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(112, 18);
+            this.checkBox1.TabIndex = 29;
+            this.checkBox1.Text = "Show Password";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // registrasi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(36)))));
-            this.ClientSize = new System.Drawing.Size(735, 529);
+            this.ClientSize = new System.Drawing.Size(735, 538);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.guna2Separator1);
             this.Controls.Add(this.cmblevel);
@@ -340,5 +356,6 @@
         private Guna.UI2.WinForms.Guna2BorderlessForm shadowform;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

@@ -1203,18 +1203,18 @@ ORDER BY tanggal ASC, shift ASC, id_stok ASC";
 
                 idmulai = Convert.ToInt32(row.Cells["id_stok"].Value);
 
-                using (SqlConnection conn = Koneksi.GetConnection())
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT MIN(id_stok) FROM Rb_Stok", conn);
-                    int firstId = (int)cmd.ExecuteScalar();
+                //using (SqlConnection conn = Koneksi.GetConnection())
+                //{
+                //    conn.Open();
+                //    SqlCommand cmd = new SqlCommand("SELECT MIN(id_stok) FROM Rb_Stok", conn);
+                //    int firstId = (int)cmd.ExecuteScalar();
 
-                    if (idmulai == firstId)
-                    {
-                        MessageBox.Show("Data ini tidak bisa diedit.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-                }
+                //    if (idmulai == firstId)
+                //    {
+                //        MessageBox.Show("Data ini tidak bisa diedit.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //        return;
+                //    }
+                //}
 
                 date.Value = Convert.ToDateTime(row.Cells["tanggal"].Value);
                 shift.SelectedItem = row.Cells["shift"].Value.ToString();
