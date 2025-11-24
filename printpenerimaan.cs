@@ -25,134 +25,12 @@ namespace GOS_FxApps
     {
         SqlConnection conn = Koneksi.GetConnection();
 
-        bool infocari = false;
         private bool isBinding = false;
         bool isProgrammaticChange = false;
 
         public printpenerimaan()
         {
             InitializeComponent();
-            dataGridView1.ClearSelection();
-        }
-
-        private void registerpenerimaan()
-        {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.penerimaan_p", conn))
-            {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
-                {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            tampilpenerimaan();
-                            jumlahdata();
-                            registerpenerimaan();
-                        }));
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
-            }
-        }
-
-        private void registerperbaikan()
-        {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.perbaikan_p", conn))
-            {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
-                {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            tampilperbaikan();
-                            jumlahdata();
-                            registerperbaikan();
-                        }));
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
-            }
-        }
-
-        private void registerpengiriman()
-        {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.pengiriman", conn))
-            {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
-                {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            tampilpengiriman();
-                            jumlahdata();
-                            registerpengiriman();
-                        }));
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
-            }
-        }
-
-        private void registerpemakaian()
-        {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.pemakaian_material", conn))
-            {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
-                {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            tampilpemakaianmaterial();
-                            jumlahdata();
-                            registerpemakaian();
-                        }));
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
-            }
-        }
-
-        private void registerwelding()
-        {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.Rb_Stok", conn))
-            {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
-                {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            tampilwelding();
-                            jumlahdata();
-                            registerwelding();
-                        }));
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
-            }
         }
 
         private void formpenerimaan()
@@ -177,16 +55,18 @@ namespace GOS_FxApps
                 var adapter2 = new GOS_FxApps.DataSet.PenerimaanFormTableAdapters.jumlahpenerimaan2TableAdapter();
                 GOS_FxApps.DataSet.PenerimaanForm.jumlahpenerimaan2DataTable data2 = adapter2.GetData(tanggal1, tanggal2);
 
-            frmrpt = new reportviewr();
-                frmrpt.reportViewer1.Reset();
-                frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "penerimaan.rdlc");
+                int total = data.Rows.Count;
+                label4.Text = "Jumlah data: " + total;
 
-                frmrpt.reportViewer1.LocalReport.DataSources.Clear();
-                frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.Reset();
+                reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "penerimaan.rdlc");
+
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.LocalReport.DataSources.Add(
                     new ReportDataSource("DataSetPenerimaan", (DataTable)data));
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                         new ReportDataSource("datasetjumlahpenerimaan1", (DataTable)data1));
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                         new ReportDataSource("datasetjumlahpenerimaan2", (DataTable)data2));
 
             ReportParameter[] parameters = new ReportParameter[]
@@ -196,63 +76,42 @@ namespace GOS_FxApps
             new ReportParameter("shift", shift),
             new ReportParameter("tim", tim)
                 };
-                frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
-                frmrpt.reportViewer1.RefreshReport();
-
-                frmrpt.Show();
+                reportViewer1.LocalReport.SetParameters(parameters);
+                reportViewer1.RefreshReport();
         }
 
         private void formPemakaian()
         {
-            int bulan = datecaripemakaian.Value.Month;     
-            int tahun = datecaripemakaian.Value.Year;
+            DateTime tanggalmulai = tanggalMulai.Value.Date;
+            DateTime tanggalakhir = tanggalAkhir.Value.Date;
 
-            int jumlahHari = DateTime.DaysInMonth(tahun, bulan);
-
-            string namaFileRDLC = null;
-            switch (jumlahHari)
-            {
-                case 28:
-                    namaFileRDLC = "laporanPemakaian_28.rdlc";
-                    break;
-                case 29:
-                    namaFileRDLC = "laporanPemakaian_29.rdlc";
-                    break;
-                case 30:
-                    namaFileRDLC = "laporanPemakaian_30.rdlc";
-                    break;
-                case 31:
-                    namaFileRDLC = "laporanPemakaian_31.rdlc";
-                    break;
-            }
+            string namaFileRDLC = "laporanPemakaian_31.rdlc"; ;
 
             var adapter = new GOS_FxApps.DataSet.laporanpemakaianTableAdapters.sp_LaporanPemakaianMaterialTableAdapter();
-            GOS_FxApps.DataSet.laporanpemakaian.sp_LaporanPemakaianMaterialDataTable data = adapter.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.laporanpemakaian.sp_LaporanPemakaianMaterialDataTable data = adapter.GetData(tanggalmulai, tanggalakhir);
 
             var adapterperbaikan = new GOS_FxApps.DataSet.PerbaikanFormTableAdapters.sp_LaporanPerbaikanTableAdapter();
-            GOS_FxApps.DataSet.PerbaikanForm.sp_LaporanPerbaikanDataTable dataperbaikan = adapterperbaikan.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.PerbaikanForm.sp_LaporanPerbaikanDataTable dataperbaikan = adapterperbaikan.GetData(tanggalmulai, tanggalakhir);
 
-            frmrpt = new reportviewr();
-            frmrpt.reportViewer1.Reset();
-            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, namaFileRDLC);
+            reportViewer1.Reset();
+            reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, namaFileRDLC);
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.LocalReport.DataSources.Clear();
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetlaporanpemakaian", (DataTable)data));
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetjumlahperbaikan", (DataTable)dataperbaikan));
 
             ReportParameter[] parameters = new ReportParameter[]
             {
-        new ReportParameter("bulan", bulan.ToString()),
-        new ReportParameter("tahun", tahun.ToString())
+        new ReportParameter("tanggalMulai", tanggalmulai.ToString("yyyy-MM-dd")),
+        new ReportParameter("tanggalAkhir", tanggalakhir.ToString("yyyy-MM-dd"))
             };
 
-            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
-            frmrpt.reportViewer1.RefreshReport();
-            frmrpt.Show();
+            reportViewer1.LocalReport.SetParameters(parameters);
+            reportViewer1.RefreshReport();
         }
 
         private void formperbaikan()
@@ -277,18 +136,20 @@ namespace GOS_FxApps
             var adapter2 = new GOS_FxApps.DataSet.PerbaikanFormTableAdapters.jumlahperbaikan2TableAdapter();
             GOS_FxApps.DataSet.PerbaikanForm.jumlahperbaikan2DataTable data2 = adapter2.GetData(tanggal1, tanggal2);
 
-            frmrpt = new reportviewr();
-            frmrpt.reportViewer1.Reset();
-            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "Perbaikan.rdlc");
+            int total = data.Rows.Count;
+            label4.Text = "Jumlah data: " + total;
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.Reset();
+            reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "Perbaikan.rdlc");
+
+            reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("DataSetPerbaikan", (DataTable)data));
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetjumlahperbaikan1", (DataTable)data1));
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetjumlahperbaikan2", (DataTable)data2));
 
             ReportParameter[] parameters = new ReportParameter[]
@@ -298,10 +159,8 @@ namespace GOS_FxApps
             new ReportParameter("shift", shift),
             new ReportParameter("tim", tim)
             };
-            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
-            frmrpt.reportViewer1.RefreshReport();
-
-            frmrpt.Show();
+            reportViewer1.LocalReport.SetParameters(parameters);
+            reportViewer1.RefreshReport();
         }
 
         private void formpengiriman()
@@ -335,12 +194,14 @@ namespace GOS_FxApps
                 data.Rows.Add(row);           
             }
 
-            frmrpt = new reportviewr();
-            frmrpt.reportViewer1.Reset();
-            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "Pengiriman.rdlc");
+            int total = data.Rows.Count;
+            label4.Text = "Jumlah data: " + total;
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSetPengiriman", (DataTable)data));
+            reportViewer1.Reset();
+            reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "Pengiriman.rdlc");
+
+            reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSetPengiriman", (DataTable)data));
 
             ReportParameter[] parameters = new ReportParameter[]
             {
@@ -349,354 +210,293 @@ namespace GOS_FxApps
             new ReportParameter("shift", shift),
             new ReportParameter("tim", tim)
             };
-            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
-            frmrpt.reportViewer1.RefreshReport();
-
-            frmrpt.Show();
+            reportViewer1.LocalReport.SetParameters(parameters);
+            reportViewer1.RefreshReport();
         }
 
         private void formwelding()
         {
-            int bulan = datecaripemakaian.Value.Month;
-            int tahun = datecaripemakaian.Value.Year;
+            DateTime tanggalmulai = tanggalMulai.Value.Date;
+            DateTime tanggalakhir = tanggalAkhir.Value.Date;
 
             var adapter = new GOS_FxApps.DataSet.rb_stokTableAdapters.sp_Rb_StokTableAdapter();
-            GOS_FxApps.DataSet.rb_stok.sp_Rb_StokDataTable data = adapter.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.rb_stok.sp_Rb_StokDataTable data = adapter.GetData(tanggalmulai, tanggalakhir);
 
             var adapterfirst = new GOS_FxApps.DataSet.rb_stokTableAdapters.Rb_StokTableAdapter();
-            GOS_FxApps.DataSet.rb_stok.Rb_StokDataTable datafirst = adapterfirst.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.rb_stok.Rb_StokDataTable datafirst = adapterfirst.GetData(tanggalmulai, tanggalakhir);
+            
+            reportViewer1.Reset();
+            reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "Rb_Stok.rdlc");
 
-            frmrpt = new reportviewr();
-            frmrpt.reportViewer1.Reset();
-            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "Rb_Stok.rdlc");
+            reportViewer1.LocalReport.DataSources.Clear();
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
-
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetrbstok", (DataTable)data));
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetfirstrbstok", (DataTable)datafirst));
 
             ReportParameter[] parameters = new ReportParameter[]
             {
-        new ReportParameter("bulan", bulan.ToString()),
-        new ReportParameter("tahun", tahun.ToString())
+        new ReportParameter("tanggalMulai", tanggalmulai.ToString("yyyy-MM-dd")),
+        new ReportParameter("tanggalAkhir", tanggalakhir.ToString("yyyy-MM-dd"))
             };
 
-            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
-            frmrpt.reportViewer1.RefreshReport();
-            frmrpt.Show();
+            reportViewer1.LocalReport.SetParameters(parameters);
+            reportViewer1.RefreshReport();
         }
 
         private void formweldinghari()
         {
-            int bulan = datecaripemakaian.Value.Month;
-            int tahun = datecaripemakaian.Value.Year;
+            DateTime tanggalmulai = tanggalMulai.Value.Date;
+            DateTime tanggalakhir = tanggalAkhir.Value.Date;
 
             var adapter = new GOS_FxApps.DataSet.rb_stokTableAdapters.sp_Rb_StokhariTableAdapter();
-            GOS_FxApps.DataSet.rb_stok.sp_Rb_StokhariDataTable data = adapter.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.rb_stok.sp_Rb_StokhariDataTable data = adapter.GetData(tanggalmulai, tanggalakhir);
 
             var adapterfirst = new GOS_FxApps.DataSet.rb_stokTableAdapters.Rb_StokTableAdapter();
-            GOS_FxApps.DataSet.rb_stok.Rb_StokDataTable datafirst = adapterfirst.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.rb_stok.Rb_StokDataTable datafirst = adapterfirst.GetData(tanggalmulai, tanggalakhir);
 
-            frmrpt = new reportviewr();
-            frmrpt.reportViewer1.Reset();
-            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "Rb_Stokhari.rdlc");
+            reportViewer1.Reset();
+            reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "Rb_Stokhari.rdlc");
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.LocalReport.DataSources.Clear();
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetrbstokhari", (DataTable)data));
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetstokawal", (DataTable)datafirst));
 
             ReportParameter[] parameters = new ReportParameter[]
             {
-        new ReportParameter("bulan", bulan.ToString()),
-        new ReportParameter("tahun", tahun.ToString())
+        new ReportParameter("tanggalMulai", tanggalmulai.ToString("yyyy-MM-dd")),
+        new ReportParameter("tanggalAkhir", tanggalakhir.ToString("yyyy-MM-dd"))
             };
 
-            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
-            frmrpt.reportViewer1.RefreshReport();
-            frmrpt.Show();
+            reportViewer1.LocalReport.SetParameters(parameters);
+            reportViewer1.RefreshReport();
         }
 
         private void formlaporanharian()
         {
-            int bulan = datecaripemakaian.Value.Month;
-            int tahun = datecaripemakaian.Value.Year;
+            DateTime tanggalmulai = tanggalMulai.Value.Date;
+            DateTime tanggalakhir = tanggalAkhir.Value.Date;
 
             var adapter = new GOS_FxApps.DataSet.PerbaikanFormTableAdapters.sp_Laporan_HarianTableAdapter();
-            GOS_FxApps.DataSet.PerbaikanForm.sp_Laporan_HarianDataTable data = adapter.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.PerbaikanForm.sp_Laporan_HarianDataTable data = adapter.GetData(tanggalmulai, tanggalakhir);
 
-            frmrpt = new reportviewr();
-            frmrpt.reportViewer1.Reset();
-            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "produksiharian.rdlc");
+            int total = data.Rows.Count;
+            lbljumlahsummary.Text = "Jumlah data: " + total;
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.Reset();
+            reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "produksiharian.rdlc");
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Clear();
+
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetharian", (DataTable)data));
 
             ReportParameter[] parameters = new ReportParameter[]
             {
-        new ReportParameter("bulan", bulan.ToString()),
-        new ReportParameter("tahun", tahun.ToString())
+        new ReportParameter("tanggalMulai", tanggalmulai.ToString("yyyy-MM-dd")),
+        new ReportParameter("tanggalAkhir", tanggalakhir.ToString("yyyy-MM-dd"))
             };
 
-            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
-            frmrpt.reportViewer1.RefreshReport();
-            frmrpt.Show();
+            reportViewer1.LocalReport.SetParameters(parameters);
+            reportViewer1.RefreshReport();
         }
 
         private void formactual()
         {
-            int bulan = datecaripemakaian.Value.Month;
-            int tahun = datecaripemakaian.Value.Year;
+            DateTime tanggalmulai = tanggalMulai.Value.Date;
+            DateTime tanggalakhir = tanggalAkhir.Value.Date;
 
-            int jumlahHari = DateTime.DaysInMonth(tahun, bulan);
-
-            string namaFileRDLC = null;
-            switch (jumlahHari)
-            {
-                case 28:
-                    namaFileRDLC = "actual_28.rdlc";
-                    break;
-                case 29:
-                    namaFileRDLC = "actual_29.rdlc";
-                    break;
-                case 30:
-                    namaFileRDLC = "actual_30.rdlc";
-                    break;
-                case 31:
-                    namaFileRDLC = "actual_31.rdlc";
-                    break;
-            }
+            string namaFileRDLC = "actual_31.rdlc";
 
             var adapteractual = new GOS_FxApps.DataSet.actualTableAdapters.sp_LaporanActualTableAdapter();
-            GOS_FxApps.DataSet.actual.sp_LaporanActualDataTable dataactual = adapteractual.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.actual.sp_LaporanActualDataTable dataactual = adapteractual.GetData(tanggalmulai, tanggalakhir);
 
             var adapterperbaikan = new GOS_FxApps.DataSet.actualTableAdapters.sp_LaporanShiftPerbaikanTableAdapter();
-            GOS_FxApps.DataSet.actual.sp_LaporanShiftPerbaikanDataTable dataperbaikan = adapterperbaikan.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.actual.sp_LaporanShiftPerbaikanDataTable dataperbaikan = adapterperbaikan.GetData(tanggalmulai, tanggalakhir);
 
             var adapterpenerimaan = new GOS_FxApps.DataSet.actualTableAdapters.sp_LaporanShiftPenerimaanTableAdapter();
-            GOS_FxApps.DataSet.actual.sp_LaporanShiftPenerimaanDataTable datapenerimaan = adapterpenerimaan.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.actual.sp_LaporanShiftPenerimaanDataTable datapenerimaan = adapterpenerimaan.GetData(tanggalmulai, tanggalakhir);
 
-            frmrpt = new reportviewr();
-            frmrpt.reportViewer1.Reset();
-            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, namaFileRDLC);
+            reportViewer1.Reset();
+            reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, namaFileRDLC);
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.LocalReport.DataSources.Clear();
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetactual", (DataTable)dataactual));
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetshiftperbaikan", (DataTable)dataperbaikan));
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetshiftpenerimaan", (DataTable)datapenerimaan));
 
             ReportParameter[] parameters = new ReportParameter[]
             {
-        new ReportParameter("bulan", bulan.ToString()),
-        new ReportParameter("tahun", tahun.ToString())
+        new ReportParameter("tanggalMulai", tanggalmulai.ToString("yyyy-MM-dd")),
+        new ReportParameter("tanggalAkhir", tanggalakhir.ToString("yyyy-MM-dd"))
             };
 
-            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
-            frmrpt.reportViewer1.RefreshReport();
-            frmrpt.Show();
+            reportViewer1.LocalReport.SetParameters(parameters);
+            reportViewer1.RefreshReport();
         }
 
         private void formkondisi()
         {
-            int bulan = datecaripemakaian.Value.Month;
-            int tahun = datecaripemakaian.Value.Year;
+            DateTime tanggalmulai = tanggalMulai.Value.Date;
+            DateTime tanggalakhir = tanggalAkhir.Value.Date;
 
-            int jumlahHari = DateTime.DaysInMonth(tahun, bulan);
-
-            string namaFileRDLC = null;
-            switch (jumlahHari)
-            {
-                case 28:
-                    namaFileRDLC = "kondisi_28.rdlc";
-                    break;
-                case 29:
-                    namaFileRDLC = "kondisi_29.rdlc";
-                    break;
-                case 30:
-                    namaFileRDLC = "kondisi_30.rdlc";
-                    break;
-                case 31:
-                    namaFileRDLC = "kondisi_31.rdlc";
-                    break;
-            }
+            string namaFileRDLC = "kondisi_31.rdlc";
 
             var adapterkondisi = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanKondisiPerbaikanTableAdapter();
-            GOS_FxApps.DataSet.kondisi.sp_LaporanKondisiPerbaikanDataTable datakondisi = adapterkondisi.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.kondisi.sp_LaporanKondisiPerbaikanDataTable datakondisi = adapterkondisi.GetData(tanggalmulai, tanggalakhir);
 
             var adapterperbaikan = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanShiftPerbaikanTableAdapter();
-            GOS_FxApps.DataSet.kondisi.sp_LaporanShiftPerbaikanDataTable dataperbaikan = adapterperbaikan.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.kondisi.sp_LaporanShiftPerbaikanDataTable dataperbaikan = adapterperbaikan.GetData(tanggalmulai, tanggalakhir);
 
             var adapterpenerimaan = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanShiftPenerimaanTableAdapter();
-            GOS_FxApps.DataSet.kondisi.sp_LaporanShiftPenerimaanDataTable datapenerimaan = adapterpenerimaan.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.kondisi.sp_LaporanShiftPenerimaanDataTable datapenerimaan = adapterpenerimaan.GetData(tanggalmulai, tanggalakhir);
 
             var adapterbutt = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanKondisiButtRatioTableAdapter();
-            GOS_FxApps.DataSet.kondisi.sp_LaporanKondisiButtRatioDataTable databutt = adapterbutt.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.kondisi.sp_LaporanKondisiButtRatioDataTable databutt = adapterbutt.GetData(tanggalmulai, tanggalakhir);
 
             var adapterman = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanKondisiManPowerTableAdapter();
-            GOS_FxApps.DataSet.kondisi.sp_LaporanKondisiManPowerDataTable dataman = adapterman.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.kondisi.sp_LaporanKondisiManPowerDataTable dataman = adapterman.GetData(tanggalmulai, tanggalakhir);
 
             var adapterreject = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanRejectBATableAdapter();
-            GOS_FxApps.DataSet.kondisi.sp_LaporanRejectBADataTable datareject = adapterreject.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.kondisi.sp_LaporanRejectBADataTable datareject = adapterreject.GetData(tanggalmulai, tanggalakhir);
 
             var adapterstokreguler = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanStokRegulerTableAdapter();
-            GOS_FxApps.DataSet.kondisi.sp_LaporanStokRegulerDataTable datastokreguler = adapterstokreguler.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.kondisi.sp_LaporanStokRegulerDataTable datastokreguler = adapterstokreguler.GetData(tanggalmulai, tanggalakhir);
 
             var adapterstok = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanKondisiStokTableAdapter();
-            GOS_FxApps.DataSet.kondisi.sp_LaporanKondisiStokDataTable datastok = adapterstok.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.kondisi.sp_LaporanKondisiStokDataTable datastok = adapterstok.GetData(tanggalmulai, tanggalakhir);
 
             var adapterstokrepair = new GOS_FxApps.DataSet.kondisiTableAdapters.sp_LaporanKondisiStokRepairTableAdapter();
-            GOS_FxApps.DataSet.kondisi.sp_LaporanKondisiStokRepairDataTable datastokrepair = adapterstokrepair.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.kondisi.sp_LaporanKondisiStokRepairDataTable datastokrepair = adapterstokrepair.GetData(tanggalmulai, tanggalakhir);
 
-            frmrpt = new reportviewr();
-            frmrpt.reportViewer1.Reset();
-            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, namaFileRDLC);
+            reportViewer1.Reset();
+            reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, namaFileRDLC);
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.LocalReport.DataSources.Clear();
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetkondisiperbaikan", (DataTable)datakondisi));
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetkondisishiftperbaikan", (DataTable)dataperbaikan));
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetkondisishiftpenerimaan", (DataTable)datapenerimaan));
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetkondisibuttratio", (DataTable)databutt));
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetkondisimanpower", (DataTable)dataman));
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetkondisirejectba", (DataTable)datareject));
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("dastasetkondisistokreguler", (DataTable)datastokreguler));
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetkondisistok", (DataTable)datastok));
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetkondisistokrepair", (DataTable)datastokrepair));
 
             ReportParameter[] parameters = new ReportParameter[]
             {
-        new ReportParameter("bulan", bulan.ToString()),
-        new ReportParameter("tahun", tahun.ToString())
+         new ReportParameter("tanggalMulai", tanggalmulai.ToString("yyyy-MM-dd")),
+        new ReportParameter("tanggalAkhir", tanggalakhir.ToString("yyyy-MM-dd"))
             };
 
-            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
-            frmrpt.reportViewer1.RefreshReport();
-            frmrpt.Show();
+            reportViewer1.LocalReport.SetParameters(parameters);
+            reportViewer1.RefreshReport();
+            Show();
         }
 
         private void formmaterial()
         {
-            int bulan = datematerial.Value.Month;
-            int tahun = datematerial.Value.Year;
+            DateTime tanggalmulai = tanggalMulaimaterial.Value.Date;
+            DateTime tanggalakhir = tanggalAkhirmaterial.Value.Date;
             string kode = cmbnamamaterial.SelectedValue.ToString();
 
             var adapter = new GOS_FxApps.DataSet.materialTableAdapters.cardMaterialTableAdapter();
-            GOS_FxApps.DataSet.material.cardMaterialDataTable data = adapter.GetData(tahun, bulan, kode);
+            GOS_FxApps.DataSet.material.cardMaterialDataTable data = adapter.GetData(tanggalmulai, tanggalakhir, kode);
 
             var adapter2 = new GOS_FxApps.DataSet.materialTableAdapters.sp_dataCardMaterialTableAdapter();
-            GOS_FxApps.DataSet.material.sp_dataCardMaterialDataTable data2 = adapter2.GetData(tahun, bulan, kode);
+            GOS_FxApps.DataSet.material.sp_dataCardMaterialDataTable data2 = adapter2.GetData(tanggalmulai, tanggalakhir, kode);
 
-            frmrpt = new reportviewr();
-            frmrpt.reportViewer1.Reset();
-            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "cardmaterial.rdlc");
+            reportViewer1.Reset();
+            reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "cardmaterial.rdlc");
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("cardmaterial", (DataTable)data));
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("dataCardMaterial", (DataTable)data2));
 
             ReportParameter[] parameters = new ReportParameter[]
             {
-            new ReportParameter("bulan", bulan.ToString()),
-            new ReportParameter("tahun", tahun.ToString()),
+            new ReportParameter("tanggalMulai", tanggalmulai.ToString("yyyy-MM-dd")),
+        new ReportParameter("tanggalAkhir", tanggalakhir.ToString("yyyy-MM-dd")),
             new ReportParameter("kode", kode)
             };
-            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
-            frmrpt.reportViewer1.RefreshReport();
+            reportViewer1.LocalReport.SetParameters(parameters);
+            reportViewer1.RefreshReport();
 
-            frmrpt.Show();
+            Show();
         }
 
         private void formconsumption()
         {
-            int bulan = datecaripemakaian.Value.Month;
-            int tahun = datecaripemakaian.Value.Year;
+            DateTime tanggalmulai = tanggalMulai.Value.Date;
+            DateTime tanggalakhir = tanggalAkhir.Value.Date;
 
-            int jumlahHari = DateTime.DaysInMonth(tahun, bulan);
-
-            string namaFileRDLC = null;
-            switch (jumlahHari)
-            {
-                case 28:
-                    namaFileRDLC = "consumption28.rdlc";
-                    break;
-                case 29:
-                    namaFileRDLC = "consumption29.rdlc";
-                    break;
-                case 30:
-                    namaFileRDLC = "consumption30.rdlc";
-                    break;
-                case 31:
-                    namaFileRDLC = "consumption31.rdlc";
-                    break;
-            }
+            string namaFileRDLC = "consumption31.rdlc";
 
             var adaptermaterial = new GOS_FxApps.DataSet.buktiTableAdapters.sp_consumptionmaterialcostTableAdapter();
-            GOS_FxApps.DataSet.bukti.sp_consumptionmaterialcostDataTable datamaterial = adaptermaterial.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.bukti.sp_consumptionmaterialcostDataTable datamaterial = adaptermaterial.GetData(tanggalmulai, tanggalakhir);
 
             var adapterconsumable = new GOS_FxApps.DataSet.buktiTableAdapters.sp_consumptionconsumablecostTableAdapter();
-            GOS_FxApps.DataSet.bukti.sp_consumptionconsumablecostDataTable dataconsumable = adapterconsumable.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.bukti.sp_consumptionconsumablecostDataTable dataconsumable = adapterconsumable.GetData(tanggalmulai, tanggalakhir);
 
             var adaptersafety = new GOS_FxApps.DataSet.buktiTableAdapters.sp_consumptionsafetycostTableAdapter();
-            GOS_FxApps.DataSet.bukti.sp_consumptionsafetycostDataTable datasafety = adaptersafety.GetData(bulan, tahun);
+            GOS_FxApps.DataSet.bukti.sp_consumptionsafetycostDataTable datasafety = adaptersafety.GetData(tanggalmulai, tanggalakhir);
 
-            frmrpt = new reportviewr();
-            frmrpt.reportViewer1.Reset();
-            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, namaFileRDLC);
+            reportViewer1.Reset();
+            reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, namaFileRDLC);
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.LocalReport.DataSources.Clear();
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("consumptionmaterial", (DataTable)datamaterial));
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("consumptionconsumable", (DataTable)dataconsumable));
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("consumptionsafety", (DataTable)datasafety));
 
             ReportParameter[] parameters = new ReportParameter[]
             {
-        new ReportParameter("bulan", bulan.ToString()),
-        new ReportParameter("tahun", tahun.ToString())
+        new ReportParameter("tanggalMulai", tanggalmulai.ToString("yyyy-MM-dd")),
+        new ReportParameter("tanggalAkhir", tanggalakhir.ToString("yyyy-MM-dd"))
             };
 
-            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
-            frmrpt.reportViewer1.RefreshReport();
-            frmrpt.Show();
+            reportViewer1.LocalReport.SetParameters(parameters);
+            reportViewer1.RefreshReport();
+            Show();
         }
 
         private void formbukti()
@@ -713,12 +513,11 @@ namespace GOS_FxApps
             var adapter = new GOS_FxApps.DataSet.buktiTableAdapters.sp_buktiperubahanTableAdapter();
             GOS_FxApps.DataSet.bukti.sp_buktiperubahanDataTable data = adapter.GetData(tanggal, shift);
 
-            frmrpt = new reportviewr();
-            frmrpt.reportViewer1.Reset();
-            frmrpt.reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "buktiperubahan.rdlc");
+            reportViewer1.Reset();
+            reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "buktiperubahan.rdlc");
 
-            frmrpt.reportViewer1.LocalReport.DataSources.Clear();
-            frmrpt.reportViewer1.LocalReport.DataSources.Add(
+            reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("datasetbukti", (DataTable)data));
 
             ReportParameter[] parameters = new ReportParameter[]
@@ -726,13 +525,11 @@ namespace GOS_FxApps
             new ReportParameter("TanggalAwal", tanggal.ToString("yyyy-MM-dd")),
             new ReportParameter("Shift", shift),
             };
-            frmrpt.reportViewer1.LocalReport.SetParameters(parameters);
-            frmrpt.reportViewer1.RefreshReport();
+            reportViewer1.LocalReport.SetParameters(parameters);
+            reportViewer1.RefreshReport();
 
-            frmrpt.Show();
+            Show();
         }
-
-        private reportviewr frmrpt;
 
         private void guna2Button2_Click(object sender, EventArgs e) 
         {
@@ -743,470 +540,243 @@ namespace GOS_FxApps
 
             if (pilihan == "Penerimaan")
             {
+                string shift = cbShift.SelectedItem?.ToString();
+
+                if (string.IsNullOrEmpty(shift) || txttim.Text == "")
+                {
+                    MessageBox.Show("Silakan Masukkan Tanggal, Shift dan Tim untuk melakukan Print Data.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 formpenerimaan();
+                btnreset.Enabled = true;
             }
             else if (pilihan == "Perbaikan")
             {
+                string shift = cbShift.SelectedItem?.ToString();
+
+                if (string.IsNullOrEmpty(shift) || txttim.Text == "")
+                {
+                    MessageBox.Show("Silakan Masukkan Tanggal, Shift dan Tim untuk melakukan Print Data.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 formperbaikan();
+                btnreset.Enabled = true;
             }
             else if (pilihan == "Pengiriman")
             {
+                string shift = cbShift.SelectedItem?.ToString();
+
+                if (string.IsNullOrEmpty(shift) || txttim.Text == "")
+                {
+                    MessageBox.Show("Silakan Masukkan Tanggal, Shift dan Tim untuk melakukan Print Data.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 formpengiriman();
+                btnreset.Enabled = true;
             }
             else if (pilihan == "Welding Pieces (Detail Shift)")
             {
+                if (tanggalMulai.Value.Date > tanggalAkhir.Value.Date)
+                {
+                    MessageBox.Show("Tanggal Mulai harus kurang dari atau sama dengan Tanggal Akhir agar valid", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 formwelding();
+                btnreset.Enabled = true;
             }
             else if (pilihan == "Welding Pieces (Rekap Harian)")
             {
+                if (tanggalMulai.Value.Date > tanggalAkhir.Value.Date)
+                {
+                    MessageBox.Show("Tanggal Mulai harus kurang dari atau sama dengan Tanggal Akhir agar valid", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 formweldinghari();
+                btnreset.Enabled = true;
             }
             else if (pilihan == "Hasil Produksi & Pemakaian Material")
             {
+                DateTime mulai = tanggalMulai.Value.Date;
+                DateTime akhir = tanggalAkhir.Value.Date;
+
+                int selisih = (akhir - mulai).Days + 1;
+
+                if (selisih > 31)
+                {
+                    MessageBox.Show("Rentang pencarian maksimal 31 hari!",
+                                    "Peringatan",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (mulai > akhir)
+                {
+                    MessageBox.Show("Tanggal Mulai harus kurang dari atau sama dengan Tanggal Akhir agar valid",
+                                    "Peringatan",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    return;
+                }
+
                 formPemakaian();
+                btnreset.Enabled = true;
             }
             else if (pilihan == "Summary Data for Anode ROD Repair")
             {
+                if (tanggalMulai.Value.Date > tanggalAkhir.Value.Date)
+                {
+                    MessageBox.Show("Tanggal Mulai harus kurang dari atau sama dengan Tanggal Akhir agar valid", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 formlaporanharian();
+                btnreset.Enabled = true;
             }
             else if (pilihan == "Actual Quantity for Repaired ROD Assy")
             {
+                DateTime mulai = tanggalMulai.Value.Date;
+                DateTime akhir = tanggalAkhir.Value.Date;
+
+                int selisih = (akhir - mulai).Days + 1;
+
+                if (selisih > 31)
+                {
+                    MessageBox.Show("Rentang pencarian maksimal 31 hari!",
+                                    "Peringatan",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (mulai > akhir)
+                {
+                    MessageBox.Show("Tanggal Mulai harus kurang dari atau sama dengan Tanggal Akhir agar valid",
+                                    "Peringatan",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    return;
+                }
+
                 formactual();
+                btnreset.Enabled = true;
             }
             else if (pilihan == "Kondisi ROD Reject di Rod Repair Shop")
             {
+                DateTime mulai = tanggalMulai.Value.Date;
+                DateTime akhir = tanggalAkhir.Value.Date;
+
+                int selisih = (akhir - mulai).Days + 1;
+
+                if (selisih > 31)
+                {
+                    MessageBox.Show("Rentang pencarian maksimal 31 hari!",
+                                    "Peringatan",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (mulai > akhir)
+                {
+                    MessageBox.Show("Tanggal Mulai harus kurang dari atau sama dengan Tanggal Akhir agar valid",
+                                    "Peringatan",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    return;
+                }
+
                 formkondisi();
+                btnreset.Enabled = true;
             }
             else if (pilihan == "Kartu Stock Material")
             {
+                DateTime mulai = tanggalMulaimaterial.Value.Date;
+                DateTime akhir = tanggalAkhirmaterial.Value.Date;
+
+                if (cmbnamamaterial.SelectedValue == null)
+                {
+                    MessageBox.Show("Silakan pilih Material untuk melakukan pencarian.",
+                                    "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (mulai > akhir)
+                {
+                    MessageBox.Show("Tanggal Mulai harus kurang dari atau sama dengan Tanggal Akhir agar valid",
+                                    "Peringatan",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    return;
+                }
+
                 formmaterial();
+                btnreset.Enabled = true;
             }
             else if (pilihan == "Actual Consumption Of Material & Part")
             {
+                DateTime mulai = tanggalMulai.Value.Date;
+                DateTime akhir = tanggalAkhir.Value.Date;
+
+                int selisih = (akhir - mulai).Days + 1;
+
+                if (selisih > 31)
+                {
+                    MessageBox.Show("Rentang pencarian maksimal 31 hari!",
+                                    "Peringatan",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (mulai > akhir)
+                {
+                    MessageBox.Show("Tanggal Mulai harus kurang dari atau sama dengan Tanggal Akhir agar valid",
+                                    "Peringatan",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    return;
+                }
+
                 formconsumption();
+                btnreset.Enabled = true;
             }
             else if (pilihan == "Bukti Perubahan")
             {
+                string shift = shiftbukti.SelectedItem?.ToString();
+
+                if (string.IsNullOrEmpty(shift))
+                {
+                    MessageBox.Show("Silakan pilih shift untuk melakukan pencarian.",
+                                    "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 formbukti();
+                btnreset.Enabled = true;
             }
         }
 
         private void printpenerimaan_Load(object sender, EventArgs e)
         {
             datecari.Value = DateTime.Now.Date;
-            datecaripemakaian.Value = DateTime.Now.Date;
-            datematerial.Value = DateTime.Now.Date;
+            tanggalMulai.Value = DateTime.Now.Date;
+            tanggalAkhir.Value = DateTime.Now.Date;
+            tanggalMulaimaterial.Value = DateTime.Now.Date;
+            tanggalAkhirmaterial.Value = DateTime.Now.Date;
             datecaribukti.Value = DateTime.Now.Date;
             cmbpilihdata.SelectedIndex = 0;
-            infocari = false;
 
-            btncari.Text = "Cari";
-            btnprint.Enabled = false;
+            btnreset.Enabled = false;
             guna2Panel4.ResetText();
 
             paneldata2.Visible = true;
-            btncari.Enabled = true;
-            tampilpenerimaan();
-            jumlahdata();
-        }
-
-        private void tampilpenerimaan()
-        {
-            try
-            {
-                string query = "SELECT * FROM penerimaan_p ORDER BY tanggal_penerimaan DESC";
-                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                ad.Fill(dt);
-                dataGridView1.DataSource = dt;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-                dataGridView1.RowTemplate.Height = 35;
-                dataGridView1.ReadOnly = true;
-
-                dataGridView1.Columns[0].Visible = false;
-                dataGridView1.Columns[1].HeaderText = "Tanggal Penerimaan";
-                dataGridView1.Columns[2].HeaderText = "Shift";
-                dataGridView1.Columns[3].HeaderText = "Nomor ROD";
-                dataGridView1.Columns[4].HeaderText = "Jenis";
-                dataGridView1.Columns[5].HeaderText = "Stasiun";
-                dataGridView1.Columns[6].HeaderText = "E1";
-                dataGridView1.Columns[7].HeaderText = "E2";
-                dataGridView1.Columns[8].HeaderText = "E3";
-                dataGridView1.Columns[9].HeaderText = "S";
-                dataGridView1.Columns[10].HeaderText = "D";
-                dataGridView1.Columns[11].HeaderText = "B";
-                dataGridView1.Columns[12].HeaderText = "BA";
-                dataGridView1.Columns[13].HeaderText = "CR";
-                dataGridView1.Columns[14].HeaderText = "M";
-                dataGridView1.Columns[15].HeaderText = "R";
-                dataGridView1.Columns[16].HeaderText = "C";
-                dataGridView1.Columns[17].HeaderText = "RL";
-                dataGridView1.Columns[18].HeaderText = "Jumlah";
-                dataGridView1.Columns[19].HeaderText = "Diubah";
-                dataGridView1.Columns[20].HeaderText = "Remaks";
-                dataGridView1.Columns[21].HeaderText = "Catatan";
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void tampilperbaikan()
-        {
-            try
-            {
-                string query = "SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, ba, ba1, r, m, cr, c, rl, jumlah, tanggal_penerimaan, updated_at, remaks, catatan FROM perbaikan_p ORDER BY tanggal_perbaikan DESC";
-                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                ad.Fill(dt);
-                dataGridView1.DataSource = dt;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-                dataGridView1.RowTemplate.Height = 35;
-                dataGridView1.ReadOnly = true;
-
-                dataGridView1.Columns[0].Visible = false;
-                dataGridView1.Columns[1].HeaderText = "Tanggal Perbaikan";
-                dataGridView1.Columns[2].HeaderText = "Shift";
-                dataGridView1.Columns[3].HeaderText = "Nomor ROD";
-                dataGridView1.Columns[4].HeaderText = "Jenis";
-                dataGridView1.Columns[5].HeaderText = "E1 Ers";
-                dataGridView1.Columns[6].HeaderText = "E1 Est";
-                dataGridView1.Columns[7].HeaderText = "E1 Jumlah";
-                dataGridView1.Columns[8].HeaderText = "E2 Ers";
-                dataGridView1.Columns[9].HeaderText = "E2 Cst";
-                dataGridView1.Columns[10].HeaderText = "E2 Cstub";
-                dataGridView1.Columns[11].HeaderText = "E2 Jumlah";
-                dataGridView1.Columns[12].HeaderText = "E3";
-                dataGridView1.Columns[13].HeaderText = "E4";
-                dataGridView1.Columns[14].HeaderText = "S";
-                dataGridView1.Columns[15].HeaderText = "D";
-                dataGridView1.Columns[16].HeaderText = "B";
-                dataGridView1.Columns[17].HeaderText = "BA";
-                dataGridView1.Columns[18].HeaderText = "BA-1";
-                dataGridView1.Columns[19].HeaderText = "R";
-                dataGridView1.Columns[20].HeaderText = "M";
-                dataGridView1.Columns[21].HeaderText = "CR";
-                dataGridView1.Columns[22].HeaderText = "C";
-                dataGridView1.Columns[23].HeaderText = "RL";
-                dataGridView1.Columns[24].HeaderText = "Jumlah";
-                dataGridView1.Columns[25].HeaderText = "Tanggal Penerimaan";
-                dataGridView1.Columns[26].HeaderText = "Diubah";
-                dataGridView1.Columns[27].HeaderText = "Remaks";
-                dataGridView1.Columns[28].HeaderText = "Catatan";
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void tampilpengiriman()
-        {
-            try
-            {
-                string query = "SELECT * FROM pengiriman ORDER BY tanggal_pengiriman DESC";
-                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                ad.Fill(dt);
-                dataGridView1.DataSource = dt;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-                dataGridView1.RowTemplate.Height = 35;
-                dataGridView1.ReadOnly = true;
-
-                dataGridView1.Columns[0].Visible = false;
-                dataGridView1.Columns[1].HeaderText = "Tanggal Pengiriman";
-                dataGridView1.Columns[2].HeaderText = "Shift";
-                dataGridView1.Columns[3].HeaderText = "Nomor ROD";
-                dataGridView1.Columns[4].HeaderText = "Diubah";
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void tampilwelding()
-        {
-            try
-            {
-                string query = "SELECT * FROM Rb_Stok ORDER BY tanggal ASC, id_stok ASC";
-                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                ad.Fill(dt);
-                dataGridView1.DataSource = dt;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-                dataGridView1.RowTemplate.Height = 35;
-                dataGridView1.ReadOnly = true;
-
-                dataGridView1.Columns[0].Visible = false;
-                dataGridView1.Columns[1].HeaderText = "Tanggal";
-                dataGridView1.Columns[2].HeaderText = "Shift";
-                dataGridView1.Columns[3].HeaderText = "RB Masuk";
-                dataGridView1.Columns[4].HeaderText = "RB Keluar";
-                dataGridView1.Columns[5].HeaderText = "Stock";
-                dataGridView1.Columns[6].HeaderText = "Panjang RB (mm)";
-                dataGridView1.Columns[7].HeaderText = "Sisa Potongan RB (mm)";
-                dataGridView1.Columns[8].HeaderText = "RB Sawing E1-155 mm";
-                dataGridView1.Columns[9].HeaderText = "RB Sawing E2-220 mm";
-                dataGridView1.Columns[10].HeaderText = "RB Lathe E1-155 mm";
-                dataGridView1.Columns[11].HeaderText = "RB Lathe E2-220 mm";
-                dataGridView1.Columns[12].HeaderText = "Produksi RB E1-155 mm";
-                dataGridView1.Columns[13].HeaderText = "Produksi RB E2-220 mm";
-                dataGridView1.Columns[14].HeaderText = "Stock WPS E1-155 mm";
-                dataGridView1.Columns[15].HeaderText = "Stock WPS E2-220 mm";
-                dataGridView1.Columns[16].HeaderText = "Stock WPL E1-155 mm";
-                dataGridView1.Columns[17].HeaderText = "Stock WPL E2-220 mm";
-                dataGridView1.Columns[18].HeaderText = "Sisa Potongan RB (Kg)";
-                dataGridView1.Columns[19].HeaderText = "Waste (Kg)";
-                dataGridView1.Columns[20].HeaderText = "E1 (MM)";
-                dataGridView1.Columns[21].HeaderText = "E2 (MM)";
-                dataGridView1.Columns[22].HeaderText = "Total E1&E2";
-                dataGridView1.Columns[23].HeaderText = "Waste";
-                dataGridView1.Columns[24].HeaderText = "Keterangan";
-                dataGridView1.Columns[25].HeaderText = "Diubah";
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void tampilpemakaianmaterial()
-        {
-            try
-            {
-                string query = "SELECT idPemakaian, kodeBarang, namaBarang, spesifikasi, type, tanggalPemakaian, jumlahPemakaian, updated_at, remaks FROM pemakaian_material ORDER BY tanggalPemakaian DESC";
-                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                ad.Fill(dt);
-                dataGridView1.DataSource = dt;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.RowTemplate.Height = 35;
-                dataGridView1.ReadOnly = true;
-
-                dataGridView1.Columns[0].Visible = false;
-                dataGridView1.Columns[1].HeaderText = "Kode Barang";
-                dataGridView1.Columns[2].HeaderText = "Nama Barang";
-                dataGridView1.Columns[3].HeaderText = "Spesifikasi";
-                dataGridView1.Columns[4].HeaderText = "Tipe";
-                dataGridView1.Columns[5].HeaderText = "Tanggal Pemakaian";
-                dataGridView1.Columns[6].HeaderText = "Jumlah Pemakaian";
-                dataGridView1.Columns[7].HeaderText = "Diubah";
-                dataGridView1.Columns[8].HeaderText = "Remaks";
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void tampilmaterial()
-        {
-            try
-            {
-                string query = "SELECT * FROM stok_material ORDER BY updated_at DESC";
-                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                ad.Fill(dt);
-
-                dt.Columns["foto"].ColumnName = "Gambar";
-
-                DataTable dtWithImage = new DataTable();
-                dtWithImage.Columns.Add("No", typeof(int));
-                dtWithImage.Columns.Add("Kode Barang", typeof(string));
-                dtWithImage.Columns.Add("Nama Barang", typeof(string));
-                dtWithImage.Columns.Add("Spesifikasi", typeof(string));
-                dtWithImage.Columns.Add("UoM", typeof(string));
-                dtWithImage.Columns.Add("Tipe", typeof(string));
-                dtWithImage.Columns.Add("Jumlah Stok", typeof(int));
-                dtWithImage.Columns.Add("Min Stok", typeof(int));
-                dtWithImage.Columns.Add("Gambar", typeof(Image));
-                dtWithImage.Columns.Add("Disimpan", typeof(DateTime));
-                dtWithImage.Columns.Add("Diubah", typeof(DateTime));
-
-                int no = 1;
-                foreach (DataRow row in dt.Rows)
-                {
-                    DataRow newRow = dtWithImage.NewRow();
-                    newRow["No"] = no++;
-                    newRow["Kode Barang"] = row["kodeBarang"];
-                    newRow["Nama Barang"] = row["namaBarang"];
-                    newRow["Spesifikasi"] = row["spesifikasi"];
-                    newRow["UoM"] = row["uom"];
-                    newRow["Tipe"] = row["type"];
-                    newRow["Jumlah Stok"] = row["jumlahStok"];
-                    newRow["Min Stok"] = row["min_stok"];
-                    newRow["Disimpan"] = row["created_at"];
-                    newRow["Diubah"] = row["updated_at"];
-
-                    if (row["Gambar"] != DBNull.Value)
-                    {
-                        byte[] imageBytes = (byte[])row["Gambar"];
-                        using (MemoryStream ms = new MemoryStream(imageBytes))
-                        {
-                            newRow["Gambar"] = Image.FromStream(ms);
-                        }
-                    }
-                    else
-                    {
-                        newRow["Gambar"] = null;
-                    }
-
-                    dtWithImage.Rows.Add(newRow);
-                }
-
-                dataGridView1.DataSource = dtWithImage;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.Columns["No"].FillWeight = 50;
-                dataGridView1.RowTemplate.Height = 130;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-                dataGridView1.ReadOnly = true;
-
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    row.Height = 100;
-                }
-
-                DataGridViewImageColumn imageCol = (DataGridViewImageColumn)dataGridView1.Columns["Gambar"];
-                imageCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
-                dataGridView1.RowHeadersVisible = false;
-                dataGridView1.DefaultCellStyle.Padding = new Padding(5);
-                dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void tampilbukti()
-        {
-            try
-            {
-                string query = @"SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis, 
-                                e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, 
-                                e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl, 
-                                jumlah, tanggal_perbaikan, updated_at, remaks, catatan, foto 
-                         FROM buktiperubahan 
-                         ORDER BY tanggal_perbaikan DESC";
-
-                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                ad.Fill(dt);
-
-                if (!dt.Columns.Contains("fotoImage"))
-                    dt.Columns.Add("fotoImage", typeof(Image));
-
-                foreach (DataRow row in dt.Rows)
-                {
-                    if (row["foto"] != DBNull.Value)
-                    {
-                        byte[] bytes = (byte[])row["foto"];
-                        using (MemoryStream ms = new MemoryStream(bytes))
-                        {
-                            row["fotoImage"] = Image.FromStream(ms);
-                        }
-                    }
-                }
-
-                dataGridView1.DataSource = dt;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                dataGridView1.Columns["fotoImage"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-                dataGridView1.RowTemplate.Height = 80;
-                dataGridView1.ReadOnly = true;
-
-                dataGridView1.Columns["foto"].Visible = false;
-
-                DataGridViewImageColumn imgCol = (DataGridViewImageColumn)dataGridView1.Columns["fotoImage"];
-                imgCol.HeaderText = "Foto";
-                imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
-
-                dataGridView1.Columns[0].Visible = false;
-                dataGridView1.Columns[1].HeaderText = "Tanggal Penerimaan";
-                dataGridView1.Columns[2].HeaderText = "Shift";
-                dataGridView1.Columns[3].HeaderText = "Nomor ROD";
-                dataGridView1.Columns[4].HeaderText = "Jenis";
-                dataGridView1.Columns[5].HeaderText = "E1 Ers";
-                dataGridView1.Columns[6].HeaderText = "E1 Est";
-                dataGridView1.Columns[7].HeaderText = "E1 Jumlah";
-                dataGridView1.Columns[8].HeaderText = "E2 Ers";
-                dataGridView1.Columns[9].HeaderText = "E2 Cst";
-                dataGridView1.Columns[10].HeaderText = "E2 Cstub";
-                dataGridView1.Columns[11].HeaderText = "E2 Jumlah";
-                dataGridView1.Columns[12].HeaderText = "E3";
-                dataGridView1.Columns[13].HeaderText = "E4";
-                dataGridView1.Columns[14].HeaderText = "S";
-                dataGridView1.Columns[15].HeaderText = "D";
-                dataGridView1.Columns[16].HeaderText = "B";
-                dataGridView1.Columns[17].HeaderText = "BAC";
-                dataGridView1.Columns[18].HeaderText = "NBA";
-                dataGridView1.Columns[19].HeaderText = "BA";
-                dataGridView1.Columns[20].HeaderText = "BA-1";
-                dataGridView1.Columns[21].HeaderText = "CR";
-                dataGridView1.Columns[22].HeaderText = "M";
-                dataGridView1.Columns[23].HeaderText = "R";
-                dataGridView1.Columns[24].HeaderText = "C";
-                dataGridView1.Columns[25].HeaderText = "RL";
-                dataGridView1.Columns[26].HeaderText = "Jumlah";
-                dataGridView1.Columns[27].HeaderText = "Tanggal Perbaikan";
-                dataGridView1.Columns[28].HeaderText = "Diubah";
-                dataGridView1.Columns[29].HeaderText = "Remaks";
-                dataGridView1.Columns[30].HeaderText = "Catatan";
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            this.reportViewer1.RefreshReport();
         }
 
         private void HurufOnly_KeyPress(object sender, KeyPressEventArgs e)
@@ -1222,378 +792,6 @@ namespace GOS_FxApps
             else
             {
                 e.Handled = true;
-            }
-        }
-
-        private bool caripenerimaan()
-        {
-            DateTime tanggal1 = datecari.Value.Date;
-            DateTime tanggal2 = datecari.Value.AddDays(1).Date;
-            string shift = cbShift.SelectedItem ?.ToString();
-
-            if (string.IsNullOrEmpty(shift))
-            {
-                MessageBox.Show("Silakan pilih shift untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            DataTable dt = new DataTable();
-
-            string query = "SELECT * FROM penerimaan_p WHERE tanggal_penerimaan >= @tanggal1 AND tanggal_penerimaan < @tanggal2 AND shift = @shift ORDER BY tanggal_penerimaan ASC";
-
-            using (SqlCommand cmd = new SqlCommand(query, conn))
-            {
-                cmd.Parameters.AddWithValue("@tanggal1", tanggal1);
-                cmd.Parameters.AddWithValue("@tanggal2", tanggal2);
-                cmd.Parameters.AddWithValue("@shift", shift);
-
-                try
-                {
-                    conn.Open();
-
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-
-                    dataGridView1.DataSource = dt;
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif." + ex.Message,
-                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-
-                return dt.Rows.Count > 0;
-            }
-        }
-
-        private bool cariperbaikan()
-        {
-            DateTime tanggal1 = datecari.Value.Date;
-            DateTime tanggal2 = datecari.Value.AddDays(1).Date;
-            string shift = cbShift.SelectedItem?.ToString(); 
-
-            if (string.IsNullOrEmpty(shift))
-            {
-                MessageBox.Show("Silakan pilih shift untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            DataTable dt = new DataTable();
-
-            string query = "SELECT * FROM perbaikan_p WHERE tanggal_perbaikan >= @tanggal1 AND tanggal_perbaikan < @tanggal2 AND shift = @shift ORDER BY tanggal_perbaikan ASC";
-
-            using (SqlCommand cmd = new SqlCommand(query, conn))
-            {
-                cmd.Parameters.AddWithValue("@tanggal1", tanggal1);
-                cmd.Parameters.AddWithValue("@tanggal2", tanggal2);
-                cmd.Parameters.AddWithValue("@shift", shift);
-
-                try
-                {
-                    conn.Open();
-
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-
-                    dataGridView1.DataSource = dt;
-                }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-
-                return dt.Rows.Count > 0;
-            }
-        }
-
-        private bool caripengiriman()
-        {
-            DateTime tanggal1 = datecari.Value.Date;
-            DateTime tanggal2 = datecari.Value.AddDays(1).Date;
-            string shift = cbShift.SelectedItem?.ToString();
-
-            if (string.IsNullOrEmpty(shift))
-            {
-                MessageBox.Show("Silakan pilih shift untuk melakukan pencarian.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            DataTable dt = new DataTable();
-
-            string query = "SELECT * FROM pengiriman WHERE tanggal_pengiriman >= @tanggal1 AND tanggal_pengiriman < @tanggal2 AND shift = @shift ORDER BY tanggal_pengiriman ASC";
-
-            using (SqlCommand cmd = new SqlCommand(query, conn))
-            {
-                cmd.Parameters.AddWithValue("@tanggal1", tanggal1);
-                cmd.Parameters.AddWithValue("@tanggal2", tanggal2);
-                cmd.Parameters.AddWithValue("@shift", shift);
-
-                try
-                {
-                    conn.Open();
-
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-
-                    dataGridView1.DataSource = dt;
-                }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-
-                return dt.Rows.Count > 0;
-            }
-        }
-
-        private bool caripemakaian()
-        {
-            int bulan = datecaripemakaian.Value.Month;
-            int tahun = datecaripemakaian.Value.Year;
-
-            DataTable dt = new DataTable();
-
-            string query = "SELECT * FROM pemakaian_material WHERE YEAR(tanggalPemakaian) = @year AND MONTH(tanggalPemakaian) = @bulan ORDER BY tanggalPemakaian ASC";
-
-            using (SqlCommand cmd = new SqlCommand(query, conn))
-            {
-                cmd.Parameters.AddWithValue("@year", tahun);
-                cmd.Parameters.AddWithValue("@bulan", bulan);
-
-                try
-                {
-                    conn.Open();
-
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-
-                    dataGridView1.DataSource = dt;
-                }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-
-                return dt.Rows.Count > 0;
-            }
-        }
-
-        private bool cariwelding()
-        {
-            int bulan = datecaripemakaian.Value.Month;
-            int tahun = datecaripemakaian.Value.Year;
-
-            DataTable dt = new DataTable();
-
-            string query = "SELECT * FROM Rb_Stok WHERE YEAR(tanggal) = @year AND MONTH(tanggal) = @bulan;";
-
-            using (SqlCommand cmd = new SqlCommand(query, conn))
-            {
-                cmd.Parameters.AddWithValue("@year", tahun);
-                cmd.Parameters.AddWithValue("@bulan", bulan);
-
-                try
-                {
-                    conn.Open();
-
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-
-                    dataGridView1.DataSource = dt;
-                }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-                return dt.Rows.Count > 0;
-            }
-        }
-
-        private bool carilaporanharian()
-        {
-            int bulan = datecaripemakaian.Value.Month;
-            int tahun = datecaripemakaian.Value.Year;
-
-            DataTable dt = new DataTable();
-
-            string query = "SELECT * FROM perbaikan_p WHERE YEAR(tanggal_perbaikan) = @year AND MONTH(tanggal_perbaikan) = @bulan ORDER BY tanggal_perbaikan ASC, shift ASC";
-
-            using (SqlCommand cmd = new SqlCommand(query, conn))
-            {
-                cmd.Parameters.AddWithValue("@year", tahun);
-                cmd.Parameters.AddWithValue("@bulan", bulan);
-
-                try
-                {
-                    conn.Open();
-
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-
-                    dataGridView1.DataSource = dt;
-                }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-                return dt.Rows.Count > 0;
-            }
-        }
-
-        private bool cariactual()
-        {
-            int bulan = datecaripemakaian.Value.Month;
-            int tahun = datecaripemakaian.Value.Year;
-
-            DataTable dt = new DataTable();
-
-            string query = "SELECT * FROM perbaikan_p WHERE YEAR(tanggal_perbaikan) = @year AND MONTH(tanggal_perbaikan) = @bulan ORDER BY tanggal_perbaikan ASC, shift ASC";
-
-            using (SqlCommand cmd = new SqlCommand(query, conn))
-            {
-                cmd.Parameters.AddWithValue("@year", tahun);
-                cmd.Parameters.AddWithValue("@bulan", bulan);
-
-                try
-                {
-                    conn.Open();
-
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-
-                    dataGridView1.DataSource = dt;
-                }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-                return dt.Rows.Count > 0;
-            }
-        }
-
-        private bool carikondisi()
-        {
-            int bulan = datecaripemakaian.Value.Month;
-            int tahun = datecaripemakaian.Value.Year;
-
-            DataTable dt = new DataTable();
-
-            string query = "SELECT * FROM perbaikan_p WHERE YEAR(tanggal_perbaikan) = @year AND MONTH(tanggal_perbaikan) = @bulan ORDER BY tanggal_perbaikan ASC, shift ASC";
-
-            using (SqlCommand cmd = new SqlCommand(query, conn))
-            {
-                cmd.Parameters.AddWithValue("@year", tahun);
-                cmd.Parameters.AddWithValue("@bulan", bulan);
-
-                try
-                {
-                    conn.Open();
-
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-
-                    dataGridView1.DataSource = dt;
-                }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-                return dt.Rows.Count > 0;
             }
         }
 
@@ -1636,594 +834,6 @@ namespace GOS_FxApps
             }
         }
 
-        private bool carimaterial()
-        {
-            if (cmbnamamaterial.SelectedValue == null)
-            {
-                MessageBox.Show("Silakan pilih Material untuk melakukan pencarian.",
-                                "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            string keyword = cmbnamamaterial.SelectedValue.ToString();
-            bool found = false;
-
-            using (SqlCommand cmd = new SqlCommand("SELECT * FROM stok_material WHERE kodeBarang = @keyword", conn))
-            {
-                cmd.Parameters.AddWithValue("@keyword", keyword);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-
-                try
-                {
-                    conn.Open();
-                    da.Fill(dt);
-
-                    DataTable dtWithImage = new DataTable();
-                    dtWithImage.Columns.Add("No", typeof(int));
-                    dtWithImage.Columns.Add("Kode Barang", typeof(string));
-                    dtWithImage.Columns.Add("Nama Barang", typeof(string));
-                    dtWithImage.Columns.Add("Spesifikasi", typeof(string));
-                    dtWithImage.Columns.Add("UoM", typeof(string));
-                    dtWithImage.Columns.Add("Tipe", typeof(string));
-                    dtWithImage.Columns.Add("Jumlah Stok", typeof(int));
-                    dtWithImage.Columns.Add("Min Stok", typeof(int));
-                    dtWithImage.Columns.Add("Gambar", typeof(Image));
-                    dtWithImage.Columns.Add("Disimpan", typeof(DateTime));
-                    dtWithImage.Columns.Add("Diubah", typeof(DateTime));
-
-                    int no = 1;
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        DataRow newRow = dtWithImage.NewRow();
-                        newRow["No"] = no++;
-                        newRow["Kode Barang"] = row["kodeBarang"];
-                        newRow["Nama Barang"] = row["namaBarang"];
-                        newRow["Spesifikasi"] = row["spesifikasi"];
-                        newRow["UoM"] = row["uom"];
-                        newRow["Tipe"] = row["type"];
-                        newRow["Jumlah Stok"] = row["jumlahStok"];
-                        newRow["Min Stok"] = row["min_stok"];
-                        newRow["Disimpan"] = row["created_at"];
-                        newRow["Diubah"] = row["updated_at"];
-
-                        if (row["foto"] != DBNull.Value)
-                        {
-                            byte[] imageBytes = (byte[])row["foto"];
-                            using (MemoryStream ms = new MemoryStream(imageBytes))
-                            {
-                                newRow["Gambar"] = Image.FromStream(ms);
-                            }
-                        }
-                        else
-                        {
-                            newRow["Gambar"] = null;
-                        }
-
-                        dtWithImage.Rows.Add(newRow);
-                        found = true;
-                    }
-
-                    dataGridView1.DataSource = dtWithImage;
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                    dataGridView1.Columns["No"].FillWeight = 50;
-                    dataGridView1.RowTemplate.Height = 130;
-                    dataGridView1.ReadOnly = true;
-
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
-                    {
-                        row.Height = 100;
-                    }
-
-                    DataGridViewImageColumn imageCol = (DataGridViewImageColumn)dataGridView1.Columns["Gambar"];
-                    imageCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
-                    dataGridView1.RowHeadersVisible = false;
-                    dataGridView1.DefaultCellStyle.Padding = new Padding(5);
-                    dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-            }
-
-            return found;
-        }
-
-        private bool caribukti()
-        {
-            DateTime tanggal = datecaribukti.Value.Date;
-            string shift = shiftbukti.SelectedItem?.ToString();
-
-            if (string.IsNullOrEmpty(shift))
-            {
-                MessageBox.Show("Silakan pilih shift untuk melakukan pencarian.",
-                                "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            DataTable dt = new DataTable();
-
-            string query = @"SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis,
-                            e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah,
-                            e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl,
-                            jumlah, tanggal_perbaikan, updated_at, remaks, catatan, foto
-                     FROM buktiperubahan
-                     WHERE CAST(tanggal_penerimaan AS DATE) = @tgl
-                       AND shift = @shift
-                     ORDER BY tanggal_penerimaan ASC";
-
-            using (SqlCommand cmd = new SqlCommand(query, conn))
-            {
-                cmd.Parameters.AddWithValue("@tgl", tanggal);
-                cmd.Parameters.AddWithValue("@shift", shift);
-
-                try
-                {
-                    conn.Open();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-
-                    if (!dt.Columns.Contains("fotoImage"))
-                        dt.Columns.Add("fotoImage", typeof(Image));
-
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        if (row["foto"] != DBNull.Value)
-                        {
-                            byte[] bytes = (byte[])row["foto"];
-                            using (MemoryStream ms = new MemoryStream(bytes))
-                            {
-                                row["fotoImage"] = Image.FromStream(ms);
-                            }
-                        }
-                    }
-
-                    dataGridView1.DataSource = dt;
-
-                    if (dataGridView1.Columns.Contains("no"))
-                        dataGridView1.Columns["no"].Visible = false;
-
-                    if (dataGridView1.Columns.Contains("foto"))
-                        dataGridView1.Columns["foto"].Visible = false;
-
-                    if (dataGridView1.Columns.Contains("fotoImage"))
-                    {
-                        DataGridViewImageColumn imgCol =
-                            (DataGridViewImageColumn)dataGridView1.Columns["fotoImage"];
-                        imgCol.HeaderText = "Foto";
-                        imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
-                    }
-
-                    dataGridView1.RowTemplate.Height = 80;
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-                    dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-                    dataGridView1.ReadOnly = true;
-                }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-            }
-
-            return dt.Rows.Count > 0;
-        }
-
-        private void btncari_Click(object sender, EventArgs e)
-        {
-
-            if (cmbpilihdata.SelectedItem == null)
-                return;
-
-            string pilihan = cmbpilihdata.SelectedItem.ToString();
-
-            if (pilihan == "Penerimaan")
-            {
-                if (!infocari)
-                {
-                    bool hasilCari = caripenerimaan();
-                    if (hasilCari)
-                    {
-                        infocari = true;
-                        btnprint.Enabled = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                    else
-                    {
-                        infocari = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                }
-                else
-                {
-                    tampilpenerimaan();
-                    infocari = false;
-                    btncari.Text = "Cari";
-
-                    btnprint.Enabled = false;
-
-                    guna2Panel4.ResetText();
-                    jumlahdata();
-                }
-            } 
-            else if (pilihan == "Perbaikan")
-            {
-                if (!infocari)
-                {
-                    bool hasilCari = cariperbaikan();
-                    if (hasilCari)
-                    {
-                        infocari = true;
-                        btnprint.Enabled = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                    else
-                    {
-                        infocari = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                }
-                else
-                {
-                    tampilperbaikan();
-                    infocari = false;
-                    btncari.Text = "Cari";
-                    jumlahdata();
-
-                    btnprint.Enabled = false;
-
-                    guna2Panel4.ResetText();
-                }
-            }
-            else if (pilihan == "Pengiriman")
-            {
-                if (!infocari)
-                {
-                    bool hasilCari = caripengiriman();
-                    if (hasilCari)
-                    {
-                        infocari = true;
-                        btnprint.Enabled = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                    else
-                    {
-                        infocari = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                }
-                else
-                {
-                    tampilpengiriman();
-                    infocari = false;
-                    btncari.Text = "Cari";
-                    jumlahdata();
-
-                    btnprint.Enabled = false;
-
-                    guna2Panel4.ResetText();
-                }
-            }
-            else if (pilihan == "Welding Pieces (Detail Shift)")
-            {
-                if (!infocari)
-                {
-                    bool hasilCari = cariwelding();
-                    if (hasilCari)
-                    {
-                        infocari = true;
-                        btnprint.Enabled = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                    else
-                    {
-                        infocari = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                }
-                else
-                {
-                    tampilwelding();
-                    infocari = false;
-                    btncari.Text = "Cari";
-                    jumlahdata();
-
-                    btnprint.Enabled = false;
-
-                    guna2Panel4.ResetText();
-                }
-            }
-            else if (pilihan == "Welding Pieces (Rekap Harian)")
-            {
-                if (!infocari)
-                {
-                    bool hasilCari = cariwelding();
-                    if (hasilCari)
-                    {
-                        infocari = true;
-                        btnprint.Enabled = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                    else
-                    {
-                        infocari = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                }
-                else
-                {
-                    tampilwelding();
-                    infocari = false;
-                    btncari.Text = "Cari";
-                    jumlahdata();
-
-                    btnprint.Enabled = false;
-
-                    guna2Panel4.ResetText();
-                }
-            }
-            else if (pilihan == "Hasil Produksi & Pemakaian Material")
-            {
-                if (!infocari)
-                {
-                    bool hasilCari = caripemakaian();
-                    if (hasilCari)
-                    {
-                        infocari = true;
-                        btnprint.Enabled = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                    else
-                    {
-                        infocari = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                }
-                else
-                {
-                    tampilpemakaianmaterial();
-                    infocari = false;
-                    btncari.Text = "Cari";
-                    jumlahdata();
-
-                    btnprint.Enabled = false;
-
-                    guna2Panel4.ResetText();
-                }
-            }
-            else if (pilihan == "Summary Data for Anode ROD Repair")
-            {
-                if (!infocari)
-                {
-                    bool hasilCari = carilaporanharian();
-                    if (hasilCari)
-                    {
-                        infocari = true;
-                        btnprint.Enabled = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                    else
-                    {
-                        infocari = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                }
-                else
-                {
-                    tampilperbaikan();
-                    infocari = false;
-                    btncari.Text = "Cari";
-                    jumlahdata();
-
-                    btnprint.Enabled = false;
-
-                    guna2Panel4.ResetText();
-                }
-            }
-            else if (pilihan == "Actual Quantity for Repaired ROD Assy")
-            {
-                if (!infocari)
-                {
-                    bool hasilCari = cariactual();
-                    if (hasilCari)
-                    {
-                        infocari = true;
-                        btnprint.Enabled = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                    else
-                    {
-                        infocari = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                }
-                else
-                {
-                    tampilperbaikan();
-                    infocari = false;
-                    btncari.Text = "Cari";
-                    jumlahdata();
-
-                    btnprint.Enabled = false;
-
-                    guna2Panel4.ResetText();
-                }
-            }
-            else if (pilihan == "Kondisi ROD Reject di Rod Repair Shop")
-            {
-                if (!infocari)
-                {
-                    bool hasilCari = carikondisi();
-                    if (hasilCari)
-                    {
-                        infocari = true;
-                        btnprint.Enabled = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                    else
-                    {
-                        infocari = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                }
-                else
-                {
-                    tampilperbaikan();
-                    infocari = false;
-                    btncari.Text = "Cari";
-                    jumlahdata();
-
-                    btnprint.Enabled = false;
-
-                    guna2Panel4.ResetText();
-                }
-            }
-            else if (pilihan == "Kartu Stock Material")
-            {
-                if (!infocari)
-                {
-                    bool hasilCari = carimaterial();
-                    if (hasilCari)
-                    {
-                        infocari = true;
-                        btnprint.Enabled = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                    else
-                    {
-                        infocari = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                }
-                else
-                {
-                    tampilmaterial();
-                    infocari = false;
-                    btncari.Text = "Cari";
-                    jumlahdata();
-
-                    btnprint.Enabled = false;
-                    txtcarimaterial.Clear();
-                    cmbnamamaterial.SelectedIndex = -1;
-                    cmbnamamaterial.DroppedDown = false;
-                    guna2Panel4.ResetText();
-                }
-            }
-            else if (pilihan == "Actual Consumption Of Material & Part")
-            {
-                if (!infocari)
-                {
-                    bool hasilCari = caripemakaian();
-                    if (hasilCari)
-                    {
-                        infocari = true;
-                        btnprint.Enabled = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                    else
-                    {
-                        infocari = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                }
-                else
-                {
-                    tampilpemakaianmaterial();
-                    infocari = false;
-                    btncari.Text = "Cari";
-                    jumlahdata();
-
-                    btnprint.Enabled = false;
-
-                    guna2Panel4.ResetText();
-                }
-            }
-            else if (pilihan == "Bukti Perubahan")
-            {
-                if (!infocari)
-                {
-                    bool hasilCari = caribukti();
-                    if (hasilCari)
-                    {
-                        infocari = true;
-                        btnprint.Enabled = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                    else
-                    {
-                        infocari = true;
-                        btncari.Text = "Reset";
-                        jumlahdata();
-                    }
-                }
-                else
-                {
-                    tampilbukti();
-                    infocari = false;
-                    btncari.Text = "Cari";
-                    jumlahdata();
-
-                    btnprint.Enabled = false;
-
-                    guna2Panel4.ResetText();
-                }
-            }
-        }
-
-        private void jumlahdata()
-        {
-            int total = dataGridView1.Rows.Count;
-            label4.Text = "Jumlah data: " + total.ToString();
-            jlhpanel1.Text = "Jumlah data: " + total.ToString();
-            lbljumlahdatamaterial.Text = "Jumlah data: " + total.ToString();
-            lbljumlahbukti.Text = "Jumlah data: " + total.ToString();
-        }
-
         private void cmbpilihdata_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbpilihdata.SelectedItem == null)
@@ -2234,366 +844,257 @@ namespace GOS_FxApps
             if (pilihan == "Penerimaan")
             {
                 //reset dulu
-                infocari = false;
-                btncari.Text = "Cari";
-                btnprint.Enabled = false;
+                reportViewer1.Reset();
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.RefreshReport();
+
+                btnreset.Enabled = false;
                 guna2Panel4.ResetText();
-                datecari.Checked = false;
+                panelsummary.Visible = false;
                 paneldata2.Visible = false;
                 paneldata3.Visible = false;
                 panelbukti.Visible = false;
+                label4.Text = "Jumlah data: 0";
+                lbljumlahsummary.Text = "Jumlah data: 0";
+                lbljumlahdatamaterial.Text = "Jumlah data: 0";
+                lbljumlahbukti.Text = "Jumlah data: 0";
 
                 paneldata2.Visible = true;
-                btncari.Enabled = true;
-                btnprint.Text = "Print Data";
-                tampilpenerimaan();
-                jumlahdata();
+                
             }
             else if (pilihan == "Perbaikan")
             {
                 //reset dulu
-                infocari = false;
-                btncari.Text = "Cari";
-                btnprint.Enabled = false;
+                reportViewer1.Reset();
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.RefreshReport();
+
+                btnreset.Enabled = false;
                 guna2Panel4.ResetText();
-                datecari.Checked = false;
+                panelsummary.Visible = false;
                 paneldata2.Visible = false;
                 paneldata3.Visible = false;
                 panelbukti.Visible = false;
+                label4.Text = "Jumlah data: 0";
+                lbljumlahsummary.Text = "Jumlah data: 0";
+                lbljumlahdatamaterial.Text = "Jumlah data: 0";
+                lbljumlahbukti.Text = "Jumlah data: 0";
 
                 paneldata2.Visible = true;
-                btncari.Enabled = true;
-                btnprint.Text = "Print Data";
-                tampilperbaikan();
-                jumlahdata();
+                
             }
             else if (pilihan == "Pengiriman")
             {
                 //reset dulu
-                infocari = false;
-                btncari.Text = "Cari";
-                btnprint.Enabled = false;
+                reportViewer1.Reset();
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.RefreshReport();
+
+                btnreset.Enabled = false;
                 guna2Panel4.ResetText();
-                datecari.Checked = false;
+                panelsummary.Visible = false;
                 paneldata2.Visible = false;
                 paneldata3.Visible = false;
                 panelbukti.Visible = false;
+                label4.Text = "Jumlah data: 0";
+                lbljumlahsummary.Text = "Jumlah data: 0";
+                lbljumlahdatamaterial.Text = "Jumlah data: 0";
+                lbljumlahbukti.Text = "Jumlah data: 0";
 
                 paneldata2.Visible = true;
-                btncari.Enabled = true;
-                btnprint.Text = "Print Data";
-                tampilpengiriman();
-                jumlahdata();
+                
             }
             else if (pilihan == "Welding Pieces (Detail Shift)")
             {
                 //reset dulu
-                infocari = false;
-                btncari.Text = "Cari";
-                btnprint.Enabled = false;
+                reportViewer1.Reset();
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.RefreshReport();
+
+                btnreset.Enabled = false;
                 guna2Panel4.ResetText();
-                datecaripemakaian.Checked = false;
+    
                 paneldata2.Visible = false;
                 paneldata3.Visible = false;
                 panelbukti.Visible = false;
+                label4.Text = "Jumlah data: 0";
+                lbljumlahsummary.Text = "Jumlah data: 0";
+                lbljumlahdatamaterial.Text = "Jumlah data: 0";
+                lbljumlahbukti.Text = "Jumlah data: 0";
 
-                paneldata1.Visible = true;
-                btncari.Enabled = true;
-                btnprint.Text = "Print Data";
-                tampilwelding();
-                jumlahdata();
+                panelsummary.Visible = true;
+
             }
             else if (pilihan == "Welding Pieces (Rekap Harian)")
             {
                 //reset dulu
-                infocari = false;
-                btncari.Text = "Cari";
-                btnprint.Enabled = false;
+                reportViewer1.Reset();
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.RefreshReport();
+
+                btnreset.Enabled = false;
                 guna2Panel4.ResetText();
-                datecaripemakaian.Checked = false;
+                
                 paneldata2.Visible = false;
                 paneldata3.Visible = false;
                 panelbukti.Visible = false;
+                label4.Text = "Jumlah data: 0";
+                lbljumlahsummary.Text = "Jumlah data: 0";
+                lbljumlahdatamaterial.Text = "Jumlah data: 0";
+                lbljumlahbukti.Text = "Jumlah data: 0";
 
-                paneldata1.Visible = true;
-                btncari.Enabled = true;
-                btnprint.Text = "Print Data";
-                tampilwelding();
-                jumlahdata();
+                panelsummary.Visible = true;
+
             }
             else if (pilihan == "Hasil Produksi & Pemakaian Material")
             {
                 //reset dulu
-                infocari = false;
-                btncari.Text = "Cari";
-                btnprint.Enabled = false;
+                reportViewer1.Reset();
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.RefreshReport();
+
+                btnreset.Enabled = false;
                 guna2Panel4.ResetText();
-                datecaripemakaian.Checked = false;
+                
                 paneldata2.Visible = false;
                 paneldata3.Visible = false;
                 panelbukti.Visible = false;
+                label4.Text = "Jumlah data: 0";
+                lbljumlahsummary.Text = "Jumlah data: 0";
+                lbljumlahdatamaterial.Text = "Jumlah data: 0";
+                lbljumlahbukti.Text = "Jumlah data: 0";
 
-                paneldata1.Visible = true;
-                btncari.Enabled = true;
-                btnprint.Text = "Print Data";
-                tampilpemakaianmaterial();
-                jumlahdata();
+                panelsummary.Visible = true;
+
             }
             else if (pilihan == "Summary Data for Anode ROD Repair")
             {
                 //reset dulu
-                infocari = false;
-                btncari.Text = "Cari";
-                btnprint.Enabled = false;
+                reportViewer1.Reset();
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.RefreshReport();
+
+                btnreset.Enabled = false;
                 guna2Panel4.ResetText();
-                datecaripemakaian.Checked = false;
+                
                 paneldata2.Visible = false;
                 paneldata3.Visible = false;
                 panelbukti.Visible = false;
+                label4.Text = "Jumlah data: 0";
+                lbljumlahsummary.Text = "Jumlah data: 0";
+                lbljumlahdatamaterial.Text = "Jumlah data: 0";
+                lbljumlahbukti.Text = "Jumlah data: 0";
 
-                paneldata1.Visible = true;
-                btncari.Enabled = true;
-                btnprint.Text = "Print Data";
-                tampilperbaikan();
-                jumlahdata();
+                panelsummary.Visible = true;
             }
             else if (pilihan == "Actual Quantity for Repaired ROD Assy")
             {
                 //reset dulu
-                infocari = false;
-                btncari.Text = "Cari";
-                btnprint.Enabled = false;
+                reportViewer1.Reset();
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.RefreshReport();
+
+                btnreset.Enabled = false;
                 guna2Panel4.ResetText();
-                datecaripemakaian.Checked = false;
+                
                 paneldata2.Visible = false;
                 paneldata3.Visible = false;
                 panelbukti.Visible = false;
+                label4.Text = "Jumlah data: 0";
+                lbljumlahsummary.Text = "Jumlah data: 0";
+                lbljumlahdatamaterial.Text = "Jumlah data: 0";
+                lbljumlahbukti.Text = "Jumlah data: 0";
 
-                paneldata1.Visible = true;
-                btncari.Enabled = true;
-                btnprint.Text = "Print Data";
-                tampilperbaikan();
-                jumlahdata();
+                panelsummary.Visible = true;
+
             }
             else if (pilihan == "Kondisi ROD Reject di Rod Repair Shop")
             {
                 //reset dulu
-                infocari = false;
-                btncari.Text = "Cari";
-                btnprint.Enabled = false;
+                reportViewer1.Reset();
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.RefreshReport();
+
+                btnreset.Enabled = false;
                 guna2Panel4.ResetText();
-                datecaripemakaian.Checked = false;
+                
                 paneldata2.Visible = false;
                 paneldata3.Visible = false;
                 panelbukti.Visible = false;
+                label4.Text = "Jumlah data: 0";
+                lbljumlahsummary.Text = "Jumlah data: 0";
+                lbljumlahdatamaterial.Text = "Jumlah data: 0";
+                lbljumlahbukti.Text = "Jumlah data: 0";
 
-                paneldata1.Visible = true;
-                btncari.Enabled = true;
-                btnprint.Text = "Print Data";
-                tampilperbaikan();
-                jumlahdata();
+                panelsummary.Visible = true;
+
             }
             else if (pilihan == "Kartu Stock Material")
             {
                 //reset dulu
-                infocari = false;
-                btncari.Text = "Cari";
-                btnprint.Enabled = false;
+                reportViewer1.Reset();
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.RefreshReport();
+
+                btnreset.Enabled = false;
                 guna2Panel4.ResetText();
-                datecaripemakaian.Checked = false;
+                panelsummary.Visible = false;
                 paneldata2.Visible = false;
-                paneldata1.Visible = false;
+                
                 panelbukti.Visible = false;
+                label4.Text = "Jumlah data: 0";
+                lbljumlahsummary.Text = "Jumlah data: 0";
+                lbljumlahdatamaterial.Text = "Jumlah data: 0";
+                lbljumlahbukti.Text = "Jumlah data: 0";
 
                 paneldata3.Visible = true;
-                btncari.Enabled = true;
-                btnprint.Text = "Print Data";
-                tampilmaterial();
                 combonama();
                 cmbnamamaterial.DropDownStyle = ComboBoxStyle.DropDown;
                 cmbnamamaterial.MaxDropDownItems = 20;
                 cmbnamamaterial.DropDownHeight = 400;
-                jumlahdata();
+                
             }
             else if (pilihan == "Actual Consumption Of Material & Part")
             {
                 //reset dulu
-                infocari = false;
-                btncari.Text = "Cari";
-                btnprint.Enabled = false;
+                reportViewer1.Reset();
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.RefreshReport();
+
+                btnreset.Enabled = false;
                 guna2Panel4.ResetText();
-                datecaripemakaian.Checked = false;
+                
                 paneldata2.Visible = false;
                 paneldata3.Visible = false;
                 panelbukti.Visible = false;
+                label4.Text = "Jumlah data: 0";
+                lbljumlahsummary.Text = "Jumlah data: 0";
+                lbljumlahdatamaterial.Text = "Jumlah data: 0";
+                lbljumlahbukti.Text = "Jumlah data: 0";
 
-                paneldata1.Visible = true;
-                btncari.Enabled = true;
-                btnprint.Text = "Print Data";
-                tampilpemakaianmaterial();
-                jumlahdata();
+                panelsummary.Visible = true;
+
             }
             else if (pilihan == "Bukti Perubahan")
             {
                 //reset dulu
-                infocari = false;
-                btncari.Text = "Cari";
-                btnprint.Enabled = false;
+                reportViewer1.Reset();
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.RefreshReport();
+
+                btnreset.Enabled = false;
                 guna2Panel4.ResetText();
-                datecaribukti.Checked = false;
+                panelsummary.Visible = false;
                 paneldata2.Visible = false;
-                paneldata1.Visible = false;
+                
                 paneldata3.Visible = false;
+                label4.Text = "Jumlah data: 0";
+                lbljumlahsummary.Text = "Jumlah data: 0";
+                lbljumlahdatamaterial.Text = "Jumlah data: 0";
+                lbljumlahbukti.Text = "Jumlah data: 0";
 
                 panelbukti.Visible = true;
-                btncari.Enabled = true;
-                btnprint.Text = "Print Data";
-                tampilbukti();
-                jumlahdata();
-            }
-        }
-
-        private void datecaripemakaian_MouseDown(object sender, MouseEventArgs e)
-        {
-            using (Form pickerForm = new Form())
-            {
-                pickerForm.StartPosition = FormStartPosition.Manual;
-                pickerForm.FormBorderStyle = FormBorderStyle.FixedDialog;
-                pickerForm.ControlBox = false;
-                pickerForm.Size = new Size(250, 200);
-                pickerForm.Text = "Pilih Bulan & Tahun";
-
-                var screenPos = datecaripemakaian.PointToScreen(DrawingPoint.Empty);
-                pickerForm.Location = new DrawingPoint(screenPos.X, screenPos.Y + datecaripemakaian.Height);
-
-                var cmbBulan = new Guna2ComboBox
-                {
-                    Font = new Font("Segoe UI", 11F),
-                    Left = 10,
-                    Top = 10,
-                    Width = 200,
-                    BorderRadius = 6,
-                    ForeColor = Color.Black,
-                    DropDownStyle = ComboBoxStyle.DropDownList,
-                    BorderColor = Color.FromArgb(64, 64, 64),
-                    BorderThickness = 2,
-                };
-                string[] bulan = {
-                                    "01 - Januari", "02 - Februari", "03 - Maret", "04 - April", "05 - Mei", "06 - Juni",
-                                    "07 - Juli", "08 - Agustus", "09 - September", "10 - Oktober", "11 - November", "12 - Desember"
-                                };
-                cmbBulan.Items.AddRange(bulan);
-                cmbBulan.SelectedIndex = datecaripemakaian.Value.Month - 1;
-
-                var numTahun = new Guna2NumericUpDown
-                {
-                    Font = new Font("Segoe UI", 11F),
-                    Left = 10,
-                    Top = 55,
-                    Width = 200,
-                    BorderRadius = 6,
-                    Minimum = 1900,
-                    Maximum = 2100,
-                    ForeColor = Color.Black,
-                    Value = datecaripemakaian.Value.Year,
-                    BorderColor = Color.FromArgb(64, 64, 64),
-                    BorderThickness = 2,
-                };
-
-                var btnOK = new Guna2Button
-                {
-                    Text = "OK",
-                    Font = new Font("Segoe UI", 10F),
-                    Left = 10,
-                    Top = 110,
-                    Width = 80,
-                    Height = 35,
-                    BorderRadius = 6,
-                    FillColor = Color.FromArgb(53, 53, 58)
-                };
-                btnOK.Click += (s, ev) =>
-                {
-                    datecaripemakaian.Value = new DateTime((int)numTahun.Value, cmbBulan.SelectedIndex + 1, 1);
-                    pickerForm.DialogResult = DialogResult.OK;
-                };
-
-                pickerForm.Controls.Add(cmbBulan);
-                pickerForm.Controls.Add(numTahun);
-                pickerForm.Controls.Add(btnOK);
-
-                pickerForm.ShowDialog();
-            }
-        }
-
-        private void datematerial_MouseDown(object sender, MouseEventArgs e)
-        {
-            using (Form pickerForm = new Form())
-            {
-                pickerForm.StartPosition = FormStartPosition.Manual;
-                pickerForm.FormBorderStyle = FormBorderStyle.FixedDialog;
-                pickerForm.ControlBox = false;
-                pickerForm.Size = new Size(250, 200);
-                pickerForm.Text = "Pilih Bulan & Tahun";
-
-                var screenPos = datematerial.PointToScreen(DrawingPoint.Empty);
-                pickerForm.Location = new DrawingPoint(screenPos.X, screenPos.Y + datematerial.Height);
-
-                var cmbBulan = new Guna2ComboBox
-                {
-                    Font = new Font("Segoe UI", 11F),
-                    Left = 10,
-                    Top = 10,
-                    Width = 200,
-                    BorderRadius = 6,
-                    ForeColor = Color.Black,
-                    DropDownStyle = ComboBoxStyle.DropDownList,
-                    BorderColor = Color.FromArgb(64, 64, 64),
-                    BorderThickness = 2,
-                };
-                string[] bulan = {
-                                    "01 - Januari", "02 - Februari", "03 - Maret", "04 - April", "05 - Mei", "06 - Juni",
-                                    "07 - Juli", "08 - Agustus", "09 - September", "10 - Oktober", "11 - November", "12 - Desember"
-                                };
-                cmbBulan.Items.AddRange(bulan);
-                cmbBulan.SelectedIndex = datematerial.Value.Month - 1;
-
-                var numTahun = new Guna2NumericUpDown
-                {
-                    Font = new Font("Segoe UI", 11F),
-                    Left = 10,
-                    Top = 55,
-                    Width = 200,
-                    BorderRadius = 6,
-                    Minimum = 1900,
-                    Maximum = 2100,
-                    ForeColor = Color.Black,
-                    Value = datematerial.Value.Year,
-                    BorderColor = Color.FromArgb(64, 64, 64),
-                    BorderThickness = 2,
-                };
-
-                var btnOK = new Guna2Button
-                {
-                    Text = "OK",
-                    Font = new Font("Segoe UI", 10F),
-                    Left = 10,
-                    Top = 110,
-                    Width = 80,
-                    Height = 35,
-                    BorderRadius = 6,
-                    FillColor = Color.FromArgb(53, 53, 58)
-                };
-                btnOK.Click += (s, ev) =>
-                {
-                    datematerial.Value = new DateTime((int)numTahun.Value, cmbBulan.SelectedIndex + 1, 1);
-                    pickerForm.DialogResult = DialogResult.OK;
-                };
-
-                pickerForm.Controls.Add(cmbBulan);
-                pickerForm.Controls.Add(numTahun);
-                pickerForm.Controls.Add(btnOK);
-
-                pickerForm.ShowDialog();
+                
             }
         }
 
@@ -2665,6 +1166,19 @@ namespace GOS_FxApps
             {
                 cmbnamamaterial.DroppedDown = false;
             }
+        }
+
+        private void btnreset_Click(object sender, EventArgs e)
+        {
+            reportViewer1.Reset();
+            reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.RefreshReport();
+            btnreset.Enabled = false;
+            txtcarimaterial.Text = "";
+            label4.Text = "Jumlah data: 0";
+            lbljumlahsummary.Text = "Jumlah data: 0";
+            lbljumlahdatamaterial.Text = "Jumlah data: 0";
+            lbljumlahbukti.Text = "Jumlah data: 0";
         }
     }
 }

@@ -5950,24 +5950,24 @@ namespace GOS_FxApps.DataSet.actualTableAdapters {
             this._commandCollection[0].CommandText = "dbo.sp_LaporanActual";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bulan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tahun", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalMulai", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalAkhir", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(actual.sp_LaporanActualDataTable dataTable, global::System.Nullable<int> bulan, global::System.Nullable<int> tahun) {
+        public virtual int Fill(actual.sp_LaporanActualDataTable dataTable, global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(bulan.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(tahun.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -5983,16 +5983,16 @@ namespace GOS_FxApps.DataSet.actualTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual actual.sp_LaporanActualDataTable GetData(global::System.Nullable<int> bulan, global::System.Nullable<int> tahun) {
+        public virtual actual.sp_LaporanActualDataTable GetData(global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(bulan.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(tahun.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -6178,24 +6178,24 @@ namespace GOS_FxApps.DataSet.actualTableAdapters {
             this._commandCollection[0].CommandText = "dbo.sp_LaporanShiftPerbaikan";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bulan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tahun", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalMulai", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalAkhir", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(actual.sp_LaporanShiftPerbaikanDataTable dataTable, global::System.Nullable<int> bulan, global::System.Nullable<int> tahun) {
+        public virtual int Fill(actual.sp_LaporanShiftPerbaikanDataTable dataTable, global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(bulan.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(tahun.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -6211,16 +6211,16 @@ namespace GOS_FxApps.DataSet.actualTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual actual.sp_LaporanShiftPerbaikanDataTable GetData(global::System.Nullable<int> bulan, global::System.Nullable<int> tahun) {
+        public virtual actual.sp_LaporanShiftPerbaikanDataTable GetData(global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(bulan.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(tahun.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -6406,24 +6406,24 @@ namespace GOS_FxApps.DataSet.actualTableAdapters {
             this._commandCollection[0].CommandText = "dbo.sp_LaporanShiftPenerimaan";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bulan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tahun", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalMulai", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalAkhir", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(actual.sp_LaporanShiftPenerimaanDataTable dataTable, global::System.Nullable<int> bulan, global::System.Nullable<int> tahun) {
+        public virtual int Fill(actual.sp_LaporanShiftPenerimaanDataTable dataTable, global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(bulan.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(tahun.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -6439,16 +6439,16 @@ namespace GOS_FxApps.DataSet.actualTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual actual.sp_LaporanShiftPenerimaanDataTable GetData(global::System.Nullable<int> bulan, global::System.Nullable<int> tahun) {
+        public virtual actual.sp_LaporanShiftPenerimaanDataTable GetData(global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(bulan.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(tahun.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;

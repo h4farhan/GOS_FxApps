@@ -378,6 +378,27 @@ namespace GOS_FxApps
                 if (result != DialogResult.OK) return;
 
                 conn.Open();
+
+                using (SqlCommand cmdCekTanggal = new SqlCommand(@"
+                SELECT COUNT(*) 
+                FROM perbaikan_p
+                WHERE nomor_rod = @nomor_rod
+                  AND CONVERT(date, tanggal_perbaikan) = CONVERT(date, @tgl)", conn))
+                {
+                    cmdCekTanggal.Parameters.AddWithValue("@nomor_rod", txtnomorrod.Text);
+                    cmdCekTanggal.Parameters.AddWithValue("@tgl", MainForm.Instance.tanggal);
+
+                    int sudahAda = (int)cmdCekTanggal.ExecuteScalar();
+
+                    if (sudahAda > 0)
+                    {
+                        MessageBox.Show(
+                            $"Nomor ROD {txtnomorrod.Text} sudah pernah diperbaiki pada tanggal yang sama ({MainForm.Instance.tanggal:dd MMMM yyyy}).",
+                            "Tanggal Duplikat", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
                 trans = conn.BeginTransaction();
 
                 SqlCommand cmd1 = new SqlCommand(@"

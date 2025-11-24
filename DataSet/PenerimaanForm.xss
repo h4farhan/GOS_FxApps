@@ -11,7 +11,7 @@
     <Shape ID="DesignTable:penerimaan_m" ZOrder="3" X="879" Y="200" Height="305" Width="230" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:penerimaan_e" ZOrder="4" X="1147" Y="200" Height="305" Width="225" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:jumlahpenerimaan1" ZOrder="2" X="215" Y="566" Height="305" Width="260" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
-    <Shape ID="DesignTable:jumlahperbaikan1" ZOrder="1" X="520" Y="570" Height="305" Width="219" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:jumlahperbaikan1" ZOrder="1" X="520" Y="570" Height="305" Width="249" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

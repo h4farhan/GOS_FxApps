@@ -12,9 +12,9 @@ namespace GOS_FxApps
     public static class Koneksi
     {
         //untuk koneksi lokal laptop kantor
-        //Data Source = TII_NB2_1122; Initial Catalog = gos_apps; User ID = tii; Password=tii2025;TrustServerCertificate=True
+        //Data Source = TII_NB2_1122; Initial Catalog = tes; User ID = tii; Password=tii2025;TrustServerCertificate=True
         private static readonly string connectionString = "Data Source=TII_NB2_1122;" +
-            "Initial Catalog=gos_apps;" +
+            "Initial Catalog=tes;" +
             "Persist Security Info=True;" +
             "User ID=tii;Password=tii2025;" +
             "TrustServerCertificate=True;";

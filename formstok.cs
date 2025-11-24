@@ -18,7 +18,6 @@ namespace GOS_FxApps
 
         private byte[] imageBytes = null;
 
-        bool infocari = false;
         int pageSize = 30;
         int currentPage = 1;
         int totalRecords = 0;

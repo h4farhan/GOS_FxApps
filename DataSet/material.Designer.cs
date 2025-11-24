@@ -314,17 +314,17 @@ namespace GOS_FxApps.DataSet {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class cardMaterialDataTable : global::System.Data.TypedTableBase<cardMaterialRow> {
             
-            private global::System.Data.DataColumn columnTanggalMasuk;
-            
             private global::System.Data.DataColumn columnjumlahMasuk;
             
             private global::System.Data.DataColumn columnketeranganMasuk;
             
-            private global::System.Data.DataColumn columnTanggalKeluar;
-            
             private global::System.Data.DataColumn columnjumlahPemakaian;
             
             private global::System.Data.DataColumn columnketeranganPemakaian;
+            
+            private global::System.Data.DataColumn columnTanggalMasuk;
+            
+            private global::System.Data.DataColumn columnTanggalKeluar;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -361,14 +361,6 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TanggalMasukColumn {
-                get {
-                    return this.columnTanggalMasuk;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn jumlahMasukColumn {
                 get {
                     return this.columnjumlahMasuk;
@@ -385,14 +377,6 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TanggalKeluarColumn {
-                get {
-                    return this.columnTanggalKeluar;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn jumlahPemakaianColumn {
                 get {
                     return this.columnjumlahPemakaian;
@@ -404,6 +388,22 @@ namespace GOS_FxApps.DataSet {
             public global::System.Data.DataColumn keteranganPemakaianColumn {
                 get {
                     return this.columnketeranganPemakaian;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TanggalMasukColumn {
+                get {
+                    return this.columnTanggalMasuk;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TanggalKeluarColumn {
+                get {
+                    return this.columnTanggalKeluar;
                 }
             }
             
@@ -444,15 +444,15 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public cardMaterialRow AddcardMaterialRow(int TanggalMasuk, int jumlahMasuk, int keteranganMasuk, int TanggalKeluar, int jumlahPemakaian, int keteranganPemakaian) {
+            public cardMaterialRow AddcardMaterialRow(int jumlahMasuk, int keteranganMasuk, int jumlahPemakaian, int keteranganPemakaian, System.DateTime TanggalMasuk, System.DateTime TanggalKeluar) {
                 cardMaterialRow rowcardMaterialRow = ((cardMaterialRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        TanggalMasuk,
                         jumlahMasuk,
                         keteranganMasuk,
-                        TanggalKeluar,
                         jumlahPemakaian,
-                        keteranganPemakaian};
+                        keteranganPemakaian,
+                        TanggalMasuk,
+                        TanggalKeluar};
                 rowcardMaterialRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowcardMaterialRow);
                 return rowcardMaterialRow;
@@ -475,35 +475,35 @@ namespace GOS_FxApps.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnTanggalMasuk = base.Columns["TanggalMasuk"];
                 this.columnjumlahMasuk = base.Columns["jumlahMasuk"];
                 this.columnketeranganMasuk = base.Columns["keteranganMasuk"];
-                this.columnTanggalKeluar = base.Columns["TanggalKeluar"];
                 this.columnjumlahPemakaian = base.Columns["jumlahPemakaian"];
                 this.columnketeranganPemakaian = base.Columns["keteranganPemakaian"];
+                this.columnTanggalMasuk = base.Columns["TanggalMasuk"];
+                this.columnTanggalKeluar = base.Columns["TanggalKeluar"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnTanggalMasuk = new global::System.Data.DataColumn("TanggalMasuk", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTanggalMasuk);
                 this.columnjumlahMasuk = new global::System.Data.DataColumn("jumlahMasuk", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnjumlahMasuk);
                 this.columnketeranganMasuk = new global::System.Data.DataColumn("keteranganMasuk", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnketeranganMasuk);
-                this.columnTanggalKeluar = new global::System.Data.DataColumn("TanggalKeluar", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTanggalKeluar);
                 this.columnjumlahPemakaian = new global::System.Data.DataColumn("jumlahPemakaian", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnjumlahPemakaian);
                 this.columnketeranganPemakaian = new global::System.Data.DataColumn("keteranganPemakaian", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnketeranganPemakaian);
-                this.columnTanggalMasuk.ReadOnly = true;
+                this.columnTanggalMasuk = new global::System.Data.DataColumn("TanggalMasuk", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTanggalMasuk);
+                this.columnTanggalKeluar = new global::System.Data.DataColumn("TanggalKeluar", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTanggalKeluar);
                 this.columnjumlahMasuk.ReadOnly = true;
                 this.columnketeranganMasuk.ReadOnly = true;
-                this.columnTanggalKeluar.ReadOnly = true;
                 this.columnjumlahPemakaian.ReadOnly = true;
                 this.columnketeranganPemakaian.ReadOnly = true;
+                this.columnTanggalMasuk.ReadOnly = true;
+                this.columnTanggalKeluar.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1009,22 +1009,6 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int TanggalMasuk {
-                get {
-                    try {
-                        return ((int)(this[this.tablecardMaterial.TanggalMasukColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TanggalMasuk\' in table \'cardMaterial\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablecardMaterial.TanggalMasukColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int jumlahMasuk {
                 get {
                     try {
@@ -1052,22 +1036,6 @@ namespace GOS_FxApps.DataSet {
                 }
                 set {
                     this[this.tablecardMaterial.keteranganMasukColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int TanggalKeluar {
-                get {
-                    try {
-                        return ((int)(this[this.tablecardMaterial.TanggalKeluarColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TanggalKeluar\' in table \'cardMaterial\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablecardMaterial.TanggalKeluarColumn] = value;
                 }
             }
             
@@ -1105,14 +1073,34 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTanggalMasukNull() {
-                return this.IsNull(this.tablecardMaterial.TanggalMasukColumn);
+            public System.DateTime TanggalMasuk {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablecardMaterial.TanggalMasukColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TanggalMasuk\' in table \'cardMaterial\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecardMaterial.TanggalMasukColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTanggalMasukNull() {
-                this[this.tablecardMaterial.TanggalMasukColumn] = global::System.Convert.DBNull;
+            public System.DateTime TanggalKeluar {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablecardMaterial.TanggalKeluarColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TanggalKeluar\' in table \'cardMaterial\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecardMaterial.TanggalKeluarColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1141,18 +1129,6 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTanggalKeluarNull() {
-                return this.IsNull(this.tablecardMaterial.TanggalKeluarColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTanggalKeluarNull() {
-                this[this.tablecardMaterial.TanggalKeluarColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsjumlahPemakaianNull() {
                 return this.IsNull(this.tablecardMaterial.jumlahPemakaianColumn);
             }
@@ -1173,6 +1149,30 @@ namespace GOS_FxApps.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetketeranganPemakaianNull() {
                 this[this.tablecardMaterial.keteranganPemakaianColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTanggalMasukNull() {
+                return this.IsNull(this.tablecardMaterial.TanggalMasukColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTanggalMasukNull() {
+                this[this.tablecardMaterial.TanggalMasukColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTanggalKeluarNull() {
+                return this.IsNull(this.tablecardMaterial.TanggalKeluarColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTanggalKeluarNull() {
+                this[this.tablecardMaterial.TanggalKeluarColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1591,12 +1591,12 @@ namespace GOS_FxApps.DataSet.materialTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "cardMaterial";
-            tableMapping.ColumnMappings.Add("TanggalMasuk", "TanggalMasuk");
             tableMapping.ColumnMappings.Add("jumlahMasuk", "jumlahMasuk");
             tableMapping.ColumnMappings.Add("keteranganMasuk", "keteranganMasuk");
-            tableMapping.ColumnMappings.Add("TanggalKeluar", "TanggalKeluar");
             tableMapping.ColumnMappings.Add("jumlahPemakaian", "jumlahPemakaian");
             tableMapping.ColumnMappings.Add("keteranganPemakaian", "keteranganPemakaian");
+            tableMapping.ColumnMappings.Add("TanggalMasuk", "TanggalMasuk");
+            tableMapping.ColumnMappings.Add("TanggalKeluar", "TanggalKeluar");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1616,8 +1616,8 @@ namespace GOS_FxApps.DataSet.materialTableAdapters {
             this._commandCollection[0].CommandText = "dbo.cardMaterial";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tahun", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bulan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalMulai", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalAkhir", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kodeBarang", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -1625,16 +1625,16 @@ namespace GOS_FxApps.DataSet.materialTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(material.cardMaterialDataTable dataTable, global::System.Nullable<int> tahun, global::System.Nullable<int> bulan, string kodeBarang) {
+        public virtual int Fill(material.cardMaterialDataTable dataTable, global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir, string kodeBarang) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(tahun.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(bulan.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -1656,16 +1656,16 @@ namespace GOS_FxApps.DataSet.materialTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual material.cardMaterialDataTable GetData(global::System.Nullable<int> tahun, global::System.Nullable<int> bulan, string kodeBarang) {
+        public virtual material.cardMaterialDataTable GetData(global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir, string kodeBarang) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(tahun.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(bulan.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -1830,8 +1830,8 @@ namespace GOS_FxApps.DataSet.materialTableAdapters {
             this._commandCollection[0].CommandText = "dbo.sp_dataCardMaterial";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tahun", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bulan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalMulai", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalAkhir", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kodeBarang", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -1839,16 +1839,16 @@ namespace GOS_FxApps.DataSet.materialTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(material.sp_dataCardMaterialDataTable dataTable, global::System.Nullable<int> tahun, global::System.Nullable<int> bulan, string kodeBarang) {
+        public virtual int Fill(material.sp_dataCardMaterialDataTable dataTable, global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir, string kodeBarang) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(tahun.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(bulan.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -1870,16 +1870,16 @@ namespace GOS_FxApps.DataSet.materialTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual material.sp_dataCardMaterialDataTable GetData(global::System.Nullable<int> tahun, global::System.Nullable<int> bulan, string kodeBarang) {
+        public virtual material.sp_dataCardMaterialDataTable GetData(global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir, string kodeBarang) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(tahun.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(bulan.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;

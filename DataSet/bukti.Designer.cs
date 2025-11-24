@@ -7850,24 +7850,24 @@ namespace GOS_FxApps.DataSet.buktiTableAdapters {
             this._commandCollection[0].CommandText = "dbo.sp_consumptionmaterialcost";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Bulan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tahun", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalMulai", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalAkhir", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(bukti.sp_consumptionmaterialcostDataTable dataTable, global::System.Nullable<int> Bulan, global::System.Nullable<int> Tahun) {
+        public virtual int Fill(bukti.sp_consumptionmaterialcostDataTable dataTable, global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Bulan.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Tahun.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -7883,16 +7883,16 @@ namespace GOS_FxApps.DataSet.buktiTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual bukti.sp_consumptionmaterialcostDataTable GetData(global::System.Nullable<int> Bulan, global::System.Nullable<int> Tahun) {
+        public virtual bukti.sp_consumptionmaterialcostDataTable GetData(global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Bulan.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Tahun.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -8079,24 +8079,24 @@ namespace GOS_FxApps.DataSet.buktiTableAdapters {
             this._commandCollection[0].CommandText = "dbo.sp_consumptionsafetycost";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Bulan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tahun", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalMulai", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalAkhir", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(bukti.sp_consumptionsafetycostDataTable dataTable, global::System.Nullable<int> Bulan, global::System.Nullable<int> Tahun) {
+        public virtual int Fill(bukti.sp_consumptionsafetycostDataTable dataTable, global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Bulan.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Tahun.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -8112,16 +8112,16 @@ namespace GOS_FxApps.DataSet.buktiTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual bukti.sp_consumptionsafetycostDataTable GetData(global::System.Nullable<int> Bulan, global::System.Nullable<int> Tahun) {
+        public virtual bukti.sp_consumptionsafetycostDataTable GetData(global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Bulan.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Tahun.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -8308,24 +8308,24 @@ namespace GOS_FxApps.DataSet.buktiTableAdapters {
             this._commandCollection[0].CommandText = "dbo.sp_consumptionconsumablecost";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Bulan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tahun", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalMulai", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalAkhir", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(bukti.sp_consumptionconsumablecostDataTable dataTable, global::System.Nullable<int> Bulan, global::System.Nullable<int> Tahun) {
+        public virtual int Fill(bukti.sp_consumptionconsumablecostDataTable dataTable, global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Bulan.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Tahun.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -8341,16 +8341,16 @@ namespace GOS_FxApps.DataSet.buktiTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual bukti.sp_consumptionconsumablecostDataTable GetData(global::System.Nullable<int> Bulan, global::System.Nullable<int> Tahun) {
+        public virtual bukti.sp_consumptionconsumablecostDataTable GetData(global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Bulan.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Tahun.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;

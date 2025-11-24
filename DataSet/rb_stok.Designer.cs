@@ -351,8 +351,6 @@ namespace GOS_FxApps.DataSet {
             
             private global::System.Data.DataColumn columntanggal;
             
-            private global::System.Data.DataColumn columnshift;
-            
             private global::System.Data.DataColumn columnbmasuk;
             
             private global::System.Data.DataColumn columnbkeluar;
@@ -397,6 +395,8 @@ namespace GOS_FxApps.DataSet {
             
             private global::System.Data.DataColumn columnketerangan;
             
+            private global::System.Data.DataColumn columnshift;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public sp_Rb_StokDataTable() {
@@ -435,14 +435,6 @@ namespace GOS_FxApps.DataSet {
             public global::System.Data.DataColumn tanggalColumn {
                 get {
                     return this.columntanggal;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn shiftColumn {
-                get {
-                    return this.columnshift;
                 }
             }
             
@@ -624,6 +616,14 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn shiftColumn {
+                get {
+                    return this.columnshift;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -661,7 +661,6 @@ namespace GOS_FxApps.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public sp_Rb_StokRow Addsp_Rb_StokRow(
                         string tanggal, 
-                        string shift, 
                         int bmasuk, 
                         int bkeluar, 
                         int bstok, 
@@ -683,11 +682,11 @@ namespace GOS_FxApps.DataSet {
                         int e2mm, 
                         int ttle1e2, 
                         int waste, 
-                        string keterangan) {
+                        string keterangan, 
+                        int shift) {
                 sp_Rb_StokRow rowsp_Rb_StokRow = ((sp_Rb_StokRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         tanggal,
-                        shift,
                         bmasuk,
                         bkeluar,
                         bstok,
@@ -709,7 +708,8 @@ namespace GOS_FxApps.DataSet {
                         e2mm,
                         ttle1e2,
                         waste,
-                        keterangan};
+                        keterangan,
+                        shift};
                 rowsp_Rb_StokRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_Rb_StokRow);
                 return rowsp_Rb_StokRow;
@@ -733,7 +733,6 @@ namespace GOS_FxApps.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columntanggal = base.Columns["tanggal"];
-                this.columnshift = base.Columns["shift"];
                 this.columnbmasuk = base.Columns["bmasuk"];
                 this.columnbkeluar = base.Columns["bkeluar"];
                 this.columnbstok = base.Columns["bstok"];
@@ -756,6 +755,7 @@ namespace GOS_FxApps.DataSet {
                 this.columnttle1e2 = base.Columns["ttle1e2"];
                 this.columnwaste = base.Columns["waste"];
                 this.columnketerangan = base.Columns["keterangan"];
+                this.columnshift = base.Columns["shift"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -763,8 +763,6 @@ namespace GOS_FxApps.DataSet {
             private void InitClass() {
                 this.columntanggal = new global::System.Data.DataColumn("tanggal", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntanggal);
-                this.columnshift = new global::System.Data.DataColumn("shift", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnshift);
                 this.columnbmasuk = new global::System.Data.DataColumn("bmasuk", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbmasuk);
                 this.columnbkeluar = new global::System.Data.DataColumn("bkeluar", typeof(int), null, global::System.Data.MappingType.Element);
@@ -809,10 +807,10 @@ namespace GOS_FxApps.DataSet {
                 base.Columns.Add(this.columnwaste);
                 this.columnketerangan = new global::System.Data.DataColumn("keterangan", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnketerangan);
+                this.columnshift = new global::System.Data.DataColumn("shift", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnshift);
                 this.columntanggal.ReadOnly = true;
                 this.columntanggal.MaxLength = 4000;
-                this.columnshift.ReadOnly = true;
-                this.columnshift.MaxLength = 10;
                 this.columnbmasuk.ReadOnly = true;
                 this.columnbkeluar.ReadOnly = true;
                 this.columnbstok.ReadOnly = true;
@@ -836,6 +834,7 @@ namespace GOS_FxApps.DataSet {
                 this.columnwaste.ReadOnly = true;
                 this.columnketerangan.ReadOnly = true;
                 this.columnketerangan.MaxLength = 500;
+                this.columnshift.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1901,22 +1900,6 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string shift {
-                get {
-                    try {
-                        return ((string)(this[this.tablesp_Rb_Stok.shiftColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'shift\' in table \'sp_Rb_Stok\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_Rb_Stok.shiftColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int bmasuk {
                 get {
                     try {
@@ -2269,6 +2252,22 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int shift {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Rb_Stok.shiftColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'shift\' in table \'sp_Rb_Stok\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Rb_Stok.shiftColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IstanggalNull() {
                 return this.IsNull(this.tablesp_Rb_Stok.tanggalColumn);
             }
@@ -2277,18 +2276,6 @@ namespace GOS_FxApps.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SettanggalNull() {
                 this[this.tablesp_Rb_Stok.tanggalColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsshiftNull() {
-                return this.IsNull(this.tablesp_Rb_Stok.shiftColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetshiftNull() {
-                this[this.tablesp_Rb_Stok.shiftColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2553,6 +2540,18 @@ namespace GOS_FxApps.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetketeranganNull() {
                 this[this.tablesp_Rb_Stok.keteranganColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsshiftNull() {
+                return this.IsNull(this.tablesp_Rb_Stok.shiftColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetshiftNull() {
+                this[this.tablesp_Rb_Stok.shiftColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3598,7 +3597,6 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "sp_Rb_Stok";
             tableMapping.ColumnMappings.Add("tanggal", "tanggal");
-            tableMapping.ColumnMappings.Add("shift", "shift");
             tableMapping.ColumnMappings.Add("bmasuk", "bmasuk");
             tableMapping.ColumnMappings.Add("bkeluar", "bkeluar");
             tableMapping.ColumnMappings.Add("bstok", "bstok");
@@ -3621,6 +3619,7 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
             tableMapping.ColumnMappings.Add("ttle1e2", "ttle1e2");
             tableMapping.ColumnMappings.Add("waste", "waste");
             tableMapping.ColumnMappings.Add("keterangan", "keterangan");
+            tableMapping.ColumnMappings.Add("shift", "shift");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -3640,24 +3639,24 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
             this._commandCollection[0].CommandText = "dbo.sp_Rb_Stok";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bulan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tahun", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalMulai", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalAkhir", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(rb_stok.sp_Rb_StokDataTable dataTable, global::System.Nullable<int> bulan, global::System.Nullable<int> tahun) {
+        public virtual int Fill(rb_stok.sp_Rb_StokDataTable dataTable, global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(bulan.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(tahun.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -3673,16 +3672,16 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual rb_stok.sp_Rb_StokDataTable GetData(global::System.Nullable<int> bulan, global::System.Nullable<int> tahun) {
+        public virtual rb_stok.sp_Rb_StokDataTable GetData(global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(bulan.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(tahun.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -3833,6 +3832,7 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
             tableMapping.ColumnMappings.Add("konversi_e1", "konversi_e1");
             tableMapping.ColumnMappings.Add("konversi_e2", "konversi_e2");
             tableMapping.ColumnMappings.Add("konversiroundbar", "konversiroundbar");
+            tableMapping.ColumnMappings.Add("bpanjang", "bpanjang");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -3852,24 +3852,24 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
             this._commandCollection[0].CommandText = "dbo.sp_Rb_Stokhari";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bulan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tahun", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalMulai", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalAkhir", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(rb_stok.sp_Rb_StokhariDataTable dataTable, global::System.Nullable<int> bulan, global::System.Nullable<int> tahun) {
+        public virtual int Fill(rb_stok.sp_Rb_StokhariDataTable dataTable, global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(bulan.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(tahun.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -3885,16 +3885,16 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual rb_stok.sp_Rb_StokhariDataTable GetData(global::System.Nullable<int> bulan, global::System.Nullable<int> tahun) {
+        public virtual rb_stok.sp_Rb_StokhariDataTable GetData(global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(bulan.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(tahun.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -4053,24 +4053,24 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
             this._commandCollection[0].CommandText = "dbo.sp_StockAwalRbStok";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bulan", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tahun", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalMulai", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggalAkhir", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(rb_stok.Rb_StokDataTable dataTable, global::System.Nullable<int> bulan, global::System.Nullable<int> tahun) {
+        public virtual int Fill(rb_stok.Rb_StokDataTable dataTable, global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(bulan.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(tahun.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -4086,16 +4086,16 @@ namespace GOS_FxApps.DataSet.rb_stokTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual rb_stok.Rb_StokDataTable GetData(global::System.Nullable<int> bulan, global::System.Nullable<int> tahun) {
+        public virtual rb_stok.Rb_StokDataTable GetData(global::System.Nullable<global::System.DateTime> tanggalMulai, global::System.Nullable<global::System.DateTime> tanggalAkhir) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((bulan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(bulan.Value));
+            if ((tanggalMulai.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggalMulai.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((tahun.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(tahun.Value));
+            if ((tanggalAkhir.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggalAkhir.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;

@@ -547,6 +547,12 @@
     <EmbeddedResource Include="datamaterial.resx">
       <DependentUpon>datamaterial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="editpenerimaan.resx">
+      <DependentUpon>editpenerimaan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editperbaikan.resx">
+      <DependentUpon>editperbaikan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formkamera.resx">
       <DependentUpon>formkamera.cs</DependentUpon>
     </EmbeddedResource>
@@ -603,6 +609,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="materialmasuk.resx">
       <DependentUpon>materialmasuk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Perbaikan.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="printpenerimaan.resx">
+      <DependentUpon>printpenerimaan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rb_Stok.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -697,12 +709,6 @@
     <EmbeddedResource Include="dataperbaikanedit.resx">
       <DependentUpon>dataperbaikanedit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="editpenerimaan.resx">
-      <DependentUpon>editpenerimaan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="editperbaikan.resx">
-      <DependentUpon>editperbaikan.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="EstimasiPemakaianMaterial.resx">
       <DependentUpon>EstimasiPemakaianMaterial.cs</DependentUpon>
     </EmbeddedResource>
@@ -751,14 +757,8 @@
     <EmbeddedResource Include="Pengiriman.resx">
       <DependentUpon>Pengiriman.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Perbaikan.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
     <EmbeddedResource Include="Perbaikan.resx">
       <DependentUpon>Perbaikan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="printpenerimaan.resx">
-      <DependentUpon>printpenerimaan.cs</DependentUpon>
     </EmbeddedResource>
     <Content Include="produksiharian.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

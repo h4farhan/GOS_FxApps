@@ -92,10 +92,6 @@
           <DataField>b</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="ba">
-          <DataField>ba</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="ba1">
           <DataField>ba1</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -132,10 +128,14 @@
           <DataField>catatan</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="nba">
+          <DataField>nba</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>PerbaikanForm</rd:DataSetName>
-        <rd:SchemaPath>E:\Operator\GOS_FxApps\DataSet\PerbaikanForm.xsd</rd:SchemaPath>
+        <rd:SchemaPath>E:\All Project GOS Apps\Operator\GOS_FxApps\DataSet\PerbaikanForm.xsd</rd:SchemaPath>
         <rd:TableName>perbaikan_p</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -162,10 +162,6 @@
         </Field>
         <Field Name="B">
           <DataField>B</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="BA">
-          <DataField>BA</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="BA_1">
@@ -200,10 +196,14 @@
           <DataField>Shift</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="NBA">
+          <DataField>NBA</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>PerbaikanForm</rd:DataSetName>
-        <rd:SchemaPath>E:\GitHub\GOS_FxApps\DataSet\PerbaikanForm.xsd</rd:SchemaPath>
+        <rd:SchemaPath>E:\All Project GOS Apps\Operator\GOS_FxApps\DataSet\PerbaikanForm.xsd</rd:SchemaPath>
         <rd:TableName>jumlahperbaikan2</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -268,10 +268,6 @@
           <DataField>b</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="ba">
-          <DataField>ba</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="ba1">
           <DataField>ba1</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -300,10 +296,14 @@
           <DataField>total</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="nba">
+          <DataField>nba</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>PenerimaanForm</rd:DataSetName>
-        <rd:SchemaPath>E:\GitHub\GOS_FxApps\DataSet\PenerimaanForm.xsd</rd:SchemaPath>
+        <rd:SchemaPath>E:\All Project GOS Apps\Operator\GOS_FxApps\DataSet\PenerimaanForm.xsd</rd:SchemaPath>
         <rd:TableName>jumlahperbaikan1</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -399,7 +399,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.55cm</Height>
+                  <Height>0.68229cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -928,13 +928,13 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="ba">
+                        <Textbox Name="nba">
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!ba.Value</Value>
+                                  <Value>=Fields!nba.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
@@ -946,7 +946,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>ba</rd:DefaultName>
+                          <rd:DefaultName>nba</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1312,7 +1312,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.5278cm</Height>
+                  <Height>0.55426cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1340,7 +1340,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1379,7 +1379,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1416,7 +1416,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1453,7 +1453,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1490,7 +1490,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1527,7 +1527,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1564,7 +1564,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1601,7 +1601,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1638,7 +1638,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1675,7 +1675,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1712,7 +1712,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1749,7 +1749,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1786,7 +1786,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1823,7 +1823,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1843,7 +1843,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!ba.Value, "DataSetPerbaikan")</Value>
+                                  <Value>=Sum(Fields!nba.Value, "DataSetPerbaikan")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
@@ -1860,7 +1860,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1897,7 +1897,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1934,7 +1934,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1971,7 +1971,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2008,7 +2008,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2045,7 +2045,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2082,7 +2082,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2119,7 +2119,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2155,7 +2155,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2191,7 +2191,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2227,7 +2227,7 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>2pt</Width>
+                              <Width>1.25pt</Width>
                             </Border>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2298,12 +2298,12 @@
             <DataSetName>DataSetPerbaikan</DataSetName>
             <Top>0.02414cm</Top>
             <Left>0.30411cm</Left>
-            <Height>1.0778cm</Height>
+            <Height>1.23655cm</Height>
             <Width>20.34933cm</Width>
             <Style>
               <Border>
                 <Style>Solid</Style>
-                <Width>2pt</Width>
+                <Width>1.25pt</Width>
               </Border>
               <TopBorder>
                 <Style>Solid</Style>
@@ -2311,23 +2311,26 @@
               </TopBorder>
               <BottomBorder>
                 <Style>Solid</Style>
+                <Width>1.25pt</Width>
               </BottomBorder>
               <LeftBorder>
                 <Style>Solid</Style>
+                <Width>1.25pt</Width>
               </LeftBorder>
               <RightBorder>
                 <Style>Solid</Style>
+                <Width>1.25pt</Width>
               </RightBorder>
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>1.10194cm</Height>
+        <Height>1.26069cm</Height>
         <Style />
       </Body>
       <Width>21cm</Width>
       <Page>
         <PageHeader>
-          <Height>6.47934cm</Height>
+          <Height>6.16184cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -2341,7 +2344,7 @@
                       <Value>PT. GENTANUSA GEMILANG</Value>
                       <Style>
                         <FontFamily>Arial Black</FontFamily>
-                        <FontSize>15pt</FontSize>
+                        <FontSize>13pt</FontSize>
                         <FontWeight>ExtraBold</FontWeight>
                         <Color>#00029a</Color>
                       </Style>
@@ -2376,7 +2379,7 @@
                     <TextRun>
                       <Value>ROD REPAIR SHOP</Value>
                       <Style>
-                        <FontSize>12pt</FontSize>
+                        <FontSize>11pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -2390,7 +2393,7 @@
                     <TextRun>
                       <Value>PERBAIKAN TANGKAI ANODA</Value>
                       <Style>
-                        <FontSize>12pt</FontSize>
+                        <FontSize>11pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -2426,6 +2429,7 @@
                       <Value>Hari/Tanggal      </Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <FontWeight>Normal</FontWeight>
                       </Style>
                     </TextRun>
@@ -2434,8 +2438,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>2.70852cm</Top>
-              <Left>0.41163cm</Left>
+              <Top>2.52331cm</Top>
+              <Left>0.30411cm</Left>
               <Height>0.70583cm</Height>
               <Width>2.78786cm</Width>
               <ZIndex>2</ZIndex>
@@ -2459,6 +2463,7 @@
                       <Value>Shift/Tim</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <FontWeight>Normal</FontWeight>
                       </Style>
                     </TextRun>
@@ -2467,8 +2472,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>3.59074cm</Top>
-              <Left>0.41163cm</Left>
+              <Top>3.40553cm</Top>
+              <Left>0.30411cm</Left>
               <Height>0.70583cm</Height>
               <Width>2.78786cm</Width>
               <ZIndex>3</ZIndex>
@@ -2492,6 +2497,7 @@
                       <Value>: </Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <FontWeight>Normal</FontWeight>
                       </Style>
                     </TextRun>
@@ -2499,6 +2505,7 @@
                       <Value>=Parameters!shift.Value &amp; " / " &amp; Parameters!tim.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <FontWeight>Normal</FontWeight>
                       </Style>
                     </TextRun>
@@ -2507,8 +2514,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>3.59074cm</Top>
-              <Left>3.19949cm</Left>
+              <Top>3.40553cm</Top>
+              <Left>3.09197cm</Left>
               <Height>0.70583cm</Height>
               <Width>5.51963cm</Width>
               <ZIndex>4</ZIndex>
@@ -2532,6 +2539,7 @@
                       <Value>: </Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <FontWeight>Normal</FontWeight>
                       </Style>
                     </TextRun>
@@ -2547,6 +2555,7 @@
 ) &amp; " / " &amp; Format(First(Fields!tanggal_perbaikan.Value, "DataSetPerbaikan"), "dd-MM-yyyy")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <FontWeight>Normal</FontWeight>
                       </Style>
                     </TextRun>
@@ -2555,8 +2564,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>2.70852cm</Top>
-              <Left>3.19949cm</Left>
+              <Top>2.52331cm</Top>
+              <Left>3.09197cm</Left>
               <Height>0.70583cm</Height>
               <Width>5.51963cm</Width>
               <ZIndex>5</ZIndex>
@@ -2574,8 +2583,8 @@
               <Source>Embedded</Source>
               <Value>Picture1</Value>
               <Sizing>Fit</Sizing>
-              <Top>0.55073cm</Top>
-              <Left>0.30411cm</Left>
+              <Top>0.33836cm</Top>
+              <Left>0.31187cm</Left>
               <Height>0.96114cm</Height>
               <Width>2.37168cm</Width>
               <ZIndex>6</ZIndex>
@@ -2589,8 +2598,8 @@
               <Source>Embedded</Source>
               <Value>Picture2</Value>
               <Sizing>Fit</Sizing>
-              <Top>0.55073cm</Top>
-              <Left>2.85218cm</Left>
+              <Top>0.33836cm</Top>
+              <Left>2.85994cm</Left>
               <Height>1.46378cm</Height>
               <Width>1.84388cm</Width>
               <ZIndex>7</ZIndex>
@@ -3734,7 +3743,7 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>4.73579cm</Top>
+              <Top>4.41829cm</Top>
               <Left>0.30411cm</Left>
               <Height>1.74355cm</Height>
               <Width>20.34558cm</Width>
@@ -3742,17 +3751,15 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>2pt</Width>
-                </Border>
-                <BottomBorder>
                   <Width>1.25pt</Width>
-                </BottomBorder>
+                </Border>
               </Style>
             </Rectangle>
             <Rectangle Name="Rectangle3">
               <ReportItems>
                 <Line Name="Line1">
-                  <Top>0.80525cm</Top>
+                  <Top>0.62886cm</Top>
+                  <Left>0.03528cm</Left>
                   <Height>0cm</Height>
                   <Width>5.70787cm</Width>
                   <Style>
@@ -3763,9 +3770,9 @@
                   </Style>
                 </Line>
                 <Line Name="Line2">
-                  <Top>0.80525cm</Top>
+                  <Top>0.62886cm</Top>
                   <Left>1.98947cm</Left>
-                  <Height>3.40898cm</Height>
+                  <Height>2.78569cm</Height>
                   <Width>0cm</Width>
                   <ZIndex>1</ZIndex>
                   <Style>
@@ -3776,9 +3783,9 @@
                   </Style>
                 </Line>
                 <Line Name="Line3">
-                  <Top>0.80525cm</Top>
+                  <Top>0.62886cm</Top>
                   <Left>3.81558cm</Left>
-                  <Height>3.40898cm</Height>
+                  <Height>2.78569cm</Height>
                   <Width>0cm</Width>
                   <ZIndex>2</ZIndex>
                   <Style>
@@ -3789,7 +3796,7 @@
                   </Style>
                 </Line>
                 <Line Name="Line4">
-                  <Top>1.66261cm</Top>
+                  <Top>1.27261cm</Top>
                   <Height>0cm</Height>
                   <Width>5.70787cm</Width>
                   <ZIndex>3</ZIndex>
@@ -3801,7 +3808,8 @@
                   </Style>
                 </Line>
                 <Line Name="Line5">
-                  <Top>2.49951cm</Top>
+                  <Top>2.00368cm</Top>
+                  <Left>0.03528cm</Left>
                   <Height>0cm</Height>
                   <Width>5.70787cm</Width>
                   <ZIndex>4</ZIndex>
@@ -3813,7 +3821,7 @@
                   </Style>
                 </Line>
                 <Line Name="Line6">
-                  <Top>3.35687cm</Top>
+                  <Top>2.72187cm</Top>
                   <Height>0cm</Height>
                   <Width>5.70787cm</Width>
                   <ZIndex>5</ZIndex>
@@ -3834,6 +3842,7 @@
                           <Value>Diperiksa</Value>
                           <Style>
                             <FontFamily>Segoe UI</FontFamily>
+                            <FontSize>8pt</FontSize>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -3844,7 +3853,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox101</rd:DefaultName>
                   <Left>0.03528cm</Left>
-                  <Height>0.80525cm</Height>
+                  <Height>0.62886cm</Height>
                   <Width>5.51719cm</Width>
                   <ZIndex>6</ZIndex>
                   <Style>
@@ -3868,7 +3877,7 @@
                           <Value>Foreman</Value>
                           <Style>
                             <FontFamily>Segoe UI</FontFamily>
-                            <FontSize>8pt</FontSize>
+                            <FontSize>7pt</FontSize>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -3878,8 +3887,9 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>0.80525cm</Top>
-                  <Height>0.85736cm</Height>
+                  <Top>0.62886cm</Top>
+                  <Left>0.03527cm</Left>
+                  <Height>0.64375cm</Height>
                   <Width>1.9542cm</Width>
                   <ZIndex>7</ZIndex>
                   <Style>
@@ -3903,7 +3913,7 @@
                           <Value>As.Foreman</Value>
                           <Style>
                             <FontFamily>Segoe UI</FontFamily>
-                            <FontSize>8pt</FontSize>
+                            <FontSize>7pt</FontSize>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -3913,7 +3923,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>1.69789cm</Top>
+                  <Top>1.27261cm</Top>
+                  <Left>0.03527cm</Left>
                   <Height>0.73107cm</Height>
                   <Width>1.91891cm</Width>
                   <ZIndex>8</ZIndex>
@@ -3938,6 +3949,7 @@
                           <Value>Checker</Value>
                           <Style>
                             <FontFamily>Segoe UI</FontFamily>
+                            <FontSize>7pt</FontSize>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -3947,8 +3959,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>2.49951cm</Top>
-                  <Height>0.85736cm</Height>
+                  <Top>2.00368cm</Top>
+                  <Height>0.71819cm</Height>
                   <Width>1.9542cm</Width>
                   <ZIndex>9</ZIndex>
                   <Style>
@@ -3972,6 +3984,7 @@
                           <Value>SEKSI</Value>
                           <Style>
                             <FontFamily>Segoe UI</FontFamily>
+                            <FontSize>8pt</FontSize>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -3981,8 +3994,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>3.35687cm</Top>
-                  <Height>0.85736cm</Height>
+                  <Top>2.72187cm</Top>
+                  <Height>0.68097cm</Height>
                   <Width>1.98947cm</Width>
                   <ZIndex>10</ZIndex>
                   <Style>
@@ -4006,7 +4019,7 @@
                           <Value>PT GNG</Value>
                           <Style>
                             <FontFamily>Arial Narrow</FontFamily>
-                            <FontSize>9pt</FontSize>
+                            <FontSize>8pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
@@ -4017,8 +4030,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox5</rd:DefaultName>
-                  <Top>3.41572cm</Top>
-                  <Left>1.98947cm</Left>
+                  <Top>2.71016cm</Top>
+                  <Left>1.95774cm</Left>
                   <Height>0.69268cm</Height>
                   <Width>1.75289cm</Width>
                   <ZIndex>11</ZIndex>
@@ -4043,7 +4056,7 @@
                           <Value>PT.INALUM</Value>
                           <Style>
                             <FontFamily>Arial Narrow</FontFamily>
-                            <FontSize>9pt</FontSize>
+                            <FontSize>8pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
@@ -4054,8 +4067,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox5</rd:DefaultName>
-                  <Top>3.42743cm</Top>
-                  <Left>3.81558cm</Left>
+                  <Top>2.72187cm</Top>
+                  <Left>3.78385cm</Left>
                   <Height>0.69268cm</Height>
                   <Width>1.89229cm</Width>
                   <ZIndex>12</ZIndex>
@@ -4074,8 +4087,8 @@
               <KeepTogether>true</KeepTogether>
               <Top>0.35314cm</Top>
               <Left>14.9773cm</Left>
-              <Height>4.21423cm</Height>
-              <Width>5.70787cm</Width>
+              <Height>3.41455cm</Height>
+              <Width>5.74315cm</Width>
               <ZIndex>9</ZIndex>
               <Style>
                 <Border>
@@ -4120,14 +4133,13 @@
               <Top>0.11257cm</Top>
               <Left>0.82476cm</Left>
               <Height>1.00655cm</Height>
-              <Width>4.53617cm</Width>
+              <Width>2.23864cm</Width>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4153,10 +4165,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.11257cm</Top>
-              <Left>5.36093cm</Left>
+              <Top>0.11259cm</Top>
+              <Left>3.0634cm</Left>
               <Height>0.47841cm</Height>
-              <Width>2.10438cm</Width>
+              <Width>2.13537cm</Width>
               <ZIndex>1</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4164,7 +4176,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4190,10 +4201,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.11257cm</Top>
-              <Left>7.46093cm</Left>
+              <Top>0.11259cm</Top>
+              <Left>5.19439cm</Left>
               <Height>0.47841cm</Height>
-              <Width>3.07472cm</Width>
+              <Width>3.07034cm</Width>
               <ZIndex>2</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4201,7 +4212,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4227,8 +4237,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.11257cm</Top>
-              <Left>12.63127cm</Left>
+              <Top>0.11259cm</Top>
+              <Left>10.36473cm</Left>
               <Height>1.00656cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>3</ZIndex>
@@ -4238,7 +4248,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4264,10 +4273,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.11257cm</Top>
-              <Left>13.33127cm</Left>
+              <Top>0.11259cm</Top>
+              <Left>11.06473cm</Left>
               <Height>1.00656cm</Height>
-              <Width>0.7cm</Width>
+              <Width>0.73528cm</Width>
               <ZIndex>4</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4275,7 +4284,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4301,8 +4309,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.11257cm</Top>
-              <Left>10.53127cm</Left>
+              <Top>0.11259cm</Top>
+              <Left>8.26473cm</Left>
               <Height>1.00656cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>5</ZIndex>
@@ -4312,7 +4320,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4338,8 +4345,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.11257cm</Top>
-              <Left>11.93127cm</Left>
+              <Top>0.11259cm</Top>
+              <Left>9.66473cm</Left>
               <Height>1.00656cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>6</ZIndex>
@@ -4349,7 +4356,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4375,8 +4381,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.11257cm</Top>
-              <Left>14.03251cm</Left>
+              <Top>0.11259cm</Top>
+              <Left>11.80125cm</Left>
               <Height>1.00656cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>7</ZIndex>
@@ -4386,7 +4392,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4412,8 +4417,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.11257cm</Top>
-              <Left>15.50862cm</Left>
+              <Top>0.11259cm</Top>
+              <Left>13.27736cm</Left>
               <Height>1.00656cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>8</ZIndex>
@@ -4423,7 +4428,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4449,8 +4453,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.11257cm</Top>
-              <Left>17.60862cm</Left>
+              <Top>0.11259cm</Top>
+              <Left>15.37736cm</Left>
               <Height>1.00656cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>9</ZIndex>
@@ -4460,7 +4464,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4486,8 +4489,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.11257cm</Top>
-              <Left>18.30862cm</Left>
+              <Top>0.11259cm</Top>
+              <Left>16.07736cm</Left>
               <Height>1.00656cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>10</ZIndex>
@@ -4497,7 +4500,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4523,8 +4525,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.11257cm</Top>
-              <Left>16.20862cm</Left>
+              <Top>0.11259cm</Top>
+              <Left>13.97736cm</Left>
               <Height>1.00656cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>11</ZIndex>
@@ -4534,7 +4536,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4560,8 +4561,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.11257cm</Top>
-              <Left>16.90862cm</Left>
+              <Top>0.11259cm</Top>
+              <Left>14.67736cm</Left>
               <Height>1.00656cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>12</ZIndex>
@@ -4571,7 +4572,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4583,7 +4583,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Jlh</Value>
+                      <Value>Total</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4597,10 +4597,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.11257cm</Top>
-              <Left>19.00862cm</Left>
+              <Top>0.11259cm</Top>
+              <Left>16.77736cm</Left>
               <Height>1.00656cm</Height>
-              <Width>0.94864cm</Width>
+              <Width>2.32362cm</Width>
               <ZIndex>13</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4608,7 +4608,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4637,7 +4636,7 @@
               <Top>1.11913cm</Top>
               <Left>0.82038cm</Left>
               <Height>1.43523cm</Height>
-              <Width>3.05117cm</Width>
+              <Width>1.41075cm</Width>
               <ZIndex>14</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4645,7 +4644,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4671,10 +4669,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.11913cm</Top>
-              <Left>5.35655cm</Left>
+              <Top>1.11915cm</Top>
+              <Left>3.0634cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.7cm</Width>
+              <Width>0.72661cm</Width>
               <ZIndex>15</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4682,7 +4680,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4708,8 +4705,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.11913cm</Top>
-              <Left>6.05655cm</Left>
+              <Top>1.11915cm</Top>
+              <Left>3.79001cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>16</ZIndex>
@@ -4719,7 +4716,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4745,8 +4741,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.11914cm</Top>
-              <Left>12.63127cm</Left>
+              <Top>1.11916cm</Top>
+              <Left>10.36473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>17</ZIndex>
@@ -4756,7 +4752,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4782,10 +4777,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.11914cm</Top>
-              <Left>13.33127cm</Left>
+              <Top>1.11916cm</Top>
+              <Left>11.06473cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.7cm</Width>
+              <Width>0.73528cm</Width>
               <ZIndex>18</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -4793,7 +4788,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4819,8 +4813,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.11914cm</Top>
-              <Left>10.53127cm</Left>
+              <Top>1.11916cm</Top>
+              <Left>8.26473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>19</ZIndex>
@@ -4830,7 +4824,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4856,8 +4849,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.11914cm</Top>
-              <Left>11.93127cm</Left>
+              <Top>1.11916cm</Top>
+              <Left>9.66473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>20</ZIndex>
@@ -4867,7 +4860,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4879,7 +4871,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Lookup(1, Fields!Shift.Value, Fields!ba.Value, "datasetjumlahperbaikan1")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!nba.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4893,8 +4885,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.11914cm</Top>
-              <Left>14.03251cm</Left>
+              <Top>1.11916cm</Top>
+              <Left>11.80125cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>21</ZIndex>
@@ -4904,7 +4896,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4930,8 +4921,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.11914cm</Top>
-              <Left>15.50862cm</Left>
+              <Top>1.11916cm</Top>
+              <Left>13.27736cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>22</ZIndex>
@@ -4941,7 +4932,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4967,8 +4957,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.11914cm</Top>
-              <Left>17.60862cm</Left>
+              <Top>1.11916cm</Top>
+              <Left>15.37736cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>23</ZIndex>
@@ -4978,7 +4968,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5004,8 +4993,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.11914cm</Top>
-              <Left>18.30862cm</Left>
+              <Top>1.11916cm</Top>
+              <Left>16.07736cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>24</ZIndex>
@@ -5015,7 +5004,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5041,8 +5029,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.11914cm</Top>
-              <Left>16.20862cm</Left>
+              <Top>1.11916cm</Top>
+              <Left>13.97736cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>25</ZIndex>
@@ -5052,7 +5040,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5078,8 +5065,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.11914cm</Top>
-              <Left>16.90862cm</Left>
+              <Top>1.11916cm</Top>
+              <Left>14.67736cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>26</ZIndex>
@@ -5089,7 +5076,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5115,10 +5101,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.11914cm</Top>
-              <Left>19.00862cm</Left>
+              <Top>1.11916cm</Top>
+              <Left>16.77736cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.94864cm</Width>
+              <Width>2.32362cm</Width>
               <ZIndex>27</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5126,7 +5112,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5155,7 +5140,7 @@
               <Top>2.55436cm</Top>
               <Left>0.82038cm</Left>
               <Height>0.47841cm</Height>
-              <Width>4.53617cm</Width>
+              <Width>2.24302cm</Width>
               <ZIndex>28</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5163,7 +5148,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5189,10 +5173,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55436cm</Top>
-              <Left>5.35655cm</Left>
+              <Top>2.55438cm</Top>
+              <Left>3.0634cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.7cm</Width>
+              <Width>0.72661cm</Width>
               <ZIndex>29</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5200,7 +5184,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5226,8 +5209,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55436cm</Top>
-              <Left>6.05655cm</Left>
+              <Top>2.55438cm</Top>
+              <Left>3.79001cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>30</ZIndex>
@@ -5237,7 +5220,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5263,8 +5245,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55437cm</Top>
-              <Left>12.63127cm</Left>
+              <Top>2.55439cm</Top>
+              <Left>10.36473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>31</ZIndex>
@@ -5274,7 +5256,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5300,10 +5281,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55437cm</Top>
-              <Left>13.33127cm</Left>
+              <Top>2.55439cm</Top>
+              <Left>11.06473cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.7cm</Width>
+              <Width>0.73528cm</Width>
               <ZIndex>32</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5311,7 +5292,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5337,8 +5317,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55437cm</Top>
-              <Left>10.53127cm</Left>
+              <Top>2.55439cm</Top>
+              <Left>8.26473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>33</ZIndex>
@@ -5348,7 +5328,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5374,8 +5353,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55437cm</Top>
-              <Left>11.93127cm</Left>
+              <Top>2.55439cm</Top>
+              <Left>9.66473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>34</ZIndex>
@@ -5385,7 +5364,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5397,7 +5375,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Sum(Fields!ba.Value, "datasetjumlahperbaikan1")</Value>
+                      <Value>=Sum(Fields!nba.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5411,8 +5389,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55437cm</Top>
-              <Left>14.03251cm</Left>
+              <Top>2.55439cm</Top>
+              <Left>11.80125cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>35</ZIndex>
@@ -5422,7 +5400,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5448,8 +5425,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55437cm</Top>
-              <Left>15.50862cm</Left>
+              <Top>2.55439cm</Top>
+              <Left>13.27736cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>36</ZIndex>
@@ -5459,7 +5436,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5485,8 +5461,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55437cm</Top>
-              <Left>17.60862cm</Left>
+              <Top>2.55439cm</Top>
+              <Left>15.37736cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>37</ZIndex>
@@ -5496,7 +5472,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5522,8 +5497,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55437cm</Top>
-              <Left>18.30862cm</Left>
+              <Top>2.55439cm</Top>
+              <Left>16.07736cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>38</ZIndex>
@@ -5533,7 +5508,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5559,8 +5533,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55437cm</Top>
-              <Left>16.20862cm</Left>
+              <Top>2.55439cm</Top>
+              <Left>13.97736cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>39</ZIndex>
@@ -5570,7 +5544,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5596,8 +5569,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55437cm</Top>
-              <Left>16.90862cm</Left>
+              <Top>2.55439cm</Top>
+              <Left>14.67736cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>40</ZIndex>
@@ -5607,7 +5580,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5633,10 +5605,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55437cm</Top>
-              <Left>19.00862cm</Left>
+              <Top>2.55439cm</Top>
+              <Left>16.77736cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.94864cm</Width>
+              <Width>2.32362cm</Width>
               <ZIndex>41</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5644,7 +5616,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5671,9 +5642,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>1.11913cm</Top>
-              <Left>3.87155cm</Left>
+              <Left>2.23113cm</Left>
               <Height>0.47841cm</Height>
-              <Width>1.485cm</Width>
+              <Width>0.83227cm</Width>
               <ZIndex>42</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5681,7 +5652,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5707,10 +5677,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.59754cm</Top>
-              <Left>5.35655cm</Left>
+              <Top>1.59756cm</Top>
+              <Left>3.0634cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.7cm</Width>
+              <Width>0.72661cm</Width>
               <ZIndex>43</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5718,7 +5688,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5744,8 +5713,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.59754cm</Top>
-              <Left>6.05655cm</Left>
+              <Top>1.59756cm</Top>
+              <Left>3.79001cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>44</ZIndex>
@@ -5755,7 +5724,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5781,8 +5749,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.59755cm</Top>
-              <Left>12.63127cm</Left>
+              <Top>1.59757cm</Top>
+              <Left>10.36473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>45</ZIndex>
@@ -5792,7 +5760,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5818,10 +5785,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.59755cm</Top>
-              <Left>13.33127cm</Left>
+              <Top>1.59757cm</Top>
+              <Left>11.06473cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.7cm</Width>
+              <Width>0.73528cm</Width>
               <ZIndex>46</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -5829,7 +5796,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5855,8 +5821,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.59755cm</Top>
-              <Left>10.53127cm</Left>
+              <Top>1.59757cm</Top>
+              <Left>8.26473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>47</ZIndex>
@@ -5866,7 +5832,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5892,8 +5857,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.59755cm</Top>
-              <Left>11.93127cm</Left>
+              <Top>1.59757cm</Top>
+              <Left>9.66473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>48</ZIndex>
@@ -5903,7 +5868,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5915,7 +5879,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Lookup(2, Fields!Shift.Value, Fields!ba.Value, "datasetjumlahperbaikan1")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!nba.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5929,8 +5893,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.59755cm</Top>
-              <Left>14.03251cm</Left>
+              <Top>1.59757cm</Top>
+              <Left>11.80125cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>49</ZIndex>
@@ -5940,7 +5904,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5966,8 +5929,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.59755cm</Top>
-              <Left>15.50862cm</Left>
+              <Top>1.59757cm</Top>
+              <Left>13.27736cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>50</ZIndex>
@@ -5977,7 +5940,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6003,8 +5965,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.59755cm</Top>
-              <Left>17.60862cm</Left>
+              <Top>1.59757cm</Top>
+              <Left>15.37736cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>51</ZIndex>
@@ -6014,7 +5976,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6040,8 +6001,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.59755cm</Top>
-              <Left>18.30862cm</Left>
+              <Top>1.59757cm</Top>
+              <Left>16.07736cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>52</ZIndex>
@@ -6051,7 +6012,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6077,8 +6037,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.59755cm</Top>
-              <Left>16.20862cm</Left>
+              <Top>1.59757cm</Top>
+              <Left>13.97736cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>53</ZIndex>
@@ -6088,7 +6048,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6114,8 +6073,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.59755cm</Top>
-              <Left>16.90862cm</Left>
+              <Top>1.59757cm</Top>
+              <Left>14.67736cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>54</ZIndex>
@@ -6125,7 +6084,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6151,10 +6109,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.59755cm</Top>
-              <Left>19.00862cm</Left>
+              <Top>1.59757cm</Top>
+              <Left>16.77736cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.94864cm</Width>
+              <Width>2.32362cm</Width>
               <ZIndex>55</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6162,7 +6120,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6189,9 +6146,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>1.59754cm</Top>
-              <Left>3.87155cm</Left>
+              <Left>2.23113cm</Left>
               <Height>0.47841cm</Height>
-              <Width>1.485cm</Width>
+              <Width>0.83227cm</Width>
               <ZIndex>56</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6199,7 +6156,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6225,10 +6181,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.07595cm</Top>
-              <Left>5.35655cm</Left>
+              <Top>2.07597cm</Top>
+              <Left>3.0634cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.7cm</Width>
+              <Width>0.72661cm</Width>
               <ZIndex>57</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6236,7 +6192,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6262,8 +6217,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.07595cm</Top>
-              <Left>6.05655cm</Left>
+              <Top>2.07597cm</Top>
+              <Left>3.79001cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>58</ZIndex>
@@ -6273,7 +6228,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6299,8 +6253,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.07596cm</Top>
-              <Left>12.63127cm</Left>
+              <Top>2.07598cm</Top>
+              <Left>10.36473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>59</ZIndex>
@@ -6310,7 +6264,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6336,10 +6289,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.07596cm</Top>
-              <Left>13.33127cm</Left>
+              <Top>2.07598cm</Top>
+              <Left>11.06473cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.7cm</Width>
+              <Width>0.73528cm</Width>
               <ZIndex>60</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6347,7 +6300,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6373,8 +6325,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.07596cm</Top>
-              <Left>10.53127cm</Left>
+              <Top>2.07598cm</Top>
+              <Left>8.26473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>61</ZIndex>
@@ -6384,7 +6336,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6410,8 +6361,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.07596cm</Top>
-              <Left>11.93127cm</Left>
+              <Top>2.07598cm</Top>
+              <Left>9.66473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>62</ZIndex>
@@ -6421,7 +6372,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6433,7 +6383,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Lookup(3, Fields!Shift.Value, Fields!ba.Value, "datasetjumlahperbaikan1")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!nba.Value, "datasetjumlahperbaikan1")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6447,8 +6397,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.07596cm</Top>
-              <Left>14.03251cm</Left>
+              <Top>2.07598cm</Top>
+              <Left>11.80125cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>63</ZIndex>
@@ -6458,7 +6408,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6484,8 +6433,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.07596cm</Top>
-              <Left>15.50862cm</Left>
+              <Top>2.07598cm</Top>
+              <Left>13.27736cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>64</ZIndex>
@@ -6495,7 +6444,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6521,8 +6469,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.07596cm</Top>
-              <Left>17.60862cm</Left>
+              <Top>2.07598cm</Top>
+              <Left>15.37736cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>65</ZIndex>
@@ -6532,7 +6480,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6558,8 +6505,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.07596cm</Top>
-              <Left>18.30862cm</Left>
+              <Top>2.07598cm</Top>
+              <Left>16.07736cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>66</ZIndex>
@@ -6569,7 +6516,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6595,8 +6541,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.07596cm</Top>
-              <Left>16.20862cm</Left>
+              <Top>2.07598cm</Top>
+              <Left>13.97736cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>67</ZIndex>
@@ -6606,7 +6552,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6632,8 +6577,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.07596cm</Top>
-              <Left>16.90862cm</Left>
+              <Top>2.07598cm</Top>
+              <Left>14.67736cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>68</ZIndex>
@@ -6643,7 +6588,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6669,10 +6613,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.07596cm</Top>
-              <Left>19.00862cm</Left>
+              <Top>2.07598cm</Top>
+              <Left>16.77736cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.94864cm</Width>
+              <Width>2.32362cm</Width>
               <ZIndex>69</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6680,7 +6624,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6707,9 +6650,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>2.07595cm</Top>
-              <Left>3.87155cm</Left>
+              <Left>2.23113cm</Left>
               <Height>0.47841cm</Height>
-              <Width>1.485cm</Width>
+              <Width>0.83227cm</Width>
               <ZIndex>70</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6717,7 +6660,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6746,7 +6688,7 @@
               <Top>3.1739cm</Top>
               <Left>0.82476cm</Left>
               <Height>0.47841cm</Height>
-              <Width>4.53617cm</Width>
+              <Width>2.23864cm</Width>
               <ZIndex>71</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -6754,7 +6696,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6781,7 +6722,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>3.1739cm</Top>
-              <Left>5.36093cm</Left>
+              <Left>3.0634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>72</ZIndex>
@@ -6791,7 +6732,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6818,7 +6758,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>3.1739cm</Top>
-              <Left>6.06093cm</Left>
+              <Left>3.7634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>73</ZIndex>
@@ -6828,7 +6768,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6854,8 +6793,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.1739cm</Top>
-              <Left>8.16093cm</Left>
+              <Top>3.17391cm</Top>
+              <Left>5.8634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.76062cm</Width>
               <ZIndex>74</ZIndex>
@@ -6865,7 +6804,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6891,8 +6829,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.1739cm</Top>
-              <Left>9.6989cm</Left>
+              <Top>3.17392cm</Top>
+              <Left>7.40137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>75</ZIndex>
@@ -6902,7 +6840,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6929,7 +6866,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>3.1739cm</Top>
-              <Left>6.76093cm</Left>
+              <Left>4.4634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>76</ZIndex>
@@ -6939,7 +6876,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6965,8 +6901,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.1739cm</Top>
-              <Left>7.46093cm</Left>
+              <Top>3.17391cm</Top>
+              <Left>5.1634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>77</ZIndex>
@@ -6976,7 +6912,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7002,8 +6937,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.1739cm</Top>
-              <Left>10.3989cm</Left>
+              <Top>3.17392cm</Top>
+              <Left>8.10137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>78</ZIndex>
@@ -7013,7 +6948,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7039,8 +6973,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.1739cm</Top>
-              <Left>11.0989cm</Left>
+              <Top>3.17392cm</Top>
+              <Left>8.80137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>79</ZIndex>
@@ -7050,7 +6984,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7077,9 +7010,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>3.1739cm</Top>
-              <Left>13.19898cm</Left>
+              <Left>10.90145cm</Left>
               <Height>0.47841cm</Height>
-              <Width>1.6cm</Width>
+              <Width>1.60334cm</Width>
               <ZIndex>80</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -7087,7 +7020,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7113,8 +7045,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.1739cm</Top>
-              <Left>11.7989cm</Left>
+              <Top>3.17392cm</Top>
+              <Left>9.50137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>81</ZIndex>
@@ -7124,7 +7056,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7151,7 +7082,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>3.1739cm</Top>
-              <Left>12.4989cm</Left>
+              <Left>10.20137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>82</ZIndex>
@@ -7161,7 +7092,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7190,7 +7120,7 @@
               <Top>3.65231cm</Top>
               <Left>0.82476cm</Left>
               <Height>1.43523cm</Height>
-              <Width>3.05117cm</Width>
+              <Width>1.40637cm</Width>
               <ZIndex>83</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -7198,7 +7128,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7225,7 +7154,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>3.65231cm</Top>
-              <Left>5.36093cm</Left>
+              <Left>3.0634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>84</ZIndex>
@@ -7235,7 +7164,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7262,7 +7190,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>3.65231cm</Top>
-              <Left>6.06093cm</Left>
+              <Left>3.7634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>85</ZIndex>
@@ -7272,7 +7200,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7284,7 +7211,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Lookup(1, Fields!Shift.Value, Fields!BA.Value, "datasetjumlahperbaikan2")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!NBA.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7298,8 +7225,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.65231cm</Top>
-              <Left>8.16093cm</Left>
+              <Top>3.65232cm</Top>
+              <Left>5.8634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.76062cm</Width>
               <ZIndex>86</ZIndex>
@@ -7309,7 +7236,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7335,8 +7261,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.65231cm</Top>
-              <Left>9.6989cm</Left>
+              <Top>3.65233cm</Top>
+              <Left>7.40137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>87</ZIndex>
@@ -7346,7 +7272,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7373,7 +7298,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>3.65231cm</Top>
-              <Left>6.76093cm</Left>
+              <Left>4.4634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>88</ZIndex>
@@ -7383,7 +7308,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7409,8 +7333,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.65231cm</Top>
-              <Left>7.46093cm</Left>
+              <Top>3.65232cm</Top>
+              <Left>5.1634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>89</ZIndex>
@@ -7420,7 +7344,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7446,8 +7369,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.65231cm</Top>
-              <Left>10.3989cm</Left>
+              <Top>3.65233cm</Top>
+              <Left>8.10137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>90</ZIndex>
@@ -7457,7 +7380,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7483,8 +7405,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.65231cm</Top>
-              <Left>11.0989cm</Left>
+              <Top>3.65233cm</Top>
+              <Left>8.80137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>91</ZIndex>
@@ -7494,7 +7416,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7521,9 +7442,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>3.65231cm</Top>
-              <Left>13.19898cm</Left>
+              <Left>10.90145cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.8cm</Width>
+              <Width>1.60334cm</Width>
               <ZIndex>92</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
@@ -7531,7 +7452,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7557,8 +7477,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.65231cm</Top>
-              <Left>11.7989cm</Left>
+              <Top>3.65233cm</Top>
+              <Left>9.50137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>93</ZIndex>
@@ -7568,7 +7488,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7595,7 +7514,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>3.65231cm</Top>
-              <Left>12.4989cm</Left>
+              <Left>10.20137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>94</ZIndex>
@@ -7605,44 +7524,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox144">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value />
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.65231cm</Top>
-              <Left>13.99898cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>0.8cm</Width>
-              <ZIndex>95</ZIndex>
-              <Visibility>
-                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7671,15 +7552,14 @@
               <Top>5.08754cm</Top>
               <Left>0.82476cm</Left>
               <Height>0.47841cm</Height>
-              <Width>4.53617cm</Width>
-              <ZIndex>96</ZIndex>
+              <Width>2.23864cm</Width>
+              <ZIndex>95</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7706,17 +7586,16 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>5.08754cm</Top>
-              <Left>5.36093cm</Left>
+              <Left>3.0634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>97</ZIndex>
+              <ZIndex>96</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7743,17 +7622,16 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>5.08754cm</Top>
-              <Left>6.06093cm</Left>
+              <Left>3.7634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>98</ZIndex>
+              <ZIndex>97</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7765,7 +7643,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Sum(Fields!BA.Value, "datasetjumlahperbaikan2")</Value>
+                      <Value>=Sum(Fields!NBA.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7779,18 +7657,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>5.08754cm</Top>
-              <Left>8.16093cm</Left>
+              <Top>5.08755cm</Top>
+              <Left>5.8634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.76062cm</Width>
-              <ZIndex>99</ZIndex>
+              <ZIndex>98</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7816,18 +7693,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>5.08754cm</Top>
-              <Left>9.6989cm</Left>
+              <Top>5.08756cm</Top>
+              <Left>7.40137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>100</ZIndex>
+              <ZIndex>99</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7854,17 +7730,16 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>5.08754cm</Top>
-              <Left>6.76093cm</Left>
+              <Left>4.4634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>101</ZIndex>
+              <ZIndex>100</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7890,18 +7765,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>5.08754cm</Top>
-              <Left>7.46093cm</Left>
+              <Top>5.08755cm</Top>
+              <Left>5.1634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>102</ZIndex>
+              <ZIndex>101</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7927,18 +7801,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>5.08754cm</Top>
-              <Left>10.3989cm</Left>
+              <Top>5.08756cm</Top>
+              <Left>8.10137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>103</ZIndex>
+              <ZIndex>102</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7964,18 +7837,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>5.08754cm</Top>
-              <Left>11.0989cm</Left>
+              <Top>5.08756cm</Top>
+              <Left>8.80137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>104</ZIndex>
+              <ZIndex>103</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8002,17 +7874,16 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>5.08754cm</Top>
-              <Left>13.19898cm</Left>
+              <Left>10.90145cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.8cm</Width>
-              <ZIndex>105</ZIndex>
+              <Width>1.60334cm</Width>
+              <ZIndex>104</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8038,18 +7909,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>5.08754cm</Top>
-              <Left>11.7989cm</Left>
+              <Top>5.08756cm</Top>
+              <Left>9.50137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>106</ZIndex>
+              <ZIndex>105</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8076,54 +7946,16 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>5.08754cm</Top>
-              <Left>12.4989cm</Left>
+              <Left>10.20137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>107</ZIndex>
+              <ZIndex>106</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox157">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value />
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>5.08754cm</Top>
-              <Left>13.99898cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>0.8cm</Width>
-              <ZIndex>108</ZIndex>
-              <Visibility>
-                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8150,17 +7982,16 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>3.65231cm</Top>
-              <Left>3.87593cm</Left>
+              <Left>2.23113cm</Left>
               <Height>0.47841cm</Height>
-              <Width>1.485cm</Width>
-              <ZIndex>109</ZIndex>
+              <Width>0.83227cm</Width>
+              <ZIndex>107</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8187,17 +8018,16 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>4.13072cm</Top>
-              <Left>5.36093cm</Left>
+              <Left>3.0634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>110</ZIndex>
+              <ZIndex>108</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8224,17 +8054,16 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>4.13072cm</Top>
-              <Left>6.06093cm</Left>
+              <Left>3.7634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>111</ZIndex>
+              <ZIndex>109</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8246,7 +8075,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Lookup(2, Fields!Shift.Value, Fields!BA.Value, "datasetjumlahperbaikan2")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!NBA.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8260,18 +8089,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.13072cm</Top>
-              <Left>8.16093cm</Left>
+              <Top>4.13073cm</Top>
+              <Left>5.8634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.76062cm</Width>
-              <ZIndex>112</ZIndex>
+              <ZIndex>110</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8297,18 +8125,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.13072cm</Top>
-              <Left>9.6989cm</Left>
+              <Top>4.13074cm</Top>
+              <Left>7.40137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>113</ZIndex>
+              <ZIndex>111</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8335,17 +8162,16 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>4.13072cm</Top>
-              <Left>6.76093cm</Left>
+              <Left>4.4634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>114</ZIndex>
+              <ZIndex>112</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8371,18 +8197,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.13072cm</Top>
-              <Left>7.46093cm</Left>
+              <Top>4.13073cm</Top>
+              <Left>5.1634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>115</ZIndex>
+              <ZIndex>113</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8408,18 +8233,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.13072cm</Top>
-              <Left>10.3989cm</Left>
+              <Top>4.13074cm</Top>
+              <Left>8.10137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>116</ZIndex>
+              <ZIndex>114</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8445,18 +8269,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.13072cm</Top>
-              <Left>11.0989cm</Left>
+              <Top>4.13074cm</Top>
+              <Left>8.80137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>117</ZIndex>
+              <ZIndex>115</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8483,17 +8306,16 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>4.13072cm</Top>
-              <Left>13.19898cm</Left>
+              <Left>10.90145cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.8cm</Width>
-              <ZIndex>118</ZIndex>
+              <Width>1.60334cm</Width>
+              <ZIndex>116</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8519,18 +8341,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.13072cm</Top>
-              <Left>11.7989cm</Left>
+              <Top>4.13074cm</Top>
+              <Left>9.50137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>119</ZIndex>
+              <ZIndex>117</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8557,54 +8378,16 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>4.13072cm</Top>
-              <Left>12.4989cm</Left>
+              <Left>10.20137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>120</ZIndex>
+              <ZIndex>118</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox170">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value />
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.13072cm</Top>
-              <Left>13.99898cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>0.8cm</Width>
-              <ZIndex>121</ZIndex>
-              <Visibility>
-                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8631,17 +8414,16 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>4.13072cm</Top>
-              <Left>3.87593cm</Left>
+              <Left>2.23113cm</Left>
               <Height>0.47841cm</Height>
-              <Width>1.485cm</Width>
-              <ZIndex>122</ZIndex>
+              <Width>0.83227cm</Width>
+              <ZIndex>119</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8668,17 +8450,16 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>4.60913cm</Top>
-              <Left>5.36093cm</Left>
+              <Left>3.0634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>123</ZIndex>
+              <ZIndex>120</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8705,17 +8486,16 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>4.60913cm</Top>
-              <Left>6.06093cm</Left>
+              <Left>3.7634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>124</ZIndex>
+              <ZIndex>121</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8727,7 +8507,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Lookup(3, Fields!Shift.Value, Fields!BA.Value, "datasetjumlahperbaikan2")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!NBA.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8741,18 +8521,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.60913cm</Top>
-              <Left>8.16093cm</Left>
+              <Top>4.60914cm</Top>
+              <Left>5.8634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.76062cm</Width>
-              <ZIndex>125</ZIndex>
+              <ZIndex>122</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8778,18 +8557,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.60913cm</Top>
-              <Left>9.6989cm</Left>
+              <Top>4.60915cm</Top>
+              <Left>7.40137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>126</ZIndex>
+              <ZIndex>123</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8816,17 +8594,16 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>4.60913cm</Top>
-              <Left>6.76093cm</Left>
+              <Left>4.4634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>127</ZIndex>
+              <ZIndex>124</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8852,18 +8629,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.60913cm</Top>
-              <Left>7.46093cm</Left>
+              <Top>4.60914cm</Top>
+              <Left>5.1634cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>128</ZIndex>
+              <ZIndex>125</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8889,18 +8665,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.60913cm</Top>
-              <Left>10.3989cm</Left>
+              <Top>4.60915cm</Top>
+              <Left>8.10137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>129</ZIndex>
+              <ZIndex>126</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8926,18 +8701,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.60913cm</Top>
-              <Left>11.0989cm</Left>
+              <Top>4.60915cm</Top>
+              <Left>8.80137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>130</ZIndex>
+              <ZIndex>127</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8964,17 +8738,16 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>4.60913cm</Top>
-              <Left>13.19898cm</Left>
+              <Left>10.90145cm</Left>
               <Height>0.47841cm</Height>
-              <Width>0.8cm</Width>
-              <ZIndex>131</ZIndex>
+              <Width>1.60334cm</Width>
+              <ZIndex>128</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9000,18 +8773,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.60913cm</Top>
-              <Left>11.7989cm</Left>
+              <Top>4.60915cm</Top>
+              <Left>9.50137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>132</ZIndex>
+              <ZIndex>129</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9038,54 +8810,16 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>4.60913cm</Top>
-              <Left>12.4989cm</Left>
+              <Left>10.20137cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>133</ZIndex>
+              <ZIndex>130</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox183">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value />
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.60913cm</Top>
-              <Left>13.99898cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>0.8cm</Width>
-              <ZIndex>134</ZIndex>
-              <Visibility>
-                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9112,17 +8846,16 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>4.60913cm</Top>
-              <Left>3.87593cm</Left>
+              <Left>2.23113cm</Left>
               <Height>0.47841cm</Height>
-              <Width>1.485cm</Width>
-              <ZIndex>135</ZIndex>
+              <Width>0.83227cm</Width>
+              <ZIndex>131</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9148,18 +8881,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.11257cm</Top>
-              <Left>14.73251cm</Left>
+              <Top>0.11259cm</Top>
+              <Left>12.50125cm</Left>
               <Height>1.00656cm</Height>
               <Width>0.77611cm</Width>
-              <ZIndex>136</ZIndex>
+              <ZIndex>132</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9185,18 +8917,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.11914cm</Top>
-              <Left>14.73251cm</Left>
+              <Top>1.11916cm</Top>
+              <Left>12.50125cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.77611cm</Width>
-              <ZIndex>137</ZIndex>
+              <ZIndex>133</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9222,18 +8953,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55437cm</Top>
-              <Left>14.73251cm</Left>
+              <Top>2.55439cm</Top>
+              <Left>12.50125cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.77611cm</Width>
-              <ZIndex>138</ZIndex>
+              <ZIndex>134</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9259,18 +8989,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.59755cm</Top>
-              <Left>14.73251cm</Left>
+              <Top>1.59757cm</Top>
+              <Left>12.50125cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.77611cm</Width>
-              <ZIndex>139</ZIndex>
+              <ZIndex>135</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9296,18 +9025,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.07596cm</Top>
-              <Left>14.73251cm</Left>
+              <Top>2.07598cm</Top>
+              <Left>12.50125cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.77611cm</Width>
-              <ZIndex>140</ZIndex>
+              <ZIndex>136</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9333,18 +9061,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.1739cm</Top>
-              <Left>8.92279cm</Left>
+              <Top>3.17391cm</Top>
+              <Left>6.62526cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.77611cm</Width>
-              <ZIndex>141</ZIndex>
+              <ZIndex>137</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9370,18 +9097,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.65231cm</Top>
-              <Left>8.92279cm</Left>
+              <Top>3.65232cm</Top>
+              <Left>6.62526cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.77611cm</Width>
-              <ZIndex>142</ZIndex>
+              <ZIndex>138</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9407,18 +9133,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>5.08754cm</Top>
-              <Left>8.92279cm</Left>
+              <Top>5.08755cm</Top>
+              <Left>6.62526cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.77611cm</Width>
-              <ZIndex>143</ZIndex>
+              <ZIndex>139</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9444,18 +9169,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.13072cm</Top>
-              <Left>8.92279cm</Left>
+              <Top>4.13073cm</Top>
+              <Left>6.62526cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.77611cm</Width>
-              <ZIndex>144</ZIndex>
+              <ZIndex>140</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9481,18 +9205,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.60913cm</Top>
-              <Left>8.92279cm</Left>
+              <Top>4.60914cm</Top>
+              <Left>6.62526cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.77611cm</Width>
-              <ZIndex>145</ZIndex>
+              <ZIndex>141</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9518,18 +9241,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.11257cm</Top>
-              <Left>11.23127cm</Left>
+              <Top>0.11259cm</Top>
+              <Left>8.96473cm</Left>
               <Height>1.00656cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>146</ZIndex>
+              <ZIndex>142</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9555,18 +9277,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.11914cm</Top>
-              <Left>11.23127cm</Left>
+              <Top>1.11916cm</Top>
+              <Left>8.96473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>147</ZIndex>
+              <ZIndex>143</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9592,18 +9313,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55437cm</Top>
-              <Left>11.23127cm</Left>
+              <Top>2.55439cm</Top>
+              <Left>8.96473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>148</ZIndex>
+              <ZIndex>144</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9629,18 +9349,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.59755cm</Top>
-              <Left>11.23127cm</Left>
+              <Top>1.59757cm</Top>
+              <Left>8.96473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>149</ZIndex>
+              <ZIndex>145</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9666,18 +9385,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.07596cm</Top>
-              <Left>11.23127cm</Left>
+              <Top>2.07598cm</Top>
+              <Left>8.96473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>150</ZIndex>
+              <ZIndex>146</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9790,10 +9508,10 @@
               </Paragraphs>
               <rd:DefaultName>Textbox200</rd:DefaultName>
               <Top>3.1739cm</Top>
-              <Left>15.01258cm</Left>
+              <Left>12.81875cm</Left>
               <Height>2.39205cm</Height>
               <Width>4.15463cm</Width>
-              <ZIndex>151</ZIndex>
+              <ZIndex>147</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9828,18 +9546,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.59098cm</Top>
-              <Left>5.35655cm</Left>
+              <Top>0.591cm</Top>
+              <Left>3.0634cm</Left>
               <Height>0.52814cm</Height>
-              <Width>0.70438cm</Width>
-              <ZIndex>152</ZIndex>
+              <Width>0.73099cm</Width>
+              <ZIndex>148</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9865,18 +9582,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.59098cm</Top>
-              <Left>6.05217cm</Left>
+              <Top>0.591cm</Top>
+              <Left>3.78563cm</Left>
               <Height>0.52814cm</Height>
               <Width>0.70438cm</Width>
-              <ZIndex>153</ZIndex>
+              <ZIndex>149</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9902,18 +9618,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.59098cm</Top>
-              <Left>6.76093cm</Left>
+              <Top>0.591cm</Top>
+              <Left>4.49439cm</Left>
               <Height>0.52814cm</Height>
               <Width>0.70438cm</Width>
-              <ZIndex>154</ZIndex>
+              <ZIndex>150</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9939,18 +9654,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.11913cm</Top>
-              <Left>6.76531cm</Left>
+              <Top>1.11915cm</Top>
+              <Left>4.49877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>155</ZIndex>
+              <ZIndex>151</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -9976,18 +9690,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55436cm</Top>
-              <Left>6.76531cm</Left>
+              <Top>2.55438cm</Top>
+              <Left>4.49877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>156</ZIndex>
+              <ZIndex>152</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10013,18 +9726,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.59754cm</Top>
-              <Left>6.76531cm</Left>
+              <Top>1.59756cm</Top>
+              <Left>4.49877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>157</ZIndex>
+              <ZIndex>153</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10050,18 +9762,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.07595cm</Top>
-              <Left>6.76531cm</Left>
+              <Top>2.07597cm</Top>
+              <Left>4.49877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>158</ZIndex>
+              <ZIndex>154</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10087,18 +9798,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.11914cm</Top>
-              <Left>7.46531cm</Left>
+              <Top>1.11916cm</Top>
+              <Left>5.19877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>159</ZIndex>
+              <ZIndex>155</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10124,18 +9834,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.11914cm</Top>
-              <Left>8.16531cm</Left>
+              <Top>1.11916cm</Top>
+              <Left>5.89877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>160</ZIndex>
+              <ZIndex>156</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10161,18 +9870,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55437cm</Top>
-              <Left>7.46531cm</Left>
+              <Top>2.55439cm</Top>
+              <Left>5.19877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>161</ZIndex>
+              <ZIndex>157</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10198,18 +9906,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55437cm</Top>
-              <Left>8.16531cm</Left>
+              <Top>2.55439cm</Top>
+              <Left>5.89877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>162</ZIndex>
+              <ZIndex>158</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10235,18 +9942,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.59755cm</Top>
-              <Left>7.46531cm</Left>
+              <Top>1.59757cm</Top>
+              <Left>5.19877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>163</ZIndex>
+              <ZIndex>159</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10272,18 +9978,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.59755cm</Top>
-              <Left>8.16531cm</Left>
+              <Top>1.59757cm</Top>
+              <Left>5.89877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>164</ZIndex>
+              <ZIndex>160</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10309,18 +10014,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.07596cm</Top>
-              <Left>7.46531cm</Left>
+              <Top>2.07598cm</Top>
+              <Left>5.19877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>165</ZIndex>
+              <ZIndex>161</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10346,18 +10050,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.07596cm</Top>
-              <Left>8.16531cm</Left>
+              <Top>2.07598cm</Top>
+              <Left>5.89877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>166</ZIndex>
+              <ZIndex>162</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10383,18 +10086,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.59099cm</Top>
-              <Left>7.46531cm</Left>
+              <Top>0.59101cm</Top>
+              <Left>5.19877cm</Left>
               <Height>0.52814cm</Height>
               <Width>0.70438cm</Width>
-              <ZIndex>167</ZIndex>
+              <ZIndex>163</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10420,18 +10122,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.59099cm</Top>
-              <Left>8.16093cm</Left>
+              <Top>0.59101cm</Top>
+              <Left>5.89439cm</Left>
               <Height>0.52814cm</Height>
               <Width>0.70438cm</Width>
-              <ZIndex>168</ZIndex>
+              <ZIndex>164</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10457,18 +10158,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.59099cm</Top>
-              <Left>8.86969cm</Left>
+              <Top>0.59101cm</Top>
+              <Left>6.60315cm</Left>
               <Height>0.52814cm</Height>
               <Width>0.96392cm</Width>
-              <ZIndex>169</ZIndex>
+              <ZIndex>165</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10494,18 +10194,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.11914cm</Top>
-              <Left>8.87407cm</Left>
+              <Top>1.11916cm</Top>
+              <Left>6.60753cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.95954cm</Width>
-              <ZIndex>170</ZIndex>
+              <ZIndex>166</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10531,18 +10230,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55437cm</Top>
-              <Left>8.87407cm</Left>
+              <Top>2.55439cm</Top>
+              <Left>6.60753cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.95954cm</Width>
-              <ZIndex>171</ZIndex>
+              <ZIndex>167</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10568,18 +10266,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.59755cm</Top>
-              <Left>8.87407cm</Left>
+              <Top>1.59757cm</Top>
+              <Left>6.60753cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.95954cm</Width>
-              <ZIndex>172</ZIndex>
+              <ZIndex>168</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10605,18 +10302,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.07596cm</Top>
-              <Left>8.87407cm</Left>
+              <Top>2.07598cm</Top>
+              <Left>6.60753cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.95954cm</Width>
-              <ZIndex>173</ZIndex>
+              <ZIndex>169</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10642,18 +10338,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.591cm</Top>
-              <Left>9.82689cm</Left>
+              <Top>0.59102cm</Top>
+              <Left>7.56035cm</Left>
               <Height>0.52814cm</Height>
               <Width>0.70438cm</Width>
-              <ZIndex>174</ZIndex>
+              <ZIndex>170</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10679,18 +10374,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.11915cm</Top>
-              <Left>9.83127cm</Left>
+              <Top>1.11917cm</Top>
+              <Left>7.56473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>175</ZIndex>
+              <ZIndex>171</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10716,18 +10410,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55438cm</Top>
-              <Left>9.83127cm</Left>
+              <Top>2.5544cm</Top>
+              <Left>7.56473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>176</ZIndex>
+              <ZIndex>172</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10753,18 +10446,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.59756cm</Top>
-              <Left>9.83127cm</Left>
+              <Top>1.59758cm</Top>
+              <Left>7.56473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>177</ZIndex>
+              <ZIndex>173</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -10790,18 +10482,17 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.07597cm</Top>
-              <Left>9.83127cm</Left>
+              <Top>2.07599cm</Top>
+              <Left>7.56473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>178</ZIndex>
+              <ZIndex>174</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
