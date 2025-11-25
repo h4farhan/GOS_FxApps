@@ -21,18 +21,18 @@ namespace GOS_FxApps
 
         //untuk server
         //Data Source = 192.168.1.64; Initial Catalog = gos_apps; User ID = sa; Password=$Genta2025$;TrustServerCertificate=True
-        private static readonly string connectionString = "Data Source=192.168.1.64;" +
-            "Initial Catalog=gos_apps;" +
-            "Persist Security Info=True;" +
-            "User ID=sa;Password=$Genta2025$;" +
-            "TrustServerCertificate=True;";
+        //private static readonly string connectionString = "Data Source=192.168.1.64;" +
+        //    "Initial Catalog=gos_apps;" +
+        //    "Persist Security Info=True;" +
+        //    "User ID=sa;Password=$Genta2025$;" +
+        //    "TrustServerCertificate=True;";
 
         //untuk lokal server
         //Data Source = WIN-LP6P3PLEU8O;Initial Catalog = gos_apps;Integrated Security=True;TrustServerCertificate=True;
-        //private static readonly string connectionString = "Data Source=WIN-LP6P3PLEU8O;" +
-        //"Initial Catalog=gos_apps;" +
-        //"Integrated Security=True;" +
-        //"TrustServerCertificate=True;";
+        private static readonly string connectionString = "Data Source=WIN-LP6P3PLEU8O;" +
+        "Initial Catalog=gos_apps;" +
+        "Integrated Security=True;" +
+        "TrustServerCertificate=True;";
 
         public static SqlConnection GetConnection()
         {

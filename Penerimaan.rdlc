@@ -314,7 +314,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.51449cm</Height>
+                  <Height>0.59096cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1615,23 +1615,22 @@
             </TablixRowHierarchy>
             <DataSetName>DataSetPenerimaan</DataSetName>
             <Left>0.36455cm</Left>
-            <Height>1.00678cm</Height>
+            <Height>1.08325cm</Height>
             <Width>20.17543cm</Width>
             <Style>
               <Border>
                 <Style>Solid</Style>
-                <Width>2pt</Width>
               </Border>
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>1.00678cm</Height>
+        <Height>1.12913cm</Height>
         <Style />
       </Body>
       <Width>21cm</Width>
       <Page>
         <PageHeader>
-          <Height>5.45326cm</Height>
+          <Height>4.99444cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1640,7 +1639,7 @@
                 <Line Name="Line1">
                   <Top>0.62886cm</Top>
                   <Height>0cm</Height>
-                  <Width>5.78667cm</Width>
+                  <Width>5.86547cm</Width>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
@@ -1650,8 +1649,8 @@
                 </Line>
                 <Line Name="Line2">
                   <Top>0.62886cm</Top>
-                  <Left>1.98947cm</Left>
-                  <Height>2.77909cm</Height>
+                  <Left>2.06827cm</Left>
+                  <Height>2.40623cm</Height>
                   <Width>0cm</Width>
                   <ZIndex>1</ZIndex>
                   <Style>
@@ -1663,8 +1662,8 @@
                 </Line>
                 <Line Name="Line3">
                   <Top>0.62886cm</Top>
-                  <Left>3.81558cm</Left>
-                  <Height>2.7908cm</Height>
+                  <Left>3.89438cm</Left>
+                  <Height>2.41794cm</Height>
                   <Width>0cm</Width>
                   <ZIndex>2</ZIndex>
                   <Style>
@@ -1675,7 +1674,8 @@
                   </Style>
                 </Line>
                 <Line Name="Line4">
-                  <Top>1.34511cm</Top>
+                  <Top>1.16872cm</Top>
+                  <Left>0.0788cm</Left>
                   <Height>0cm</Height>
                   <Width>5.78667cm</Width>
                   <ZIndex>3</ZIndex>
@@ -1687,7 +1687,8 @@
                   </Style>
                 </Line>
                 <Line Name="Line5">
-                  <Top>1.96458cm</Top>
+                  <Top>1.7019cm</Top>
+                  <Left>0.0788cm</Left>
                   <Height>0cm</Height>
                   <Width>5.78667cm</Width>
                   <ZIndex>4</ZIndex>
@@ -1699,7 +1700,7 @@
                   </Style>
                 </Line>
                 <Line Name="Line6">
-                  <Top>2.67041cm</Top>
+                  <Top>2.35291cm</Top>
                   <Height>0cm</Height>
                   <Width>5.78667cm</Width>
                   <ZIndex>5</ZIndex>
@@ -1729,9 +1730,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Left>0.03528cm</Left>
-                  <Height>0.66343cm</Height>
-                  <Width>5.67259cm</Width>
+                  <Height>0.62886cm</Height>
+                  <Width>5.78667cm</Width>
                   <ZIndex>6</ZIndex>
                   <Style>
                     <Border>
@@ -1765,9 +1765,8 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox101</rd:DefaultName>
                   <Top>0.62886cm</Top>
-                  <Left>0.01266cm</Left>
-                  <Height>0.68097cm</Height>
-                  <Width>1.9542cm</Width>
+                  <Height>0.53986cm</Height>
+                  <Width>2.04566cm</Width>
                   <ZIndex>7</ZIndex>
                   <Style>
                     <Border>
@@ -1800,9 +1799,9 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>1.34511cm</Top>
-                  <Height>0.61947cm</Height>
-                  <Width>1.91891cm</Width>
+                  <Top>1.16872cm</Top>
+                  <Height>0.53318cm</Height>
+                  <Width>1.99771cm</Width>
                   <ZIndex>8</ZIndex>
                   <Style>
                     <Border>
@@ -1835,9 +1834,9 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>1.96458cm</Top>
-                  <Height>0.70583cm</Height>
-                  <Width>1.9542cm</Width>
+                  <Top>1.7019cm</Top>
+                  <Height>0.56851cm</Height>
+                  <Width>2.033cm</Width>
                   <ZIndex>9</ZIndex>
                   <Style>
                     <Border>
@@ -1860,6 +1859,7 @@
                           <Value>SEKSI</Value>
                           <Style>
                             <FontFamily>Segoe UI</FontFamily>
+                            <FontSize>8pt</FontSize>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -1869,8 +1869,9 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox101</rd:DefaultName>
-                  <Top>2.67041cm</Top>
-                  <Height>0.73755cm</Height>
+                  <Top>2.35291cm</Top>
+                  <Left>0.05619cm</Left>
+                  <Height>0.69389cm</Height>
                   <Width>1.98947cm</Width>
                   <ZIndex>10</ZIndex>
                   <Style>
@@ -1905,9 +1906,9 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox5</rd:DefaultName>
-                  <Top>2.72926cm</Top>
-                  <Left>1.98947cm</Left>
-                  <Height>0.66699cm</Height>
+                  <Top>2.35291cm</Top>
+                  <Left>2.06827cm</Left>
+                  <Height>0.69389cm</Height>
                   <Width>1.75289cm</Width>
                   <ZIndex>11</ZIndex>
                   <Style>
@@ -1931,7 +1932,7 @@
                           <Value>PT.INALUM</Value>
                           <Style>
                             <FontFamily>Arial Narrow</FontFamily>
-                            <FontSize>9pt</FontSize>
+                            <FontSize>8pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
@@ -1942,9 +1943,9 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox5</rd:DefaultName>
-                  <Top>2.74097cm</Top>
-                  <Left>3.81558cm</Left>
-                  <Height>0.66699cm</Height>
+                  <Top>2.35291cm</Top>
+                  <Left>3.89438cm</Left>
+                  <Height>0.69389cm</Height>
                   <Width>1.89229cm</Width>
                   <ZIndex>12</ZIndex>
                   <Style>
@@ -1961,9 +1962,9 @@
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>0.3175cm</Top>
-              <Left>14.71753cm</Left>
-              <Height>3.41966cm</Height>
-              <Width>5.78667cm</Width>
+              <Left>14.63873cm</Left>
+              <Height>3.0468cm</Height>
+              <Width>5.86547cm</Width>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -2067,23 +2068,27 @@
                       <Value>Hari/Tanggal     </Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
                         <FontWeight>Normal</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>2.28208cm</Top>
               <Left>0.27375cm</Left>
-              <Height>0.70583cm</Height>
+              <Height>0.50583cm</Height>
               <Width>2.65522cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
+                <VerticalAlign>Middle</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>
@@ -2100,23 +2105,27 @@
                       <Value>Shift/Tim</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
                         <FontWeight>Normal</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>3.1643cm</Top>
-              <Left>0.27375cm</Left>
-              <Height>0.70583cm</Height>
+              <Top>2.85847cm</Top>
+              <Left>0.30903cm</Left>
+              <Height>0.50583cm</Height>
               <Width>2.61994cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
+                <VerticalAlign>Middle</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>
@@ -2133,6 +2142,7 @@
                       <Value>: </Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
                         <FontWeight>Normal</FontWeight>
                       </Style>
                     </TextRun>
@@ -2140,23 +2150,27 @@
                       <Value>=Parameters!shift.Value &amp; " / " &amp; Parameters!tim.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
                         <FontWeight>Normal</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>3.1643cm</Top>
+              <Top>2.85847cm</Top>
               <Left>3.07008cm</Left>
-              <Height>0.70583cm</Height>
+              <Height>0.50583cm</Height>
               <Width>5.51963cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
+                <VerticalAlign>Middle</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>
@@ -2173,6 +2187,7 @@
                       <Value>: </Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
                         <FontWeight>Normal</FontWeight>
                       </Style>
                     </TextRun>
@@ -2188,23 +2203,27 @@
 ) &amp; " / " &amp; Format(First(Fields!tanggal_penerimaan.Value, "DataSetPenerimaan"), "dd-MM-yyyy")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
                         <FontWeight>Normal</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>2.28208cm</Top>
               <Left>3.07008cm</Left>
-              <Height>0.70583cm</Height>
+              <Height>0.50583cm</Height>
               <Width>5.51963cm</Width>
               <ZIndex>6</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
+                <VerticalAlign>Middle</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>
@@ -3160,7 +3179,7 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>4.00604cm</Top>
+              <Top>3.54722cm</Top>
               <Left>0.36455cm</Left>
               <Height>1.44722cm</Height>
               <Width>20.1825cm</Width>
@@ -3168,7 +3187,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>2pt</Width>
                 </Border>
               </Style>
             </Rectangle>
@@ -3215,7 +3233,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3252,7 +3269,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3289,7 +3305,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3326,7 +3341,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3363,7 +3377,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3400,7 +3413,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3437,7 +3449,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3474,7 +3485,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3511,7 +3521,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3548,7 +3557,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3585,7 +3593,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3622,7 +3629,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3659,7 +3665,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3696,7 +3701,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3733,7 +3737,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3770,7 +3773,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3807,7 +3809,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3844,7 +3845,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3881,7 +3881,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3918,7 +3917,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3955,7 +3953,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3992,7 +3989,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4029,7 +4025,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4066,7 +4061,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4103,7 +4097,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4140,7 +4133,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4177,7 +4169,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4214,7 +4205,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4251,7 +4241,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4288,7 +4277,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4325,7 +4313,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4362,7 +4349,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4399,7 +4385,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4436,7 +4421,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4473,7 +4457,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4510,7 +4493,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4547,7 +4529,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4584,7 +4565,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4621,7 +4601,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4658,7 +4637,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4695,7 +4673,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4732,7 +4709,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4769,7 +4745,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4806,7 +4781,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4843,7 +4817,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4880,7 +4853,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4917,7 +4889,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4954,7 +4925,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -4991,7 +4961,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5028,7 +4997,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5065,7 +5033,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5102,7 +5069,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5139,7 +5105,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5176,7 +5141,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5213,7 +5177,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5250,7 +5213,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5287,7 +5249,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5324,7 +5285,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5361,7 +5321,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5398,7 +5357,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5435,7 +5393,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5472,7 +5429,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5509,7 +5465,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5546,7 +5501,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5583,7 +5537,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5620,7 +5573,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5657,7 +5609,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5694,7 +5645,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5731,7 +5681,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5768,7 +5717,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5805,7 +5753,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5842,7 +5789,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5879,7 +5825,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5916,7 +5861,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5953,7 +5897,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -5990,7 +5933,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6027,7 +5969,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6064,7 +6005,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6101,7 +6041,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6138,7 +6077,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6175,7 +6113,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6212,7 +6149,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6249,7 +6185,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6286,7 +6221,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6323,7 +6257,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6360,7 +6293,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6397,7 +6329,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6434,7 +6365,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6471,7 +6401,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6508,7 +6437,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6545,7 +6473,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6582,7 +6509,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6619,7 +6545,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6656,7 +6581,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6693,7 +6617,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6730,7 +6653,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6767,7 +6689,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6804,7 +6725,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6841,7 +6761,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6878,7 +6797,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6915,7 +6833,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6952,7 +6869,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -6989,7 +6905,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7026,7 +6941,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7063,7 +6977,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7100,7 +7013,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7137,7 +7049,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7174,7 +7085,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7211,7 +7121,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7248,7 +7157,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7285,7 +7193,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7322,7 +7229,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7359,7 +7265,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7396,7 +7301,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7433,7 +7337,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7470,7 +7373,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7507,7 +7409,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7544,7 +7445,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7581,7 +7481,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7618,7 +7517,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7655,7 +7553,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7692,7 +7589,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7729,7 +7625,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7766,7 +7661,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7803,7 +7697,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7840,7 +7733,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7877,7 +7769,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7914,7 +7805,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7951,7 +7841,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -7988,7 +7877,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8025,7 +7913,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8062,7 +7949,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8099,7 +7985,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8136,7 +8021,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8173,7 +8057,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8210,7 +8093,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -8247,7 +8129,6 @@
               <Style>
                 <Border>
                   <Style>Solid</Style>
-                  <Width>1.25pt</Width>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>

@@ -143,7 +143,7 @@ namespace GOS_FxApps
                 if (!isSearching)
                 {
                     query = $@"
-                SELECT *
+                SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, bac, nba, ba, ba1, r, m, cr, c, rl, jumlah, tanggal_penerimaan, updated_at, remaks, catatan
                 FROM perbaikan_p
                 ORDER BY tanggal_perbaikan DESC
                 OFFSET {offset} ROWS
@@ -152,7 +152,7 @@ namespace GOS_FxApps
                 else
                 {
                     query = $@"
-                SELECT *
+                SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah, e3, e4, s, d, b, bac, nba, ba, ba1, r, m, cr, c, rl, jumlah, tanggal_penerimaan, updated_at, remaks, catatan
                 {lastSearchWhere}
                 ORDER BY tanggal_perbaikan DESC
                 OFFSET {offset} ROWS
@@ -276,9 +276,9 @@ namespace GOS_FxApps
             txtbac.Clear();
             txtnba.Clear();
             txtba1.Clear();
-            txtcr.Clear();
-            txtm.Clear();
             txtr.Clear();
+            txtm.Clear();
+            txtcr.Clear();
             txtc.Clear();
             txtrl.Clear();
             txtcatatan.Clear();
@@ -308,9 +308,9 @@ namespace GOS_FxApps
             txtbac.Enabled = true;
             txtnba.Enabled = true;
             txtba1.Enabled = true;
-            txtcr.Enabled = true;
-            txtm.Enabled = true;
             txtr.Enabled = true;
+            txtm.Enabled = true;
+            txtcr.Enabled = true;
             txtc.Enabled = true;
             txtrl.Enabled = true;
             txtcatatan.Enabled = true;
@@ -332,9 +332,9 @@ namespace GOS_FxApps
             txtbac.Enabled = false;
             txtnba.Enabled = false;
             txtba1.Enabled = false;
-            txtcr.Enabled = false;
-            txtm.Enabled = false;
             txtr.Enabled = false;
+            txtm.Enabled = false;
+            txtcr.Enabled = false;
             txtc.Enabled = false;
             txtrl.Enabled = false;
             txtcatatan.Enabled = false;
@@ -392,10 +392,13 @@ namespace GOS_FxApps
 
                     if (sudahAda > 0)
                     {
-                        MessageBox.Show(
-                            $"Nomor ROD {txtnomorrod.Text} sudah pernah diperbaiki pada tanggal yang sama ({MainForm.Instance.tanggal:dd MMMM yyyy}).",
-                            "Tanggal Duplikat", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        DialogResult result1 = MessageBox.Show(
+                            $"Nomor ROD {txtnomorrod.Text} sudah pernah diterima pada tanggal yang sama ({MainForm.Instance.tanggal:dd MMMM yyyy}).\n" +
+                            $"Apakah Anda ingin tetap melanjutkan penyimpanan?",
+                            "Tanggal Duplikat", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
+                        if (result1 != DialogResult.OK)
+                            return;
                     }
                 }
 
@@ -634,9 +637,9 @@ namespace GOS_FxApps
                 txtnba.Text = row.Cells["nba"].Value.ToString();            
                 lbltotalba.Text = row.Cells["ba"].Value.ToString();            
                 txtba1.Text = row.Cells["ba1"].Value.ToString();              
-                txtcr.Text = row.Cells["cr"].Value.ToString();               
+                txtr.Text = row.Cells["cr"].Value.ToString();               
                 txtm.Text = row.Cells["m"].Value.ToString();               
-                txtr.Text = row.Cells["r"].Value.ToString();               
+                txtcr.Text = row.Cells["r"].Value.ToString();               
                 txtc.Text = row.Cells["c"].Value.ToString();                
                 txtrl.Text = row.Cells["rl"].Value.ToString();                
                 lbltotalsebelum.Text = row.Cells["jumlah"].Value.ToString();
@@ -795,16 +798,6 @@ namespace GOS_FxApps
             hitung();
         }
 
-        private void txtr_TextChanged(object sender, EventArgs e)
-        {
-            hitung();
-        }
-
-        private void txtcr_TextChanged(object sender, EventArgs e)
-        {
-            hitung();
-        }
-
         private void txtc_TextChanged(object sender, EventArgs e)
         {
             hitung();
@@ -836,6 +829,16 @@ namespace GOS_FxApps
                 currentPage++;
                 tampil();
             }
+        }
+
+        private void txtcr_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtr_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
         }
     }
 }

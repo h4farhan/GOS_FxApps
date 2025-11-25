@@ -229,9 +229,9 @@ namespace GOS_FxApps
             txtbac.Clear();
             txtnba.Clear();
             txtba1.Clear();
-            txtcr.Clear();
-            txtm.Clear();
             txtr.Clear();
+            txtm.Clear();
+            txtcr.Clear();
             txtc.Clear();
             txtrl.Clear();
             txtcatatan.Clear();
@@ -258,9 +258,9 @@ namespace GOS_FxApps
             txtbac.Enabled = true;
             txtnba.Enabled = true;
             txtba1.Enabled = true;
-            txtcr.Enabled = true;
-            txtm.Enabled = true;
             txtr.Enabled = true;
+            txtm.Enabled = true;
+            txtcr.Enabled = true;
             txtc.Enabled = true;
             txtrl.Enabled = true;
             txtcatatan.Enabled = true;
@@ -282,9 +282,9 @@ namespace GOS_FxApps
             txtbac.Enabled = false;
             txtnba.Enabled = false;
             txtba1.Enabled = false;
-            txtcr.Enabled = false;
-            txtm.Enabled = false;
             txtr.Enabled = false;
+            txtm.Enabled = false;
+            txtcr.Enabled = false;
             txtc.Enabled = false;
             txtrl.Enabled = false;
             txtcatatan.Enabled = false;
@@ -416,9 +416,9 @@ namespace GOS_FxApps
                         cmdubah.Parameters.AddWithValue("@d", txtd.Text);
                         cmdubah.Parameters.AddWithValue("@b", txtb.Text);
                         cmdubah.Parameters.AddWithValue("@ba", lbltotalba.Text);
-                        cmdubah.Parameters.AddWithValue("@cr", txtcr.Text);
+                        cmdubah.Parameters.AddWithValue("@cr", txtr.Text);
                         cmdubah.Parameters.AddWithValue("@m", txtm.Text);
-                        cmdubah.Parameters.AddWithValue("@r", txtr.Text);
+                        cmdubah.Parameters.AddWithValue("@r", txtcr.Text);
                         cmdubah.Parameters.AddWithValue("@c", txtc.Text);
                         cmdubah.Parameters.AddWithValue("@rl", txtrl.Text);
                         cmdubah.Parameters.AddWithValue("@jumlah", lbltotal.Text);
@@ -622,17 +622,7 @@ namespace GOS_FxApps
             hitung();
         }
 
-        private void txtcr_TextChanged(object sender, EventArgs e)
-        {
-            hitung();
-        }
-
         private void txtm_TextChanged(object sender, EventArgs e)
-        {
-            hitung();
-        }
-
-        private void txtr_TextChanged(object sender, EventArgs e)
         {
             hitung();
         }
@@ -674,9 +664,9 @@ namespace GOS_FxApps
                 txtd.Text = row.Cells["d"].Value.ToString();
                 txtb.Text = row.Cells["b"].Value.ToString();
                 txtbac.Text = row.Cells["ba"].Value.ToString();
-                txtcr.Text = row.Cells["cr"].Value.ToString();
+                txtr.Text = row.Cells["cr"].Value.ToString();
                 txtm.Text = row.Cells["m"].Value.ToString();
-                txtr.Text = row.Cells["r"].Value.ToString();
+                txtcr.Text = row.Cells["r"].Value.ToString();
                 txtc.Text = row.Cells["c"].Value.ToString();
                 txtrl.Text = row.Cells["rl"].Value.ToString();
                 lbltotal.Text = row.Cells["jumlah"].Value.ToString();
@@ -736,6 +726,16 @@ namespace GOS_FxApps
                 currentPage++;
                 tampilpenerimaan();
             }
+        }
+
+        private void txtr_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtcr_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
         }
     }
 }

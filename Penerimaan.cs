@@ -480,9 +480,9 @@ namespace GOS_FxApps
             txtd.Clear();
             txtb.Clear();
             txtba.Clear();
-            txtcr.Clear();
-            txtm.Clear();
             txtr.Clear();
+            txtm.Clear();
+            txtcr.Clear();
             txtc.Clear();
             txtrl.Clear();
             txtcatatan.Clear();
@@ -600,7 +600,7 @@ namespace GOS_FxApps
             hitung();
         }
 
-        private void txtcr_TextChanged(object sender, EventArgs e)
+        private void txtr_TextChanged(object sender, EventArgs e)
         {
             hitung();
         }
@@ -609,8 +609,7 @@ namespace GOS_FxApps
         {
             hitung();
         }
-
-        private void txtr_TextChanged(object sender, EventArgs e)
+        private void txtcr_TextChanged_1(object sender, EventArgs e)
         {
             hitung();
         }

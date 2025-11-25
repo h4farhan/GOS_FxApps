@@ -31,9 +31,9 @@ namespace GOS_FxApps
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblhari = new System.Windows.Forms.Label();
             this.btnaturjam = new Guna.UI2.WinForms.Guna2Button();
@@ -46,14 +46,14 @@ namespace GOS_FxApps
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label22 = new System.Windows.Forms.Label();
             this.lbltotal = new System.Windows.Forms.Label();
-            this.txtr = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtcr = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtc = new Guna.UI2.WinForms.Guna2TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.txtrl = new Guna.UI2.WinForms.Guna2TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.txtba = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtcr = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtr = new Guna.UI2.WinForms.Guna2TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.txtm = new Guna.UI2.WinForms.Guna2TextBox();
@@ -83,15 +83,15 @@ namespace GOS_FxApps
             this.btnsimpan = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
-            this.txtcatatan = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label23 = new System.Windows.Forms.Label();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblhalaman = new System.Windows.Forms.Label();
             this.btnleft = new Guna.UI2.WinForms.Guna2Button();
             this.btnright = new Guna.UI2.WinForms.Guna2Button();
+            this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtcatatan = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -103,8 +103,8 @@ namespace GOS_FxApps
             this.tableLayoutPanel2.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.guna2Panel5.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
+            this.guna2Panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -216,14 +216,14 @@ namespace GOS_FxApps
             this.guna2Panel2.BorderRadius = 15;
             this.guna2Panel2.BorderThickness = 2;
             this.guna2Panel2.Controls.Add(this.guna2Panel3);
-            this.guna2Panel2.Controls.Add(this.txtr);
+            this.guna2Panel2.Controls.Add(this.txtcr);
             this.guna2Panel2.Controls.Add(this.txtc);
             this.guna2Panel2.Controls.Add(this.label16);
             this.guna2Panel2.Controls.Add(this.label17);
             this.guna2Panel2.Controls.Add(this.txtrl);
             this.guna2Panel2.Controls.Add(this.label18);
             this.guna2Panel2.Controls.Add(this.txtba);
-            this.guna2Panel2.Controls.Add(this.txtcr);
+            this.guna2Panel2.Controls.Add(this.txtr);
             this.guna2Panel2.Controls.Add(this.label13);
             this.guna2Panel2.Controls.Add(this.label14);
             this.guna2Panel2.Controls.Add(this.txtm);
@@ -309,32 +309,32 @@ namespace GOS_FxApps
             this.lbltotal.TabIndex = 33;
             this.lbltotal.Text = "-";
             // 
-            // txtr
+            // txtcr
             // 
-            this.txtr.BackColor = System.Drawing.Color.Transparent;
-            this.txtr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtr.BorderRadius = 5;
-            this.txtr.BorderThickness = 2;
-            this.txtr.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtr.DefaultText = "";
-            this.txtr.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtr.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtr.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtr.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtr.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtr.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtr.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtr.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtr.Location = new System.Drawing.Point(279, 110);
-            this.txtr.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtr.Name = "txtr";
-            this.txtr.PlaceholderText = "";
-            this.txtr.SelectedText = "";
-            this.txtr.Size = new System.Drawing.Size(47, 41);
-            this.txtr.TabIndex = 9;
-            this.txtr.TextChanged += new System.EventHandler(this.txtr_TextChanged);
-            this.txtr.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            this.txtcr.BackColor = System.Drawing.Color.Transparent;
+            this.txtcr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcr.BorderRadius = 5;
+            this.txtcr.BorderThickness = 2;
+            this.txtcr.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtcr.DefaultText = "";
+            this.txtcr.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtcr.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtcr.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcr.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcr.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcr.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtcr.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtcr.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcr.Location = new System.Drawing.Point(279, 110);
+            this.txtcr.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtcr.Name = "txtcr";
+            this.txtcr.PlaceholderText = "";
+            this.txtcr.SelectedText = "";
+            this.txtcr.Size = new System.Drawing.Size(47, 41);
+            this.txtcr.TabIndex = 9;
+            this.txtcr.TextChanged += new System.EventHandler(this.txtcr_TextChanged_1);
+            this.txtcr.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+            this.txtcr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // txtc
             // 
@@ -383,9 +383,9 @@ namespace GOS_FxApps
             this.label17.Location = new System.Drawing.Point(139, 246);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(30, 21);
+            this.label17.Size = new System.Drawing.Size(20, 21);
             this.label17.TabIndex = 28;
-            this.label17.Text = "CR";
+            this.label17.Text = "R";
             // 
             // txtrl
             // 
@@ -453,32 +453,32 @@ namespace GOS_FxApps
             this.txtba.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txtba.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
-            // txtcr
+            // txtr
             // 
-            this.txtcr.BackColor = System.Drawing.Color.Transparent;
-            this.txtcr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcr.BorderRadius = 5;
-            this.txtcr.BorderThickness = 2;
-            this.txtcr.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtcr.DefaultText = "";
-            this.txtcr.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtcr.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtcr.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcr.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcr.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcr.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtcr.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtcr.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcr.Location = new System.Drawing.Point(172, 237);
-            this.txtcr.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtcr.Name = "txtcr";
-            this.txtcr.PlaceholderText = "";
-            this.txtcr.SelectedText = "";
-            this.txtcr.Size = new System.Drawing.Size(47, 41);
-            this.txtcr.TabIndex = 7;
-            this.txtcr.TextChanged += new System.EventHandler(this.txtcr_TextChanged);
-            this.txtcr.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtcr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            this.txtr.BackColor = System.Drawing.Color.Transparent;
+            this.txtr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtr.BorderRadius = 5;
+            this.txtr.BorderThickness = 2;
+            this.txtr.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtr.DefaultText = "";
+            this.txtr.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtr.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtr.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtr.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtr.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtr.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtr.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtr.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtr.Location = new System.Drawing.Point(172, 237);
+            this.txtr.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtr.Name = "txtr";
+            this.txtr.PlaceholderText = "";
+            this.txtr.SelectedText = "";
+            this.txtr.Size = new System.Drawing.Size(47, 41);
+            this.txtr.TabIndex = 7;
+            this.txtr.TextChanged += new System.EventHandler(this.txtr_TextChanged);
+            this.txtr.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+            this.txtr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label13
             // 
@@ -500,9 +500,9 @@ namespace GOS_FxApps
             this.label14.Location = new System.Drawing.Point(247, 119);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(20, 21);
+            this.label14.Size = new System.Drawing.Size(30, 21);
             this.label14.TabIndex = 22;
-            this.label14.Text = "R";
+            this.label14.Text = "CR";
             // 
             // txtm
             // 
@@ -1017,38 +1017,6 @@ namespace GOS_FxApps
             this.guna2Panel4.Size = new System.Drawing.Size(444, 455);
             this.guna2Panel4.TabIndex = 3;
             // 
-            // txtcari
-            // 
-            this.txtcari.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtcari.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcari.BorderRadius = 5;
-            this.txtcari.BorderThickness = 2;
-            this.txtcari.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtcari.DefaultText = "";
-            this.txtcari.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtcari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtcari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcari.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcari.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcari.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtcari.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtcari.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.search;
-            this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
-            this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
-            this.txtcari.Location = new System.Drawing.Point(11, 15);
-            this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtcari.Name = "txtcari";
-            this.txtcari.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcari.PlaceholderText = "Nomor Rod";
-            this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(420, 39);
-            this.txtcari.TabIndex = 1;
-            this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
-            this.txtcari.TextChanged += new System.EventHandler(this.txtcari_TextChanged);
-            this.txtcari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -1059,101 +1027,40 @@ namespace GOS_FxApps
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.Gray;
             this.dataGridView1.Location = new System.Drawing.Point(11, 59);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(420, 314);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // guna2Panel5
-            // 
-            this.guna2Panel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel5.BorderColor = System.Drawing.Color.Gainsboro;
-            this.guna2Panel5.BorderRadius = 10;
-            this.guna2Panel5.BorderThickness = 2;
-            this.guna2Panel5.Controls.Add(this.txtcatatan);
-            this.guna2Panel5.Controls.Add(this.label23);
-            this.guna2Panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel5.FillColor = System.Drawing.Color.White;
-            this.guna2Panel5.Location = new System.Drawing.Point(2, 2);
-            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2Panel5.Name = "guna2Panel5";
-            this.guna2Panel5.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
-            this.guna2Panel5.Size = new System.Drawing.Size(444, 88);
-            this.guna2Panel5.TabIndex = 6;
-            this.guna2Panel5.TabStop = true;
-            // 
-            // txtcatatan
-            // 
-            this.txtcatatan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtcatatan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcatatan.BorderRadius = 5;
-            this.txtcatatan.BorderThickness = 2;
-            this.txtcatatan.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtcatatan.DefaultText = "";
-            this.txtcatatan.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtcatatan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtcatatan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcatatan.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcatatan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcatatan.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtcatatan.ForeColor = System.Drawing.Color.Black;
-            this.txtcatatan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcatatan.Location = new System.Drawing.Point(18, 38);
-            this.txtcatatan.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtcatatan.Name = "txtcatatan";
-            this.txtcatatan.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcatatan.PlaceholderText = "Axxxx";
-            this.txtcatatan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtcatatan.SelectedText = "";
-            this.txtcatatan.Size = new System.Drawing.Size(413, 41);
-            this.txtcatatan.TabIndex = 0;
-            this.txtcatatan.TextChanged += new System.EventHandler(this.txtcatatan_TextChanged);
-            this.txtcatatan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtcatatan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
-            // 
-            // label23
-            // 
-            this.label23.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label23.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label23.Location = new System.Drawing.Point(14, 9);
-            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(63, 21);
-            this.label23.TabIndex = 4;
-            this.label23.Text = "Catatan";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // guna2Panel6
             // 
@@ -1223,6 +1130,99 @@ namespace GOS_FxApps
             this.btnright.TabIndex = 44;
             this.btnright.Click += new System.EventHandler(this.btnright_Click);
             // 
+            // txtcari
+            // 
+            this.txtcari.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtcari.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcari.BorderRadius = 5;
+            this.txtcari.BorderThickness = 2;
+            this.txtcari.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtcari.DefaultText = "";
+            this.txtcari.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtcari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtcari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcari.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcari.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcari.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtcari.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtcari.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.search;
+            this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
+            this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
+            this.txtcari.Location = new System.Drawing.Point(11, 15);
+            this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtcari.Name = "txtcari";
+            this.txtcari.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcari.PlaceholderText = "Nomor Rod";
+            this.txtcari.SelectedText = "";
+            this.txtcari.Size = new System.Drawing.Size(420, 39);
+            this.txtcari.TabIndex = 1;
+            this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtcari.TextChanged += new System.EventHandler(this.txtcari_TextChanged);
+            this.txtcari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
+            // 
+            // guna2Panel5
+            // 
+            this.guna2Panel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel5.BorderColor = System.Drawing.Color.Gainsboro;
+            this.guna2Panel5.BorderRadius = 10;
+            this.guna2Panel5.BorderThickness = 2;
+            this.guna2Panel5.Controls.Add(this.txtcatatan);
+            this.guna2Panel5.Controls.Add(this.label23);
+            this.guna2Panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel5.FillColor = System.Drawing.Color.White;
+            this.guna2Panel5.Location = new System.Drawing.Point(2, 2);
+            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Panel5.Name = "guna2Panel5";
+            this.guna2Panel5.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
+            this.guna2Panel5.Size = new System.Drawing.Size(444, 88);
+            this.guna2Panel5.TabIndex = 6;
+            this.guna2Panel5.TabStop = true;
+            // 
+            // txtcatatan
+            // 
+            this.txtcatatan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtcatatan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcatatan.BorderRadius = 5;
+            this.txtcatatan.BorderThickness = 2;
+            this.txtcatatan.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtcatatan.DefaultText = "";
+            this.txtcatatan.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtcatatan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtcatatan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcatatan.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcatatan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcatatan.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtcatatan.ForeColor = System.Drawing.Color.Black;
+            this.txtcatatan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcatatan.Location = new System.Drawing.Point(18, 38);
+            this.txtcatatan.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtcatatan.Name = "txtcatatan";
+            this.txtcatatan.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcatatan.PlaceholderText = "Axxxx";
+            this.txtcatatan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtcatatan.SelectedText = "";
+            this.txtcatatan.Size = new System.Drawing.Size(413, 41);
+            this.txtcatatan.TabIndex = 0;
+            this.txtcatatan.TextChanged += new System.EventHandler(this.txtcatatan_TextChanged);
+            this.txtcatatan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+            this.txtcatatan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
+            // 
+            // label23
+            // 
+            this.label23.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label23.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label23.Location = new System.Drawing.Point(14, 9);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(63, 21);
+            this.label23.TabIndex = 4;
+            this.label23.Text = "Catatan";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Penerimaan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1254,10 +1254,10 @@ namespace GOS_FxApps
             this.tableLayoutPanel2.ResumeLayout(false);
             this.guna2Panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.guna2Panel5.ResumeLayout(false);
-            this.guna2Panel5.PerformLayout();
             this.guna2Panel6.ResumeLayout(false);
             this.guna2Panel6.PerformLayout();
+            this.guna2Panel5.ResumeLayout(false);
+            this.guna2Panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1297,7 +1297,7 @@ namespace GOS_FxApps
         private Guna.UI2.WinForms.Guna2TextBox txtrl;
         private Label label18;
         private Guna.UI2.WinForms.Guna2TextBox txtba;
-        private Guna.UI2.WinForms.Guna2TextBox txtcr;
+        private Guna.UI2.WinForms.Guna2TextBox txtr;
         private Label label13;
         private Label label14;
         private Guna.UI2.WinForms.Guna2TextBox txtm;
@@ -1305,7 +1305,7 @@ namespace GOS_FxApps
         private TableLayoutPanel tableLayoutPanel2;
         private Guna.UI2.WinForms.Guna2Button btnsimpan;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
-        private Guna.UI2.WinForms.Guna2TextBox txtr;
+        private Guna.UI2.WinForms.Guna2TextBox txtcr;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private TableLayoutPanel tableLayoutPanel3;
         private Label label22;

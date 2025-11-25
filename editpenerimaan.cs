@@ -249,9 +249,9 @@ namespace GOS_FxApps
             txtd.Clear();
             txtb.Clear();
             txtba.Clear();
-            txtcr.Clear();
-            txtm.Clear();
             txtr.Clear();
+            txtm.Clear();
+            txtcr.Clear();
             txtc.Clear();
             txtrl.Clear();
             lbltotalsebelum.Text = "-";
@@ -273,9 +273,9 @@ namespace GOS_FxApps
             txtd.Enabled = true;
             txtb.Enabled = true;
             txtba.Enabled = true;
-            txtcr.Enabled = true;
-            txtm.Enabled = true;
             txtr.Enabled = true;
+            txtm.Enabled = true;
+            txtcr.Enabled = true;
             txtc.Enabled = true;
             txtrl.Enabled = true;
             txtcatatan.Enabled = true;
@@ -292,9 +292,9 @@ namespace GOS_FxApps
             txtd.Enabled = false;
             txtb.Enabled = false;
             txtba.Enabled = false;
-            txtcr.Enabled = false;
-            txtm.Enabled = false;
             txtr.Enabled = false;
+            txtm.Enabled = false;
+            txtcr.Enabled = false;
             txtc.Enabled = false;
             txtrl.Enabled = false;
             txtcatatan.Enabled = false;
@@ -361,9 +361,9 @@ namespace GOS_FxApps
                 txtd.Text = row.Cells["d"].Value.ToString();
                 txtb.Text = row.Cells["b"].Value.ToString();
                 txtba.Text = row.Cells["ba"].Value.ToString();
-                txtcr.Text = row.Cells["cr"].Value.ToString();
+                txtr.Text = row.Cells["cr"].Value.ToString();
                 txtm.Text = row.Cells["m"].Value.ToString();
-                txtr.Text = row.Cells["r"].Value.ToString();
+                txtcr.Text = row.Cells["r"].Value.ToString();
                 txtc.Text = row.Cells["c"].Value.ToString();
                 txtrl.Text = row.Cells["rl"].Value.ToString();
                 lbltotalsebelum.Text = row.Cells["jumlah"].Value.ToString();
@@ -497,10 +497,13 @@ namespace GOS_FxApps
 
                     if (sudahAda > 0)
                     {
-                        MessageBox.Show(
-                            $"Nomor ROD {txtnomorrod.Text} sudah pernah diterima pada tanggal yang sama ({MainForm.Instance.tanggal:dd MMMM yyyy}).",
-                            "Tanggal Duplikat", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        DialogResult result1 = MessageBox.Show(
+                            $"Nomor ROD {txtnomorrod.Text} sudah pernah diterima pada tanggal yang sama ({MainForm.Instance.tanggal:dd MMMM yyyy}).\n" +
+                            $"Apakah Anda ingin tetap melanjutkan penyimpanan?",
+                            "Tanggal Duplikat", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
+                        if (result1 != DialogResult.OK)
+                            return;
                     }
                 }
 
@@ -769,11 +772,6 @@ namespace GOS_FxApps
             hitung();
         }
 
-        private void txtcr_TextChanged(object sender, EventArgs e)
-        {
-            hitung();
-        }
-
         private void txtd_TextChanged(object sender, EventArgs e)
         {
             hitung();
@@ -785,11 +783,6 @@ namespace GOS_FxApps
         }
 
         private void txtm_TextChanged(object sender, EventArgs e)
-        {
-            hitung();
-        }
-
-        private void txtr_TextChanged(object sender, EventArgs e)
         {
             hitung();
         }
@@ -836,6 +829,16 @@ namespace GOS_FxApps
                 currentPage++;
                 tampil();
             }
+        }
+
+        private void txtr_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtcr_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
         }
     }
 }
