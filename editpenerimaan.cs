@@ -32,6 +32,7 @@ namespace GOS_FxApps
         string lastSearchWhere = "";
         SqlCommand lastSearchCmd;
         int searchTotalRecords = 0;
+        string nomorrodsebelumnya = null;
 
         public editpenerimaan()
         {
@@ -259,6 +260,7 @@ namespace GOS_FxApps
             txtcatatan.Clear();
             txtcari.Clear();
             btncari.Text = "Cari";
+            nomorrodsebelumnya = null;
         }
 
         private void settrue()
@@ -352,6 +354,7 @@ namespace GOS_FxApps
                 tanggalpenerimaan = Convert.ToDateTime(row.Cells["tanggal_penerimaan"].Value);
                 shift = Convert.ToInt32(row.Cells["shift"].Value);
                 txtnomorrod.Text = row.Cells["nomor_rod"].Value.ToString();
+                nomorrodsebelumnya = row.Cells["nomor_rod"].Value.ToString();
                 txtjenis.Text = row.Cells["jenis"].Value.ToString();
                 txtstasiun.Text = row.Cells["stasiun"].Value.ToString();
                 txte1.Text = row.Cells["e1"].Value.ToString();
@@ -484,30 +487,98 @@ namespace GOS_FxApps
 
                 conn.Open();
 
-                using (SqlCommand cmdCekTanggal = new SqlCommand(@"
+                string query = @"
+                                SELECT 'penerimaan_s' AS sumber, nomor_rod 
+                                FROM penerimaan_s 
+                                WHERE nomor_rod = @rod
+                                UNION
+                                SELECT 'perbaikan_s' AS sumber, nomor_rod 
+                                FROM perbaikan_s
+                                WHERE nomor_rod = @rod";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@rod", txtnomorrod.Text);
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            string sumber = dr["sumber"].ToString();
+                            string pesan = (sumber == "penerimaan_s")
+                                ? "Nomor ROD ini sudah ada di data penerimaan dan belum diperbaiki."
+                                : "Nomor ROD ini sudah ada di data perbaikan dan belum dikirim.";
+
+                            MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }
+                }
+
+                if (!txtnomorrod.Text.Trim().Equals(nomorrodsebelumnya, StringComparison.OrdinalIgnoreCase))
+                {
+                    using (SqlCommand cmdCekTanggal = new SqlCommand(@"
+                    SELECT COUNT(*) 
+                    FROM penerimaan_p
+                    WHERE nomor_rod = @nomor_rod
+                      AND CONVERT(date, tanggal_penerimaan) = CONVERT(date, @tgl)
+                      AND no <> @no", conn))
+                    {
+                        cmdCekTanggal.Parameters.AddWithValue("@nomor_rod", txtnomorrod.Text);
+                        cmdCekTanggal.Parameters.AddWithValue("@tgl", MainForm.Instance.tanggal);
+                        cmdCekTanggal.Parameters.AddWithValue("@no", noprimary);
+
+
+                        int sudahAda = (int)cmdCekTanggal.ExecuteScalar();
+
+                        if (sudahAda > 0)
+                        {
+                            MessageBox.Show($"Nomor ROD {txtnomorrod.Text} sudah pernah diterima pada tanggal yang sama ({MainForm.Instance.tanggal:dd MMMM yyyy}).",
+                                "Tanggal Duplikat", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                }
+
+                int hariRentang = 24;
+
+                using (SqlCommand cmdHari = new SqlCommand("SELECT hari FROM perputaran_rod", conn))
+                {
+                    object val = cmdHari.ExecuteScalar();
+                    if (val != null && val != DBNull.Value)
+                    {
+                        hariRentang = Convert.ToInt32(val);
+                    }
+                }
+
+                using (SqlCommand cmdCekRentang = new SqlCommand(@"
                 SELECT COUNT(*) 
                 FROM penerimaan_p
                 WHERE nomor_rod = @nomor_rod
-                  AND CONVERT(date, tanggal_penerimaan) = CONVERT(date, @tgl)", conn))
+                  AND tanggal_penerimaan BETWEEN DATEADD(DAY, -@rentang, @tgl) 
+                                            AND DATEADD(DAY, @rentang, @tgl) AND no <> @no", conn))
                 {
-                    cmdCekTanggal.Parameters.AddWithValue("@nomor_rod", txtnomorrod.Text);
-                    cmdCekTanggal.Parameters.AddWithValue("@tgl", MainForm.Instance.tanggal);
+                    cmdCekRentang.Parameters.AddWithValue("@nomor_rod", txtnomorrod.Text);
+                    cmdCekRentang.Parameters.AddWithValue("@tgl", MainForm.Instance.tanggal);
+                    cmdCekRentang.Parameters.AddWithValue("@rentang", hariRentang);
+                    cmdCekRentang.Parameters.AddWithValue("@no", noprimary);
 
-                    int sudahAda = (int)cmdCekTanggal.ExecuteScalar();
+                    int terlaluDekat = (int)cmdCekRentang.ExecuteScalar();
 
-                    if (sudahAda > 0)
+                    if (terlaluDekat > 0)
                     {
                         DialogResult result1 = MessageBox.Show(
-                            $"Nomor ROD {txtnomorrod.Text} sudah pernah diterima pada tanggal yang sama ({MainForm.Instance.tanggal:dd MMMM yyyy}).\n" +
+                            $"Nomor ROD {txtnomorrod.Text} sudah pernah diterima dalam rentang ±{hariRentang} hari dari tanggal ini.\n" +
                             $"Apakah Anda ingin tetap melanjutkan penyimpanan?",
-                            "Tanggal Duplikat", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                            "Peringatan", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning
+                        );
 
                         if (result1 != DialogResult.OK)
                             return;
                     }
                 }
 
-                trans = conn.BeginTransaction();
+                    trans = conn.BeginTransaction();
 
                 SqlCommand cmd1 = new SqlCommand(@"
             UPDATE penerimaan_p 

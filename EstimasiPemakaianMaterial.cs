@@ -25,29 +25,29 @@ namespace GOS_FxApps
             InitializeComponent();
         }
 
-        private DataTable GetDataFromSPBulan(string spName, int bulan, int tahun)
+        private DataTable GetDataFromSPtanggal(string spName, DateTime tanggalMulai, DateTime tanggalAkhir)
         {
             using (SqlConnection conn = Koneksi.GetConnection())
             using (SqlCommand cmd = new SqlCommand(spName, conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Bulan", bulan);
-                cmd.Parameters.AddWithValue("@Tahun", tahun);
-
+                cmd.Parameters.AddWithValue("@tanggalMulai", tanggalMulai);
+                cmd.Parameters.AddWithValue("@tanggalAkhir", tanggalAkhir);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 return dt;
             }
         }
+
         private void loadsp2()
         {
-            int bulan = datejadwal.Value.Month;
-            int tahun = datejadwal.Value.Year;
+            DateTime tanggalMulai = datejadwalMulai.Value.Date;
+            DateTime tanggalAkhir = datejadwalAkhir.Value.Date;
 
-            DataTable dt1 = GetDataFromSPBulan("sp_koefisiensiMaterialCostbulan", bulan, tahun);
-            DataTable dt2 = GetDataFromSPBulan("sp_koefisiensiConsumableCostbulan", bulan, tahun);
-            DataTable dt3 = GetDataFromSPBulan("sp_koefisiensiSafetyCostbulan", bulan, tahun);
+            DataTable dt1 = GetDataFromSPtanggal("sp_koefisiensiMaterialCostbulan", tanggalMulai, tanggalAkhir);
+            DataTable dt2 = GetDataFromSPtanggal("sp_koefisiensiConsumableCostbulan", tanggalMulai, tanggalAkhir);
+            DataTable dt3 = GetDataFromSPtanggal("sp_koefisiensiSafetyCostbulan", tanggalMulai, tanggalAkhir);
 
             DataTable finalDt = dt1.Copy();
 
@@ -164,20 +164,20 @@ namespace GOS_FxApps
                 {
                     try
                     {
-                        int bulan = DateTime.Now.Month;
-                        int tahun = DateTime.Now.Year;
+                        DateTime tanggalMulai = datejadwalMulai.Value.Date;
+                        DateTime tanggalAkhir = datejadwalAkhir.Value.Date;
 
-                        DataTable dtMaterial = GetDataFromSPBulan("sp_koefisiensiMaterialCostbulan", bulan, tahun);
-                        DataTable dtConsumable = GetDataFromSPBulan("sp_koefisiensiConsumableCostbulan", bulan, tahun);
-                        DataTable dtsafety = GetDataFromSPBulan("sp_koefisiensiSafetyCostbulan", bulan, tahun);
-                        DataTable dtQty = GetDataFromSPBulan("koefisiensiqtybulan", bulan, tahun);
+                        DataTable dtMaterial = GetDataFromSPtanggal("sp_koefisiensiMaterialCostbulan", tanggalMulai, tanggalAkhir);
+                        DataTable dtConsumable = GetDataFromSPtanggal("sp_koefisiensiConsumableCostbulan", tanggalMulai, tanggalAkhir);
+                        DataTable dtsafety = GetDataFromSPtanggal("sp_koefisiensiSafetyCostbulan", tanggalMulai, tanggalAkhir);
+                        DataTable dtQty = GetDataFromSPtanggal("koefisiensiqtybulan", tanggalMulai, tanggalAkhir);
 
                         Excel.Application xlApp = new Excel.Application();
                         string templatePath = Path.Combine(Application.StartupPath, "Koefisien Material.xlsx");
                         Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(templatePath);
                         Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Sheets[1];
 
-                        xlWorkSheet.Cells[1, 1] = "BQ PEKERJAAN ROD REPAIR SHOP PERIODE TAHUN " + tahun + "/" + (tahun + 1);
+                        xlWorkSheet.Cells[1, 1] = "BQ PEKERJAAN ROD REPAIR SHOP PERIODE " + tanggalMulai + "/" + tanggalAkhir;
                         xlWorkSheet.Cells[2, 1] = "UoM = Unit of Measure,     U /Price = Unit Price,     Coeff. = Coefficient,     E1, E2, E3 = Erotion,     " +
                             "S = Sticking,     D= Deformation,     B = Bending,     BA = BA Clade Change,     R = Spark,     CR = Crack York,     M = Crack MIG,     C = End Cut,     RL = Rod Long";
 
@@ -266,7 +266,7 @@ namespace GOS_FxApps
                             {
                                 Title = "Simpan File Excel",
                                 Filter = "Excel Files|*.xlsx",
-                                FileName = "Koefisien Material Bulan " + bulan + " " + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx"
+                                FileName = "Koefisien Material Bulan " + tanggalMulai + "/" + tanggalAkhir + ".xlsx"
                             };
 
                             if (saveFileDialog.ShowDialog(mainform) == DialogResult.OK)
@@ -321,96 +321,51 @@ namespace GOS_FxApps
 
         private void EstimasiPemakaianMaterial_Load(object sender, EventArgs e)
         {
-            datejadwal.Value = DateTime.Now;
-            loadsp2();
-            lbltanggal.Text = DateTime.Now.ToString("dd MMMM yyyy");
+            datejadwalMulai.Value = DateTime.Now;
+            datejadwalAkhir.Value = DateTime.Now;
+            lbltanggal.Text = "";
         }
 
         private void btncari_Click(object sender, EventArgs e)
         {
+            DateTime mulai = datejadwalMulai.Value.Date;
+            DateTime akhir = datejadwalAkhir.Value.Date;
+
+            if (mulai > akhir)
+            {
+                MessageBox.Show("Tanggal Mulai harus kurang dari atau sama dengan Tanggal Akhir agar valid",
+                                "Peringatan",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            TimeSpan span = akhir - mulai;
+
+            int selisihBulan = (akhir.Year - mulai.Year) * 12 + (akhir.Month - mulai.Month) + 1;
+
+            if (selisihBulan > 12)
+            {
+                MessageBox.Show("Rentang tanggal tidak boleh melebihi 12 bulan.",
+                                "Peringatan",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+
             loadsp2();
-            lbltanggal.Text = "Per " + datejadwal.Value.ToString("MMMM yyyy");
+            lbltanggal.Text = "Per " + mulai.ToString("dd/MM/yyyy") + " - " + akhir.ToString("dd/MM/yyyy");
             btnreset.Enabled = true;
         }
 
         private void btnreset_Click(object sender, EventArgs e)
         {
-            datejadwal.Value = DateTime.Now;
-            loadsp2();
-            lbltanggal.Text = "Per " + datejadwal.Value.ToString("MMMM yyyy");
+            datejadwalMulai.Value = DateTime.Now;
+            datejadwalAkhir.Value = DateTime.Now;
+            dataGridView1.DataSource = null;
+            lbltanggal.Text = "";
             btnreset.Enabled = false;
-        }
-
-        private void datejadwal_MouseDown(object sender, MouseEventArgs e)
-        {
-            using (Form pickerForm = new Form())
-            {
-                pickerForm.StartPosition = FormStartPosition.Manual;
-                pickerForm.FormBorderStyle = FormBorderStyle.FixedDialog;
-                pickerForm.ControlBox = false;
-                pickerForm.Size = new Size(250, 200);
-                pickerForm.Text = "Pilih Bulan & Tahun";
-
-                var screenPos = datejadwal.PointToScreen(DrawingPoint.Empty);
-                pickerForm.Location = new DrawingPoint(screenPos.X, screenPos.Y + datejadwal.Height);
-
-                var cmbBulan = new Guna2ComboBox
-                {
-                    Font = new Font("Segoe UI", 11F),
-                    Left = 10,
-                    Top = 10,
-                    Width = 200,
-                    BorderRadius = 6,
-                    ForeColor = Color.Black,
-                    DropDownStyle = ComboBoxStyle.DropDownList,
-                    BorderColor = Color.FromArgb(64, 64, 64),
-                    BorderThickness = 2,
-                };
-                string[] bulan = {
-                                    "01 - Januari", "02 - Februari", "03 - Maret", "04 - April", "05 - Mei", "06 - Juni",
-                                    "07 - Juli", "08 - Agustus", "09 - September", "10 - Oktober", "11 - November", "12 - Desember"
-                                };
-                cmbBulan.Items.AddRange(bulan);
-                cmbBulan.SelectedIndex = datejadwal.Value.Month - 1;
-
-                var numTahun = new Guna2NumericUpDown
-                {
-                    Font = new Font("Segoe UI", 11F),
-                    Left = 10,
-                    Top = 55,
-                    Width = 200,
-                    BorderRadius = 6,
-                    Minimum = 1900,
-                    Maximum = 2100,
-                    ForeColor = Color.Black,
-                    Value = datejadwal.Value.Year,
-                    BorderColor = Color.FromArgb(64, 64, 64),
-                    BorderThickness = 2,
-                };
-
-                var btnOK = new Guna2Button
-                {
-                    Text = "OK",
-                    Font = new Font("Segoe UI", 10F),
-                    Left = 10,
-                    Top = 110,
-                    Width = 80,
-                    Height = 35,
-                    BorderRadius = 6,
-                    FillColor = Color.FromArgb(53, 53, 58)
-                };
-                btnOK.Click += (s, ev) =>
-                {
-                    datejadwal.Value = new DateTime((int)numTahun.Value, cmbBulan.SelectedIndex + 1, 1);
-                    pickerForm.DialogResult = DialogResult.OK;
-                };
-
-                pickerForm.Controls.Add(cmbBulan);
-                pickerForm.Controls.Add(numTahun);
-                pickerForm.Controls.Add(btnOK);
-
-                pickerForm.ShowDialog();
-            }
         }
     }
 }

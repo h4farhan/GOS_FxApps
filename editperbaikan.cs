@@ -31,6 +31,7 @@ namespace GOS_FxApps
         string lastSearchWhere = "";
         SqlCommand lastSearchCmd;
         int searchTotalRecords = 0;
+        string nomorrodsebelumnya = null;
 
         public editperbaikan()
         {
@@ -379,23 +380,91 @@ namespace GOS_FxApps
 
                 conn.Open();
 
-                using (SqlCommand cmdCekTanggal = new SqlCommand(@"
-                SELECT COUNT(*) 
-                FROM perbaikan_p
-                WHERE nomor_rod = @nomor_rod
-                  AND CONVERT(date, tanggal_perbaikan) = CONVERT(date, @tgl)", conn))
+                string query = @"
+                                SELECT 'penerimaan_s' AS sumber, nomor_rod 
+                                FROM penerimaan_s 
+                                WHERE nomor_rod = @rod
+                                UNION
+                                SELECT 'perbaikan_s' AS sumber, nomor_rod 
+                                FROM perbaikan_s
+                                WHERE nomor_rod = @rod";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmdCekTanggal.Parameters.AddWithValue("@nomor_rod", txtnomorrod.Text);
-                    cmdCekTanggal.Parameters.AddWithValue("@tgl", MainForm.Instance.tanggal);
+                    cmd.Parameters.AddWithValue("@rod", txtnomorrod.Text);
 
-                    int sudahAda = (int)cmdCekTanggal.ExecuteScalar();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            string sumber = dr["sumber"].ToString();
+                            string pesan = (sumber == "penerimaan_s")
+                                ? "Nomor ROD ini sudah ada di data penerimaan dan belum diperbaiki."
+                                : "Nomor ROD ini sudah ada di data perbaikan dan belum dikirim.";
 
-                    if (sudahAda > 0)
+                            MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }
+                }
+
+                if (!txtnomorrod.Text.Trim().Equals(nomorrodsebelumnya, StringComparison.OrdinalIgnoreCase))
+                {
+                    using (SqlCommand cmdCekTanggal = new SqlCommand(@"
+                    SELECT COUNT(*) 
+                    FROM penerimaan_p
+                    WHERE nomor_rod = @nomor_rod
+                      AND CONVERT(date, tanggal_penerimaan) = CONVERT(date, @tgl)
+                      AND no <> @no", conn))
+                    {
+                        cmdCekTanggal.Parameters.AddWithValue("@nomor_rod", txtnomorrod.Text);
+                        cmdCekTanggal.Parameters.AddWithValue("@tgl", MainForm.Instance.tanggal);
+                        cmdCekTanggal.Parameters.AddWithValue("@no", noprimary);
+
+
+                        int sudahAda = (int)cmdCekTanggal.ExecuteScalar();
+
+                        if (sudahAda > 0)
+                        {
+                            MessageBox.Show($"Nomor ROD {txtnomorrod.Text} sudah pernah diterima pada tanggal yang sama ({MainForm.Instance.tanggal:dd MMMM yyyy}).",
+                                "Tanggal Duplikat", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                }
+
+                int hariRentang = 24;
+
+                using (SqlCommand cmdHari = new SqlCommand("SELECT hari FROM perputaran_rod", conn))
+                {
+                    object val = cmdHari.ExecuteScalar();
+                    if (val != null && val != DBNull.Value)
+                    {
+                        hariRentang = Convert.ToInt32(val);
+                    }
+                }
+
+                using (SqlCommand cmdCekRentang = new SqlCommand(@"
+                SELECT COUNT(*) 
+                FROM penerimaan_p
+                WHERE nomor_rod = @nomor_rod
+                  AND tanggal_penerimaan BETWEEN DATEADD(DAY, -@rentang, @tgl) 
+                                            AND DATEADD(DAY, @rentang, @tgl) AND no <> @no", conn))
+                {
+                    cmdCekRentang.Parameters.AddWithValue("@nomor_rod", txtnomorrod.Text);
+                    cmdCekRentang.Parameters.AddWithValue("@tgl", MainForm.Instance.tanggal);
+                    cmdCekRentang.Parameters.AddWithValue("@rentang", hariRentang);
+                    cmdCekRentang.Parameters.AddWithValue("@no", noprimary);
+
+                    int terlaluDekat = (int)cmdCekRentang.ExecuteScalar();
+
+                    if (terlaluDekat > 0)
                     {
                         DialogResult result1 = MessageBox.Show(
-                            $"Nomor ROD {txtnomorrod.Text} sudah pernah diterima pada tanggal yang sama ({MainForm.Instance.tanggal:dd MMMM yyyy}).\n" +
+                            $"Nomor ROD {txtnomorrod.Text} sudah pernah diterima dalam rentang ±{hariRentang} hari dari tanggal ini.\n" +
                             $"Apakah Anda ingin tetap melanjutkan penyimpanan?",
-                            "Tanggal Duplikat", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                            "Peringatan", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning
+                        );
 
                         if (result1 != DialogResult.OK)
                             return;
@@ -619,7 +688,8 @@ namespace GOS_FxApps
                 noprimary = Convert.ToInt32(row.Cells["no"].Value);
                 tanggalperbaikan = Convert.ToDateTime(row.Cells["tanggal_perbaikan"].Value);
                 shift = Convert.ToInt32(row.Cells["shift"].Value);        
-                txtnomorrod.Text = row.Cells["nomor_rod"].Value.ToString();           
+                txtnomorrod.Text = row.Cells["nomor_rod"].Value.ToString();
+                nomorrodsebelumnya = row.Cells["nomor_rod"].Value.ToString();           
                 txtjenis.Text = row.Cells["jenis"].Value.ToString();           
                 txte1ers.Text = row.Cells["e1_ers"].Value.ToString();              
                 txte1est.Text = row.Cells["e1_est"].Value.ToString();              

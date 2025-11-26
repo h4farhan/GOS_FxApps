@@ -560,12 +560,12 @@ namespace GOS_FxApps {
         }
         private void iconButton12_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Form ini sedang Maintenance.",
-                               "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //ResetButtonColors();
-            //iconButton12.FillColor = Color.FromArgb(64, 64, 64);
-            //iconButton12.ForeColor = Color.White;
-            //SwitchPanel(new koefisiensi());
+            //MessageBox.Show("Form ini sedang Maintenance.",
+            //                   "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ResetButtonColors();
+            iconButton12.FillColor = Color.FromArgb(64, 64, 64);
+            iconButton12.ForeColor = Color.White;
+            SwitchPanel(new koefisiensi());
         }
 
         private void btnlaporan_Click_1(object sender, EventArgs e)
@@ -639,12 +639,12 @@ namespace GOS_FxApps {
         }
         private void btnestimasi_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Form ini sedang Maintenance.",
-                               "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //ResetButtonColors();
-            //btnestimasi.FillColor = Color.FromArgb(64, 64, 64);
-            //btnestimasi.ForeColor = Color.White;
-            //SwitchPanel(new EstimasiPemakaianMaterial());
+            //MessageBox.Show("Form ini sedang Maintenance.",
+            //                   "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ResetButtonColors();
+            btnestimasi.FillColor = Color.FromArgb(64, 64, 64);
+            btnestimasi.ForeColor = Color.White;
+            SwitchPanel(new EstimasiPemakaianMaterial());
         }
 
         private void btngudang_Click(object sender, EventArgs e)
