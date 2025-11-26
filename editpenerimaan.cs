@@ -364,9 +364,9 @@ namespace GOS_FxApps
                 txtd.Text = row.Cells["d"].Value.ToString();
                 txtb.Text = row.Cells["b"].Value.ToString();
                 txtba.Text = row.Cells["ba"].Value.ToString();
-                txtr.Text = row.Cells["cr"].Value.ToString();
+                txtcr.Text = row.Cells["cr"].Value.ToString();
                 txtm.Text = row.Cells["m"].Value.ToString();
-                txtcr.Text = row.Cells["r"].Value.ToString();
+                txtr.Text = row.Cells["r"].Value.ToString();
                 txtc.Text = row.Cells["c"].Value.ToString();
                 txtrl.Text = row.Cells["rl"].Value.ToString();
                 lbltotalsebelum.Text = row.Cells["jumlah"].Value.ToString();

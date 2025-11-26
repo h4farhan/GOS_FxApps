@@ -56,10 +56,10 @@
             this.txtm = new Guna.UI2.WinForms.Guna2TextBox();
             this.txte3 = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtc = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtr = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtcr = new Guna.UI2.WinForms.Guna2TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtba1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtcr = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtr = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.label25 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -309,10 +309,10 @@
             this.guna2Panel2.Controls.Add(this.txtm);
             this.guna2Panel2.Controls.Add(this.txte3);
             this.guna2Panel2.Controls.Add(this.txtc);
-            this.guna2Panel2.Controls.Add(this.txtr);
+            this.guna2Panel2.Controls.Add(this.txtcr);
             this.guna2Panel2.Controls.Add(this.label11);
             this.guna2Panel2.Controls.Add(this.txtba1);
-            this.guna2Panel2.Controls.Add(this.txtcr);
+            this.guna2Panel2.Controls.Add(this.txtr);
             this.guna2Panel2.Controls.Add(this.guna2Panel5);
             this.guna2Panel2.Controls.Add(this.label18);
             this.guna2Panel2.Controls.Add(this.guna2Panel4);
@@ -596,33 +596,33 @@
             this.txtc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txtc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
-            // txtr
+            // txtcr
             // 
-            this.txtr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtr.BorderRadius = 5;
-            this.txtr.BorderThickness = 2;
-            this.txtr.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtr.DefaultText = "";
-            this.txtr.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtr.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtr.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtr.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtr.Enabled = false;
-            this.txtr.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtr.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtr.ForeColor = System.Drawing.Color.Black;
-            this.txtr.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtr.Location = new System.Drawing.Point(238, 396);
-            this.txtr.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtr.Name = "txtr";
-            this.txtr.PlaceholderForeColor = System.Drawing.Color.Gray;
-            this.txtr.PlaceholderText = "";
-            this.txtr.SelectedText = "";
-            this.txtr.Size = new System.Drawing.Size(47, 41);
-            this.txtr.TabIndex = 11;
-            this.txtr.TextChanged += new System.EventHandler(this.txtr_TextChanged);
-            this.txtr.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            this.txtcr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtcr.BorderRadius = 5;
+            this.txtcr.BorderThickness = 2;
+            this.txtcr.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtcr.DefaultText = "";
+            this.txtcr.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtcr.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtcr.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcr.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtcr.Enabled = false;
+            this.txtcr.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcr.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtcr.ForeColor = System.Drawing.Color.Black;
+            this.txtcr.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtcr.Location = new System.Drawing.Point(238, 396);
+            this.txtcr.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtcr.Name = "txtcr";
+            this.txtcr.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.txtcr.PlaceholderText = "";
+            this.txtcr.SelectedText = "";
+            this.txtcr.Size = new System.Drawing.Size(47, 41);
+            this.txtcr.TabIndex = 11;
+            this.txtcr.TextChanged += new System.EventHandler(this.txtcr_TextChanged);
+            this.txtcr.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+            this.txtcr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // label11
             // 
@@ -665,33 +665,33 @@
             this.txtba1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txtba1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
-            // txtcr
+            // txtr
             // 
-            this.txtcr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtcr.BorderRadius = 5;
-            this.txtcr.BorderThickness = 2;
-            this.txtcr.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtcr.DefaultText = "";
-            this.txtcr.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtcr.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtcr.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcr.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtcr.Enabled = false;
-            this.txtcr.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcr.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtcr.ForeColor = System.Drawing.Color.Black;
-            this.txtcr.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtcr.Location = new System.Drawing.Point(238, 274);
-            this.txtcr.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtcr.Name = "txtcr";
-            this.txtcr.PlaceholderForeColor = System.Drawing.Color.Gray;
-            this.txtcr.PlaceholderText = "";
-            this.txtcr.SelectedText = "";
-            this.txtcr.Size = new System.Drawing.Size(47, 41);
-            this.txtcr.TabIndex = 9;
-            this.txtcr.TextChanged += new System.EventHandler(this.txtcr_TextChanged);
-            this.txtcr.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
-            this.txtcr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
+            this.txtr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtr.BorderRadius = 5;
+            this.txtr.BorderThickness = 2;
+            this.txtr.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtr.DefaultText = "";
+            this.txtr.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtr.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtr.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtr.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtr.Enabled = false;
+            this.txtr.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtr.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtr.ForeColor = System.Drawing.Color.Black;
+            this.txtr.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtr.Location = new System.Drawing.Point(238, 274);
+            this.txtr.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtr.Name = "txtr";
+            this.txtr.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.txtr.PlaceholderText = "";
+            this.txtr.SelectedText = "";
+            this.txtr.Size = new System.Drawing.Size(47, 41);
+            this.txtr.TabIndex = 9;
+            this.txtr.TextChanged += new System.EventHandler(this.txtr_TextChanged);
+            this.txtr.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+            this.txtr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AngkaOnly_KeyPress);
             // 
             // guna2Panel5
             // 
@@ -1096,12 +1096,12 @@
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(210, 405);
+            this.label14.Location = new System.Drawing.Point(206, 405);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(20, 21);
+            this.label14.Size = new System.Drawing.Size(30, 21);
             this.label14.TabIndex = 47;
-            this.label14.Text = "R";
+            this.label14.Text = "CR";
             // 
             // label16
             // 
@@ -1148,7 +1148,7 @@
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(212, 343);
+            this.label13.Location = new System.Drawing.Point(206, 343);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(24, 21);
@@ -1251,9 +1251,9 @@
             this.label17.Location = new System.Drawing.Point(206, 283);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(30, 21);
+            this.label17.Size = new System.Drawing.Size(20, 21);
             this.label17.TabIndex = 53;
-            this.label17.Text = "CR";
+            this.label17.Text = "R";
             // 
             // txts
             // 
@@ -1821,10 +1821,10 @@
         private Guna.UI2.WinForms.Guna2TextBox txtm;
         private Guna.UI2.WinForms.Guna2TextBox txte3;
         private Guna.UI2.WinForms.Guna2TextBox txtc;
-        private Guna.UI2.WinForms.Guna2TextBox txtr;
+        private Guna.UI2.WinForms.Guna2TextBox txtcr;
         private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2TextBox txtba1;
-        private Guna.UI2.WinForms.Guna2TextBox txtcr;
+        private Guna.UI2.WinForms.Guna2TextBox txtr;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label28;

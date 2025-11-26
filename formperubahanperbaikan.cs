@@ -252,9 +252,9 @@ namespace GOS_FxApps
             txtbac.Clear();
             txtnba.Clear();
             txtba1.Clear();
-            txtcr.Clear();
-            txtm.Clear();
             txtr.Clear();
+            txtm.Clear();
+            txtcr.Clear();
             txtc.Clear();
             txtrl.Clear();
             txtcatatan.Clear();
@@ -281,9 +281,9 @@ namespace GOS_FxApps
             txtbac.Enabled = true;
             txtnba.Enabled = true;
             txtba1.Enabled = true;
-            txtcr.Enabled = true;
-            txtm.Enabled = true;
             txtr.Enabled = true;
+            txtm.Enabled = true;
+            txtcr.Enabled = true;
             txtc.Enabled = true;
             txtrl.Enabled = true;
             txtcatatan.Enabled = true;
@@ -307,9 +307,9 @@ namespace GOS_FxApps
             txtbac.Enabled = false;
             txtnba.Enabled = false;
             txtba1.Enabled = false;
-            txtcr.Enabled = false;
-            txtm.Enabled = false;
             txtr.Enabled = false;
+            txtm.Enabled = false;
+            txtcr.Enabled = false;
             txtc.Enabled = false;
             txtrl.Enabled = false;
             txtcatatan.Enabled = false;
@@ -729,17 +729,7 @@ namespace GOS_FxApps
             hitung();
         }
 
-        private void txtcr_TextChanged(object sender, EventArgs e)
-        {
-            hitung();
-        }
-
         private void txtm_TextChanged(object sender, EventArgs e)
-        {
-            hitung();
-        }
-
-        private void txtr_TextChanged(object sender, EventArgs e)
         {
             hitung();
         }
@@ -822,6 +812,16 @@ namespace GOS_FxApps
                 currentPage++;
                 tampilpenerimaan();
             }
+        }
+
+        private void txtr_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
+        }
+
+        private void txtcr_TextChanged(object sender, EventArgs e)
+        {
+            hitung();
         }
     }
 }

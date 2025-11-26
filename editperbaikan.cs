@@ -707,9 +707,9 @@ namespace GOS_FxApps
                 txtnba.Text = row.Cells["nba"].Value.ToString();            
                 lbltotalba.Text = row.Cells["ba"].Value.ToString();            
                 txtba1.Text = row.Cells["ba1"].Value.ToString();              
-                txtr.Text = row.Cells["cr"].Value.ToString();               
+                txtcr.Text = row.Cells["cr"].Value.ToString();               
                 txtm.Text = row.Cells["m"].Value.ToString();               
-                txtcr.Text = row.Cells["r"].Value.ToString();               
+                txtr.Text = row.Cells["r"].Value.ToString();               
                 txtc.Text = row.Cells["c"].Value.ToString();                
                 txtrl.Text = row.Cells["rl"].Value.ToString();                
                 lbltotalsebelum.Text = row.Cells["jumlah"].Value.ToString();
