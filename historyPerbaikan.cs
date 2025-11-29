@@ -72,7 +72,10 @@ namespace GOS_FxApps
                 };
 
                 conn.Open();
-                cmd.ExecuteReader();
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read()) { }
+                }
             }
         }
 
@@ -141,7 +144,7 @@ namespace GOS_FxApps
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
@@ -163,18 +166,20 @@ namespace GOS_FxApps
                 dataGridView1.Columns[14].HeaderText = "S";
                 dataGridView1.Columns[15].HeaderText = "D";
                 dataGridView1.Columns[16].HeaderText = "B";
-                dataGridView1.Columns[17].HeaderText = "BA";
-                dataGridView1.Columns[18].HeaderText = "BA-1";
-                dataGridView1.Columns[19].HeaderText = "R";
-                dataGridView1.Columns[20].HeaderText = "M";
-                dataGridView1.Columns[21].HeaderText = "CR";
-                dataGridView1.Columns[22].HeaderText = "C";
-                dataGridView1.Columns[23].HeaderText = "RL";
-                dataGridView1.Columns[24].HeaderText = "Jumlah";
-                dataGridView1.Columns[25].HeaderText = "Tanggal Penerimaan";
-                dataGridView1.Columns[26].HeaderText = "Diubah";
-                dataGridView1.Columns[27].HeaderText = "Remaks";
-                dataGridView1.Columns[28].HeaderText = "Catatan";
+                dataGridView1.Columns[17].HeaderText = "BAC";
+                dataGridView1.Columns[18].HeaderText = "NBA";
+                dataGridView1.Columns[19].HeaderText = "BA";
+                dataGridView1.Columns[20].HeaderText = "BA-1";
+                dataGridView1.Columns[21].HeaderText = "R";
+                dataGridView1.Columns[22].HeaderText = "M";
+                dataGridView1.Columns[23].HeaderText = "CR";
+                dataGridView1.Columns[24].HeaderText = "C";
+                dataGridView1.Columns[25].HeaderText = "RL";
+                dataGridView1.Columns[26].HeaderText = "Jumlah";
+                dataGridView1.Columns[27].HeaderText = "Tanggal Penerimaan";
+                dataGridView1.Columns[28].HeaderText = "Diubah";
+                dataGridView1.Columns[29].HeaderText = "Remaks";
+                dataGridView1.Columns[30].HeaderText = "Catatan";
 
                 if (!isSearching)
                 {

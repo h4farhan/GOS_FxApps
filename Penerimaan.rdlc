@@ -100,7 +100,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>PenerimaanForm</rd:DataSetName>
-        <rd:SchemaPath>E:\GitHub\GOS_FxApps\DataSet\PenerimaanForm.xsd</rd:SchemaPath>
+        <rd:SchemaPath>E:\All Project GOS Apps\Operator\GOS_FxApps\DataSet\PenerimaanForm.xsd</rd:SchemaPath>
         <rd:TableName>penerimaan_s</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -325,7 +325,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=RowNumber(Nothing)</Value>
+                                  <Value>=IIF(Fields!nomor_rod.Value = "Total",Nothing,RunningValue(IIF(Fields!nomor_rod.Value = "Total", 0, 1), Sum, Nothing))</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
@@ -343,6 +343,18 @@
                               <Style>Solid</Style>
                               <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
@@ -361,6 +373,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <FontWeight>=IIf(Fields!nomor_rod.Value = "Total", "Bold", "Normal")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -375,6 +388,18 @@
                               <Style>Solid</Style>
                               <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
@@ -393,6 +418,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <FontWeight>=IIf(Fields!nomor_rod.Value = "Total", "Bold", "Normal")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -407,6 +433,18 @@
                               <Style>Solid</Style>
                               <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
@@ -425,6 +463,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <FontWeight>=IIf(Fields!nomor_rod.Value = "Total", "Bold", "Normal")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -439,6 +478,18 @@
                               <Style>Solid</Style>
                               <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
@@ -457,6 +508,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <FontWeight>=IIf(Fields!nomor_rod.Value = "Total", "Bold", "Normal")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -471,6 +523,18 @@
                               <Style>Solid</Style>
                               <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
@@ -489,6 +553,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <FontWeight>=IIf(Fields!nomor_rod.Value = "Total", "Bold", "Normal")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -503,6 +568,18 @@
                               <Style>Solid</Style>
                               <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
@@ -521,6 +598,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <FontWeight>=IIf(Fields!nomor_rod.Value = "Total", "Bold", "Normal")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -535,6 +613,18 @@
                               <Style>Solid</Style>
                               <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
@@ -553,6 +643,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <FontWeight>=IIf(Fields!nomor_rod.Value = "Total", "Bold", "Normal")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -567,6 +658,18 @@
                               <Style>Solid</Style>
                               <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
@@ -585,6 +688,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <FontWeight>=IIf(Fields!nomor_rod.Value = "Total", "Bold", "Normal")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -599,6 +703,18 @@
                               <Style>Solid</Style>
                               <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
@@ -617,6 +733,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <FontWeight>=IIf(Fields!nomor_rod.Value = "Total", "Bold", "Normal")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -631,6 +748,18 @@
                               <Style>Solid</Style>
                               <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
@@ -649,6 +778,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <FontWeight>=IIf(Fields!nomor_rod.Value = "Total", "Bold", "Normal")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -663,6 +793,18 @@
                               <Style>Solid</Style>
                               <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
@@ -681,6 +823,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <FontWeight>=IIf(Fields!nomor_rod.Value = "Total", "Bold", "Normal")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -695,6 +838,18 @@
                               <Style>Solid</Style>
                               <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
@@ -713,6 +868,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <FontWeight>=IIf(Fields!nomor_rod.Value = "Total", "Bold", "Normal")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -727,6 +883,18 @@
                               <Style>Solid</Style>
                               <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
@@ -745,6 +913,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <FontWeight>=IIf(Fields!nomor_rod.Value = "Total", "Bold", "Normal")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -759,6 +928,18 @@
                               <Style>Solid</Style>
                               <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
@@ -777,6 +958,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <FontWeight>=IIf(Fields!nomor_rod.Value = "Total", "Bold", "Normal")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -791,6 +973,18 @@
                               <Style>Solid</Style>
                               <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
@@ -809,6 +1003,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <FontWeight>=IIf(Fields!nomor_rod.Value = "Total", "Bold", "Normal")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -823,6 +1018,18 @@
                               <Style>Solid</Style>
                               <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
@@ -841,6 +1048,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <FontWeight>=IIf(Fields!nomor_rod.Value = "Total", "Bold", "Normal")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -855,6 +1063,18 @@
                               <Style>Solid</Style>
                               <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
@@ -872,6 +1092,7 @@
                                   <Value>=Trim(Fields!catatan.Value)</Value>
                                   <Style>
                                     <FontSize>5pt</FontSize>
+                                    <FontWeight>=IIf(Fields!nomor_rod.Value = "Total", "Bold", "Normal")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -886,6 +1107,18 @@
                               <Style>Solid</Style>
                               <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
@@ -917,6 +1150,18 @@
                               <Style>Solid</Style>
                               <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
@@ -948,618 +1193,18 @@
                               <Style>Solid</Style>
                               <Width>0.25pt</Width>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>0.49229cm</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox46">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Total</Value>
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox46</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                          </Style>
-                        </Textbox>
-                        <ColSpan>2</ColSpan>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell />
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox48">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox48</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox49">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox49</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox51">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!e1.Value, "DataSetPenerimaan")</Value>
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox51</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox52">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!e2.Value, "DataSetPenerimaan")</Value>
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox52</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox53">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!e3.Value, "DataSetPenerimaan")</Value>
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox53</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox55">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(IIf(Fields!s.Value &gt; 0, 1, 0), "DataSetPenerimaan")</Value>
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox55</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox56">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!d.Value, "DataSetPenerimaan")</Value>
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox56</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox57">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!b.Value, "DataSetPenerimaan")</Value>
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox57</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox58">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!ba.Value, "DataSetPenerimaan")</Value>
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox58</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox59">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!r.Value, "DataSetPenerimaan")</Value>
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox59</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox60">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!m.Value, "DataSetPenerimaan")</Value>
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox60</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox61">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(IIf(Fields!cr.Value &gt; 0, 1, 0), "DataSetPenerimaan")</Value>
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox61</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox62">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(IIf(Fields!c.Value &gt; 0, 1, 0), "DataSetPenerimaan")</Value>
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox62</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox63">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!rl.Value, "DataSetPenerimaan")</Value>
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox63</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox64">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!jumlah.Value, "DataSetPenerimaan")</Value>
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox64</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox12">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontSize>8pt</FontSize>
-                                    <FontWeight>Normal</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox12</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox65">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontSize>8pt</FontSize>
-                                    <FontWeight>Normal</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox65</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox66">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontSize>8pt</FontSize>
-                                    <FontWeight>Normal</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox66</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
+                            <TopBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Width>=IIf(Fields!nomor_rod.Value = "Total", "1pt", "0,25pt")</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
@@ -1598,7 +1243,7 @@
                 <TablixMember>
                   <Group Name="grphalaman">
                     <GroupExpressions>
-                      <GroupExpression>=Ceiling(RowNumber(Nothing) / 30)</GroupExpression>
+                      <GroupExpression>=Ceiling(RowNumber(Nothing) / 31)</GroupExpression>
                     </GroupExpressions>
                     <PageBreak>
                       <BreakLocation>Between</BreakLocation>
@@ -1610,12 +1255,11 @@
                     </TablixMember>
                   </TablixMembers>
                 </TablixMember>
-                <TablixMember />
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSetPenerimaan</DataSetName>
             <Left>0.36455cm</Left>
-            <Height>1.08325cm</Height>
+            <Height>0.59096cm</Height>
             <Width>20.17543cm</Width>
             <Style>
               <Border>
@@ -1624,7 +1268,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>1.12913cm</Height>
+        <Height>0.59096cm</Height>
         <Style />
       </Body>
       <Width>21cm</Width>

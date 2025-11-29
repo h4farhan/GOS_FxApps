@@ -77,7 +77,10 @@ namespace GOS_FxApps
                 };
 
                 conn.Open();
-                cmd.ExecuteReader();
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read()) { }
+                }
             }
         }
 

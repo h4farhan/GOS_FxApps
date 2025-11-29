@@ -77,7 +77,10 @@ namespace GOS_FxApps
                     }
                 };
                 conn.Open();
-                cmd.ExecuteReader();
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read()) { }
+                }
             }
         }
 
@@ -187,7 +190,7 @@ namespace GOS_FxApps
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridView1.RowTemplate.Height = 35;

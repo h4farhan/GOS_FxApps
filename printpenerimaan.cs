@@ -55,8 +55,13 @@ namespace GOS_FxApps
                 var adapter2 = new GOS_FxApps.DataSet.PenerimaanFormTableAdapters.jumlahpenerimaan2TableAdapter();
                 GOS_FxApps.DataSet.PenerimaanForm.jumlahpenerimaan2DataTable data2 = adapter2.GetData(tanggal1, tanggal2);
 
-                int total = data.Rows.Count;
-                label4.Text = "Jumlah data: " + total;
+            int total = data.AsEnumerable()
+        .Count(row =>
+            row["nomor_rod"] != DBNull.Value &&
+            !row["nomor_rod"].ToString()
+                .Equals("Total", StringComparison.OrdinalIgnoreCase)
+        );
+            label4.Text = "Jumlah data: " + total;
 
             reportViewer1.Reset();
                 reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "penerimaan.rdlc");
@@ -136,7 +141,12 @@ namespace GOS_FxApps
             var adapter2 = new GOS_FxApps.DataSet.PerbaikanFormTableAdapters.jumlahperbaikan2TableAdapter();
             GOS_FxApps.DataSet.PerbaikanForm.jumlahperbaikan2DataTable data2 = adapter2.GetData(tanggal1, tanggal2);
 
-            int total = data.Rows.Count;
+            int total = data.AsEnumerable()
+            .Count(row =>
+                row["nomor_rod"] != DBNull.Value &&
+                !row["nomor_rod"].ToString()
+                    .Equals("Total", StringComparison.OrdinalIgnoreCase)
+            );
             label4.Text = "Jumlah data: " + total;
 
             reportViewer1.Reset();
@@ -194,8 +204,11 @@ namespace GOS_FxApps
                 data.Rows.Add(row);           
             }
 
-            int total = data.Rows.Count;
-            label4.Text = "Jumlah data: " + total;
+            int jumlahAsli = data.AsEnumerable()
+                     .Count(r => !r.IsNull("nomor_rod") &&
+                                 !string.IsNullOrWhiteSpace(r["nomor_rod"].ToString()));
+
+            label4.Text = "Jumlah data: " + jumlahAsli;
 
             reportViewer1.Reset();
             reportViewer1.LocalReport.ReportPath = System.IO.Path.Combine(Application.StartupPath, "Pengiriman.rdlc");

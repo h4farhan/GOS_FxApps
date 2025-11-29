@@ -619,6 +619,9 @@
     <EmbeddedResource Include="materialmasuk.resx">
       <DependentUpon>materialmasuk.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Penerimaan.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Perbaikan.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -751,9 +754,6 @@
     <Content Include="Pengiriman.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="Penerimaan.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
     <EmbeddedResource Include="Penerimaan.resx">
       <DependentUpon>Penerimaan.cs</DependentUpon>
     </EmbeddedResource>

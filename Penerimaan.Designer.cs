@@ -129,6 +129,7 @@ namespace GOS_FxApps
             this.lblhari.Location = new System.Drawing.Point(531, 0);
             this.lblhari.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblhari.Name = "lblhari";
+            this.lblhari.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.lblhari.Size = new System.Drawing.Size(271, 57);
             this.lblhari.TabIndex = 5;
             this.lblhari.Text = "Perputaran ROD 30 Hari";

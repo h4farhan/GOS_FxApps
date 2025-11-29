@@ -74,7 +74,10 @@ namespace GOS_FxApps
                     }
                 };
                 conn.Open();
-                cmd.ExecuteReader();
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read()) { }
+                }
             }
         }
 
@@ -135,7 +138,7 @@ namespace GOS_FxApps
                 if (!isSearching)
                 {
                     query = $@"
-                SELECT *
+                SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3, s, d, b, ba, r, m, cr, c, rl, jumlah, updated_at, remaks, catatan
                 FROM penerimaan_p
                 ORDER BY tanggal_penerimaan DESC
                 OFFSET {offset} ROWS
@@ -144,7 +147,7 @@ namespace GOS_FxApps
                 else
                 {
                     query = $@"
-                SELECT *
+                SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3, s, d, b, ba, r, m, cr, c, rl, jumlah, updated_at, remaks, catatan
                 {lastSearchWhere}
                 ORDER BY tanggal_penerimaan DESC
                 OFFSET {offset} ROWS
@@ -162,7 +165,7 @@ namespace GOS_FxApps
 
                 dataGridView1.DataSource = dt;
 
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
@@ -180,10 +183,10 @@ namespace GOS_FxApps
                 dataGridView1.Columns[10].HeaderText = "D";
                 dataGridView1.Columns[11].HeaderText = "B";
                 dataGridView1.Columns[12].HeaderText = "BA";
-                dataGridView1.Columns[13].HeaderText = "CR";
+                dataGridView1.Columns[13].HeaderText = "R";
                 dataGridView1.Columns[14].HeaderText = "M";
-                dataGridView1.Columns[15].HeaderText = "R";
-                dataGridView1.Columns[16].HeaderText = "C";
+                dataGridView1.Columns[15].HeaderText = "CR";
+                dataGridView1.Columns[16].HeaderText = "C"; 
                 dataGridView1.Columns[17].HeaderText = "RL";
                 dataGridView1.Columns[18].HeaderText = "Jumlah";
                 dataGridView1.Columns[19].HeaderText = "Diubah";
@@ -500,18 +503,24 @@ namespace GOS_FxApps
                 {
                     cmd.Parameters.AddWithValue("@rod", txtnomorrod.Text);
 
+                    string sumber = null;
+
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         if (dr.Read())
                         {
-                            string sumber = dr["sumber"].ToString();
-                            string pesan = (sumber == "penerimaan_s")
-                                ? "Nomor ROD ini sudah ada di data penerimaan dan belum diperbaiki."
-                                : "Nomor ROD ini sudah ada di data perbaikan dan belum dikirim.";
-
-                            MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;
+                            sumber = dr["sumber"].ToString();
                         }
+                    }
+
+                    if (sumber != null)
+                    {
+                        string pesan = (sumber == "penerimaan_s")
+                            ? "Nomor ROD ini sudah ada di data penerimaan dan belum diperbaiki."
+                            : "Nomor ROD ini sudah ada di data perbaikan dan belum dikirim.";
+
+                        MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
                     }
                 }
 
@@ -794,6 +803,7 @@ namespace GOS_FxApps
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information
                     );
+                    tampil();
                 }
                 catch (Exception ex2)
                 {

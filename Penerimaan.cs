@@ -68,7 +68,10 @@ namespace GOS_FxApps
                 };
 
                 conn.Open();
-                cmd.ExecuteReader();
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read()) { }
+                }
             }
         }
 
@@ -92,7 +95,10 @@ namespace GOS_FxApps
                     }
                 };
                 conn.Open();
-                cmd.ExecuteReader();
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read()) { }
+                }
             }
         }
 
@@ -166,20 +172,27 @@ namespace GOS_FxApps
                 {
                     cmd.Parameters.AddWithValue("@rod", txtnomorrod.Text);
 
+                    string sumber = null;
+
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         if (dr.Read())
                         {
-                            string sumber = dr["sumber"].ToString();
-                            string pesan = (sumber == "penerimaan_s")
-                                ? "Nomor ROD ini sudah ada di data penerimaan dan belum diperbaiki."
-                                : "Nomor ROD ini sudah ada di data perbaikan dan belum dikirim.";
-
-                            MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;
+                            sumber = dr["sumber"].ToString();
                         }
+                    } 
+
+                    if (sumber != null)
+                    {
+                        string pesan = (sumber == "penerimaan_s")
+                            ? "Nomor ROD ini sudah ada di data penerimaan dan belum diperbaiki."
+                            : "Nomor ROD ini sudah ada di data perbaikan dan belum dikirim.";
+
+                        MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
                     }
                 }
+
 
                 using (SqlCommand cmdCekTanggal = new SqlCommand(@"
                 SELECT COUNT(*) 
@@ -307,6 +320,7 @@ namespace GOS_FxApps
             finally
             {
                 conn.Close();
+                
             }
         }
 
@@ -383,7 +397,7 @@ namespace GOS_FxApps
                 DataTable dt = new DataTable();
                 ad.Fill(dt);
                 dataGridView1.DataSource = dt;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                 dataGridView1.RowTemplate.Height = 35;
                 dataGridView1.ReadOnly = true;
@@ -561,6 +575,14 @@ namespace GOS_FxApps
             tampil();
             tampilperputaranrod();
             btnsimpan.Enabled = false;
+            if (MainForm.Instance != null && MainForm.Instance.role != null)
+            {
+                btnaturjam.Visible = (MainForm.Instance.role == "Manajer" || MainForm.Instance.role == "Developer");
+            }
+            else
+            {
+                btnaturjam.Visible = false;
+            }
             registertampilpenerimaan();
             registertampilperputaran();
         }
