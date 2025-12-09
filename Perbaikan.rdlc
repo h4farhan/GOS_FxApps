@@ -92,9 +92,9 @@
           <DataField>b</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="nba">
-          <DataField>nba</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="ba">
+          <DataField>ba</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ba1">
           <DataField>ba1</DataField>
@@ -164,10 +164,6 @@
           <DataField>B</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="BA_1">
-          <DataField>BA_1</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="CR">
           <DataField>CR</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -196,8 +192,8 @@
           <DataField>Shift</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="NBA">
-          <DataField>NBA</DataField>
+        <Field Name="BA">
+          <DataField>BA</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
@@ -446,7 +442,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1123,13 +1118,13 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="nba">
+                        <Textbox Name="ba">
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!nba.Value</Value>
+                                  <Value>=Fields!ba.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
@@ -1142,7 +1137,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>nba</rd:DefaultName>
+                          <rd:DefaultName>ba</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1167,6 +1162,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -2052,10 +2048,11 @@
                   <rd:DefaultName>Textbox298</rd:DefaultName>
                   <Left>0.69311cm</Left>
                   <Height>1.74355cm</Height>
-                  <Width>1.68633cm</Width>
+                  <Width>1.68883cm</Width>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2092,6 +2089,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2128,6 +2126,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2165,6 +2164,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2202,6 +2202,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2239,6 +2240,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2276,6 +2278,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2313,6 +2316,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2350,6 +2354,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2387,6 +2392,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2424,6 +2430,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2461,6 +2468,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2498,6 +2506,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2535,6 +2544,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2572,6 +2582,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2607,6 +2618,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2644,6 +2656,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2681,6 +2694,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2718,6 +2732,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2755,6 +2770,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2792,6 +2808,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2829,6 +2846,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2866,6 +2884,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2903,6 +2922,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2940,6 +2960,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -2977,6 +2998,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -3013,6 +3035,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -3049,6 +3072,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -3085,6 +3109,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -3121,6 +3146,7 @@
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.25pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -3507,7 +3533,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3542,7 +3568,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3578,7 +3604,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3614,7 +3640,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3650,7 +3676,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3686,7 +3712,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3722,7 +3748,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3758,7 +3784,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3794,7 +3820,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3830,7 +3856,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3866,7 +3892,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3902,7 +3928,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3938,7 +3964,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3974,7 +4000,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -4478,7 +4504,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -4514,7 +4540,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -4550,7 +4576,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -4586,7 +4612,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -4622,7 +4648,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -4658,7 +4684,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -4694,7 +4720,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -4730,7 +4756,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -4766,7 +4792,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -4802,7 +4828,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -4838,7 +4864,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -4874,7 +4900,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -4910,7 +4936,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -4946,7 +4972,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -4982,7 +5008,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -5486,7 +5512,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -5990,7 +6016,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -6062,7 +6088,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -6098,7 +6124,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -6134,7 +6160,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -6170,7 +6196,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -6206,7 +6232,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -6216,8 +6242,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.17392cm</Top>
-              <Left>7.40137cm</Left>
+              <Top>3.17393cm</Top>
+              <Left>6.60315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>75</ZIndex>
@@ -6242,7 +6268,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -6278,7 +6304,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -6314,7 +6340,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -6324,8 +6350,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.17392cm</Top>
-              <Left>8.10137cm</Left>
+              <Top>3.17393cm</Top>
+              <Left>7.30315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>78</ZIndex>
@@ -6350,7 +6376,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -6360,8 +6386,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.17392cm</Top>
-              <Left>8.80137cm</Left>
+              <Top>3.17393cm</Top>
+              <Left>8.00315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>79</ZIndex>
@@ -6386,7 +6412,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -6396,8 +6422,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.1739cm</Top>
-              <Left>10.90145cm</Left>
+              <Top>3.17391cm</Top>
+              <Left>10.10323cm</Left>
               <Height>0.47841cm</Height>
               <Width>1.60334cm</Width>
               <ZIndex>80</ZIndex>
@@ -6422,7 +6448,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -6432,8 +6458,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.17392cm</Top>
-              <Left>9.50137cm</Left>
+              <Top>3.17393cm</Top>
+              <Left>8.70315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>81</ZIndex>
@@ -6458,7 +6484,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -6468,8 +6494,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.1739cm</Top>
-              <Left>10.20137cm</Left>
+              <Top>3.17391cm</Top>
+              <Left>9.40315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>82</ZIndex>
@@ -6598,7 +6624,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Lookup(1, Fields!Shift.Value, Fields!NBA.Value, "datasetjumlahperbaikan2")</Value>
+                      <Value>=Lookup(1, Fields!Shift.Value, Fields!BA.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -6648,8 +6674,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.65233cm</Top>
-              <Left>7.40137cm</Left>
+              <Top>3.65234cm</Top>
+              <Left>6.60315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>87</ZIndex>
@@ -6756,8 +6782,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.65233cm</Top>
-              <Left>8.10137cm</Left>
+              <Top>3.65234cm</Top>
+              <Left>7.30315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>90</ZIndex>
@@ -6792,8 +6818,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.65233cm</Top>
-              <Left>8.80137cm</Left>
+              <Top>3.65234cm</Top>
+              <Left>8.00315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>91</ZIndex>
@@ -6818,7 +6844,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -6828,8 +6854,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.65231cm</Top>
-              <Left>10.90145cm</Left>
+              <Top>3.65232cm</Top>
+              <Left>10.10323cm</Left>
               <Height>0.47841cm</Height>
               <Width>1.60334cm</Width>
               <ZIndex>92</ZIndex>
@@ -6864,8 +6890,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.65233cm</Top>
-              <Left>9.50137cm</Left>
+              <Top>3.65234cm</Top>
+              <Left>8.70315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>93</ZIndex>
@@ -6900,8 +6926,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.65231cm</Top>
-              <Left>10.20137cm</Left>
+              <Top>3.65232cm</Top>
+              <Left>9.40315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>94</ZIndex>
@@ -6926,7 +6952,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -6962,7 +6988,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -6998,7 +7024,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -7030,11 +7056,11 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Sum(Fields!NBA.Value, "datasetjumlahperbaikan2")</Value>
+                      <Value>=Sum(Fields!BA.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -7070,7 +7096,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -7080,8 +7106,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>5.08756cm</Top>
-              <Left>7.40137cm</Left>
+              <Top>5.08757cm</Top>
+              <Left>6.60315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>99</ZIndex>
@@ -7106,7 +7132,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -7142,7 +7168,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -7178,7 +7204,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -7188,8 +7214,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>5.08756cm</Top>
-              <Left>8.10137cm</Left>
+              <Top>5.08757cm</Top>
+              <Left>7.30315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>102</ZIndex>
@@ -7214,7 +7240,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -7224,8 +7250,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>5.08756cm</Top>
-              <Left>8.80137cm</Left>
+              <Top>5.08757cm</Top>
+              <Left>8.00315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>103</ZIndex>
@@ -7250,7 +7276,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -7260,8 +7286,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>5.08754cm</Top>
-              <Left>10.90145cm</Left>
+              <Top>5.08755cm</Top>
+              <Left>10.10323cm</Left>
               <Height>0.47841cm</Height>
               <Width>1.60334cm</Width>
               <ZIndex>104</ZIndex>
@@ -7286,7 +7312,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -7296,8 +7322,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>5.08756cm</Top>
-              <Left>9.50137cm</Left>
+              <Top>5.08757cm</Top>
+              <Left>8.70315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>105</ZIndex>
@@ -7322,7 +7348,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -7332,8 +7358,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>5.08754cm</Top>
-              <Left>10.20137cm</Left>
+              <Top>5.08755cm</Top>
+              <Left>9.40315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>106</ZIndex>
@@ -7462,7 +7488,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Lookup(2, Fields!Shift.Value, Fields!NBA.Value, "datasetjumlahperbaikan2")</Value>
+                      <Value>=Lookup(2, Fields!Shift.Value, Fields!BA.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7512,8 +7538,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.13074cm</Top>
-              <Left>7.40137cm</Left>
+              <Top>4.13075cm</Top>
+              <Left>6.60315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>111</ZIndex>
@@ -7620,8 +7646,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.13074cm</Top>
-              <Left>8.10137cm</Left>
+              <Top>4.13075cm</Top>
+              <Left>7.30315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>114</ZIndex>
@@ -7656,8 +7682,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.13074cm</Top>
-              <Left>8.80137cm</Left>
+              <Top>4.13075cm</Top>
+              <Left>8.00315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>115</ZIndex>
@@ -7682,7 +7708,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -7692,8 +7718,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.13072cm</Top>
-              <Left>10.90145cm</Left>
+              <Top>4.13073cm</Top>
+              <Left>10.10323cm</Left>
               <Height>0.47841cm</Height>
               <Width>1.60334cm</Width>
               <ZIndex>116</ZIndex>
@@ -7728,8 +7754,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.13074cm</Top>
-              <Left>9.50137cm</Left>
+              <Top>4.13075cm</Top>
+              <Left>8.70315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>117</ZIndex>
@@ -7764,8 +7790,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.13072cm</Top>
-              <Left>10.20137cm</Left>
+              <Top>4.13073cm</Top>
+              <Left>9.40315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>118</ZIndex>
@@ -7894,7 +7920,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Lookup(3, Fields!Shift.Value, Fields!NBA.Value, "datasetjumlahperbaikan2")</Value>
+                      <Value>=Lookup(3, Fields!Shift.Value, Fields!BA.Value, "datasetjumlahperbaikan2")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -7944,8 +7970,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.60915cm</Top>
-              <Left>7.40137cm</Left>
+              <Top>4.60916cm</Top>
+              <Left>6.60315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>123</ZIndex>
@@ -8052,8 +8078,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.60915cm</Top>
-              <Left>8.10137cm</Left>
+              <Top>4.60916cm</Top>
+              <Left>7.30315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>126</ZIndex>
@@ -8088,8 +8114,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.60915cm</Top>
-              <Left>8.80137cm</Left>
+              <Top>4.60916cm</Top>
+              <Left>8.00315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>127</ZIndex>
@@ -8114,7 +8140,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -8124,8 +8150,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.60913cm</Top>
-              <Left>10.90145cm</Left>
+              <Top>4.60914cm</Top>
+              <Left>10.10323cm</Left>
               <Height>0.47841cm</Height>
               <Width>1.60334cm</Width>
               <ZIndex>128</ZIndex>
@@ -8160,8 +8186,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.60915cm</Top>
-              <Left>9.50137cm</Left>
+              <Top>4.60916cm</Top>
+              <Left>8.70315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>129</ZIndex>
@@ -8196,8 +8222,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.60913cm</Top>
-              <Left>10.20137cm</Left>
+              <Top>4.60914cm</Top>
+              <Left>9.40315cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
               <ZIndex>130</ZIndex>
@@ -8258,7 +8284,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -8330,7 +8356,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -8427,186 +8453,6 @@
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
             </Textbox>
-            <Textbox Name="Textbox187">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>BA-1</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.17391cm</Top>
-              <Left>6.62526cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>0.77611cm</Width>
-              <ZIndex>137</ZIndex>
-              <Visibility>
-                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>Solid</Style>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox188">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Lookup(1, Fields!Shift.Value, Fields!BA_1.Value, "datasetjumlahperbaikan2")</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.65232cm</Top>
-              <Left>6.62526cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>0.77611cm</Width>
-              <ZIndex>138</ZIndex>
-              <Visibility>
-                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>Solid</Style>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox189">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Sum(Fields!BA_1.Value, "datasetjumlahperbaikan2")</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>5.08755cm</Top>
-              <Left>6.62526cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>0.77611cm</Width>
-              <ZIndex>139</ZIndex>
-              <Visibility>
-                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>Solid</Style>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox190">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Lookup(2, Fields!Shift.Value, Fields!BA_1.Value, "datasetjumlahperbaikan2")</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.13073cm</Top>
-              <Left>6.62526cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>0.77611cm</Width>
-              <ZIndex>140</ZIndex>
-              <Visibility>
-                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>Solid</Style>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox191">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Lookup(3, Fields!Shift.Value, Fields!BA_1.Value, "datasetjumlahperbaikan2")</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.60914cm</Top>
-              <Left>6.62526cm</Left>
-              <Height>0.47841cm</Height>
-              <Width>0.77611cm</Width>
-              <ZIndex>141</ZIndex>
-              <Visibility>
-                <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>Solid</Style>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
             <Textbox Name="Textbox52">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
@@ -8618,7 +8464,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -8632,7 +8478,7 @@
               <Left>8.96473cm</Left>
               <Height>1.00656cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>142</ZIndex>
+              <ZIndex>137</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8668,7 +8514,7 @@
               <Left>8.96473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>143</ZIndex>
+              <ZIndex>138</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8690,7 +8536,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -8704,7 +8550,7 @@
               <Left>8.96473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>144</ZIndex>
+              <ZIndex>139</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8740,7 +8586,7 @@
               <Left>8.96473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>145</ZIndex>
+              <ZIndex>140</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8776,7 +8622,7 @@
               <Left>8.96473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>146</ZIndex>
+              <ZIndex>141</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8895,10 +8741,10 @@
               </Paragraphs>
               <rd:DefaultName>Textbox200</rd:DefaultName>
               <Top>3.1739cm</Top>
-              <Left>12.81875cm</Left>
+              <Left>11.88296cm</Left>
               <Height>2.39205cm</Height>
-              <Width>4.15463cm</Width>
-              <ZIndex>147</ZIndex>
+              <Width>5.09042cm</Width>
+              <ZIndex>142</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8923,7 +8769,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -8937,7 +8783,7 @@
               <Left>3.0634cm</Left>
               <Height>0.52814cm</Height>
               <Width>0.73099cm</Width>
-              <ZIndex>148</ZIndex>
+              <ZIndex>143</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8959,7 +8805,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -8973,7 +8819,7 @@
               <Left>3.78563cm</Left>
               <Height>0.52814cm</Height>
               <Width>0.70438cm</Width>
-              <ZIndex>149</ZIndex>
+              <ZIndex>144</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -8995,7 +8841,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -9009,7 +8855,7 @@
               <Left>4.49439cm</Left>
               <Height>0.52814cm</Height>
               <Width>0.70438cm</Width>
-              <ZIndex>150</ZIndex>
+              <ZIndex>145</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9045,7 +8891,7 @@
               <Left>4.49877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>151</ZIndex>
+              <ZIndex>146</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9067,7 +8913,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -9081,7 +8927,7 @@
               <Left>4.49877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>152</ZIndex>
+              <ZIndex>147</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9117,7 +8963,7 @@
               <Left>4.49877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>153</ZIndex>
+              <ZIndex>148</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9153,7 +8999,7 @@
               <Left>4.49877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>154</ZIndex>
+              <ZIndex>149</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9189,7 +9035,7 @@
               <Left>5.19877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>155</ZIndex>
+              <ZIndex>150</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9225,7 +9071,7 @@
               <Left>5.89877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>156</ZIndex>
+              <ZIndex>151</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9247,7 +9093,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -9261,7 +9107,7 @@
               <Left>5.19877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>157</ZIndex>
+              <ZIndex>152</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9283,7 +9129,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -9297,7 +9143,7 @@
               <Left>5.89877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>158</ZIndex>
+              <ZIndex>153</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9333,7 +9179,7 @@
               <Left>5.19877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>159</ZIndex>
+              <ZIndex>154</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9369,7 +9215,7 @@
               <Left>5.89877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>160</ZIndex>
+              <ZIndex>155</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9405,7 +9251,7 @@
               <Left>5.19877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>161</ZIndex>
+              <ZIndex>156</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9441,7 +9287,7 @@
               <Left>5.89877cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>162</ZIndex>
+              <ZIndex>157</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9463,7 +9309,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -9477,7 +9323,7 @@
               <Left>5.19877cm</Left>
               <Height>0.52814cm</Height>
               <Width>0.70438cm</Width>
-              <ZIndex>163</ZIndex>
+              <ZIndex>158</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9499,7 +9345,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -9513,7 +9359,7 @@
               <Left>5.89439cm</Left>
               <Height>0.52814cm</Height>
               <Width>0.70438cm</Width>
-              <ZIndex>164</ZIndex>
+              <ZIndex>159</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9535,7 +9381,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -9549,7 +9395,7 @@
               <Left>6.60315cm</Left>
               <Height>0.52814cm</Height>
               <Width>0.96392cm</Width>
-              <ZIndex>165</ZIndex>
+              <ZIndex>160</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9585,7 +9431,7 @@
               <Left>6.60753cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.95954cm</Width>
-              <ZIndex>166</ZIndex>
+              <ZIndex>161</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9607,7 +9453,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -9621,7 +9467,7 @@
               <Left>6.60753cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.95954cm</Width>
-              <ZIndex>167</ZIndex>
+              <ZIndex>162</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9657,7 +9503,7 @@
               <Left>6.60753cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.95954cm</Width>
-              <ZIndex>168</ZIndex>
+              <ZIndex>163</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9693,7 +9539,7 @@
               <Left>6.60753cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.95954cm</Width>
-              <ZIndex>169</ZIndex>
+              <ZIndex>164</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9715,7 +9561,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -9729,7 +9575,7 @@
               <Left>7.56035cm</Left>
               <Height>0.52814cm</Height>
               <Width>0.70438cm</Width>
-              <ZIndex>170</ZIndex>
+              <ZIndex>165</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9765,7 +9611,7 @@
               <Left>7.56473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>171</ZIndex>
+              <ZIndex>166</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9787,7 +9633,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <FontWeight>Medium</FontWeight>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -9801,7 +9647,7 @@
               <Left>7.56473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>172</ZIndex>
+              <ZIndex>167</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9837,7 +9683,7 @@
               <Left>7.56473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>173</ZIndex>
+              <ZIndex>168</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>
@@ -9873,7 +9719,7 @@
               <Left>7.56473cm</Left>
               <Height>0.47841cm</Height>
               <Width>0.7cm</Width>
-              <ZIndex>174</ZIndex>
+              <ZIndex>169</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Globals!PageNumber &lt; Globals!TotalPages, True, False)</Hidden>
               </Visibility>

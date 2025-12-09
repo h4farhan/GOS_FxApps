@@ -33,96 +33,94 @@ namespace GOS_FxApps
             dataGridView1.ClearSelection();
         }
 
-        private void registertampil()
+        private async Task OnDatabaseChanged(string table)
         {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.setmin_Rb", conn))
+            try
             {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
+                switch (table)
                 {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            tampil();
-                            registertampil();
-                        }));
-                    }
-                };
-                conn.Open();
-                using (var reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read()) { }
+                    case "setmin_Rb":
+                        await Tampil();
+                        break;
                 }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show($"Gagal Realtime");
             }
         }
 
-        private void tampil()
+        private void StyleDataGridView()
+        {
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
+            dataGridView1.ReadOnly = true;
+
+            if (dataGridView1.Columns.Count >= 4)
+            {
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].HeaderText = "Nama Tampilan";
+                dataGridView1.Columns[2].HeaderText = "Min Stok";
+                dataGridView1.Columns[3].HeaderText = "Diubah";
+            }
+        }
+
+        private async Task Tampil()
         {
             try
             {
                 string query = "SELECT * FROM setmin_Rb ORDER BY updated_at DESC";
-                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                ad.Fill(dt);
-                dataGridView1.DataSource = dt;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-                dataGridView1.RowTemplate.Height = 35;
-                dataGridView1.ReadOnly = true;
+                DataTable dt = await Task.Run(() =>
+                {
+                    DataTable temp = new DataTable();
+                    using (SqlDataAdapter ad = new SqlDataAdapter(query, conn))
+                    {
+                        ad.Fill(temp);
+                    }
+                    return temp;
+                });
 
-                dataGridView1.Columns[0].Visible = false;
-                dataGridView1.Columns[1].HeaderText = "Nama Tampilan";
-                dataGridView1.Columns[2].HeaderText = "Min Stok";
-                dataGridView1.Columns[3].HeaderText = "Diubah";
+                dataGridView1.RowTemplate.Height = 35;
+                dataGridView1.DataSource = dt;
+                StyleDataGridView();
             }
             catch (SqlException)
             {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Koneksi database gagal.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Gagal tampil data: {ex.Message}");
             }
         }
 
-        private void cari()
+        private async Task cari(string keyword)
         {
             try
             {
-                string query = "SELECT * FROM setmin_Rb " +
-                               "WHERE namaTampilan LIKE @keyword " +
-                               "ORDER BY updated_at DESC";
-                SqlDataAdapter ad = new SqlDataAdapter(query, conn);
-                ad.SelectCommand.Parameters.AddWithValue("@keyword", "%" + txtcari.Text + "%");
+                string query = "SELECT * FROM setmin_Rb WHERE namaTampilan LIKE @keyword ORDER BY updated_at DESC";
+                DataTable dt = await Task.Run(() =>
+                {
+                    DataTable temp = new DataTable();
+                    using (SqlDataAdapter ad = new SqlDataAdapter(query, conn))
+                    {
+                        ad.SelectCommand.Parameters.AddWithValue("@keyword", $"%{keyword}%");
+                        ad.Fill(temp);
+                    }
+                    return temp;
+                });
 
-                DataTable dt = new DataTable();
-                ad.Fill(dt);
                 dataGridView1.DataSource = dt;
-
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-                dataGridView1.RowTemplate.Height = 35;
-                dataGridView1.ReadOnly = true;
-
-                dataGridView1.Columns[0].Visible = false;
-                dataGridView1.Columns[1].HeaderText = "Nama Tampilan";
-                dataGridView1.Columns[2].HeaderText = "Min Stok";
-                dataGridView1.Columns[3].HeaderText = "Diubah";
+                StyleDataGridView();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif." + ex.Message,
+                MessageBox.Show("Koneksi anda terputus. Pastikan jaringan aktif.",
                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Gagal cari data: {ex.Message}");
             }
         }
 
@@ -134,9 +132,9 @@ namespace GOS_FxApps
             }
         }
 
-        private void txtcari_TextChanged(object sender, EventArgs e)
+        private async void txtcari_TextChanged(object sender, EventArgs e)
         {
-            cari();
+            await cari(txtcari.Text);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -156,7 +154,7 @@ namespace GOS_FxApps
             }
         }
 
-        private void btnedit_Click(object sender, EventArgs e)
+        private async void btnedit_Click(object sender, EventArgs e)
         {
             if (txtnamatampilan.Text == "" || txtminstok.Text == "")
             {
@@ -166,16 +164,18 @@ namespace GOS_FxApps
 
             try
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE setmin_Rb SET namaTampilan = @nama, min_stok = @min_stok, updated_at = @diubah WHERE kode = @kode", conn);
-                cmd.Parameters.AddWithValue("@kode", kodeprimary);
-                cmd.Parameters.AddWithValue("@nama", txtnamatampilan.Text);
-                cmd.Parameters.AddWithValue("@min_stok", txtminstok.Text);
-                cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Data Berhasil Diedit", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                tampil();
-                setdefault();
+                using (var conn = await Koneksi.GetConnectionAsync())
+                {
+                    SqlCommand cmd = new SqlCommand("UPDATE setmin_Rb SET namaTampilan = @nama, min_stok = @min_stok, updated_at = @diubah WHERE kode = @kode", conn);
+                    cmd.Parameters.AddWithValue("@kode", kodeprimary);
+                    cmd.Parameters.AddWithValue("@nama", txtnamatampilan.Text);
+                    cmd.Parameters.AddWithValue("@min_stok", txtminstok.Text);
+                    cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Data Berhasil Diedit", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    await Tampil();
+                    setdefault();
+                }
             }
             catch (SqlException)
             {
@@ -198,16 +198,15 @@ namespace GOS_FxApps
             setdefault();
         }
 
-        private void setmin_rb_Load(object sender, EventArgs e)
+        private async void setmin_rb_Load(object sender, EventArgs e)
         {
-            SqlDependency.Start(Koneksi.GetConnectionString());
-            tampil();
-            registertampil();
+            MainForm.DataChanged += OnDatabaseChanged;
+            await Tampil();
         }
         
         private void setmin_rb_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SqlDependency.Stop(Koneksi.GetConnectionString());
+            MainForm.DataChanged -= OnDatabaseChanged;
         }
     }
 }

@@ -11,7 +11,7 @@
     <Shape ID="DesignTable:jumlahperbaikan2" ZOrder="5" X="1129" Y="409" Height="305" Width="249" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:perbaikan_m" ZOrder="4" X="120" Y="747" Height="305" Width="219" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:perbaikan_e" ZOrder="3" X="401" Y="746" Height="305" Width="214" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
-    <Shape ID="DesignTable:perbaikan_p" ZOrder="1" X="159" Y="399" Height="305" Width="259" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:perbaikan_p" ZOrder="1" X="167" Y="406" Height="305" Width="259" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

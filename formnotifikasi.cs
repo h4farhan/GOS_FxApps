@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Management.Instrumentation;
+using System.Threading;
 
 namespace GOS_FxApps
 {
@@ -49,7 +50,7 @@ namespace GOS_FxApps
             }
         }
 
-        private void LoadNotifikasi()
+        private async Task LoadNotifikasi()
         {
             int scrollPosition = panelNotif.VerticalScroll.Value;
 
@@ -59,81 +60,86 @@ namespace GOS_FxApps
             List<(string Text, DateTime Waktu, Color WarnaText, Color WarnaWaktu)> notifList =
                 new List<(string, DateTime, Color, Color)>();
 
-            using (SqlConnection conn = Koneksi.GetConnection())
+            try
             {
-                conn.Open();
-
-                string query2 = @"SELECT TOP 1 bstok, bpe1, bpe2, bbe1, bbe2, wpe1, wpe2, wbe1, wbe2, updated_at 
-                          FROM Rb_Stok ORDER BY id_stok DESC";
-
-                using (SqlCommand cmd2 = new SqlCommand(query2, conn))
-                using (SqlDataReader reader2 = cmd2.ExecuteReader())
+                using (var conn = await Koneksi.GetConnectionAsync())
                 {
-                    Dictionary<string, int> stokData = new Dictionary<string, int>();
-                    DateTime waktuRb = DateTime.Now;
+                    string query2 = @"SELECT TOP 1 bstok, bpe1, bpe2, bbe1, bbe2, wpe1, wpe2, wbe1, wbe2, updated_at 
+                              FROM Rb_Stok ORDER BY id_stok DESC";
 
-                    if (reader2.Read())
+                    using (SqlCommand cmd2 = new SqlCommand(query2, conn))
+                    using (SqlDataReader reader2 =await cmd2.ExecuteReaderAsync())
                     {
-                        string[] kolomList = { "bstok", "bpe1", "bpe2", "bbe1", "bbe2", "wpe1", "wpe2", "wbe1", "wbe2" };
+                        Dictionary<string, int> stokData = new Dictionary<string, int>();
+                        DateTime waktuRb = DateTime.Now;
 
-                        foreach (string kolom in kolomList)
+                        if (await reader2.ReadAsync())
                         {
-                            stokData[kolom] = Convert.ToInt32(reader2[kolom]);
-                        }
+                            string[] kolomList = { "bstok", "bpe1", "bpe2", "bbe1", "bbe2", "wpe1", "wpe2", "wbe1", "wbe2" };
 
-                        waktuRb = Convert.ToDateTime(reader2["updated_at"]);
-                    }
-                    reader2.Close();
-
-                    foreach (var item in stokData)
-                    {
-                        using (SqlCommand cmdMin = new SqlCommand(
-                            "SELECT namaTampilan, min_stok FROM setmin_Rb WHERE kode = @kode", conn))
-                        {
-                            cmdMin.Parameters.AddWithValue("@kode", item.Key);
-                            using (SqlDataReader rdrMin = cmdMin.ExecuteReader())
+                            foreach (string kolom in kolomList)
                             {
-                                if (rdrMin.Read())
-                                {
-                                    string nama = rdrMin["namaTampilan"].ToString();
-                                    int minStok = Convert.ToInt32(rdrMin["min_stok"]);
+                                stokData[kolom] = Convert.ToInt32(reader2[kolom]);
+                            }
 
-                                    if (item.Value < minStok)
+                            waktuRb = Convert.ToDateTime(reader2["updated_at"]);
+                        }
+                        reader2.Close();
+
+                        foreach (var item in stokData)
+                        {
+                            using (SqlCommand cmdMin = new SqlCommand(
+                                "SELECT namaTampilan, min_stok FROM setmin_Rb WHERE kode = @kode", conn))
+                            {
+                                cmdMin.Parameters.AddWithValue("@kode", item.Key);
+                                using (SqlDataReader rdrMin = await cmdMin.ExecuteReaderAsync())
+                                {
+                                    if (await rdrMin.ReadAsync())
                                     {
-                                        notifList.Add((
-                                            $"{nama} Stok Rendah ({item.Value}/{minStok})",
-                                            waktuRb,
-                                            Color.FromArgb(255, 0, 0),
-                                            Color.Gray
-                                        ));
+                                        string nama = rdrMin["namaTampilan"].ToString();
+                                        int minStok = Convert.ToInt32(rdrMin["min_stok"]);
+
+                                        if (item.Value < minStok)
+                                        {
+                                            notifList.Add((
+                                                $"{nama} Stok Rendah ({item.Value}/{minStok})",
+                                                waktuRb,
+                                                Color.FromArgb(255, 0, 0),
+                                                Color.Gray
+                                            ));
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                }
 
-                string query1 = @"SELECT namaBarang, jumlahStok, min_stok, updated_at 
-                          FROM stok_material WHERE jumlahStok < min_stok";
+                    string query1 = @"SELECT namaBarang, jumlahStok, min_stok, updated_at 
+                              FROM stok_material WHERE jumlahStok < min_stok";
 
-                using (SqlCommand cmd1 = new SqlCommand(query1, conn))
-                using (SqlDataReader reader1 = cmd1.ExecuteReader())
-                {
-                    while (reader1.Read())
+                    using (SqlCommand cmd1 = new SqlCommand(query1, conn))
+                    using (SqlDataReader reader1 = await cmd1.ExecuteReaderAsync())
                     {
-                        string nama = reader1["namaBarang"].ToString();
-                        int stok = Convert.ToInt32(reader1["jumlahStok"]);
-                        int minStok = Convert.ToInt32(reader1["min_stok"]);
-                        DateTime waktu = Convert.ToDateTime(reader1["updated_at"]);
+                        while (await reader1.ReadAsync())
+                        {
+                            string nama = reader1["namaBarang"].ToString();
+                            int stok = Convert.ToInt32(reader1["jumlahStok"]);
+                            int minStok = Convert.ToInt32(reader1["min_stok"]);
+                            DateTime waktu = Convert.ToDateTime(reader1["updated_at"]);
 
-                        notifList.Add((
-                            $"Material {nama} Stok Rendah ({stok}/{minStok})",
-                            waktu,
-                            Color.FromArgb(255, 0, 0),
-                            Color.Gray
-                        ));
+                            notifList.Add((
+                                $"Material {nama} Stok Rendah ({stok}/{minStok})",
+                                waktu,
+                                Color.FromArgb(255, 0, 0),
+                                Color.Gray
+                            ));
+                        }
                     }
                 }
+            }
+            catch
+            {
+                
             }
 
             var sortedNotif = notifList
@@ -204,87 +210,35 @@ namespace GOS_FxApps
             panelNotif.Controls.Add(itemPanel);
         }
 
-        private void registerstok()
+        private CancellationTokenSource reloadToken;
+
+        private async Task OnDatabaseChanged(string table)
         {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.stok_material", conn))
+            string[] affected =
             {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
-                {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        if (!this.IsDisposed && this.IsHandleCreated)
-                        {
-                            this.BeginInvoke(new Action(() =>
-                            {
-                                LoadNotifikasi();
-                                registerstok();
-                            }));
-                        }
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
+                "stok_material", "setmin_Rb",
+                "Rb_Stok"
+            };
+
+            if (!affected.Contains(table))
+                return;
+
+            reloadToken?.Cancel();
+            reloadToken = new CancellationTokenSource();
+
+            try
+            {
+                await Task.Delay(300, reloadToken.Token);
+                await LoadNotifikasi();
+            }
+            catch (TaskCanceledException)
+            {
             }
         }
 
-        private void registerSetminRb()
+        private async void formnotifikasi_Load(object sender, EventArgs e)
         {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.setmin_Rb", conn))
-            {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
-                {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        if (!this.IsDisposed && this.IsHandleCreated)
-                        {
-                            this.BeginInvoke(new Action(() =>
-                            {
-                                LoadNotifikasi();
-                                registerSetminRb();
-                            }));
-                        }
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
-            }
-        }
-
-        private void registerwelding()
-        {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.Rb_Stok", conn))
-            {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
-                {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        if (!this.IsDisposed && this.IsHandleCreated)
-                        {
-                            this.BeginInvoke(new Action(() =>
-                            {
-                                LoadNotifikasi();
-                                registerwelding();
-                            }));
-                        }
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
-            }
-        }
-
-        private void formnotifikasi_Load(object sender, EventArgs e)
-        {
-            SqlDependency.Start(Koneksi.GetConnectionString());
+            MainForm.DataChanged += OnDatabaseChanged;
             typeof(Panel).InvokeMember("DoubleBuffered",
                 System.Reflection.BindingFlags.SetProperty |
                 System.Reflection.BindingFlags.Instance |
@@ -299,28 +253,19 @@ namespace GOS_FxApps
             {
                 btntiga.Visible = false;
             }
-            LoadNotifikasi();
-            registerSetminRb();
-            registerstok();
-            registerwelding();
+            await LoadNotifikasi();
         }
 
         private void formnotifikasi_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SqlDependency.Stop(Koneksi.GetConnectionString());
-        }
-
-        private void btntiga_Click(object sender, EventArgs e)
-        {
-            Form setmin = new setmin_rb();
-            setmin.Show();
+            MainForm.DataChanged -= OnDatabaseChanged;
         }
 
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
 
-            Timer t = new Timer();
+            System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
             t.Interval = 200; 
             t.Tick += (s, ev) =>
             {
@@ -340,6 +285,12 @@ namespace GOS_FxApps
             {
                 this.Close();
             }
+        }
+
+        private void btntiga_Click(object sender, EventArgs e)
+        {
+            Form setmin = new setmin_rb();
+            setmin.Show();
         }
     }
 }

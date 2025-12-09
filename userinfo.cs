@@ -25,39 +25,46 @@ namespace GOS_FxApps
             Instance = this;
         }
 
-        private void profil()
+        private async Task profil()
         {
             try
             {
                 string iduser = loginform.login.txtid.Text.Trim();
 
-                using (SqlConnection conn = Koneksi.GetConnection())
+                using (var conn = await Koneksi.GetConnectionAsync())
                 {
                     string query = "SELECT * FROM users WHERE id = @iduser";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@iduser", iduser);
 
-                    conn.Open();
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    if (dr.Read())
+                    using (SqlDataReader dr = await cmd.ExecuteReaderAsync())
                     {
-                        lbluser.Text = "Halo, " + dr["username"].ToString();
-                        lbljabatan.Text = "[" + dr["lvl"].ToString() + "]";
+                        if (await dr.ReadAsync())
+                        {
+                            lbluser.Text = "Halo, " + dr["username"].ToString();
+                            lbljabatan.Text = "[" + dr["lvl"].ToString() + "]";
+                        }
                     }
                 }
             }
-            catch (SqlException)
+            catch
             {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
+        private async void userinfo_Load(object sender, EventArgs e)
+        {
+            await profil();
+            if (lbljabatan.Text == "[Manajer]" || lbljabatan.Text == "[Developer]")
+            {
+                lbltambahakun.Visible = true;
+            }
+            else
+            {
+                lbltambahakun.Visible = false;
+            }
+        }
         private void label2_Click(object sender, EventArgs e)
         {
             MainForm.Instance.loginstatus = false;
@@ -75,19 +82,6 @@ namespace GOS_FxApps
             MainForm.Instance.gudangContainer.Size = MainForm.Instance.defaulgudangcontainer;
             MainForm.Instance.role = null;
             this.Close();
-        }
-
-        private void userinfo_Load(object sender, EventArgs e)
-        {
-            profil();
-            if (lbljabatan.Text == "[Manajer]" || lbljabatan.Text == "[Developer]")
-            {
-                lbltambahakun.Visible = true;
-            }
-            else
-            {
-                lbltambahakun.Visible = false;
-            }
         }
 
         private void label1_Click(object sender, EventArgs e)

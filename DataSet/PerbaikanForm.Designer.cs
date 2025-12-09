@@ -802,7 +802,7 @@ namespace GOS_FxApps.DataSet {
                         int s, 
                         int d, 
                         int b, 
-                        int ba, 
+                        string ba, 
                         int ba1, 
                         int cr, 
                         int m, 
@@ -926,7 +926,7 @@ namespace GOS_FxApps.DataSet {
                 base.Columns.Add(this.columnd);
                 this.columnb = new global::System.Data.DataColumn("b", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnb);
-                this.columnba = new global::System.Data.DataColumn("ba", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnba = new global::System.Data.DataColumn("ba", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnba);
                 this.columnba1 = new global::System.Data.DataColumn("ba1", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnba1);
@@ -1895,8 +1895,6 @@ namespace GOS_FxApps.DataSet {
             
             private global::System.Data.DataColumn columnB;
             
-            private global::System.Data.DataColumn columnBA_1;
-            
             private global::System.Data.DataColumn columnCR;
             
             private global::System.Data.DataColumn columnM;
@@ -1911,7 +1909,7 @@ namespace GOS_FxApps.DataSet {
             
             private global::System.Data.DataColumn columnShift;
             
-            private global::System.Data.DataColumn columnNBA;
+            private global::System.Data.DataColumn columnBA;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1980,14 +1978,6 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn BA_1Column {
-                get {
-                    return this.columnBA_1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn CRColumn {
                 get {
                     return this.columnCR;
@@ -2044,9 +2034,9 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NBAColumn {
+            public global::System.Data.DataColumn BAColumn {
                 get {
-                    return this.columnNBA;
+                    return this.columnBA;
                 }
             }
             
@@ -2087,14 +2077,13 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public jumlahperbaikan2Row Addjumlahperbaikan2Row(int E, int S, int D, int B, int BA_1, int CR, int M, int R, int C, int RL, int Total, int Shift, int NBA) {
+            public jumlahperbaikan2Row Addjumlahperbaikan2Row(int E, int S, int D, int B, int CR, int M, int R, int C, int RL, int Total, int Shift, int BA) {
                 jumlahperbaikan2Row rowjumlahperbaikan2Row = ((jumlahperbaikan2Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         E,
                         S,
                         D,
                         B,
-                        BA_1,
                         CR,
                         M,
                         R,
@@ -2102,7 +2091,7 @@ namespace GOS_FxApps.DataSet {
                         RL,
                         Total,
                         Shift,
-                        NBA};
+                        BA};
                 rowjumlahperbaikan2Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowjumlahperbaikan2Row);
                 return rowjumlahperbaikan2Row;
@@ -2129,7 +2118,6 @@ namespace GOS_FxApps.DataSet {
                 this.columnS = base.Columns["S"];
                 this.columnD = base.Columns["D"];
                 this.columnB = base.Columns["B"];
-                this.columnBA_1 = base.Columns["BA_1"];
                 this.columnCR = base.Columns["CR"];
                 this.columnM = base.Columns["M"];
                 this.columnR = base.Columns["R"];
@@ -2137,7 +2125,7 @@ namespace GOS_FxApps.DataSet {
                 this.columnRL = base.Columns["RL"];
                 this.columnTotal = base.Columns["Total"];
                 this.columnShift = base.Columns["Shift"];
-                this.columnNBA = base.Columns["NBA"];
+                this.columnBA = base.Columns["BA"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2151,8 +2139,6 @@ namespace GOS_FxApps.DataSet {
                 base.Columns.Add(this.columnD);
                 this.columnB = new global::System.Data.DataColumn("B", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnB);
-                this.columnBA_1 = new global::System.Data.DataColumn("BA_1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBA_1);
                 this.columnCR = new global::System.Data.DataColumn("CR", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCR);
                 this.columnM = new global::System.Data.DataColumn("M", typeof(int), null, global::System.Data.MappingType.Element);
@@ -2167,13 +2153,12 @@ namespace GOS_FxApps.DataSet {
                 base.Columns.Add(this.columnTotal);
                 this.columnShift = new global::System.Data.DataColumn("Shift", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnShift);
-                this.columnNBA = new global::System.Data.DataColumn("NBA", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNBA);
+                this.columnBA = new global::System.Data.DataColumn("BA", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBA);
                 this.columnE.ReadOnly = true;
                 this.columnS.ReadOnly = true;
                 this.columnD.ReadOnly = true;
                 this.columnB.ReadOnly = true;
-                this.columnBA_1.ReadOnly = true;
                 this.columnCR.ReadOnly = true;
                 this.columnM.ReadOnly = true;
                 this.columnR.ReadOnly = true;
@@ -2181,7 +2166,7 @@ namespace GOS_FxApps.DataSet {
                 this.columnRL.ReadOnly = true;
                 this.columnTotal.ReadOnly = true;
                 this.columnShift.ReadOnly = true;
-                this.columnNBA.ReadOnly = true;
+                this.columnBA.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3675,7 +3660,7 @@ namespace GOS_FxApps.DataSet {
             
             private global::System.Data.DataColumn columnb;
             
-            private global::System.Data.DataColumn columnnba;
+            private global::System.Data.DataColumn columnba;
             
             private global::System.Data.DataColumn columnba1;
             
@@ -3866,9 +3851,9 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn nbaColumn {
+            public global::System.Data.DataColumn baColumn {
                 get {
-                    return this.columnnba;
+                    return this.columnba;
                 }
             }
             
@@ -3999,7 +3984,7 @@ namespace GOS_FxApps.DataSet {
                         int s, 
                         int d, 
                         int b, 
-                        int nba, 
+                        string ba, 
                         int ba1, 
                         int cr, 
                         int m, 
@@ -4028,7 +4013,7 @@ namespace GOS_FxApps.DataSet {
                         s,
                         d,
                         b,
-                        nba,
+                        ba,
                         ba1,
                         cr,
                         m,
@@ -4077,7 +4062,7 @@ namespace GOS_FxApps.DataSet {
                 this.columns = base.Columns["s"];
                 this.columnd = base.Columns["d"];
                 this.columnb = base.Columns["b"];
-                this.columnnba = base.Columns["nba"];
+                this.columnba = base.Columns["ba"];
                 this.columnba1 = base.Columns["ba1"];
                 this.columncr = base.Columns["cr"];
                 this.columnm = base.Columns["m"];
@@ -4126,8 +4111,8 @@ namespace GOS_FxApps.DataSet {
                 base.Columns.Add(this.columnd);
                 this.columnb = new global::System.Data.DataColumn("b", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnb);
-                this.columnnba = new global::System.Data.DataColumn("nba", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnba);
+                this.columnba = new global::System.Data.DataColumn("ba", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnba);
                 this.columnba1 = new global::System.Data.DataColumn("ba1", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnba1);
                 this.columncr = new global::System.Data.DataColumn("cr", typeof(int), null, global::System.Data.MappingType.Element);
@@ -4166,7 +4151,8 @@ namespace GOS_FxApps.DataSet {
                 this.columns.ReadOnly = true;
                 this.columnd.ReadOnly = true;
                 this.columnb.ReadOnly = true;
-                this.columnnba.ReadOnly = true;
+                this.columnba.ReadOnly = true;
+                this.columnba.MaxLength = 20;
                 this.columnba1.ReadOnly = true;
                 this.columncr.ReadOnly = true;
                 this.columnm.ReadOnly = true;
@@ -4591,10 +4577,10 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ba {
+            public string ba {
                 get {
                     try {
-                        return ((int)(this[this.tablesp_Laporan_Harian.baColumn]));
+                        return ((string)(this[this.tablesp_Laporan_Harian.baColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'ba\' in table \'sp_Laporan_Harian\' is DBNull.", e);
@@ -6093,22 +6079,6 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int BA_1 {
-                get {
-                    try {
-                        return ((int)(this[this.tablejumlahperbaikan2.BA_1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BA_1\' in table \'jumlahperbaikan2\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablejumlahperbaikan2.BA_1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int CR {
                 get {
                     try {
@@ -6221,17 +6191,17 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int NBA {
+            public int BA {
                 get {
                     try {
-                        return ((int)(this[this.tablejumlahperbaikan2.NBAColumn]));
+                        return ((int)(this[this.tablejumlahperbaikan2.BAColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NBA\' in table \'jumlahperbaikan2\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'BA\' in table \'jumlahperbaikan2\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablejumlahperbaikan2.NBAColumn] = value;
+                    this[this.tablejumlahperbaikan2.BAColumn] = value;
                 }
             }
             
@@ -6281,18 +6251,6 @@ namespace GOS_FxApps.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetBNull() {
                 this[this.tablejumlahperbaikan2.BColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsBA_1Null() {
-                return this.IsNull(this.tablejumlahperbaikan2.BA_1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetBA_1Null() {
-                this[this.tablejumlahperbaikan2.BA_1Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6381,14 +6339,14 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNBANull() {
-                return this.IsNull(this.tablejumlahperbaikan2.NBAColumn);
+            public bool IsBANull() {
+                return this.IsNull(this.tablejumlahperbaikan2.BAColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNBANull() {
-                this[this.tablejumlahperbaikan2.NBAColumn] = global::System.Convert.DBNull;
+            public void SetBANull() {
+                this[this.tablejumlahperbaikan2.BAColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8244,17 +8202,17 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int nba {
+            public string ba {
                 get {
                     try {
-                        return ((int)(this[this.tableperbaikan_p.nbaColumn]));
+                        return ((string)(this[this.tableperbaikan_p.baColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nba\' in table \'perbaikan_p\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ba\' in table \'perbaikan_p\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableperbaikan_p.nbaColumn] = value;
+                    this[this.tableperbaikan_p.baColumn] = value;
                 }
             }
             
@@ -8608,14 +8566,14 @@ namespace GOS_FxApps.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsnbaNull() {
-                return this.IsNull(this.tableperbaikan_p.nbaColumn);
+            public bool IsbaNull() {
+                return this.IsNull(this.tableperbaikan_p.baColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetnbaNull() {
-                this[this.tableperbaikan_p.nbaColumn] = global::System.Convert.DBNull;
+            public void SetbaNull() {
+                this[this.tableperbaikan_p.baColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9506,7 +9464,6 @@ namespace GOS_FxApps.DataSet.PerbaikanFormTableAdapters {
             tableMapping.ColumnMappings.Add("S", "S");
             tableMapping.ColumnMappings.Add("D", "D");
             tableMapping.ColumnMappings.Add("B", "B");
-            tableMapping.ColumnMappings.Add("BA_1", "BA_1");
             tableMapping.ColumnMappings.Add("CR", "CR");
             tableMapping.ColumnMappings.Add("M", "M");
             tableMapping.ColumnMappings.Add("R", "R");
@@ -9514,7 +9471,7 @@ namespace GOS_FxApps.DataSet.PerbaikanFormTableAdapters {
             tableMapping.ColumnMappings.Add("RL", "RL");
             tableMapping.ColumnMappings.Add("Total", "Total");
             tableMapping.ColumnMappings.Add("Shift", "Shift");
-            tableMapping.ColumnMappings.Add("NBA", "NBA");
+            tableMapping.ColumnMappings.Add("BA", "BA");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -9531,26 +9488,45 @@ namespace GOS_FxApps.DataSet.PerbaikanFormTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "WITH Shifts AS (\r\n    SELECT 1 AS Shift\r\n    UNION ALL\r\n    SELECT 2\r\n    UNION A" +
-                "LL\r\n    SELECT 3\r\n),\r\nData AS (\r\n    SELECT \r\n        p.Shift,\r\n        CASE \r\n " +
-                "           WHEN LEFT(p.jenis, CHARINDEX(\'/\', p.jenis + \'/\') - 1) = \'SP\' THEN \'R\'" +
-                "\r\n            WHEN LEFT(p.jenis, CHARINDEX(\'/\', p.jenis + \'/\') - 1) = \'L\'  THEN " +
-                "\'C\'\r\n            ELSE LEFT(p.jenis, CHARINDEX(\'/\', p.jenis + \'/\') - 1)\r\n        " +
-                "END AS jenis_mapped\r\n    FROM perbaikan_p p\r\n    WHERE p.tanggal_perbaikan BETWE" +
-                "EN @tanggal1 AND @tanggal2\r\n)\r\nSELECT \r\n    s.Shift,\r\n    ISNULL(SUM(CASE WHEN d" +
-                ".jenis_mapped = \'E\'  THEN 1 ELSE 0 END), 0) AS E,\r\n    ISNULL(SUM(CASE WHEN d.je" +
-                "nis_mapped = \'S\'  THEN 1 ELSE 0 END), 0) AS S,\r\n    ISNULL(SUM(CASE WHEN d.jenis" +
-                "_mapped = \'D\'  THEN 1 ELSE 0 END), 0) AS D,\r\n    ISNULL(SUM(CASE WHEN d.jenis_ma" +
-                "pped = \'B\'  THEN 1 ELSE 0 END), 0) AS B,\r\n    ISNULL(SUM(CASE WHEN d.jenis_mappe" +
-                "d = \'NBA\' THEN 1 ELSE 0 END), 0) AS NBA,\r\n    ISNULL(SUM(CASE WHEN jenis_mapped " +
-                "= \'BA-1\'  THEN 1 ELSE 0 END), 0) AS BA_1,\r\n    ISNULL(SUM(CASE WHEN d.jenis_mapp" +
-                "ed = \'CR\' THEN 1 ELSE 0 END), 0) AS CR,\r\n    ISNULL(SUM(CASE WHEN d.jenis_mapped" +
-                " = \'M\'  THEN 1 ELSE 0 END), 0) AS M,\r\n    ISNULL(SUM(CASE WHEN d.jenis_mapped = " +
-                "\'R\'  THEN 1 ELSE 0 END), 0) AS R,\r\n    ISNULL(SUM(CASE WHEN d.jenis_mapped = \'C\'" +
-                "  THEN 1 ELSE 0 END), 0) AS C,\r\n    ISNULL(SUM(CASE WHEN d.jenis_mapped = \'RL\' T" +
-                "HEN 1 ELSE 0 END), 0) AS RL,\r\n    ISNULL(COUNT(d.jenis_mapped),0) AS Total\r\nFROM" +
-                " Shifts s\r\nLEFT JOIN Data d ON s.Shift = d.Shift\r\nGROUP BY s.Shift\r\nORDER BY s.S" +
-                "hift;";
+            this._commandCollection[0].CommandText = @"WITH Shifts AS (
+    SELECT 1 AS Shift
+    UNION ALL
+    SELECT 2
+    UNION ALL
+    SELECT 3
+),
+Data AS (
+    SELECT 
+        p.Shift,
+        CASE 
+            WHEN LEFT(p.jenis, CHARINDEX('/', p.jenis + '/') - 1) = 'SP' THEN 'R'
+            WHEN LEFT(p.jenis, CHARINDEX('/', p.jenis + '/') - 1) = 'L'  THEN 'C'
+            ELSE LEFT(p.jenis, CHARINDEX('/', p.jenis + '/') - 1)
+        END AS jenis_mapped
+    FROM perbaikan_p p
+    WHERE p.tanggal_perbaikan BETWEEN @tanggal1 AND @tanggal2
+)
+SELECT 
+    s.Shift,
+
+    NULLIF(SUM(CASE WHEN d.jenis_mapped = 'E'  THEN 1 ELSE 0 END), 0) AS E,
+    NULLIF(SUM(CASE WHEN d.jenis_mapped = 'S'  THEN 1 ELSE 0 END), 0) AS S,
+    NULLIF(SUM(CASE WHEN d.jenis_mapped = 'D'  THEN 1 ELSE 0 END), 0) AS D,
+    NULLIF(SUM(CASE WHEN d.jenis_mapped = 'B'  THEN 1 ELSE 0 END), 0) AS B,
+    NULLIF(SUM(CASE WHEN d.jenis_mapped = 'BA' THEN 1 ELSE 0 END), 0) AS BA,
+    NULLIF(SUM(CASE WHEN d.jenis_mapped = 'CR' THEN 1 ELSE 0 END), 0) AS CR,
+    NULLIF(SUM(CASE WHEN d.jenis_mapped = 'M'  THEN 1 ELSE 0 END), 0) AS M,
+    NULLIF(SUM(CASE WHEN d.jenis_mapped = 'R'  THEN 1 ELSE 0 END), 0) AS R,
+    NULLIF(SUM(CASE WHEN d.jenis_mapped = 'C'  THEN 1 ELSE 0 END), 0) AS C,
+    NULLIF(SUM(CASE WHEN d.jenis_mapped = 'RL' THEN 1 ELSE 0 END), 0) AS RL,
+
+    NULLIF(COUNT(d.jenis_mapped), 0) AS Total
+
+FROM Shifts s
+LEFT JOIN Data d ON s.Shift = d.Shift
+GROUP BY s.Shift
+ORDER BY s.Shift;
+";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal1", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal2", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11685,7 +11661,7 @@ SELECT no, tanggal_perbaikan, shift, nomor_rod, jenis, e1_ers, e1_est, e1_jumlah
             tableMapping.ColumnMappings.Add("s", "s");
             tableMapping.ColumnMappings.Add("d", "d");
             tableMapping.ColumnMappings.Add("b", "b");
-            tableMapping.ColumnMappings.Add("nba", "nba");
+            tableMapping.ColumnMappings.Add("ba", "ba");
             tableMapping.ColumnMappings.Add("ba1", "ba1");
             tableMapping.ColumnMappings.Add("cr", "cr");
             tableMapping.ColumnMappings.Add("m", "m");

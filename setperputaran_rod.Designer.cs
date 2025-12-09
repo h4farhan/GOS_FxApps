@@ -70,7 +70,7 @@
             this.lblhari.Name = "lblhari";
             this.lblhari.Size = new System.Drawing.Size(699, 105);
             this.lblhari.TabIndex = 1;
-            this.lblhari.Text = "24 Hari";
+            this.lblhari.Text = "- Hari";
             this.lblhari.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txthari

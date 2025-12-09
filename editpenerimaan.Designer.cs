@@ -1183,9 +1183,9 @@ namespace GOS_FxApps
             this.lblhalaman.Location = new System.Drawing.Point(14, 26);
             this.lblhalaman.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblhalaman.Name = "lblhalaman";
-            this.lblhalaman.Size = new System.Drawing.Size(100, 15);
+            this.lblhalaman.Size = new System.Drawing.Size(12, 15);
             this.lblhalaman.TabIndex = 64;
-            this.lblhalaman.Text = "Halaman 1 dari 2";
+            this.lblhalaman.Text = "-";
             this.lblhalaman.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnleft
@@ -1232,7 +1232,6 @@ namespace GOS_FxApps
             // 
             // btncari
             // 
-            this.btncari.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btncari.BorderRadius = 8;
             this.btncari.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btncari.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -1240,7 +1239,7 @@ namespace GOS_FxApps
             this.btncari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btncari.ForeColor = System.Drawing.Color.White;
-            this.btncari.Location = new System.Drawing.Point(435, 13);
+            this.btncari.Location = new System.Drawing.Point(13, 13);
             this.btncari.Margin = new System.Windows.Forms.Padding(2);
             this.btncari.Name = "btncari";
             this.btncari.Size = new System.Drawing.Size(60, 38);
@@ -1250,15 +1249,15 @@ namespace GOS_FxApps
             // 
             // dateeditpenerimaan
             // 
+            this.dateeditpenerimaan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dateeditpenerimaan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dateeditpenerimaan.BorderRadius = 5;
             this.dateeditpenerimaan.BorderThickness = 2;
-            this.dateeditpenerimaan.Checked = true;
             this.dateeditpenerimaan.FillColor = System.Drawing.Color.White;
             this.dateeditpenerimaan.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.dateeditpenerimaan.ForeColor = System.Drawing.Color.Black;
             this.dateeditpenerimaan.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dateeditpenerimaan.Location = new System.Drawing.Point(13, 13);
+            this.dateeditpenerimaan.Location = new System.Drawing.Point(261, 13);
             this.dateeditpenerimaan.Margin = new System.Windows.Forms.Padding(2);
             this.dateeditpenerimaan.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dateeditpenerimaan.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
@@ -1288,7 +1287,7 @@ namespace GOS_FxApps
             this.txtcari.IconLeft = global::GOS_FxApps.Properties.Resources.search;
             this.txtcari.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.txtcari.IconLeftSize = new System.Drawing.Size(15, 15);
-            this.txtcari.Location = new System.Drawing.Point(251, 13);
+            this.txtcari.Location = new System.Drawing.Point(77, 13);
             this.txtcari.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtcari.Name = "txtcari";
             this.txtcari.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));

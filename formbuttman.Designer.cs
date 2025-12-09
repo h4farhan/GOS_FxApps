@@ -443,9 +443,9 @@
             this.lblhalaman.Location = new System.Drawing.Point(14, 26);
             this.lblhalaman.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblhalaman.Name = "lblhalaman";
-            this.lblhalaman.Size = new System.Drawing.Size(100, 15);
+            this.lblhalaman.Size = new System.Drawing.Size(12, 15);
             this.lblhalaman.TabIndex = 64;
-            this.lblhalaman.Text = "Halaman 1 dari 2";
+            this.lblhalaman.Text = "-";
             this.lblhalaman.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnleft

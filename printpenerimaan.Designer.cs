@@ -56,13 +56,12 @@
             this.btnprint = new Guna.UI2.WinForms.Guna2Button();
             this.btnreset = new Guna.UI2.WinForms.Guna2Button();
             this.paneldata3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.txtcarimaterial = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbnamamaterial = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.lbljumlahdatamaterial = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tanggalAkhirmaterial = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.tanggalMulaimaterial = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.txtcarimaterial = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbnamamaterial = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -552,13 +551,65 @@
             this.paneldata3.Controls.Add(this.txtcarimaterial);
             this.paneldata3.Controls.Add(this.label1);
             this.paneldata3.Controls.Add(this.cmbnamamaterial);
-            this.paneldata3.Controls.Add(this.lbljumlahdatamaterial);
             this.paneldata3.Location = new System.Drawing.Point(11, 25);
             this.paneldata3.Margin = new System.Windows.Forms.Padding(2);
             this.paneldata3.Name = "paneldata3";
             this.paneldata3.Size = new System.Drawing.Size(887, 73);
             this.paneldata3.TabIndex = 59;
             this.paneldata3.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(264, 19);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 20);
+            this.label5.TabIndex = 63;
+            this.label5.Text = "s/d";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tanggalAkhirmaterial
+            // 
+            this.tanggalAkhirmaterial.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tanggalAkhirmaterial.BorderRadius = 5;
+            this.tanggalAkhirmaterial.BorderThickness = 2;
+            this.tanggalAkhirmaterial.Checked = true;
+            this.tanggalAkhirmaterial.CustomFormat = "MM/yyyy";
+            this.tanggalAkhirmaterial.FillColor = System.Drawing.Color.White;
+            this.tanggalAkhirmaterial.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.tanggalAkhirmaterial.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tanggalAkhirmaterial.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.tanggalAkhirmaterial.Location = new System.Drawing.Point(300, 9);
+            this.tanggalAkhirmaterial.Margin = new System.Windows.Forms.Padding(2);
+            this.tanggalAkhirmaterial.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.tanggalAkhirmaterial.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.tanggalAkhirmaterial.Name = "tanggalAkhirmaterial";
+            this.tanggalAkhirmaterial.Size = new System.Drawing.Size(250, 41);
+            this.tanggalAkhirmaterial.TabIndex = 64;
+            this.tanggalAkhirmaterial.Value = new System.DateTime(2025, 5, 20, 0, 0, 0, 0);
+            // 
+            // tanggalMulaimaterial
+            // 
+            this.tanggalMulaimaterial.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tanggalMulaimaterial.BorderRadius = 5;
+            this.tanggalMulaimaterial.BorderThickness = 2;
+            this.tanggalMulaimaterial.Checked = true;
+            this.tanggalMulaimaterial.CustomFormat = "MM/yyyy";
+            this.tanggalMulaimaterial.FillColor = System.Drawing.Color.White;
+            this.tanggalMulaimaterial.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.tanggalMulaimaterial.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tanggalMulaimaterial.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.tanggalMulaimaterial.Location = new System.Drawing.Point(10, 9);
+            this.tanggalMulaimaterial.Margin = new System.Windows.Forms.Padding(2);
+            this.tanggalMulaimaterial.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.tanggalMulaimaterial.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.tanggalMulaimaterial.Name = "tanggalMulaimaterial";
+            this.tanggalMulaimaterial.Size = new System.Drawing.Size(250, 41);
+            this.tanggalMulaimaterial.TabIndex = 62;
+            this.tanggalMulaimaterial.Value = new System.DateTime(2025, 5, 20, 0, 0, 0, 0);
             // 
             // txtcarimaterial
             // 
@@ -618,72 +669,6 @@
             this.cmbnamamaterial.TabIndex = 59;
             this.cmbnamamaterial.SelectedIndexChanged += new System.EventHandler(this.cmbnamamaterial_SelectedIndexChanged);
             // 
-            // lbljumlahdatamaterial
-            // 
-            this.lbljumlahdatamaterial.AutoSize = true;
-            this.lbljumlahdatamaterial.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lbljumlahdatamaterial.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbljumlahdatamaterial.Location = new System.Drawing.Point(906, 19);
-            this.lbljumlahdatamaterial.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbljumlahdatamaterial.Name = "lbljumlahdatamaterial";
-            this.lbljumlahdatamaterial.Size = new System.Drawing.Size(118, 20);
-            this.lbljumlahdatamaterial.TabIndex = 58;
-            this.lbljumlahdatamaterial.Text = "Jumlah Data : 0";
-            this.lbljumlahdatamaterial.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(264, 19);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 20);
-            this.label5.TabIndex = 63;
-            this.label5.Text = "s/d";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // tanggalAkhirmaterial
-            // 
-            this.tanggalAkhirmaterial.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tanggalAkhirmaterial.BorderRadius = 5;
-            this.tanggalAkhirmaterial.BorderThickness = 2;
-            this.tanggalAkhirmaterial.Checked = true;
-            this.tanggalAkhirmaterial.CustomFormat = "MM/yyyy";
-            this.tanggalAkhirmaterial.FillColor = System.Drawing.Color.White;
-            this.tanggalAkhirmaterial.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.tanggalAkhirmaterial.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.tanggalAkhirmaterial.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.tanggalAkhirmaterial.Location = new System.Drawing.Point(300, 9);
-            this.tanggalAkhirmaterial.Margin = new System.Windows.Forms.Padding(2);
-            this.tanggalAkhirmaterial.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.tanggalAkhirmaterial.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.tanggalAkhirmaterial.Name = "tanggalAkhirmaterial";
-            this.tanggalAkhirmaterial.Size = new System.Drawing.Size(250, 41);
-            this.tanggalAkhirmaterial.TabIndex = 64;
-            this.tanggalAkhirmaterial.Value = new System.DateTime(2025, 5, 20, 0, 0, 0, 0);
-            // 
-            // tanggalMulaimaterial
-            // 
-            this.tanggalMulaimaterial.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tanggalMulaimaterial.BorderRadius = 5;
-            this.tanggalMulaimaterial.BorderThickness = 2;
-            this.tanggalMulaimaterial.Checked = true;
-            this.tanggalMulaimaterial.CustomFormat = "MM/yyyy";
-            this.tanggalMulaimaterial.FillColor = System.Drawing.Color.White;
-            this.tanggalMulaimaterial.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.tanggalMulaimaterial.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.tanggalMulaimaterial.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.tanggalMulaimaterial.Location = new System.Drawing.Point(10, 9);
-            this.tanggalMulaimaterial.Margin = new System.Windows.Forms.Padding(2);
-            this.tanggalMulaimaterial.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.tanggalMulaimaterial.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.tanggalMulaimaterial.Name = "tanggalMulaimaterial";
-            this.tanggalMulaimaterial.Size = new System.Drawing.Size(250, 41);
-            this.tanggalMulaimaterial.TabIndex = 62;
-            this.tanggalMulaimaterial.Value = new System.DateTime(2025, 5, 20, 0, 0, 0, 0);
-            // 
             // printpenerimaan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -733,7 +718,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2Panel paneldata3;
-        private System.Windows.Forms.Label lbljumlahdatamaterial;
         private Guna.UI2.WinForms.Guna2ComboBox cmbnamamaterial;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox txtcarimaterial;

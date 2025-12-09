@@ -49,7 +49,7 @@ namespace GOS_FxApps
             MainForm.Instance.tanggal = DateTime.Now;
             MainForm.Instance.lbldate.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy  [HH:mm:ss]");
             MainForm.Instance.shiftcontrol();
-            MainForm.Instance.lblalert.Visible = false;
+            MainForm.Instance.StopAlert();
 
             // timer tetap jalan, tapi kembali pakai waktu sistem
             MainForm.Instance.jam.Start();
@@ -70,8 +70,11 @@ namespace GOS_FxApps
             MainForm.Instance.tanggal = waktuManual;
             MainForm.Instance.lbldate.Text = waktuManual.ToString("dddd, dd MMMM yyyy  [HH:mm:ss]");
             MainForm.Instance.shiftcontrol();
-            MainForm.Instance.lblalert.Text = "Mode manual aktif";
-            MainForm.Instance.lblalert.Visible = true;
+
+            if (this.Owner is MainForm main)
+            {
+                main.StartAlert();
+            }
 
             // timer tetap jalan supaya jam manual ikut maju
             MainForm.Instance.jam.Start();

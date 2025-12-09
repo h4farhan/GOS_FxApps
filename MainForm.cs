@@ -40,6 +40,9 @@ namespace GOS_FxApps {
 
         public event Action ShiftChanged;
         private string _shift;
+
+        private Timer alertTimer;
+
         public string shift
         {
             get => _shift;
@@ -155,162 +158,337 @@ namespace GOS_FxApps {
             Instance = this;
         }
 
-        public void LoadNotifikasi()
-        {
+        private NotifyIcon trayNotifier;
+        private toastform toast;
+        private bool isDisconnected = false;
+        private bool isDependencyActive = false;
+        public static event Func<string, Task> DataChanged;
+        private readonly Dictionary<string, SqlDependency> depMap =
+    new Dictionary<string, SqlDependency>();
 
+        private async Task<bool> CheckSqlConnection()
+        {
+            try
+            {
+                using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+                {
+                    await conn.OpenAsync();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private async void StartConnectionWatcher()
+        {
+            while (true)
+            {
+                bool connected = await CheckSqlConnection();
+
+                if (!connected && !isDisconnected)
+                {
+                    isDisconnected = true;
+                    ShowToast();
+                    StopSqlDependency();
+                    Console.WriteLine("DB disconnected, stopped dependency.");
+                }
+                else if (connected && isDisconnected)
+                {
+                    isDisconnected = false;
+                    HideToast();
+                    RestartSqlDependency();
+                    Console.WriteLine("DB reconnected, restarted dependency.");
+                }
+
+                await Task.Delay(2000);
+            }
+        }
+
+        private void InitializeTrayNotifier()
+        {
+            trayNotifier = new NotifyIcon
+            {
+                Visible = true,
+                Icon = SystemIcons.Warning
+            };
+        }
+
+        private void ShowToast()
+        {
+            if (toast != null && toast.Visible)
+                return;
+
+            if (toast == null || toast.IsDisposed)
+                toast = new toastform();
+
+            toast.Show();
+        }
+
+        private void HideToast()
+        {
+            if (toast != null && !toast.IsDisposed)
+                toast.Hide();
+        }
+
+        private void StartSqlDependency()
+        {
+            if (isDependencyActive) return;
+
+            try
+            {
+                SqlDependency.Start(Koneksi.GetConnectionString());
+                RegisterAllDependencies();
+                isDependencyActive = true;
+                Console.WriteLine("SqlDependency started.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"StartSqlDependency Error: {ex.Message}");
+            }
+        }
+
+        private void StopSqlDependency()
+        {
+            if (!isDependencyActive) return;
+
+            try
+            {
+                lock (depMap)
+                {
+                    foreach (var dep in depMap.Values)
+                    {
+                        try { dep.OnChange -= null; } catch { }
+                    }
+                    depMap.Clear();
+                }
+
+                SqlDependency.Stop(Koneksi.GetConnectionString());
+                isDependencyActive = false;
+                Console.WriteLine("SqlDependency stopped.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"StopSqlDependency Error: {ex.Message}");
+            }
+        }
+
+        private void RestartSqlDependency()
+        {
+            StopSqlDependency();
+            StartSqlDependency();
+        }
+
+        private void RegisterAllDependencies()
+        {
+            string[] tables = new string[]
+            {
+        "stok_material",
+        "setmin_Rb",
+        "Rb_Stok",
+        "penerimaan_s",
+        "penerimaan_p",
+        "perbaikan_s",
+        "perbaikan_p",
+        "pengiriman",
+        "perputaran_rod",
+        "kondisiROD",
+        "material_masuk",
+        "pemakaian_material",
+        "koefisiensi_material",
+        "users"
+
+            };
+
+            foreach (var t in tables)
+                RegisterDependency(t);
+        }
+
+        private void RegisterDependency(string tableName)
+        {
+            Task.Run(async () =>
+            {
+                if (isDisconnected) return;
+
+                try
+                {
+                    using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
+                    using (var cmd = new SqlCommand($"SELECT updated_at FROM dbo.{tableName}", conn))
+                    {
+                        cmd.Notification = null;
+                        var dep = new SqlDependency(cmd);
+
+                        dep.OnChange += async (s, e) =>
+                        {
+                            try
+                            {
+                                Console.WriteLine($"Dependency fired for {tableName}, Type={e.Type}");
+                                if (e.Type == SqlNotificationType.Change && DataChanged != null)
+                                {
+                                    if (InvokeRequired)
+                                        BeginInvoke((Action)(async () => await DataChanged.Invoke(tableName)));
+                                    else
+                                        await DataChanged.Invoke(tableName);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"OnChange handler failed for {tableName}: {ex.Message}");
+                            }
+
+                            await Task.Delay(100); 
+                            RegisterDependency(tableName);
+                        };
+
+                        lock (depMap)
+                        {
+                            if (depMap.ContainsKey(tableName))
+                                depMap[tableName] = dep;
+                            else
+                                depMap.Add(tableName, dep);
+                        }
+
+                        conn.Open();
+                        await cmd.ExecuteReaderAsync();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"RegisterDependency failed for {tableName}: {ex.Message}");
+                    await Task.Delay(1500);
+                    if (!isDisconnected)
+                        RegisterDependency(tableName);
+                }
+            });
+        }
+
+        private async void MainForm_Load(object sender, EventArgs e)
+        {
+            InitializeTrayNotifier();
+            StartConnectionWatcher();
+            StartSqlDependency();
+
+            jam.Start();
+            shiftcontrol();
+
+            tanggal = DateTime.Now;
+            lbluser.Text = "";
+
+            SwitchPanel(new Dashboard());
+            dashboardButton.FillColor = Color.FromArgb(52, 52, 57);
+            dashboardButton.ForeColor = Color.White;
+
+            alertTimer = new Timer();
+            alertTimer.Interval = 150;
+            alertTimer.Tick += AlertTimer_Tick;
+
+            if (!loginstatus) setvisiblefalse();
+
+            defaulhistorycontainer = historycontainer.Size;
+            defaultentrycontainer = entryContainer.Size;
+            defaulteditcontainer = EditContainer.Size;
+            defaulgudangcontainer = gudangContainer.Size;
+
+            await LoadNotifikasi();
+        }
+
+        public async Task LoadNotifikasi()
+        {
             List<(string Text, DateTime Waktu, Color WarnaText, Color WarnaWaktu)> notifList =
                 new List<(string, DateTime, Color, Color)>();
 
-            using (SqlConnection conn = Koneksi.GetConnection())
+            try
             {
-                conn.Open();
-
-                string query2 = @"SELECT TOP 1 bstok, bpe1, bpe2, bbe1, bbe2, wpe1, wpe2, wbe1, wbe2, updated_at 
+                using (var conn = await Koneksi.GetConnectionAsync())
+                {
+                    string query2 = @"SELECT TOP 1 bstok, bpe1, bpe2, bbe1, bbe2, 
+                                 wpe1, wpe2, wbe1, wbe2, updated_at
                           FROM Rb_Stok ORDER BY id_stok DESC";
 
-                using (SqlCommand cmd2 = new SqlCommand(query2, conn))
-                using (SqlDataReader reader2 = cmd2.ExecuteReader())
-                {
-                    Dictionary<string, int> stokData = new Dictionary<string, int>();
-                    DateTime waktuRb = DateTime.Now;
-
-                    if (reader2.Read())
+                    using (SqlCommand cmd2 = new SqlCommand(query2, conn))
+                    using (SqlDataReader reader2 = await cmd2.ExecuteReaderAsync())
                     {
-                        string[] kolomList = { "bstok", "bpe1", "bpe2", "bbe1", "bbe2", "wpe1", "wpe2", "wbe1", "wbe2" };
+                        Dictionary<string, int> stokData = new Dictionary<string, int>();
+                        DateTime waktuRb = DateTime.Now;
 
-                        foreach (string kolom in kolomList)
+                        if (await reader2.ReadAsync())
                         {
-                            stokData[kolom] = Convert.ToInt32(reader2[kolom]);
+                            string[] kolomList =
+                            {
+                    "bstok","bpe1","bpe2","bbe1","bbe2",
+                    "wpe1","wpe2","wbe1","wbe2"
+                    };
+
+                            foreach (string kolom in kolomList)
+                                stokData[kolom] = Convert.ToInt32(reader2[kolom]);
+
+                            waktuRb = Convert.ToDateTime(reader2["updated_at"]);
                         }
 
-                        waktuRb = Convert.ToDateTime(reader2["updated_at"]);
-                    }
-                    reader2.Close();
+                        reader2.Close();
 
-                    foreach (var item in stokData)
-                    {
-                        using (SqlCommand cmdMin = new SqlCommand(
-                            "SELECT namaTampilan, min_stok FROM setmin_Rb WHERE kode = @kode", conn))
+                        foreach (var item in stokData)
                         {
-                            cmdMin.Parameters.AddWithValue("@kode", item.Key);
-                            using (SqlDataReader rdrMin = cmdMin.ExecuteReader())
+                            using (SqlCommand cmdMin = new SqlCommand(
+                                "SELECT namaTampilan, min_stok FROM setmin_Rb WHERE kode = @kode", conn))
                             {
-                                if (rdrMin.Read())
+                                cmdMin.Parameters.AddWithValue("@kode", item.Key);
+                                using (SqlDataReader rdrMin = await cmdMin.ExecuteReaderAsync())
                                 {
-                                    string nama = rdrMin["namaTampilan"].ToString();
-                                    int minStok = Convert.ToInt32(rdrMin["min_stok"]);
-
-                                    if (item.Value < minStok)
+                                    if (await rdrMin.ReadAsync())
                                     {
-                                        notifList.Add((
-                                            $"{nama} Stok Rendah ({item.Value}/{minStok})",
-                                            waktuRb,
-                                            Color.FromArgb(255, 0, 0),
-                                            Color.Gray
-                                        ));
+                                        string nama = rdrMin["namaTampilan"].ToString();
+                                        int minStok = Convert.ToInt32(rdrMin["min_stok"]);
+
+                                        if (item.Value < minStok)
+                                        {
+                                            notifList.Add((
+                                                $"{nama} Stok Rendah ({item.Value}/{minStok})",
+                                                waktuRb,
+                                                Color.FromArgb(255, 0, 0),
+                                                Color.Gray
+                                            ));
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                }
 
-                string query1 = @"SELECT namaBarang, jumlahStok, min_stok, updated_at 
-                          FROM stok_material WHERE jumlahStok < min_stok";
+                    string query1 = @"SELECT namaBarang, jumlahStok, min_stok, updated_at
+                          FROM stok_material 
+                          WHERE jumlahStok < min_stok";
 
-                using (SqlCommand cmd1 = new SqlCommand(query1, conn))
-                using (SqlDataReader reader1 = cmd1.ExecuteReader())
-                {
-                    while (reader1.Read())
+                    using (SqlCommand cmd1 = new SqlCommand(query1, conn))
+                    using (SqlDataReader reader1 = await cmd1.ExecuteReaderAsync())
                     {
-                        string nama = reader1["namaBarang"].ToString();
-                        int stok = Convert.ToInt32(reader1["jumlahStok"]);
-                        int minStok = Convert.ToInt32(reader1["min_stok"]);
-                        DateTime waktu = Convert.ToDateTime(reader1["updated_at"]);
-
-                        notifList.Add((
-                            $"Material {nama} Stok Rendah ({stok}/{minStok})",
-                            waktu,
-                            Color.FromArgb(255, 0, 0),
-                            Color.Gray
-                        ));
+                        while (await reader1.ReadAsync())
+                        {
+                            notifList.Add((
+                                $"Material {reader1["namaBarang"]} Stok Rendah ({reader1["jumlahStok"]}/{reader1["min_stok"]})",
+                                Convert.ToDateTime(reader1["updated_at"]),
+                                Color.FromArgb(255, 0, 0),
+                                Color.Gray
+                            ));
+                        }
                     }
                 }
             }
+            catch
+            {
+
+            }
+
             totalNotifikasi = notifList.Count;
             btnnotif.Text = "🔔 " + totalNotifikasi;
+
             var sortedNotif = notifList
-            .OrderByDescending(n => n.Waktu)
-            .ThenByDescending(n => n.Text)
-            .ToList();
+                .OrderByDescending(n => n.Waktu)
+                .ThenByDescending(n => n.Text)
+                .ToList();
         }
-        private void registerstok()
-        {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.stok_material", conn))
-            {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
-                {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            LoadNotifikasi();
-                            registerstok();
-                        }));
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
-            }
-        }
-        private void registerSetminRb()
-        {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.setmin_Rb", conn))
-            {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
-                {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            LoadNotifikasi();
-                            registerSetminRb();
-                        }));
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
-            }
-        }
-        private void registerwelding()
-        {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.Rb_Stok", conn))
-            {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
-                {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            LoadNotifikasi();
-                            registerwelding();
-                        }));
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
-            }
-        }
-        
 
         //kode utama
         public void SwitchPanel(Form panel)
@@ -322,32 +500,21 @@ namespace GOS_FxApps {
             panel.Show();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void AlertTimer_Tick(object sender, EventArgs e)
         {
-            SqlDependency.Start(Koneksi.GetConnectionString());
-            jam.Start();
-            shiftcontrol();
-            lbluser.Text = "";
-            tanggal = DateTime.Now;
+            lblalert.Visible = !lblalert.Visible;
+        }
 
-            SwitchPanel(new Dashboard());
-            dashboardButton.FillColor = Color.FromArgb(52, 52, 57);
-            dashboardButton.ForeColor = Color.White;
+        public void StartAlert()
+        {
+            lblalert.Visible = true;
+            alertTimer.Start();
+        }
 
-            if (!loginstatus)
-            {
-                setvisiblefalse();
-            }
-
-            defaulhistorycontainer = historycontainer.Size;
-            defaultentrycontainer = entryContainer.Size;
-            defaulteditcontainer = EditContainer.Size;
-            defaulgudangcontainer = gudangContainer.Size;
-
-            LoadNotifikasi();
-            registerSetminRb();
-            registerstok();
-            registerwelding();
+        public void StopAlert()
+        {
+            alertTimer.Stop();
+            lblalert.Visible = false;
         }
 
         private void HamburgerButton_Click_1(object sender, EventArgs e)
@@ -972,8 +1139,9 @@ namespace GOS_FxApps {
 
         private void btnaturjam_Click(object sender, EventArgs e)
         {
-            Form aturjam = new aturjam();
-            aturjam.ShowDialog();
+            aturjam f = new aturjam();
+            f.Owner = this;   
+            f.ShowDialog();
         }
 
     }

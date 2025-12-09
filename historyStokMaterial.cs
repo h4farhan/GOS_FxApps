@@ -27,279 +27,329 @@ namespace GOS_FxApps
         string lastSearchWhere = "";
         SqlCommand lastSearchCmd;
         int searchTotalRecords = 0;
+        private bool isEditing = false;
 
         public historyStokMaterial()
         {
             InitializeComponent();
         }
 
-        private void registertampilstokmaterial()
+        private async Task OnDatabaseChanged(string table)
         {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (var cmd = new SqlCommand("SELECT updated_at FROM dbo.stok_material", conn))
+            try
             {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
+                if (isEditing) return;
+                switch (table)
                 {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
+                    case "stok_material":
+                        if (!isSearching)
                         {
-                            if (!isSearching)
-                            {
-                                HitungTotalData();
-                                currentPage = 1;
-                                tampil();
-                            }
-                            else
-                            {
-                                int oldTotal = searchTotalRecords;
-                                HitungTotalDataPencarian();
-                                if (searchTotalRecords > oldTotal)
-                                {
-                                    tampil();
-                                }
-                            }
+                            await HitungTotalData();
+                            currentPage = 1;
+                            await tampil();
+                        }
+                        else
+                        {
+                            int oldTotal = searchTotalRecords;
+                            await HitungTotalDataPencarian();
+                            if (searchTotalRecords > oldTotal)
+                                await tampil();
+                        }
+                        break;
 
-                            registertampilstokmaterial();
-                        }));
-                    }
-                };
-
-                conn.Open();
-                using (var reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read()) { }
+                    default:
+                        break;
                 }
             }
-        }
-        private void HitungTotalData()
-        {
-            string query = "SELECT COUNT(*) FROM stok_material";
-            SqlCommand cmd = new SqlCommand(query, conn);
-
-            conn.Open();
-            totalRecords = (int)cmd.ExecuteScalar();
-            conn.Close();
-
-            totalPages = (int)Math.Ceiling(totalRecords / (double)pageSize);
-        }
-
-        private void HitungTotalDataPencarian()
-        {
-            string countQuery = "SELECT COUNT(*) " + lastSearchWhere;
-
-            lastSearchCmd.CommandText = countQuery;
-            lastSearchCmd.Connection = conn;
-
-            conn.Open();
-            searchTotalRecords = (int)lastSearchCmd.ExecuteScalar();
-            conn.Close();
-
-            totalPages = (int)Math.Ceiling(searchTotalRecords / (double)pageSize);
-        }
-
-        private void LoadDataToGrid(DataTable dt)
-        {
-            dt.Columns["foto"].ColumnName = "Gambar";
-
-            DataTable dtWithImage = new DataTable();
-            dtWithImage.Columns.Add("No", typeof(int));
-            dtWithImage.Columns.Add("Kode Barang", typeof(string));
-            dtWithImage.Columns.Add("Nama Barang", typeof(string));
-            dtWithImage.Columns.Add("Spesifikasi", typeof(string));
-            dtWithImage.Columns.Add("UoM", typeof(string));
-            dtWithImage.Columns.Add("Tipe", typeof(string));
-            dtWithImage.Columns.Add("Jumlah Stok", typeof(int));
-            dtWithImage.Columns.Add("Min Stok", typeof(int));
-            dtWithImage.Columns.Add("Gambar", typeof(Image));
-            dtWithImage.Columns.Add("Disimpan", typeof(DateTime));
-            dtWithImage.Columns.Add("Diubah", typeof(DateTime));
-
-            int no = 1;
-            foreach (DataRow row in dt.Rows)
+            catch (SqlException)
             {
-                DataRow newRow = dtWithImage.NewRow();
-                newRow["No"] = no++;
-                newRow["Kode Barang"] = row["kodeBarang"];
-                newRow["Nama Barang"] = row["namaBarang"];
-                newRow["Spesifikasi"] = row["spesifikasi"];
-                newRow["UoM"] = row["uom"];
-                newRow["Tipe"] = row["type"];
-                newRow["Jumlah Stok"] = row["jumlahStok"];
-                newRow["Min Stok"] = row["min_stok"];
-                newRow["Disimpan"] = row["created_at"];
-                newRow["Diubah"] = row["updated_at"];
+                return;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Gagal realtime");
+                return;
+            }
+        }
 
-                if (row["Gambar"] != DBNull.Value)
+        private async Task HitungTotalData()
+        {
+            try
+            {
+                string query = "SELECT COUNT(*) FROM stok_material";
+                using (var conn = await Koneksi.GetConnectionAsync())
                 {
-                    byte[] imageBytes = (byte[])row["Gambar"];
-                    using (MemoryStream ms = new MemoryStream(imageBytes))
+                    using (var cmd = new SqlCommand(query, conn))
                     {
-                        newRow["Gambar"] = Image.FromStream(ms);
+                        totalRecords = (int)await cmd.ExecuteScalarAsync();
+                    }
+                }
+                totalPages = (int)Math.Ceiling(totalRecords / (double)pageSize);
+            }
+            catch (SqlException)
+            {
+                return;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Gagal hitungtotaldata");
+                return;
+            }
+        }
+
+        private async Task HitungTotalDataPencarian()
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(lastSearchWhere))
+                {
+                    searchTotalRecords = 0;
+                    totalPages = 0;
+                    return;
+                }
+
+                string countQuery = "SELECT COUNT(*) " + lastSearchWhere;
+                using (var conn = await Koneksi.GetConnectionAsync())
+                {
+                    using (var cmd = new SqlCommand(countQuery, conn))
+                    {
+                        if (lastSearchCmd?.Parameters.Count > 0)
+                        {
+                            foreach (SqlParameter p in lastSearchCmd.Parameters)
+                                cmd.Parameters.Add(new SqlParameter(p.ParameterName, p.Value));
+                        }
+
+                        searchTotalRecords = (int)await cmd.ExecuteScalarAsync();
                     }
                 }
 
-                dtWithImage.Rows.Add(newRow);
+                totalPages = (int)Math.Ceiling(searchTotalRecords / (double)pageSize);
             }
-
-            dataGridView1.DataSource = dtWithImage;
-
-            dataGridView1.RowTemplate.Height = 100;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            foreach (DataGridViewRow r in dataGridView1.Rows)
-                r.Height = 100;
-
-            DataGridViewImageColumn imageCol =
-                (DataGridViewImageColumn)dataGridView1.Columns["Gambar"];
-            imageCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
-
-            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor =
-                Color.FromArgb(213, 213, 214);
-            dataGridView1.RowHeadersVisible = false;
+            catch (SqlException)
+            {
+                return;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Gagal hitungtotaldatacari");
+                return;
+            }
         }
-        private void tampil()
+
+        private async Task tampil()
         {
             try
             {
                 int offset = (currentPage - 1) * pageSize;
 
-                string query = @"
-            SELECT * FROM stok_material
-            ORDER BY updated_at DESC
-            OFFSET @offset ROWS 
-            FETCH NEXT @pageSize ROWS ONLY";
+                string query;
 
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@offset", offset);
-                cmd.Parameters.AddWithValue("@pageSize", pageSize);
-
-                SqlDataAdapter ad = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                ad.Fill(dt);
-
-                LoadDataToGrid(dt);
                 if (!isSearching)
-                    lbljumlahdata.Text = "Jumlah data: " + totalRecords;
+                {
+                    query = $@"
+            SELECT kodeBarang,namaBarang,spesifikasi,uom,type,jumlahStok,min_stok,foto,created_at,updated_at,remaks
+            FROM stok_material
+            ORDER BY created_at DESC
+            OFFSET {offset} ROWS FETCH NEXT {pageSize} ROWS ONLY";
+                }
                 else
-                    lbljumlahdata.Text = "Hasil pencarian: " + searchTotalRecords;
+                {
+                    query = $@"
+            SELECT kodeBarang,namaBarang,spesifikasi,uom,type,jumlahStok,min_stok,foto,created_at,updated_at,remaks
+            {lastSearchWhere}
+            ORDER BY created_at DESC
+            OFFSET {offset} ROWS FETCH NEXT {pageSize} ROWS ONLY";
+                }
 
-                lblhalaman.Text = $"Halaman {currentPage} dari {totalPages}";
-
-                btnleft.Enabled = currentPage > 1;
-                btnright.Enabled = currentPage < totalPages;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan:\n" + ex.Message);
-            }
-        }
-        private void cari()
-        {
-            string keyword = "%" + txtcari.Text + "%";
-            currentPage = Math.Max(1, currentPage);
-
-            isSearching = true;
-
-            lastSearchWhere = "FROM stok_material WHERE kodeBarang LIKE @key OR namaBarang LIKE @key";
-
-            lastSearchCmd = new SqlCommand();
-            lastSearchCmd.Parameters.AddWithValue("@key", keyword);
-
-            int offset = (currentPage - 1) * pageSize;
-
-            string query = @"
-        SELECT * FROM stok_material
-        WHERE kodeBarang LIKE @key OR namaBarang LIKE @key
-        ORDER BY updated_at DESC
-        OFFSET @offset ROWS 
-        FETCH NEXT @pageSize ROWS ONLY";
-
-            using (SqlCommand cmd = new SqlCommand(query, conn))
-            {
-                cmd.Parameters.AddWithValue("@key", keyword);
-                cmd.Parameters.AddWithValue("@offset", offset);
-                cmd.Parameters.AddWithValue("@pageSize", pageSize);
-
-                SqlDataAdapter ad = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
 
-                conn.Open();
-                ad.Fill(dt);
-                conn.Close();
+                using (var conn = await Koneksi.GetConnectionAsync())
+                using (var cmd = new SqlCommand(query, conn))
+                {
+                    if (isSearching && lastSearchCmd != null)
+                    {
+                        foreach (SqlParameter p in lastSearchCmd.Parameters)
+                            cmd.Parameters.Add(new SqlParameter(p.ParameterName, p.Value));
+                    }
 
-                HitungTotalDataPencarian();
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        dt.Load(reader);
+                    }
+                }
 
-                LoadDataToGrid(dt);
+                dt.Columns.Add("fotoImage", typeof(Image));
 
-                lbljumlahdata.Text = "Hasil pencarian: " + searchTotalRecords;
-                lblhalaman.Text = $"Halaman {currentPage} dari {totalPages}";
+                dataGridView1.Invoke(new Action(() =>
+                {
+                    dataGridView1.RowTemplate.Height = 80;
+                    dataGridView1.DataSource = dt;
+                    dataGridView1.Columns["kodeBarang"].HeaderText = "Kode Barang";
 
-                btnleft.Enabled = currentPage > 1;
-                btnright.Enabled = currentPage < totalPages;
-                btnreset.Enabled = true;
+                    dataGridView1.Columns["namaBarang"].HeaderText = "Nama Barang";
+                    dataGridView1.Columns["spesifikasi"].HeaderText = "Spesifikasi";
+                    dataGridView1.Columns["uom"].HeaderText = "UoM";
+                    dataGridView1.Columns["type"].HeaderText = "Type";
+
+                    dataGridView1.Columns["jumlahStok"].HeaderText = "Jumlah Stok";
+                    dataGridView1.Columns["min_stok"].HeaderText = "Min Stok";
+
+                    if (dataGridView1.Columns.Contains("foto"))
+                        dataGridView1.Columns["foto"].Visible = false;
+
+                    if (dataGridView1.Columns.Contains("fotoImage"))
+                    {
+                        var imgCol = (DataGridViewImageColumn)dataGridView1.Columns["fotoImage"];
+                        imgCol.HeaderText = "Foto";
+                        imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                    }
+
+                    dataGridView1.Columns["created_at"].HeaderText = "Disimpan";
+                    dataGridView1.Columns["updated_at"].HeaderText = "Diubah";
+                    dataGridView1.Columns["remaks"].HeaderText = "Remaks";
+
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
+
+                }));
+
+                _ = Task.Run(() =>
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        if (row["foto"] != DBNull.Value)
+                        {
+                            try
+                            {
+                                byte[] bytes = (byte[])row["foto"];
+                                using (MemoryStream ms = new MemoryStream(bytes))
+                                {
+                                    row["fotoImage"] = Image.FromStream(ms);
+                                }
+                            }
+                            catch { }
+                        }
+                    }
+                });
+
+                dataGridView1.Invoke(new Action(() =>
+                {
+                    if (!isSearching)
+                    {
+                        lbljumlahdata.Text = "Jumlah data: " + totalRecords;
+                    }
+                    else
+                    {
+                        lbljumlahdata.Text = "Hasil pencarian: " + searchTotalRecords;
+                    }
+                    lblhalaman.Text = $"Halaman {currentPage} dari {totalPages}";
+                    btnleft.Enabled = currentPage > 1;
+                    btnright.Enabled = currentPage < totalPages;
+                }));
+            }
+            catch (SqlException)
+            {
+                return;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Gagal tampil");
+                return;
             }
         }
 
-        private void historyStokMaterial_Load(object sender, EventArgs e)
+        private async Task<bool> cari()
         {
-            SqlDependency.Start(Koneksi.GetConnectionString());
-            HitungTotalData();
-            tampil();
-            registertampilstokmaterial();
+            string nomorrod = txtcari.Text.Trim();
+
+            if (string.IsNullOrEmpty(nomorrod))
+            {
+                MessageBox.Show("Silakan isi Tanggal atau Nomor ROD untuk melakukan pencarian.",
+                                "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            try
+            {
+                isSearching = true;
+                lastSearchCmd = new SqlCommand();
+                lastSearchWhere = "FROM stok_material WHERE 1=1 ";
+
+                if (!string.IsNullOrEmpty(nomorrod))
+                {
+                    lastSearchWhere += " AND kodeBarang LIKE @key OR namaBarang LIKE @key";
+                    lastSearchCmd.Parameters.AddWithValue("@key", "%" + nomorrod + "%");
+                }
+
+                await HitungTotalDataPencarian();
+                currentPage = 1;
+                await tampil();
+
+                btncari.Text = "Reset";
+                return true;
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
+                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Gagal cari");
+                return false;
+            }
         }
 
-        private void historyStokMaterial_FormClosing(object sender, FormClosingEventArgs e)
+        private async void historyStokMaterial_Load(object sender, EventArgs e)
         {
-            SqlDependency.Start(Koneksi.GetConnectionString());
+            MainForm.DataChanged += OnDatabaseChanged;
+            await HitungTotalData();
+            await tampil();
         }
 
-        private void btnleft_Click(object sender, EventArgs e)
+        private async void btncari_Click(object sender, EventArgs e)
+        {
+            await cari();
+            btnreset.Enabled = true;
+        }
+
+        private async void btnreset_Click(object sender, EventArgs e)
+        {
+
+            isSearching = false;
+
+            txtcari.Text = "";
+
+            btncari.Text = "Cari";
+
+            await HitungTotalData();
+            currentPage = 1;
+            await tampil();
+
+            btnreset.Enabled = false;
+        }
+
+        private async void btnleft_Click(object sender, EventArgs e)
         {
             if (currentPage > 1)
             {
                 currentPage--;
-                if (isSearching) cari();
-                else tampil();
+                await tampil();
             }
         }
 
-        private void btnright_Click(object sender, EventArgs e)
+        private async void btnright_Click(object sender, EventArgs e)
         {
             if (currentPage < totalPages)
             {
                 currentPage++;
-                if (isSearching) cari();
-                else tampil();
+                await tampil();
             }
         }
 
-        private void btncari_Click(object sender, EventArgs e)
+        private void historyStokMaterial_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtcari.Text))
-            {
-                MessageBox.Show("Masukkan Kode Barang atau Nama Barang terlebih dahulu.","Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            currentPage = 1;
-            cari();
-        }
-
-        private void btnreset_Click(object sender, EventArgs e)
-        {
-            txtcari.Text = "";     
-            isSearching = false;  
-            currentPage = 1;      
-            lastSearchCmd = null;  
-            lastSearchWhere = ""; 
-            searchTotalRecords = 0;
-
-            btnreset.Enabled = false;
-
-            HitungTotalData();   
-            tampil();
+            MainForm.DataChanged -= OnDatabaseChanged;
         }
     }
 }

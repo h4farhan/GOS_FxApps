@@ -14,8 +14,6 @@ namespace GOS_FxApps
 {
     public partial class formbuttman : Form
     {
-        SqlConnection conn = Koneksi.GetConnection();
-
         int noprimary = 0;
 
         bool infocari = false;
@@ -34,119 +32,161 @@ namespace GOS_FxApps
             InitializeComponent();
         }
 
-        private void registertampil()
+        private async Task OnDatabaseChanged(string table)
         {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.kondisiROD", conn))
+            try
             {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
+                switch (table)
                 {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
+                    case "kondisiROD":
+                        if (!isSearching)
                         {
-                            if (!isSearching)
-                            {
-                                HitungTotalData();
-                                currentPage = 1;
-                                tampil();
-                            }
-                            else
-                            {
-                                int oldTotal = searchTotalRecords;
-                                HitungTotalDataPencarian();
+                            await HitungTotalData();
+                            currentPage = 1;
+                            await tampil();
+                        }
+                        else
+                        {
+                            int oldTotal = searchTotalRecords;
+                            await HitungTotalDataPencarian();
+                            if (searchTotalRecords > oldTotal)
+                                await tampil();
+                        }
+                        break;
 
-                                if (searchTotalRecords > oldTotal)
-                                {
-                                    tampil();
-                                }
-                            }
-
-                            registertampil();
-                        }));
-                    }
-                };
-                conn.Open();
-                using (var reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read()) { }
+                    default:
+                        break;
                 }
+            }
+            catch { }
+        }
+
+        private async Task HitungTotalData()
+        {
+            try
+            {
+                string query = "SELECT COUNT(*) FROM kondisiROD";
+                using (var conn = await Koneksi.GetConnectionAsync())
+                {
+                    using (var cmd = new SqlCommand(query, conn))
+                    {
+                        totalRecords = (int)await cmd.ExecuteScalarAsync();
+                    }
+                }
+                totalPages = (int)Math.Ceiling(totalRecords / (double)pageSize);
+            }
+            catch
+            {
+                return;
             }
         }
 
-        private void HitungTotalData()
+        private async Task HitungTotalDataPencarian()
         {
-            string query = "SELECT COUNT(*) FROM kondisiROD";
-            SqlCommand cmd = new SqlCommand(query, conn);
+            try
+            {
+                if (string.IsNullOrWhiteSpace(lastSearchWhere))
+                {
+                    searchTotalRecords = 0;
+                    totalPages = 0;
+                    return;
+                }
 
-            conn.Open();
-            totalRecords = (int)cmd.ExecuteScalar();
-            conn.Close();
+                string countQuery = "SELECT COUNT(*) " + lastSearchWhere;
+                using (var conn = await Koneksi.GetConnectionAsync())
+                {
+                    using (var cmd = new SqlCommand(countQuery, conn))
+                    {
+                        if (lastSearchCmd?.Parameters.Count > 0)
+                        {
+                            foreach (SqlParameter p in lastSearchCmd.Parameters)
+                                cmd.Parameters.Add(new SqlParameter(p.ParameterName, p.Value));
+                        }
 
-            totalPages = (int)Math.Ceiling(totalRecords / (double)pageSize);
+                        searchTotalRecords = (int)await cmd.ExecuteScalarAsync();
+                    }
+                }
+
+                totalPages = (int)Math.Ceiling(searchTotalRecords / (double)pageSize);
+            }
+            catch
+            {
+                return;
+            }
         }
 
-        private void HitungTotalDataPencarian()
-        {
-            string countQuery = "SELECT COUNT(*) " + lastSearchWhere;
-
-            lastSearchCmd.CommandText = countQuery;
-            lastSearchCmd.Connection = conn;
-
-            conn.Open();
-            searchTotalRecords = (int)lastSearchCmd.ExecuteScalar();
-            conn.Close();
-
-            totalPages = (int)Math.Ceiling(searchTotalRecords / (double)pageSize);
-        }
-
-        private void tampil()
+        private async Task tampil()
         {
             try
             {
                 int offset = (currentPage - 1) * pageSize;
 
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conn;
-
-                string query;
-
-                if (!isSearching)
+                using (var conn = await Koneksi.GetConnectionAsync())
+                using (var cmd = new SqlCommand())
                 {
-                    query = $@"
+                    cmd.Connection = conn;
+
+                    string query;
+
+                    if (!isSearching)
+                    {
+                        query = $@"
                 SELECT no,tanggal,shift,butt_ratio,man_power,updated_at,remaks
                 FROM kondisiROD
                 ORDER BY tanggal DESC
                 OFFSET {offset} ROWS
                 FETCH NEXT {pageSize} ROWS ONLY";
-                }
-                else
-                {
-                    query = $@"
+                    }
+                    else
+                    {
+                        query = $@"
                 SELECT no,tanggal,shift,butt_ratio,man_power,updated_at,remaks
                 {lastSearchWhere}
                 ORDER BY tanggal DESC
                 OFFSET {offset} ROWS
                 FETCH NEXT {pageSize} ROWS ONLY";
 
-                    foreach (SqlParameter p in lastSearchCmd.Parameters)
-                        cmd.Parameters.Add(new SqlParameter(p.ParameterName, p.Value));
+                        foreach (SqlParameter p in lastSearchCmd.Parameters)
+                            cmd.Parameters.Add(new SqlParameter(p.ParameterName, p.Value));
+                    }
+
+                    cmd.CommandText = query;
+
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter ad = new SqlDataAdapter(cmd))
+                    {
+                        ad.Fill(dt);
+                    }
+
+                    if (dataGridView1.InvokeRequired)
+                    {
+                        dataGridView1.Invoke(new Action(() =>
+                        {
+                            UpdateGrid(dt);
+                        }));
+                    }
+                    else
+                    {
+                        UpdateGrid(dt);
+                    }
                 }
+            }
+            catch
+            {
+                return;
+            }
+        }
 
-                cmd.CommandText = query;
+        private void UpdateGrid(DataTable dt)
+        {
+            dataGridView1.RowTemplate.Height = 35;
+            dataGridView1.DataSource = dt;
+            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.ReadOnly = true;
 
-                SqlDataAdapter ad = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                ad.Fill(dt);
-
-                dataGridView1.DataSource = dt;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.RowTemplate.Height = 35;
-                dataGridView1.ReadOnly = true;
-
+            if (dt.Columns.Count >= 7)
+            {
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "Tanggal";
                 dataGridView1.Columns[2].HeaderText = "Shift";
@@ -154,25 +194,15 @@ namespace GOS_FxApps
                 dataGridView1.Columns[4].HeaderText = "Man Power";
                 dataGridView1.Columns[5].HeaderText = "Diubah";
                 dataGridView1.Columns[6].HeaderText = "Remaks";
+            }
 
-                lblhalaman.Text = $"Halaman {currentPage} dari {totalPages}";
+            lblhalaman.Text = $"Halaman {currentPage} dari {totalPages}";
 
-                btnleft.Enabled = currentPage > 1;
-                btnright.Enabled = currentPage < totalPages;
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            btnleft.Enabled = currentPage > 1;
+            btnright.Enabled = currentPage < totalPages;
         }
 
-        private bool cari()
+        private async Task<bool> cari()
         {
             DateTime? tanggal = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
             bool shiftValid = cbShift.SelectedIndex > 0;
@@ -182,141 +212,147 @@ namespace GOS_FxApps
                 MessageBox.Show("Silakan isi tanggal atau shift untuk melakukan pencarian.", "Peringatan");
                 return false;
             }
-
-            isSearching = true;
-            lastSearchCmd = new SqlCommand();
-            lastSearchWhere = "FROM kondisiROD WHERE 1=1 ";
-
-            if (tanggal.HasValue)
-            {
-                lastSearchWhere += " AND CAST(tanggal AS DATE) = @tgl ";
-                lastSearchCmd.Parameters.AddWithValue("@tgl", tanggal.Value);
-            }
-
-
-            if (shiftValid)
-            {
-                lastSearchWhere += " AND shift = @shift ";
-                lastSearchCmd.Parameters.AddWithValue("@shift", cbShift.SelectedItem.ToString());
-            }
-
-            HitungTotalDataPencarian();
-            currentPage = 1;
-            tampil();
-
-            btncari.Text = "Reset";
-            return true;
-        }
-
-        private void editdata()
-        {
             try
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE kondisiROD SET butt_ratio = @butt, man_power = @man, updated_at = @diubah, remaks = @remaks WHERE no = @no", conn);
-                cmd.Parameters.AddWithValue("@no", noprimary);
-                cmd.Parameters.AddWithValue("@butt", txtbutt.Text);
-                cmd.Parameters.AddWithValue("@man", txtman.Text);
-                cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
-                cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
-                cmd.ExecuteNonQuery();
+                isSearching = true;
+                lastSearchCmd = new SqlCommand();
+                lastSearchWhere = "FROM kondisiROD WHERE 1=1 ";
 
-                MessageBox.Show("Data Berhasil Diedit.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                tampil();
-                btnsimpan.Text = "Simpan Data";
+                if (tanggal.HasValue)
+                {
+                    lastSearchWhere += " AND CAST(tanggal AS DATE) = @tgl ";
+                    lastSearchCmd.Parameters.AddWithValue("@tgl", tanggal.Value);
+                }
+
+                if (shiftValid)
+                {
+                    lastSearchWhere += " AND shift = @shift ";
+                    lastSearchCmd.Parameters.AddWithValue("@shift", cbShift.SelectedItem.ToString());
+                }
+
+                await HitungTotalDataPencarian();
+                currentPage = 1;
+                await tampil();
+
+                btncari.Text = "Reset";
+                return true;
             }
             catch (SqlException)
             {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
+                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
+                MessageBox.Show("Gagal Cari Data.");
+                return false;
             }
         }
 
-        private void simpandata()
+        private async Task editdata()
         {
-
             try
             {
-                conn.Open();
-                using (SqlCommand cmdcekkode = new SqlCommand("SELECT tanggal,shift FROM kondisiROD WHERE tanggal = @tgl AND shift = @shift", conn))
+                using (var conn = await Koneksi.GetConnectionAsync())
                 {
-                    cmdcekkode.Parameters.AddWithValue("@tgl", date.Value);
-                    cmdcekkode.Parameters.AddWithValue("@shift", cmbshift.SelectedItem);
-                    using (SqlDataReader dr = cmdcekkode.ExecuteReader())
-                    {
-                        if (dr.Read())
-                        {
-                            MessageBox.Show("Data di Tanggal dan di Shift ini sudah ada", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;
-                        }
-                    }
-                }
-
-                using (SqlCommand cmd = new SqlCommand("INSERT INTO kondisiROD (tanggal, shift, butt_ratio, man_power, updated_at, remaks) VALUES(@tgl,@shift,@butt,@man,@diubah,@remaks)", conn))
-                {
-                    cmd.Parameters.AddWithValue("@tgl", date.Value);
-                    cmd.Parameters.AddWithValue("@shift", cmbshift.SelectedItem);
+                    SqlCommand cmd = new SqlCommand("UPDATE kondisiROD SET butt_ratio = @butt, man_power = @man, updated_at = @diubah, remaks = @remaks WHERE no = @no", conn);
+                    cmd.Parameters.AddWithValue("@no", noprimary);
                     cmd.Parameters.AddWithValue("@butt", txtbutt.Text);
                     cmd.Parameters.AddWithValue("@man", txtman.Text);
                     cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                     cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
-                    cmd.ExecuteNonQuery();
+                    await cmd.ExecuteNonQueryAsync();
+
+                    MessageBox.Show("Data Berhasil Diedit.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnsimpan.Text = "Simpan Data";
                 }
-
-                MessageBox.Show("Data Berhasil Disimpan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                setdefault();
-                tampil();
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif." + ex.Message,
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        private void hapusdata()
-        {
-            try
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("DELETE FROM kondisiROD WHERE no = @no", conn);
-                cmd.Parameters.AddWithValue("@no", noprimary);
-                cmd.ExecuteNonQuery();
-
-                MessageBox.Show("Data berhasil dihapus.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                tampil();
             }
             catch (SqlException)
             {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
+                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Gagal Edit Data.");
+                return;
             }
-            finally
+        }
+
+        private async Task simpandata()
+        {
+
+            try
             {
-                conn.Close();
+                using (var conn = await Koneksi.GetConnectionAsync())
+                {
+                    using (SqlCommand cmdcekkode = new SqlCommand("SELECT tanggal,shift FROM kondisiROD WHERE tanggal = @tgl AND shift = @shift", conn))
+                    {
+                        cmdcekkode.Parameters.AddWithValue("@tgl", date.Value);
+                        cmdcekkode.Parameters.AddWithValue("@shift", cmbshift.SelectedItem);
+                        using (SqlDataReader dr = await cmdcekkode.ExecuteReaderAsync())
+                        {
+                            if (await dr.ReadAsync())
+                            {
+                                MessageBox.Show("Data di Tanggal dan di Shift ini sudah ada", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+                        }
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO kondisiROD (tanggal, shift, butt_ratio, man_power, updated_at, remaks) VALUES(@tgl,@shift,@butt,@man,@diubah,@remaks)", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@tgl", date.Value);
+                        cmd.Parameters.AddWithValue("@shift", cmbshift.SelectedItem);
+                        cmd.Parameters.AddWithValue("@butt", txtbutt.Text);
+                        cmd.Parameters.AddWithValue("@man", txtman.Text);
+                        cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                        cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
+                        await cmd.ExecuteNonQueryAsync();
+                    }
+
+                    MessageBox.Show("Data Berhasil Disimpan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    setdefault();
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
+                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Gagal Simpan Data.");
+                return;
+            }
+        }
+
+        private async Task hapusdata()
+        {
+            try
+            {
+                using (var conn = await Koneksi.GetConnectionAsync())
+                {
+                    SqlCommand cmd = new SqlCommand("DELETE FROM kondisiROD WHERE no = @no", conn);
+                    cmd.Parameters.AddWithValue("@no", noprimary);
+                    await cmd.ExecuteNonQueryAsync();
+
+                    MessageBox.Show("Data berhasil dihapus.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
+                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Gagal Hapus Data.");
+                return;
             }
         }
 
@@ -345,7 +381,7 @@ namespace GOS_FxApps
             }
         }
 
-        private void btnsimpan_Click(object sender, EventArgs e)
+        private async void btnsimpan_Click(object sender, EventArgs e)
         {
             if (cmbshift.SelectedIndex == -1 || txtbutt.Text == "" || txtman.Text == "") 
             {
@@ -355,7 +391,9 @@ namespace GOS_FxApps
 
             if(btnsimpan.Text == "Simpan Data")
             {
-                simpandata();
+                btndelete.Enabled = false;
+                btnsimpan.Enabled = false;
+                await simpandata();
                 setdefault();
                 btndelete.Enabled = false;
                 btnsimpan.Enabled = false;
@@ -364,10 +402,13 @@ namespace GOS_FxApps
             }
             else if (btnsimpan.Text == "Edit Data")
             {
-                editdata();
+                btndelete.Enabled = false;
+                btnsimpan.Enabled = false;
+                await editdata();
                 setdefault();
                 btndelete.Enabled = false;
                 btnsimpan.Enabled = false;
+                btnbatal.Visible = false;
                 noprimary = 0;
                 date.Enabled = true;
                 cmbshift.Enabled = true;
@@ -375,27 +416,23 @@ namespace GOS_FxApps
 
         }
 
-        private void formbuttman_Load(object sender, EventArgs e)
+        private async void formbuttman_Load(object sender, EventArgs e)
         {
-            SqlDependency.Start(Koneksi.GetConnectionString());
-            tampil();
+            MainForm.DataChanged += OnDatabaseChanged;
+
+            await HitungTotalData();
+            await tampil();
             date.Value = DateTime.Now.Date;
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
-            registertampil();
         }
 
-        private void btncari_Click(object sender, EventArgs e)
+        private async void btncari_Click(object sender, EventArgs e)
         {
             if (!infocari)
             {
-                bool hasilCari = cari();
-                if (hasilCari)
-                {
-                    infocari = true;
-                    btncari.Text = "Reset";
-                }
-                else
+                bool hasil = await cari();
+                if (hasil)
                 {
                     infocari = true;
                     btncari.Text = "Reset";
@@ -411,9 +448,9 @@ namespace GOS_FxApps
 
                 btncari.Text = "Cari";
 
-                HitungTotalData();
+                await HitungTotalData();
                 currentPage = 1;
-                tampil();
+                await tampil();
             }
         }
 
@@ -469,15 +506,18 @@ namespace GOS_FxApps
             noprimary = 0;
         }
 
-        private void btndelete_Click(object sender, EventArgs e)
+        private async void btndelete_Click(object sender, EventArgs e)
         {
             if (btndelete.Text == "Hapus Data")
             {
-                hapusdata();
-                setdefault();
                 btnsimpan.Text = "Simpan Data";
                 btnsimpan.Enabled = false;
                 btndelete.Text = "Batal";
+                btndelete.Enabled = false;
+                btnbatal.Visible = false;
+                await hapusdata();
+                setdefault();
+                btnsimpan.Enabled = false;
                 btndelete.Enabled = false;
                 btnbatal.Visible = false;
                 date.Enabled = true;
@@ -500,24 +540,24 @@ namespace GOS_FxApps
 
         private void formbuttman_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SqlDependency.Stop(Koneksi.GetConnectionString());
+            MainForm.DataChanged -= OnDatabaseChanged;
         }
 
-        private void btnleft_Click(object sender, EventArgs e)
+        private async void btnleft_Click(object sender, EventArgs e)
         {
             if (currentPage > 1)
             {
                 currentPage--;
-                tampil();
+                await tampil();
             }
         }
 
-        private void btnright_Click(object sender, EventArgs e)
+        private async void btnright_Click(object sender, EventArgs e)
         {
             if (currentPage < totalPages)
             {
                 currentPage++;
-                tampil();
+                await tampil();
             }
         }
     }

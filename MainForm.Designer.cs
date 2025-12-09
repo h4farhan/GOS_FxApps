@@ -1235,7 +1235,7 @@ namespace GOS_FxApps
             this.lblalert.Name = "lblalert";
             this.lblalert.Size = new System.Drawing.Size(199, 41);
             this.lblalert.TabIndex = 9;
-            this.lblalert.Text = "Mode manual aktif";
+            this.lblalert.Text = "Mode Manual Aktif";
             this.lblalert.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblalert.Visible = false;
             // 
@@ -1277,7 +1277,7 @@ namespace GOS_FxApps
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "RodRepair Integration Suite (RRIS)";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);

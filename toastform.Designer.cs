@@ -1,6 +1,6 @@
 ﻿namespace GOS_FxApps
 {
-    partial class FormLoading
+    partial class toastform
     {
         /// <summary>
         /// Required designer variable.
@@ -28,33 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.shadowform = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.SuspendLayout();
             // 
-            // shadowform
-            // 
-            this.shadowform.BorderRadius = 15;
-            this.shadowform.ContainerControl = this;
-            this.shadowform.DockIndicatorTransparencyValue = 0.6D;
-            this.shadowform.TransparentWhileDrag = true;
-            // 
-            // FormLoading
+            // toastform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Silver;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormLoading";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormLoading";
+            this.Name = "toastform";
+            this.Text = "toastform";
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2BorderlessForm shadowform;
     }
 }

@@ -132,7 +132,7 @@ namespace GOS_FxApps
             this.lblhari.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.lblhari.Size = new System.Drawing.Size(271, 57);
             this.lblhari.TabIndex = 5;
-            this.lblhari.Text = "Perputaran ROD 30 Hari";
+            this.lblhari.Text = "-";
             this.lblhari.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnaturjam
@@ -243,12 +243,12 @@ namespace GOS_FxApps
             this.guna2Panel2.Controls.Add(this.label5);
             this.guna2Panel2.Controls.Add(this.label9);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel2.FillColor = System.Drawing.Color.White;
             this.guna2Panel2.Location = new System.Drawing.Point(17, 185);
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(378, 426);
             this.guna2Panel2.TabIndex = 1;
-            this.guna2Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
             // 
             // guna2Panel3
             // 
@@ -803,6 +803,7 @@ namespace GOS_FxApps
             this.guna2Panel1.Controls.Add(this.label4);
             this.guna2Panel1.Controls.Add(this.txtnomorrod);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel1.FillColor = System.Drawing.Color.White;
             this.guna2Panel1.Location = new System.Drawing.Point(17, 2);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel1.Name = "guna2Panel1";
@@ -970,6 +971,7 @@ namespace GOS_FxApps
             this.btnsimpan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnsimpan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnsimpan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnsimpan.Enabled = false;
             this.btnsimpan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnsimpan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnsimpan.ForeColor = System.Drawing.Color.White;
@@ -1084,9 +1086,9 @@ namespace GOS_FxApps
             this.lblhalaman.Location = new System.Drawing.Point(14, 26);
             this.lblhalaman.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblhalaman.Name = "lblhalaman";
-            this.lblhalaman.Size = new System.Drawing.Size(100, 15);
+            this.lblhalaman.Size = new System.Drawing.Size(12, 15);
             this.lblhalaman.TabIndex = 64;
-            this.lblhalaman.Text = "Halaman 1 dari 2";
+            this.lblhalaman.Text = "-";
             this.lblhalaman.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnleft

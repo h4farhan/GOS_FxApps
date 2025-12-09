@@ -87,7 +87,7 @@
         </Field>
         <Field Name="ba">
           <DataField>ba</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ba1">
           <DataField>ba1</DataField>
@@ -124,7 +124,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>PerbaikanForm</rd:DataSetName>
-        <rd:SchemaPath>E:\GitHub\GOS_FxApps\DataSet\PerbaikanForm.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\muham\OneDrive\ドキュメント\List Pekerjaan Nain Selama Di TII\All Project GOS Apps\GitHub\GOS_FxApps\DataSet\PerbaikanForm.xsd</rd:SchemaPath>
         <rd:TableName>sp_Laporan_Harian</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -262,7 +262,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!nomor_urut.Value</Value>
+                                  <Value>=IIF(Fields!nomor_rod.Value = "Total",Nothing,RunningValue(IIF(Fields!nomor_rod.Value = "Total", 0, 1), Sum, Nothing))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1531,7 +1531,16 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total", Fields!ba.Value, 0))</Value>
+                                  <Value>=Sum(
+    IIf(
+        Fields!nomor_rod.Value &lt;&gt; "Total" 
+        AND Not IsNothing(Fields!ba.Value) 
+        AND Trim(Fields!ba.Value) &lt;&gt; "" 
+        AND LCase(Trim(Fields!ba.Value)) &lt;&gt; "chk",
+        Val(Fields!ba.Value),
+        0
+    )
+)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1557,6 +1566,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1568,7 +1578,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!ba1.Value)</Value>
+                                  <Value>=Sum(IIf(Fields!nomor_rod.Value &lt;&gt; "Total", Fields!ba1.Value, 0))</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>

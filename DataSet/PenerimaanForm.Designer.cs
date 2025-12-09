@@ -7036,17 +7036,18 @@ Data AS (
 )
 SELECT 
     s.Shift,
-    ISNULL(SUM(CASE WHEN d.jenis_mapped = 'E'  THEN 1 ELSE 0 END), 0) AS E,
-    ISNULL(SUM(CASE WHEN d.jenis_mapped = 'S'  THEN 1 ELSE 0 END), 0) AS S,
-    ISNULL(SUM(CASE WHEN d.jenis_mapped = 'D'  THEN 1 ELSE 0 END), 0) AS D,
-    ISNULL(SUM(CASE WHEN d.jenis_mapped = 'B'  THEN 1 ELSE 0 END), 0) AS B,
-    ISNULL(SUM(CASE WHEN d.jenis_mapped = 'BA' THEN 1 ELSE 0 END), 0) AS BA,
-    ISNULL(SUM(CASE WHEN d.jenis_mapped = 'CR' THEN 1 ELSE 0 END), 0) AS CR,
-    ISNULL(SUM(CASE WHEN d.jenis_mapped = 'M'  THEN 1 ELSE 0 END), 0) AS M,
-    ISNULL(SUM(CASE WHEN d.jenis_mapped = 'R'  THEN 1 ELSE 0 END), 0) AS R,
-    ISNULL(SUM(CASE WHEN d.jenis_mapped = 'C'  THEN 1 ELSE 0 END), 0) AS C,
-    ISNULL(SUM(CASE WHEN d.jenis_mapped = 'RL' THEN 1 ELSE 0 END), 0) AS RL,
-    ISNULL(COUNT(d.jenis_mapped),0) AS Total
+    NULLIF(SUM(CASE WHEN d.jenis_mapped = 'E'  THEN 1 ELSE 0 END), 0) AS E,
+    NULLIF(SUM(CASE WHEN d.jenis_mapped = 'S'  THEN 1 ELSE 0 END), 0) AS S,
+    NULLIF(SUM(CASE WHEN d.jenis_mapped = 'D'  THEN 1 ELSE 0 END), 0) AS D,
+    NULLIF(SUM(CASE WHEN d.jenis_mapped = 'B'  THEN 1 ELSE 0 END), 0) AS B,
+    NULLIF(SUM(CASE WHEN d.jenis_mapped = 'BA' THEN 1 ELSE 0 END), 0) AS BA,
+    NULLIF(SUM(CASE WHEN d.jenis_mapped = 'CR' THEN 1 ELSE 0 END), 0) AS CR,
+    NULLIF(SUM(CASE WHEN d.jenis_mapped = 'M'  THEN 1 ELSE 0 END), 0) AS M,
+    NULLIF(SUM(CASE WHEN d.jenis_mapped = 'R'  THEN 1 ELSE 0 END), 0) AS R,
+    NULLIF(SUM(CASE WHEN d.jenis_mapped = 'C'  THEN 1 ELSE 0 END), 0) AS C,
+    NULLIF(SUM(CASE WHEN d.jenis_mapped = 'RL' THEN 1 ELSE 0 END), 0) AS RL,
+
+    NULLIF(COUNT(d.jenis_mapped), 0) AS Total
 FROM Shifts s
 LEFT JOIN Data d ON s.Shift = d.Shift
 GROUP BY s.Shift
@@ -8855,38 +8856,43 @@ WHERE no = @no";
 )
 SELECT 
     s.Shift,
-    ISNULL(SUM(p.[e1]),0) AS e1,
-    ISNULL(SUM(p.[e2]),0) AS e2,
-    ISNULL(SUM(p.[e3]),0) AS e3,
 
-    SUM(CASE WHEN p.[s]  > 0 THEN 1 ELSE 0 END) AS s,   
-    ISNULL(SUM(p.[d]),0)  AS d,
-    ISNULL(SUM(p.[b]),0)  AS b,
-    ISNULL(SUM(p.[ba]),0) AS ba,
-    SUM(CASE WHEN p.[cr] > 0 THEN 1 ELSE 0 END) AS cr,  
-    ISNULL(SUM(p.[m]),0)  AS m,
-    ISNULL(SUM(p.[r]),0)  AS r,
-    SUM(CASE WHEN p.[c]  > 0 THEN 1 ELSE 0 END) AS c,  
-    ISNULL(SUM(p.[rl]),0) AS rl,
+    NULLIF(SUM(p.[e1]),0) AS e1,
+    NULLIF(SUM(p.[e2]),0) AS e2,
+    NULLIF(SUM(p.[e3]),0) AS e3,
 
-	  ISNULL(SUM(p.[e1]),0) 
-  + ISNULL(SUM(p.[e2]),0) 
-  + ISNULL(SUM(p.[e3]),0) 
-  + SUM(CASE WHEN p.[s]  > 0 THEN 1 ELSE 0 END)
-  + ISNULL(SUM(p.[d]),0) 
-  + ISNULL(SUM(p.[b]),0) 
-  + ISNULL(SUM(p.[ba]),0) 
-  + SUM(CASE WHEN p.[cr] > 0 THEN 1 ELSE 0 END)
-  + ISNULL(SUM(p.[m]),0) 
-  + ISNULL(SUM(p.[r]),0) 
-  + SUM(CASE WHEN p.[c]  > 0 THEN 1 ELSE 0 END)
-  + ISNULL(SUM(p.[rl]),0) AS total 
+    NULLIF(SUM(CASE WHEN p.[s]  > 0 THEN 1 ELSE 0 END),0) AS s,
+    NULLIF(SUM(p.[d]),0)  AS d,
+    NULLIF(SUM(p.[b]),0)  AS b,
+    NULLIF(SUM(p.[ba]),0) AS ba,
+    NULLIF(SUM(CASE WHEN p.[cr] > 0 THEN 1 ELSE 0 END),0) AS cr,
+    NULLIF(SUM(p.[m]),0)  AS m,
+    NULLIF(SUM(p.[r]),0)  AS r,
+    NULLIF(SUM(CASE WHEN p.[c]  > 0 THEN 1 ELSE 0 END),0) AS c,
+    NULLIF(SUM(p.[rl]),0) AS rl,
+
+    NULLIF(
+          ISNULL(SUM(p.[e1]),0) 
+        + ISNULL(SUM(p.[e2]),0) 
+        + ISNULL(SUM(p.[e3]),0) 
+        + SUM(CASE WHEN p.[s]  > 0 THEN 1 ELSE 0 END)
+        + ISNULL(SUM(p.[d]),0) 
+        + ISNULL(SUM(p.[b]),0) 
+        + ISNULL(SUM(p.[ba]),0) 
+        + SUM(CASE WHEN p.[cr] > 0 THEN 1 ELSE 0 END)
+        + ISNULL(SUM(p.[m]),0) 
+        + ISNULL(SUM(p.[r]),0) 
+        + SUM(CASE WHEN p.[c]  > 0 THEN 1 ELSE 0 END)
+        + ISNULL(SUM(p.[rl]),0),
+    0) AS total
+
 FROM Shifts s
 LEFT JOIN penerimaan_p p 
     ON s.Shift = p.Shift 
    AND p.tanggal_penerimaan BETWEEN @tanggal1 AND @tanggal2
 GROUP BY s.Shift
-ORDER BY s.Shift;";
+ORDER BY s.Shift;
+";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal1", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_penerimaan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal2", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_penerimaan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -9100,28 +9106,29 @@ ORDER BY s.Shift;";
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "WITH Shifts AS (\r\n    SELECT 1 AS Shift\r\n    UNION ALL\r\n    SELECT 2\r\n    UNION A" +
-                "LL\r\n    SELECT 3\r\n)\r\nSELECT \r\n    s.Shift,\r\n    ISNULL(SUM(p.[e1_ers]),0) AS e1_" +
-                "ers,\r\n\tISNULL(SUM(p.[e1_est]),0) AS e1_est,\r\n\tISNULL(SUM(p.[e1_jumlah]),0) AS e1" +
-                "_jumlah,\r\n    ISNULL(SUM(p.[e2_ers]),0) AS e2_ers,\r\n\tISNULL(SUM(p.[e2_cst]),0) A" +
-                "S e2_cst,\r\n\tISNULL(SUM(p.[e2_cstub]),0) AS e2_cstub,\r\n\tISNULL(SUM(p.[e2_jumlah])" +
-                ",0) AS e2_jumlah,\r\n    ISNULL(SUM(p.[e3]),0) AS e3,\r\n\tISNULL(SUM(p.[e4]),0) AS e" +
-                "4,\r\n\r\n    SUM(CASE WHEN p.[s]  > 0 THEN 1 ELSE 0 END) AS s,   \r\n    ISNULL(SUM(p" +
-                ".[d]),0)  AS d,\r\n    ISNULL(SUM(p.[b]),0)  AS b,\r\n    ISNULL(SUM(p.[nba]),0) AS " +
-                "nba,\r\n\tISNULL(SUM(p.[ba1]),0) AS ba1,\r\n    SUM(CASE WHEN p.[cr] > 0 THEN 1 ELSE " +
-                "0 END) AS cr,  \r\n    ISNULL(SUM(p.[m]),0)  AS m,\r\n    ISNULL(SUM(p.[r]),0)  AS r" +
-                ",\r\n    SUM(CASE WHEN p.[c]  > 0 THEN 1 ELSE 0 END) AS c,  \r\n    ISNULL(SUM(p.[rl" +
-                "]),0) AS rl,\r\n\t(\r\nISNULL(SUM(p.[e1_ers]),0) +\r\n        ISNULL(SUM(p.[e1_est]),0)" +
-                " +\r\n        ISNULL(SUM(p.[e1_jumlah]),0) +\r\nISNULL(SUM(p.[e2_ers]),0) +\r\n       " +
-                " ISNULL(SUM(p.[e2_cst]),0) +\r\n        ISNULL(SUM(p.[e2_cstub]),0) +\r\n        ISN" +
-                "ULL(SUM(p.[e2_jumlah]),0) +\r\n        ISNULL(SUM(p.[e3]),0) +\r\n        ISNULL(SUM" +
-                "(p.[e4]),0) +\r\n        SUM(CASE WHEN p.[s]  > 0 THEN 1 ELSE 0 END) +\r\n        IS" +
-                "NULL(SUM(p.[d]),0) +\r\n        ISNULL(SUM(p.[b]),0) +\r\n        ISNULL(SUM(p.[nba]" +
-                "),0) +\r\n        ISNULL(SUM(p.[ba1]),0) +\r\n        SUM(CASE WHEN p.[cr] > 0 THEN " +
-                "1 ELSE 0 END) +\r\n        ISNULL(SUM(p.[m]),0) +\r\n        ISNULL(SUM(p.[r]),0) +\r" +
-                "\n        SUM(CASE WHEN p.[c]  > 0 THEN 1 ELSE 0 END) +\r\n        ISNULL(SUM(p.[rl" +
-                "]),0)\r\n    ) AS total\r\nFROM Shifts s\r\nLEFT JOIN perbaikan_p p \r\n    ON s.Shift =" +
-                " p.Shift \r\n   AND p.tanggal_perbaikan BETWEEN @tanggal1 AND @tanggal2\r\nGROUP BY " +
-                "s.Shift\r\nORDER BY s.Shift;\r\n";
+                "LL\r\n    SELECT 3\r\n)\r\nSELECT \r\n    s.Shift,\r\n\r\n    NULLIF(SUM(p.[e1_ers]),0)     " +
+                "AS e1_ers,\r\n    NULLIF(SUM(p.[e1_est]),0)     AS e1_est,\r\n    NULLIF(SUM(p.[e1_j" +
+                "umlah]),0)  AS e1_jumlah,\r\n\r\n    NULLIF(SUM(p.[e2_ers]),0)     AS e2_ers,\r\n    N" +
+                "ULLIF(SUM(p.[e2_cst]),0)     AS e2_cst,\r\n    NULLIF(SUM(p.[e2_cstub]),0)   AS e2" +
+                "_cstub,\r\n    NULLIF(SUM(p.[e2_jumlah]),0)  AS e2_jumlah,\r\n\r\n    NULLIF(SUM(p.[e3" +
+                "]),0)         AS e3,\r\n    NULLIF(SUM(p.[e4]),0)         AS e4,\r\n\r\n    NULLIF(SUM" +
+                "(CASE WHEN p.[s] > 0 THEN 1 ELSE 0 END),0) AS s,\r\n    NULLIF(SUM(p.[d]),0)      " +
+                "    AS d,\r\n    NULLIF(SUM(p.[b]),0)          AS b,\r\n\r\n    NULLIF(SUM(p.[nba]),0)" +
+                "        AS nba,\r\n    NULLIF(SUM(p.[ba1]),0)        AS ba1,\r\n\r\n    NULLIF(SUM(CAS" +
+                "E WHEN p.[cr] > 0 THEN 1 ELSE 0 END),0) AS cr,\r\n    NULLIF(SUM(p.[m]),0)        " +
+                "  AS m,\r\n    NULLIF(SUM(p.[r]),0)          AS r,\r\n    NULLIF(SUM(CASE WHEN p.[c]" +
+                " > 0 THEN 1 ELSE 0 END),0) AS c,\r\n    NULLIF(SUM(p.[rl]),0)         AS rl,\r\n\r\n  " +
+                "  NULLIF(\r\n        (\r\n            SUM(p.[e1_ers]) +\r\n            SUM(p.[e1_est])" +
+                " +\r\n            SUM(p.[e1_jumlah]) +\r\n            SUM(p.[e2_ers]) +\r\n           " +
+                " SUM(p.[e2_cst]) +\r\n            SUM(p.[e2_cstub]) +\r\n            SUM(p.[e2_jumla" +
+                "h]) +\r\n            SUM(p.[e3]) +\r\n            SUM(p.[e4]) +\r\n            SUM(CAS" +
+                "E WHEN p.[s] > 0 THEN 1 ELSE 0 END) +\r\n            SUM(p.[d]) +\r\n            SUM" +
+                "(p.[b]) +\r\n            SUM(p.[nba]) +\r\n            SUM(p.[ba1]) +\r\n            S" +
+                "UM(CASE WHEN p.[cr] > 0 THEN 1 ELSE 0 END) +\r\n            SUM(p.[m]) +\r\n        " +
+                "    SUM(p.[r]) +\r\n            SUM(CASE WHEN p.[c] > 0 THEN 1 ELSE 0 END) +\r\n    " +
+                "        SUM(p.[rl])\r\n        ), 0\r\n    ) AS total\r\n\r\nFROM Shifts s\r\nLEFT JOIN pe" +
+                "rbaikan_p p \r\n       ON s.Shift = p.Shift \r\n      AND p.tanggal_perbaikan BETWEE" +
+                "N @tanggal1 AND @tanggal2\r\nGROUP BY s.Shift\r\nORDER BY s.Shift;\r\n";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal1", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal2", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

@@ -13,8 +13,6 @@ namespace GOS_FxApps
 {
     public partial class setperputaran_rod : Form
     {
-        SqlConnection conn = Koneksi.GetConnection();
-
         public setperputaran_rod()
         {
             InitializeComponent();
@@ -36,88 +34,88 @@ namespace GOS_FxApps
             }
         }
 
-        private void tampil()
+        private async void setperputaran_rod_Load(object sender, EventArgs e)
+        {
+            MainForm.DataChanged += OnDatabaseChanged;
+            await TampilAsync();
+        }
+
+        private async Task OnDatabaseChanged(string table)
         {
             try
             {
-                string query = "SELECT hari FROM perputaran_rod"; 
+                if (table == "perputaran_rod")
+                {
+                    await TampilAsync();
+                }
+            }
+            catch
+            {                
+            }
+        }
 
-                using (SqlDataAdapter ad = new SqlDataAdapter(query, conn))
+        private async Task TampilAsync()
+        {
+            try
+            {
+                string query = "SELECT hari FROM perputaran_rod";
+
+                using (var conn = await Koneksi.GetConnectionAsync())
+                using (var ad = new SqlDataAdapter(query, conn))
                 {
                     DataTable dt = new DataTable();
                     ad.Fill(dt);
 
-                    if (dt.Rows.Count > 0) 
-                    {
-                        string hari = dt.Rows[0]["hari"].ToString();
-                        lblhari.Text = hari + " Hari";
-                    }
-                    else
-                    {
-                        lblhari.Text = "Data tidak ditemukan";
-                    }
+                    lblhari.Text = dt.Rows.Count > 0
+                        ? dt.Rows[0]["hari"].ToString() + " Hari"
+                        : "Data tidak ditemukan";
                 }
             }
-            catch (SqlException)
+            catch
             {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
-        private void editdata()
+        private async Task EditDataAsync()
         {
             try
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE perputaran_rod SET hari = @hari, updated_at = GETDATE() WHERE id = 1", conn);
-                cmd.Parameters.AddWithValue("@hari", txthari.Text);
-                cmd.ExecuteNonQuery();
+                if (!int.TryParse(txthari.Text, out int jumlahHari))
+                {
+                    MessageBox.Show("Jumlah Hari harus berupa angka",
+                                    "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (jumlahHari <= 0)
+                {
+                    MessageBox.Show("Jumlah Hari Tidak Boleh 0",
+                                    "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                using (var conn = await Koneksi.GetConnectionAsync())
+                using (var cmd = new SqlCommand("UPDATE perputaran_rod SET hari = @hari, updated_at = GETDATE() WHERE id = 1", conn))
+                {
+                    cmd.Parameters.AddWithValue("@hari", jumlahHari);
+                    await cmd.ExecuteNonQueryAsync();
+                }
 
                 MessageBox.Show("Data berhasil diperbarui.", "Sukses",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                tampil();
+
                 txthari.Clear();
             }
-            catch (SqlException)
+            catch
             {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally 
-            { 
-                conn.Close();
-            }
-
-        }
-
-        private void setperputaran_rod_Load(object sender, EventArgs e)
-        {
-            tampil();
-        }
-
-        private void btnedit_Click(object sender, EventArgs e)
-        {
-            if(txthari.Text == "")
-            {
-                MessageBox.Show("Jumlah Hari Tidak Boleh Kosong",
-                               "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            else
-            {
-                editdata();
-            }
+        }
+
+        private async void btnedit_Click(object sender, EventArgs e)
+        {
+            await EditDataAsync();
         }
     }
 }

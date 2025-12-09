@@ -24,7 +24,7 @@ namespace GOS_FxApps
             login = this;
         }
 
-        private void btnlogin_Click_1(object sender, EventArgs e)
+        private async void btnlogin_Click_1(object sender, EventArgs e)
         {
             if (txtid.Text == "" || txtpw.Text == "")
             {
@@ -34,71 +34,66 @@ namespace GOS_FxApps
             {
                 try
                 {
-                    using (SqlConnection conn = Koneksi.GetConnection())
+                    using (var conn = await Koneksi.GetConnectionAsync())
                     {
-                        conn.Open();
                         SqlCommand cmd = new SqlCommand("SELECT * FROM users WHERE id = @id AND password = @pw", conn);
                         cmd.Parameters.AddWithValue("@id", txtid.Text);
                         cmd.Parameters.AddWithValue("@pw", txtpw.Text);
-                        SqlDataReader dr = cmd.ExecuteReader();
-
-                        if (dr.Read())
+                        using (SqlDataReader dr = await cmd.ExecuteReaderAsync())
                         {
-                            level = dr["lvl"].ToString();
-                            name = dr["username"].ToString();
-
-                            switch (level)
+                            if (await dr.ReadAsync())
                             {
-                                case "Developer":
-                                    MainForm.Instance.truemanajer();
-                                    break;
-                                case "Manajer":
-                                    MainForm.Instance.truemanajer();
-                                    break;
-                                case "Admin":
-                                    MainForm.Instance.trueadmin();
-                                    break;
-                                case "Operator Gudang":
-                                    MainForm.Instance.trueoperatorgudang();
-                                    break;
-                                case "Operator":
-                                    MainForm.Instance.trueoperator();
-                                    break;
-                                case "Foreman":
-                                    MainForm.Instance.trueforeman();
-                                    break;
-                                case "Asisten Foreman":
-                                    MainForm.Instance.trueforeman();
-                                    break;
-                                default:
-                                    MessageBox.Show("Level tidak dikenali!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    txtid.Clear();
-                                    txtpw.Clear();
-                                    return;
-                            }
+                                level = dr["lvl"].ToString();
+                                name = dr["username"].ToString();
 
-                            MainForm.Instance.lbluser.Text = name + " [" + level + "]";
-                            MainForm.Instance.role = level;
-                            MainForm.Instance.loginstatus = true;
-                            this.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Id Dan Password Anda Salah!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            txtid.Clear();
-                            txtpw.Clear();
+                                switch (level)
+                                {
+                                    case "Developer":
+                                        MainForm.Instance.truemanajer();
+                                        break;
+                                    case "Manajer":
+                                        MainForm.Instance.truemanajer();
+                                        break;
+                                    case "Admin":
+                                        MainForm.Instance.trueadmin();
+                                        break;
+                                    case "Operator Gudang":
+                                        MainForm.Instance.trueoperatorgudang();
+                                        break;
+                                    case "Operator":
+                                        MainForm.Instance.trueoperator();
+                                        break;
+                                    case "Foreman":
+                                        MainForm.Instance.trueforeman();
+                                        break;
+                                    case "Asisten Foreman":
+                                        MainForm.Instance.trueforeman();
+                                        break;
+                                    default:
+                                        MessageBox.Show("Level tidak dikenali!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        txtid.Clear();
+                                        txtpw.Clear();
+                                        return;
+                                }
+
+                                MainForm.Instance.lbluser.Text = name + " [" + level + "]";
+                                MainForm.Instance.role = level;
+                                MainForm.Instance.loginstatus = true;
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Id Dan Password Anda Salah!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                txtid.Clear();
+                                txtpw.Clear();
+                            }
                         }
                     }
                 }
                 catch (SqlException)
                 {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                    MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
                                         "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

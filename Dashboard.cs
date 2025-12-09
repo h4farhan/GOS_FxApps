@@ -12,13 +12,12 @@ using System.Data.SqlClient;
 using System.Drawing.Drawing2D;
 using Guna.UI2.WinForms;
 using DrawingPoint = System.Drawing.Point;
+using System.Threading;
 
 namespace GOS_FxApps
 {
     public partial class Dashboard : Form
     {
-        SqlConnection conn = Koneksi.GetConnection();
-
         public static Dashboard Instance;
 
         bool bukatutupfilter = false;
@@ -29,80 +28,85 @@ namespace GOS_FxApps
             InitializeComponent();
         }
 
-        private void LoadPanel()
+        private async Task LoadPanel()
         {
             try
             {
-                conn.Open();
-                int jumlah1 = 0;
-                int jumlah2 = 0;
-                int jumlah3 = 0;
-
-                int penerimaanshift = 0;
-                int perbaikanhift = 0;
-                int pengirimanshift = 0;
-
-                string query1 = "SELECT COUNT(*) FROM penerimaan_s";
-                using (SqlCommand cmd1 = new SqlCommand(query1, conn))
+                using (var conn = await Koneksi.GetConnectionAsync())
                 {
-                    jumlah1 = Convert.ToInt32(cmd1.ExecuteScalar());
-                    lblubrepaired.Text = jumlah1.ToString();
-                }
+                    string queryJumlah = @"
+                SELECT 
+                    (SELECT COUNT(*) FROM penerimaan_s) AS jPenerimaanS,
+                    (SELECT COUNT(*) FROM perbaikan_s) AS jPerbaikanS,
+                    (SELECT COUNT(*) FROM penerimaan_p WHERE shift = @shift AND CAST(tanggal_penerimaan AS DATE) = CAST(@tanggal AS DATE)) AS jPenerimaanShift,
+                    (SELECT COUNT(*) FROM perbaikan_p WHERE shift = @shift AND CAST(tanggal_perbaikan AS DATE) = CAST(@tanggal AS DATE)) AS jPerbaikanShift,
+                    (SELECT COUNT(*) FROM pengiriman WHERE shift = @shift AND CAST(tanggal_pengiriman AS DATE) = CAST(@tanggal AS DATE)) AS jPengirimanShift
+            ";
 
-                string query2 = "SELECT COUNT(*) FROM perbaikan_s";
-                using (SqlCommand cmd2 = new SqlCommand(query2, conn))
-                {
-                    jumlah2 = Convert.ToInt32(cmd2.ExecuteScalar());
-                    label15.Text = jumlah2.ToString();
-                }
+                    using (var cmd = new SqlCommand(queryJumlah, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@shift", MainForm.Instance.shift);
+                        cmd.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
 
-                string query3 = "SELECT COUNT(*) FROM penerimaan_p WHERE shift = @shift AND CAST(tanggal_penerimaan AS DATE) = CAST(@tanggal AS DATE)";
-                using (SqlCommand cmd3 = new SqlCommand(query3, conn))
-                {
-                    cmd3.Parameters.AddWithValue("@shift", MainForm.Instance.shift);
-                    cmd3.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
-                    penerimaanshift = Convert.ToInt32(cmd3.ExecuteScalar());
-                    lblpenerimaanshif.Text = penerimaanshift.ToString();
-                }
+                        using (var reader = await cmd.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                int jumlah1 = reader.GetInt32(reader.GetOrdinal("jPenerimaanS"));
+                                int jumlah2 = reader.GetInt32(reader.GetOrdinal("jPerbaikanS"));
+                                int jumlah3 = jumlah1 + jumlah2;
 
-                string query4 = "SELECT COUNT(*) FROM perbaikan_p WHERE shift = @shift AND CAST(tanggal_perbaikan AS DATE) = CAST(@tanggal AS DATE)";
-                using (SqlCommand cmd4 = new SqlCommand(query4, conn))
-                {
-                    cmd4.Parameters.AddWithValue("@shift", MainForm.Instance.shift);
-                    cmd4.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
-                    perbaikanhift = Convert.ToInt32(cmd4.ExecuteScalar());
-                    lblperbaikanshift.Text = perbaikanhift.ToString();
-                }
+                                int penerimaanshift = reader.GetInt32(reader.GetOrdinal("jPenerimaanShift"));
+                                int perbaikanshift = reader.GetInt32(reader.GetOrdinal("jPerbaikanShift"));
+                                int pengirimanshift = reader.GetInt32(reader.GetOrdinal("jPengirimanShift"));
 
-                string query5 = "SELECT COUNT(*) FROM pengiriman WHERE shift = @shift AND CAST(tanggal_pengiriman AS DATE) = CAST(@tanggal AS DATE)";
-                using (SqlCommand cmd5 = new SqlCommand(query5, conn))
-                {
-                    cmd5.Parameters.AddWithValue("@shift", MainForm.Instance.shift);
-                    cmd5.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
-                    pengirimanshift = Convert.ToInt32(cmd5.ExecuteScalar());
-                    lblpengirimanshift.Text = pengirimanshift.ToString();
-                }
+                                lblubrepaired.Text = jumlah1.ToString();
+                                label15.Text = jumlah2.ToString();
+                                label3.Text = jumlah3.ToString();
+                                lblpenerimaanshif.Text = penerimaanshift.ToString();
+                                lblperbaikanshift.Text = perbaikanshift.ToString();
+                                lblpengirimanshift.Text = pengirimanshift.ToString();
+                            }
+                        }
+                    }
 
-                jumlah3 = jumlah1 + jumlah2;
-                label3.Text = jumlah3.ToString();
+                    string queryTotals = @"
+                SELECT 
+                    SUM(e1) AS e1, SUM(e2) AS e2, SUM(e3) AS e3,
+                    SUM(s) AS s, SUM(d) AS d, SUM(b) AS b, SUM(ba) AS ba,
+                    SUM(r) AS r, SUM(m) AS m, SUM(cr) AS cr, SUM(c) AS c, SUM(rl) AS rl
+                FROM penerimaan_s
+            ";
+
+                    using (var cmd = new SqlCommand(queryTotals, conn))
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        if (await reader.ReadAsync())
+                        {
+                            lble1.Text = reader["e1"].ToString();
+                            lble2.Text = reader["e2"].ToString();
+                            lble3.Text = reader["e3"].ToString();
+                            lbls.Text = reader["s"].ToString();
+                            lbld.Text = reader["d"].ToString();
+                            lblb.Text = reader["b"].ToString();
+                            lblba.Text = reader["ba"].ToString();
+                            lblr.Text = reader["r"].ToString();
+                            lblm.Text = reader["m"].ToString();
+                            lblcr.Text = reader["cr"].ToString();
+                            lblc.Text = reader["c"].ToString();
+                            lblrl.Text = reader["rl"].ToString();
+                        }
+                    }
+                }
             }
-            catch (SqlException)
+            catch
             {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally 
-            { 
-                conn.Close();
+                return;
             }
         }
 
-        private void LoadchartRB()
+
+        private async Task LoadchartRB()
         {
             double rbStock = 0;
             double rbSawinge1 = 0;
@@ -116,20 +120,20 @@ namespace GOS_FxApps
 
             try
             {
-                conn.Open();
-                string query = @"
-            SELECT TOP 1 bstok, bpe1, bpe2, bbe1, bbe2, wpe1, wpe2, wbe1, wbe2, tanggal, id_stok
-            FROM Rb_Stok
-            WHERE tanggal >= @tanggal AND tanggal < DATEADD(DAY, 1, @tanggal)
-            ORDER BY id_stok DESC";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (var conn = await Koneksi.GetConnectionAsync())
+                using (SqlCommand cmd = new SqlCommand(@"
+                    SELECT TOP 1 bstok, bpe1, bpe2, bbe1, bbe2, wpe1, wpe2, wbe1, wbe2, tanggal, id_stok
+                    FROM Rb_Stok
+                    WHERE tanggal >= @tanggal AND tanggal < DATEADD(DAY, 1, @tanggal)
+                    ORDER BY id_stok DESC", conn))
                 {
+
+                    cmd.CommandTimeout = 3;
                     cmd.Parameters.AddWithValue("@tanggal", tanggalcustom1.Value.Date);
 
-                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    using (var dr = await cmd.ExecuteReaderAsync())
                     {
-                        if (dr.Read())
+                        if (await dr.ReadAsync())
                         {
                             rbStock = dr["bstok"] != DBNull.Value ? Convert.ToDouble(dr["bstok"]) : 0;
                             rbSawinge1 = dr["bpe1"] != DBNull.Value ? Convert.ToDouble(dr["bpe1"]) : 0;
@@ -144,19 +148,9 @@ namespace GOS_FxApps
                     }
                 }
             }
-            catch (SqlException)
+            catch
             {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
+                return;
             }
 
             // ===== Grafik =====
@@ -195,7 +189,7 @@ namespace GOS_FxApps
             chartUssageMaterial.Series.Add(series);
             chartUssageMaterial.Legends.Clear();
         }
-        private void LoadchartRBByMonth()
+        private async Task LoadchartRBByMonth()
         {
             double rbStock = 0, rbSawinge1 = 0, rbSawinge2 = 0,
                    rblathee1 = 0, rblathee2 = 0,
@@ -204,43 +198,44 @@ namespace GOS_FxApps
 
             try
             {
-                conn.Open();
-
-                // Ambil tanggal awal bulan dari DateTimePicker "bulan"
-                DateTime awalBulan = new DateTime(datebulan.Value.Year, datebulan.Value.Month, 1);
-
-                string query = @"
-        SELECT 
-            SUM(bstok) AS bstok,
-            SUM(bpe1) AS bpe1,
-            SUM(bpe2) AS bpe2,
-            SUM(bbe1) AS bbe1,
-            SUM(bbe2) AS bbe2,
-            SUM(wpe1) AS wpe1,
-            SUM(wpe2) AS wpe2,
-            SUM(wbe1) AS wbe1,
-            SUM(wbe2) AS wbe2
-        FROM Rb_Stok
-        WHERE tanggal >= @awalBulan 
-          AND tanggal < DATEADD(MONTH, 1, @awalBulan)";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (var conn = await Koneksi.GetConnectionAsync())
                 {
-                    cmd.Parameters.AddWithValue("@awalBulan", awalBulan);
 
-                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    DateTime awalBulan = new DateTime(datebulan.Value.Year, datebulan.Value.Month, 1);
+
+                        string query = @"
+                                SELECT 
+                                    SUM(bstok) AS bstok,
+                                    SUM(bpe1) AS bpe1,
+                                    SUM(bpe2) AS bpe2,
+                                    SUM(bbe1) AS bbe1,
+                                    SUM(bbe2) AS bbe2,
+                                    SUM(wpe1) AS wpe1,
+                                    SUM(wpe2) AS wpe2,
+                                    SUM(wbe1) AS wbe1,
+                                    SUM(wbe2) AS wbe2
+                                FROM Rb_Stok
+                                WHERE tanggal >= @awalBulan 
+                                  AND tanggal < DATEADD(MONTH, 1, @awalBulan)";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        if (dr.Read())
+                        cmd.Parameters.AddWithValue("@awalBulan", awalBulan);
+
+                        using (SqlDataReader dr = await cmd.ExecuteReaderAsync())
                         {
-                            rbStock = dr["bstok"] != DBNull.Value ? Convert.ToDouble(dr["bstok"]) : 0;
-                            rbSawinge1 = dr["bpe1"] != DBNull.Value ? Convert.ToDouble(dr["bpe1"]) : 0;
-                            rbSawinge2 = dr["bpe2"] != DBNull.Value ? Convert.ToDouble(dr["bpe2"]) : 0;
-                            rblathee1 = dr["bbe1"] != DBNull.Value ? Convert.ToDouble(dr["bbe1"]) : 0;
-                            rblathee2 = dr["bbe2"] != DBNull.Value ? Convert.ToDouble(dr["bbe2"]) : 0;
-                            wpsawinge1 = dr["wpe1"] != DBNull.Value ? Convert.ToDouble(dr["wpe1"]) : 0;
-                            wpsawinge2 = dr["wpe2"] != DBNull.Value ? Convert.ToDouble(dr["wpe2"]) : 0;
-                            wplathee1 = dr["wbe1"] != DBNull.Value ? Convert.ToDouble(dr["wbe1"]) : 0;
-                            wplathee2 = dr["wbe2"] != DBNull.Value ? Convert.ToDouble(dr["wbe2"]) : 0;
+                            if (await dr.ReadAsync())
+                            {
+                                rbStock = dr["bstok"] != DBNull.Value ? Convert.ToDouble(dr["bstok"]) : 0;
+                                rbSawinge1 = dr["bpe1"] != DBNull.Value ? Convert.ToDouble(dr["bpe1"]) : 0;
+                                rbSawinge2 = dr["bpe2"] != DBNull.Value ? Convert.ToDouble(dr["bpe2"]) : 0;
+                                rblathee1 = dr["bbe1"] != DBNull.Value ? Convert.ToDouble(dr["bbe1"]) : 0;
+                                rblathee2 = dr["bbe2"] != DBNull.Value ? Convert.ToDouble(dr["bbe2"]) : 0;
+                                wpsawinge1 = dr["wpe1"] != DBNull.Value ? Convert.ToDouble(dr["wpe1"]) : 0;
+                                wpsawinge2 = dr["wpe2"] != DBNull.Value ? Convert.ToDouble(dr["wpe2"]) : 0;
+                                wplathee1 = dr["wbe1"] != DBNull.Value ? Convert.ToDouble(dr["wbe1"]) : 0;
+                                wplathee2 = dr["wbe2"] != DBNull.Value ? Convert.ToDouble(dr["wbe2"]) : 0;
+                            }
                         }
                     }
                 }
@@ -249,15 +244,7 @@ namespace GOS_FxApps
             {
                 MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
+                return;
             }
 
             // ===== Grafik =====
@@ -293,7 +280,7 @@ namespace GOS_FxApps
             chartUssageMaterial.Series.Add(series);
             chartUssageMaterial.Legends.Clear();
         }
-        private void LoadchartRBByYear()
+        private async Task LoadchartRBByYear()
         {
             double rbStock = 0, rbSawinge1 = 0, rbSawinge2 = 0,
                    rblathee1 = 0, rblathee2 = 0,
@@ -302,39 +289,41 @@ namespace GOS_FxApps
 
             try
             {
-                conn.Open();
+                using (var conn = await Koneksi.GetConnectionAsync())
+                { 
 
-                string query = @"
-                SELECT 
-                    SUM(bstok) AS bstok,
-                    SUM(bpe1) AS bpe1,
-                    SUM(bpe2) AS bpe2,
-                    SUM(bbe1) AS bbe1,
-                    SUM(bbe2) AS bbe2,
-                    SUM(wpe1) AS wpe1,
-                    SUM(wpe2) AS wpe2,
-                    SUM(wbe1) AS wbe1,
-                    SUM(wbe2) AS wbe2
-                FROM Rb_Stok
-                WHERE YEAR(tanggal) = @tahun";
+                    string query = @"
+                    SELECT 
+                        SUM(bstok) AS bstok,
+                        SUM(bpe1) AS bpe1,
+                        SUM(bpe2) AS bpe2,
+                        SUM(bbe1) AS bbe1,
+                        SUM(bbe2) AS bbe2,
+                        SUM(wpe1) AS wpe1,
+                        SUM(wpe2) AS wpe2,
+                        SUM(wbe1) AS wbe1,
+                        SUM(wbe2) AS wbe2
+                    FROM Rb_Stok
+                    WHERE YEAR(tanggal) = @tahun";
 
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@tahun", datebulan.Value.Year);
-
-                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        if (dr.Read())
+                        cmd.Parameters.AddWithValue("@tahun", datebulan.Value.Year);
+
+                        using (SqlDataReader dr = await cmd.ExecuteReaderAsync())
                         {
-                            rbStock = dr["bstok"] != DBNull.Value ? Convert.ToDouble(dr["bstok"]) : 0;
-                            rbSawinge1 = dr["bpe1"] != DBNull.Value ? Convert.ToDouble(dr["bpe1"]) : 0;
-                            rbSawinge2 = dr["bpe2"] != DBNull.Value ? Convert.ToDouble(dr["bpe2"]) : 0;
-                            rblathee1 = dr["bbe1"] != DBNull.Value ? Convert.ToDouble(dr["bbe1"]) : 0;
-                            rblathee2 = dr["bbe2"] != DBNull.Value ? Convert.ToDouble(dr["bbe2"]) : 0;
-                            wpsawinge1 = dr["wpe1"] != DBNull.Value ? Convert.ToDouble(dr["wpe1"]) : 0;
-                            wpsawinge2 = dr["wpe2"] != DBNull.Value ? Convert.ToDouble(dr["wpe2"]) : 0;
-                            wplathee1 = dr["wbe1"] != DBNull.Value ? Convert.ToDouble(dr["wbe1"]) : 0;
-                            wplathee2 = dr["wbe2"] != DBNull.Value ? Convert.ToDouble(dr["wbe2"]) : 0;
+                            if (await dr.ReadAsync())
+                            {
+                                rbStock = dr["bstok"] != DBNull.Value ? Convert.ToDouble(dr["bstok"]) : 0;
+                                rbSawinge1 = dr["bpe1"] != DBNull.Value ? Convert.ToDouble(dr["bpe1"]) : 0;
+                                rbSawinge2 = dr["bpe2"] != DBNull.Value ? Convert.ToDouble(dr["bpe2"]) : 0;
+                                rblathee1 = dr["bbe1"] != DBNull.Value ? Convert.ToDouble(dr["bbe1"]) : 0;
+                                rblathee2 = dr["bbe2"] != DBNull.Value ? Convert.ToDouble(dr["bbe2"]) : 0;
+                                wpsawinge1 = dr["wpe1"] != DBNull.Value ? Convert.ToDouble(dr["wpe1"]) : 0;
+                                wpsawinge2 = dr["wpe2"] != DBNull.Value ? Convert.ToDouble(dr["wpe2"]) : 0;
+                                wplathee1 = dr["wbe1"] != DBNull.Value ? Convert.ToDouble(dr["wbe1"]) : 0;
+                                wplathee2 = dr["wbe2"] != DBNull.Value ? Convert.ToDouble(dr["wbe2"]) : 0;
+                            }
                         }
                     }
                 }
@@ -343,15 +332,7 @@ namespace GOS_FxApps
             {
                 MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
+                return;
             }
 
             chartUssageMaterial.Series.Clear();
@@ -386,7 +367,7 @@ namespace GOS_FxApps
             chartUssageMaterial.Series.Add(series);
             chartUssageMaterial.Legends.Clear();
         }
-        private void LoadchartRBCustom()
+        private async Task LoadchartRBCustom()
         {
             double rbStock = 0;
             double rbSawinge1 = 0;
@@ -400,40 +381,42 @@ namespace GOS_FxApps
 
             try
             {
-                conn.Open();
-                string query = @"
-        SELECT 
-        SUM(bstok) AS bstok,
-        SUM(bpe1) AS bpe1,
-        SUM(bpe2) AS bpe2,
-        SUM(bbe1) AS bbe1,
-        SUM(bbe2) AS bbe2,
-        SUM(wpe1) AS wpe1,
-        SUM(wpe2) AS wpe2,
-        SUM(wbe1) AS wbe1,
-        SUM(wbe2) AS wbe2
-    FROM Rb_Stok
-    WHERE tanggal >= @TanggalMulai
-      AND tanggal < DATEADD(DAY, 1, @TanggalAkhir);";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (var conn = await Koneksi.GetConnectionAsync())
                 {
-                    cmd.Parameters.AddWithValue("@TanggalMulai", tanggalcustom1.Value.Date);
-                    cmd.Parameters.AddWithValue("@TanggalAkhir", tanggalcustom2.Value.Date);
+                    string query = @"
+                    SELECT 
+                    SUM(bstok) AS bstok,
+                    SUM(bpe1) AS bpe1,
+                    SUM(bpe2) AS bpe2,
+                    SUM(bbe1) AS bbe1,
+                    SUM(bbe2) AS bbe2,
+                    SUM(wpe1) AS wpe1,
+                    SUM(wpe2) AS wpe2,
+                    SUM(wbe1) AS wbe1,
+                    SUM(wbe2) AS wbe2
+                FROM Rb_Stok
+                WHERE tanggal >= @TanggalMulai
+                  AND tanggal < DATEADD(DAY, 1, @TanggalAkhir);";
 
-                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        if (dr.Read())
+                        cmd.Parameters.AddWithValue("@TanggalMulai", tanggalcustom1.Value.Date);
+                        cmd.Parameters.AddWithValue("@TanggalAkhir", tanggalcustom2.Value.Date);
+
+                        using (SqlDataReader dr = await cmd.ExecuteReaderAsync())
                         {
-                            rbStock = dr["bstok"] != DBNull.Value ? Convert.ToDouble(dr["bstok"]) : 0;
-                            rbSawinge1 = dr["bpe1"] != DBNull.Value ? Convert.ToDouble(dr["bpe1"]) : 0;
-                            rbSawinge2 = dr["bpe2"] != DBNull.Value ? Convert.ToDouble(dr["bpe2"]) : 0;
-                            rblathee1 = dr["bbe1"] != DBNull.Value ? Convert.ToDouble(dr["bbe1"]) : 0;
-                            rblathee2 = dr["bbe2"] != DBNull.Value ? Convert.ToDouble(dr["bbe2"]) : 0;
-                            wpsawinge1 = dr["wpe1"] != DBNull.Value ? Convert.ToDouble(dr["wpe1"]) : 0;
-                            wpsawinge2 = dr["wpe2"] != DBNull.Value ? Convert.ToDouble(dr["wpe2"]) : 0;
-                            wplathee1 = dr["wbe1"] != DBNull.Value ? Convert.ToDouble(dr["wbe1"]) : 0;
-                            wplathee2 = dr["wbe2"] != DBNull.Value ? Convert.ToDouble(dr["wbe2"]) : 0;
+                            if ( await dr.ReadAsync())
+                            {
+                                rbStock = dr["bstok"] != DBNull.Value ? Convert.ToDouble(dr["bstok"]) : 0;
+                                rbSawinge1 = dr["bpe1"] != DBNull.Value ? Convert.ToDouble(dr["bpe1"]) : 0;
+                                rbSawinge2 = dr["bpe2"] != DBNull.Value ? Convert.ToDouble(dr["bpe2"]) : 0;
+                                rblathee1 = dr["bbe1"] != DBNull.Value ? Convert.ToDouble(dr["bbe1"]) : 0;
+                                rblathee2 = dr["bbe2"] != DBNull.Value ? Convert.ToDouble(dr["bbe2"]) : 0;
+                                wpsawinge1 = dr["wpe1"] != DBNull.Value ? Convert.ToDouble(dr["wpe1"]) : 0;
+                                wpsawinge2 = dr["wpe2"] != DBNull.Value ? Convert.ToDouble(dr["wpe2"]) : 0;
+                                wplathee1 = dr["wbe1"] != DBNull.Value ? Convert.ToDouble(dr["wbe1"]) : 0;
+                                wplathee2 = dr["wbe2"] != DBNull.Value ? Convert.ToDouble(dr["wbe2"]) : 0;
+                            }
                         }
                     }
                 }
@@ -442,15 +425,7 @@ namespace GOS_FxApps
             {
                 MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
                                     "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
+                return;
             }
 
             // ===== Grafik =====
@@ -491,42 +466,41 @@ namespace GOS_FxApps
             chartUssageMaterial.Legends.Clear();
         }
 
-        private void LoadChartPenerimaanHarian()
+        private async Task LoadChartPenerimaanHarian()
         {
-            using (SqlConnection conn = Koneksi.GetConnection())
-            {
-                double totalE1 = 0, totalE2 = 0, totalE3 = 0,
-                       totalS = 0, totalD = 0, totalB = 0,
-                       totalBA = 0, totalCR = 0, totalM = 0,
-                       totalR = 0, totalC = 0, totalRL = 0;
+            double totalE1 = 0, totalE2 = 0, totalE3 = 0,
+                   totalS = 0, totalD = 0, totalB = 0,
+                   totalBA = 0, totalCR = 0, totalM = 0,
+                   totalR = 0, totalC = 0, totalRL = 0;
 
-                try
+            try
+            {
+                using (var conn = await Koneksi.GetConnectionAsync())
                 {
-                    conn.Open();
                     string query = @"
-                SELECT
-                    SUM(e1) AS TotalE1,
-                    SUM(e2) AS TotalE2,
-                    SUM(e3) AS TotalE3,
-                    SUM(s)  AS TotalS,
-                    SUM(d)  AS TotalD,
-                    SUM(b)  AS TotalB,
-                    SUM(ba) AS TotalBA,
-                    SUM(cr) AS TotalCR,
-                    SUM(m)  AS TotalM,
-                    SUM(r)  AS TotalR,
-                    SUM(c)  AS TotalC,
-                    SUM(rl) AS TotalRL
-                FROM penerimaan_p
-                WHERE CAST(tanggal_penerimaan AS DATE) = @tanggal";
+                        SELECT
+                            SUM(e1) AS TotalE1,
+                            SUM(e2) AS TotalE2,
+                            SUM(e3) AS TotalE3,
+                            SUM(s)  AS TotalS,
+                            SUM(d)  AS TotalD,
+                            SUM(b)  AS TotalB,
+                            SUM(ba) AS TotalBA,
+                            SUM(cr) AS TotalCR,
+                            SUM(m)  AS TotalM,
+                            SUM(r)  AS TotalR,
+                            SUM(c)  AS TotalC,
+                            SUM(rl) AS TotalRL
+                        FROM penerimaan_p
+                        WHERE CAST(tanggal_penerimaan AS DATE) = @tanggal";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@tanggal", tanggalcustom1.Value.Date);
 
-                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        using (SqlDataReader dr = await cmd.ExecuteReaderAsync())
                         {
-                            if (dr.Read())
+                            if (await dr.ReadAsync())
                             {
                                 totalE1 = dr["TotalE1"] != DBNull.Value ? Convert.ToDouble(dr["TotalE1"]) : 0;
                                 totalE2 = dr["TotalE2"] != DBNull.Value ? Convert.ToDouble(dr["TotalE2"]) : 0;
@@ -544,90 +518,88 @@ namespace GOS_FxApps
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan: " + ex.Message,
-                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-
-                // ===== Refresh Chart =====
-                chartUssageMaterial.Series.Clear();
-                chartUssageMaterial.ChartAreas.Clear();
-
-                ChartArea area = new ChartArea("MainArea");
-                area.AxisX.Interval = 1;
-                area.AxisY.Minimum = 0;
-                area.AxisX.MajorGrid.LineWidth = 0;
-                area.AxisY.MajorGrid.LineWidth = 0;
-                chartUssageMaterial.ChartAreas.Add(area);
-
-                Series series = new Series("Jumlah Penerimaan Harian")
-                {
-                    ChartType = SeriesChartType.Column,
-                    IsXValueIndexed = true,
-                    IsValueShownAsLabel = true,
-                    LabelForeColor = Color.Black
-                };
-
-                series.Points.AddXY("E1", totalE1);
-                series.Points.AddXY("E2", totalE2);
-                series.Points.AddXY("E3", totalE3);
-                series.Points.AddXY("S", totalS);
-                series.Points.AddXY("D", totalD);
-                series.Points.AddXY("B", totalB);
-                series.Points.AddXY("BA", totalBA);
-                series.Points.AddXY("CR", totalCR);
-                series.Points.AddXY("M", totalM);
-                series.Points.AddXY("R", totalR);
-                series.Points.AddXY("C", totalC);
-                series.Points.AddXY("RL", totalRL);
-
-                chartUssageMaterial.Series.Add(series);
-                chartUssageMaterial.Legends.Clear();
             }
-        }
-        private void LoadChartPenerimaanBulanan()
-        {
-            using (SqlConnection conn = Koneksi.GetConnection())
+            catch (SqlException)
             {
-                double totalE1 = 0, totalE2 = 0, totalE3 = 0,
-                       totalS = 0, totalD = 0, totalB = 0,
-                       totalBA = 0, totalCR = 0, totalM = 0,
-                       totalR = 0, totalC = 0, totalRL = 0;
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-                try
+            // ===== Refresh Chart =====
+            chartUssageMaterial.Series.Clear();
+            chartUssageMaterial.ChartAreas.Clear();
+
+            ChartArea area = new ChartArea("MainArea");
+            area.AxisX.Interval = 1;
+            area.AxisY.Minimum = 0;
+            area.AxisX.MajorGrid.LineWidth = 0;
+            area.AxisY.MajorGrid.LineWidth = 0;
+            chartUssageMaterial.ChartAreas.Add(area);
+
+            Series series = new Series("Jumlah Penerimaan Harian")
+            {
+                ChartType = SeriesChartType.Column,
+                IsXValueIndexed = true,
+                IsValueShownAsLabel = true,
+                LabelForeColor = Color.Black
+            };
+
+            series.Points.AddXY("E1", totalE1);
+            series.Points.AddXY("E2", totalE2);
+            series.Points.AddXY("E3", totalE3);
+            series.Points.AddXY("S", totalS);
+            series.Points.AddXY("D", totalD);
+            series.Points.AddXY("B", totalB);
+            series.Points.AddXY("BA", totalBA);
+            series.Points.AddXY("CR", totalCR);
+            series.Points.AddXY("M", totalM);
+            series.Points.AddXY("R", totalR);
+            series.Points.AddXY("C", totalC);
+            series.Points.AddXY("RL", totalRL);
+
+            chartUssageMaterial.Series.Add(series);
+            chartUssageMaterial.Legends.Clear();
+
+        }
+        private async Task LoadChartPenerimaanBulanan()
+        {
+
+            double totalE1 = 0, totalE2 = 0, totalE3 = 0,
+                   totalS = 0, totalD = 0, totalB = 0,
+                   totalBA = 0, totalCR = 0, totalM = 0,
+                   totalR = 0, totalC = 0, totalRL = 0;
+
+            try
+            {
+                using (var conn = await Koneksi.GetConnectionAsync())
                 {
-                    conn.Open();
                     string query = @"
-                SELECT
-                    SUM(e1) AS TotalE1,
-                    SUM(e2) AS TotalE2,
-                    SUM(e3) AS TotalE3,
-                    SUM(s)  AS TotalS,
-                    SUM(d)  AS TotalD,
-                    SUM(b)  AS TotalB,
-                    SUM(ba) AS TotalBA,
-                    SUM(cr) AS TotalCR,
-                    SUM(m)  AS TotalM,
-                    SUM(r)  AS TotalR,
-                    SUM(c)  AS TotalC,
-                    SUM(rl) AS TotalRL
-                FROM penerimaan_p
-                WHERE MONTH(tanggal_penerimaan) = @bulan
-                  AND YEAR(tanggal_penerimaan) = @tahun";
+                    SELECT
+                        SUM(e1) AS TotalE1,
+                        SUM(e2) AS TotalE2,
+                        SUM(e3) AS TotalE3,
+                        SUM(s)  AS TotalS,
+                        SUM(d)  AS TotalD,
+                        SUM(b)  AS TotalB,
+                        SUM(ba) AS TotalBA,
+                        SUM(cr) AS TotalCR,
+                        SUM(m)  AS TotalM,
+                        SUM(r)  AS TotalR,
+                        SUM(c)  AS TotalC,
+                        SUM(rl) AS TotalRL
+                    FROM penerimaan_p
+                    WHERE MONTH(tanggal_penerimaan) = @bulan
+                      AND YEAR(tanggal_penerimaan) = @tahun";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@bulan", datebulan.Value.Month);
                         cmd.Parameters.AddWithValue("@tahun", datebulan.Value.Year);
 
-                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        using (SqlDataReader dr = await cmd.ExecuteReaderAsync())
                         {
-                            if (dr.Read())
+                            if (await dr.ReadAsync())
                             {
                                 totalE1 = dr["TotalE1"] != DBNull.Value ? Convert.ToDouble(dr["TotalE1"]) : 0;
                                 totalE2 = dr["TotalE2"] != DBNull.Value ? Convert.ToDouble(dr["TotalE2"]) : 0;
@@ -645,56 +617,53 @@ namespace GOS_FxApps
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan: " + ex.Message,
-                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-
-                // ===== Refresh Chart =====
-                chartUssageMaterial.Series.Clear();
-                chartUssageMaterial.ChartAreas.Clear();
-
-                ChartArea area = new ChartArea("MainArea");
-                area.AxisX.Interval = 1;
-                area.AxisY.Minimum = 0;
-                area.AxisX.MajorGrid.LineWidth = 0;
-                area.AxisY.MajorGrid.LineWidth = 0;
-                chartUssageMaterial.ChartAreas.Add(area);
-
-                Series series = new Series("Jumlah Penerimaan Bulanan")
-                {
-                    ChartType = SeriesChartType.Column,
-                    IsXValueIndexed = true,
-                    IsValueShownAsLabel = true,
-                    LabelForeColor = Color.Black
-                };
-
-                series.Points.AddXY("E1", totalE1);
-                series.Points.AddXY("E2", totalE2);
-                series.Points.AddXY("E3", totalE3);
-                series.Points.AddXY("S", totalS);
-                series.Points.AddXY("D", totalD);
-                series.Points.AddXY("B", totalB);
-                series.Points.AddXY("BA", totalBA);
-                series.Points.AddXY("CR", totalCR);
-                series.Points.AddXY("M", totalM);
-                series.Points.AddXY("R", totalR);
-                series.Points.AddXY("C", totalC);
-                series.Points.AddXY("RL", totalRL);
-
-                chartUssageMaterial.Series.Add(series);
-                chartUssageMaterial.Legends.Clear();
             }
-        }
-        private void LoadChartPenerimaanTahunan()
-        {
-            using (SqlConnection conn = Koneksi.GetConnection())
+            catch (SqlException)
             {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // ===== Refresh Chart =====
+            chartUssageMaterial.Series.Clear();
+            chartUssageMaterial.ChartAreas.Clear();
+
+            ChartArea area = new ChartArea("MainArea");
+            area.AxisX.Interval = 1;
+            area.AxisY.Minimum = 0;
+            area.AxisX.MajorGrid.LineWidth = 0;
+            area.AxisY.MajorGrid.LineWidth = 0;
+            chartUssageMaterial.ChartAreas.Add(area);
+
+            Series series = new Series("Jumlah Penerimaan Bulanan")
+            {
+                ChartType = SeriesChartType.Column,
+                IsXValueIndexed = true,
+                IsValueShownAsLabel = true,
+                LabelForeColor = Color.Black
+            };
+
+            series.Points.AddXY("E1", totalE1);
+            series.Points.AddXY("E2", totalE2);
+            series.Points.AddXY("E3", totalE3);
+            series.Points.AddXY("S", totalS);
+            series.Points.AddXY("D", totalD);
+            series.Points.AddXY("B", totalB);
+            series.Points.AddXY("BA", totalBA);
+            series.Points.AddXY("CR", totalCR);
+            series.Points.AddXY("M", totalM);
+            series.Points.AddXY("R", totalR);
+            series.Points.AddXY("C", totalC);
+            series.Points.AddXY("RL", totalRL);
+
+            chartUssageMaterial.Series.Add(series);
+            chartUssageMaterial.Legends.Clear();
+
+        }
+        private async Task LoadChartPenerimaanTahunan()
+        {
+            
                 double totalE1 = 0, totalE2 = 0, totalE3 = 0,
                        totalS = 0, totalD = 0, totalB = 0,
                        totalBA = 0, totalCR = 0, totalM = 0,
@@ -702,60 +671,59 @@ namespace GOS_FxApps
 
                 try
                 {
-                    conn.Open();
-                    string query = @"
-                SELECT
-                    SUM(e1) AS TotalE1,
-                    SUM(e2) AS TotalE2,
-                    SUM(e3) AS TotalE3,
-                    SUM(s)  AS TotalS,
-                    SUM(d)  AS TotalD,
-                    SUM(b)  AS TotalB,
-                    SUM(ba) AS TotalBA,
-                    SUM(cr) AS TotalCR,
-                    SUM(m)  AS TotalM,
-                    SUM(r)  AS TotalR,
-                    SUM(c)  AS TotalC,
-                    SUM(rl) AS TotalRL
-                FROM penerimaan_p
-                WHERE YEAR(tanggal_penerimaan) = @tahun";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (var conn = await Koneksi.GetConnectionAsync())
                     {
-                        cmd.Parameters.AddWithValue("@tahun", datebulan.Value.Year);
+                        string query = @"
+                    SELECT
+                        SUM(e1) AS TotalE1,
+                        SUM(e2) AS TotalE2,
+                        SUM(e3) AS TotalE3,
+                        SUM(s)  AS TotalS,
+                        SUM(d)  AS TotalD,
+                        SUM(b)  AS TotalB,
+                        SUM(ba) AS TotalBA,
+                        SUM(cr) AS TotalCR,
+                        SUM(m)  AS TotalM,
+                        SUM(r)  AS TotalR,
+                        SUM(c)  AS TotalC,
+                        SUM(rl) AS TotalRL
+                    FROM penerimaan_p
+                    WHERE YEAR(tanggal_penerimaan) = @tahun";
 
-                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
                         {
-                            if (dr.Read())
+                            cmd.Parameters.AddWithValue("@tahun", datebulan.Value.Year);
+
+                            using (SqlDataReader dr = await cmd.ExecuteReaderAsync())
                             {
-                                totalE1 = dr["TotalE1"] != DBNull.Value ? Convert.ToDouble(dr["TotalE1"]) : 0;
-                                totalE2 = dr["TotalE2"] != DBNull.Value ? Convert.ToDouble(dr["TotalE2"]) : 0;
-                                totalE3 = dr["TotalE3"] != DBNull.Value ? Convert.ToDouble(dr["TotalE3"]) : 0;
-                                totalS = dr["TotalS"] != DBNull.Value ? Convert.ToDouble(dr["TotalS"]) : 0;
-                                totalD = dr["TotalD"] != DBNull.Value ? Convert.ToDouble(dr["TotalD"]) : 0;
-                                totalB = dr["TotalB"] != DBNull.Value ? Convert.ToDouble(dr["TotalB"]) : 0;
-                                totalBA = dr["TotalBA"] != DBNull.Value ? Convert.ToDouble(dr["TotalBA"]) : 0;
-                                totalCR = dr["TotalCR"] != DBNull.Value ? Convert.ToDouble(dr["TotalCR"]) : 0;
-                                totalM = dr["TotalM"] != DBNull.Value ? Convert.ToDouble(dr["TotalM"]) : 0;
-                                totalR = dr["TotalR"] != DBNull.Value ? Convert.ToDouble(dr["TotalR"]) : 0;
-                                totalC = dr["TotalC"] != DBNull.Value ? Convert.ToDouble(dr["TotalC"]) : 0;
-                                totalRL = dr["TotalRL"] != DBNull.Value ? Convert.ToDouble(dr["TotalRL"]) : 0;
+                                if (await dr.ReadAsync())
+                                {
+                                    totalE1 = dr["TotalE1"] != DBNull.Value ? Convert.ToDouble(dr["TotalE1"]) : 0;
+                                    totalE2 = dr["TotalE2"] != DBNull.Value ? Convert.ToDouble(dr["TotalE2"]) : 0;
+                                    totalE3 = dr["TotalE3"] != DBNull.Value ? Convert.ToDouble(dr["TotalE3"]) : 0;
+                                    totalS = dr["TotalS"] != DBNull.Value ? Convert.ToDouble(dr["TotalS"]) : 0;
+                                    totalD = dr["TotalD"] != DBNull.Value ? Convert.ToDouble(dr["TotalD"]) : 0;
+                                    totalB = dr["TotalB"] != DBNull.Value ? Convert.ToDouble(dr["TotalB"]) : 0;
+                                    totalBA = dr["TotalBA"] != DBNull.Value ? Convert.ToDouble(dr["TotalBA"]) : 0;
+                                    totalCR = dr["TotalCR"] != DBNull.Value ? Convert.ToDouble(dr["TotalCR"]) : 0;
+                                    totalM = dr["TotalM"] != DBNull.Value ? Convert.ToDouble(dr["TotalM"]) : 0;
+                                    totalR = dr["TotalR"] != DBNull.Value ? Convert.ToDouble(dr["TotalR"]) : 0;
+                                    totalC = dr["TotalC"] != DBNull.Value ? Convert.ToDouble(dr["TotalC"]) : 0;
+                                    totalRL = dr["TotalRL"] != DBNull.Value ? Convert.ToDouble(dr["TotalRL"]) : 0;
+                                }
                             }
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (SqlException)
                 {
-                    MessageBox.Show("Terjadi kesalahan: " + ex.Message,
-                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
+                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                     "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
-                // ===== Refresh Chart =====
-                chartUssageMaterial.Series.Clear();
+            // ===== Refresh Chart =====
+            chartUssageMaterial.Series.Clear();
                 chartUssageMaterial.ChartAreas.Clear();
 
                 ChartArea area = new ChartArea("MainArea");
@@ -788,37 +756,35 @@ namespace GOS_FxApps
 
                 chartUssageMaterial.Series.Add(series);
                 chartUssageMaterial.Legends.Clear();
-            }
         }
-        private void LoadChartPenerimaanCustom()
+        private async Task LoadChartPenerimaanCustom()
         {
-            using (SqlConnection conn = Koneksi.GetConnection())
-            {
-                double totalE1 = 0, totalE2 = 0, totalE3 = 0,
-                       totalS = 0, totalD = 0, totalB = 0,
-                       totalBA = 0, totalCR = 0, totalM = 0,
-                       totalR = 0, totalC = 0, totalRL = 0;
+            double totalE1 = 0, totalE2 = 0, totalE3 = 0,
+                   totalS = 0, totalD = 0, totalB = 0,
+                   totalBA = 0, totalCR = 0, totalM = 0,
+                   totalR = 0, totalC = 0, totalRL = 0;
 
-                try
+            try
+            {
+                using (var conn = await Koneksi.GetConnectionAsync())
                 {
-                    conn.Open();
                     string query = @"
-                SELECT
-                    SUM(e1) AS TotalE1,
-                    SUM(e2) AS TotalE2,
-                    SUM(e3) AS TotalE3,
-                    SUM(s)  AS TotalS,
-                    SUM(d)  AS TotalD,
-                    SUM(b)  AS TotalB,
-                    SUM(ba) AS TotalBA,
-                    SUM(cr) AS TotalCR,
-                    SUM(m)  AS TotalM,
-                    SUM(r)  AS TotalR,
-                    SUM(c)  AS TotalC,
-                    SUM(rl) AS TotalRL
-                FROM penerimaan_p
-                WHERE CAST(tanggal_penerimaan AS DATE) >= @TanggalMulai
-                  AND CAST(tanggal_penerimaan AS DATE) <= @TanggalAkhir";
+                            SELECT
+                                SUM(e1) AS TotalE1,
+                                SUM(e2) AS TotalE2,
+                                SUM(e3) AS TotalE3,
+                                SUM(s)  AS TotalS,
+                                SUM(d)  AS TotalD,
+                                SUM(b)  AS TotalB,
+                                SUM(ba) AS TotalBA,
+                                SUM(cr) AS TotalCR,
+                                SUM(m)  AS TotalM,
+                                SUM(r)  AS TotalR,
+                                SUM(c)  AS TotalC,
+                                SUM(rl) AS TotalRL
+                            FROM penerimaan_p
+                            WHERE CAST(tanggal_penerimaan AS DATE) >= @TanggalMulai
+                              AND CAST(tanggal_penerimaan AS DATE) <= @TanggalAkhir";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -845,92 +811,89 @@ namespace GOS_FxApps
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan: " + ex.Message,
-                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-
-                // ===== Refresh Chart =====
-                chartUssageMaterial.Series.Clear();
-                chartUssageMaterial.ChartAreas.Clear();
-
-                ChartArea area = new ChartArea("MainArea");
-                area.AxisX.Interval = 1;
-                area.AxisY.Minimum = 0;
-                area.AxisX.MajorGrid.LineWidth = 0;
-                area.AxisY.MajorGrid.LineWidth = 0;
-                chartUssageMaterial.ChartAreas.Add(area);
-
-                Series series = new Series("Jumlah Penerimaan Periode")
-                {
-                    ChartType = SeriesChartType.Column,
-                    IsXValueIndexed = true,
-                    IsValueShownAsLabel = true,
-                    LabelForeColor = Color.Black
-                };
-
-                series.Points.AddXY("E1", totalE1);
-                series.Points.AddXY("E2", totalE2);
-                series.Points.AddXY("E3", totalE3);
-                series.Points.AddXY("S", totalS);
-                series.Points.AddXY("D", totalD);
-                series.Points.AddXY("B", totalB);
-                series.Points.AddXY("BA", totalBA);
-                series.Points.AddXY("CR", totalCR);
-                series.Points.AddXY("M", totalM);
-                series.Points.AddXY("R", totalR);
-                series.Points.AddXY("C", totalC);
-                series.Points.AddXY("RL", totalRL);
-
-                chartUssageMaterial.Series.Add(series);
-                chartUssageMaterial.Legends.Clear();
             }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // ===== Refresh Chart =====
+            chartUssageMaterial.Series.Clear();
+            chartUssageMaterial.ChartAreas.Clear();
+
+            ChartArea area = new ChartArea("MainArea");
+            area.AxisX.Interval = 1;
+            area.AxisY.Minimum = 0;
+            area.AxisX.MajorGrid.LineWidth = 0;
+            area.AxisY.MajorGrid.LineWidth = 0;
+            chartUssageMaterial.ChartAreas.Add(area);
+
+            Series series = new Series("Jumlah Penerimaan Periode")
+            {
+                ChartType = SeriesChartType.Column,
+                IsXValueIndexed = true,
+                IsValueShownAsLabel = true,
+                LabelForeColor = Color.Black
+            };
+
+            series.Points.AddXY("E1", totalE1);
+            series.Points.AddXY("E2", totalE2);
+            series.Points.AddXY("E3", totalE3);
+            series.Points.AddXY("S", totalS);
+            series.Points.AddXY("D", totalD);
+            series.Points.AddXY("B", totalB);
+            series.Points.AddXY("BA", totalBA);
+            series.Points.AddXY("CR", totalCR);
+            series.Points.AddXY("M", totalM);
+            series.Points.AddXY("R", totalR);
+            series.Points.AddXY("C", totalC);
+            series.Points.AddXY("RL", totalRL);
+
+            chartUssageMaterial.Series.Add(series);
+            chartUssageMaterial.Legends.Clear();
         }
 
-        private void loadChartPerbaikanHarian()
+        private async Task loadChartPerbaikanHarian()
         {
-            using (SqlConnection conn = Koneksi.GetConnection())
-            {
-                double totalE1 = 0, totalE2 = 0, totalE3 = 0,
-                       totalS = 0, totalD = 0, totalB = 0,
-                       totalBA = 0, totalCR = 0, totalM = 0,
-                       totalR = 0, totalC = 0, totalRL = 0,
-                       totalBA1 = 0, totalE4 = 0;
 
-                try
+            double totalE1 = 0, totalE2 = 0, totalE3 = 0,
+                   totalS = 0, totalD = 0, totalB = 0,
+                   totalBA = 0, totalCR = 0, totalM = 0,
+                   totalR = 0, totalC = 0, totalRL = 0,
+                   totalBA1 = 0, totalE4 = 0;
+
+            try
+            {
+                using (var conn = await Koneksi.GetConnectionAsync())
                 {
-                    conn.Open();
                     string query = @"
-                SELECT
-                    SUM(e1_jumlah) AS TotalE1,
-                    SUM(e2_jumlah) AS TotalE2,
-                    SUM(e3) AS TotalE3,
-                    SUM(e4) AS TotalE4,
-                    SUM(s)  AS TotalS,
-                    SUM(d)  AS TotalD,
-                    SUM(b)  AS TotalB,
-                    SUM(ba) AS TotalBA,
-                    SUM(ba1) AS TotalBA1,
-                    SUM(cr) AS TotalCR,
-                    SUM(m)  AS TotalM,
-                    SUM(r)  AS TotalR,
-                    SUM(c)  AS TotalC,
-                    SUM(rl) AS TotalRL
-                FROM perbaikan_p
-                WHERE CAST(tanggal_perbaikan AS DATE) = @tanggal";
+                    SELECT
+                        SUM(e1_jumlah) AS TotalE1,
+                        SUM(e2_jumlah) AS TotalE2,
+                        SUM(e3) AS TotalE3,
+                        SUM(e4) AS TotalE4,
+                        SUM(s)  AS TotalS,
+                        SUM(d)  AS TotalD,
+                        SUM(b)  AS TotalB,
+                        SUM(ba) AS TotalBA,
+                        SUM(ba1) AS TotalBA1,
+                        SUM(cr) AS TotalCR,
+                        SUM(m)  AS TotalM,
+                        SUM(r)  AS TotalR,
+                        SUM(c)  AS TotalC,
+                        SUM(rl) AS TotalRL
+                    FROM perbaikan_p
+                    WHERE CAST(tanggal_perbaikan AS DATE) = @tanggal";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@tanggal", tanggalcustom1.Value.Date);
 
-                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        using (SqlDataReader dr = await cmd.ExecuteReaderAsync())
                         {
-                            if (dr.Read())
+                            if (await dr.ReadAsync())
                             {
                                 totalE1 = dr["TotalE1"] != DBNull.Value ? Convert.ToDouble(dr["TotalE1"]) : 0;
                                 totalE2 = dr["TotalE2"] != DBNull.Value ? Convert.ToDouble(dr["TotalE2"]) : 0;
@@ -950,67 +913,63 @@ namespace GOS_FxApps
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan: " + ex.Message,
-                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-
-                // ===== Refresh Chart =====
-                chartUssageMaterial.Series.Clear();
-                chartUssageMaterial.ChartAreas.Clear();
-
-                ChartArea area = new ChartArea("MainArea");
-                area.AxisX.Interval = 1;
-                area.AxisY.Minimum = 0;
-                area.AxisX.MajorGrid.LineWidth = 0;
-                area.AxisY.MajorGrid.LineWidth = 0;
-                chartUssageMaterial.ChartAreas.Add(area);
-
-                Series series = new Series("Jumlah Perbaikan Harian")
-                {
-                    ChartType = SeriesChartType.Column,
-                    IsXValueIndexed = true,
-                    IsValueShownAsLabel = true,
-                    LabelForeColor = Color.Black
-                };
-
-                series.Points.AddXY("E1", totalE1);
-                series.Points.AddXY("E2", totalE2);
-                series.Points.AddXY("E3", totalE3);
-                series.Points.AddXY("E4", totalE4);
-                series.Points.AddXY("S", totalS);
-                series.Points.AddXY("D", totalD);
-                series.Points.AddXY("B", totalB);
-                series.Points.AddXY("BA", totalBA);
-                series.Points.AddXY("BA1", totalBA1);
-                series.Points.AddXY("CR", totalCR);
-                series.Points.AddXY("M", totalM);
-                series.Points.AddXY("R", totalR);
-                series.Points.AddXY("C", totalC);
-                series.Points.AddXY("RL", totalRL);
-
-                chartUssageMaterial.Series.Add(series);
-                chartUssageMaterial.Legends.Clear();
             }
-        }
-        private void LoadChartPerbaikanBulanan()
-        {
-            using (SqlConnection conn = Koneksi.GetConnection())
+            catch (SqlException)
             {
-                double totalE1 = 0, totalE2 = 0, totalE3 = 0,
-                       totalS = 0, totalD = 0, totalB = 0,
-                       totalBA = 0, totalCR = 0, totalM = 0,
-                       totalR = 0, totalC = 0, totalRL = 0,
-                       totalBA1 = 0, totalE4 = 0;
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-                try
+            // ===== Refresh Chart =====
+            chartUssageMaterial.Series.Clear();
+            chartUssageMaterial.ChartAreas.Clear();
+
+            ChartArea area = new ChartArea("MainArea");
+            area.AxisX.Interval = 1;
+            area.AxisY.Minimum = 0;
+            area.AxisX.MajorGrid.LineWidth = 0;
+            area.AxisY.MajorGrid.LineWidth = 0;
+            chartUssageMaterial.ChartAreas.Add(area);
+
+            Series series = new Series("Jumlah Perbaikan Harian")
+            {
+                ChartType = SeriesChartType.Column,
+                IsXValueIndexed = true,
+                IsValueShownAsLabel = true,
+                LabelForeColor = Color.Black
+            };
+
+            series.Points.AddXY("E1", totalE1);
+            series.Points.AddXY("E2", totalE2);
+            series.Points.AddXY("E3", totalE3);
+            series.Points.AddXY("E4", totalE4);
+            series.Points.AddXY("S", totalS);
+            series.Points.AddXY("D", totalD);
+            series.Points.AddXY("B", totalB);
+            series.Points.AddXY("BA", totalBA);
+            series.Points.AddXY("BA1", totalBA1);
+            series.Points.AddXY("CR", totalCR);
+            series.Points.AddXY("M", totalM);
+            series.Points.AddXY("R", totalR);
+            series.Points.AddXY("C", totalC);
+            series.Points.AddXY("RL", totalRL);
+
+            chartUssageMaterial.Series.Add(series);
+            chartUssageMaterial.Legends.Clear();
+        }
+        private async Task LoadChartPerbaikanBulanan()
+        {
+            double totalE1 = 0, totalE2 = 0, totalE3 = 0,
+                   totalS = 0, totalD = 0, totalB = 0,
+                   totalBA = 0, totalCR = 0, totalM = 0,
+                   totalR = 0, totalC = 0, totalRL = 0,
+                   totalBA1 = 0, totalE4 = 0;
+
+            try
+            {
+                using (var conn = await Koneksi.GetConnectionAsync())
                 {
-                    conn.Open();
                     string query = @"
                 SELECT
                     SUM(e1_jumlah) AS TotalE1,
@@ -1035,9 +994,9 @@ namespace GOS_FxApps
                         cmd.Parameters.AddWithValue("@bulan", datebulan.Value.Month);
                         cmd.Parameters.AddWithValue("@tahun", datebulan.Value.Year);
 
-                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        using (SqlDataReader dr = await cmd.ExecuteReaderAsync())
                         {
-                            if (dr.Read())
+                            if (await dr.ReadAsync())
                             {
                                 totalE1 = dr["TotalE1"] != DBNull.Value ? Convert.ToDouble(dr["TotalE1"]) : 0;
                                 totalE2 = dr["TotalE2"] != DBNull.Value ? Convert.ToDouble(dr["TotalE2"]) : 0;
@@ -1057,95 +1016,91 @@ namespace GOS_FxApps
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan: " + ex.Message,
-                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-
-                // ===== Refresh Chart =====
-                chartUssageMaterial.Series.Clear();
-                chartUssageMaterial.ChartAreas.Clear();
-
-                ChartArea area = new ChartArea("MainArea");
-                area.AxisX.Interval = 1;
-                area.AxisY.Minimum = 0;
-                area.AxisX.MajorGrid.LineWidth = 0;
-                area.AxisY.MajorGrid.LineWidth = 0;
-
-                area.AxisX.MinorGrid.LineWidth = 0;
-                area.AxisY.MinorGrid.LineWidth = 0;
-                chartUssageMaterial.ChartAreas.Add(area);
-
-                Series series = new Series("Jumlah Perbaikan Bulanan")
-                {
-                    ChartType = SeriesChartType.Column,
-                    IsXValueIndexed = true,
-                    IsValueShownAsLabel = true
-                };
-
-                series.Points.AddXY("E1", totalE1);
-                series.Points.AddXY("E2", totalE2);
-                series.Points.AddXY("E3", totalE3);
-                series.Points.AddXY("E4", totalE4);
-                series.Points.AddXY("S", totalS);
-                series.Points.AddXY("D", totalD);
-                series.Points.AddXY("B", totalB);
-                series.Points.AddXY("BA", totalBA);
-                series.Points.AddXY("BA1", totalBA1);
-                series.Points.AddXY("CR", totalCR);
-                series.Points.AddXY("M", totalM);
-                series.Points.AddXY("R", totalR);
-                series.Points.AddXY("C", totalC);
-                series.Points.AddXY("RL", totalRL);
-
-                chartUssageMaterial.Series.Add(series);
-                chartUssageMaterial.Legends.Clear();
             }
-        }
-        private void LoadChartPerbaikanTahunan()
-        {
-            using (SqlConnection conn = Koneksi.GetConnection())
+            catch (SqlException)
             {
-                double totalE1 = 0, totalE2 = 0, totalE3 = 0,
-                       totalS = 0, totalD = 0, totalB = 0,
-                       totalBA = 0, totalCR = 0, totalM = 0,
-                       totalR = 0, totalC = 0, totalRL = 0,
-                       totalBA1 = 0, totalE4 = 0;
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-                try
+            // ===== Refresh Chart =====
+            chartUssageMaterial.Series.Clear();
+            chartUssageMaterial.ChartAreas.Clear();
+
+            ChartArea area = new ChartArea("MainArea");
+            area.AxisX.Interval = 1;
+            area.AxisY.Minimum = 0;
+            area.AxisX.MajorGrid.LineWidth = 0;
+            area.AxisY.MajorGrid.LineWidth = 0;
+
+            area.AxisX.MinorGrid.LineWidth = 0;
+            area.AxisY.MinorGrid.LineWidth = 0;
+            chartUssageMaterial.ChartAreas.Add(area);
+
+            Series series = new Series("Jumlah Perbaikan Bulanan")
+            {
+                ChartType = SeriesChartType.Column,
+                IsXValueIndexed = true,
+                IsValueShownAsLabel = true
+            };
+
+            series.Points.AddXY("E1", totalE1);
+            series.Points.AddXY("E2", totalE2);
+            series.Points.AddXY("E3", totalE3);
+            series.Points.AddXY("E4", totalE4);
+            series.Points.AddXY("S", totalS);
+            series.Points.AddXY("D", totalD);
+            series.Points.AddXY("B", totalB);
+            series.Points.AddXY("BA", totalBA);
+            series.Points.AddXY("BA1", totalBA1);
+            series.Points.AddXY("CR", totalCR);
+            series.Points.AddXY("M", totalM);
+            series.Points.AddXY("R", totalR);
+            series.Points.AddXY("C", totalC);
+            series.Points.AddXY("RL", totalRL);
+
+            chartUssageMaterial.Series.Add(series);
+            chartUssageMaterial.Legends.Clear();
+        }
+        private async Task LoadChartPerbaikanTahunan()
+        {
+            double totalE1 = 0, totalE2 = 0, totalE3 = 0,
+                   totalS = 0, totalD = 0, totalB = 0,
+                   totalBA = 0, totalCR = 0, totalM = 0,
+                   totalR = 0, totalC = 0, totalRL = 0,
+                   totalBA1 = 0, totalE4 = 0;
+
+            try
+            {
+                using (var conn = await Koneksi.GetConnectionAsync())
                 {
-                    conn.Open();
                     string query = @"
-                SELECT
-                    SUM(e1_jumlah) AS TotalE1,
-                    SUM(e2_jumlah) AS TotalE2,
-                    SUM(e3) AS TotalE3,
-                    SUM(e4) AS TotalE4,
-                    SUM(s)  AS TotalS,
-                    SUM(d)  AS TotalD,
-                    SUM(b)  AS TotalB,
-                    SUM(ba) AS TotalBA,
-                    SUM(ba1) AS TotalBA1,
-                    SUM(cr) AS TotalCR,
-                    SUM(m)  AS TotalM,
-                    SUM(r)  AS TotalR,
-                    SUM(c)  AS TotalC,
-                    SUM(rl) AS TotalRL
-                FROM perbaikan_p
-                WHERE YEAR(tanggal_perbaikan) = @tahun";
+                    SELECT
+                        SUM(e1_jumlah) AS TotalE1,
+                        SUM(e2_jumlah) AS TotalE2,
+                        SUM(e3) AS TotalE3,
+                        SUM(e4) AS TotalE4,
+                        SUM(s)  AS TotalS,
+                        SUM(d)  AS TotalD,
+                        SUM(b)  AS TotalB,
+                        SUM(ba) AS TotalBA,
+                        SUM(ba1) AS TotalBA1,
+                        SUM(cr) AS TotalCR,
+                        SUM(m)  AS TotalM,
+                        SUM(r)  AS TotalR,
+                        SUM(c)  AS TotalC,
+                        SUM(rl) AS TotalRL
+                    FROM perbaikan_p
+                    WHERE YEAR(tanggal_perbaikan) = @tahun";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@tahun", datebulan.Value.Year);
 
-                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        using (SqlDataReader dr = await cmd.ExecuteReaderAsync())
                         {
-                            if (dr.Read())
+                            if (await dr.ReadAsync())
                             {
                                 totalE1 = dr["TotalE1"] != DBNull.Value ? Convert.ToDouble(dr["TotalE1"]) : 0;
                                 totalE2 = dr["TotalE2"] != DBNull.Value ? Convert.ToDouble(dr["TotalE2"]) : 0;
@@ -1165,97 +1120,93 @@ namespace GOS_FxApps
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan: " + ex.Message,
-                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-
-                // ===== Refresh Chart =====
-                chartUssageMaterial.Series.Clear();
-                chartUssageMaterial.ChartAreas.Clear();
-
-                ChartArea area = new ChartArea("MainArea");
-                area.AxisX.Interval = 1;
-                area.AxisY.Minimum = 0;
-                area.AxisX.MajorGrid.LineWidth = 0;
-                area.AxisY.MajorGrid.LineWidth = 0;
-
-                area.AxisX.MinorGrid.LineWidth = 0;
-                area.AxisY.MinorGrid.LineWidth = 0;
-                chartUssageMaterial.ChartAreas.Add(area);
-
-                Series series = new Series("Jumlah Perbaikan Tahunan")
-                {
-                    ChartType = SeriesChartType.Column,
-                    IsXValueIndexed = true,
-                    IsValueShownAsLabel = true
-                };
-
-                series.Points.AddXY("E1", totalE1);
-                series.Points.AddXY("E2", totalE2);
-                series.Points.AddXY("E3", totalE3);
-                series.Points.AddXY("E4", totalE4);
-                series.Points.AddXY("S", totalS);
-                series.Points.AddXY("D", totalD);
-                series.Points.AddXY("B", totalB);
-                series.Points.AddXY("BA", totalBA);
-                series.Points.AddXY("BA1", totalBA1);
-                series.Points.AddXY("CR", totalCR);
-                series.Points.AddXY("M", totalM);
-                series.Points.AddXY("R", totalR);
-                series.Points.AddXY("C", totalC);
-                series.Points.AddXY("RL", totalRL);
-
-                chartUssageMaterial.Series.Add(series);
-                chartUssageMaterial.Legends.Clear();
             }
-        }
-        private void LoadChartPerbaikanCustom()
-        {
-            using (SqlConnection conn = Koneksi.GetConnection())
+            catch (SqlException)
             {
-                double totalE1 = 0, totalE2 = 0, totalE3 = 0,
-                       totalE4 = 0, totalS = 0, totalD = 0,
-                       totalB = 0, totalBA = 0, totalBA1 = 0,
-                       totalCR = 0, totalM = 0, totalR = 0,
-                       totalC = 0, totalRL = 0;
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-                try
+            // ===== Refresh Chart =====
+            chartUssageMaterial.Series.Clear();
+            chartUssageMaterial.ChartAreas.Clear();
+
+            ChartArea area = new ChartArea("MainArea");
+            area.AxisX.Interval = 1;
+            area.AxisY.Minimum = 0;
+            area.AxisX.MajorGrid.LineWidth = 0;
+            area.AxisY.MajorGrid.LineWidth = 0;
+
+            area.AxisX.MinorGrid.LineWidth = 0;
+            area.AxisY.MinorGrid.LineWidth = 0;
+            chartUssageMaterial.ChartAreas.Add(area);
+
+            Series series = new Series("Jumlah Perbaikan Tahunan")
+            {
+                ChartType = SeriesChartType.Column,
+                IsXValueIndexed = true,
+                IsValueShownAsLabel = true
+            };
+
+            series.Points.AddXY("E1", totalE1);
+            series.Points.AddXY("E2", totalE2);
+            series.Points.AddXY("E3", totalE3);
+            series.Points.AddXY("E4", totalE4);
+            series.Points.AddXY("S", totalS);
+            series.Points.AddXY("D", totalD);
+            series.Points.AddXY("B", totalB);
+            series.Points.AddXY("BA", totalBA);
+            series.Points.AddXY("BA1", totalBA1);
+            series.Points.AddXY("CR", totalCR);
+            series.Points.AddXY("M", totalM);
+            series.Points.AddXY("R", totalR);
+            series.Points.AddXY("C", totalC);
+            series.Points.AddXY("RL", totalRL);
+
+            chartUssageMaterial.Series.Add(series);
+            chartUssageMaterial.Legends.Clear();
+        }
+        private async Task LoadChartPerbaikanCustom()
+        {
+            double totalE1 = 0, totalE2 = 0, totalE3 = 0,
+                   totalE4 = 0, totalS = 0, totalD = 0,
+                   totalB = 0, totalBA = 0, totalBA1 = 0,
+                   totalCR = 0, totalM = 0, totalR = 0,
+                   totalC = 0, totalRL = 0;
+
+            try
+            {
+                using (var conn = await Koneksi.GetConnectionAsync())
                 {
-                    conn.Open();
                     string query = @"
-                SELECT
-                    SUM(e1_jumlah) AS TotalE1,
-                    SUM(e2_jumlah) AS TotalE2,
-                    SUM(e3) AS TotalE3,
-                    SUM(e4) AS TotalE4,
-                    SUM(s)  AS TotalS,
-                    SUM(d)  AS TotalD,
-                    SUM(b)  AS TotalB,
-                    SUM(ba) AS TotalBA,
-                    SUM(ba1) AS TotalBA1,
-                    SUM(cr) AS TotalCR,
-                    SUM(m)  AS TotalM,
-                    SUM(r)  AS TotalR,
-                    SUM(c)  AS TotalC,
-                    SUM(rl) AS TotalRL
-                FROM perbaikan_p
-                WHERE CAST(tanggal_perbaikan AS DATE) >= @TanggalMulai
-                  AND CAST(tanggal_perbaikan AS DATE) <= @TanggalAkhir";
+                    SELECT
+                        SUM(e1_jumlah) AS TotalE1,
+                        SUM(e2_jumlah) AS TotalE2,
+                        SUM(e3) AS TotalE3,
+                        SUM(e4) AS TotalE4,
+                        SUM(s)  AS TotalS,
+                        SUM(d)  AS TotalD,
+                        SUM(b)  AS TotalB,
+                        SUM(ba) AS TotalBA,
+                        SUM(ba1) AS TotalBA1,
+                        SUM(cr) AS TotalCR,
+                        SUM(m)  AS TotalM,
+                        SUM(r)  AS TotalR,
+                        SUM(c)  AS TotalC,
+                        SUM(rl) AS TotalRL
+                    FROM perbaikan_p
+                    WHERE CAST(tanggal_perbaikan AS DATE) >= @TanggalMulai
+                      AND CAST(tanggal_perbaikan AS DATE) <= @TanggalAkhir";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@TanggalMulai", tanggalcustom1.Value.Date);
                         cmd.Parameters.AddWithValue("@TanggalAkhir", tanggalcustom2.Value.Date);
 
-                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        using (SqlDataReader dr = await cmd.ExecuteReaderAsync())
                         {
-                            if (dr.Read())
+                            if (await dr.ReadAsync())
                             {
                                 totalE1 = dr["TotalE1"] != DBNull.Value ? Convert.ToDouble(dr["TotalE1"]) : 0;
                                 totalE2 = dr["TotalE2"] != DBNull.Value ? Convert.ToDouble(dr["TotalE2"]) : 0;
@@ -1275,61 +1226,58 @@ namespace GOS_FxApps
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi kesalahan: " + ex.Message,
-                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-
-                // ===== Refresh Chart =====
-                chartUssageMaterial.Series.Clear();
-                chartUssageMaterial.ChartAreas.Clear();
-
-                ChartArea area = new ChartArea("MainArea");
-                area.AxisX.Interval = 1;
-                area.AxisY.Minimum = 0;
-                area.AxisX.MajorGrid.LineWidth = 0;
-                area.AxisY.MajorGrid.LineWidth = 0;
-                chartUssageMaterial.ChartAreas.Add(area);
-
-                Series series = new Series("Jumlah Perbaikan Periode")
-                {
-                    ChartType = SeriesChartType.Column,
-                    IsXValueIndexed = true,
-                    IsValueShownAsLabel = true,
-                    LabelForeColor = Color.Black
-                };
-
-                series.Points.AddXY("E1", totalE1);
-                series.Points.AddXY("E2", totalE2);
-                series.Points.AddXY("E3", totalE3);
-                series.Points.AddXY("E4", totalE4);
-                series.Points.AddXY("S", totalS);
-                series.Points.AddXY("D", totalD);
-                series.Points.AddXY("B", totalB);
-                series.Points.AddXY("BA", totalBA);
-                series.Points.AddXY("BA1", totalBA1);
-                series.Points.AddXY("CR", totalCR);
-                series.Points.AddXY("M", totalM);
-                series.Points.AddXY("R", totalR);
-                series.Points.AddXY("C", totalC);
-                series.Points.AddXY("RL", totalRL);
-
-                chartUssageMaterial.Series.Add(series);
-                chartUssageMaterial.Legends.Clear();
             }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // ===== Refresh Chart =====
+            chartUssageMaterial.Series.Clear();
+            chartUssageMaterial.ChartAreas.Clear();
+
+            ChartArea area = new ChartArea("MainArea");
+            area.AxisX.Interval = 1;
+            area.AxisY.Minimum = 0;
+            area.AxisX.MajorGrid.LineWidth = 0;
+            area.AxisY.MajorGrid.LineWidth = 0;
+            chartUssageMaterial.ChartAreas.Add(area);
+
+            Series series = new Series("Jumlah Perbaikan Periode")
+            {
+                ChartType = SeriesChartType.Column,
+                IsXValueIndexed = true,
+                IsValueShownAsLabel = true,
+                LabelForeColor = Color.Black
+            };
+
+            series.Points.AddXY("E1", totalE1);
+            series.Points.AddXY("E2", totalE2);
+            series.Points.AddXY("E3", totalE3);
+            series.Points.AddXY("E4", totalE4);
+            series.Points.AddXY("S", totalS);
+            series.Points.AddXY("D", totalD);
+            series.Points.AddXY("B", totalB);
+            series.Points.AddXY("BA", totalBA);
+            series.Points.AddXY("BA1", totalBA1);
+            series.Points.AddXY("CR", totalCR);
+            series.Points.AddXY("M", totalM);
+            series.Points.AddXY("R", totalR);
+            series.Points.AddXY("C", totalC);
+            series.Points.AddXY("RL", totalRL);
+
+            chartUssageMaterial.Series.Add(series);
+            chartUssageMaterial.Legends.Clear();
         }
 
-        private void LoadChartMaterialCostHarian()
+        private async Task LoadChartMaterialCostHarian()
         {
             try
             {
                 DataTable dt = new DataTable();
-                using (SqlConnection conn = Koneksi.GetConnection())
+                using (SqlConnection conn = await Koneksi.GetConnectionAsync())
                 {
                     using (SqlCommand cmd = new SqlCommand("sp_chartmaterialcostharian", conn))
                     {
@@ -1338,8 +1286,10 @@ namespace GOS_FxApps
                         cmd.Parameters.AddWithValue("@Bulan", tanggalcustom1.Value.Month);
                         cmd.Parameters.AddWithValue("@Tahun", tanggalcustom1.Value.Year);
 
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        da.Fill(dt);
+                        using (var reader = await cmd.ExecuteReaderAsync())
+                        {
+                            dt.Load(reader); 
+                        }
                     }
                 }
 
@@ -1393,17 +1343,19 @@ namespace GOS_FxApps
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-                MessageBox.Show("Error load chart harian: " + ex.Message);
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
-        private void LoadChartMaterialCostBulan()
+        private async Task LoadChartMaterialCostBulan()
         {
             try
             {
                 DataTable dt = new DataTable();
-                using (SqlConnection conn = Koneksi.GetConnection())
+                using (SqlConnection conn = await Koneksi.GetConnectionAsync())
                 {
                     using (SqlCommand cmd = new SqlCommand("sp_chartmaterialcostbulan", conn))
                     {
@@ -1411,8 +1363,10 @@ namespace GOS_FxApps
                         cmd.Parameters.AddWithValue("@Bulan", datebulan.Value.Month);
                         cmd.Parameters.AddWithValue("@Tahun", datebulan.Value.Year);
 
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        da.Fill(dt);
+                        using (var reader = await cmd.ExecuteReaderAsync())
+                        {
+                            dt.Load(reader);
+                        }
                     }
                 }
 
@@ -1457,25 +1411,29 @@ namespace GOS_FxApps
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-                MessageBox.Show("Error load chart: " + ex.Message);
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
-        private void LoadChartMaterialCostTahun()
+        private async Task LoadChartMaterialCostTahun()
         {
             try
             {
                 DataTable dt = new DataTable();
-                using (SqlConnection conn = Koneksi.GetConnection())
+                using (SqlConnection conn = await Koneksi.GetConnectionAsync())
                 {
                     using (SqlCommand cmd = new SqlCommand("sp_chartmaterialcosttahun", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@Tahun", datebulan.Value.Year);
 
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        da.Fill(dt);
+                        using (var reader = await cmd.ExecuteReaderAsync())
+                        {
+                            dt.Load(reader);
+                        }
                     }
                 }
 
@@ -1520,25 +1478,29 @@ namespace GOS_FxApps
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-                MessageBox.Show("Error load chart tahunan: " + ex.Message);
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
-        private void LoadChartmaterialCostCustom()
+        private async Task LoadChartmaterialCostCustom()
         {
             try
             {
                 DataTable dt = new DataTable();
-                using (SqlConnection conn = Koneksi.GetConnection())
+                using (SqlConnection conn = await Koneksi.GetConnectionAsync())
                 {
                     using (SqlCommand cmd = new SqlCommand("sp_chartmaterialcostcustom", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@TanggalMulai", tanggalcustom1.Value.Date);
                         cmd.Parameters.AddWithValue("@TanggalAkhir", tanggalcustom2.Value.Date);
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        da.Fill(dt);
+                        using (var reader = await cmd.ExecuteReaderAsync())
+                        {
+                            dt.Load(reader);
+                        }
                     }
                 }
 
@@ -1583,18 +1545,20 @@ namespace GOS_FxApps
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-                MessageBox.Show("Error load chart tahunan: " + ex.Message);
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
-        private void LoadChartConsumableCostHarian()
+        private async Task LoadChartConsumableCostHarian()
         {
             try
             {
                 DataTable dt = new DataTable();
-                using (SqlConnection conn = Koneksi.GetConnection())
+                using (SqlConnection conn = await Koneksi.GetConnectionAsync())
                 {
                     using (SqlCommand cmd = new SqlCommand("sp_chartconsumablecostharian", conn))
                     {
@@ -1603,8 +1567,10 @@ namespace GOS_FxApps
                         cmd.Parameters.AddWithValue("@Bulan", tanggalcustom1.Value.Month);
                         cmd.Parameters.AddWithValue("@Tahun", tanggalcustom1.Value.Year);
 
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        da.Fill(dt);
+                        using (var reader = await cmd.ExecuteReaderAsync())
+                        {
+                            dt.Load(reader);
+                        }
                     }
                 }
 
@@ -1649,17 +1615,19 @@ namespace GOS_FxApps
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-                MessageBox.Show("Error load chart harian: " + ex.Message);
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
-        private void LoadChartConsumableCostBulan()
+        private async Task LoadChartConsumableCostBulan()
         {
             try
             {
                 DataTable dt = new DataTable();
-                using (SqlConnection conn = Koneksi.GetConnection())
+                using (SqlConnection conn = await Koneksi.GetConnectionAsync())
                 {
                     using (SqlCommand cmd = new SqlCommand("sp_chartconsumablecostbulan", conn))
                     {
@@ -1667,8 +1635,10 @@ namespace GOS_FxApps
                         cmd.Parameters.AddWithValue("@Bulan", datebulan.Value.Month);
                         cmd.Parameters.AddWithValue("@Tahun", datebulan.Value.Year);
 
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        da.Fill(dt);
+                        using (var reader = await cmd.ExecuteReaderAsync())
+                        {
+                            dt.Load(reader);
+                        }
                     }
                 }
 
@@ -1713,25 +1683,29 @@ namespace GOS_FxApps
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-                MessageBox.Show("Error load chart: " + ex.Message);
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
-        private void LoadChartConsumableCostTahun()
+        private async Task LoadChartConsumableCostTahun()
         {
             try
             {
                 DataTable dt = new DataTable();
-                using (SqlConnection conn = Koneksi.GetConnection())
+                using (SqlConnection conn = await Koneksi.GetConnectionAsync())
                 {
                     using (SqlCommand cmd = new SqlCommand("sp_chartconsumablecosttahun", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@Tahun", datebulan.Value.Year);
 
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        da.Fill(dt);
+                        using (var reader = await cmd.ExecuteReaderAsync())
+                        {
+                            dt.Load(reader);
+                        }
                     }
                 }
 
@@ -1776,25 +1750,30 @@ namespace GOS_FxApps
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-                MessageBox.Show("Error load chart tahunan: " + ex.Message);
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
-        private void LoadChartConsumableCostCustom()
+        private async Task LoadChartConsumableCostCustom()
         {
             try
             {
                 DataTable dt = new DataTable();
-                using (SqlConnection conn = Koneksi.GetConnection())
+                using (SqlConnection conn = await Koneksi.GetConnectionAsync())
                 {
                     using (SqlCommand cmd = new SqlCommand("sp_chartconsumablecostcustom", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@TanggalMulai", tanggalcustom1.Value.Date);
                         cmd.Parameters.AddWithValue("@TanggalAkhir", tanggalcustom2.Value.Date);
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        da.Fill(dt);
+
+                        using (var reader = await cmd.ExecuteReaderAsync())
+                        {
+                            dt.Load(reader);
+                        }
                     }
                 }
 
@@ -1839,18 +1818,20 @@ namespace GOS_FxApps
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-                MessageBox.Show("Error load chart tahunan: " + ex.Message);
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
-        private void LoadChartSafetyCostHarian()
+        private async Task LoadChartSafetyCostHarian()
         {
             try
             {
                 DataTable dt = new DataTable();
-                using (SqlConnection conn = Koneksi.GetConnection())
+                using (SqlConnection conn = await Koneksi.GetConnectionAsync())
                 {
                     using (SqlCommand cmd = new SqlCommand("sp_chartsafetycostharian", conn))
                     {
@@ -1859,8 +1840,10 @@ namespace GOS_FxApps
                         cmd.Parameters.AddWithValue("@Bulan", tanggalcustom1.Value.Month);
                         cmd.Parameters.AddWithValue("@Tahun", tanggalcustom1.Value.Year);
 
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        da.Fill(dt);
+                        using (var reader = await cmd.ExecuteReaderAsync())
+                        {
+                            dt.Load(reader);
+                        }
                     }
                 }
 
@@ -1905,17 +1888,19 @@ namespace GOS_FxApps
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-                MessageBox.Show("Error load chart harian: " + ex.Message);
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
-        private void LoadChartSafetyCostBulan()
+        private async Task LoadChartSafetyCostBulan()
         {
             try
             {
                 DataTable dt = new DataTable();
-                using (SqlConnection conn = Koneksi.GetConnection())
+                using (SqlConnection conn = await Koneksi.GetConnectionAsync())
                 {
                     using (SqlCommand cmd = new SqlCommand("sp_chartsafetycostbulan", conn))
                     {
@@ -1923,8 +1908,10 @@ namespace GOS_FxApps
                         cmd.Parameters.AddWithValue("@Bulan", datebulan.Value.Month);
                         cmd.Parameters.AddWithValue("@Tahun", datebulan.Value.Year);
 
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        da.Fill(dt);
+                        using (var reader = await cmd.ExecuteReaderAsync())
+                        {
+                            dt.Load(reader);
+                        }
                     }
                 }
 
@@ -1969,25 +1956,29 @@ namespace GOS_FxApps
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-                MessageBox.Show("Error load chart: " + ex.Message);
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
-        private void LoadChartSafetyCostTahun()
+        private async Task LoadChartSafetyCostTahun()
         {
             try
             {
                 DataTable dt = new DataTable();
-                using (SqlConnection conn = Koneksi.GetConnection())
+                using (SqlConnection conn = await Koneksi.GetConnectionAsync())
                 {
                     using (SqlCommand cmd = new SqlCommand("sp_chartsafetycosttahun", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@Tahun", datebulan.Value.Year);
 
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        da.Fill(dt);
+                        using (var reader = await cmd.ExecuteReaderAsync())
+                        {
+                            dt.Load(reader);
+                        }
                     }
                 }
 
@@ -2032,25 +2023,29 @@ namespace GOS_FxApps
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-                MessageBox.Show("Error load chart tahunan: " + ex.Message);
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
-        private void LoadChartsafetyCostCustom()
+        private async Task LoadChartsafetyCostCustom()
         {
             try
             {
                 DataTable dt = new DataTable();
-                using (SqlConnection conn = Koneksi.GetConnection())
+                using (SqlConnection conn = await Koneksi.GetConnectionAsync())
                 {
                     using (SqlCommand cmd = new SqlCommand("sp_chartsafetycostcustom", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@TanggalMulai", tanggalcustom1.Value.Date);
                         cmd.Parameters.AddWithValue("@TanggalAkhir", tanggalcustom2.Value.Date);
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        da.Fill(dt);
+                        using (var reader = await cmd.ExecuteReaderAsync())
+                        {
+                            dt.Load(reader);
+                        }
                     }
                 }
 
@@ -2095,144 +2090,77 @@ namespace GOS_FxApps
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-                MessageBox.Show("Error load chart tahunan: " + ex.Message);
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
-        private void registerpenerimaanp()
+        private async Task OnDatabaseChanged(string table)
         {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.penerimaan_p", conn))
+            try
             {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
+                switch (table)
                 {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            LoadPanel();
-                            registerpenerimaans();
-                        }));
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
+                    case "penerimaan_s":
+                        await LoadPanel();
+                        break;
+
+                    case "penerimaan_p":
+                        await LoadPanel();
+                        break;
+
+                    case "perbaikan_s":
+                        await LoadPanel();
+                        break;
+
+                    case "perbaikan_p":
+                        await LoadPanel();
+                        break;
+
+                    case "pengiriman":
+                        await LoadPanel();
+                        break;
+
+                    default:
+                        break;
+                }
             }
-        }
-        private void registerperbaikanp()
-        {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.perbaikan_p", conn))
-            {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
-                {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            LoadPanel();
-                            registerperbaikans();
-                        }));
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
-            }
-        }
-        private void registerpenerimaans()
-        {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.penerimaan_s", conn))
-            {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
-                {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            LoadPanel();
-                            registerpenerimaans();
-                        }));
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
-            }
-        }
-        private void registerperbaikans()
-        {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.perbaikan_s", conn))
-            {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
-                {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            LoadPanel();
-                            registerperbaikans();
-                        }));
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
-            }
-        }
-        private void registerpengiriman()
-        {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.pengiriman", conn))
-            {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
-                {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            LoadPanel();
-                            registerperbaikans();
-                        }));
-                    }
-                };
-                conn.Open();
-                cmd.ExecuteReader();
-            }
+            catch { }
         }
 
-        private void Dashboard_Load(object sender, EventArgs e)
+        private async void Dashboard_Load(object sender, EventArgs e)
         {
-            SqlDependency.Start(Koneksi.GetConnectionString());
+            MainForm.DataChanged += OnDatabaseChanged;
 
-            shiftChangedHandler = () => LoadPanel();
+            shiftChangedHandler = async () => await LoadPanel();
             MainForm.Instance.ShiftChanged += shiftChangedHandler;
+
+            await LoadPanel();
+            await LoadchartRB();
 
             tanggalcustom1.Value = DateTime.Today;
             tanggalcustom2.Value = DateTime.Today;
             datebulan.Value = DateTime.Now;
-            LoadPanel();
-            LoadchartRB();
+
             containerrentang.Visible = true;
             containertanggal1.Visible = true;
-            lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
 
-            registerpenerimaans();
-            registerperbaikans();
-            registerpenerimaanp();
-            registerperbaikanp();
-            registerpengiriman();
+            lbltitlechart.Text =
+                $"{cmbpilihdata.Text} {cmbrentang.Text} {tanggalcustom1.Value:dd/MM/yyyy}";
+        }
+
+        private void Dashboard_FormClosing_1(object sender, FormClosingEventArgs e)
+        {
+            MainForm.DataChanged -= OnDatabaseChanged;
+
+            if (shiftChangedHandler != null)
+            {
+                MainForm.Instance.ShiftChanged -= shiftChangedHandler;
+                shiftChangedHandler = null;
+            }
         }
 
         private void cmbpilihdata_SelectedIndexChanged(object sender, EventArgs e)
@@ -2305,23 +2233,23 @@ namespace GOS_FxApps
             }
         }
 
-        private void btnsetfilter_Click(object sender, EventArgs e)
+        private async void btnsetfilter_Click(object sender, EventArgs e)
         {
             if (cmbpilihdata.SelectedIndex == 0) 
             {
                 if (cmbrentang.SelectedIndex == 0)
                 {
-                    LoadchartRB();
+                    await LoadchartRB();
                     lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
                 }
                 else if (cmbrentang.SelectedIndex == 1)
                 {
-                    LoadchartRBByMonth();
+                    await LoadchartRBByMonth();
                     lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + datebulan.Value.Month + "/" + datebulan.Value.Year;
                 }
                 else if (cmbrentang.SelectedIndex == 2)
                 {
-                    LoadchartRBByYear();
+                    await LoadchartRBByYear();
                     lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + datebulan.Value.Year;
                 }
                 else if (cmbrentang.SelectedIndex == 3)
@@ -2332,7 +2260,7 @@ namespace GOS_FxApps
                         return;
                     }
 
-                    LoadchartRBCustom();
+                    await LoadchartRBCustom();
                     lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy") + " s/d " + tanggalcustom2.Value.ToString("dd/MM/yyyy");
                 }
             }
@@ -2342,17 +2270,17 @@ namespace GOS_FxApps
                 {
                     if(cmbtipem.SelectedIndex == 0)
                     {
-                        LoadChartMaterialCostHarian();
+                        await LoadChartMaterialCostHarian();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
                     }
                     else if(cmbtipem.SelectedIndex == 1)
                     {
-                        LoadChartConsumableCostHarian();
+                        await LoadChartConsumableCostHarian();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
                     }
                     else if(cmbtipem.SelectedIndex == 2)
                     {
-                        LoadChartSafetyCostHarian();
+                        await LoadChartSafetyCostHarian();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
                     }
                 }
@@ -2360,17 +2288,17 @@ namespace GOS_FxApps
                 {
                     if (cmbtipem.SelectedIndex == 0)
                     {
-                        LoadChartMaterialCostBulan();
+                        await LoadChartMaterialCostBulan();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + datebulan.Value.Month + "/" + datebulan.Value.Year;
                     }
                     else if (cmbtipem.SelectedIndex == 1)
                     {
-                        LoadChartConsumableCostBulan();
+                        await LoadChartConsumableCostBulan();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + datebulan.Value.Month + "/" + datebulan.Value.Year;
                     }
                     else if (cmbtipem.SelectedIndex == 2)
                     {
-                        LoadChartSafetyCostBulan();
+                        await LoadChartSafetyCostBulan();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + datebulan.Value.Month + "/" + datebulan.Value.Year;
                     }
                 }
@@ -2378,17 +2306,17 @@ namespace GOS_FxApps
                 {
                     if (cmbtipem.SelectedIndex == 0)
                     {
-                        LoadChartMaterialCostTahun();
+                        await LoadChartMaterialCostTahun();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + datebulan.Value.Year;
                     }
                     else if (cmbtipem.SelectedIndex == 1)
                     {
-                        LoadChartConsumableCostTahun();
+                        await LoadChartConsumableCostTahun();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + datebulan.Value.Year;
                     }
                     else if (cmbtipem.SelectedIndex == 2)
                     {
-                        LoadChartSafetyCostTahun();
+                        await LoadChartSafetyCostTahun();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + datebulan.Value.Year;
                     }
                 }
@@ -2402,17 +2330,17 @@ namespace GOS_FxApps
 
                     if (cmbtipem.SelectedIndex == 0)
                     {
-                        LoadChartmaterialCostCustom();
+                        await LoadChartmaterialCostCustom();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy") + " s/d " + tanggalcustom2.Value.ToString("dd/MM/yyyy");
                     }
                     else if (cmbtipem.SelectedIndex == 1)
                     {
-                        LoadChartConsumableCostCustom();
+                        await LoadChartConsumableCostCustom();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy") + " s/d " + tanggalcustom2.Value.ToString("dd/MM/yyyy");
                     }
                     else if (cmbtipem.SelectedIndex == 2)
                     {
-                        LoadChartsafetyCostCustom();
+                        await LoadChartsafetyCostCustom();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy") + " s/d " + tanggalcustom2.Value.ToString("dd/MM/yyyy");
                     }
                 }
@@ -2423,12 +2351,12 @@ namespace GOS_FxApps
                 {
                     if (cmbtipe.SelectedIndex == 0)
                     {
-                        LoadChartPenerimaanHarian();
+                        await LoadChartPenerimaanHarian();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipe.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
                     }
                     else if (cmbtipe.SelectedIndex == 1)
                     {
-                        loadChartPerbaikanHarian();
+                        await loadChartPerbaikanHarian();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipe.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
                     }
                 }
@@ -2436,12 +2364,12 @@ namespace GOS_FxApps
                 {
                     if (cmbtipe.SelectedIndex == 0)
                     {
-                        LoadChartPenerimaanBulanan();
+                        await LoadChartPenerimaanBulanan();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipe.Text + " " + cmbrentang.Text + " " + datebulan.Value.Month + "/" + datebulan.Value.Year;
                     }
                     else if (cmbtipe.SelectedIndex == 1)
                     {
-                        LoadChartPerbaikanBulanan();
+                        await LoadChartPerbaikanBulanan();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipe.Text + " " + cmbrentang.Text + " " + datebulan.Value.Month + "/" + datebulan.Value.Year;
                     }                    
                 }
@@ -2449,12 +2377,12 @@ namespace GOS_FxApps
                 {
                     if (cmbtipe.SelectedIndex == 0)
                     {
-                        LoadChartPenerimaanTahunan();
+                        await LoadChartPenerimaanTahunan();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipe.Text + " " + cmbrentang.Text + " " + datebulan.Value.Year;
                     }
                     else if (cmbtipe.SelectedIndex == 1)
                     {
-                        LoadChartPerbaikanTahunan();
+                        await LoadChartPerbaikanTahunan();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipe.Text + " " + cmbrentang.Text + " " + datebulan.Value.Year;
                     }
                 }
@@ -2467,12 +2395,12 @@ namespace GOS_FxApps
                     }
                     if (cmbtipe.SelectedIndex == 0)
                     {
-                        LoadChartPenerimaanCustom();
+                        await LoadChartPenerimaanCustom();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipe.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy") + " s/d " + tanggalcustom2.Value.ToString("dd/MM/yyyy");
                     }
                     else if (cmbtipe.SelectedIndex == 1)
                     {
-                        LoadChartPerbaikanCustom();
+                        await LoadChartPerbaikanCustom();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipe.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy") + " s/d " + tanggalcustom2.Value.ToString("dd/MM/yyyy");
                     }
                 }
@@ -2620,16 +2548,6 @@ namespace GOS_FxApps
                 bukatutupfilter = true;
                 HamburgerButton.IconChar = FontAwesome.Sharp.IconChar.AngleRight;
             }
-        }
-
-        private void Dashboard_FormClosing_1(object sender, FormClosingEventArgs e)
-        {
-            if (shiftChangedHandler != null)
-            {
-                MainForm.Instance.ShiftChanged -= shiftChangedHandler;
-                shiftChangedHandler = null;
-            }
-            SqlDependency.Stop(Koneksi.GetConnectionString());
         }
     }
 }

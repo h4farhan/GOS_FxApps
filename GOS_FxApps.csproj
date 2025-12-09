@@ -520,6 +520,12 @@
     <Compile Include="setperputaran_rod.Designer.cs">
       <DependentUpon>setperputaran_rod.cs</DependentUpon>
     </Compile>
+    <Compile Include="toastform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="toastform.Designer.cs">
+      <DependentUpon>toastform.cs</DependentUpon>
+    </Compile>
     <Compile Include="userinfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -562,8 +568,17 @@
     <EmbeddedResource Include="editperbaikan.resx">
       <DependentUpon>editperbaikan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formbuttman.resx">
+      <DependentUpon>formbuttman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formeditperubahanperbaikan.resx">
+      <DependentUpon>formeditperubahanperbaikan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formkamera.resx">
       <DependentUpon>formkamera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formperubahanperbaikan.resx">
+      <DependentUpon>formperubahanperbaikan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="historymaterialmasuk.resx">
       <DependentUpon>historymaterialmasuk.cs</DependentUpon>
@@ -622,8 +637,17 @@
     <EmbeddedResource Include="Penerimaan.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Penerimaan.resx">
+      <DependentUpon>Penerimaan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pengiriman.resx">
+      <DependentUpon>Pengiriman.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Perbaikan.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Perbaikan.resx">
+      <DependentUpon>Perbaikan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="printpenerimaan.resx">
       <DependentUpon>printpenerimaan.cs</DependentUpon>
@@ -639,6 +663,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="setperputaran_rod.resx">
       <DependentUpon>setperputaran_rod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="toastform.resx">
+      <DependentUpon>toastform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="weldingp.resx">
       <DependentUpon>weldingp.cs</DependentUpon>
@@ -718,23 +745,14 @@
     <EmbeddedResource Include="EstimasiPemakaianMaterial.resx">
       <DependentUpon>EstimasiPemakaianMaterial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formbuttman.resx">
-      <DependentUpon>formbuttman.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="formdialog.resx">
       <DependentUpon>formdialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formeditperubahanperbaikan.resx">
-      <DependentUpon>formeditperubahanperbaikan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLoading.resx">
       <DependentUpon>FormLoading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formnotifikasi.resx">
       <DependentUpon>formnotifikasi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formperubahanperbaikan.resx">
-      <DependentUpon>formperubahanperbaikan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formstok.resx">
       <DependentUpon>formstok.cs</DependentUpon>
@@ -754,15 +772,6 @@
     <Content Include="Pengiriman.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="Penerimaan.resx">
-      <DependentUpon>Penerimaan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pengiriman.resx">
-      <DependentUpon>Pengiriman.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Perbaikan.resx">
-      <DependentUpon>Perbaikan.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -889,6 +898,7 @@
     <None Include="Resources\repeat.png" />
     <None Include="Resources\left-arrow.png" />
     <None Include="Resources\right-arrow.png" />
+    <None Include="Resources\loading.png" />
     <Content Include="Stock Barang Template.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

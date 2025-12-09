@@ -133,9 +133,9 @@
             this.lblhalaman.Location = new System.Drawing.Point(14, 26);
             this.lblhalaman.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblhalaman.Name = "lblhalaman";
-            this.lblhalaman.Size = new System.Drawing.Size(93, 15);
+            this.lblhalaman.Size = new System.Drawing.Size(12, 15);
             this.lblhalaman.TabIndex = 64;
-            this.lblhalaman.Text = "Jumlah Data : 0";
+            this.lblhalaman.Text = "-";
             this.lblhalaman.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnleft
@@ -253,9 +253,9 @@
             this.lbljumlahdata.Location = new System.Drawing.Point(356, 100);
             this.lbljumlahdata.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbljumlahdata.Name = "lbljumlahdata";
-            this.lbljumlahdata.Size = new System.Drawing.Size(118, 20);
+            this.lbljumlahdata.Size = new System.Drawing.Size(15, 20);
             this.lbljumlahdata.TabIndex = 70;
-            this.lbljumlahdata.Text = "Jumlah Data : 0";
+            this.lbljumlahdata.Text = "-";
             this.lbljumlahdata.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnreset

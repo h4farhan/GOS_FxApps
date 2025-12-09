@@ -18,138 +18,168 @@ namespace GOS_FxApps
 {
     public partial class EstimasiPemakaianMaterial : Form
     {
-        SqlConnection conn = Koneksi.GetConnection();
 
         public EstimasiPemakaianMaterial()
         {
             InitializeComponent();
         }
 
-        private DataTable GetDataFromSPtanggal(string spName, DateTime tanggalMulai, DateTime tanggalAkhir)
+        private async Task<DataTable> GetDataFromSPtanggalAsync(string spName, DateTime tanggalMulai, DateTime tanggalAkhir)
         {
-            using (SqlConnection conn = Koneksi.GetConnection())
-            using (SqlCommand cmd = new SqlCommand(spName, conn))
+            try
             {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@tanggalMulai", tanggalMulai);
-                cmd.Parameters.AddWithValue("@tanggalAkhir", tanggalAkhir);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                return dt;
+                using (SqlConnection conn = await Koneksi.GetConnectionAsync())
+                using (SqlCommand cmd = new SqlCommand(spName, conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@tanggalMulai", tanggalMulai);
+                    cmd.Parameters.AddWithValue("@tanggalAkhir", tanggalAkhir);
+
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+
+                    return dt;
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Gagal ambil data:");
+                throw;
             }
         }
 
-        private void loadsp2()
+        private async Task loadsp2()
         {
-            DateTime tanggalMulai = datejadwalMulai.Value.Date;
-            DateTime tanggalAkhir = datejadwalAkhir.Value.Date;
-
-            DataTable dt1 = GetDataFromSPtanggal("sp_koefisiensiMaterialCostbulan", tanggalMulai, tanggalAkhir);
-            DataTable dt2 = GetDataFromSPtanggal("sp_koefisiensiConsumableCostbulan", tanggalMulai, tanggalAkhir);
-            DataTable dt3 = GetDataFromSPtanggal("sp_koefisiensiSafetyCostbulan", tanggalMulai, tanggalAkhir);
-
-            DataTable finalDt = dt1.Copy();
-
-            finalDt.Merge(dt2);
-            finalDt.Merge(dt3);
-
-            finalDt.Columns.Add("No", typeof(int)).SetOrdinal(0);
-
-            for (int i = 0; i < finalDt.Rows.Count; i++)
+            try
             {
-                finalDt.Rows[i]["No"] = i + 1;
+                DateTime tanggalMulai = datejadwalMulai.Value.Date;
+                DateTime tanggalAkhir = datejadwalAkhir.Value.Date;
+
+                DataTable dt1 = await GetDataFromSPtanggalAsync("sp_koefisiensiMaterialCostbulan", tanggalMulai, tanggalAkhir);
+                DataTable dt2 = await GetDataFromSPtanggalAsync("sp_koefisiensiConsumableCostbulan", tanggalMulai, tanggalAkhir);
+                DataTable dt3 = await GetDataFromSPtanggalAsync("sp_koefisiensiSafetyCostbulan", tanggalMulai, tanggalAkhir);
+
+                DataTable finalDt = dt1.Copy();
+
+                finalDt.Merge(dt2);
+                finalDt.Merge(dt3);
+
+                finalDt.Columns.Add("No", typeof(int)).SetOrdinal(0);
+
+                for (int i = 0; i < finalDt.Rows.Count; i++)
+                {
+                    finalDt.Rows[i]["No"] = i + 1;
+                }
+
+                dataGridView1.RowTemplate.Height = 34;
+                dataGridView1.DataSource = finalDt;
+                dataGridView1.ColumnHeadersVisible = false;
+                dataGridView1.RowHeadersVisible = false;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                dataGridView1.ReadOnly = true;
+                dataGridView1.AllowUserToAddRows = false;
+
+
+                foreach (DataGridViewColumn col in dataGridView1.Columns)
+                {
+                    col.Resizable = DataGridViewTriState.False;
+                }
+
+                dataGridView1.Columns["Juli"].Visible = false;
+                dataGridView1.Columns["Agustus"].Visible = false;
+                dataGridView1.Columns["September"].Visible = false;
+                dataGridView1.Columns["Oktober"].Visible = false;
+                dataGridView1.Columns["November"].Visible = false;
+                dataGridView1.Columns["Desember"].Visible = false;
+                dataGridView1.Columns["Januari"].Visible = false;
+                dataGridView1.Columns["Februari"].Visible = false;
+                dataGridView1.Columns["Maret"].Visible = false;
+                dataGridView1.Columns["April"].Visible = false;
+                dataGridView1.Columns["Mei"].Visible = false;
+                dataGridView1.Columns["Juni"].Visible = false;
+
+                dataGridView1.Columns["No"].Width = label5.Width;
+                dataGridView1.Columns["Deskripsi"].Width = label8.Width;
+                dataGridView1.Columns["Spesifikasi"].Width = label9.Width;
+                dataGridView1.Columns["Satuan"].Width = label15.Width;
+                dataGridView1.Columns["Koef E1"].Width = label23.Width;
+                dataGridView1.Columns["Hasil E1"].Width = label24.Width;
+                dataGridView1.Columns["Koef E2"].Width = label26.Width;
+                dataGridView1.Columns["Hasil E2"].Width = label28.Width;
+                dataGridView1.Columns["Koef E3"].Width = label30.Width;
+                dataGridView1.Columns["Hasil E3"].Width = label32.Width;
+
+                dataGridView1.Columns["Koef E4"].Width = label34.Width;
+                dataGridView1.Columns["Hasil E4"].Width = label36.Width;
+                dataGridView1.Columns["Koef S"].Width = label38.Width;
+                dataGridView1.Columns["Hasil S"].Width = label25.Width;
+                dataGridView1.Columns["Koef D"].Width = label40.Width;
+                dataGridView1.Columns["Hasil D"].Width = label27.Width;
+
+                dataGridView1.Columns["Koef B"].Width = label42.Width;
+                dataGridView1.Columns["Hasil B"].Width = label29.Width;
+                dataGridView1.Columns["Koef BA"].Width = label44.Width;
+                dataGridView1.Columns["Hasil BA"].Width = label31.Width;
+                dataGridView1.Columns["Koef BA1"].Width = label46.Width;
+                dataGridView1.Columns["Hasil BA1"].Width = label33.Width;
+
+                dataGridView1.Columns["Koef R"].Width = label48.Width;
+                dataGridView1.Columns["Hasil R"].Width = label35.Width;
+                dataGridView1.Columns["Koef M"].Width = label37.Width;
+                dataGridView1.Columns["Hasil M"].Width = label39.Width;
+                dataGridView1.Columns["Koef CR"].Width = label41.Width;
+                dataGridView1.Columns["Hasil CR"].Width = label43.Width;
+
+                dataGridView1.Columns["Koef C"].Width = label45.Width;
+                dataGridView1.Columns["Hasil C"].Width = label47.Width;
+                dataGridView1.Columns["Koef RL"].Width = label50.Width;
+                dataGridView1.Columns["Hasil RL"].Width = label49.Width;
+
+
+                dataGridView1.Columns["Total"].Width = label51.Width;
+                dataGridView1.Columns["Rata-rata per Hari"].Width = label52.Width;
+                dataGridView1.Columns["TotalPemakaian"].Width = label53.Width;
+                dataGridView1.Columns["RataPerHariKumulatif"].Width = label54.Width;
+                dataGridView1.Columns["UoM2"].Width = label55.Width;
+                dataGridView1.Columns["bq"].Width = label57.Width;
+                dataGridView1.Columns["aktual"].Width = label56.Width;
+                dataGridView1.Columns["Persentase"].Width = label59.Width;
+
+                dataGridView1.Columns["Hasil E1"].DefaultCellStyle.Format = "N0";
+                dataGridView1.Columns["Hasil E2"].DefaultCellStyle.Format = "N0";
+                dataGridView1.Columns["Hasil E3"].DefaultCellStyle.Format = "N0";
+                dataGridView1.Columns["Hasil E4"].DefaultCellStyle.Format = "N0";
+                dataGridView1.Columns["Hasil S"].DefaultCellStyle.Format = "N0";
+                dataGridView1.Columns["Hasil D"].DefaultCellStyle.Format = "N0";
+                dataGridView1.Columns["Hasil B"].DefaultCellStyle.Format = "N0";
+                dataGridView1.Columns["Hasil BA"].DefaultCellStyle.Format = "N0";
+                dataGridView1.Columns["Hasil BA1"].DefaultCellStyle.Format = "N0";
+                dataGridView1.Columns["Hasil R"].DefaultCellStyle.Format = "N0";
+                dataGridView1.Columns["Hasil M"].DefaultCellStyle.Format = "N0";
+                dataGridView1.Columns["Hasil CR"].DefaultCellStyle.Format = "N0";
+                dataGridView1.Columns["Hasil C"].DefaultCellStyle.Format = "N0";
+                dataGridView1.Columns["Hasil RL"].DefaultCellStyle.Format = "N0";
             }
-
-            dataGridView1.DataSource = finalDt;
-            dataGridView1.ColumnHeadersVisible = false;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-            dataGridView1.ReadOnly = true;
-            dataGridView1.AllowUserToAddRows = false;
-
-
-            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            catch (SqlException)
             {
-                col.Resizable = DataGridViewTriState.False;
+                MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
+                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-
-            dataGridView1.Columns["Juli"].Visible = false;
-            dataGridView1.Columns["Agustus"].Visible = false;
-            dataGridView1.Columns["September"].Visible = false;
-            dataGridView1.Columns["Oktober"].Visible = false;
-            dataGridView1.Columns["November"].Visible = false;
-            dataGridView1.Columns["Desember"].Visible = false;
-            dataGridView1.Columns["Januari"].Visible = false;
-            dataGridView1.Columns["Februari"].Visible = false;
-            dataGridView1.Columns["Maret"].Visible = false;
-            dataGridView1.Columns["April"].Visible = false;
-            dataGridView1.Columns["Mei"].Visible = false;
-            dataGridView1.Columns["Juni"].Visible = false;
-
-            dataGridView1.Columns["No"].Width = label5.Width;
-            dataGridView1.Columns["Deskripsi"].Width = label8.Width;
-            dataGridView1.Columns["Spesifikasi"].Width = label9.Width;
-            dataGridView1.Columns["Satuan"].Width = label15.Width;
-            dataGridView1.Columns["Koef E1"].Width = label23.Width;
-            dataGridView1.Columns["Hasil E1"].Width = label24.Width;
-            dataGridView1.Columns["Koef E2"].Width = label26.Width;
-            dataGridView1.Columns["Hasil E2"].Width = label28.Width;
-            dataGridView1.Columns["Koef E3"].Width = label30.Width;
-            dataGridView1.Columns["Hasil E3"].Width = label32.Width;
-
-            dataGridView1.Columns["Koef E4"].Width = label34.Width;
-            dataGridView1.Columns["Hasil E4"].Width = label36.Width;
-            dataGridView1.Columns["Koef S"].Width = label38.Width;
-            dataGridView1.Columns["Hasil S"].Width = label25.Width;
-            dataGridView1.Columns["Koef D"].Width = label40.Width;
-            dataGridView1.Columns["Hasil D"].Width = label27.Width;
-
-            dataGridView1.Columns["Koef B"].Width = label42.Width;
-            dataGridView1.Columns["Hasil B"].Width = label29.Width;
-            dataGridView1.Columns["Koef BA"].Width = label44.Width;
-            dataGridView1.Columns["Hasil BA"].Width = label31.Width;
-            dataGridView1.Columns["Koef BA1"].Width = label46.Width;
-            dataGridView1.Columns["Hasil BA1"].Width = label33.Width;
-
-            dataGridView1.Columns["Koef R"].Width = label48.Width;
-            dataGridView1.Columns["Hasil R"].Width = label35.Width;
-            dataGridView1.Columns["Koef M"].Width = label37.Width;
-            dataGridView1.Columns["Hasil M"].Width = label39.Width;
-            dataGridView1.Columns["Koef CR"].Width = label41.Width;
-            dataGridView1.Columns["Hasil CR"].Width = label43.Width;
-
-            dataGridView1.Columns["Koef C"].Width = label45.Width;
-            dataGridView1.Columns["Hasil C"].Width = label47.Width;
-            dataGridView1.Columns["Koef RL"].Width = label50.Width;
-            dataGridView1.Columns["Hasil RL"].Width = label49.Width;
-
-
-            dataGridView1.Columns["Total"].Width = label51.Width;
-            dataGridView1.Columns["Rata-rata per Hari"].Width = label52.Width;
-            dataGridView1.Columns["TotalPemakaian"].Width = label53.Width;
-            dataGridView1.Columns["RataPerHariKumulatif"].Width = label54.Width;
-            dataGridView1.Columns["UoM2"].Width = label55.Width;
-            dataGridView1.Columns["bq"].Width = label57.Width;
-            dataGridView1.Columns["aktual"].Width = label56.Width;
-            dataGridView1.Columns["Persentase"].Width = label59.Width;
-
-            dataGridView1.Columns["Hasil E1"].DefaultCellStyle.Format = "N0";   
-            dataGridView1.Columns["Hasil E2"].DefaultCellStyle.Format = "N0";   
-            dataGridView1.Columns["Hasil E3"].DefaultCellStyle.Format = "N0";
-            dataGridView1.Columns["Hasil E4"].DefaultCellStyle.Format = "N0";
-            dataGridView1.Columns["Hasil S"].DefaultCellStyle.Format = "N0";
-            dataGridView1.Columns["Hasil D"].DefaultCellStyle.Format = "N0";
-            dataGridView1.Columns["Hasil B"].DefaultCellStyle.Format = "N0";
-            dataGridView1.Columns["Hasil BA"].DefaultCellStyle.Format = "N0";
-            dataGridView1.Columns["Hasil BA1"].DefaultCellStyle.Format = "N0";
-            dataGridView1.Columns["Hasil R"].DefaultCellStyle.Format = "N0";
-            dataGridView1.Columns["Hasil M"].DefaultCellStyle.Format = "N0";
-            dataGridView1.Columns["Hasil CR"].DefaultCellStyle.Format = "N0";
-            dataGridView1.Columns["Hasil C"].DefaultCellStyle.Format = "N0";
-            dataGridView1.Columns["Hasil RL"].DefaultCellStyle.Format = "N0";
-
+            catch (Exception)
+            {
+                MessageBox.Show("Gagal cari");
+                return;
+            }
         }
+
         private async void ExportToExcelBulan()
         {
             using (FormLoading loading = new FormLoading())
@@ -160,17 +190,17 @@ namespace GOS_FxApps
                 loading.Show(mainform);
                 loading.Refresh();
 
-                await Task.Run(() =>
+                await Task.Run(async () =>
                 {
                     try
                     {
                         DateTime tanggalMulai = datejadwalMulai.Value.Date;
                         DateTime tanggalAkhir = datejadwalAkhir.Value.Date;
 
-                        DataTable dtMaterial = GetDataFromSPtanggal("sp_koefisiensiMaterialCostbulan", tanggalMulai, tanggalAkhir);
-                        DataTable dtConsumable = GetDataFromSPtanggal("sp_koefisiensiConsumableCostbulan", tanggalMulai, tanggalAkhir);
-                        DataTable dtsafety = GetDataFromSPtanggal("sp_koefisiensiSafetyCostbulan", tanggalMulai, tanggalAkhir);
-                        DataTable dtQty = GetDataFromSPtanggal("koefisiensiqtybulan", tanggalMulai, tanggalAkhir);
+                        DataTable dtMaterial = await GetDataFromSPtanggalAsync("sp_koefisiensiMaterialCostbulan", tanggalMulai, tanggalAkhir);
+                        DataTable dtConsumable = await GetDataFromSPtanggalAsync("sp_koefisiensiConsumableCostbulan", tanggalMulai, tanggalAkhir);
+                        DataTable dtsafety = await GetDataFromSPtanggalAsync("sp_koefisiensiSafetyCostbulan", tanggalMulai, tanggalAkhir);
+                        DataTable dtQty = await GetDataFromSPtanggalAsync("koefisiensiqtybulan", tanggalMulai, tanggalAkhir);
 
                         Excel.Application xlApp = new Excel.Application();
                         string templatePath = Path.Combine(Application.StartupPath, "Koefisien Material.xlsx");
@@ -314,11 +344,6 @@ namespace GOS_FxApps
             ExportToExcelBulan();
         }
 
-        private void EstimasiPemakaianMaterial_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
-
         private void EstimasiPemakaianMaterial_Load(object sender, EventArgs e)
         {
             datejadwalMulai.Value = DateTime.Now;
@@ -326,7 +351,7 @@ namespace GOS_FxApps
             lbltanggal.Text = "";
         }
 
-        private void btncari_Click(object sender, EventArgs e)
+        private async void btncari_Click(object sender, EventArgs e)
         {
             DateTime mulai = datejadwalMulai.Value.Date;
             DateTime akhir = datejadwalAkhir.Value.Date;
@@ -354,7 +379,7 @@ namespace GOS_FxApps
             }
 
 
-            loadsp2();
+            await loadsp2();
             lbltanggal.Text = "Per " + mulai.ToString("dd/MM/yyyy") + " - " + akhir.ToString("dd/MM/yyyy");
             btnreset.Enabled = true;
         }

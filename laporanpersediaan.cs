@@ -18,77 +18,105 @@ namespace GOS_FxApps
 {
     public partial class laporanpersediaan : Form
     {
-        SqlConnection conn = Koneksi.GetConnection();
 
         public laporanpersediaan()
         {
             InitializeComponent();
         }
 
-
-        private DataTable GetDataFromSPtanggal(string spName, DateTime tanggalMulai, DateTime tanggalAkhir)
+        private async Task<DataTable> GetDataFromSPtanggalAsync(string spName, DateTime tanggalMulai, DateTime tanggalAkhir)
         {
-            using (SqlConnection conn = Koneksi.GetConnection())
-            using (SqlCommand cmd = new SqlCommand(spName, conn))
+            try
             {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@tanggalMulai", tanggalMulai);
-                cmd.Parameters.AddWithValue("@tanggalAkhir", tanggalAkhir);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                return dt;
+                using (SqlConnection conn = await Koneksi.GetConnectionAsync())
+                using (SqlCommand cmd = new SqlCommand(spName, conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@tanggalMulai", tanggalMulai);
+                    cmd.Parameters.AddWithValue("@tanggalAkhir", tanggalAkhir);
+
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+
+                    return dt;
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Gagal ambil data:");
+                throw;
             }
         }
 
-        private void loadsp1()
+        private async Task loadsp1()
         {
-            DateTime tanggalMulai = datejadwalMulai.Value.Date;
-            DateTime tanggalAkhir = datejadwalAkhir.Value.Date;
-
-            DataTable dt1 = GetDataFromSPtanggal("sp_LaporanPersediaanMaterial", tanggalMulai, tanggalAkhir);
-
-            dt1.Columns.Add("No", typeof(int)).SetOrdinal(0);
-
-            for (int i = 0; i < dt1.Rows.Count; i++)
+            try
             {
-                dt1.Rows[i]["No"] = i + 1;
+                DateTime tanggalMulai = datejadwalMulai.Value.Date;
+                DateTime tanggalAkhir = datejadwalAkhir.Value.Date;
+
+                DataTable dt1 = await GetDataFromSPtanggalAsync("sp_LaporanPersediaanMaterial", tanggalMulai, tanggalAkhir);
+
+                dt1.Columns.Add("No", typeof(int)).SetOrdinal(0);
+
+                for (int i = 0; i < dt1.Rows.Count; i++)
+                {
+                    dt1.Rows[i]["No"] = i + 1;
+                }
+
+                dataGridView1.RowTemplate.Height = 34;
+                dataGridView1.DataSource = dt1;
+                dataGridView1.AutoGenerateColumns = true;
+
+                dataGridView1.ColumnHeadersVisible = false;
+                dataGridView1.RowHeadersVisible = false;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                dataGridView1.ReadOnly = true;
+                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
+                dataGridView1.AllowUserToAddRows = false;
+
+                foreach (DataGridViewColumn col in dataGridView1.Columns)
+                {
+                    col.Resizable = DataGridViewTriState.False;
+                }
+
+                dataGridView1.Columns["saldodex"].Visible = false;
+                dataGridView1.Columns["totalsaldo"].Visible = false;
+                dataGridView1.Columns["status"].Visible = false;
+                dataGridView1.Columns["tglrequest"].Visible = false;
+                dataGridView1.Columns["keterangan"].Visible = false;
+
+                dataGridView1.Columns["No"].Width = label5.Width;
+                dataGridView1.Columns["kodebarang"].Width = label4.Width;
+                dataGridView1.Columns["namabarang"].Width = label8.Width;
+                dataGridView1.Columns["spesifikasi"].Width = label9.Width;
+                dataGridView1.Columns["stokawalktj"].Width = label15.Width;
+                dataGridView1.Columns["uom"].Width = label7.Width;
+                dataGridView1.Columns["masuk"].Width = label6.Width;
+                dataGridView1.Columns["keluar"].Width = label10.Width;
+                dataGridView1.Columns["saldoktj"].Width = label14.Width;
+
+                dataGridView1.Columns["ratarata"].Width = label11.Width;
+                dataGridView1.Columns["limit"].Width = label13.Width;
             }
-
-            dataGridView1.DataSource = dt1;
-            dataGridView1.AutoGenerateColumns = true;
-
-            dataGridView1.ColumnHeadersVisible = false;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-            dataGridView1.ReadOnly = true;
-            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-            dataGridView1.RowTemplate.Height = 34;
-            dataGridView1.AllowUserToAddRows = false;
-
-            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            catch (SqlException)
             {
-                col.Resizable = DataGridViewTriState.False;
+                MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
+                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-
-            dataGridView1.Columns["saldodex"].Visible = false;
-            dataGridView1.Columns["totalsaldo"].Visible = false;
-            dataGridView1.Columns["status"].Visible = false;
-            dataGridView1.Columns["tglrequest"].Visible = false;
-            dataGridView1.Columns["keterangan"].Visible = false;
-
-            dataGridView1.Columns["No"].Width = label5.Width;
-            dataGridView1.Columns["kodebarang"].Width = label4.Width;
-            dataGridView1.Columns["namabarang"].Width = label8.Width;
-            dataGridView1.Columns["spesifikasi"].Width = label9.Width;
-            dataGridView1.Columns["stokawalktj"].Width = label15.Width;
-            dataGridView1.Columns["uom"].Width = label7.Width;
-            dataGridView1.Columns["masuk"].Width = label6.Width;
-            dataGridView1.Columns["keluar"].Width = label10.Width;
-            dataGridView1.Columns["saldoktj"].Width = label14.Width;
-
-            dataGridView1.Columns["ratarata"].Width = label11.Width;
-            dataGridView1.Columns["limit"].Width = label13.Width;
+            catch (Exception)
+            {
+                MessageBox.Show("Gagal cari");
+                return;
+            }
         }
 
         private async void ExportToExcelBulan()
@@ -100,7 +128,7 @@ namespace GOS_FxApps
                 loading.Show(mainform);
                 loading.Refresh();
 
-                await Task.Run(() =>
+                await Task.Run(async () =>
                 {
                     try
                     {
@@ -109,7 +137,7 @@ namespace GOS_FxApps
 
                         string judulRange = $"{tanggalMulai:dd MMMM yyyy} s/d {tanggalAkhir:dd MMMM yyyy}";
 
-                        DataTable dtMaterial = GetDataFromSPtanggal("sp_LaporanPersediaanMaterial",tanggalMulai,tanggalAkhir);
+                        DataTable dtMaterial = await GetDataFromSPtanggalAsync("sp_LaporanPersediaanMaterial",tanggalMulai,tanggalAkhir);
 
                         Excel.Application xlApp = new Excel.Application();
                         string templatePath = Path.Combine(Application.StartupPath, "Stock Barang Template.xlsx");
@@ -185,7 +213,7 @@ namespace GOS_FxApps
             }
         }
 
-        private void btncari_Click(object sender, EventArgs e)
+        private async void btncari_Click(object sender, EventArgs e)
         {
             if (datejadwalMulai.Value.Date > datejadwalAkhir.Value.Date)
             {
@@ -193,7 +221,7 @@ namespace GOS_FxApps
                 return;
             }
 
-            loadsp1();
+            await loadsp1();
             lbltanggal.Text = "Per " + datejadwalMulai.Value.ToString("dd MMM yyyy") + " - " + datejadwalAkhir.Value.ToString("dd MMM yyyy");
             btnreset.Enabled = true;
         }

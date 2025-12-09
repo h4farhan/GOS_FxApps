@@ -13,13 +13,12 @@ using DrawingPoint = System.Drawing.Point;
 using System.IO;
 using Excel = Microsoft.Office.Interop.Excel;
 using static System.Net.Mime.MediaTypeNames;
+using System.Threading;
 
 namespace GOS_FxApps
 {
     public partial class koefisiensi : Form
     {
-        SqlConnection conn = Koneksi.GetConnection();
-
         int noprimarymaterial = 0;
         private bool isLoading = false;
         private System.Windows.Forms.Timer searchTimer;
@@ -35,187 +34,112 @@ namespace GOS_FxApps
         string lastSearchWhere = "";
         SqlCommand lastSearchCmd;
         int searchTotalRecords = 0;
+        private bool isEditing = false;
 
         public koefisiensi()
         {
             InitializeComponent();
         }
 
-        private void registertampilmaterial()
+        private async Task OnDatabaseChanged(string table)
         {
-            using (var conn = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand("SELECT updated_at FROM dbo.koefisiensi_material", conn))
+            try
             {
-                cmd.Notification = null;
-                var dep = new SqlDependency(cmd);
-                dep.OnChange += (s, e) =>
+                if (isEditing) return;
+                switch (table)
                 {
-                    if (e.Type == SqlNotificationType.Change)
-                    {
-                        this.Invoke(new Action(() =>
+                    case "koefisiensi_material":
+                        if (!isSearching)
                         {
-                            tampilmaterial();
-                            registertampilmaterial();
-                        }));
-                    }
-                };
-                conn.Open();
-                using (var reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read()) { }
+                            await HitungTotalData();
+                            currentPage = 1;
+                            await tampilmaterial();
+                        }
+                        else
+                        {
+                            int oldTotal = searchTotalRecords;
+                            await HitungTotalDataPencarian();
+                            if (searchTotalRecords > oldTotal)
+                                await tampilmaterial();
+                        }
+                        break;
+
+                    default:
+                        break;
                 }
             }
+            catch { }
         }
 
-
-        private void textBoxx_KeyPress(object sender, KeyPressEventArgs e)
+        private async Task HitungTotalData()
         {
-            var tb = sender as TextBox;
-            if (tb == null) return;
-
-            if (char.IsControl(e.KeyChar))
-                return;
-
-            if (char.IsDigit(e.KeyChar))
-                return;
-
-            if (e.KeyChar == ',')
+            try
             {
-                if (tb.Text.Contains(",") || tb.SelectionStart == 0)
-                    e.Handled = true; 
-                return;
-            }
-
-            e.Handled = true;
-        }
-
-        private void hurufbesar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsLetter(e.KeyChar))
-            {
-                e.KeyChar = char.ToUpper(e.KeyChar);
-            }
-        }
-
-        private void setdefaultmaterial()
-        {
-            cmbmaterial.SelectedIndex = -1;
-            txtcarinamabarang.Clear();
-            txtspesifikasi.Clear();
-            txtuom.Clear();
-            txttipe.Clear();
-            txtkoefe1.Clear();
-            txtkoefe2.Clear();
-            txtkoefe3.Clear();
-            txtkoefe4.Clear();
-            txtkoefs.Clear();
-            txtkoefd.Clear();
-            txtkoefb.Clear();
-            txtkoefba.Clear();
-            txtkoefba1.Clear();
-            txtkoefcr.Clear();
-            txtkoefm.Clear();
-            txtkoefr.Clear();
-            txtkoefc.Clear();
-            txtkoefrl.Clear();
-            noprimarymaterial = 0;
-            tahun.Value = new DateTime(DateTime.Now.Year, 1, 1);
-        }
-
-
-
-        private void HitungTotalData()
-        {
-            string query = "SELECT COUNT(*) FROM koefisiensi_material";
-            using (var connLocal = new SqlConnection(Koneksi.GetConnectionString()))
-            using (SqlCommand cmd = new SqlCommand(query, connLocal))
-            {
-                connLocal.Open();
-                totalRecords = (int)cmd.ExecuteScalar();
-                connLocal.Close();
-            }
-
-            totalPages = (int)Math.Ceiling(totalRecords / (double)pageSize);
-        }
-
-        private void HitungTotalDataPencarian()
-        {
-            if (string.IsNullOrWhiteSpace(lastSearchWhere))
-            {
-                searchTotalRecords = 0;
-                totalPages = 0;
-                return;
-            }
-
-            string countQuery = "SELECT COUNT(*) " + lastSearchWhere;
-
-            using (var connLocal = new SqlConnection(Koneksi.GetConnectionString()))
-            using (var cmd = new SqlCommand(countQuery, connLocal))
-            {
-                if (lastSearchCmd?.Parameters.Count > 0)
+                string query = "SELECT COUNT(*) FROM koefisiensi_material";
+                using (var conn = await Koneksi.GetConnectionAsync())
                 {
-                    foreach (SqlParameter p in lastSearchCmd.Parameters)
+                    using (var cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.Add(new SqlParameter(p.ParameterName, p.Value));
+                        totalRecords = (int)await cmd.ExecuteScalarAsync();
+                    }
+                }
+                totalPages = (int)Math.Ceiling(totalRecords / (double)pageSize);
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+        private async Task HitungTotalDataPencarian()
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(lastSearchWhere))
+                {
+                    searchTotalRecords = 0;
+                    totalPages = 0;
+                    return;
+                }
+
+                string countQuery = "SELECT COUNT(*) " + lastSearchWhere;
+                using (var conn = await Koneksi.GetConnectionAsync())
+                {
+                    using (var cmd = new SqlCommand(countQuery, conn))
+                    {
+                        if (lastSearchCmd?.Parameters.Count > 0)
+                        {
+                            foreach (SqlParameter p in lastSearchCmd.Parameters)
+                                cmd.Parameters.Add(new SqlParameter(p.ParameterName, p.Value));
+                        }
+
+                        searchTotalRecords = (int)await cmd.ExecuteScalarAsync();
                     }
                 }
 
-                connLocal.Open();
-                searchTotalRecords = (int)cmd.ExecuteScalar();
+                totalPages = (int)Math.Ceiling(searchTotalRecords / (double)pageSize);
             }
-
-            totalPages = (int)Math.Ceiling(searchTotalRecords / (double)pageSize);
-        }
-
-        private bool ValidasiInputKoefisiensi()
-        {
-            Guna2TextBox[] daftarTextBox = {
-        txtkoefe1, txtkoefe2, txtkoefe3, txtkoefe4,
-        txtkoefs, txtkoefd, txtkoefb, txtkoefba,
-        txtkoefba1, txtkoefcr, txtkoefm, txtkoefr,
-        txtkoefc, txtkoefrl
-            };
-
-            foreach (var tb in daftarTextBox)
+            catch
             {
-                string text = tb.Text.Trim();
-
-                if (string.IsNullOrEmpty(text))
-                    continue;
-
-                if (!System.Text.RegularExpressions.Regex.IsMatch(text, @"^[0-9,]+$"))
-                {
-                    MessageBox.Show($"Kolom '{tb.Name}' hanya boleh berisi angka dan koma!",
-                                    "Input Tidak Valid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    tb.Focus();
-                    return false;
-                }
-
-                if (text.Count(c => c == ',') > 1)
-                {
-                    MessageBox.Show($"Kolom '{tb.Name}' tidak boleh memiliki lebih dari satu koma!",
-                                    "Input Tidak Valid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    tb.Focus();
-                    return false;
-                }
+                return;
             }
-
-            return true;
         }
 
-        private void tampilmaterial()
+        private async Task tampilmaterial()
         {
             try
             {
 
                 int offset = (currentPage - 1) * pageSize;
 
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conn;
+                using (var conn = await Koneksi.GetConnectionAsync())
+                using (var cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
 
-                string query;
+                    string query;
 
-                if (!isSearching)
+                    if (!isSearching)
                 {
                     query = $@"
                 SELECT *
@@ -279,21 +203,46 @@ namespace GOS_FxApps
                         cmd.Parameters.Add(new SqlParameter(p.ParameterName, p.Value));
                 }
 
-                cmd.CommandText = query;
+                    cmd.CommandText = query;
 
-                SqlDataAdapter ad = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                ad.Fill(dt);
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter ad = new SqlDataAdapter(cmd))
+                    {
+                        ad.Fill(dt);
+                    }
 
-                dataGridView1.DataSource = dt;
-                dataGridView1.Columns["tanggal"].DefaultCellStyle.Format = "yyyy";
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-                dataGridView1.RowTemplate.Height = 35;
-                dataGridView1.ReadOnly = true;
-                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                dataGridView1.MultiSelect = false;
+                    if (dataGridView1.InvokeRequired)
+                    {
+                        dataGridView1.Invoke(new Action(() =>
+                        {
+                            UpdateGrid(dt);
+                        }));
+                    }
+                    else
+                    {
+                        UpdateGrid(dt);
+                    }
+                }
+            }
+            catch
+            {
+                return;
+            }
+        }
 
+        private void UpdateGrid(DataTable dt)
+        {
+            dataGridView1.RowTemplate.Height = 35;
+            dataGridView1.DataSource = dt;
+            dataGridView1.Columns["tanggal"].DefaultCellStyle.Format = "yyyy";
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
+            dataGridView1.ReadOnly = true;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.MultiSelect = false;
+
+            if (dt.Columns.Count >= 23)
+            {
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "Tahun";
                 dataGridView1.Columns[2].HeaderText = "Type";
@@ -317,25 +266,15 @@ namespace GOS_FxApps
                 dataGridView1.Columns[20].HeaderText = "Koef RL";
                 dataGridView1.Columns[21].HeaderText = "Diubah";
                 dataGridView1.Columns[22].HeaderText = "Remaks";
+            }
 
-                lblhalaman.Text = $"Halaman {currentPage} dari {totalPages}";
+            lblhalaman.Text = $"Halaman {currentPage} dari {totalPages}";
 
-                btnleft.Enabled = currentPage > 1;
-                btnright.Enabled = currentPage < totalPages;
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif." + ex.Message,
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            btnleft.Enabled = currentPage > 1;
+            btnright.Enabled = currentPage < totalPages;
         }
 
-        private bool cari()
+        private async Task<bool> cari()
         {
             string keyword = txtcari.Text.Trim();
             int? tahun = tahuncari.Checked ? tahuncari.Value.Year : (int?)null;
@@ -346,32 +285,142 @@ namespace GOS_FxApps
                                 "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-
-            isSearching = true;
-            lastSearchCmd = new SqlCommand();
-            lastSearchWhere = " FROM koefisiensi_material s WHERE 1=1 ";
-
-            if (tahun.HasValue)
+            try
             {
-                lastSearchWhere += " AND YEAR(tanggal) = @tahun ";
-                lastSearchCmd.Parameters.AddWithValue("@tahun", tahun.Value);
+                isSearching = true;
+                lastSearchCmd = new SqlCommand();
+                lastSearchWhere = " FROM koefisiensi_material s WHERE 1=1 ";
+
+                if (tahun.HasValue)
+                {
+                    lastSearchWhere += " AND YEAR(tanggal) = @tahun ";
+                    lastSearchCmd.Parameters.AddWithValue("@tahun", tahun.Value);
+                }
+
+                if (!string.IsNullOrEmpty(keyword))
+                {
+                    lastSearchWhere += " AND (kodeBarang LIKE @kode OR deskripsi LIKE @kode) ";
+                    lastSearchCmd.Parameters.AddWithValue("@kode", "%" + keyword + "%");
+                }
+
+                await HitungTotalDataPencarian();
+                currentPage = 1;
+                await tampilmaterial();
+
+                btncari.Text = "Reset";
+                return true;
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
+                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Gagal Cari Data.");
+                return false;
+            }
+        }
+
+
+        private void textBoxx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            var tb = sender as TextBox;
+            if (tb == null) return;
+
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (char.IsDigit(e.KeyChar))
+                return;
+
+            if (e.KeyChar == ',')
+            {
+                if (tb.Text.Contains(",") || tb.SelectionStart == 0)
+                    e.Handled = true; 
+                return;
             }
 
-            if (!string.IsNullOrEmpty(keyword))
+            e.Handled = true;
+        }
+
+        private void hurufbesar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar))
             {
-                lastSearchWhere += " AND (kodeBarang LIKE @kode OR deskripsi LIKE @kode) ";
-                lastSearchCmd.Parameters.AddWithValue("@kode", "%" + keyword + "%");
+                e.KeyChar = char.ToUpper(e.KeyChar);
+            }
+        }
+
+        private void clearedit()
+        {
+            cmbmaterial.SelectedIndex = -1;
+            txtcarinamabarang.Clear();
+            txtspesifikasi.Clear();
+            txtuom.Clear();
+            txttipe.Clear();
+            txtkoefe1.Clear();
+            txtkoefe2.Clear();
+            txtkoefe3.Clear();
+            txtkoefe4.Clear();
+            txtkoefs.Clear();
+            txtkoefd.Clear();
+            txtkoefb.Clear();
+            txtkoefba.Clear();
+            txtkoefba1.Clear();
+            txtkoefcr.Clear();
+            txtkoefm.Clear();
+            txtkoefr.Clear();
+            txtkoefc.Clear();
+            txtkoefrl.Clear();
+            noprimarymaterial = 0;
+            tahun.Value = new DateTime(DateTime.Now.Year, 1, 1);
+        }
+
+        private void resetsearchui()
+        {
+            txtcari.Clear();
+            btncari.Text = "Cari";
+        }
+
+        private bool ValidasiInputKoefisiensi()
+        {
+            Guna2TextBox[] daftarTextBox = {
+        txtkoefe1, txtkoefe2, txtkoefe3, txtkoefe4,
+        txtkoefs, txtkoefd, txtkoefb, txtkoefba,
+        txtkoefba1, txtkoefcr, txtkoefm, txtkoefr,
+        txtkoefc, txtkoefrl
+            };
+
+            foreach (var tb in daftarTextBox)
+            {
+                string text = tb.Text.Trim();
+
+                if (string.IsNullOrEmpty(text))
+                    continue;
+
+                if (!System.Text.RegularExpressions.Regex.IsMatch(text, @"^[0-9,]+$"))
+                {
+                    MessageBox.Show($"Kolom '{tb.Name}' hanya boleh berisi angka dan koma!",
+                                    "Input Tidak Valid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    tb.Focus();
+                    return false;
+                }
+
+                if (text.Count(c => c == ',') > 1)
+                {
+                    MessageBox.Show($"Kolom '{tb.Name}' tidak boleh memiliki lebih dari satu koma!",
+                                    "Input Tidak Valid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    tb.Focus();
+                    return false;
+                }
             }
 
-            HitungTotalDataPencarian();
-            currentPage = 1;
-            tampilmaterial();
-
-            btncari.Text = "Reset";
             return true;
         }
 
-        private void simpandatamaterial()
+        private async Task simpandatamaterial()
         {
             try
             {
@@ -383,16 +432,14 @@ namespace GOS_FxApps
                 if (result != DialogResult.OK)
                     return;
 
-                using (SqlConnection conn = Koneksi.GetConnection())
+                using (var conn = await Koneksi.GetConnectionAsync())
                 {
-                    conn.Open();
-
                     using (SqlCommand cmdcekkode = new SqlCommand("SELECT 1 FROM koefisiensi_material WHERE kodeBarang = @kode AND YEAR(tanggal) = @tahun", conn))
                     {
                         cmdcekkode.Parameters.AddWithValue("@kode", cmbKodeBarang.SelectedValue.ToString());
                         cmdcekkode.Parameters.AddWithValue("@tahun", tahun.Value.Year);
 
-                        object exists = cmdcekkode.ExecuteScalar();
+                        object exists = await cmdcekkode.ExecuteScalarAsync();
                         if (exists != null)
                         {
                             MessageBox.Show($"Kode Barang ini sudah ada di tahun {tahun.Value.Year}",
@@ -440,7 +487,7 @@ namespace GOS_FxApps
                         cmd1.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                         cmd1.Parameters.AddWithValue("@remaks", loginform.login.name);
 
-                        cmd1.ExecuteNonQuery();
+                        await cmd1.ExecuteNonQueryAsync();
                     }
                 }
 
@@ -449,21 +496,35 @@ namespace GOS_FxApps
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
 
-                tampilmaterial();
+                clearedit();
+
+                if (isSearching)
+                {
+                    await HitungTotalDataPencarian();
+                    await tampilmaterial();
+                }
+                else
+                {
+                    await HitungTotalData();
+                    await tampilmaterial();
+
+                    resetsearchui();
+                }
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.\n" + ex.Message,
+                MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Gagal Simpan Data.");
+                return;
             }
         }
 
-        private void editmaterial()
+        private async Task editmaterial()
         {
             DialogResult result = MessageBox.Show("Apakah Anda yakin dengan data Anda?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
@@ -471,51 +532,63 @@ namespace GOS_FxApps
             {
                 try
                 {
-                    conn.Open();
-                    string query = "UPDATE koefisiensi_material SET koef_e1 = @e1, koef_e2 = @e2, koef_e3 = @e3, koef_e4 = @e4, koef_s = @s, koef_d = @d, koef_b = @b, koef_ba = @ba, koef_ba1 = @ba1, " +
+                    using (var conn = await Koneksi.GetConnectionAsync())
+                    {
+                        string query = "UPDATE koefisiensi_material SET koef_e1 = @e1, koef_e2 = @e2, koef_e3 = @e3, koef_e4 = @e4, koef_s = @s, koef_d = @d, koef_b = @b, koef_ba = @ba, koef_ba1 = @ba1, " +
                     "koef_cr = @cr, koef_m = @m, koef_r = @r, koef_c = @c, koef_rl = @rl, updated_at = @diubah, remaks = @remaks WHERE no = @no";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@no", noprimarymaterial);
-                    cmd.Parameters.AddWithValue("@e1", string.IsNullOrWhiteSpace(txtkoefe1.Text) ? 0 : Convert.ToDecimal(txtkoefe1.Text));
-                    cmd.Parameters.AddWithValue("@e2", string.IsNullOrWhiteSpace(txtkoefe2.Text) ? 0 : Convert.ToDecimal(txtkoefe2.Text));
-                    cmd.Parameters.AddWithValue("@e3", string.IsNullOrWhiteSpace(txtkoefe3.Text) ? 0 : Convert.ToDecimal(txtkoefe3.Text));
-                    cmd.Parameters.AddWithValue("@e4", string.IsNullOrWhiteSpace(txtkoefe4.Text) ? 0 : Convert.ToDecimal(txtkoefe4.Text));
-                    cmd.Parameters.AddWithValue("@s", string.IsNullOrWhiteSpace(txtkoefs.Text) ? 0 : Convert.ToDecimal(txtkoefs.Text));
-                    cmd.Parameters.AddWithValue("@d", string.IsNullOrWhiteSpace(txtkoefd.Text) ? 0 : Convert.ToDecimal(txtkoefd.Text));
-                    cmd.Parameters.AddWithValue("@b", string.IsNullOrWhiteSpace(txtkoefb.Text) ? 0 : Convert.ToDecimal(txtkoefb.Text));
-                    cmd.Parameters.AddWithValue("@ba", string.IsNullOrWhiteSpace(txtkoefba.Text) ? 0 : Convert.ToDecimal(txtkoefba.Text));
-                    cmd.Parameters.AddWithValue("@ba1", string.IsNullOrWhiteSpace(txtkoefba1.Text) ? 0 : Convert.ToDecimal(txtkoefba1.Text));
-                    cmd.Parameters.AddWithValue("@cr", string.IsNullOrWhiteSpace(txtkoefcr.Text) ? 0 : Convert.ToDecimal(txtkoefcr.Text));
-                    cmd.Parameters.AddWithValue("@m", string.IsNullOrWhiteSpace(txtkoefm.Text) ? 0 : Convert.ToDecimal(txtkoefm.Text));
-                    cmd.Parameters.AddWithValue("@r", string.IsNullOrWhiteSpace(txtkoefr.Text) ? 0 : Convert.ToDecimal(txtkoefr.Text));
-                    cmd.Parameters.AddWithValue("@c", string.IsNullOrWhiteSpace(txtkoefc.Text) ? 0 : Convert.ToDecimal(txtkoefc.Text));
-                    cmd.Parameters.AddWithValue("@rl", string.IsNullOrWhiteSpace(txtkoefrl.Text) ? 0 : Convert.ToDecimal(txtkoefrl.Text));
-                    cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
-                    cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
-                    cmd.ExecuteNonQuery();
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@no", noprimarymaterial);
+                        cmd.Parameters.AddWithValue("@e1", string.IsNullOrWhiteSpace(txtkoefe1.Text) ? 0 : Convert.ToDecimal(txtkoefe1.Text));
+                        cmd.Parameters.AddWithValue("@e2", string.IsNullOrWhiteSpace(txtkoefe2.Text) ? 0 : Convert.ToDecimal(txtkoefe2.Text));
+                        cmd.Parameters.AddWithValue("@e3", string.IsNullOrWhiteSpace(txtkoefe3.Text) ? 0 : Convert.ToDecimal(txtkoefe3.Text));
+                        cmd.Parameters.AddWithValue("@e4", string.IsNullOrWhiteSpace(txtkoefe4.Text) ? 0 : Convert.ToDecimal(txtkoefe4.Text));
+                        cmd.Parameters.AddWithValue("@s", string.IsNullOrWhiteSpace(txtkoefs.Text) ? 0 : Convert.ToDecimal(txtkoefs.Text));
+                        cmd.Parameters.AddWithValue("@d", string.IsNullOrWhiteSpace(txtkoefd.Text) ? 0 : Convert.ToDecimal(txtkoefd.Text));
+                        cmd.Parameters.AddWithValue("@b", string.IsNullOrWhiteSpace(txtkoefb.Text) ? 0 : Convert.ToDecimal(txtkoefb.Text));
+                        cmd.Parameters.AddWithValue("@ba", string.IsNullOrWhiteSpace(txtkoefba.Text) ? 0 : Convert.ToDecimal(txtkoefba.Text));
+                        cmd.Parameters.AddWithValue("@ba1", string.IsNullOrWhiteSpace(txtkoefba1.Text) ? 0 : Convert.ToDecimal(txtkoefba1.Text));
+                        cmd.Parameters.AddWithValue("@cr", string.IsNullOrWhiteSpace(txtkoefcr.Text) ? 0 : Convert.ToDecimal(txtkoefcr.Text));
+                        cmd.Parameters.AddWithValue("@m", string.IsNullOrWhiteSpace(txtkoefm.Text) ? 0 : Convert.ToDecimal(txtkoefm.Text));
+                        cmd.Parameters.AddWithValue("@r", string.IsNullOrWhiteSpace(txtkoefr.Text) ? 0 : Convert.ToDecimal(txtkoefr.Text));
+                        cmd.Parameters.AddWithValue("@c", string.IsNullOrWhiteSpace(txtkoefc.Text) ? 0 : Convert.ToDecimal(txtkoefc.Text));
+                        cmd.Parameters.AddWithValue("@rl", string.IsNullOrWhiteSpace(txtkoefrl.Text) ? 0 : Convert.ToDecimal(txtkoefrl.Text));
+                        cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
+                        cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
+                        await cmd.ExecuteNonQueryAsync();
 
-                    MessageBox.Show("Data Koefisiensi Material Berhasil Diedit", "Sukses.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    tampilmaterial();
+                        MessageBox.Show("Data Koefisiensi Material Berhasil Diedit", "Sukses.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        clearedit();
+
+                        if (isSearching)
+                        {
+                            await HitungTotalDataPencarian();
+                            await tampilmaterial();
+                        }
+                        else
+                        {
+                            await HitungTotalData();
+                            await tampilmaterial();
+
+                            resetsearchui();
+                        }
+                    }
 
                 }
-                catch (SqlException ex)
+                catch (SqlException)
                 {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif." + ex.Message,
-                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
+                    MessageBox.Show("Gagal Edit Data.");
+                    return;
                 }
             }
         }
 
-        private void hapusmaterial()
+        private async Task hapusmaterial()
         {
             DialogResult result = MessageBox.Show("Apakah Anda yakin hapus data Anda?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
@@ -523,57 +596,40 @@ namespace GOS_FxApps
             {
                 try
                 {
-                    conn.Open();
-                    string query = "DELETE FROM koefisiensi_material WHERE no = @no";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@no", noprimarymaterial);
-                    cmd.ExecuteNonQuery();
+                    using (var conn = await Koneksi.GetConnectionAsync())
+                    {
+                        string query = "DELETE FROM koefisiensi_material WHERE no = @no";
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@no", noprimarymaterial);
+                        await cmd.ExecuteNonQueryAsync();
 
-                    MessageBox.Show("Data Koefisiensi Material Berhasil Dihapus", "Sukses.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    tampilmaterial();
+                        MessageBox.Show("Data Koefisiensi Material Berhasil Dihapus", "Sukses.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        clearedit();
 
-                    txtuom.Enabled = true;
-                    txttipe.Enabled = true;
-                    txtspesifikasi.Enabled = true;
-                    setdefaultmaterial();
-                    txtuom.Enabled = false;
-                    txttipe.Enabled = false;
-                    txtspesifikasi.Enabled = false;
+                        if (isSearching)
+                        {
+                            await HitungTotalDataPencarian();
+                            await tampilmaterial();
+                        }
+                        else
+                        {
+                            await HitungTotalData();
+                            await tampilmaterial();
 
-                    btnsimpanmaterial.Text = "Simpan Data";
-                    btndelete.Text = "Batal";
-                    btndelete.Enabled = false;
-                    btnsimpanmaterial.Enabled = false;
-                    btnbatalmaterial.Visible = false;
-
-                    cmbmaterial.Enabled = true;
-                    cmbKodeBarang.Enabled = true;
-                    tahun.Enabled = true;
-                    txtcarinamabarang.Enabled = true;
-
-                    if (cmbmaterial.Items.Count > 0)
-                        cmbmaterial.SelectedIndex = 0;
-                    cmbmaterial.Enabled = true;
-
-                    cmbKodeBarang.DataSource = null;
-                    cmbKodeBarang.Items.Clear();
-                    cmbKodeBarang.Items.Add("Pilih Kode Barang");
-                    cmbKodeBarang.SelectedIndex = 0;
-                    cmbKodeBarang.Enabled = true;
+                            resetsearchui();
+                        }
+                    }
                 }
-                catch (SqlException ex)
+                catch (SqlException)
                 {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif." + ex.Message,
-                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
+                    MessageBox.Show("Gagal Hapus Data.");
+                    return;
                 }
             }
         }
@@ -587,7 +643,7 @@ namespace GOS_FxApps
             }
         }
 
-        private void btnsimpanmaterial_Click(object sender, EventArgs e)
+        private async void btnsimpanmaterial_Click(object sender, EventArgs e)
         {
             if (cmbmaterial.Text == "Pilih Material" || cmbKodeBarang.Text == "Pilih Kode Barang" || txtuom.Text == "" || txttipe.Text == "")
             {
@@ -601,11 +657,10 @@ namespace GOS_FxApps
 
             if (btnsimpanmaterial.Text == "Edit Data")
             {
-                editmaterial();
+                await editmaterial();
                 txtuom.Enabled = true;
                 txttipe.Enabled = true;
                 txtspesifikasi.Enabled = true;
-                setdefaultmaterial();
                 txtuom.Enabled = false;
                 txttipe.Enabled = false;
                 txtspesifikasi.Enabled = false;
@@ -633,11 +688,10 @@ namespace GOS_FxApps
             }
             else
             {
-                simpandatamaterial();
+                await simpandatamaterial();
                 txtuom.Enabled = true;
                 txttipe.Enabled = true;
                 txtspesifikasi.Enabled = true;
-                setdefaultmaterial();
                 txtuom.Enabled = false;
                 txttipe.Enabled = false;
                 txtspesifikasi.Enabled = false;
@@ -663,7 +717,7 @@ namespace GOS_FxApps
             txtuom.Enabled = true;
             txttipe.Enabled = true;
             txtspesifikasi.Enabled = true;
-            setdefaultmaterial();
+            clearedit();
             txtuom.Enabled = false;
             txttipe.Enabled = false;
             txtspesifikasi.Enabled = false;
@@ -774,47 +828,57 @@ namespace GOS_FxApps
             btnsimpanmaterial.Enabled = true;
         }
 
-        public void combonama()
+        private async Task<DataTable> LoadDataTableAsync(SqlCommand cmd)
+        {
+            using (var reader = await cmd.ExecuteReaderAsync())
+            {
+                var dt = new DataTable();
+                dt.Load(reader);
+                return dt;
+            }
+        }
+
+        public async Task combonama()
         {
             try
             {
-                using (SqlConnection conn = Koneksi.GetConnection())
+                using (var conn = await Koneksi.GetConnectionAsync())
+                using (var cmd = new SqlCommand(@"
+            SELECT DISTINCT namaBarang
+            FROM stok_material
+            WHERE type IN ('MATERIAL COST','CONSUMABLE COST','SAFETY PROTECTOR COST')
+            ORDER BY namaBarang", conn))
                 {
-                    string query = @"
-                SELECT DISTINCT namaBarang 
-                FROM stok_material
-                WHERE type IN ('MATERIAL COST', 'CONSUMABLE COST', 'SAFETY PROTECTOR COST')
-                ORDER BY namaBarang";
-
-                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
+                    DataTable dt = await LoadDataTableAsync(cmd);
 
                     DataRow dr = dt.NewRow();
                     dr["namaBarang"] = "Pilih Material";
                     dt.Rows.InsertAt(dr, 0);
 
+                    cmbmaterial.SelectedIndexChanged -= cmbmaterial_SelectedIndexChanged;
+
                     cmbmaterial.DataSource = dt;
                     cmbmaterial.DisplayMember = "namaBarang";
                     cmbmaterial.ValueMember = "namaBarang";
                     cmbmaterial.SelectedIndex = 0;
+
+                    cmbmaterial.SelectedIndexChanged += cmbmaterial_SelectedIndexChanged;
                 }
             }
             catch (SqlException)
             {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Gagal combonama Data.");
+                return;
             }
         }
-        private void cmbmaterial_SelectedIndexChanged(object sender, EventArgs e)
+
+        private async void cmbmaterial_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (isLoading) return;
-
             if (cmbmaterial.SelectedIndex <= 0)
             {
                 cmbKodeBarang.DataSource = null;
@@ -828,74 +892,71 @@ namespace GOS_FxApps
 
             try
             {
-                using (SqlConnection conn = Koneksi.GetConnection())
+                using (var conn = await Koneksi.GetConnectionAsync())
+                using (var cmd = new SqlCommand(@"
+            SELECT kodeBarang
+            FROM stok_material
+            WHERE namaBarang = @namaBarang
+              AND type IN ('MATERIAL COST','CONSUMABLE COST','SAFETY PROTECTOR COST')
+            ORDER BY kodeBarang ASC", conn))
                 {
-                    string query = @"
-                        SELECT kodeBarang 
-                        FROM stok_material 
-                        WHERE namaBarang = @namaBarang
-                          AND type IN ('MATERIAL COST', 'CONSUMABLE COST', 'SAFETY PROTECTOR COST')
-                        ORDER BY kodeBarang ASC";
+                    cmd.Parameters.AddWithValue("@namaBarang", namaBarang);
 
-                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                    da.SelectCommand.Parameters.AddWithValue("@namaBarang", namaBarang);
-
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
+                    DataTable dt = await LoadDataTableAsync(cmd);
 
                     DataRow dr = dt.NewRow();
                     dr["kodeBarang"] = "Pilih Kode Barang";
                     dt.Rows.InsertAt(dr, 0);
 
+                    cmbKodeBarang.SelectedIndexChanged -= cmbKodeBarang_SelectedIndexChanged;
+
                     cmbKodeBarang.DataSource = dt;
-                    cmbKodeBarang.DisplayMember = "kodeBarang";  
-                    cmbKodeBarang.ValueMember = "kodeBarang";    
+                    cmbKodeBarang.DisplayMember = "kodeBarang";
+                    cmbKodeBarang.ValueMember = "kodeBarang";
                     cmbKodeBarang.SelectedIndex = 0;
+
+                    cmbKodeBarang.SelectedIndexChanged += cmbKodeBarang_SelectedIndexChanged;
                 }
             }
             catch (SqlException)
             {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void cmbKodeBarang_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (isLoading) return;
-
-            if (cmbKodeBarang.SelectedIndex <= 0)
-            {
                 return;
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Gagal cmbmaterial Data.");
+                return;
+            }
+        }
+
+        private async void cmbKodeBarang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isLoading || cmbKodeBarang.SelectedIndex <= 0) return;
 
             string kodeBarang = cmbKodeBarang.SelectedValue.ToString();
+
             try
             {
-                using (SqlConnection conn = Koneksi.GetConnection())
-                using (SqlCommand cmd = new SqlCommand(
-                    "SELECT spesifikasi,uom,type FROM stok_material WHERE kodeBarang = @kodeBarang", conn))
+                using (var conn = await Koneksi.GetConnectionAsync())
+                using (var cmd = new SqlCommand(
+                    "SELECT spesifikasi, uom, type FROM stok_material WHERE kodeBarang = @kode",
+                    conn))
                 {
-                    cmd.Parameters.AddWithValue("@kodeBarang", kodeBarang);
+                    cmd.Parameters.AddWithValue("@kode", kodeBarang);
 
-                    conn.Open();
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    using (var reader = await cmd.ExecuteReaderAsync())
                     {
-                        if (reader.Read())
+                        if (await reader.ReadAsync())
                         {
                             txtuom.Text = reader["uom"]?.ToString();
                             txttipe.Text = reader["type"]?.ToString();
-                            txtspesifikasi.Text = reader["spesifikasi"].ToString();
+                            txtspesifikasi.Text = reader["spesifikasi"]?.ToString();
                             btndelete.Enabled = true;
                             btnsimpanmaterial.Enabled = true;
                         }
                         else
                         {
-                            setdefaultmaterial();
+                            clearedit();
                             btndelete.Enabled = false;
                             btnsimpanmaterial.Enabled = false;
                         }
@@ -904,28 +965,108 @@ namespace GOS_FxApps
             }
             catch (SqlException)
             {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Gagal cmbKodeBarang Data.");
+                return;
             }
         }
 
-
-        private void koefisiensi_Load(object sender, EventArgs e)
+        private async void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            SqlDependency.Start(Koneksi.GetConnectionString());
+            if (e.RowIndex < 0) return;
+
+            DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+            noprimarymaterial = Convert.ToInt32(row.Cells["no"].Value);
+            string namaBarang = row.Cells["deskripsi"].Value.ToString();
+            string kodeBarangGrid = row.Cells["kodeBarang"].Value.ToString();
+
+            isLoading = true;
+
+            cmbmaterial.SelectedIndexChanged -= cmbmaterial_SelectedIndexChanged;
+            cmbKodeBarang.SelectedIndexChanged -= cmbKodeBarang_SelectedIndexChanged;
+
+            cmbmaterial.SelectedValue = namaBarang;
+
+            using (var conn = await Koneksi.GetConnectionAsync())
+            using (var cmd = new SqlCommand(@"
+        SELECT kodeBarang
+        FROM stok_material
+        WHERE namaBarang = @nama
+          AND type IN ('MATERIAL COST','CONSUMABLE COST','SAFETY PROTECTOR COST')
+        ORDER BY kodeBarang ASC", conn))
+            {
+                cmd.Parameters.AddWithValue("@nama", namaBarang.Trim());
+
+                DataTable dt = await LoadDataTableAsync(cmd);
+
+                DataRow dr = dt.NewRow();
+                dr["kodeBarang"] = "Pilih Kode Barang";
+                dt.Rows.InsertAt(dr, 0);
+
+                cmbKodeBarang.DataSource = dt;
+                cmbKodeBarang.DisplayMember = "kodeBarang";
+                cmbKodeBarang.ValueMember = "kodeBarang";
+
+                if (dt.AsEnumerable().Any(r => r["kodeBarang"].ToString() == kodeBarangGrid))
+                    cmbKodeBarang.SelectedValue = kodeBarangGrid;
+                else
+                    cmbKodeBarang.SelectedIndex = 0;
+            }
+
+            tahun.Value = new DateTime(Convert.ToDateTime(row.Cells["tanggal"].Value).Year, 1, 1);
+            txtspesifikasi.Text = row.Cells["spesifikasi"].Value.ToString();
+            txtuom.Text = row.Cells["uom"].Value.ToString();
+            txttipe.Text = row.Cells["type"].Value.ToString();
+
+            txtkoefe1.Text = row.Cells["koef_e1"].Value.ToString();
+            txtkoefe2.Text = row.Cells["koef_e2"].Value.ToString();
+            txtkoefe3.Text = row.Cells["koef_e3"].Value.ToString();
+            txtkoefe4.Text = row.Cells["koef_e4"].Value.ToString();
+            txtkoefs.Text = row.Cells["koef_s"].Value.ToString();
+            txtkoefd.Text = row.Cells["koef_d"].Value.ToString();
+            txtkoefb.Text = row.Cells["koef_b"].Value.ToString();
+            txtkoefba.Text = row.Cells["koef_ba"].Value.ToString();
+            txtkoefba1.Text = row.Cells["koef_ba1"].Value.ToString();
+            txtkoefcr.Text = row.Cells["koef_cr"].Value.ToString();
+            txtkoefm.Text = row.Cells["koef_m"].Value.ToString();
+            txtkoefr.Text = row.Cells["koef_r"].Value.ToString();
+            txtkoefc.Text = row.Cells["koef_c"].Value.ToString();
+            txtkoefrl.Text = row.Cells["koef_rl"].Value.ToString();
+
+            cmbmaterial.SelectedIndexChanged += cmbmaterial_SelectedIndexChanged;
+            cmbKodeBarang.SelectedIndexChanged += cmbKodeBarang_SelectedIndexChanged;
+
+            isLoading = false;
+
+            tahun.Enabled = false;
+            cmbmaterial.Enabled = false;
+            cmbKodeBarang.Enabled = false;
+            txtcarinamabarang.Enabled = false;
+
+            btnsimpanmaterial.Enabled = true;
+            btnsimpanmaterial.Text = "Edit Data";
+            btndelete.Enabled = true;
+            btndelete.Text = "Hapus Data";
+            btnbatalmaterial.Visible = true;
+        }
+
+
+        private async void koefisiensi_Load(object sender, EventArgs e)
+        {
+            MainForm.DataChanged += OnDatabaseChanged;
+
             searchTimer = new System.Windows.Forms.Timer();
             searchTimer.Interval = 300;
             searchTimer.Tick += SearchTimer_Tick;
 
-            registertampilmaterial();
-            tampilmaterial();
+            await HitungTotalData();
+            await tampilmaterial();
 
-            combonama();
+            await combonama();
             formSiap = true;
             tahun.Value = new DateTime(DateTime.Now.Year, 1, 1);
             tahuncari.Value = new DateTime(DateTime.Now.Year, 1, 1);
@@ -939,102 +1080,49 @@ namespace GOS_FxApps
 
         private void koefisiensi_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SqlDependency.Stop(Koneksi.GetConnectionString());
+            MainForm.DataChanged -= OnDatabaseChanged;
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-
-                noprimarymaterial = Convert.ToInt32(row.Cells["no"].Value);
-                string namaBarang = row.Cells["deskripsi"].Value.ToString();
-                string kodeBarangGrid = row.Cells["kodeBarang"].Value.ToString(); 
-
-                isLoading = true;
-
-                cmbmaterial.SelectedValue = namaBarang;
-
-                using (SqlConnection conn = Koneksi.GetConnection())
-                {
-                    string query = @"
-                SELECT kodeBarang
-                FROM stok_material 
-                WHERE namaBarang = @nama
-                  AND type IN ('MATERIAL COST', 'CONSUMABLE COST', 'SAFETY PROTECTOR COST')
-                ORDER BY kodeBarang ASC";
-
-                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                    da.SelectCommand.Parameters.AddWithValue("@nama", namaBarang.Trim());
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
-                    DataRow dr = dt.NewRow();
-                    dr["kodeBarang"] = "Pilih Kode Barang";
-                    dt.Rows.InsertAt(dr, 0);
-
-                    cmbKodeBarang.DataSource = dt;
-                    cmbKodeBarang.DisplayMember = "kodeBarang";
-                    cmbKodeBarang.ValueMember = "kodeBarang";
-
-                    if (dt.AsEnumerable().Any(r => r["kodeBarang"].ToString() == kodeBarangGrid))
-                    {
-                        cmbKodeBarang.SelectedValue = kodeBarangGrid;
-                    }
-                    else
-                    {
-                        cmbKodeBarang.SelectedIndex = 0; 
-                    }
-                }
-
-                tahun.Value = new DateTime(Convert.ToDateTime(row.Cells["tanggal"].Value).Year,1, 1);
-                txtspesifikasi.Text = row.Cells["spesifikasi"].Value.ToString();
-                txtuom.Text = row.Cells["uom"].Value.ToString();
-                txttipe.Text = row.Cells["type"].Value.ToString();
-                txtkoefe1.Text = row.Cells["koef_e1"].Value.ToString();
-                txtkoefe2.Text = row.Cells["koef_e2"].Value.ToString();
-                txtkoefe3.Text = row.Cells["koef_e3"].Value.ToString();
-                txtkoefe4.Text = row.Cells["koef_e4"].Value.ToString();
-                txtkoefs.Text = row.Cells["koef_s"].Value.ToString();
-                txtkoefd.Text = row.Cells["koef_d"].Value.ToString();
-                txtkoefb.Text = row.Cells["koef_b"].Value.ToString();
-                txtkoefba.Text = row.Cells["koef_ba"].Value.ToString();
-                txtkoefba1.Text = row.Cells["koef_ba1"].Value.ToString();
-                txtkoefcr.Text = row.Cells["koef_cr"].Value.ToString();
-                txtkoefm.Text = row.Cells["koef_m"].Value.ToString();
-                txtkoefr.Text = row.Cells["koef_r"].Value.ToString();
-                txtkoefc.Text = row.Cells["koef_c"].Value.ToString();
-                txtkoefrl.Text = row.Cells["koef_rl"].Value.ToString();
-
-                isLoading = false;
-
-                tahun.Enabled = false;
-                cmbmaterial.Enabled = false;
-                cmbKodeBarang.Enabled = false;
-                txtcarinamabarang.Enabled = false;
-
-                btnsimpanmaterial.Enabled = true;
-                btnsimpanmaterial.Text = "Edit Data";
-                btndelete.Enabled = true;
-                btndelete.Text = "Hapus Data";
-
-                btnbatalmaterial.Visible = true;
-            }
-        }
-
-        private void btndelete_Click(object sender, EventArgs e)
+        private async void btndelete_Click(object sender, EventArgs e)
         {
             if (btndelete.Text == "Hapus Data")
             {
-                hapusmaterial();
+                await hapusmaterial();
+
+                txtuom.Enabled = true;
+                txttipe.Enabled = true;
+                txtspesifikasi.Enabled = true;
+                txtuom.Enabled = false;
+                txttipe.Enabled = false;
+                txtspesifikasi.Enabled = false;
+
+                btnsimpanmaterial.Text = "Simpan Data";
+                btndelete.Text = "Batal";
+                btndelete.Enabled = false;
+                btnsimpanmaterial.Enabled = false;
+                btnbatalmaterial.Visible = false;
+
+                cmbmaterial.Enabled = true;
+                cmbKodeBarang.Enabled = true;
+                tahun.Enabled = true;
+                txtcarinamabarang.Enabled = true;
+
+                if (cmbmaterial.Items.Count > 0)
+                    cmbmaterial.SelectedIndex = 0;
+                cmbmaterial.Enabled = true;
+
+                cmbKodeBarang.DataSource = null;
+                cmbKodeBarang.Items.Clear();
+                cmbKodeBarang.Items.Add("Pilih Kode Barang");
+                cmbKodeBarang.SelectedIndex = 0;
+                cmbKodeBarang.Enabled = true;
             }
             else
             {
                 txtuom.Enabled = true;
                 txttipe.Enabled = true;
                 txtspesifikasi.Enabled = true;
-                setdefaultmaterial();
+                clearedit();
                 txtuom.Enabled = false;
                 txttipe.Enabled = false;
                 txtspesifikasi.Enabled = false;
@@ -1108,7 +1196,9 @@ namespace GOS_FxApps
             }
         }
 
-        private void SearchTimer_Tick(object sender, EventArgs e)
+        private CancellationTokenSource searchCancelToken;
+
+        private async void SearchTimer_Tick(object sender, EventArgs e)
         {
             searchTimer.Stop();
 
@@ -1117,56 +1207,62 @@ namespace GOS_FxApps
 
             string keyword = txtcarinamabarang.Text?.Trim() ?? "";
 
+            searchCancelToken?.Cancel();
+            searchCancelToken = new CancellationTokenSource();
+            var token = searchCancelToken.Token;
+
             try
             {
-                using (SqlConnection conn = Koneksi.GetConnection())
+                using (var conn = await Koneksi.GetConnectionAsync())
+                using (var cmd = new SqlCommand(@"
+            SELECT DISTINCT namaBarang
+            FROM stok_material
+            WHERE 
+                (namaBarang LIKE @keyword OR kodeBarang LIKE @keyword)
+                AND type IN ('MATERIAL COST', 'CONSUMABLE COST', 'SAFETY PROTECTOR COST')
+            ORDER BY namaBarang ASC", conn))
                 {
-                    string query = @"
-                    SELECT DISTINCT namaBarang
-                    FROM stok_material
-                    WHERE 
-                        (namaBarang LIKE @keyword OR kodeBarang LIKE @keyword)
-                        AND type IN ('MATERIAL COST', 'CONSUMABLE COST', 'SAFETY PROTECTOR COST')
-                    ORDER BY namaBarang ASC";
+                    cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
 
+                    DataTable dt = await LoadDataTableAsync(cmd);
 
-                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                    da.SelectCommand.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
-
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
+                    if (token.IsCancellationRequested)
+                        return;
 
                     DataRow dr = dt.NewRow();
                     dr["namaBarang"] = "Pilih Material";
                     dt.Rows.InsertAt(dr, 0);
 
+                    cmbmaterial.SelectedIndexChanged -= cmbmaterial_SelectedIndexChanged;
+
                     cmbmaterial.DataSource = dt;
                     cmbmaterial.DisplayMember = "namaBarang";
                     cmbmaterial.ValueMember = "namaBarang";
+                    cmbmaterial.SelectedIndex = 0;
 
-                    if (cmbmaterial.Items.Count > 0)
-                        cmbmaterial.SelectedIndex = 0;
+                    cmbmaterial.SelectedIndexChanged += cmbmaterial_SelectedIndexChanged;
                 }
 
-                if (cmbmaterial.Items.Count > 1)
+                if (!cmbmaterial.DroppedDown)
                 {
-                    cmbmaterial.DroppedDown = true;
-                    Cursor.Current = Cursors.Default;
+                    if (cmbmaterial.Items.Count > 1)
+                        cmbmaterial.DroppedDown = true;
+                    else
+                        cmbmaterial.DroppedDown = false;
                 }
-                else
-                {
-                    cmbmaterial.DroppedDown = false;
-                }
+
+            }
+            catch (OperationCanceledException)
+            {
             }
             catch (SqlException)
             {
-                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Gagal Search Data.");
+                return;
             }
         }
 
@@ -1229,17 +1325,13 @@ namespace GOS_FxApps
             }
         }
 
-        private void btncari_Click(object sender, EventArgs e)
+        private async void btncari_Click(object sender, EventArgs e)
         {
+
             if (!infocari)
             {
-                bool hasilCari = cari();
-                if (hasilCari)
-                {
-                    infocari = true;
-                    btncari.Text = "Reset";
-                }
-                else
+                bool hasil = await cari();
+                if (hasil)
                 {
                     infocari = true;
                     btncari.Text = "Reset";
@@ -1247,7 +1339,6 @@ namespace GOS_FxApps
             }
             else
             {
-
                 infocari = false;
                 isSearching = false;
 
@@ -1256,28 +1347,27 @@ namespace GOS_FxApps
 
                 btncari.Text = "Cari";
 
-                HitungTotalData();
+                await HitungTotalData();
                 currentPage = 1;
-                tampilmaterial();
-
+                await tampilmaterial();
             }
         }
 
-        private void btnleft_Click(object sender, EventArgs e)
+        private async void btnleft_Click(object sender, EventArgs e)
         {
             if (currentPage > 1)
             {
                 currentPage--;
-                tampilmaterial();
+                await tampilmaterial();
             }
         }
 
-        private void btnright_Click(object sender, EventArgs e)
+        private async void btnright_Click(object sender, EventArgs e)
         {
             if (currentPage < totalPages)
             {
                 currentPage++;
-                tampilmaterial();
+                await tampilmaterial();
             }
         }
     }

@@ -1740,6 +1740,7 @@
             this.btnsimpan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnsimpan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnsimpan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnsimpan.Enabled = false;
             this.btnsimpan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnsimpan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnsimpan.ForeColor = System.Drawing.Color.White;
@@ -1878,6 +1879,7 @@
             this.btnleft.Name = "btnleft";
             this.btnleft.Size = new System.Drawing.Size(60, 37);
             this.btnleft.TabIndex = 64;
+            this.btnleft.Click += new System.EventHandler(this.btnleft_Click);
             // 
             // btnright
             // 
@@ -1898,6 +1900,7 @@
             this.btnright.Name = "btnright";
             this.btnright.Size = new System.Drawing.Size(60, 37);
             this.btnright.TabIndex = 44;
+            this.btnright.Click += new System.EventHandler(this.btnright_Click);
             // 
             // panel3
             // 

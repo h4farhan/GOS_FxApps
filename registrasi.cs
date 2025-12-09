@@ -27,7 +27,7 @@ namespace GOS_FxApps
             cmblevel.StartIndex = -1;
         }
 
-        private void btnregis_Click(object sender, EventArgs e)
+        private async void btnregis_Click(object sender, EventArgs e)
         {
 
             if (cmblevel.SelectedIndex == -1 || txtid.Text == "" || txtpass.Text == "" | txtusername.Text == "")
@@ -42,13 +42,12 @@ namespace GOS_FxApps
             {
                 try
                 {
-                    using (SqlConnection conn = Koneksi.GetConnection())
+                    using (var conn = await Koneksi.GetConnectionAsync())
                     {
-                        conn.Open();
                         SqlCommand cmdcheck = new SqlCommand("SELECT id FROM users WHERE id = @id", conn);
                         cmdcheck.Parameters.AddWithValue("@id", txtid.Text);
-                        SqlDataReader dr = cmdcheck.ExecuteReader();
-                        if (dr.Read())
+                        SqlDataReader dr = await cmdcheck.ExecuteReaderAsync();
+                        if (await dr.ReadAsync())
                         {
                             MessageBox.Show("Id User sudah terdaftar", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
@@ -61,20 +60,20 @@ namespace GOS_FxApps
                         cmd.Parameters.AddWithValue("@password", txtpass.Text);
                         cmd.Parameters.AddWithValue("@lvl", cmblevel.SelectedItem);
 
-                        cmd.ExecuteNonQuery();
+                        await cmd.ExecuteNonQueryAsync();
                         MessageBox.Show("Akun Berhasil Ditambahkan", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         setdefault();
                     }
                 }
                 catch (SqlException)
                 {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    MessageBox.Show("Terjadi kesalahan sistem:\n" + ex.Message,
-                                    "Kesalahan Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Gagal Simpan Data.");
                 }
             }
         }

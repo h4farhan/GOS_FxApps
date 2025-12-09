@@ -75,7 +75,6 @@
             this.lbluser.Name = "lbluser";
             this.lbluser.Size = new System.Drawing.Size(238, 55);
             this.lbluser.TabIndex = 9;
-            this.lbluser.Text = "Halo, Muhammad Zulkarnain Effendy";
             this.lbluser.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // lbljabatan
@@ -89,7 +88,6 @@
             this.lbljabatan.Name = "lbljabatan";
             this.lbljabatan.Size = new System.Drawing.Size(238, 49);
             this.lbljabatan.TabIndex = 10;
-            this.lbljabatan.Text = "Operator";
             // 
             // panel2
             // 
