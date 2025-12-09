@@ -13,6 +13,8 @@ using System.IO;
 using Excel = Microsoft.Office.Interop.Excel;
 using Guna.UI2.WinForms;
 using System.Runtime.InteropServices;
+using System.Threading;
+using System.Net.NetworkInformation;
 
 namespace GOS_FxApps
 {
@@ -22,6 +24,77 @@ namespace GOS_FxApps
         public EstimasiPemakaianMaterial()
         {
             InitializeComponent();
+        }
+
+        private async Task StartNetworkMonitorAsync(CancellationTokenSource cts)
+        {
+            int failCount = 0;
+
+            while (!cts.IsCancellationRequested)
+            {
+                bool ok = await IsNetworkOk();
+
+                if (!ok)
+                {
+                    failCount++;
+                    if (failCount >= 3)
+                    {
+                        cts.Cancel();
+                        return;
+                    }
+                }
+                else
+                {
+                    failCount = 0;
+                }
+
+                await Task.Delay(2000);
+            }
+        }
+
+        private async Task<bool> IsNetworkOk()
+        {
+            string sqlServerIP = "192.168.1.25";
+
+            try
+            {
+                using (Ping p = new Ping())
+                {
+                    PingReply reply = await p.SendPingAsync(sqlServerIP, 1200);
+                    if (reply.Status != IPStatus.Success)
+                        return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(Koneksi.GetConnectionString()))
+                {
+                    var timeoutTask = Task.Delay(2000);
+                    var openTask = conn.OpenAsync();
+
+                    var finished = await Task.WhenAny(openTask, timeoutTask);
+
+                    if (finished == timeoutTask)
+                        return false;
+
+                    if (conn.State == ConnectionState.Open)
+                    {
+                        conn.Close();
+                        return true;
+                    }
+
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private async Task<DataTable> GetDataFromSPtanggalAsync(string spName, DateTime tanggalMulai, DateTime tanggalAkhir)
@@ -54,130 +127,174 @@ namespace GOS_FxApps
                 throw;
             }
         }
+        private void AddStaticRow(DataTable dt, string text)
+        {
+            DataRow r = dt.NewRow();
+            r["Deskripsi"] = text;
+            dt.Rows.Add(r);
+        }
 
         private async Task loadsp2()
         {
+            using (FormLoading loading = new FormLoading())
+            {
+                loading.TopMost = true;
+                loading.Show();
+                loading.Refresh();
+
+                try
+                {
+                    DateTime tanggalMulai = datejadwalMulai.Value.Date;
+                    DateTime tanggalAkhir = datejadwalAkhir.Value.Date;
+
+                    var dt1Task = Task.Run(() => GetDataFromSPtanggalAsync("sp_koefisiensiMaterialCostbulan", tanggalMulai, tanggalAkhir));
+                    var dt2Task = Task.Run(() => GetDataFromSPtanggalAsync("sp_koefisiensiConsumableCostbulan", tanggalMulai, tanggalAkhir));
+                    var dt3Task = Task.Run(() => GetDataFromSPtanggalAsync("sp_koefisiensiSafetyCostbulan", tanggalMulai, tanggalAkhir));
+
+                    await Task.WhenAll(dt1Task, dt2Task, dt3Task);
+
+                    DataTable dt1 = dt1Task.Result;
+                    DataTable dt2 = dt2Task.Result;
+                    DataTable dt3 = dt3Task.Result;
+
+                    DataTable finalDt = dt1.Clone();
+
+                    AddStaticRow(finalDt, "-Material Cost-");
+                    finalDt.Merge(dt1);
+
+                    AddStaticRow(finalDt, "-Consumable Cost-");
+                    finalDt.Merge(dt2);
+
+                    AddStaticRow(finalDt, "-Safety Cost-");
+                    finalDt.Merge(dt3);
+
+                    finalDt.Columns.Add("No", typeof(int)).SetOrdinal(0);
+
+                    int no = 1;
+                    for (int i = 0; i < finalDt.Rows.Count; i++)
+                    {
+                        string desc = finalDt.Rows[i]["Deskripsi"]?.ToString() ?? "";
+                        if (desc.StartsWith("-"))
+                            finalDt.Rows[i]["No"] = DBNull.Value;
+                        else
+                        {
+                            finalDt.Rows[i]["No"] = no;
+                            no++;
+                        }
+                    }
+
+                    dataGridView1.RowTemplate.Height = 34;
+                    dataGridView1.DataSource = finalDt;
+                    dataGridView1.ColumnHeadersVisible = false;
+                    dataGridView1.RowHeadersVisible = false;
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                    dataGridView1.ReadOnly = true;
+                    dataGridView1.AllowUserToAddRows = false;
+
+                    foreach (DataGridViewColumn col in dataGridView1.Columns)
+                        col.Resizable = DataGridViewTriState.False;
+
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        string desc = row.Cells["Deskripsi"].Value?.ToString() ?? "";
+                        if (desc.StartsWith("-"))
+                        {
+                            row.DefaultCellStyle.Font = new Font(dataGridView1.Font, FontStyle.Bold);
+                            row.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                        }
+                    }
+
+                    string[] hiddenCols = { "Juli","Agustus","September","Oktober","November","Desember",
+                                    "Januari","Februari","Maret","April","Mei","Juni" };
+                    foreach (var colName in hiddenCols)
+                    {
+                        if (dataGridView1.Columns.Contains(colName))
+                            dataGridView1.Columns[colName].Visible = false;
+                    }
+
+                    var colWidths = new Dictionary<string, int>
+                    {
+                        ["No"] = label5.Width,
+                        ["Deskripsi"] = label8.Width,
+                        ["Spesifikasi"] = label9.Width,
+                        ["Satuan"] = label15.Width,
+                        ["Koef E1"] = label23.Width,
+                        ["Hasil E1"] = label24.Width,
+                        ["Koef E2"] = label26.Width,
+                        ["Hasil E2"] = label28.Width,
+                        ["Koef E3"] = label30.Width,
+                        ["Hasil E3"] = label32.Width,
+                        ["Koef E4"] = label34.Width,
+                        ["Hasil E4"] = label36.Width,
+                        ["Koef S"] = label38.Width,
+                        ["Hasil S"] = label25.Width,
+                        ["Koef D"] = label40.Width,
+                        ["Hasil D"] = label27.Width,
+                        ["Koef B"] = label42.Width,
+                        ["Hasil B"] = label29.Width,
+                        ["Koef BA"] = label44.Width,
+                        ["Hasil BA"] = label31.Width,
+                        ["Koef BA1"] = label46.Width,
+                        ["Hasil BA1"] = label33.Width,
+                        ["Koef R"] = label48.Width,
+                        ["Hasil R"] = label35.Width,
+                        ["Koef M"] = label37.Width,
+                        ["Hasil M"] = label39.Width,
+                        ["Koef CR"] = label41.Width,
+                        ["Hasil CR"] = label43.Width,
+                        ["Koef C"] = label45.Width,
+                        ["Hasil C"] = label47.Width,
+                        ["Koef RL"] = label50.Width,
+                        ["Hasil RL"] = label49.Width,
+                        ["Total"] = label51.Width,
+                        ["Rata-rata per Hari"] = label52.Width,
+                        ["TotalPemakaian"] = label53.Width,
+                        ["RataPerHariKumulatif"] = label54.Width,
+                        ["UoM2"] = label55.Width,
+                        ["bq"] = label57.Width,
+                        ["aktual"] = label56.Width,
+                        ["Persentase"] = label59.Width
+                    };
+
+                    foreach (var kvp in colWidths)
+                    {
+                        if (dataGridView1.Columns.Contains(kvp.Key))
+                            dataGridView1.Columns[kvp.Key].Width = kvp.Value;
+                    }
+
+                    string[] hasilCols = { "Hasil E1","Hasil E2","Hasil E3","Hasil E4","Hasil S","Hasil D",
+                                   "Hasil B","Hasil BA","Hasil BA1","Hasil R","Hasil M","Hasil CR",
+                                   "Hasil C","Hasil RL" };
+                    foreach (var colName in hasilCols)
+                    {
+                        if (dataGridView1.Columns.Contains(colName))
+                            dataGridView1.Columns[colName].DefaultCellStyle.Format = "N0";
+                    }
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
+                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Gagal cari");
+                }
+                finally
+                {
+                    loading.Close();
+                }
+            }
+        }
+
+        private void ReleaseCom(object obj)
+        {
             try
             {
-                DateTime tanggalMulai = datejadwalMulai.Value.Date;
-                DateTime tanggalAkhir = datejadwalAkhir.Value.Date;
-
-                DataTable dt1 = await GetDataFromSPtanggalAsync("sp_koefisiensiMaterialCostbulan", tanggalMulai, tanggalAkhir);
-                DataTable dt2 = await GetDataFromSPtanggalAsync("sp_koefisiensiConsumableCostbulan", tanggalMulai, tanggalAkhir);
-                DataTable dt3 = await GetDataFromSPtanggalAsync("sp_koefisiensiSafetyCostbulan", tanggalMulai, tanggalAkhir);
-
-                DataTable finalDt = dt1.Copy();
-
-                finalDt.Merge(dt2);
-                finalDt.Merge(dt3);
-
-                finalDt.Columns.Add("No", typeof(int)).SetOrdinal(0);
-
-                for (int i = 0; i < finalDt.Rows.Count; i++)
-                {
-                    finalDt.Rows[i]["No"] = i + 1;
-                }
-
-                dataGridView1.RowTemplate.Height = 34;
-                dataGridView1.DataSource = finalDt;
-                dataGridView1.ColumnHeadersVisible = false;
-                dataGridView1.RowHeadersVisible = false;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-                dataGridView1.ReadOnly = true;
-                dataGridView1.AllowUserToAddRows = false;
-
-
-                foreach (DataGridViewColumn col in dataGridView1.Columns)
-                {
-                    col.Resizable = DataGridViewTriState.False;
-                }
-
-                dataGridView1.Columns["Juli"].Visible = false;
-                dataGridView1.Columns["Agustus"].Visible = false;
-                dataGridView1.Columns["September"].Visible = false;
-                dataGridView1.Columns["Oktober"].Visible = false;
-                dataGridView1.Columns["November"].Visible = false;
-                dataGridView1.Columns["Desember"].Visible = false;
-                dataGridView1.Columns["Januari"].Visible = false;
-                dataGridView1.Columns["Februari"].Visible = false;
-                dataGridView1.Columns["Maret"].Visible = false;
-                dataGridView1.Columns["April"].Visible = false;
-                dataGridView1.Columns["Mei"].Visible = false;
-                dataGridView1.Columns["Juni"].Visible = false;
-
-                dataGridView1.Columns["No"].Width = label5.Width;
-                dataGridView1.Columns["Deskripsi"].Width = label8.Width;
-                dataGridView1.Columns["Spesifikasi"].Width = label9.Width;
-                dataGridView1.Columns["Satuan"].Width = label15.Width;
-                dataGridView1.Columns["Koef E1"].Width = label23.Width;
-                dataGridView1.Columns["Hasil E1"].Width = label24.Width;
-                dataGridView1.Columns["Koef E2"].Width = label26.Width;
-                dataGridView1.Columns["Hasil E2"].Width = label28.Width;
-                dataGridView1.Columns["Koef E3"].Width = label30.Width;
-                dataGridView1.Columns["Hasil E3"].Width = label32.Width;
-
-                dataGridView1.Columns["Koef E4"].Width = label34.Width;
-                dataGridView1.Columns["Hasil E4"].Width = label36.Width;
-                dataGridView1.Columns["Koef S"].Width = label38.Width;
-                dataGridView1.Columns["Hasil S"].Width = label25.Width;
-                dataGridView1.Columns["Koef D"].Width = label40.Width;
-                dataGridView1.Columns["Hasil D"].Width = label27.Width;
-
-                dataGridView1.Columns["Koef B"].Width = label42.Width;
-                dataGridView1.Columns["Hasil B"].Width = label29.Width;
-                dataGridView1.Columns["Koef BA"].Width = label44.Width;
-                dataGridView1.Columns["Hasil BA"].Width = label31.Width;
-                dataGridView1.Columns["Koef BA1"].Width = label46.Width;
-                dataGridView1.Columns["Hasil BA1"].Width = label33.Width;
-
-                dataGridView1.Columns["Koef R"].Width = label48.Width;
-                dataGridView1.Columns["Hasil R"].Width = label35.Width;
-                dataGridView1.Columns["Koef M"].Width = label37.Width;
-                dataGridView1.Columns["Hasil M"].Width = label39.Width;
-                dataGridView1.Columns["Koef CR"].Width = label41.Width;
-                dataGridView1.Columns["Hasil CR"].Width = label43.Width;
-
-                dataGridView1.Columns["Koef C"].Width = label45.Width;
-                dataGridView1.Columns["Hasil C"].Width = label47.Width;
-                dataGridView1.Columns["Koef RL"].Width = label50.Width;
-                dataGridView1.Columns["Hasil RL"].Width = label49.Width;
-
-
-                dataGridView1.Columns["Total"].Width = label51.Width;
-                dataGridView1.Columns["Rata-rata per Hari"].Width = label52.Width;
-                dataGridView1.Columns["TotalPemakaian"].Width = label53.Width;
-                dataGridView1.Columns["RataPerHariKumulatif"].Width = label54.Width;
-                dataGridView1.Columns["UoM2"].Width = label55.Width;
-                dataGridView1.Columns["bq"].Width = label57.Width;
-                dataGridView1.Columns["aktual"].Width = label56.Width;
-                dataGridView1.Columns["Persentase"].Width = label59.Width;
-
-                dataGridView1.Columns["Hasil E1"].DefaultCellStyle.Format = "N0";
-                dataGridView1.Columns["Hasil E2"].DefaultCellStyle.Format = "N0";
-                dataGridView1.Columns["Hasil E3"].DefaultCellStyle.Format = "N0";
-                dataGridView1.Columns["Hasil E4"].DefaultCellStyle.Format = "N0";
-                dataGridView1.Columns["Hasil S"].DefaultCellStyle.Format = "N0";
-                dataGridView1.Columns["Hasil D"].DefaultCellStyle.Format = "N0";
-                dataGridView1.Columns["Hasil B"].DefaultCellStyle.Format = "N0";
-                dataGridView1.Columns["Hasil BA"].DefaultCellStyle.Format = "N0";
-                dataGridView1.Columns["Hasil BA1"].DefaultCellStyle.Format = "N0";
-                dataGridView1.Columns["Hasil R"].DefaultCellStyle.Format = "N0";
-                dataGridView1.Columns["Hasil M"].DefaultCellStyle.Format = "N0";
-                dataGridView1.Columns["Hasil CR"].DefaultCellStyle.Format = "N0";
-                dataGridView1.Columns["Hasil C"].DefaultCellStyle.Format = "N0";
-                dataGridView1.Columns["Hasil RL"].DefaultCellStyle.Format = "N0";
+                if (obj != null)
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
             }
-            catch (SqlException)
-            {
-                MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
-                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Gagal cari");
-                return;
-            }
+            catch { }
         }
 
         private async void ExportToExcelBulan()
@@ -185,85 +302,124 @@ namespace GOS_FxApps
             using (FormLoading loading = new FormLoading())
             {
                 Form mainform = this.FindForm()?.ParentForm;
-
                 mainform.Enabled = false;
+
                 loading.Show(mainform);
                 loading.Refresh();
 
-                await Task.Run(async () =>
+                CancellationTokenSource cts = new CancellationTokenSource();
+
+                var monitoringTask = StartNetworkMonitorAsync(cts);
+
+                Excel.Application xlApp = null;
+                Excel.Workbook xlWorkBook = null;
+                Excel.Worksheet xlWorkSheet = null;
+
+                try
                 {
-                    try
+                    await Task.Run(async () =>
                     {
+                        if (!await IsNetworkOk())
+                            throw new OperationCanceledException("NETWORK_DOWN");
+
                         DateTime tanggalMulai = datejadwalMulai.Value.Date;
                         DateTime tanggalAkhir = datejadwalAkhir.Value.Date;
 
                         DataTable dtMaterial = await GetDataFromSPtanggalAsync("sp_koefisiensiMaterialCostbulan", tanggalMulai, tanggalAkhir);
+                        if (cts.IsCancellationRequested) throw new OperationCanceledException("NETWORK_LOST_MID");
+
                         DataTable dtConsumable = await GetDataFromSPtanggalAsync("sp_koefisiensiConsumableCostbulan", tanggalMulai, tanggalAkhir);
+                        if (cts.IsCancellationRequested) throw new OperationCanceledException("NETWORK_LOST_MID");
+
                         DataTable dtsafety = await GetDataFromSPtanggalAsync("sp_koefisiensiSafetyCostbulan", tanggalMulai, tanggalAkhir);
+                        if (cts.IsCancellationRequested) throw new OperationCanceledException("NETWORK_LOST_MID");
+
                         DataTable dtQty = await GetDataFromSPtanggalAsync("koefisiensiqtybulan", tanggalMulai, tanggalAkhir);
+                        if (cts.IsCancellationRequested) throw new OperationCanceledException("NETWORK_LOST_MID");
 
-                        Excel.Application xlApp = new Excel.Application();
+
+                        xlApp = new Excel.Application();
                         string templatePath = Path.Combine(Application.StartupPath, "Koefisien Material.xlsx");
-                        Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(templatePath);
-                        Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Sheets[1];
 
-                        xlWorkSheet.Cells[1, 1] = "BQ PEKERJAAN ROD REPAIR SHOP PERIODE " + tanggalMulai + "/" + tanggalAkhir;
-                        xlWorkSheet.Cells[2, 1] = "UoM = Unit of Measure,     U /Price = Unit Price,     Coeff. = Coefficient,     E1, E2, E3 = Erotion,     " +
-                            "S = Sticking,     D= Deformation,     B = Bending,     BA = BA Clade Change,     R = Spark,     CR = Crack York,     M = Crack MIG,     C = End Cut,     RL = Rod Long";
+                        xlWorkBook = xlApp.Workbooks.Open(templatePath);
+                        xlWorkSheet = (Excel.Worksheet)xlWorkBook.Sheets[1];
+
+                        xlWorkSheet.Cells[1, 1] =
+                            $"BQ PEKERJAAN ROD REPAIR SHOP PERIODE {tanggalMulai:dd MMM yyyy} s/d {tanggalAkhir:dd MMM yyyy}".ToUpper();
+
+                        xlWorkSheet.Cells[2, 1] =
+                            "UoM = Unit of Measure, U/Price = Unit Price, Coeff. = Coefficient, " +
+                            "E1,E2,E3 = Erotion, S=Sticking, D=Deformation, B=Bending, BA=BA Clade Change, R=Spark, CR=Crack York, M=Crack MIG, C=End Cut, RL=Rod Long";
+
 
                         if (dtMaterial.Rows.Count > 0)
                         {
+                            Excel.ListObject tbl = xlWorkSheet.ListObjects["Table6"];
                             int nomor = 1;
-                            Excel.ListObject tblMaterial = xlWorkSheet.ListObjects["Table6"];
+
                             foreach (DataRow dr in dtMaterial.Rows)
                             {
-                                Excel.ListRow newRow = tblMaterial.ListRows.Add();
-                                newRow.Range[1, 1].Value2 = nomor++;
+                                if (cts.IsCancellationRequested)
+                                    throw new OperationCanceledException("NETWORK_LOST_MID");
+
+                                Excel.ListRow row = tbl.ListRows.Add();
+                                row.Range[1, 1].Value2 = nomor++;
+
                                 for (int j = 0; j < dtMaterial.Columns.Count; j++)
                                 {
-                                    int targetCol = j + 2;
+                                    int colTarget = j + 2;
                                     if (dtMaterial.Columns[j].ColumnName == "Persentase")
-                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                                        row.Range[1, colTarget].Value2 = dr[j] + " %";
                                     else
-                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                                        row.Range[1, colTarget].Value2 = dr[j];
                                 }
                             }
                         }
 
                         if (dtConsumable.Rows.Count > 0)
                         {
+                            Excel.ListObject tbl = xlWorkSheet.ListObjects["Table1"];
                             int nomor = 1;
-                            Excel.ListObject tblConsumable = xlWorkSheet.ListObjects["Table1"];
+
                             foreach (DataRow dr in dtConsumable.Rows)
                             {
-                                Excel.ListRow newRow = tblConsumable.ListRows.Add();
-                                newRow.Range[1, 1].Value2 = nomor++;
+                                if (cts.IsCancellationRequested)
+                                    throw new OperationCanceledException("NETWORK_LOST_MID");
+
+                                Excel.ListRow row = tbl.ListRows.Add();
+                                row.Range[1, 1].Value2 = nomor++;
+
                                 for (int j = 0; j < dtConsumable.Columns.Count; j++)
                                 {
-                                    int targetCol = j + 2;
+                                    int colTarget = j + 2;
                                     if (dtConsumable.Columns[j].ColumnName == "Persentase")
-                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                                        row.Range[1, colTarget].Value2 = dr[j] + " %";
                                     else
-                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                                        row.Range[1, colTarget].Value2 = dr[j];
                                 }
                             }
                         }
 
                         if (dtsafety.Rows.Count > 0)
                         {
+                            Excel.ListObject tbl = xlWorkSheet.ListObjects["Table2"];
                             int nomor = 1;
-                            Excel.ListObject tblSafety = xlWorkSheet.ListObjects["Table2"];
+
                             foreach (DataRow dr in dtsafety.Rows)
                             {
-                                Excel.ListRow newRow = tblSafety.ListRows.Add();
-                                newRow.Range[1, 1].Value2 = nomor++;
+                                if (cts.IsCancellationRequested)
+                                    throw new OperationCanceledException("NETWORK_LOST_MID");
+
+                                Excel.ListRow row = tbl.ListRows.Add();
+                                row.Range[1, 1].Value2 = nomor++;
+
                                 for (int j = 0; j < dtsafety.Columns.Count; j++)
                                 {
-                                    int targetCol = j + 2;
+                                    int colTarget = j + 2;
                                     if (dtsafety.Columns[j].ColumnName == "Persentase")
-                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString() + " %";
+                                        row.Range[1, colTarget].Value2 = dr[j] + " %";
                                     else
-                                        newRow.Range[1, targetCol].Value2 = dr[j].ToString();
+                                        row.Range[1, colTarget].Value2 = dr[j];
                                 }
                             }
                         }
@@ -292,55 +448,99 @@ namespace GOS_FxApps
                             loading.Close();
                             mainform.Enabled = true;
 
-                            SaveFileDialog saveFileDialog = new SaveFileDialog
+                            SaveFileDialog dlg = new SaveFileDialog
                             {
                                 Title = "Simpan File Excel",
                                 Filter = "Excel Files|*.xlsx",
-                                FileName = "Koefisien Material Bulan " + tanggalMulai + "/" + tanggalAkhir + ".xlsx"
+                                FileName = $"Koefisien Material Bulan {tanggalMulai:ddMMMyyyy}-{tanggalAkhir:ddMMMyyyy}.xlsx"
                             };
 
-                            if (saveFileDialog.ShowDialog(mainform) == DialogResult.OK)
+                            if (dlg.ShowDialog(mainform) == DialogResult.OK)
                             {
-                                string savePath = saveFileDialog.FileName;
-                                if (File.Exists(savePath)) File.Delete(savePath);
+                                if (File.Exists(dlg.FileName)) File.Delete(dlg.FileName);
+                                xlWorkBook.SaveCopyAs(dlg.FileName);
 
-                                xlWorkBook.SaveCopyAs(savePath);
-                                MessageBox.Show(mainform, "Export selesai ke: " + savePath,
-                                   "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show(mainform, "Export selesai!", "Sukses",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }));
-
-                        xlWorkBook.Close(false);
-                        xlApp.Quit();
-
-                        Marshal.ReleaseComObject(xlWorkSheet);
-                        Marshal.ReleaseComObject(xlWorkBook);
-                        Marshal.ReleaseComObject(xlApp);
-
-                        xlWorkSheet = null;
-                        xlWorkBook = null;
-                        xlApp = null;
-
-                        GC.Collect();
-                        GC.WaitForPendingFinalizers();
-                    }
-                    catch (Exception ex)
+                    });
+                }
+                catch (OperationCanceledException)
+                {
+                    this.Invoke(new Action(() =>
                     {
-                        this.Invoke(new Action(() =>
-                        {
-                            loading.Close();
-                            mainform.Enabled = true;
-                            MessageBox.Show("Error: " + ex.Message);
-                        }));
+                        loading.Close();
+                        mainform.Enabled = true;
+                        MessageBox.Show(mainform, "Proses dibatalkan karena jaringan terputus.", "Jaringan Terputus",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }));
+                }
+                catch (Exception)
+                {
+                    this.Invoke(new Action(() =>
+                    {
+                        loading.Close();
+                        mainform.Enabled = true;
+                        MessageBox.Show(mainform, "Proses gagal. Periksa jaringan.", "Jaringan Terputus",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }));
+                }
+                finally
+                {
+                    try
+                    {
+                        if (xlWorkBook != null)
+                            xlWorkBook.Close(false);
                     }
-                });
+                    catch { }
 
-                loading.Close();
+                    try
+                    {
+                        if (xlApp != null)
+                            xlApp.Quit();
+                    }
+                    catch { }
+
+                    ReleaseCom(xlWorkSheet);
+                    ReleaseCom(xlWorkBook);
+                    ReleaseCom(xlApp);
+
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+
+                    cts.Cancel();
+                }
             }
         }
 
         private void btnprint_Click(object sender, EventArgs e)
         {
+            DateTime mulai = datejadwalMulai.Value.Date;
+            DateTime akhir = datejadwalAkhir.Value.Date;
+
+            if (mulai > akhir)
+            {
+                MessageBox.Show("Tanggal Mulai harus kurang dari atau sama dengan Tanggal Akhir agar valid",
+                                "Peringatan",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            TimeSpan span = akhir - mulai;
+
+            int selisihBulan = (akhir.Year - mulai.Year) * 12 + (akhir.Month - mulai.Month) + 1;
+
+            if (selisihBulan > 12)
+            {
+                MessageBox.Show("Rentang tanggal tidak boleh melebihi 12 bulan.",
+                                "Peringatan",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
             ExportToExcelBulan();
         }
 

@@ -13,6 +13,8 @@ using DrawingPoint = System.Drawing.Point;
 using System.IO;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
+using System.Threading;
+using System.Net.NetworkInformation;
 
 namespace GOS_FxApps
 {
@@ -22,6 +24,77 @@ namespace GOS_FxApps
         public laporanpersediaan()
         {
             InitializeComponent();
+        }
+
+        private async Task StartNetworkMonitorAsync(CancellationTokenSource cts)
+        {
+            int failCount = 0;
+
+            while (!cts.IsCancellationRequested)
+            {
+                bool ok = await IsNetworkOk();
+
+                if (!ok)
+                {
+                    failCount++;
+                    if (failCount >= 3)
+                    {
+                        cts.Cancel(); 
+                        return;
+                    }
+                }
+                else
+                {
+                    failCount = 0;
+                }
+
+                await Task.Delay(2000);
+            }
+        }
+
+        private async Task<bool> IsNetworkOk()
+        {
+            string sqlServerIP = "192.168.1.25";
+
+            try
+            {
+                using (Ping p = new Ping())
+                {
+                    PingReply reply = await p.SendPingAsync(sqlServerIP, 1200);
+                    if (reply.Status != IPStatus.Success)
+                        return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(Koneksi.GetConnectionString()))
+                {
+                    var timeoutTask = Task.Delay(2000);
+                    var openTask = conn.OpenAsync();
+
+                    var finished = await Task.WhenAny(openTask, timeoutTask);
+
+                    if (finished == timeoutTask)
+                        return false;
+
+                    if (conn.State == ConnectionState.Open)
+                    {
+                        conn.Close();
+                        return true;
+                    }
+
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private async Task<DataTable> GetDataFromSPtanggalAsync(string spName, DateTime tanggalMulai, DateTime tanggalAkhir)
@@ -57,66 +130,90 @@ namespace GOS_FxApps
 
         private async Task loadsp1()
         {
+            using (FormLoading loading = new FormLoading())
+            {
+                loading.TopMost = true;
+                loading.Show();
+                loading.Refresh();
+
+                try
+                {
+                    DateTime tanggalMulai = datejadwalMulai.Value.Date;
+                    DateTime tanggalAkhir = datejadwalAkhir.Value.Date;
+
+                    DataTable dt1 = await Task.Run(() => GetDataFromSPtanggalAsync("sp_LaporanPersediaanMaterial", tanggalMulai, tanggalAkhir));
+
+                    dt1.Columns.Add("No", typeof(int)).SetOrdinal(0);
+                    for (int i = 0; i < dt1.Rows.Count; i++)
+                        dt1.Rows[i]["No"] = i + 1;
+
+                    dataGridView1.RowTemplate.Height = 34;
+                    dataGridView1.DataSource = dt1;
+                    dataGridView1.AutoGenerateColumns = true;
+
+                    dataGridView1.ColumnHeadersVisible = false;
+                    dataGridView1.RowHeadersVisible = false;
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                    dataGridView1.ReadOnly = true;
+                    dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
+                    dataGridView1.AllowUserToAddRows = false;
+
+                    foreach (DataGridViewColumn col in dataGridView1.Columns)
+                        col.Resizable = DataGridViewTriState.False;
+
+                    string[] hiddenCols = { "saldodex", "totalsaldo", "status", "tglrequest", "keterangan" };
+                    foreach (var colName in hiddenCols)
+                    {
+                        if (dataGridView1.Columns.Contains(colName))
+                            dataGridView1.Columns[colName].Visible = false;
+                    }
+
+                    var colWidths = new Dictionary<string, int>
+                    {
+                        ["No"] = label5.Width,
+                        ["kodebarang"] = label4.Width,
+                        ["namabarang"] = label8.Width,
+                        ["spesifikasi"] = label9.Width,
+                        ["stokawalktj"] = label15.Width,
+                        ["uom"] = label7.Width,
+                        ["masuk"] = label6.Width,
+                        ["keluar"] = label10.Width,
+                        ["saldoktj"] = label14.Width,
+                        ["ratarata"] = label11.Width,
+                        ["limit"] = label13.Width
+                    };
+
+                    foreach (var kvp in colWidths)
+                    {
+                        if (dataGridView1.Columns.Contains(kvp.Key))
+                            dataGridView1.Columns[kvp.Key].Width = kvp.Value;
+                    }
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
+                        "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Gagal cari");
+                }
+                finally
+                {
+                    loading.Close();
+                }
+            }
+        }
+
+
+        private void ReleaseCom(object obj)
+        {
             try
             {
-                DateTime tanggalMulai = datejadwalMulai.Value.Date;
-                DateTime tanggalAkhir = datejadwalAkhir.Value.Date;
-
-                DataTable dt1 = await GetDataFromSPtanggalAsync("sp_LaporanPersediaanMaterial", tanggalMulai, tanggalAkhir);
-
-                dt1.Columns.Add("No", typeof(int)).SetOrdinal(0);
-
-                for (int i = 0; i < dt1.Rows.Count; i++)
-                {
-                    dt1.Rows[i]["No"] = i + 1;
-                }
-
-                dataGridView1.RowTemplate.Height = 34;
-                dataGridView1.DataSource = dt1;
-                dataGridView1.AutoGenerateColumns = true;
-
-                dataGridView1.ColumnHeadersVisible = false;
-                dataGridView1.RowHeadersVisible = false;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-                dataGridView1.ReadOnly = true;
-                dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-                dataGridView1.AllowUserToAddRows = false;
-
-                foreach (DataGridViewColumn col in dataGridView1.Columns)
-                {
-                    col.Resizable = DataGridViewTriState.False;
-                }
-
-                dataGridView1.Columns["saldodex"].Visible = false;
-                dataGridView1.Columns["totalsaldo"].Visible = false;
-                dataGridView1.Columns["status"].Visible = false;
-                dataGridView1.Columns["tglrequest"].Visible = false;
-                dataGridView1.Columns["keterangan"].Visible = false;
-
-                dataGridView1.Columns["No"].Width = label5.Width;
-                dataGridView1.Columns["kodebarang"].Width = label4.Width;
-                dataGridView1.Columns["namabarang"].Width = label8.Width;
-                dataGridView1.Columns["spesifikasi"].Width = label9.Width;
-                dataGridView1.Columns["stokawalktj"].Width = label15.Width;
-                dataGridView1.Columns["uom"].Width = label7.Width;
-                dataGridView1.Columns["masuk"].Width = label6.Width;
-                dataGridView1.Columns["keluar"].Width = label10.Width;
-                dataGridView1.Columns["saldoktj"].Width = label14.Width;
-
-                dataGridView1.Columns["ratarata"].Width = label11.Width;
-                dataGridView1.Columns["limit"].Width = label13.Width;
+                if (obj != null)
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
             }
-            catch (SqlException)
-            {
-                MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
-                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Gagal cari");
-                return;
-            }
+            catch { }
         }
 
         private async void ExportToExcelBulan()
@@ -128,34 +225,51 @@ namespace GOS_FxApps
                 loading.Show(mainform);
                 loading.Refresh();
 
-                await Task.Run(async () =>
+                CancellationTokenSource cts = new CancellationTokenSource();
+                var monitoringTask = StartNetworkMonitorAsync(cts);
+
+                Excel.Application xlApp = null;
+                Excel.Workbook xlWorkBook = null;
+                Excel.Worksheet xlWorkSheet = null;
+
+                try
                 {
-                    try
+                    await Task.Run(async () =>
                     {
-                        DateTime tanggalMulai = datejadwalMulai.Value.Date;
-                        DateTime tanggalAkhir = datejadwalAkhir.Value.Date;
+                        DateTime t1 = datejadwalMulai.Value.Date;
+                        DateTime t2 = datejadwalAkhir.Value.Date;
 
-                        string judulRange = $"{tanggalMulai:dd MMMM yyyy} s/d {tanggalAkhir:dd MMMM yyyy}";
+                        if (cts.IsCancellationRequested)
+                            throw new OperationCanceledException();
 
-                        DataTable dtMaterial = await GetDataFromSPtanggalAsync("sp_LaporanPersediaanMaterial",tanggalMulai,tanggalAkhir);
+                        DataTable dtMaterial = await GetDataFromSPtanggalAsync(
+                            "sp_LaporanPersediaanMaterial", t1, t2);
 
-                        Excel.Application xlApp = new Excel.Application();
+                        if (cts.IsCancellationRequested)
+                            throw new OperationCanceledException();
+
+                        xlApp = new Excel.Application();
                         string templatePath = Path.Combine(Application.StartupPath, "Stock Barang Template.xlsx");
-                        Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(templatePath);
-                        Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Sheets[1];
+
+                        xlWorkBook = xlApp.Workbooks.Open(templatePath);
+                        xlWorkSheet = (Excel.Worksheet)xlWorkBook.Sheets[1];
 
                         xlWorkSheet.Cells[1, 1] = "LAPORAN PERSEDIAAN MATERIAL DI KUALA TANJUNG";
                         xlWorkSheet.Cells[2, 1] = "PT.GENTANUSA GEMILANG";
-                        xlWorkSheet.Cells[3, 1] = $"Per Tanggal {judulRange}";
+                        xlWorkSheet.Cells[3, 1] = $"Per Tanggal {t1:dd MMMM yyyy} s/d {t2:dd MMMM yyyy}";
 
                         int rowStart = 6;
-                        int colStart = 1;
+
                         for (int i = 0; i < dtMaterial.Rows.Count; i++)
                         {
-                            xlWorkSheet.Cells[rowStart + i, colStart] = (i + 1).ToString();
+                            if (cts.IsCancellationRequested)
+                                throw new OperationCanceledException();
+
+                            xlWorkSheet.Cells[rowStart + i, 1] = (i + 1).ToString();
+
                             for (int j = 0; j < dtMaterial.Columns.Count; j++)
                             {
-                                xlWorkSheet.Cells[rowStart + i, colStart + j + 1] = dtMaterial.Rows[i][j].ToString();
+                                xlWorkSheet.Cells[rowStart + i, 2 + j] = dtMaterial.Rows[i][j];
                             }
                         }
 
@@ -164,52 +278,66 @@ namespace GOS_FxApps
                             loading.Close();
                             mainform.Enabled = true;
 
-                            SaveFileDialog saveFileDialog = new SaveFileDialog
+                            SaveFileDialog dlg = new SaveFileDialog
                             {
-                                Title = "Simpan File Excel",
                                 Filter = "Excel Files|*.xlsx",
-                                FileName = $"STOCK BARANG KTJ PER {tanggalMulai:ddMMMyyyy} - {tanggalAkhir:ddMMMyyyy}.xlsx"
+                                FileName = $"STOCK BARANG KTJ PER {t1:ddMMMyyyy} - {t2:ddMMMyyyy}.xlsx"
                             };
 
-                            if (saveFileDialog.ShowDialog(mainform) == DialogResult.OK)
+                            if (dlg.ShowDialog(mainform) == DialogResult.OK)
                             {
-                                string savePath = saveFileDialog.FileName;
-                                if (File.Exists(savePath))
-                                {
-                                    File.Delete(savePath);
-                                }
-                                xlWorkBook.SaveCopyAs(savePath);
-                                MessageBox.Show(mainform,
-                                                        "Export selesai ke: " + savePath,
-                                                        "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                                xlWorkBook.SaveCopyAs(dlg.FileName);
+                                MessageBox.Show("Export selesai!", "Sukses",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }));
-
-                        xlWorkBook.Close(false);
-                        xlApp.Quit();
-
-                        Marshal.ReleaseComObject(xlWorkSheet);
-                        Marshal.ReleaseComObject(xlWorkBook);
-                        Marshal.ReleaseComObject(xlApp);
-
-                        xlWorkSheet = null;
-                        xlWorkBook = null;
-                        xlApp = null;
-
-                        GC.Collect();
-                        GC.WaitForPendingFinalizers();
-                    }
-                    catch (Exception ex)
+                    }, cts.Token);
+                }
+                catch (OperationCanceledException)
+                {
+                    this.Invoke(new MethodInvoker(delegate
                     {
-                        this.Invoke(new Action(() =>
-                        {
-                            loading.Close();
-                            mainform.Enabled = true;
-                            MessageBox.Show("Error: " + ex.Message);
-                        }));
+                        loading.Close();
+                        mainform.Enabled = true;
+                        MessageBox.Show("Proses dibatalkan karena jaringan terputus.", "Jaringan Terputus",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }));
+                }
+                catch (Exception)
+                {
+                    this.Invoke(new MethodInvoker(delegate
+                    {
+                        loading.Close();
+                        mainform.Enabled = true;
+                        MessageBox.Show("Proses gagal. Periksa jaringan.", "Jaringan Terputus",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }));
+                }
+                finally
+                {
+                    try
+                    {
+                        if (xlWorkBook != null)
+                            xlWorkBook.Close(false);
                     }
-                });
+                    catch { }
+
+                    try
+                    {
+                        if (xlApp != null)
+                            xlApp.Quit();
+                    }
+                    catch { }
+
+                    ReleaseCom(xlWorkSheet);
+                    ReleaseCom(xlWorkBook);
+                    ReleaseCom(xlApp);
+
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+
+                    cts.Cancel();
+                }
             }
         }
 
@@ -243,6 +371,12 @@ namespace GOS_FxApps
 
         private void btnprint_Click(object sender, EventArgs e)
         {
+            if (datejadwalMulai.Value.Date > datejadwalAkhir.Value.Date)
+            {
+                MessageBox.Show("Tanggal Mulai harus kurang dari atau sama dengan Tanggal Akhir agar valid", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             ExportToExcelBulan();
         }
     }
