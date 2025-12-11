@@ -1063,11 +1063,7 @@ namespace GOS_FxApps
             searchTimer.Interval = 300;
             searchTimer.Tick += SearchTimer_Tick;
 
-            await HitungTotalData();
-            await tampilmaterial();
 
-            await combonama();
-            formSiap = true;
             tahun.Value = new DateTime(DateTime.Now.Year, 1, 1);
             tahuncari.Value = new DateTime(DateTime.Now.Year, 1, 1);
             tahuncari.Checked = false;
@@ -1076,6 +1072,11 @@ namespace GOS_FxApps
             cmbmaterial.MaxDropDownItems = 10;
             cmbmaterial.DropDownHeight = 500;
 
+            await combonama();
+            formSiap = true;
+
+            await HitungTotalData();
+            await tampilmaterial();
         }
 
         private void koefisiensi_FormClosing(object sender, FormClosingEventArgs e)

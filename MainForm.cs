@@ -556,110 +556,6 @@ namespace GOS_FxApps {
                 sidebarPanel.Width = sidebarPanel.MinimumSize.Width;
                 sidebarx = true;
             }
-        }   
-        private void entrytimer_Tick(object sender, EventArgs e)
-        {
-            if (entryprodx)
-            {
-                entryContainer.Height += 10;
-                if (entryContainer.Height >= entryContainer.MaximumSize.Height)
-                {
-                    entrytimer.Stop();
-                    entryprodx = false;
-                    entryButton.FillColor = Color.Gray;
-                    entryButton.ForeColor = Color.White;
-                }
-            }
-            else
-            {
-                entryContainer.Height -= 10;
-                if (entryContainer.Height <= entryContainer.MinimumSize.Height)
-                {
-                    entrytimer.Stop();
-                    entryprodx = true;
-                    entryButton.FillColor = Color.White;
-                    entryButton.ForeColor = Color.Black;
-                }
-
-            }
-        }
-        private void edittimer_Tick(object sender, EventArgs e)
-        {
-            if (editx)
-            {
-                EditContainer.Height += 10;
-                if (EditContainer.Height >= EditContainer.MaximumSize.Height)
-                {
-                    edittimer.Stop();
-                    editx = false;
-                    Editbutton.FillColor = Color.Gray;
-                    Editbutton.ForeColor = Color.White;
-                }
-            }
-            else
-            {
-                EditContainer.Height -= 10;
-                if (EditContainer.Height <= EditContainer.MinimumSize.Height)
-                {
-                    edittimer.Stop();
-                    editx = true;
-                    Editbutton.FillColor = Color.White;
-                    Editbutton.ForeColor = Color.Black;
-                }
-
-            }
-        }  
-        private void historitimer_Tick(object sender, EventArgs e)
-        {
-            if (historiy)
-            {
-                historycontainer.Height += 10;
-                if (historycontainer.Height >= historycontainer.MaximumSize.Height)
-                {
-                    historitimer.Stop();
-                    historiy = false;
-                    btnHistori.FillColor = Color.Gray;
-                    btnHistori.ForeColor = Color.White;
-                }
-            }
-            else
-            {
-                historycontainer.Height -= 10;
-                if (historycontainer.Height <= historycontainer.MinimumSize.Height)
-                {
-                    historitimer.Stop();
-                    historiy = true;
-                    btnHistori.FillColor = Color.White;
-                    btnHistori.ForeColor = Color.Black;
-                }
-
-            }
-        }
-        private void gudangtimer_Tick(object sender, EventArgs e)
-        {
-            if (gudangx)
-            {
-                gudangContainer.Height += 10;
-                if (gudangContainer.Height >= gudangContainer.MaximumSize.Height)
-                {
-                    gudangtimer.Stop();
-                    gudangx = false;
-                    btngudang.FillColor = Color.Gray;
-                    btngudang.ForeColor = Color.White;
-                }
-            }
-            else
-            {
-                gudangContainer.Height -= 10;
-                if (gudangContainer.Height <= gudangContainer.MinimumSize.Height)
-                {
-                    gudangtimer.Stop();
-                    gudangx = true;
-                    btngudang.FillColor = Color.White;
-                    btngudang.ForeColor = Color.Black;
-                }
-
-            }
         }
 
         private void dashboardButton_Click_1(object sender, EventArgs e)
@@ -674,7 +570,20 @@ namespace GOS_FxApps {
 
         private void entryButton_Click_1(object sender, EventArgs e)
         {
-            entrytimer.Start();
+            if (entryprodx)
+            {
+                entryContainer.Height = entryContainer.MinimumSize.Height;
+                entryButton.FillColor = Color.White;
+                entryButton.ForeColor = Color.Black;
+                entryprodx = false;
+            }
+            else
+            {
+                entryContainer.Height = entryContainer.MaximumSize.Height;
+                entryButton.FillColor = Color.Gray;
+                entryButton.ForeColor = Color.White;
+                entryprodx = true;
+            }
         }
         private void penerimaanButton1_Click_1(object sender, EventArgs e)
         {
@@ -726,7 +635,20 @@ namespace GOS_FxApps {
 
         private void Editbutton_Click_1(object sender, EventArgs e)
         {
-            edittimer.Start();
+            if (editx)
+            {
+                EditContainer.Height = EditContainer.MinimumSize.Height;
+                Editbutton.FillColor = Color.White;
+                Editbutton.ForeColor = Color.Black;
+                editx = false;
+            }
+            else
+            {
+                EditContainer.Height = EditContainer.MaximumSize.Height;
+                Editbutton.FillColor = Color.Gray;
+                Editbutton.ForeColor = Color.White;
+                editx = true;
+            }
         }
         private void iconButton9_Click_1(object sender, EventArgs e)
         {
@@ -773,7 +695,20 @@ namespace GOS_FxApps {
 
         private void btnHistori_Click(object sender, EventArgs e)
         {
-            historitimer.Start();
+            if (historiy)
+            {
+                historycontainer.Height = historycontainer.MinimumSize.Height;
+                btnHistori.FillColor = Color.White;
+                btnHistori.ForeColor = Color.Black;
+                historiy = false;
+            }
+            else
+            {
+                historycontainer.Height = historycontainer.MaximumSize.Height;
+                btnHistori.FillColor = Color.Gray;
+                btnHistori.ForeColor = Color.White;
+                historiy = true;
+            }
         }
         private void iconButton24_Click_1(object sender, EventArgs e)
         {
@@ -843,7 +778,20 @@ namespace GOS_FxApps {
 
         private void btngudang_Click(object sender, EventArgs e)
         {
-            gudangtimer.Start();
+            if (gudangx)
+            {
+                gudangContainer.Height = gudangContainer.MinimumSize.Height;
+                btngudang.FillColor = Color.White;
+                btngudang.ForeColor = Color.Black;
+                gudangx = false;
+            }
+            else
+            {
+                gudangContainer.Height = gudangContainer.MaximumSize.Height;
+                btngudang.FillColor = Color.Gray;
+                btngudang.ForeColor = Color.White;
+                gudangx = true;
+            }
         }
         private void iconButton4_Click_1(object sender, EventArgs e)
         {

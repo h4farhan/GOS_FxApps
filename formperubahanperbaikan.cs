@@ -281,6 +281,7 @@ namespace GOS_FxApps
             txtc.Clear();
             txtrl.Clear();
             txtcatatan.Clear();
+            txtcaripenerimaan.Clear();
             lbltotal.Text = "-";
             lbltotale1.Text = "-";
             lbltotale2.Text = "-";
@@ -436,10 +437,10 @@ namespace GOS_FxApps
         {
             MainForm.DataChanged += OnDatabaseChanged;
 
+            setdefault();
+
             await HitungTotalData();
             await tampilpenerimaan();
-
-            setdefault();
         }
 
         private async void btnsimpan_Click(object sender, EventArgs e)
@@ -459,12 +460,14 @@ namespace GOS_FxApps
             btnsimpan.Enabled = false;
             btncancel.Enabled = false;
             await simpandata();
+            delay = 0;
             txtnomorrod.Enabled = true;
             setdefault();
             txtnomorrod.Enabled = false;
             setfalse();
             btnsimpan.Enabled = false;
             btncancel.Enabled = false;
+            delay = 300;
         }
 
         private void btncancel_Click(object sender, EventArgs e)
@@ -788,6 +791,7 @@ namespace GOS_FxApps
         }
 
         private CancellationTokenSource ctsCari = null;
+        int delay = 300;
 
         private async void txtcaripenerimaan_TextChanged(object sender, EventArgs e)
         {
@@ -799,7 +803,7 @@ namespace GOS_FxApps
 
             try
             {
-                await Task.Delay(300, token);
+                await Task.Delay(delay, token);
             }
             catch (TaskCanceledException)
             {

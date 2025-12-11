@@ -350,10 +350,11 @@ namespace GOS_FxApps
         {
             MainForm.DataChanged += OnDatabaseChanged;
 
-            await HitungTotalData();
-            await tampilpenerimaan();
             dateeditpenerimaan.Value = DateTime.Now.Date;
             dateeditpenerimaan.Checked = false;
+
+            await HitungTotalData();
+            await tampilpenerimaan();
         }
 
         private async void btncari_Click(object sender, EventArgs e)

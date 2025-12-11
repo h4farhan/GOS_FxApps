@@ -38,18 +38,18 @@
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblhalaman = new System.Windows.Forms.Label();
             this.btnleft = new Guna.UI2.WinForms.Guna2Button();
             this.btnright = new Guna.UI2.WinForms.Guna2Button();
             this.btncari = new Guna.UI2.WinForms.Guna2Button();
             this.cbShift = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnreset = new Guna.UI2.WinForms.Guna2Button();
-            this.lbljumlahdata = new System.Windows.Forms.Label();
             this.tanggal2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label74 = new System.Windows.Forms.Label();
             this.txtnama = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbljumlahdata = new System.Windows.Forms.Label();
+            this.lblhalaman = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -177,28 +177,16 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
+            this.guna2Panel1.Controls.Add(this.lbljumlahdata);
             this.guna2Panel1.Controls.Add(this.lblhalaman);
             this.guna2Panel1.Controls.Add(this.btnleft);
             this.guna2Panel1.Controls.Add(this.btnright);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.guna2Panel1.Location = new System.Drawing.Point(11, 436);
             this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Padding = new System.Windows.Forms.Padding(10);
             this.guna2Panel1.Size = new System.Drawing.Size(964, 65);
             this.guna2Panel1.TabIndex = 5;
-            // 
-            // lblhalaman
-            // 
-            this.lblhalaman.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblhalaman.AutoSize = true;
-            this.lblhalaman.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblhalaman.ForeColor = System.Drawing.Color.Black;
-            this.lblhalaman.Location = new System.Drawing.Point(14, 26);
-            this.lblhalaman.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblhalaman.Name = "lblhalaman";
-            this.lblhalaman.Size = new System.Drawing.Size(12, 15);
-            this.lblhalaman.TabIndex = 64;
-            this.lblhalaman.Text = "-";
-            this.lblhalaman.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnleft
             // 
@@ -214,7 +202,7 @@
             this.btnleft.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnleft.ForeColor = System.Drawing.Color.White;
             this.btnleft.Image = global::GOS_FxApps.Properties.Resources.left_arrow;
-            this.btnleft.Location = new System.Drawing.Point(819, 15);
+            this.btnleft.Location = new System.Drawing.Point(809, 14);
             this.btnleft.Margin = new System.Windows.Forms.Padding(2);
             this.btnleft.Name = "btnleft";
             this.btnleft.Size = new System.Drawing.Size(60, 37);
@@ -235,7 +223,7 @@
             this.btnright.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnright.ForeColor = System.Drawing.Color.White;
             this.btnright.Image = global::GOS_FxApps.Properties.Resources.right_arrow;
-            this.btnright.Location = new System.Drawing.Point(891, 15);
+            this.btnright.Location = new System.Drawing.Point(881, 14);
             this.btnright.Margin = new System.Windows.Forms.Padding(2);
             this.btnright.Name = "btnright";
             this.btnright.Size = new System.Drawing.Size(60, 37);
@@ -304,19 +292,6 @@
             this.btnreset.Text = "Reset";
             this.btnreset.Click += new System.EventHandler(this.btnreset_Click);
             // 
-            // lbljumlahdata
-            // 
-            this.lbljumlahdata.AutoSize = true;
-            this.lbljumlahdata.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lbljumlahdata.ForeColor = System.Drawing.Color.Black;
-            this.lbljumlahdata.Location = new System.Drawing.Point(938, 12);
-            this.lbljumlahdata.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbljumlahdata.Name = "lbljumlahdata";
-            this.lbljumlahdata.Size = new System.Drawing.Size(15, 20);
-            this.lbljumlahdata.TabIndex = 70;
-            this.lbljumlahdata.Text = "-";
-            this.lbljumlahdata.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // tanggal2
             // 
             this.tanggal2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -384,7 +359,6 @@
             this.guna2Panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel2.AutoScroll = true;
-            this.guna2Panel2.Controls.Add(this.lbljumlahdata);
             this.guna2Panel2.Controls.Add(this.panel2);
             this.guna2Panel2.Controls.Add(this.tanggal1);
             this.guna2Panel2.Controls.Add(this.txtnama);
@@ -398,10 +372,36 @@
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(961, 3);
+            this.panel2.Location = new System.Drawing.Point(936, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(93, 38);
+            this.panel2.Size = new System.Drawing.Size(13, 38);
             this.panel2.TabIndex = 81;
+            // 
+            // lbljumlahdata
+            // 
+            this.lbljumlahdata.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbljumlahdata.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.lbljumlahdata.ForeColor = System.Drawing.Color.Black;
+            this.lbljumlahdata.Location = new System.Drawing.Point(230, 10);
+            this.lbljumlahdata.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbljumlahdata.Name = "lbljumlahdata";
+            this.lbljumlahdata.Size = new System.Drawing.Size(301, 45);
+            this.lbljumlahdata.TabIndex = 67;
+            this.lbljumlahdata.Text = "-";
+            this.lbljumlahdata.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblhalaman
+            // 
+            this.lblhalaman.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblhalaman.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblhalaman.ForeColor = System.Drawing.Color.Black;
+            this.lblhalaman.Location = new System.Drawing.Point(10, 10);
+            this.lblhalaman.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblhalaman.Name = "lblhalaman";
+            this.lblhalaman.Size = new System.Drawing.Size(220, 45);
+            this.lblhalaman.TabIndex = 68;
+            this.lblhalaman.Text = "-";
+            this.lblhalaman.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // historyWelding
             // 
@@ -424,7 +424,6 @@
             this.guna2Panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -442,9 +441,7 @@
         private Guna.UI2.WinForms.Guna2Button btncari;
         private Guna.UI2.WinForms.Guna2ComboBox cbShift;
         private Guna.UI2.WinForms.Guna2Button btnreset;
-        private System.Windows.Forms.Label lbljumlahdata;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private System.Windows.Forms.Label lblhalaman;
         private Guna.UI2.WinForms.Guna2Button btnleft;
         private Guna.UI2.WinForms.Guna2Button btnright;
         private Guna.UI2.WinForms.Guna2DateTimePicker tanggal2;
@@ -452,5 +449,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtnama;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lbljumlahdata;
+        private System.Windows.Forms.Label lblhalaman;
     }
 }

@@ -252,9 +252,10 @@ namespace GOS_FxApps
         {
             MainForm.DataChanged += OnDatabaseChanged;
 
+            txtrod1.Focus();
+
             await HitungTotalData();
             await tampilperbaikan();
-            txtrod1.Focus();
         }
 
         private void setdefault()
@@ -485,7 +486,7 @@ namespace GOS_FxApps
                                             "Sukses",
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.Information);
-
+                            delay = 0;
                             setdefault();
                         }
                         catch (Exception exTrans)
@@ -544,8 +545,11 @@ namespace GOS_FxApps
             btnclear.Enabled = false;
             guna2Button2.Enabled = false;
             await insertdata();
+            delay = 0;
+            setdefault();
             btnclear.Enabled = false;
             guna2Button2.Enabled = false;
+            delay = 300;
         }
 
         private void btnclear_Click(object sender, EventArgs e)
@@ -650,6 +654,7 @@ namespace GOS_FxApps
         }
 
         private CancellationTokenSource ctsCari = null;
+        int delay = 300;
 
         private async void txtcari_TextChanged(object sender, EventArgs e)
         {
@@ -661,7 +666,7 @@ namespace GOS_FxApps
 
             try
             {
-                await Task.Delay(300, token);
+                await Task.Delay(delay, token);
             }
             catch (TaskCanceledException)
             {

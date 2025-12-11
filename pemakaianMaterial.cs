@@ -528,11 +528,6 @@ namespace GOS_FxApps
             searchTimer.Interval = 300;
             searchTimer.Tick += SearchTimer_Tick;
 
-            await combonama();
-            formSiap = true;
-
-            await HitungTotalData();
-            await tampil();
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
             datepemakaian.Value = DateTime.Now.Date;
@@ -542,6 +537,12 @@ namespace GOS_FxApps
             cmbSpesifikasi.DropDownStyle = ComboBoxStyle.DropDown;
             cmbSpesifikasi.MaxDropDownItems = 10;
             cmbSpesifikasi.DropDownHeight = 300;
+
+            await combonama();
+            formSiap = true;
+
+            await HitungTotalData();
+            await tampil();
         }
 
         private async void btncari_Click(object sender, EventArgs e)

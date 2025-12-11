@@ -420,11 +420,12 @@ namespace GOS_FxApps
         {
             MainForm.DataChanged += OnDatabaseChanged;
 
-            await HitungTotalData();
-            await tampil();
             date.Value = DateTime.Now.Date;
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
+
+            await HitungTotalData();
+            await tampil();
         }
 
         private async void btncari_Click(object sender, EventArgs e)

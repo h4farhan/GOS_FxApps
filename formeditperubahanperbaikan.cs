@@ -520,10 +520,11 @@ namespace GOS_FxApps
         {
             MainForm.DataChanged += OnDatabaseChanged;
 
-            await HitungTotalData();
-            await tampil();
             datecari.Value = DateTime.Now;
             datecari.Checked = false;
+
+            await HitungTotalData();
+            await tampil();
         }
 
         private void txtc_TextChanged(object sender, EventArgs e)

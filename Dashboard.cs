@@ -924,7 +924,7 @@ namespace GOS_FxApps
                         SUM(s)  AS TotalS,
                         SUM(d)  AS TotalD,
                         SUM(b)  AS TotalB,
-                        SUM(ba) AS TotalBA,
+                        SUM(nba) AS TotalBA,
                         SUM(ba1) AS TotalBA1,
                         SUM(cr) AS TotalCR,
                         SUM(m)  AS TotalM,
@@ -1026,7 +1026,7 @@ namespace GOS_FxApps
                     SUM(s)  AS TotalS,
                     SUM(d)  AS TotalD,
                     SUM(b)  AS TotalB,
-                    SUM(ba) AS TotalBA,
+                    SUM(nba) AS TotalBA,
                     SUM(ba1) AS TotalBA1,
                     SUM(cr) AS TotalCR,
                     SUM(m)  AS TotalM,
@@ -1131,7 +1131,7 @@ namespace GOS_FxApps
                         SUM(s)  AS TotalS,
                         SUM(d)  AS TotalD,
                         SUM(b)  AS TotalB,
-                        SUM(ba) AS TotalBA,
+                        SUM(nba) AS TotalBA,
                         SUM(ba1) AS TotalBA1,
                         SUM(cr) AS TotalCR,
                         SUM(m)  AS TotalM,
@@ -1235,7 +1235,7 @@ namespace GOS_FxApps
                         SUM(s)  AS TotalS,
                         SUM(d)  AS TotalD,
                         SUM(b)  AS TotalB,
-                        SUM(ba) AS TotalBA,
+                        SUM(nba) AS TotalBA,
                         SUM(ba1) AS TotalBA1,
                         SUM(cr) AS TotalCR,
                         SUM(m)  AS TotalM,
@@ -2185,15 +2185,15 @@ namespace GOS_FxApps
             shiftChangedHandler = async () => await LoadPanel();
             MainForm.Instance.ShiftChanged += shiftChangedHandler;
 
-            await LoadPanel();
-            await LoadChartstokreject();
-
             tanggalcustom1.Value = DateTime.Today;
             tanggalcustom2.Value = DateTime.Today;
             datebulan.Value = DateTime.Now;
 
             lbltitlechart.Text =
                 $"{cmbpilihdata.Text}";
+
+            await LoadPanel();
+            await LoadChartstokreject();
         }
 
         private void Dashboard_FormClosing_1(object sender, FormClosingEventArgs e)
@@ -2291,6 +2291,7 @@ namespace GOS_FxApps
             if (cmbpilihdata.SelectedIndex == 0)
             {
                 await LoadChartstokreject();
+                lbltitlechart.Text = cmbpilihdata.Text;
             }
             else if (cmbpilihdata.SelectedIndex == 1)
             {
@@ -2610,6 +2611,14 @@ namespace GOS_FxApps
         private async void iconButton1_Click(object sender, EventArgs e)
         {
             await LoadChartstokreject();
+            cmbpilihdata.SelectedIndex = 0;
+            containerrentang.Visible = false;
+            containertanggal1.Visible = false;
+            containertanggal2.Visible = false;
+            containerbulan.Visible = false;
+            containertipe.Visible = false;
+            containertipem.Visible = false;
+            lbltitlechart.Text = cmbpilihdata.Text;
         }
     }
 }

@@ -339,25 +339,10 @@ namespace GOS_FxApps
             this.label1.Text = "Powered by :\r\nPT Digital Transformasi Industri";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // entrytimer
-            // 
-            this.entrytimer.Interval = 1;
-            this.entrytimer.Tick += new System.EventHandler(this.entrytimer_Tick);
-            // 
-            // edittimer
-            // 
-            this.edittimer.Interval = 1;
-            this.edittimer.Tick += new System.EventHandler(this.edittimer_Tick);
-            // 
             // jam
             // 
             this.jam.Interval = 1000;
             this.jam.Tick += new System.EventHandler(this.jam_Tick);
-            // 
-            // historitimer
-            // 
-            this.historitimer.Interval = 1;
-            this.historitimer.Tick += new System.EventHandler(this.historitimer_Tick);
             // 
             // sidebarPanel
             // 
@@ -491,11 +476,6 @@ namespace GOS_FxApps
             this.lblalert.Text = "Mode Manual Aktif";
             this.lblalert.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblalert.Visible = false;
-            // 
-            // gudangtimer
-            // 
-            this.gudangtimer.Interval = 1;
-            this.gudangtimer.Tick += new System.EventHandler(this.gudangtimer_Tick);
             // 
             // iconButton14
             // 

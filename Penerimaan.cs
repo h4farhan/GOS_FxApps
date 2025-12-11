@@ -246,10 +246,12 @@ namespace GOS_FxApps
             btnsimpan.Enabled = false;
             btncancel.Enabled = false;
             await simpandata();
+            delay = 0;
             setdefault();
             btnsimpan.Enabled = false;
             btncancel.Enabled = false;
             txtnomorrod.Focus();
+            delay = 300;
         }
 
         private async Task OnDatabaseChanged(string table)
@@ -416,10 +418,6 @@ namespace GOS_FxApps
         {
             MainForm.DataChanged += OnDatabaseChanged;
 
-            await HitungTotalData();
-            await tampilpenerimaan();
-            await tampilperputaranrod();
-
             txtnomorrod.Focus();
             setdefault();
 
@@ -432,6 +430,10 @@ namespace GOS_FxApps
             {
                 btnaturjam.Visible = false;
             }
+
+            await HitungTotalData();
+            await tampilpenerimaan();
+            await tampilperputaranrod();
         }
 
         private void AngkaOnly_KeyPress(object sender, KeyPressEventArgs e)
@@ -614,6 +616,7 @@ namespace GOS_FxApps
         }
 
         private CancellationTokenSource ctsCari = null;
+        int delay = 300;
 
         private async void txtcari_TextChanged(object sender, EventArgs e)
         {
@@ -625,7 +628,7 @@ namespace GOS_FxApps
 
             try
             {
-                await Task.Delay(300, token);
+                await Task.Delay(delay, token);
             }
             catch (TaskCanceledException)
             {

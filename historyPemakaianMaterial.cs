@@ -309,12 +309,13 @@ namespace GOS_FxApps
         {
             MainForm.DataChanged += OnDatabaseChanged;
 
-            await HitungTotalData();
-            await tampil();
             tanggal1.Value = DateTime.Now.Date;
             tanggal2.Value = DateTime.Now.Date;
             tanggal1.Checked = false;
             tanggal2.Checked = false;
+
+            await HitungTotalData();
+            await tampil();
         }
 
         private async void btncari_Click(object sender, EventArgs e)

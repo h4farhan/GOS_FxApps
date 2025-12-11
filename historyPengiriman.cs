@@ -429,7 +429,7 @@ namespace GOS_FxApps
                         xlWorkBook = xlApp.Workbooks.Open(templatePath);
                         xlSheet = (Excel.Worksheet)xlWorkBook.Sheets[1];
 
-                        Excel.Range title = xlSheet.Range["A1:U1"];
+                        Excel.Range title = xlSheet.Range["A1:F1"];
                         title.Merge();
                         title.Value = "LAPORAN PENGIRIMAN ROD";
                         title.Font.Bold = true;
@@ -449,7 +449,7 @@ namespace GOS_FxApps
                         string filterText =
                             $"Filter: {tanggalFilter} | Shift: {shift} | ROD: {rod} | Checker: {checker}";
 
-                        Excel.Range filterRow = xlSheet.Range["A2:U2"];
+                        Excel.Range filterRow = xlSheet.Range["A2:F2"];
                         filterRow.Merge();
                         filterRow.Value = filterText;
                         filterRow.Font.Bold = true;
@@ -539,12 +539,13 @@ namespace GOS_FxApps
         {
             MainForm.DataChanged += OnDatabaseChanged;
 
-            await HitungTotalData();
-            await tampil();
             tanggal1.Value = DateTime.Now.Date;
             tanggal2.Value = DateTime.Now.Date;
             tanggal1.Checked = false;
             tanggal2.Checked = false;
+
+            await HitungTotalData();
+            await tampil();
         }
 
         private async void btncari_Click(object sender, EventArgs e)

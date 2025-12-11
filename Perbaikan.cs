@@ -11,6 +11,7 @@ using Guna.UI2.WinForms;
 using System.Data.SqlClient;
 using Microsoft.Reporting.Map.WebForms.BingMaps;
 using System.Threading;
+using Azure.Core;
 
 namespace GOS_FxApps
 {
@@ -121,12 +122,12 @@ namespace GOS_FxApps
         {
             MainForm.DataChanged += OnDatabaseChanged;
 
-            await HitungTotalData();
-            await tampilpenerimaan();
-
             setdefault();
             btnsimpan.Enabled = false;
             txtnomorrod.Focus();
+
+            await HitungTotalData();
+            await tampilpenerimaan();
         }
 
         private async Task tampilpenerimaan()
@@ -555,6 +556,7 @@ namespace GOS_FxApps
 
             btnsimpan.Enabled = false;
             btncancel.Enabled = false;
+            delay = 0;
             await simpandata();
             txtnomorrod.Enabled = true;
             setdefault();
@@ -562,6 +564,7 @@ namespace GOS_FxApps
             setfalse();
             btnsimpan.Enabled = false;
             btncancel.Enabled = false;
+            delay = 300;
         }
 
         private void btncancel_Click(object sender, EventArgs e)
@@ -692,7 +695,7 @@ namespace GOS_FxApps
         }
 
         private CancellationTokenSource ctsCari = null;
-
+        int delay = 300;
         private async void txtcaripenerimaan_TextChanged(object sender, EventArgs e)
         {
             string inputRod = txtcaripenerimaan.Text.Trim();
@@ -703,7 +706,7 @@ namespace GOS_FxApps
 
             try
             {
-                await Task.Delay(300, token);
+                await Task.Delay(delay, token);
             }
             catch (TaskCanceledException)
             {

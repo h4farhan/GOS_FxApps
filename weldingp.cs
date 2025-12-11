@@ -505,12 +505,13 @@ namespace GOS_FxApps
         private async void weldingp_Load(object sender, EventArgs e)
         {
             MainForm.DataChanged += OnDatabaseChanged;
-            await HitungTotalData();
-            await tampil();
             date.Value = DateTime.Now.Date;
             datecari.Value = DateTime.Now.Date;
             datecari.Checked = false;
             txtmasuk.Focus();
+
+            await HitungTotalData();
+            await tampil();
         }
 
         private async Task Simpan1()

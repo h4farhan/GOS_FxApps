@@ -128,10 +128,11 @@ namespace GOS_FxApps
         {
             MainForm.DataChanged += OnDatabaseChanged;
 
-            await HitungTotalData();
-            await tampilperbaikan();
             dateeditperbaikan.Value = DateTime.Now.Date;
             dateeditperbaikan.Checked = false;
+
+            await HitungTotalData();
+            await tampilperbaikan();
         }
 
         private async Task tampilperbaikan()

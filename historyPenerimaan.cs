@@ -213,7 +213,7 @@ namespace GOS_FxApps
         {
             dataGridView1.RowTemplate.Height = 35;
             dataGridView1.DataSource = dt;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
 
             dataGridView1.ReadOnly = true;
@@ -562,12 +562,13 @@ namespace GOS_FxApps
         {
             MainForm.DataChanged += OnDatabaseChanged;
 
-            await HitungTotalData();
-            await tampil();
             tanggal1.Value = DateTime.Now.Date;
             tanggal2.Value = DateTime.Now.Date;
             tanggal1.Checked = false;
             tanggal2.Checked = false;
+
+            await HitungTotalData();
+            await tampil();
         }
 
         private async void btncari_Click_1(object sender, EventArgs e)

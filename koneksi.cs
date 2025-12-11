@@ -13,25 +13,26 @@ namespace GOS_FxApps
     {
         //untuk koneksi lokal laptop kantor
         //Data Source = 192.168.1.25; Initial Catalog = tes; User ID = tii; Password=tii2025;TrustServerCertificate=True
-        //private static readonly string connectionString =
-        //    "Data Source=192.168.1.25;" +
-        //    "Initial Catalog=tes;" +
-        //    "Persist Security Info=True;" +
-        //    "User ID=tii;Password=tii2025;" +
-        //    "TrustServerCertificate=True;" +
-        //    "Connect Timeout=3;" +
-        //    "Pooling=true;Max Pool Size=200;";
-
-        //untuk server
-        //Data Source = 192.168.1.64; Initial Catalog = gos_apps; User ID = sa; Password=$Genta2025$;TrustServerCertificate=True
         private static readonly string connectionString =
-            "Data Source=192.168.1.64;" +
-            "Initial Catalog=gos_apps;" +
+            //"Data Source=192.168.1.25;" +
+            "Data Source=TII_NB2_1122;" +
+            "Initial Catalog=tes;" +
             "Persist Security Info=True;" +
-            "User ID=sa;Password=$Genta2025$;" +
+            "User ID=tii;Password=tii2025;" +
             "TrustServerCertificate=True;" +
             "Connect Timeout=3;" +
             "Pooling=true;Max Pool Size=200;";
+
+        //untuk server
+        //Data Source = 192.168.1.64; Initial Catalog = gos_apps; User ID = sa; Password=$Genta2025$;TrustServerCertificate=True
+        //private static readonly string connectionString =
+        //    "Data Source=192.168.1.64;" +
+        //    "Initial Catalog=gos_apps;" +
+        //    "Persist Security Info=True;" +
+        //    "User ID=sa;Password=$Genta2025$;" +
+        //    "TrustServerCertificate=True;" +
+        //    "Connect Timeout=3;" +
+        //    "Pooling=true;Max Pool Size=200;";
 
         //untuk lokal server
         //Data Source = WIN-LP6P3PLEU8O;Initial Catalog = gos_apps;Integrated Security=True;TrustServerCertificate=True;
