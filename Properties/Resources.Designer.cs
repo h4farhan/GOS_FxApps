@@ -313,6 +313,36 @@ namespace GOS_FxApps.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo_RRIS {
+            get {
+                object obj = ResourceManager.GetObject("logo-RRIS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logobaru_RRIS {
+            get {
+                object obj = ResourceManager.GetObject("logobaru-RRIS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logobaru_RRIS_1 {
+            get {
+                object obj = ResourceManager.GetObject("logobaru-RRIS-1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap material_management {
             get {
                 object obj = ResourceManager.GetObject("material-management", resourceCulture);

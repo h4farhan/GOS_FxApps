@@ -286,6 +286,9 @@ namespace GOS_FxApps
 
                             if (dlg.ShowDialog(mainform) == DialogResult.OK)
                             {
+                                if (File.Exists(dlg.FileName))
+                                    File.Delete(dlg.FileName);
+
                                 xlWorkBook.SaveCopyAs(dlg.FileName);
                                 MessageBox.Show("Export selesai!", "Sukses",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);

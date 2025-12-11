@@ -238,12 +238,14 @@ namespace GOS_FxApps
 
         private async Task<bool> cari()
         {
-            DateTime? tanggal = datecari.Checked ? (DateTime?)datecari.Value.Date : null;
+            DateTime? date1Value = tanggal1.Checked ? (DateTime?)tanggal1.Value.Date : null;
+            DateTime? date2Value = tanggal2.Checked ? (DateTime?)tanggal2.Value.Date : null;
             string keyword = txtcari.Text.Trim();
+            string inputname = txtnama.Text.Trim();
 
-            if (!tanggal.HasValue && string.IsNullOrEmpty(keyword))
+            if (!date1Value.HasValue && !date2Value.HasValue && string.IsNullOrEmpty(keyword) && string.IsNullOrEmpty(inputname))
             {
-                MessageBox.Show("Silakan isi Tanggal atau Kode/Nama Barang untuk melakukan pencarian.",
+                MessageBox.Show("Silakan isi Tanggal, Kode Barang atau Nama Penginput untuk melakukan pencarian.",
                                 "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
@@ -254,16 +256,33 @@ namespace GOS_FxApps
                 lastSearchCmd = new SqlCommand();
                 lastSearchWhere = "FROM pemakaian_material WHERE 1=1 ";
 
-                if (tanggal.HasValue)
+                if (date1Value.HasValue && date2Value.HasValue)
                 {
-                    lastSearchWhere += " AND CAST(tanggalPemakaian AS DATE) = @tgl ";
-                    lastSearchCmd.Parameters.AddWithValue("@tgl", tanggal.Value);
+                    lastSearchWhere += " AND CAST(tanggalPemakaian AS DATE) BETWEEN @tgl1 AND @tgl2 ";
+                    lastSearchCmd.Parameters.AddWithValue("@tgl1", date1Value.Value);
+                    lastSearchCmd.Parameters.AddWithValue("@tgl2", date2Value.Value);
+                }
+                else if (date1Value.HasValue)
+                {
+                    lastSearchWhere += " AND CAST(tanggalPemakaian AS DATE) = @tgl1 ";
+                    lastSearchCmd.Parameters.AddWithValue("@tgl1", date1Value.Value);
+                }
+                else if (date2Value.HasValue)
+                {
+                    lastSearchWhere += " AND CAST(tanggalPemakaian AS DATE) = @tgl2 ";
+                    lastSearchCmd.Parameters.AddWithValue("@tgl2", date2Value.Value);
                 }
 
                 if (!string.IsNullOrEmpty(keyword))
                 {
                     lastSearchWhere += " AND (kodeBarang LIKE @kode OR namaBarang LIKE @kode) ";
                     lastSearchCmd.Parameters.AddWithValue("@kode", "%" + keyword + "%");
+                }
+
+                if (!string.IsNullOrEmpty(inputname))
+                {
+                    lastSearchWhere += " AND remaks LIKE @remaks ";
+                    lastSearchCmd.Parameters.AddWithValue("@remaks", "%" + inputname + "%");
                 }
 
                 await HitungTotalDataPencarian();
@@ -292,8 +311,10 @@ namespace GOS_FxApps
 
             await HitungTotalData();
             await tampil();
-            datecari.Value = DateTime.Now.Date;
-            datecari.Checked = false;
+            tanggal1.Value = DateTime.Now.Date;
+            tanggal2.Value = DateTime.Now.Date;
+            tanggal1.Checked = false;
+            tanggal2.Checked = false;
         }
 
         private async void btncari_Click(object sender, EventArgs e)
@@ -305,8 +326,10 @@ namespace GOS_FxApps
         {
             isSearching = false;
 
-            txtcari.Text = "";
-            datecari.Checked = false;
+            txtcari.Clear();
+            txtnama.Clear();
+            tanggal1.Checked = false;
+            tanggal2.Checked = false;
 
             btnreset.Enabled = false;
 

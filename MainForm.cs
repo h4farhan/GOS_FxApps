@@ -364,8 +364,35 @@ namespace GOS_FxApps {
             });
         }
 
+        private async Task OnDatabaseChanged(string table)
+        {
+            try
+            {
+                switch (table)
+                {
+                    case "stok_material":
+                        await LoadNotifikasi();
+                        break;
+
+                    case "setmin_Rb":
+                        await LoadNotifikasi();
+                        break;
+
+                    case "Rb_Stok":
+                        await LoadNotifikasi();
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            catch { }
+        }
+
         private async void MainForm_Load(object sender, EventArgs e)
         {
+            DataChanged += OnDatabaseChanged;
+
             InitializeTrayNotifier();
             StartConnectionWatcher();
             StartSqlDependency();
@@ -1134,7 +1161,7 @@ namespace GOS_FxApps {
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SqlDependency.Stop(Koneksi.GetConnectionString());
+            DataChanged -= OnDatabaseChanged;
         }
 
         private void btnaturjam_Click(object sender, EventArgs e)
@@ -1143,6 +1170,5 @@ namespace GOS_FxApps {
             f.Owner = this;   
             f.ShowDialog();
         }
-
     }
 }

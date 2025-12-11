@@ -69,34 +69,6 @@ namespace GOS_FxApps
                             }
                         }
                     }
-
-                    string queryTotals = @"
-                SELECT 
-                    SUM(e1) AS e1, SUM(e2) AS e2, SUM(e3) AS e3,
-                    SUM(s) AS s, SUM(d) AS d, SUM(b) AS b, SUM(ba) AS ba,
-                    SUM(r) AS r, SUM(m) AS m, SUM(cr) AS cr, SUM(c) AS c, SUM(rl) AS rl
-                FROM penerimaan_s
-            ";
-
-                    using (var cmd = new SqlCommand(queryTotals, conn))
-                    using (var reader = await cmd.ExecuteReaderAsync())
-                    {
-                        if (await reader.ReadAsync())
-                        {
-                            lble1.Text = reader["e1"].ToString();
-                            lble2.Text = reader["e2"].ToString();
-                            lble3.Text = reader["e3"].ToString();
-                            lbls.Text = reader["s"].ToString();
-                            lbld.Text = reader["d"].ToString();
-                            lblb.Text = reader["b"].ToString();
-                            lblba.Text = reader["ba"].ToString();
-                            lblr.Text = reader["r"].ToString();
-                            lblm.Text = reader["m"].ToString();
-                            lblcr.Text = reader["cr"].ToString();
-                            lblc.Text = reader["c"].ToString();
-                            lblrl.Text = reader["rl"].ToString();
-                        }
-                    }
                 }
             }
             catch
@@ -105,6 +77,80 @@ namespace GOS_FxApps
             }
         }
 
+        private async Task LoadChartstokreject()
+        {
+            double e1 = 0, e2 = 0, e3 = 0, s = 0, d = 0, b = 0, ba = 0, r = 0, m = 0, cr = 0, c = 0, rl = 0;
+
+            try
+            {
+                using (var conn = await Koneksi.GetConnectionAsync())
+                using (var cmd = new SqlCommand(@"
+            SELECT 
+                SUM(e1) AS e1, SUM(e2) AS e2, SUM(e3) AS e3,
+                SUM(s) AS s, SUM(d) AS d, SUM(b) AS b, SUM(ba) AS ba,
+                SUM(r) AS r, SUM(m) AS m, SUM(cr) AS cr, SUM(c) AS c, SUM(rl) AS rl
+            FROM penerimaan_s
+        ", conn))
+                using (var dr = await cmd.ExecuteReaderAsync())
+                {
+                    if (await dr.ReadAsync())
+                    {
+                        e1 = dr["e1"] != DBNull.Value ? Convert.ToDouble(dr["e1"]) : 0;
+                        e2 = dr["e2"] != DBNull.Value ? Convert.ToDouble(dr["e2"]) : 0;
+                        e3 = dr["e3"] != DBNull.Value ? Convert.ToDouble(dr["e3"]) : 0;
+                        s = dr["s"] != DBNull.Value ? Convert.ToDouble(dr["s"]) : 0;
+                        d = dr["d"] != DBNull.Value ? Convert.ToDouble(dr["d"]) : 0;
+                        b = dr["b"] != DBNull.Value ? Convert.ToDouble(dr["b"]) : 0;
+                        ba = dr["ba"] != DBNull.Value ? Convert.ToDouble(dr["ba"]) : 0;
+                        r = dr["r"] != DBNull.Value ? Convert.ToDouble(dr["r"]) : 0;
+                        m = dr["m"] != DBNull.Value ? Convert.ToDouble(dr["m"]) : 0;
+                        cr = dr["cr"] != DBNull.Value ? Convert.ToDouble(dr["cr"]) : 0;
+                        c = dr["c"] != DBNull.Value ? Convert.ToDouble(dr["c"]) : 0;
+                        rl = dr["rl"] != DBNull.Value ? Convert.ToDouble(dr["rl"]) : 0;
+                    }
+                }
+            }
+            catch
+            {
+                return;
+            }
+
+            chartUssageMaterial.Series.Clear();
+            chartUssageMaterial.ChartAreas.Clear();
+
+            ChartArea area = new ChartArea("MainArea");
+            area.AxisX.Interval = 1;
+            area.AxisY.Minimum = 0;
+
+            area.AxisX.MajorGrid.LineWidth = 0;
+            area.AxisY.MajorGrid.LineWidth = 0;
+            chartUssageMaterial.ChartAreas.Add(area);
+
+            Series series = new Series
+            {
+                Name = "Total Penerimaan",
+                ChartType = SeriesChartType.Column,
+                IsXValueIndexed = true,
+                IsValueShownAsLabel = true,
+                LabelForeColor = Color.Black
+            };
+
+            series.Points.AddXY("E1", e1);
+            series.Points.AddXY("E2", e2);
+            series.Points.AddXY("E3", e3);
+            series.Points.AddXY("S", s);
+            series.Points.AddXY("D", d);
+            series.Points.AddXY("B", b);
+            series.Points.AddXY("BA", ba);
+            series.Points.AddXY("R", r);
+            series.Points.AddXY("M", m);
+            series.Points.AddXY("CR", cr);
+            series.Points.AddXY("C", c);
+            series.Points.AddXY("RL", rl);
+
+            chartUssageMaterial.Series.Add(series);
+            chartUssageMaterial.Legends.Clear();
+        }
 
         private async Task LoadchartRB()
         {
@@ -189,6 +235,7 @@ namespace GOS_FxApps
             chartUssageMaterial.Series.Add(series);
             chartUssageMaterial.Legends.Clear();
         }
+
         private async Task LoadchartRBByMonth()
         {
             double rbStock = 0, rbSawinge1 = 0, rbSawinge2 = 0,
@@ -2139,17 +2186,14 @@ namespace GOS_FxApps
             MainForm.Instance.ShiftChanged += shiftChangedHandler;
 
             await LoadPanel();
-            await LoadchartRB();
+            await LoadChartstokreject();
 
             tanggalcustom1.Value = DateTime.Today;
             tanggalcustom2.Value = DateTime.Today;
             datebulan.Value = DateTime.Now;
 
-            containerrentang.Visible = true;
-            containertanggal1.Visible = true;
-
             lbltitlechart.Text =
-                $"{cmbpilihdata.Text} {cmbrentang.Text} {tanggalcustom1.Value:dd/MM/yyyy}";
+                $"{cmbpilihdata.Text}";
         }
 
         private void Dashboard_FormClosing_1(object sender, FormClosingEventArgs e)
@@ -2166,7 +2210,16 @@ namespace GOS_FxApps
         private void cmbpilihdata_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbpilihdata.SelectedIndex == 0)
-            {   
+            {
+                containerrentang.Visible = false;
+                containertanggal1.Visible = false;
+                containertanggal2.Visible = false;
+                containerbulan.Visible = false;
+                containertipe.Visible = false;
+                containertipem.Visible = false;
+            }
+            else if (cmbpilihdata.SelectedIndex == 1)
+            {
                 containerbulan.Visible = false;
                 containertipe.Visible = false;
                 containertipem.Visible = false;
@@ -2177,7 +2230,7 @@ namespace GOS_FxApps
                 cmbrentang.SelectedIndex = 0;
                 tanggalcustom1.Value = DateTime.Now;
             }
-            else if (cmbpilihdata.SelectedIndex == 1)
+            else if (cmbpilihdata.SelectedIndex == 2)
             {
                 containerbulan.Visible = false;
                 containertipe.Visible = false;
@@ -2190,7 +2243,7 @@ namespace GOS_FxApps
                 cmbtipem.SelectedIndex = 0;
                 tanggalcustom1.Value = DateTime.Now;
             }
-            else if (cmbpilihdata.SelectedIndex == 2)
+            else if (cmbpilihdata.SelectedIndex == 3)
             {
                 containerbulan.Visible = false;
                 containertipem.Visible = false;
@@ -2235,7 +2288,11 @@ namespace GOS_FxApps
 
         private async void btnsetfilter_Click(object sender, EventArgs e)
         {
-            if (cmbpilihdata.SelectedIndex == 0) 
+            if (cmbpilihdata.SelectedIndex == 0)
+            {
+                await LoadChartstokreject();
+            }
+            else if (cmbpilihdata.SelectedIndex == 1)
             {
                 if (cmbrentang.SelectedIndex == 0)
                 {
@@ -2264,21 +2321,21 @@ namespace GOS_FxApps
                     lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy") + " s/d " + tanggalcustom2.Value.ToString("dd/MM/yyyy");
                 }
             }
-            else if(cmbpilihdata.SelectedIndex == 1)
+            else if (cmbpilihdata.SelectedIndex == 2)
             {
                 if (cmbrentang.SelectedIndex == 0)
                 {
-                    if(cmbtipem.SelectedIndex == 0)
+                    if (cmbtipem.SelectedIndex == 0)
                     {
                         await LoadChartMaterialCostHarian();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
                     }
-                    else if(cmbtipem.SelectedIndex == 1)
+                    else if (cmbtipem.SelectedIndex == 1)
                     {
                         await LoadChartConsumableCostHarian();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
                     }
-                    else if(cmbtipem.SelectedIndex == 2)
+                    else if (cmbtipem.SelectedIndex == 2)
                     {
                         await LoadChartSafetyCostHarian();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipem.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
@@ -2322,7 +2379,7 @@ namespace GOS_FxApps
                 }
                 else if (cmbrentang.SelectedIndex == 3)
                 {
-                    if(tanggalcustom1.Value.Date > tanggalcustom2.Value.Date)
+                    if (tanggalcustom1.Value.Date > tanggalcustom2.Value.Date)
                     {
                         MessageBox.Show("Tanggal Mulai harus kurang dari atau sama dengan Tanggal Akhir agar valid", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
@@ -2345,7 +2402,7 @@ namespace GOS_FxApps
                     }
                 }
             }
-            else if (cmbpilihdata.SelectedIndex == 2)
+            else if (cmbpilihdata.SelectedIndex == 3)
             {
                 if (cmbrentang.SelectedIndex == 0)
                 {
@@ -2371,7 +2428,7 @@ namespace GOS_FxApps
                     {
                         await LoadChartPerbaikanBulanan();
                         lbltitlechart.Text = cmbpilihdata.Text + " " + cmbtipe.Text + " " + cmbrentang.Text + " " + datebulan.Value.Month + "/" + datebulan.Value.Year;
-                    }                    
+                    }
                 }
                 else if (cmbrentang.SelectedIndex == 2)
                 {
@@ -2548,6 +2605,11 @@ namespace GOS_FxApps
                 bukatutupfilter = true;
                 HamburgerButton.IconChar = FontAwesome.Sharp.IconChar.AngleRight;
             }
+        }
+
+        private async void iconButton1_Click(object sender, EventArgs e)
+        {
+            await LoadChartstokreject();
         }
     }
 }
