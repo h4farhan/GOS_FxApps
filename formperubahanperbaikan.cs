@@ -551,7 +551,7 @@ namespace GOS_FxApps
                     VALUES
                     (@nounikpenerimaan, @tanggalpenerimaan, @shift, @nomorrod, @jenis, @e1ers, @e1est, @e1jumlah, 
                      @e2ers, @e2cst, @e2cstub, @e2jumlah, @e3, @e4, @s, @d, @b, @bac, @nba, @ba, @ba1, 
-                     @cr, @m, @r, @c, @rl, @jumlah, @tanggal, @diubah, @remaks, @catatan, @foto)";
+                     @cr, @m, @r, @c, @rl, @jumlah, @tanggal, GETDATE(), @remaks, @catatan, @foto)";
 
                             cmd.Parameters.AddWithValue("@nounikpenerimaan", noprimary);
                             cmd.Parameters.AddWithValue("@tanggalpenerimaan", tanggalpenerimaan);
@@ -581,7 +581,6 @@ namespace GOS_FxApps
                             cmd.Parameters.AddWithValue("@rl", txtrl.Text);
                             cmd.Parameters.AddWithValue("@jumlah", lbltotal.Text);
                             cmd.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
-                            cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                             cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
                             cmd.Parameters.AddWithValue("@catatan", txtcatatan.Text);
 

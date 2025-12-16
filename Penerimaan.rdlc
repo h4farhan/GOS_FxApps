@@ -4387,7 +4387,11 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Lookup(2, Fields!Shift.Value, Fields!e1.Value, "datasetjumlahpenerimaan1")</Value>
+                      <Value>=IIf(
+    Parameters!shift.Value &gt;= 2,
+    Lookup(2, Fields!Shift.Value, Fields!e1.Value, "datasetjumlahpenerimaan1"),
+    Nothing
+)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -4423,7 +4427,11 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Lookup(2, Fields!Shift.Value, Fields!e2.Value, "datasetjumlahpenerimaan1")</Value>
+                      <Value>=IIf(
+    Parameters!shift.Value &gt;= 2,
+    Lookup(2, Fields!Shift.Value, Fields!e2.Value, "datasetjumlahpenerimaan1"),
+    Nothing
+)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>

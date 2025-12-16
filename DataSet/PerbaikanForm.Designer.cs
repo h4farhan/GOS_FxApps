@@ -9547,10 +9547,12 @@ SELECT
 
 FROM Shifts s
 LEFT JOIN Data d ON s.Shift = d.Shift
+WHERE s.Shift <= @shift
 GROUP BY s.Shift
 ORDER BY s.Shift;
 ";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shift", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Shift", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal1", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal2", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -9559,19 +9561,20 @@ ORDER BY s.Shift;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PerbaikanForm.jumlahperbaikan2DataTable dataTable, global::System.Nullable<global::System.DateTime> tanggal1, global::System.Nullable<global::System.DateTime> tanggal2) {
+        public virtual int Fill(PerbaikanForm.jumlahperbaikan2DataTable dataTable, decimal shift, global::System.Nullable<global::System.DateTime> tanggal1, global::System.Nullable<global::System.DateTime> tanggal2) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(shift));
             if ((tanggal1.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(tanggal1.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((tanggal2.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggal2.Value));
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggal1.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((tanggal2.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggal2.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -9584,19 +9587,20 @@ ORDER BY s.Shift;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PerbaikanForm.jumlahperbaikan2DataTable GetData(global::System.Nullable<global::System.DateTime> tanggal1, global::System.Nullable<global::System.DateTime> tanggal2) {
+        public virtual PerbaikanForm.jumlahperbaikan2DataTable GetData(decimal shift, global::System.Nullable<global::System.DateTime> tanggal1, global::System.Nullable<global::System.DateTime> tanggal2) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(shift));
             if ((tanggal1.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(tanggal1.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((tanggal2.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggal2.Value));
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggal1.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((tanggal2.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggal2.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             PerbaikanForm.jumlahperbaikan2DataTable dataTable = new PerbaikanForm.jumlahperbaikan2DataTable();
             this.Adapter.Fill(dataTable);

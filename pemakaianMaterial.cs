@@ -362,7 +362,7 @@ namespace GOS_FxApps
                         using (var cmd2 = new SqlCommand(@"
                     UPDATE pemakaian_material
                     SET tanggalPemakaian = @tgl, jumlahPemakaian = @jumlah,
-                        updated_at = @diubah, remaks = @remaks
+                        updated_at = GETDATE(), remaks = @remaks
                     WHERE idPemakaian = @id
                 ", conn, tran))
                         {
@@ -376,12 +376,11 @@ namespace GOS_FxApps
                         }
 
                         using (var cmd3 = new SqlCommand(
-                            "UPDATE stok_material SET jumlahStok = jumlahStok - @baru, updated_at = @diubah WHERE kodeBarang = @kode",
+                            "UPDATE stok_material SET jumlahStok = jumlahStok - @baru, updated_at = GETDATE() WHERE kodeBarang = @kode",
                             conn, tran))
                         {
                             cmd3.Parameters.AddWithValue("@baru", jumlahBaru);
                             cmd3.Parameters.AddWithValue("@kode", kodeBarang);
-                            cmd3.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                             await cmd3.ExecuteNonQueryAsync();
                         }
 
@@ -460,7 +459,7 @@ namespace GOS_FxApps
                         using (var cmdIns = new SqlCommand(
                             @"INSERT INTO pemakaian_material 
                   (kodeBarang, namaBarang, type, tanggalPemakaian, jumlahPemakaian, updated_at, remaks, spesifikasi)
-                  VALUES (@kode, @nama, @type, @tgl, @jumlah, @diubah, @remaks, @spesifikasi)",
+                  VALUES (@kode, @nama, @type, @tgl, @jumlah, GETDATE(), @remaks, @spesifikasi)",
                             conn, tran))
                         {
                             cmdIns.Parameters.AddWithValue("@kode", kodeBarang);
@@ -469,18 +468,16 @@ namespace GOS_FxApps
                             cmdIns.Parameters.AddWithValue("@type", type);
                             cmdIns.Parameters.AddWithValue("@tgl", datepemakaian.Value);
                             cmdIns.Parameters.AddWithValue("@jumlah", jumlahPakai);
-                            cmdIns.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                             cmdIns.Parameters.AddWithValue("@remaks", loginform.login.name);
                             await cmdIns.ExecuteNonQueryAsync();
                         }
 
                         using (var cmdStok = new SqlCommand(
-                            "UPDATE stok_material SET jumlahStok = jumlahStok - @pakai, updated_at = @diubah WHERE kodeBarang = @kode",
+                            "UPDATE stok_material SET jumlahStok = jumlahStok - @pakai, updated_at = GETDATE() WHERE kodeBarang = @kode",
                             conn, tran))
                         {
                             cmdStok.Parameters.AddWithValue("@pakai", jumlahPakai);
                             cmdStok.Parameters.AddWithValue("@kode", kodeBarang);
-                            cmdStok.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                             await cmdStok.ExecuteNonQueryAsync();
                         }
 

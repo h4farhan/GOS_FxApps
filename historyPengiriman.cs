@@ -283,12 +283,6 @@ namespace GOS_FxApps
                     lastSearchCmd.Parameters.AddWithValue("@rod", "%" + inputRod + "%");
                 }
 
-                if (!string.IsNullOrEmpty(inputRod))
-                {
-                    lastSearchWhere += " AND nomor_rod LIKE @rod ";
-                    lastSearchCmd.Parameters.AddWithValue("@rod", "%" + inputRod + "%");
-                }
-
                 if (!string.IsNullOrEmpty(inputnama))
                 {
                     lastSearchWhere += " AND remaks LIKE @remaks ";

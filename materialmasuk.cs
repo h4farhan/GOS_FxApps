@@ -342,25 +342,23 @@ namespace GOS_FxApps
                 UPDATE material_masuk 
                 SET tanggalMasuk = @tgl, 
                     jumlahMasuk = @jumlahBaru, 
-                    updated_at = @diubah, 
+                    updated_at = GETDATE(), 
                     remaks = @remaks 
                 WHERE idMasuk = @id", conn, tran))
                         {
                             cmdPakai.Parameters.AddWithValue("@id", noprimary);
                             cmdPakai.Parameters.AddWithValue("@tgl", datemasuk.Value);
                             cmdPakai.Parameters.AddWithValue("@jumlahBaru", jumlahBaru);
-                            cmdPakai.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                             cmdPakai.Parameters.AddWithValue("@remaks", loginform.login.name);
                             await cmdPakai.ExecuteNonQueryAsync();
                         }
 
                         using (var cmdUpdateStok = new SqlCommand(
-                            "UPDATE stok_material SET jumlahStok = jumlahStok + @jumlahBaru, updated_at = @diubah WHERE kodeBarang = @kode",
+                            "UPDATE stok_material SET jumlahStok = jumlahStok + @jumlahBaru, updated_at = GETDATE() WHERE kodeBarang = @kode",
                             conn, tran))
                         {
                             cmdUpdateStok.Parameters.AddWithValue("@jumlahBaru", jumlahBaru);
                             cmdUpdateStok.Parameters.AddWithValue("@kode", kodeBarang);
-                            cmdUpdateStok.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                             await cmdUpdateStok.ExecuteNonQueryAsync();
                         }
 
@@ -428,7 +426,7 @@ namespace GOS_FxApps
                         using (var cmdPakai = new SqlCommand(@"
                 INSERT INTO material_masuk 
                 (kodeBarang, namaBarang, type, tanggalMasuk, jumlahMasuk, updated_at, remaks, spesifikasi) 
-                VALUES (@kode, @nama, @type, @tgl, @jumlah, @diubah, @remaks, @spesifikasi)",
+                VALUES (@kode, @nama, @type, @tgl, @jumlah, GETDATE(), @remaks, @spesifikasi)",
                             conn, tran))
                         {
                             cmdPakai.Parameters.AddWithValue("@kode", kodeBarang);
@@ -437,19 +435,17 @@ namespace GOS_FxApps
                             cmdPakai.Parameters.AddWithValue("@tgl", datemasuk.Value);
                             cmdPakai.Parameters.AddWithValue("@jumlah", jumlahMasuk);
                             cmdPakai.Parameters.AddWithValue("@spesifikasi", spesifikasi);
-                            cmdPakai.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                             cmdPakai.Parameters.AddWithValue("@remaks", loginform.login.name);
 
                             await cmdPakai.ExecuteNonQueryAsync();
                         }
 
                         using (var cmdUpdateStok = new SqlCommand(
-                            "UPDATE stok_material SET jumlahStok = jumlahStok + @masuk, updated_at = @diubah WHERE kodeBarang = @kode",
+                            "UPDATE stok_material SET jumlahStok = jumlahStok + @masuk, updated_at = GETDATE() WHERE kodeBarang = @kode",
                             conn, tran))
                         {
                             cmdUpdateStok.Parameters.AddWithValue("@masuk", jumlahMasuk);
                             cmdUpdateStok.Parameters.AddWithValue("@kode", kodeBarang);
-                            cmdUpdateStok.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
 
                             await cmdUpdateStok.ExecuteNonQueryAsync();
                         }

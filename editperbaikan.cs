@@ -525,7 +525,7 @@ namespace GOS_FxApps
                     SET nomor_rod = @nomorrod, jenis=@jenis, e1_ers=@e1ers, e1_est=@e1est, e1_jumlah=@e1jumlah,
                         e2_ers=@e2ers, e2_cst=@e2cst, e2_cstub=@e2cstub, e2_jumlah=@e2jumlah,
                         e3=@e3, e4=@e4, s=@s, d=@d, b=@b, bac=@bac, nba=@nba, ba=@ba, ba1=@ba1,
-                        cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah, updated_at=@diubah, remaks = @remaks, catatan = @catatan
+                        cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah, updated_at=GETDATE(), remaks = @remaks, catatan = @catatan
                     WHERE no=@no", conn, trans);
 
                     cmd1.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
@@ -553,7 +553,6 @@ namespace GOS_FxApps
                     cmd1.Parameters.AddWithValue("@rl", txtrl.Text);
                     cmd1.Parameters.AddWithValue("@jumlah", lbltotalupdate.Text);
                     cmd1.Parameters.AddWithValue("@no", noprimary);
-                    cmd1.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                     cmd1.Parameters.AddWithValue("@remaks", loginform.login.name);
                     cmd1.Parameters.AddWithValue("@catatan", txtcatatan.Text);
                     await cmd1.ExecuteNonQueryAsync();
@@ -576,7 +575,7 @@ namespace GOS_FxApps
                 SET nomor_rod = @nomorrod, jenis=@jenis, e1_ers=@e1ers, e1_est=@e1est, e1_jumlah=@e1jumlah,
                     e2_ers=@e2ers, e2_cst=@e2cst, e2_cstub=@e2cstub, e2_jumlah=@e2jumlah,
                     e3=@e3, e4=@e4, s=@s, d=@d, b=@b, bac=@bac, nba=@nba, ba=@ba, ba1=@ba1,
-                    cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah, updated_at=@diubah, remaks = @remaks, catatan = @catatan
+                    cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah, updated_at=GETDATE(), remaks = @remaks, catatan = @catatan
                 WHERE no=@no", conn, trans);
 
                         cmd2.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
@@ -604,7 +603,6 @@ namespace GOS_FxApps
                         cmd2.Parameters.AddWithValue("@rl", txtrl.Text);
                         cmd2.Parameters.AddWithValue("@jumlah", lbltotalupdate.Text);
                         cmd2.Parameters.AddWithValue("@no", noprimary);
-                        cmd2.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                         cmd2.Parameters.AddWithValue("@remaks", loginform.login.name);
                         cmd2.Parameters.AddWithValue("@catatan", txtcatatan.Text);
 
@@ -620,13 +618,12 @@ namespace GOS_FxApps
                     {
                         SqlCommand cmd3 = new SqlCommand(@"
                 UPDATE penerimaan_p
-                SET nomor_rod=@nomorrod, remaks=@remaks, updated_at=@diubah
+                SET nomor_rod=@nomorrod, remaks=@remaks, updated_at=GETDATE()
                 WHERE no=@no", conn, trans);
 
                         cmd3.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
                         cmd3.Parameters.AddWithValue("@remaks", loginform.login.name);
                         cmd3.Parameters.AddWithValue("@no", noprimary);
-                        cmd3.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                         await cmd3.ExecuteNonQueryAsync();
 
                         SqlCommand log3 = new SqlCommand(
@@ -646,13 +643,12 @@ namespace GOS_FxApps
                     {
                         SqlCommand cmd5 = new SqlCommand(@"
                 UPDATE pengiriman 
-                SET nomor_rod=@nomorrod, remaks=@remaks, updated_at=@diubah
+                SET nomor_rod=@nomorrod, remaks=@remaks, updated_at=GETDATE()
                 WHERE no=@no", conn, trans);
 
                         cmd5.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
                         cmd5.Parameters.AddWithValue("@remaks", loginform.login.name);
                         cmd5.Parameters.AddWithValue("@no", noprimary);
-                        cmd5.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                         await cmd5.ExecuteNonQueryAsync();
                     }
 

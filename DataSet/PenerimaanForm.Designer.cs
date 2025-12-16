@@ -7066,9 +7066,13 @@ SELECT
     NULLIF(COUNT(d.jenis_mapped), 0) AS Total
 FROM Shifts s
 LEFT JOIN Data d ON s.Shift = d.Shift
+
+WHERE s.Shift <= @shift 
+
 GROUP BY s.Shift
 ORDER BY s.Shift;";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shift", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Shift", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal1", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal2", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -7077,19 +7081,20 @@ ORDER BY s.Shift;";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PenerimaanForm.jumlahpenerimaan2DataTable dataTable, global::System.Nullable<global::System.DateTime> tanggal1, global::System.Nullable<global::System.DateTime> tanggal2) {
+        public virtual int Fill(PenerimaanForm.jumlahpenerimaan2DataTable dataTable, decimal shift, global::System.Nullable<global::System.DateTime> tanggal1, global::System.Nullable<global::System.DateTime> tanggal2) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(shift));
             if ((tanggal1.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(tanggal1.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((tanggal2.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggal2.Value));
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggal1.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((tanggal2.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggal2.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -7102,19 +7107,20 @@ ORDER BY s.Shift;";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PenerimaanForm.jumlahpenerimaan2DataTable GetData(global::System.Nullable<global::System.DateTime> tanggal1, global::System.Nullable<global::System.DateTime> tanggal2) {
+        public virtual PenerimaanForm.jumlahpenerimaan2DataTable GetData(decimal shift, global::System.Nullable<global::System.DateTime> tanggal1, global::System.Nullable<global::System.DateTime> tanggal2) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(shift));
             if ((tanggal1.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(tanggal1.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((tanggal2.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggal2.Value));
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(tanggal1.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((tanggal2.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(tanggal2.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             PenerimaanForm.jumlahpenerimaan2DataTable dataTable = new PenerimaanForm.jumlahpenerimaan2DataTable();
             this.Adapter.Fill(dataTable);
@@ -8246,21 +8252,23 @@ SELECT
 
 FROM Shifts s
 LEFT JOIN penerimaan_p p 
-    ON s.Shift = p.Shift 
+    ON s.Shift = p.Shift
    AND p.tanggal_penerimaan BETWEEN @tanggal1 AND @tanggal2
+
+WHERE s.Shift <= @shift 
 GROUP BY s.Shift
-ORDER BY s.Shift;
-";
+ORDER BY s.Shift;";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal1", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_penerimaan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal2", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_penerimaan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shift", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Shift", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PenerimaanForm.jumlahpenerimaan1DataTable dataTable, global::System.Nullable<global::System.DateTime> tanggal1, global::System.Nullable<global::System.DateTime> tanggal2) {
+        public virtual int Fill(PenerimaanForm.jumlahpenerimaan1DataTable dataTable, global::System.Nullable<global::System.DateTime> tanggal1, global::System.Nullable<global::System.DateTime> tanggal2, decimal shift) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((tanggal1.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(tanggal1.Value));
@@ -8274,6 +8282,7 @@ ORDER BY s.Shift;
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
+            this.Adapter.SelectCommand.Parameters[2].Value = ((decimal)(shift));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -8285,7 +8294,7 @@ ORDER BY s.Shift;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PenerimaanForm.jumlahpenerimaan1DataTable GetData(global::System.Nullable<global::System.DateTime> tanggal1, global::System.Nullable<global::System.DateTime> tanggal2) {
+        public virtual PenerimaanForm.jumlahpenerimaan1DataTable GetData(global::System.Nullable<global::System.DateTime> tanggal1, global::System.Nullable<global::System.DateTime> tanggal2, decimal shift) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((tanggal1.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(tanggal1.Value));
@@ -8299,6 +8308,7 @@ ORDER BY s.Shift;
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
+            this.Adapter.SelectCommand.Parameters[2].Value = ((decimal)(shift));
             PenerimaanForm.jumlahpenerimaan1DataTable dataTable = new PenerimaanForm.jumlahpenerimaan1DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -8486,17 +8496,19 @@ ORDER BY s.Shift;
                 "    SUM(p.[r]) +\r\n            SUM(CASE WHEN p.[c] > 0 THEN 1 ELSE 0 END) +\r\n    " +
                 "        SUM(p.[rl])\r\n        ), 0\r\n    ) AS total\r\n\r\nFROM Shifts s\r\nLEFT JOIN pe" +
                 "rbaikan_p p \r\n       ON s.Shift = p.Shift \r\n      AND p.tanggal_perbaikan BETWEE" +
-                "N @tanggal1 AND @tanggal2\r\nGROUP BY s.Shift\r\nORDER BY s.Shift;\r\n";
+                "N @tanggal1 AND @tanggal2\r\n\r\nWHERE s.Shift <= @shift\r\n\r\nGROUP BY s.Shift\r\nORDER " +
+                "BY s.Shift;";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal1", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal2", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shift", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Shift", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PenerimaanForm.jumlahperbaikan1DataTable dataTable, global::System.Nullable<global::System.DateTime> tanggal1, global::System.Nullable<global::System.DateTime> tanggal2) {
+        public virtual int Fill(PenerimaanForm.jumlahperbaikan1DataTable dataTable, global::System.Nullable<global::System.DateTime> tanggal1, global::System.Nullable<global::System.DateTime> tanggal2, decimal shift) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((tanggal1.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(tanggal1.Value));
@@ -8510,6 +8522,7 @@ ORDER BY s.Shift;
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
+            this.Adapter.SelectCommand.Parameters[2].Value = ((decimal)(shift));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -8521,7 +8534,7 @@ ORDER BY s.Shift;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PenerimaanForm.jumlahperbaikan1DataTable GetData(global::System.Nullable<global::System.DateTime> tanggal1, global::System.Nullable<global::System.DateTime> tanggal2) {
+        public virtual PenerimaanForm.jumlahperbaikan1DataTable GetData(global::System.Nullable<global::System.DateTime> tanggal1, global::System.Nullable<global::System.DateTime> tanggal2, decimal shift) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((tanggal1.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(tanggal1.Value));
@@ -8535,6 +8548,7 @@ ORDER BY s.Shift;
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
+            this.Adapter.SelectCommand.Parameters[2].Value = ((decimal)(shift));
             PenerimaanForm.jumlahperbaikan1DataTable dataTable = new PenerimaanForm.jumlahperbaikan1DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

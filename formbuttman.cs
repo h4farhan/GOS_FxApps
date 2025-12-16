@@ -256,11 +256,10 @@ namespace GOS_FxApps
             {
                 using (var conn = await Koneksi.GetConnectionAsync())
                 {
-                    SqlCommand cmd = new SqlCommand("UPDATE kondisiROD SET butt_ratio = @butt, man_power = @man, updated_at = @diubah, remaks = @remaks WHERE no = @no", conn);
+                    SqlCommand cmd = new SqlCommand("UPDATE kondisiROD SET butt_ratio = @butt, man_power = @man, updated_at = GETDATE(), remaks = @remaks WHERE no = @no", conn);
                     cmd.Parameters.AddWithValue("@no", noprimary);
                     cmd.Parameters.AddWithValue("@butt", txtbutt.Text);
                     cmd.Parameters.AddWithValue("@man", txtman.Text);
-                    cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                     cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
                     await cmd.ExecuteNonQueryAsync();
 
@@ -302,13 +301,12 @@ namespace GOS_FxApps
                         }
                     }
 
-                    using (SqlCommand cmd = new SqlCommand("INSERT INTO kondisiROD (tanggal, shift, butt_ratio, man_power, updated_at, remaks) VALUES(@tgl,@shift,@butt,@man,@diubah,@remaks)", conn))
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO kondisiROD (tanggal, shift, butt_ratio, man_power, updated_at, remaks) VALUES(@tgl,@shift,@butt,@man,GETDATE(),@remaks)", conn))
                     {
                         cmd.Parameters.AddWithValue("@tgl", date.Value);
                         cmd.Parameters.AddWithValue("@shift", cmbshift.SelectedItem);
                         cmd.Parameters.AddWithValue("@butt", txtbutt.Text);
                         cmd.Parameters.AddWithValue("@man", txtman.Text);
-                        cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                         cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
                         await cmd.ExecuteNonQueryAsync();
                     }

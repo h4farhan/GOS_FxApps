@@ -166,11 +166,10 @@ namespace GOS_FxApps
             {
                 using (var conn = await Koneksi.GetConnectionAsync())
                 {
-                    SqlCommand cmd = new SqlCommand("UPDATE setmin_Rb SET namaTampilan = @nama, min_stok = @min_stok, updated_at = @diubah WHERE kode = @kode", conn);
+                    SqlCommand cmd = new SqlCommand("UPDATE setmin_Rb SET namaTampilan = @nama, min_stok = @min_stok, updated_at = GETDATE() WHERE kode = @kode", conn);
                     cmd.Parameters.AddWithValue("@kode", kodeprimary);
                     cmd.Parameters.AddWithValue("@nama", txtnamatampilan.Text);
                     cmd.Parameters.AddWithValue("@min_stok", txtminstok.Text);
-                    cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Data Berhasil Diedit", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     await Tampil();

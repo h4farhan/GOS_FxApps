@@ -74,11 +74,11 @@ namespace GOS_FxApps
 
                         var a1 = new GOS_FxApps.DataSet.PenerimaanFormTableAdapters
                             .jumlahpenerimaan1TableAdapter();
-                        data1 = a1.GetData(tanggal1, tanggal2);
+                        data1 = a1.GetData(tanggal1, tanggal2, Convert.ToInt32(shift));
 
                         var a2 = new GOS_FxApps.DataSet.PenerimaanFormTableAdapters
                             .jumlahpenerimaan2TableAdapter();
-                        data2 = a2.GetData(tanggal1, tanggal2);
+                        data2 = a2.GetData(Convert.ToInt32(shift), tanggal1, tanggal2);
                     }
                     catch (SqlException)
                     {
@@ -190,11 +190,11 @@ namespace GOS_FxApps
 
                         data1 = new GOS_FxApps.DataSet.PenerimaanFormTableAdapters
                             .jumlahperbaikan1TableAdapter()
-                            .GetData(tanggal1, tanggal2);
+                            .GetData(tanggal1, tanggal2, Convert.ToInt32(shift));
 
                         data2 = new GOS_FxApps.DataSet.PerbaikanFormTableAdapters
                             .jumlahperbaikan2TableAdapter()
-                            .GetData(tanggal1, tanggal2);
+                            .GetData(Convert.ToInt32(shift), tanggal1, tanggal2);
                     }
                     catch (SqlException)
                     {

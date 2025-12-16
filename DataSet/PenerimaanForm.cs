@@ -18,3 +18,4 @@ namespace GOS_FxApps.DataSet.PenerimaanFormTableAdapters
     {
     }
 }
+

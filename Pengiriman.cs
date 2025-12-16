@@ -417,11 +417,11 @@ namespace GOS_FxApps
 
                 string queryInsertp = @"INSERT INTO pengiriman 
             (no, tanggal_pengiriman, shift, nomor_rod, updated_at, remaks) 
-            VALUES (@no, @tanggal, @shift, @nomor_rod, @diubah, @remaks)";
+            VALUES (@no, @tanggal, @shift, @nomor_rod, GETDATE(), @remaks)";
 
                 string queryInsertm = @"INSERT INTO pengiriman_m 
             (no, tanggal_pengiriman, shift, nomor_rod, updated_at, remaks) 
-            VALUES (@no, @tanggal, @shift, @nomor_rod, @diubah, @remaks)";
+            VALUES (@no, @tanggal, @shift, @nomor_rod, GETDATE(), @remaks)";
 
                 try
                 {
@@ -442,7 +442,6 @@ namespace GOS_FxApps
                                     cmdp.Parameters.AddWithValue("@tanggal", waktuPengiriman);
                                     cmdp.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
                                     cmdp.Parameters.AddWithValue("@nomor_rod", item.NomorRod ?? (object)DBNull.Value);
-                                    cmdp.Parameters.AddWithValue("@diubah", waktuPengiriman);
                                     cmdp.Parameters.AddWithValue("@remaks", loginform.login.name);
 
                                     await cmdp.ExecuteNonQueryAsync();
@@ -454,7 +453,6 @@ namespace GOS_FxApps
                                     cmdm.Parameters.AddWithValue("@tanggal", waktuPengiriman);
                                     cmdm.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
                                     cmdm.Parameters.AddWithValue("@nomor_rod", item.NomorRod ?? (object)DBNull.Value);
-                                    cmdm.Parameters.AddWithValue("@diubah", waktuPengiriman);
                                     cmdm.Parameters.AddWithValue("@remaks", loginform.login.name);
 
                                     await cmdm.ExecuteNonQueryAsync();

@@ -130,7 +130,7 @@ namespace GOS_FxApps
             this.lblubrepaired.Location = new System.Drawing.Point(5, 38);
             this.lblubrepaired.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblubrepaired.Name = "lblubrepaired";
-            this.lblubrepaired.Size = new System.Drawing.Size(382, 73);
+            this.lblubrepaired.Size = new System.Drawing.Size(381, 73);
             this.lblubrepaired.TabIndex = 3;
             this.lblubrepaired.Text = "0";
             this.lblubrepaired.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -144,7 +144,7 @@ namespace GOS_FxApps
             this.label11.Location = new System.Drawing.Point(5, 111);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(382, 33);
+            this.label11.Size = new System.Drawing.Size(381, 33);
             this.label11.TabIndex = 2;
             this.label11.Text = "Assy";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -157,7 +157,7 @@ namespace GOS_FxApps
             this.label13.Location = new System.Drawing.Point(5, 5);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(382, 33);
+            this.label13.Size = new System.Drawing.Size(381, 33);
             this.label13.TabIndex = 0;
             this.label13.Text = "Stok ROD Reject";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -170,7 +170,7 @@ namespace GOS_FxApps
             this.label3.Location = new System.Drawing.Point(5, 38);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(382, 73);
+            this.label3.Size = new System.Drawing.Size(381, 73);
             this.label3.TabIndex = 3;
             this.label3.Text = "0";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -184,7 +184,7 @@ namespace GOS_FxApps
             this.label4.Location = new System.Drawing.Point(5, 111);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(382, 33);
+            this.label4.Size = new System.Drawing.Size(381, 33);
             this.label4.TabIndex = 2;
             this.label4.Text = "Assy";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -197,7 +197,7 @@ namespace GOS_FxApps
             this.label2.Location = new System.Drawing.Point(5, 5);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(382, 33);
+            this.label2.Size = new System.Drawing.Size(381, 33);
             this.label2.TabIndex = 0;
             this.label2.Text = "Total ROD Di RRS";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -331,7 +331,7 @@ namespace GOS_FxApps
             this.guna2Panel1.Location = new System.Drawing.Point(13, 3);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2Panel1.Size = new System.Drawing.Size(392, 149);
+            this.guna2Panel1.Size = new System.Drawing.Size(391, 149);
             this.guna2Panel1.TabIndex = 0;
             // 
             // guna2Panel2
@@ -352,7 +352,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel4, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel3, 3, 0);
@@ -375,10 +375,10 @@ namespace GOS_FxApps
             this.guna2Panel4.Controls.Add(this.label14);
             this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel4.FillColor = System.Drawing.Color.White;
-            this.guna2Panel4.Location = new System.Drawing.Point(811, 3);
+            this.guna2Panel4.Location = new System.Drawing.Point(809, 3);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2Panel4.Size = new System.Drawing.Size(392, 149);
+            this.guna2Panel4.Size = new System.Drawing.Size(391, 149);
             this.guna2Panel4.TabIndex = 4;
             // 
             // label15
@@ -389,7 +389,7 @@ namespace GOS_FxApps
             this.label15.Location = new System.Drawing.Point(5, 38);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(382, 73);
+            this.label15.Size = new System.Drawing.Size(381, 73);
             this.label15.TabIndex = 3;
             this.label15.Text = "0";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -402,7 +402,7 @@ namespace GOS_FxApps
             this.label16.Location = new System.Drawing.Point(5, 5);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(382, 33);
+            this.label16.Size = new System.Drawing.Size(381, 33);
             this.label16.TabIndex = 0;
             this.label16.Text = "Stok ROD Ready";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -416,7 +416,7 @@ namespace GOS_FxApps
             this.label14.Location = new System.Drawing.Point(5, 111);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(382, 33);
+            this.label14.Size = new System.Drawing.Size(381, 33);
             this.label14.TabIndex = 2;
             this.label14.Text = "Assy";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -432,10 +432,10 @@ namespace GOS_FxApps
             this.guna2Panel3.Controls.Add(this.label11);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel3.FillColor = System.Drawing.Color.White;
-            this.guna2Panel3.Location = new System.Drawing.Point(412, 3);
+            this.guna2Panel3.Location = new System.Drawing.Point(411, 3);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2Panel3.Size = new System.Drawing.Size(392, 149);
+            this.guna2Panel3.Size = new System.Drawing.Size(391, 149);
             this.guna2Panel3.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -536,6 +536,7 @@ namespace GOS_FxApps
             this.cmbpilihdata.ItemHeight = 30;
             this.cmbpilihdata.Items.AddRange(new object[] {
             "Stok ROD Reject",
+            "Stok ROD Reject (Stasiun)",
             "Stok Round Bar Dan Welding Piece",
             "Estimasi VS Actual",
             "Trend Jenis Kerusakan"});

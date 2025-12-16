@@ -376,7 +376,7 @@ namespace GOS_FxApps
                         using (SqlCommand cmd = new SqlCommand(@"
                 INSERT INTO stok_material 
                 (kodeBarang, namaBarang, spesifikasi, uom, type, jumlahStok, min_stok, foto, created_at, updated_at, remaks)
-                VALUES(@kodebarang,@namabarang,@spesifikasi,@uom,@type,@jumlahStok,@min_stok,@foto,@tanggal,@diubah,@remaks)",
+                VALUES(@kodebarang,@namabarang,@spesifikasi,@uom,@type,@jumlahStok,@min_stok,@foto,@tanggal,GETDATE(),@remaks)",
                             conn, trans))
                         {
                             cmd.Parameters.AddWithValue("@kodebarang", txtkodebarang.Text);
@@ -396,7 +396,6 @@ namespace GOS_FxApps
                                 (imageBytes == null ? DBNull.Value : (object)imageBytes);
 
                             cmd.Parameters.AddWithValue("@tanggal", MainForm.Instance.tanggal);
-                            cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
 
                             await cmd.ExecuteNonQueryAsync();
                         }
@@ -462,7 +461,7 @@ namespace GOS_FxApps
                 UPDATE stok_material 
                 SET namaBarang = @namabarang, spesifikasi = @spesifikasi,
                     uom = @uom, type = @type, min_stok = @min_stok,
-                    foto = @foto, updated_at = @diubah, remaks = @remaks
+                    foto = @foto, updated_at = GETDATE(), remaks = @remaks
                 WHERE kodeBarang = @kodebarang";
 
                         SqlCommand cmd = new SqlCommand(query, conn, trans);
@@ -482,7 +481,6 @@ namespace GOS_FxApps
                         cmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value =
                             (imageBytes == null ? DBNull.Value : (object)imageBytes);
 
-                        cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
 
                         await cmd.ExecuteNonQueryAsync();
 

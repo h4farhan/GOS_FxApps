@@ -264,7 +264,7 @@ namespace GOS_FxApps
 
             if (string.IsNullOrEmpty(nomorrod))
             {
-                MessageBox.Show("Silakan isi Tanggal atau Nomor ROD untuk melakukan pencarian.",
+                MessageBox.Show("Silakan isi Kode Barang atau Nama Barang untuk melakukan pencarian.",
                                 "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
@@ -284,7 +284,7 @@ namespace GOS_FxApps
                 currentPage = 1;
                 await tampil();
 
-                btncari.Text = "Reset";
+                btnreset.Enabled = true;
                 return true;
             }
             catch (SqlException)
@@ -310,7 +310,6 @@ namespace GOS_FxApps
         private async void btncari_Click(object sender, EventArgs e)
         {
             await cari();
-            btnreset.Enabled = true;
         }
 
         private async void btnreset_Click(object sender, EventArgs e)

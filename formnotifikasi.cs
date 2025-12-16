@@ -16,7 +16,6 @@ namespace GOS_FxApps
 {
     public partial class formnotifikasi : Form
     {
-        SqlConnection conn = Koneksi.GetConnection();
 
         public static formnotifikasi Instance;
         private bool allowDeactivate = false;
@@ -210,30 +209,29 @@ namespace GOS_FxApps
             panelNotif.Controls.Add(itemPanel);
         }
 
-        private CancellationTokenSource reloadToken;
-
         private async Task OnDatabaseChanged(string table)
         {
-            string[] affected =
-            {
-                "stok_material", "setmin_Rb",
-                "Rb_Stok"
-            };
-
-            if (!affected.Contains(table))
-                return;
-
-            reloadToken?.Cancel();
-            reloadToken = new CancellationTokenSource();
-
             try
             {
-                await Task.Delay(300, reloadToken.Token);
-                await LoadNotifikasi();
+                switch (table)
+                {
+                    case "stok_material":
+                        await LoadNotifikasi();
+                        break;
+
+                    case "setmin_Rb":
+                        await LoadNotifikasi();
+                        break;
+
+                    case "Rb_Stok":
+                        await LoadNotifikasi();
+                        break;
+
+                    default:
+                        break;
+                }
             }
-            catch (TaskCanceledException)
-            {
-            }
+            catch { }
         }
 
         private async void formnotifikasi_Load(object sender, EventArgs e)

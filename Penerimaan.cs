@@ -182,7 +182,7 @@ namespace GOS_FxApps
                          s, d, b, ba, cr, m, r, c, rl, jumlah, updated_at, remaks, catatan)
                         VALUES
                         (@tanggal_penerimaan, @shift, @nomorrod, @jenis, @stasiun, @e1, @e2, @e3,
-                         @s, @d, @b, @ba, @cr, @m, @r, @c, @rl, @jumlah, @updated, @remaks, @catatan)", conn, trans))
+                         @s, @d, @b, @ba, @cr, @m, @r, @c, @rl, @jumlah, GETDATE(), @remaks, @catatan)", conn, trans))
                             {
                                 cmd.Parameters.AddWithValue("@tanggal_penerimaan", MainForm.Instance.tanggal);
                                 cmd.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
@@ -202,7 +202,6 @@ namespace GOS_FxApps
                                 cmd.Parameters.AddWithValue("@c", txtc.Text);
                                 cmd.Parameters.AddWithValue("@rl", txtrl.Text);
                                 cmd.Parameters.AddWithValue("@jumlah", lbltotal.Text);
-                                cmd.Parameters.AddWithValue("@updated", MainForm.Instance.tanggal);
                                 cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
                                 cmd.Parameters.AddWithValue("@catatan", txtcatatan.Text);
 

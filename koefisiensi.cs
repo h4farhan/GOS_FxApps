@@ -460,7 +460,7 @@ namespace GOS_FxApps
                      @e1,@e2,@e3,@e4,
                      @s,@d,@b,@ba,@ba1,
                      @cr,@m,@r,@c,@rl,
-                     @diubah,@remaks)", conn))
+                     GETDATE(),@remaks)", conn))
                     {
                         cmd1.Parameters.AddWithValue("@tanggal", new DateTime(tahun.Value.Year, 1, 1));
                         cmd1.Parameters.AddWithValue("@type", txttipe.Text);
@@ -484,7 +484,6 @@ namespace GOS_FxApps
                         cmd1.Parameters.AddWithValue("@c", string.IsNullOrWhiteSpace(txtkoefc.Text) ? 0 : Convert.ToDecimal(txtkoefc.Text));
                         cmd1.Parameters.AddWithValue("@rl", string.IsNullOrWhiteSpace(txtkoefrl.Text) ? 0 : Convert.ToDecimal(txtkoefrl.Text));
 
-                        cmd1.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                         cmd1.Parameters.AddWithValue("@remaks", loginform.login.name);
 
                         await cmd1.ExecuteNonQueryAsync();
@@ -535,7 +534,7 @@ namespace GOS_FxApps
                     using (var conn = await Koneksi.GetConnectionAsync())
                     {
                         string query = "UPDATE koefisiensi_material SET koef_e1 = @e1, koef_e2 = @e2, koef_e3 = @e3, koef_e4 = @e4, koef_s = @s, koef_d = @d, koef_b = @b, koef_ba = @ba, koef_ba1 = @ba1, " +
-                    "koef_cr = @cr, koef_m = @m, koef_r = @r, koef_c = @c, koef_rl = @rl, updated_at = @diubah, remaks = @remaks WHERE no = @no";
+                    "koef_cr = @cr, koef_m = @m, koef_r = @r, koef_c = @c, koef_rl = @rl, updated_at = GETDATE(), remaks = @remaks WHERE no = @no";
                         SqlCommand cmd = new SqlCommand(query, conn);
                         cmd.Parameters.AddWithValue("@no", noprimarymaterial);
                         cmd.Parameters.AddWithValue("@e1", string.IsNullOrWhiteSpace(txtkoefe1.Text) ? 0 : Convert.ToDecimal(txtkoefe1.Text));
@@ -552,7 +551,6 @@ namespace GOS_FxApps
                         cmd.Parameters.AddWithValue("@r", string.IsNullOrWhiteSpace(txtkoefr.Text) ? 0 : Convert.ToDecimal(txtkoefr.Text));
                         cmd.Parameters.AddWithValue("@c", string.IsNullOrWhiteSpace(txtkoefc.Text) ? 0 : Convert.ToDecimal(txtkoefc.Text));
                         cmd.Parameters.AddWithValue("@rl", string.IsNullOrWhiteSpace(txtkoefrl.Text) ? 0 : Convert.ToDecimal(txtkoefrl.Text));
-                        cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                         cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
                         await cmd.ExecuteNonQueryAsync();
 

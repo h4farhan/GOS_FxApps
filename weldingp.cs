@@ -536,7 +536,7 @@ namespace GOS_FxApps
                 (@tanggal, @shift, @bmasuk, @bkeluar, @bstok, @bpanjang, @bsisamm, 
                  @bpe1, @bpe2, @bbe1, @bbe2, @rbkeluare1, @rbkeluare2, 
                  @wpe1, @wpe2, @wbe1, @wbe2, @bsisakg, @wastekg, @e1mm, @e2mm, @ttle1e2, @waste, 
-                 @keterangan, @diubah, @remaks)", conn))
+                 @keterangan, GETDATE(), @remaks)", conn))
                     {
                         // Input user
                         cmd.Parameters.AddWithValue("@tanggal", date.Value);
@@ -553,7 +553,6 @@ namespace GOS_FxApps
                         cmd.Parameters.AddWithValue("@rbkeluare2", SafeParse(pkeluare2.Text));
                         cmd.Parameters.AddWithValue("@bsisakg", SafeParse(txtsbarkg.Text));
                         cmd.Parameters.AddWithValue("@keterangan", txtketerangan.Text);
-                        cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                         cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
 
                         // Hasil hitung
@@ -846,7 +845,7 @@ namespace GOS_FxApps
             (@tanggal, @shift, @bmasuk, @bkeluar, @bpanjang, @bsisamm,
              @bpe1, @bpe2, @bbe1, @bbe2, @rbkeluare1, @rbkeluare2,
              @bsisakg, @bstok, @wpe1, @wpe2, @wbe1, @wbe2, @wastekg,
-             @e1mm, @e2mm, @ttle1e2, @waste, @keterangan, @diubah, @remaks)", conn))
+             @e1mm, @e2mm, @ttle1e2, @waste, @keterangan, GETDATE(), @remaks)", conn))
                     {
                         cmdInsert.Parameters.AddWithValue("@tanggal", tanggalInput);
                         cmdInsert.Parameters.AddWithValue("@shift", shiftInput);
@@ -872,7 +871,6 @@ namespace GOS_FxApps
                         cmdInsert.Parameters.AddWithValue("@ttle1e2", ttle1e2);
                         cmdInsert.Parameters.AddWithValue("@waste", waste);
                         cmdInsert.Parameters.AddWithValue("@keterangan", txtketerangan.Text);
-                        cmdInsert.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                         cmdInsert.Parameters.AddWithValue("@remaks", loginform.login.name);
 
                         await cmdInsert.ExecuteNonQueryAsync();
@@ -996,7 +994,7 @@ namespace GOS_FxApps
                 rbkeluare1=@rbkeluare1, rbkeluare2=@rbkeluare2, bsisakg=@bsisakg,
                 bstok=@bstok, wpe1=@wpe1, wpe2=@wpe2, wbe1=@wbe1, wbe2=@wbe2,
                 wastekg=@wastekg, e1mm=@e1mm, e2mm=@e2mm, ttle1e2=@ttle1e2, waste=@waste,
-                keterangan=@keterangan, updated_at=@diubah, remaks=@remaks
+                keterangan=@keterangan, updated_at=GETDATE(), remaks=@remaks
             WHERE id_stok=@id", conn))
                     {
                         cmdUpdate.Parameters.AddWithValue("@bmasuk", bmasuk);
@@ -1021,7 +1019,6 @@ namespace GOS_FxApps
                         cmdUpdate.Parameters.AddWithValue("@ttle1e2", ttle1e2);
                         cmdUpdate.Parameters.AddWithValue("@waste", waste);
                         cmdUpdate.Parameters.AddWithValue("@keterangan", txtketerangan.Text);
-                        cmdUpdate.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                         cmdUpdate.Parameters.AddWithValue("@remaks", loginform.login.name);
                         cmdUpdate.Parameters.AddWithValue("@id", id);
                         await cmdUpdate.ExecuteNonQueryAsync();

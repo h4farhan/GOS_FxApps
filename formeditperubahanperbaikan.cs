@@ -709,7 +709,7 @@ namespace GOS_FxApps
             rl = @rl,
             jumlah = @jumlah,
             tanggal_penerimaan = @tanggalpenerimaan,
-            updated_at = @diubah,
+            updated_at = GETDATE(),
             remaks = @remaks,
             catatan = @catatan
         WHERE no = @no";
@@ -749,7 +749,6 @@ namespace GOS_FxApps
                     cmd.Parameters.AddWithValue("@rl", txtrl.Text);
                     cmd.Parameters.AddWithValue("@jumlah", lbltotal.Text);
                     cmd.Parameters.AddWithValue("@tanggalpenerimaan", tanggalpenerimaan);
-                    cmd.Parameters.AddWithValue("@diubah", MainForm.Instance.tanggal);
                     cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
                     cmd.Parameters.AddWithValue("@catatan", txtcatatan.Text);
 

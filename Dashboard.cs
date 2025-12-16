@@ -79,38 +79,52 @@ namespace GOS_FxApps
 
         private async Task LoadChartstokreject()
         {
-            double e1 = 0, e2 = 0, e3 = 0, s = 0, d = 0, b = 0, ba = 0, r = 0, m = 0, cr = 0, c = 0, rl = 0;
+            double e= 0, s = 0, d = 0, b = 0, ba = 0, r = 0, m = 0, cr = 0, c = 0, rl = 0;
 
             try
             {
                 using (var conn = await Koneksi.GetConnectionAsync())
                 using (var cmd = new SqlCommand(@"
-            SELECT 
-                SUM(e1) AS e1, SUM(e2) AS e2, SUM(e3) AS e3,
-                SUM(s) AS s, SUM(d) AS d, SUM(b) AS b, SUM(ba) AS ba,
-                SUM(r) AS r, SUM(m) AS m, SUM(cr) AS cr, SUM(c) AS c, SUM(rl) AS rl
-            FROM penerimaan_s
-        ", conn))
+                SELECT
+                    SUM(CASE WHEN x.jenis_mapped = 'E'  THEN 1 ELSE 0 END) AS E,
+                    SUM(CASE WHEN x.jenis_mapped = 'S'  THEN 1 ELSE 0 END) AS S,
+                    SUM(CASE WHEN x.jenis_mapped = 'D'  THEN 1 ELSE 0 END) AS D,
+                    SUM(CASE WHEN x.jenis_mapped = 'B'  THEN 1 ELSE 0 END) AS B,
+                    SUM(CASE WHEN x.jenis_mapped = 'BA' THEN 1 ELSE 0 END) AS BA,
+                    SUM(CASE WHEN x.jenis_mapped = 'CR' THEN 1 ELSE 0 END) AS CR,
+                    SUM(CASE WHEN x.jenis_mapped = 'M'  THEN 1 ELSE 0 END) AS M,
+                    SUM(CASE WHEN x.jenis_mapped = 'R'  THEN 1 ELSE 0 END) AS R,
+                    SUM(CASE WHEN x.jenis_mapped = 'C'  THEN 1 ELSE 0 END) AS C,
+                    SUM(CASE WHEN x.jenis_mapped = 'RL' THEN 1 ELSE 0 END) AS RL
+                FROM (
+                    SELECT 
+                        CASE 
+                            WHEN LEFT(jenis, CHARINDEX('/', jenis + '/') - 1) = 'SP' THEN 'R'
+                            WHEN LEFT(jenis, CHARINDEX('/', jenis + '/') - 1) = 'L'  THEN 'C'
+                            ELSE LEFT(jenis, CHARINDEX('/', jenis + '/') - 1)
+                        END AS jenis_mapped
+                    FROM penerimaan_s
+                ) x
+                ", conn))
+
                 using (var dr = await cmd.ExecuteReaderAsync())
                 {
                     if (await dr.ReadAsync())
                     {
-                        e1 = dr["e1"] != DBNull.Value ? Convert.ToDouble(dr["e1"]) : 0;
-                        e2 = dr["e2"] != DBNull.Value ? Convert.ToDouble(dr["e2"]) : 0;
-                        e3 = dr["e3"] != DBNull.Value ? Convert.ToDouble(dr["e3"]) : 0;
-                        s = dr["s"] != DBNull.Value ? Convert.ToDouble(dr["s"]) : 0;
-                        d = dr["d"] != DBNull.Value ? Convert.ToDouble(dr["d"]) : 0;
-                        b = dr["b"] != DBNull.Value ? Convert.ToDouble(dr["b"]) : 0;
-                        ba = dr["ba"] != DBNull.Value ? Convert.ToDouble(dr["ba"]) : 0;
-                        r = dr["r"] != DBNull.Value ? Convert.ToDouble(dr["r"]) : 0;
-                        m = dr["m"] != DBNull.Value ? Convert.ToDouble(dr["m"]) : 0;
-                        cr = dr["cr"] != DBNull.Value ? Convert.ToDouble(dr["cr"]) : 0;
-                        c = dr["c"] != DBNull.Value ? Convert.ToDouble(dr["c"]) : 0;
-                        rl = dr["rl"] != DBNull.Value ? Convert.ToDouble(dr["rl"]) : 0;
+                        e = dr["E"] != DBNull.Value ? Convert.ToDouble(dr["E"]) : 0;
+                        s = dr["S"] != DBNull.Value ? Convert.ToDouble(dr["S"]) : 0;
+                        d = dr["D"] != DBNull.Value ? Convert.ToDouble(dr["D"]) : 0;
+                        b = dr["B"] != DBNull.Value ? Convert.ToDouble(dr["B"]) : 0;
+                        ba = dr["BA"] != DBNull.Value ? Convert.ToDouble(dr["BA"]) : 0;
+                        cr = dr["CR"] != DBNull.Value ? Convert.ToDouble(dr["CR"]) : 0;
+                        m = dr["M"] != DBNull.Value ? Convert.ToDouble(dr["M"]) : 0;
+                        r = dr["R"] != DBNull.Value ? Convert.ToDouble(dr["R"]) : 0;
+                        c = dr["C"] != DBNull.Value ? Convert.ToDouble(dr["C"]) : 0;
+                        rl = dr["RL"] != DBNull.Value ? Convert.ToDouble(dr["RL"]) : 0;
                     }
                 }
             }
-            catch
+            catch (Exception)
             {
                 return;
             }
@@ -135,9 +149,7 @@ namespace GOS_FxApps
                 LabelForeColor = Color.Black
             };
 
-            series.Points.AddXY("E1", e1);
-            series.Points.AddXY("E2", e2);
-            series.Points.AddXY("E3", e3);
+            series.Points.AddXY("E", e);
             series.Points.AddXY("S", s);
             series.Points.AddXY("D", d);
             series.Points.AddXY("B", b);
@@ -147,6 +159,74 @@ namespace GOS_FxApps
             series.Points.AddXY("CR", cr);
             series.Points.AddXY("C", c);
             series.Points.AddXY("RL", rl);
+
+            chartUssageMaterial.Series.Add(series);
+            chartUssageMaterial.Legends.Clear();
+        }
+
+        private async Task LoadChartstokrejectstasiun()
+        {
+            double a = 0, b = 0, c = 0, d = 0, e = 0, f = 0, z=0;
+
+            try
+            {
+                using (var conn = await Koneksi.GetConnectionAsync())
+                using (var cmd = new SqlCommand(@"SELECT 
+                SUM(CASE WHEN stasiun = 'A' THEN 1 ELSE 0 END) AS A,
+                SUM(CASE WHEN stasiun = 'B' THEN 1 ELSE 0 END) AS B,
+                SUM(CASE WHEN stasiun = 'C' THEN 1 ELSE 0 END) AS C,
+                SUM(CASE WHEN stasiun = 'D' THEN 1 ELSE 0 END) AS D,
+                SUM(CASE WHEN stasiun = 'E' THEN 1 ELSE 0 END) AS E,
+                SUM(CASE WHEN stasiun = 'F' THEN 1 ELSE 0 END) AS F,
+                SUM(CASE WHEN stasiun >= 'G' AND stasiun <= 'Z' THEN 1 ELSE 0 END) AS Z
+            FROM penerimaan_s", conn))
+                using (var dr = await cmd.ExecuteReaderAsync())
+                {
+                    if (await dr.ReadAsync())
+                    {
+                        a = dr["A"] != DBNull.Value ? Convert.ToDouble(dr["A"]) : 0;
+                        b = dr["B"] != DBNull.Value ? Convert.ToDouble(dr["B"]) : 0;
+                        c = dr["C"] != DBNull.Value ? Convert.ToDouble(dr["C"]) : 0;
+                        d = dr["D"] != DBNull.Value ? Convert.ToDouble(dr["D"]) : 0;
+                        e = dr["E"] != DBNull.Value ? Convert.ToDouble(dr["E"]) : 0;
+                        f = dr["F"] != DBNull.Value ? Convert.ToDouble(dr["F"]) : 0;
+                        z = dr["Z"] != DBNull.Value ? Convert.ToDouble(dr["Z"]) : 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ini b " + ex.Message);
+                return;
+            }
+
+            chartUssageMaterial.Series.Clear();
+            chartUssageMaterial.ChartAreas.Clear();
+
+            ChartArea area = new ChartArea("MainArea");
+            area.AxisX.Interval = 1;
+            area.AxisY.Minimum = 0;
+
+            area.AxisX.MajorGrid.LineWidth = 0;
+            area.AxisY.MajorGrid.LineWidth = 0;
+            chartUssageMaterial.ChartAreas.Add(area);
+
+            Series series = new Series
+            {
+                Name = "Total Stasiun",
+                ChartType = SeriesChartType.Column,
+                IsXValueIndexed = true,
+                IsValueShownAsLabel = true,
+                LabelForeColor = Color.Black
+            };
+
+            series.Points.AddXY("A", a);
+            series.Points.AddXY("B", b);
+            series.Points.AddXY("C", c);
+            series.Points.AddXY("D", d);
+            series.Points.AddXY("E", e);
+            series.Points.AddXY("F", f);
+            series.Points.AddXY("Unidentified", z);
 
             chartUssageMaterial.Series.Add(series);
             chartUssageMaterial.Legends.Clear();
@@ -2220,6 +2300,15 @@ namespace GOS_FxApps
             }
             else if (cmbpilihdata.SelectedIndex == 1)
             {
+                containerrentang.Visible = false;
+                containertanggal1.Visible = false;
+                containertanggal2.Visible = false;
+                containerbulan.Visible = false;
+                containertipe.Visible = false;
+                containertipem.Visible = false;
+            }
+            else if (cmbpilihdata.SelectedIndex == 2)
+            {
                 containerbulan.Visible = false;
                 containertipe.Visible = false;
                 containertipem.Visible = false;
@@ -2230,7 +2319,7 @@ namespace GOS_FxApps
                 cmbrentang.SelectedIndex = 0;
                 tanggalcustom1.Value = DateTime.Now;
             }
-            else if (cmbpilihdata.SelectedIndex == 2)
+            else if (cmbpilihdata.SelectedIndex == 3)
             {
                 containerbulan.Visible = false;
                 containertipe.Visible = false;
@@ -2243,7 +2332,7 @@ namespace GOS_FxApps
                 cmbtipem.SelectedIndex = 0;
                 tanggalcustom1.Value = DateTime.Now;
             }
-            else if (cmbpilihdata.SelectedIndex == 3)
+            else if (cmbpilihdata.SelectedIndex == 4)
             {
                 containerbulan.Visible = false;
                 containertipem.Visible = false;
@@ -2295,6 +2384,11 @@ namespace GOS_FxApps
             }
             else if (cmbpilihdata.SelectedIndex == 1)
             {
+                await LoadChartstokrejectstasiun();
+                lbltitlechart.Text = cmbpilihdata.Text;
+            }
+            else if (cmbpilihdata.SelectedIndex == 2)
+            {
                 if (cmbrentang.SelectedIndex == 0)
                 {
                     await LoadchartRB();
@@ -2322,7 +2416,7 @@ namespace GOS_FxApps
                     lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy") + " s/d " + tanggalcustom2.Value.ToString("dd/MM/yyyy");
                 }
             }
-            else if (cmbpilihdata.SelectedIndex == 2)
+            else if (cmbpilihdata.SelectedIndex == 3)
             {
                 if (cmbrentang.SelectedIndex == 0)
                 {
@@ -2403,7 +2497,7 @@ namespace GOS_FxApps
                     }
                 }
             }
-            else if (cmbpilihdata.SelectedIndex == 3)
+            else if (cmbpilihdata.SelectedIndex == 4)
             {
                 if (cmbrentang.SelectedIndex == 0)
                 {
