@@ -31,8 +31,8 @@ namespace GOS_FxApps
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblubrepaired = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -130,7 +130,7 @@ namespace GOS_FxApps
             this.lblubrepaired.Location = new System.Drawing.Point(5, 38);
             this.lblubrepaired.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblubrepaired.Name = "lblubrepaired";
-            this.lblubrepaired.Size = new System.Drawing.Size(381, 73);
+            this.lblubrepaired.Size = new System.Drawing.Size(386, 73);
             this.lblubrepaired.TabIndex = 3;
             this.lblubrepaired.Text = "0";
             this.lblubrepaired.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -144,7 +144,7 @@ namespace GOS_FxApps
             this.label11.Location = new System.Drawing.Point(5, 111);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(381, 33);
+            this.label11.Size = new System.Drawing.Size(386, 33);
             this.label11.TabIndex = 2;
             this.label11.Text = "Assy";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -157,7 +157,7 @@ namespace GOS_FxApps
             this.label13.Location = new System.Drawing.Point(5, 5);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(381, 33);
+            this.label13.Size = new System.Drawing.Size(386, 33);
             this.label13.TabIndex = 0;
             this.label13.Text = "Stok ROD Reject";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -170,7 +170,7 @@ namespace GOS_FxApps
             this.label3.Location = new System.Drawing.Point(5, 38);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(381, 73);
+            this.label3.Size = new System.Drawing.Size(386, 73);
             this.label3.TabIndex = 3;
             this.label3.Text = "0";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -184,7 +184,7 @@ namespace GOS_FxApps
             this.label4.Location = new System.Drawing.Point(5, 111);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(381, 33);
+            this.label4.Size = new System.Drawing.Size(386, 33);
             this.label4.TabIndex = 2;
             this.label4.Text = "Assy";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -197,7 +197,7 @@ namespace GOS_FxApps
             this.label2.Location = new System.Drawing.Point(5, 5);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(381, 33);
+            this.label2.Size = new System.Drawing.Size(386, 33);
             this.label2.TabIndex = 0;
             this.label2.Text = "Total ROD Di RRS";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -223,35 +223,35 @@ namespace GOS_FxApps
             // 
             this.chartUssageMaterial.BackColor = System.Drawing.Color.Transparent;
             this.chartUssageMaterial.BorderlineColor = System.Drawing.Color.Transparent;
-            chartArea1.AxisX.IsLabelAutoFit = false;
-            chartArea1.AxisX.IsMarginVisible = false;
-            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 8F);
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisY.IsLabelAutoFit = false;
-            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 8F);
-            chartArea1.AxisY.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea1.AxisY.MajorGrid.Enabled = false;
-            chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea1.AxisY.TitleForeColor = System.Drawing.Color.Gainsboro;
-            chartArea1.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea1.CursorX.SelectionColor = System.Drawing.Color.Black;
-            chartArea1.CursorY.SelectionColor = System.Drawing.Color.Black;
-            chartArea1.Name = "ChartArea1";
-            this.chartUssageMaterial.ChartAreas.Add(chartArea1);
+            chartArea2.AxisX.IsLabelAutoFit = false;
+            chartArea2.AxisX.IsMarginVisible = false;
+            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 8F);
+            chartArea2.AxisX.MajorGrid.Enabled = false;
+            chartArea2.AxisY.IsLabelAutoFit = false;
+            chartArea2.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 8F);
+            chartArea2.AxisY.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea2.AxisY.MajorGrid.Enabled = false;
+            chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea2.AxisY.TitleForeColor = System.Drawing.Color.Gainsboro;
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea2.CursorX.SelectionColor = System.Drawing.Color.Black;
+            chartArea2.CursorY.SelectionColor = System.Drawing.Color.Black;
+            chartArea2.Name = "ChartArea1";
+            this.chartUssageMaterial.ChartAreas.Add(chartArea2);
             this.chartUssageMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartUssageMaterial.Location = new System.Drawing.Point(2, 61);
             this.chartUssageMaterial.Margin = new System.Windows.Forms.Padding(2);
             this.chartUssageMaterial.Name = "chartUssageMaterial";
             this.chartUssageMaterial.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
-            series1.ChartArea = "ChartArea1";
-            series1.Font = new System.Drawing.Font("Segoe UI", 8F);
-            series1.IsValueShownAsLabel = true;
-            series1.IsVisibleInLegend = false;
-            series1.IsXValueIndexed = true;
-            series1.Name = "Series1";
-            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            this.chartUssageMaterial.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Font = new System.Drawing.Font("Segoe UI", 8F);
+            series2.IsValueShownAsLabel = true;
+            series2.IsVisibleInLegend = false;
+            series2.IsXValueIndexed = true;
+            series2.Name = "Series1";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            this.chartUssageMaterial.Series.Add(series2);
             this.chartUssageMaterial.Size = new System.Drawing.Size(891, 485);
             this.chartUssageMaterial.TabIndex = 12;
             this.chartUssageMaterial.Text = "ChartRoundbar";
@@ -331,7 +331,7 @@ namespace GOS_FxApps
             this.guna2Panel1.Location = new System.Drawing.Point(13, 3);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2Panel1.Size = new System.Drawing.Size(391, 149);
+            this.guna2Panel1.Size = new System.Drawing.Size(396, 149);
             this.guna2Panel1.TabIndex = 0;
             // 
             // guna2Panel2
@@ -352,7 +352,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel4, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel3, 3, 0);
@@ -375,10 +375,10 @@ namespace GOS_FxApps
             this.guna2Panel4.Controls.Add(this.label14);
             this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel4.FillColor = System.Drawing.Color.White;
-            this.guna2Panel4.Location = new System.Drawing.Point(809, 3);
+            this.guna2Panel4.Location = new System.Drawing.Point(819, 3);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2Panel4.Size = new System.Drawing.Size(391, 149);
+            this.guna2Panel4.Size = new System.Drawing.Size(396, 149);
             this.guna2Panel4.TabIndex = 4;
             // 
             // label15
@@ -389,7 +389,7 @@ namespace GOS_FxApps
             this.label15.Location = new System.Drawing.Point(5, 38);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(381, 73);
+            this.label15.Size = new System.Drawing.Size(386, 73);
             this.label15.TabIndex = 3;
             this.label15.Text = "0";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -402,7 +402,7 @@ namespace GOS_FxApps
             this.label16.Location = new System.Drawing.Point(5, 5);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(381, 33);
+            this.label16.Size = new System.Drawing.Size(386, 33);
             this.label16.TabIndex = 0;
             this.label16.Text = "Stok ROD Ready";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -416,7 +416,7 @@ namespace GOS_FxApps
             this.label14.Location = new System.Drawing.Point(5, 111);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(381, 33);
+            this.label14.Size = new System.Drawing.Size(386, 33);
             this.label14.TabIndex = 2;
             this.label14.Text = "Assy";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -432,10 +432,10 @@ namespace GOS_FxApps
             this.guna2Panel3.Controls.Add(this.label11);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel3.FillColor = System.Drawing.Color.White;
-            this.guna2Panel3.Location = new System.Drawing.Point(411, 3);
+            this.guna2Panel3.Location = new System.Drawing.Point(416, 3);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2Panel3.Size = new System.Drawing.Size(391, 149);
+            this.guna2Panel3.Size = new System.Drawing.Size(396, 149);
             this.guna2Panel3.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -862,7 +862,7 @@ namespace GOS_FxApps
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel2.Controls.Add(this.guna2Panel7, 5, 0);
             this.tableLayoutPanel2.Controls.Add(this.guna2Panel8, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.guna2Panel9, 3, 0);
@@ -885,10 +885,10 @@ namespace GOS_FxApps
             this.guna2Panel7.Controls.Add(this.label19);
             this.guna2Panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel7.FillColor = System.Drawing.Color.White;
-            this.guna2Panel7.Location = new System.Drawing.Point(815, 3);
+            this.guna2Panel7.Location = new System.Drawing.Point(819, 3);
             this.guna2Panel7.Name = "guna2Panel7";
             this.guna2Panel7.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2Panel7.Size = new System.Drawing.Size(394, 128);
+            this.guna2Panel7.Size = new System.Drawing.Size(396, 128);
             this.guna2Panel7.TabIndex = 4;
             // 
             // lblpengirimanshift
@@ -899,7 +899,7 @@ namespace GOS_FxApps
             this.lblpengirimanshift.Location = new System.Drawing.Point(5, 38);
             this.lblpengirimanshift.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblpengirimanshift.Name = "lblpengirimanshift";
-            this.lblpengirimanshift.Size = new System.Drawing.Size(384, 52);
+            this.lblpengirimanshift.Size = new System.Drawing.Size(386, 52);
             this.lblpengirimanshift.TabIndex = 3;
             this.lblpengirimanshift.Text = "0";
             this.lblpengirimanshift.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -912,7 +912,7 @@ namespace GOS_FxApps
             this.label18.Location = new System.Drawing.Point(5, 5);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(384, 33);
+            this.label18.Size = new System.Drawing.Size(386, 33);
             this.label18.TabIndex = 0;
             this.label18.Text = "Pengiriman Shift Actual";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -926,7 +926,7 @@ namespace GOS_FxApps
             this.label19.Location = new System.Drawing.Point(5, 90);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(384, 33);
+            this.label19.Size = new System.Drawing.Size(386, 33);
             this.label19.TabIndex = 2;
             this.label19.Text = "Assy";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -945,7 +945,7 @@ namespace GOS_FxApps
             this.guna2Panel8.Location = new System.Drawing.Point(13, 3);
             this.guna2Panel8.Name = "guna2Panel8";
             this.guna2Panel8.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2Panel8.Size = new System.Drawing.Size(394, 128);
+            this.guna2Panel8.Size = new System.Drawing.Size(396, 128);
             this.guna2Panel8.TabIndex = 0;
             // 
             // lblpenerimaanshif
@@ -956,7 +956,7 @@ namespace GOS_FxApps
             this.lblpenerimaanshif.Location = new System.Drawing.Point(5, 38);
             this.lblpenerimaanshif.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblpenerimaanshif.Name = "lblpenerimaanshif";
-            this.lblpenerimaanshif.Size = new System.Drawing.Size(384, 52);
+            this.lblpenerimaanshif.Size = new System.Drawing.Size(386, 52);
             this.lblpenerimaanshif.TabIndex = 3;
             this.lblpenerimaanshif.Text = "0";
             this.lblpenerimaanshif.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -969,7 +969,7 @@ namespace GOS_FxApps
             this.label21.Location = new System.Drawing.Point(5, 5);
             this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(384, 33);
+            this.label21.Size = new System.Drawing.Size(386, 33);
             this.label21.TabIndex = 0;
             this.label21.Text = "Penerimaan Shift Actual";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -983,7 +983,7 @@ namespace GOS_FxApps
             this.label22.Location = new System.Drawing.Point(5, 90);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(384, 33);
+            this.label22.Size = new System.Drawing.Size(386, 33);
             this.label22.TabIndex = 2;
             this.label22.Text = "Assy";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -999,10 +999,10 @@ namespace GOS_FxApps
             this.guna2Panel9.Controls.Add(this.label25);
             this.guna2Panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel9.FillColor = System.Drawing.Color.White;
-            this.guna2Panel9.Location = new System.Drawing.Point(414, 3);
+            this.guna2Panel9.Location = new System.Drawing.Point(416, 3);
             this.guna2Panel9.Name = "guna2Panel9";
             this.guna2Panel9.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2Panel9.Size = new System.Drawing.Size(394, 128);
+            this.guna2Panel9.Size = new System.Drawing.Size(396, 128);
             this.guna2Panel9.TabIndex = 1;
             // 
             // lblperbaikanshift
@@ -1013,7 +1013,7 @@ namespace GOS_FxApps
             this.lblperbaikanshift.Location = new System.Drawing.Point(5, 38);
             this.lblperbaikanshift.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblperbaikanshift.Name = "lblperbaikanshift";
-            this.lblperbaikanshift.Size = new System.Drawing.Size(384, 52);
+            this.lblperbaikanshift.Size = new System.Drawing.Size(386, 52);
             this.lblperbaikanshift.TabIndex = 3;
             this.lblperbaikanshift.Text = "0";
             this.lblperbaikanshift.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1026,7 +1026,7 @@ namespace GOS_FxApps
             this.label24.Location = new System.Drawing.Point(5, 5);
             this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(384, 33);
+            this.label24.Size = new System.Drawing.Size(386, 33);
             this.label24.TabIndex = 0;
             this.label24.Text = "Perbaikan Shift Actual";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1040,7 +1040,7 @@ namespace GOS_FxApps
             this.label25.Location = new System.Drawing.Point(5, 90);
             this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(384, 33);
+            this.label25.Size = new System.Drawing.Size(386, 33);
             this.label25.TabIndex = 2;
             this.label25.Text = "Assy";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1058,7 +1058,6 @@ namespace GOS_FxApps
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Dashboard";
-            this.Text = "S";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Dashboard_FormClosing_1);
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.tableLayoutPanel7.ResumeLayout(false);

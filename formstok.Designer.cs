@@ -59,6 +59,8 @@
             this.btnopenfile = new FontAwesome.Sharp.IconPictureBox();
             this.picturebox = new Guna.UI2.WinForms.Guna2PictureBox();
             this.txtcari = new Guna.UI2.WinForms.Guna2TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnreset = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -75,7 +77,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1212, 54);
+            this.panel1.Size = new System.Drawing.Size(1195, 54);
             this.panel1.TabIndex = 1;
             // 
             // label2
@@ -177,8 +179,7 @@
             // 
             // guna2Panel4
             // 
-            this.guna2Panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.guna2Panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel4.BorderColor = System.Drawing.Color.Gainsboro;
@@ -191,7 +192,7 @@
             this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
-            this.guna2Panel4.Size = new System.Drawing.Size(1173, 307);
+            this.guna2Panel4.Size = new System.Drawing.Size(1122, 568);
             this.guna2Panel4.TabIndex = 37;
             // 
             // dataGridView1
@@ -234,7 +235,7 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1151, 218);
+            this.dataGridView1.Size = new System.Drawing.Size(1100, 479);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -245,9 +246,9 @@
             this.guna2Panel1.Controls.Add(this.btnleft);
             this.guna2Panel1.Controls.Add(this.btnright);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2Panel1.Location = new System.Drawing.Point(11, 230);
+            this.guna2Panel1.Location = new System.Drawing.Point(11, 491);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1151, 65);
+            this.guna2Panel1.Size = new System.Drawing.Size(1100, 65);
             this.guna2Panel1.TabIndex = 12;
             // 
             // lblhalaman
@@ -278,7 +279,7 @@
             this.btnleft.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnleft.ForeColor = System.Drawing.Color.White;
             this.btnleft.Image = global::GOS_FxApps.Properties.Resources.left_arrow;
-            this.btnleft.Location = new System.Drawing.Point(1006, 15);
+            this.btnleft.Location = new System.Drawing.Point(955, 15);
             this.btnleft.Margin = new System.Windows.Forms.Padding(2);
             this.btnleft.Name = "btnleft";
             this.btnleft.Size = new System.Drawing.Size(60, 37);
@@ -299,7 +300,7 @@
             this.btnright.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnright.ForeColor = System.Drawing.Color.White;
             this.btnright.Image = global::GOS_FxApps.Properties.Resources.right_arrow;
-            this.btnright.Location = new System.Drawing.Point(1078, 15);
+            this.btnright.Location = new System.Drawing.Point(1027, 15);
             this.btnright.Margin = new System.Windows.Forms.Padding(2);
             this.btnright.Name = "btnright";
             this.btnright.Size = new System.Drawing.Size(60, 37);
@@ -505,7 +506,7 @@
             this.btncari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btncari.ForeColor = System.Drawing.Color.White;
-            this.btncari.Location = new System.Drawing.Point(1086, 435);
+            this.btncari.Location = new System.Drawing.Point(925, 435);
             this.btncari.Margin = new System.Windows.Forms.Padding(2);
             this.btncari.Name = "btncari";
             this.btncari.Size = new System.Drawing.Size(105, 39);
@@ -567,16 +568,46 @@
             this.txtcari.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtcari.PlaceholderText = "Cari Berdasarkan Kode Barang Atau Nama Barang";
             this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(1064, 39);
+            this.txtcari.Size = new System.Drawing.Size(903, 39);
             this.txtcari.TabIndex = 10;
             this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtcari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(939, 1057);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 25);
+            this.panel2.TabIndex = 74;
+            // 
+            // btnreset
+            // 
+            this.btnreset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnreset.BorderRadius = 8;
+            this.btnreset.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnreset.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnreset.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnreset.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnreset.Enabled = false;
+            this.btnreset.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(53)))));
+            this.btnreset.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnreset.ForeColor = System.Drawing.Color.White;
+            this.btnreset.Location = new System.Drawing.Point(1035, 435);
+            this.btnreset.Name = "btnreset";
+            this.btnreset.Size = new System.Drawing.Size(105, 39);
+            this.btnreset.TabIndex = 75;
+            this.btnreset.Text = "Reset";
+            this.btnreset.Click += new System.EventHandler(this.btnreset_Click);
             // 
             // formstok
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1212, 818);
+            this.Controls.Add(this.btnreset);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.btncari);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cmbtipematerial);
@@ -645,5 +676,7 @@
         private Guna.UI2.WinForms.Guna2Button btnleft;
         private Guna.UI2.WinForms.Guna2Button btnright;
         private Guna.UI2.WinForms.Guna2Button btncari;
+        private System.Windows.Forms.Panel panel2;
+        private Guna.UI2.WinForms.Guna2Button btnreset;
     }
 }

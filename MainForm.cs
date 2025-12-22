@@ -135,6 +135,9 @@ namespace GOS_FxApps {
 
             guna2Button1.FillColor = Color.Transparent;
             guna2Button1.ForeColor = Color.Black;
+
+            btnchartpermaterial.FillColor = Color.Transparent;
+            btnchartpermaterial.ForeColor = Color.Black;
         }
 
         public void ResetColorContainer()
@@ -833,6 +836,14 @@ namespace GOS_FxApps {
 
             SwitchPanel(new datamaterial());
         }
+        private void btnchartpermaterial_Click(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            btnchartpermaterial.FillColor = Color.FromArgb(64, 64, 64);
+            btnchartpermaterial.ForeColor = Color.White;
+
+            SwitchPanel(new chartpermaterial());
+        }
 
         //kode fitur terbatas
         public void setvisiblefalse()
@@ -872,7 +883,8 @@ namespace GOS_FxApps {
             iconButton13.Visible = true;
 
             gudangContainer.Visible = true;
-            gudangContainer.MaximumSize = new Size(231, 375);
+            gudangContainer.MaximumSize = new Size(231, 415);
+            iconButton12.Visible = true;
             iconButton3.Visible=true;
             btnmaterialmasuk.Visible = true;
             btnpemakaian.Visible=true;
@@ -886,7 +898,8 @@ namespace GOS_FxApps {
         public void trueadmin()
         {
             gudangContainer.Visible = true;
-            gudangContainer.MaximumSize = new Size(231,175);
+            gudangContainer.MaximumSize = new Size(231,215);
+            iconButton12.Visible = false;
             iconButton3.Visible = false;
             btnmaterialmasuk.Visible = false;
             btnpemakaian.Visible = false;
@@ -912,7 +925,7 @@ namespace GOS_FxApps {
         public void trueoperatorgudang()
         {
             gudangContainer.Visible = true;
-            gudangContainer.MaximumSize = new Size(231, 375);
+            gudangContainer.MaximumSize = new Size(231, 415);
             iconButton3.Visible = true;
             btnmaterialmasuk.Visible = true;
             btnpemakaian.Visible = true;
@@ -932,6 +945,7 @@ namespace GOS_FxApps {
             iconButton5.Visible = true;
             guna2Button1.Visible = true;
             iconButton13.Visible = true;
+            iconButton12.Visible = true;
 
             btnaturjam.Visible = false;
         }

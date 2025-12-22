@@ -18,6 +18,7 @@ using System.IO;
 using System.Web.Security;
 using System.Windows.Data;
 using System.Web.UI.WebControls.WebParts;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace GOS_FxApps
 {
@@ -38,14 +39,7 @@ namespace GOS_FxApps
             DateTime tanggal1 = datecari.Value.Date;
             DateTime tanggal2 = datecari.Value.AddDays(1).Date;
             string shift = cbShift.SelectedItem?.ToString();
-            string tim = txttim.Text;
-
-            if (string.IsNullOrEmpty(tim))
-            {
-                MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu",
-                    "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            string tim = cbtim.SelectedItem?.ToString();
 
             Form mainform = this.FindForm()?.ParentForm ?? this.FindForm();
 
@@ -156,14 +150,7 @@ namespace GOS_FxApps
             DateTime tanggal1 = datecari.Value.Date;
             DateTime tanggal2 = datecari.Value.AddDays(1).Date;
             string shift = cbShift.SelectedItem?.ToString();
-            string tim = txttim.Text;
-
-            if (string.IsNullOrEmpty(tim))
-            {
-                MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu",
-                    "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            string tim = cbtim.SelectedItem?.ToString();
 
             Form mainform = this.FindForm()?.ParentForm ?? this.FindForm();
             mainform.Enabled = false;
@@ -267,14 +254,7 @@ namespace GOS_FxApps
             DateTime tanggal1 = datecari.Value.Date;
             DateTime tanggal2 = datecari.Value.AddDays(1).Date;
             string shift = cbShift.SelectedItem?.ToString();
-            string tim = txttim.Text;
-
-            if (string.IsNullOrEmpty(tim))
-            {
-                MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu",
-                    "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            string tim = cbtim.SelectedItem?.ToString();
 
             Form mainform = this.FindForm()?.ParentForm ?? this.FindForm();
             mainform.Enabled = false;
@@ -373,13 +353,6 @@ namespace GOS_FxApps
         {
             DateTime tanggal = datecaribukti.Value.Date;
             string shift = shiftbukti.SelectedItem?.ToString();
-
-            if (string.IsNullOrEmpty(shift))
-            {
-                MessageBox.Show("Silahkan Masukkan Tim Terlebih Dahulu",
-                    "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
             Form mainform = this.FindForm()?.ParentForm ?? this.FindForm();
             mainform.Enabled = false;
@@ -1115,10 +1088,12 @@ namespace GOS_FxApps
             if (pilihan == "Penerimaan")
             {
                 string shift = cbShift.SelectedItem?.ToString();
+                string tim = cbtim.SelectedItem?.ToString();
 
-                if (string.IsNullOrEmpty(shift) || txttim.Text == "")
+                if (cbShift.SelectedIndex == 0 || cbtim.SelectedIndex == 0)
                 {
-                    MessageBox.Show("Silakan Masukkan Tanggal, Shift dan Tim untuk melakukan Print Data.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Silahkan Masukkan Shift atau Tim Terlebih Dahulu",
+                        "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -1128,10 +1103,12 @@ namespace GOS_FxApps
             else if (pilihan == "Perbaikan")
             {
                 string shift = cbShift.SelectedItem?.ToString();
+                string tim = cbtim.SelectedItem?.ToString();
 
-                if (string.IsNullOrEmpty(shift) || txttim.Text == "")
+                if (cbShift.SelectedIndex == 0 || cbtim.SelectedIndex == 0)
                 {
-                    MessageBox.Show("Silakan Masukkan Tanggal, Shift dan Tim untuk melakukan Print Data.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Silahkan Masukkan Shift atau Tim Terlebih Dahulu",
+                        "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -1141,10 +1118,12 @@ namespace GOS_FxApps
             else if (pilihan == "Pengiriman")
             {
                 string shift = cbShift.SelectedItem?.ToString();
+                string tim = cbtim.SelectedItem?.ToString();
 
-                if (string.IsNullOrEmpty(shift) || txttim.Text == "")
+                if (cbShift.SelectedIndex == 0 || cbtim.SelectedIndex == 0)
                 {
-                    MessageBox.Show("Silakan Masukkan Tanggal, Shift dan Tim untuk melakukan Print Data.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Silahkan Masukkan Shift atau Tim Terlebih Dahulu",
+                        "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -1324,10 +1303,10 @@ namespace GOS_FxApps
             {
                 string shift = shiftbukti.SelectedItem?.ToString();
 
-                if (string.IsNullOrEmpty(shift))
+                if (shiftbukti.SelectedIndex == 0)
                 {
-                    MessageBox.Show("Silakan pilih shift untuk melakukan pencarian.",
-                                    "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Silahkan Masukkan Shift Terlebih Dahulu",
+                        "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 

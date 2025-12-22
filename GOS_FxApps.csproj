@@ -227,6 +227,12 @@
     <Compile Include="aturjam.Designer.cs">
       <DependentUpon>aturjam.cs</DependentUpon>
     </Compile>
+    <Compile Include="chartpermaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="chartpermaterial.Designer.cs">
+      <DependentUpon>chartpermaterial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -550,6 +556,9 @@
     <EmbeddedResource Include="cardmaterial.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="chartpermaterial.resx">
+      <DependentUpon>chartpermaterial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="consumption31.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -866,6 +875,7 @@
     <None Include="Resources\logobaru-RRIS.png" />
     <None Include="Resources\logobaru-RRIS-1.png" />
     <None Include="Resources\logo-RRIS.png" />
+    <None Include="Resources\bar-chart.png" />
     <Content Include="Stock Barang Template.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

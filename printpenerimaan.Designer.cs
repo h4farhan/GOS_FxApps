@@ -36,17 +36,14 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.paneldata2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.cbtim = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.datecari = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.cbShift = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txttim = new Guna.UI2.WinForms.Guna2TextBox();
             this.panelbukti = new Guna.UI2.WinForms.Guna2Panel();
             this.lbljumlahbukti = new System.Windows.Forms.Label();
             this.datecaribukti = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.shiftbukti = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.panelsummary = new Guna.UI2.WinForms.Guna2Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.tanggalAkhir = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -201,12 +198,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.paneldata2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.paneldata2.BorderRadius = 15;
+            this.paneldata2.Controls.Add(this.cbtim);
             this.paneldata2.Controls.Add(this.label4);
             this.paneldata2.Controls.Add(this.datecari);
             this.paneldata2.Controls.Add(this.cbShift);
-            this.paneldata2.Controls.Add(this.label7);
-            this.paneldata2.Controls.Add(this.label8);
-            this.paneldata2.Controls.Add(this.txttim);
             this.paneldata2.Location = new System.Drawing.Point(11, 25);
             this.paneldata2.Margin = new System.Windows.Forms.Padding(2);
             this.paneldata2.Name = "paneldata2";
@@ -214,12 +209,37 @@
             this.paneldata2.TabIndex = 56;
             this.paneldata2.Visible = false;
             // 
+            // cbtim
+            // 
+            this.cbtim.BackColor = System.Drawing.Color.Transparent;
+            this.cbtim.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cbtim.BorderRadius = 5;
+            this.cbtim.BorderThickness = 2;
+            this.cbtim.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbtim.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbtim.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbtim.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbtim.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbtim.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cbtim.ItemHeight = 30;
+            this.cbtim.Items.AddRange(new object[] {
+            "Tim",
+            "E",
+            "F",
+            "G"});
+            this.cbtim.Location = new System.Drawing.Point(373, 22);
+            this.cbtim.Margin = new System.Windows.Forms.Padding(2);
+            this.cbtim.Name = "cbtim";
+            this.cbtim.Size = new System.Drawing.Size(86, 36);
+            this.cbtim.StartIndex = 0;
+            this.cbtim.TabIndex = 57;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(545, 30);
+            this.label4.Location = new System.Drawing.Point(470, 30);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 20);
@@ -260,65 +280,16 @@
             this.cbShift.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cbShift.ItemHeight = 30;
             this.cbShift.Items.AddRange(new object[] {
+            "Shift",
             "1",
             "2",
             "3"});
-            this.cbShift.Location = new System.Drawing.Point(326, 22);
+            this.cbShift.Location = new System.Drawing.Point(279, 22);
             this.cbShift.Margin = new System.Windows.Forms.Padding(2);
             this.cbShift.Name = "cbShift";
             this.cbShift.Size = new System.Drawing.Size(86, 36);
+            this.cbShift.StartIndex = 0;
             this.cbShift.TabIndex = 55;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(276, 30);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 20);
-            this.label7.TabIndex = 49;
-            this.label7.Text = "Shift :";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(416, 30);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 20);
-            this.label8.TabIndex = 50;
-            this.label8.Text = "Tim :";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txttim
-            // 
-            this.txttim.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txttim.BorderRadius = 4;
-            this.txttim.BorderThickness = 2;
-            this.txttim.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txttim.DefaultText = "";
-            this.txttim.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txttim.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txttim.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txttim.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txttim.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txttim.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txttim.ForeColor = System.Drawing.Color.Black;
-            this.txttim.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txttim.Location = new System.Drawing.Point(462, 26);
-            this.txttim.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txttim.Name = "txttim";
-            this.txttim.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txttim.PlaceholderText = "Axxxx";
-            this.txttim.SelectedText = "";
-            this.txttim.Size = new System.Drawing.Size(71, 29);
-            this.txttim.TabIndex = 51;
-            this.txttim.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HurufOnly_KeyPress);
             // 
             // panelbukti
             // 
@@ -329,7 +300,6 @@
             this.panelbukti.Controls.Add(this.lbljumlahbukti);
             this.panelbukti.Controls.Add(this.datecaribukti);
             this.panelbukti.Controls.Add(this.shiftbukti);
-            this.panelbukti.Controls.Add(this.label6);
             this.panelbukti.Location = new System.Drawing.Point(11, 25);
             this.panelbukti.Margin = new System.Windows.Forms.Padding(2);
             this.panelbukti.Name = "panelbukti";
@@ -342,7 +312,7 @@
             this.lbljumlahbukti.AutoSize = true;
             this.lbljumlahbukti.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.lbljumlahbukti.ForeColor = System.Drawing.Color.Black;
-            this.lbljumlahbukti.Location = new System.Drawing.Point(433, 30);
+            this.lbljumlahbukti.Location = new System.Drawing.Point(374, 30);
             this.lbljumlahbukti.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbljumlahbukti.Name = "lbljumlahbukti";
             this.lbljumlahbukti.Size = new System.Drawing.Size(118, 20);
@@ -383,27 +353,16 @@
             this.shiftbukti.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.shiftbukti.ItemHeight = 30;
             this.shiftbukti.Items.AddRange(new object[] {
+            "Shift",
             "1",
             "2",
             "3"});
-            this.shiftbukti.Location = new System.Drawing.Point(327, 22);
+            this.shiftbukti.Location = new System.Drawing.Point(279, 22);
             this.shiftbukti.Margin = new System.Windows.Forms.Padding(2);
             this.shiftbukti.Name = "shiftbukti";
             this.shiftbukti.Size = new System.Drawing.Size(86, 36);
+            this.shiftbukti.StartIndex = 0;
             this.shiftbukti.TabIndex = 55;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(277, 30);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 20);
-            this.label6.TabIndex = 49;
-            this.label6.Text = "Shift :";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panelsummary
             // 
@@ -708,9 +667,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2Button btnreset;
         private Guna.UI2.WinForms.Guna2DateTimePicker datecari;
-        private Guna.UI2.WinForms.Guna2TextBox txttim;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2Button btnprint;
         private Guna.UI2.WinForms.Guna2ComboBox cbShift;
         private Guna.UI2.WinForms.Guna2Panel paneldata2;
@@ -725,7 +681,6 @@
         private System.Windows.Forms.Label lbljumlahbukti;
         private Guna.UI2.WinForms.Guna2DateTimePicker datecaribukti;
         private Guna.UI2.WinForms.Guna2ComboBox shiftbukti;
-        private System.Windows.Forms.Label label6;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private Guna.UI2.WinForms.Guna2Panel panelsummary;
         private System.Windows.Forms.Label label9;
@@ -735,5 +690,6 @@
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2DateTimePicker tanggalAkhirmaterial;
         private Guna.UI2.WinForms.Guna2DateTimePicker tanggalMulaimaterial;
+        private Guna.UI2.WinForms.Guna2ComboBox cbtim;
     }
 }

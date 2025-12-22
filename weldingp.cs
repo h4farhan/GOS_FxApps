@@ -429,11 +429,14 @@ namespace GOS_FxApps
         }
         private void HitungWaste()
         {
+            int spe1 = SafeParse(sawinge1.Text);
+            int spe2 = SafeParse(sawinge2.Text);
             int sisarbkg = SafeParse(txtsbarkg.Text);
             int panjangrbmm = SafeParse(txtpbar.Text);
 
             double ttlwastekg = wastekg + sisarbkg;
-            int ttlwaste = panjangrbmm - ttle1e2mm;
+            int totalSawingPotong = spe1 + spe2;
+            int ttlwaste = panjangrbmm - ttle1e2mm - (totalSawingPotong * 2);
 
             lblwastekg.Text = ttlwastekg.ToString();
             lblwaste.Text = ttlwaste.ToString();

@@ -14,8 +14,6 @@ namespace GOS_FxApps
 {
     public partial class formstok : Form
     {
-        bool infocari = false;
-
         private byte[] imageBytes = null;
 
         int pageSize = 30;
@@ -209,13 +207,15 @@ namespace GOS_FxApps
                         var imgCol = (DataGridViewImageColumn)dataGridView1.Columns["fotoImage"];
                         imgCol.HeaderText = "Foto";
                         imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                        imgCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                        imgCol.Width = 250;
                     }
 
                     dataGridView1.Columns["created_at"].HeaderText = "Disimpan";
                     dataGridView1.Columns["updated_at"].HeaderText = "Diubah";
                     dataGridView1.Columns["remaks"].HeaderText = "Remaks";
 
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                     dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
 
                 }));
@@ -263,7 +263,7 @@ namespace GOS_FxApps
 
             if (string.IsNullOrEmpty(nomorrod))
             {
-                MessageBox.Show("Silakan isi Tanggal atau Nomor ROD untuk melakukan pencarian.",
+                MessageBox.Show("Silakan isi Kode Barang atau Nama Barang untuk melakukan pencarian.",
                                 "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
@@ -283,7 +283,7 @@ namespace GOS_FxApps
                 currentPage = 1;
                 await tampil();
 
-                btncari.Text = "Reset";
+                btnreset.Enabled = true;
                 return true;
             }
             catch (SqlException)
@@ -615,29 +615,22 @@ namespace GOS_FxApps
 
         private async void btncari_Click(object sender, EventArgs e)
         {
-            if (!infocari)
-            {
-                bool hasil = await cari();
-                if (hasil)
-                {
-                    infocari = true;
-                    btncari.Text = "Reset";
-                }
-            }
-            else
-            {
-                isSearching = false;
+            await cari();
+        }
 
-                txtcari.Text = "";
+        private async void btnreset_Click(object sender, EventArgs e)
+        {
+            isSearching = false;
 
-                btncari.Text = "Cari";
+            txtcari.Text = "";
 
-                await HitungTotalData();
-                currentPage = 1;
-                await tampil();
+            btncari.Text = "Cari";
 
-                infocari = false;
-            }
+            await HitungTotalData();
+            currentPage = 1;
+            await tampil();
+
+            btnreset.Enabled = false;
         }
     }
 }

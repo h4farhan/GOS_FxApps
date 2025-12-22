@@ -76,7 +76,6 @@ namespace GOS_FxApps
                 return;
             }
         }
-
         private async Task LoadChartstokreject()
         {
             double e= 0, s = 0, d = 0, b = 0, ba = 0, r = 0, m = 0, cr = 0, c = 0, rl = 0;
@@ -164,14 +163,15 @@ namespace GOS_FxApps
             chartUssageMaterial.Legends.Clear();
         }
 
-        private async Task LoadChartstokrejectstasiun()
+        private async Task LoadChartstokrejectstasiunhari()
         {
             double a = 0, b = 0, c = 0, d = 0, e = 0, f = 0, z=0;
 
             try
             {
                 using (var conn = await Koneksi.GetConnectionAsync())
-                using (var cmd = new SqlCommand(@"SELECT 
+                using (var cmd = new SqlCommand(@"
+            SELECT 
                 SUM(CASE WHEN stasiun = 'A' THEN 1 ELSE 0 END) AS A,
                 SUM(CASE WHEN stasiun = 'B' THEN 1 ELSE 0 END) AS B,
                 SUM(CASE WHEN stasiun = 'C' THEN 1 ELSE 0 END) AS C,
@@ -179,24 +179,263 @@ namespace GOS_FxApps
                 SUM(CASE WHEN stasiun = 'E' THEN 1 ELSE 0 END) AS E,
                 SUM(CASE WHEN stasiun = 'F' THEN 1 ELSE 0 END) AS F,
                 SUM(CASE WHEN stasiun >= 'G' AND stasiun <= 'Z' THEN 1 ELSE 0 END) AS Z
-            FROM penerimaan_s", conn))
-                using (var dr = await cmd.ExecuteReaderAsync())
+            FROM penerimaan_p
+            WHERE tanggal_penerimaan >= @tanggal
+              AND tanggal_penerimaan < DATEADD(DAY, 1, @tanggal)
+        ", conn))
                 {
-                    if (await dr.ReadAsync())
+                    cmd.Parameters.AddWithValue("@tanggal", tanggalcustom1.Value.Date);
+
+                    using (var dr = await cmd.ExecuteReaderAsync())
                     {
-                        a = dr["A"] != DBNull.Value ? Convert.ToDouble(dr["A"]) : 0;
-                        b = dr["B"] != DBNull.Value ? Convert.ToDouble(dr["B"]) : 0;
-                        c = dr["C"] != DBNull.Value ? Convert.ToDouble(dr["C"]) : 0;
-                        d = dr["D"] != DBNull.Value ? Convert.ToDouble(dr["D"]) : 0;
-                        e = dr["E"] != DBNull.Value ? Convert.ToDouble(dr["E"]) : 0;
-                        f = dr["F"] != DBNull.Value ? Convert.ToDouble(dr["F"]) : 0;
-                        z = dr["Z"] != DBNull.Value ? Convert.ToDouble(dr["Z"]) : 0;
+                        if (await dr.ReadAsync())
+                        {
+                            a = dr["A"] != DBNull.Value ? Convert.ToDouble(dr["A"]) : 0;
+                            b = dr["B"] != DBNull.Value ? Convert.ToDouble(dr["B"]) : 0;
+                            c = dr["C"] != DBNull.Value ? Convert.ToDouble(dr["C"]) : 0;
+                            d = dr["D"] != DBNull.Value ? Convert.ToDouble(dr["D"]) : 0;
+                            e = dr["E"] != DBNull.Value ? Convert.ToDouble(dr["E"]) : 0;
+                            f = dr["F"] != DBNull.Value ? Convert.ToDouble(dr["F"]) : 0;
+                            z = dr["Z"] != DBNull.Value ? Convert.ToDouble(dr["Z"]) : 0;
+                        }
                     }
                 }
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-                MessageBox.Show("ini b " + ex.Message);
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            chartUssageMaterial.Series.Clear();
+            chartUssageMaterial.ChartAreas.Clear();
+
+            ChartArea area = new ChartArea("MainArea");
+            area.AxisX.Interval = 1;
+            area.AxisY.Minimum = 0;
+
+            area.AxisX.MajorGrid.LineWidth = 0;
+            area.AxisY.MajorGrid.LineWidth = 0;
+            chartUssageMaterial.ChartAreas.Add(area);
+
+            Series series = new Series
+            {
+                Name = "Total Stasiun",
+                ChartType = SeriesChartType.Column,
+                IsXValueIndexed = true,
+                IsValueShownAsLabel = true,
+                LabelForeColor = Color.Black
+            };
+
+            series.Points.AddXY("A", a);
+            series.Points.AddXY("B", b);
+            series.Points.AddXY("C", c);
+            series.Points.AddXY("D", d);
+            series.Points.AddXY("E", e);
+            series.Points.AddXY("F", f);
+            series.Points.AddXY("Unidentified", z);
+
+            chartUssageMaterial.Series.Add(series);
+            chartUssageMaterial.Legends.Clear();
+        }
+        private async Task LoadChartstokrejectstasiunbulan()
+        {
+            double a = 0, b = 0, c = 0, d = 0, e = 0, f = 0, z = 0;
+            DateTime awalBulan = new DateTime(datebulan.Value.Year, datebulan.Value.Month, 1);
+
+            try
+            {
+                using (var conn = await Koneksi.GetConnectionAsync())
+                using (var cmd = new SqlCommand(@"
+            SELECT 
+                SUM(CASE WHEN stasiun = 'A' THEN 1 ELSE 0 END) AS A,
+                SUM(CASE WHEN stasiun = 'B' THEN 1 ELSE 0 END) AS B,
+                SUM(CASE WHEN stasiun = 'C' THEN 1 ELSE 0 END) AS C,
+                SUM(CASE WHEN stasiun = 'D' THEN 1 ELSE 0 END) AS D,
+                SUM(CASE WHEN stasiun = 'E' THEN 1 ELSE 0 END) AS E,
+                SUM(CASE WHEN stasiun = 'F' THEN 1 ELSE 0 END) AS F,
+                SUM(CASE WHEN stasiun >= 'G' AND stasiun <= 'Z' THEN 1 ELSE 0 END) AS Z
+            FROM penerimaan_p
+            WHERE tanggal_penerimaan >= @awalBulan AND tanggal_penerimaan < DATEADD(MONTH, 1, @awalBulan)", conn))
+                {
+                    cmd.Parameters.AddWithValue("@awalBulan", awalBulan);
+
+                    using (var dr = await cmd.ExecuteReaderAsync())
+                    {
+                        if (await dr.ReadAsync())
+                        {
+                            a = dr["A"] != DBNull.Value ? Convert.ToDouble(dr["A"]) : 0;
+                            b = dr["B"] != DBNull.Value ? Convert.ToDouble(dr["B"]) : 0;
+                            c = dr["C"] != DBNull.Value ? Convert.ToDouble(dr["C"]) : 0;
+                            d = dr["D"] != DBNull.Value ? Convert.ToDouble(dr["D"]) : 0;
+                            e = dr["E"] != DBNull.Value ? Convert.ToDouble(dr["E"]) : 0;
+                            f = dr["F"] != DBNull.Value ? Convert.ToDouble(dr["F"]) : 0;
+                            z = dr["Z"] != DBNull.Value ? Convert.ToDouble(dr["Z"]) : 0;
+                        }
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            chartUssageMaterial.Series.Clear();
+            chartUssageMaterial.ChartAreas.Clear();
+
+            ChartArea area = new ChartArea("MainArea");
+            area.AxisX.Interval = 1;
+            area.AxisY.Minimum = 0;
+
+            area.AxisX.MajorGrid.LineWidth = 0;
+            area.AxisY.MajorGrid.LineWidth = 0;
+            chartUssageMaterial.ChartAreas.Add(area);
+
+            Series series = new Series
+            {
+                Name = "Total Stasiun",
+                ChartType = SeriesChartType.Column,
+                IsXValueIndexed = true,
+                IsValueShownAsLabel = true,
+                LabelForeColor = Color.Black
+            };
+
+            series.Points.AddXY("A", a);
+            series.Points.AddXY("B", b);
+            series.Points.AddXY("C", c);
+            series.Points.AddXY("D", d);
+            series.Points.AddXY("E", e);
+            series.Points.AddXY("F", f);
+            series.Points.AddXY("Unidentified", z);
+
+            chartUssageMaterial.Series.Add(series);
+            chartUssageMaterial.Legends.Clear();
+        }
+        private async Task LoadChartstokrejectstasiuntahun()
+        {
+            double a = 0, b = 0, c = 0, d = 0, e = 0, f = 0, z = 0;
+
+            DateTime awalTahun = new DateTime(datebulan.Value.Year, 1, 1);
+            DateTime akhirTahun = awalTahun.AddYears(1);
+
+            try
+            {
+                using (var conn = await Koneksi.GetConnectionAsync())
+                using (var cmd = new SqlCommand(@"
+            SELECT 
+                SUM(CASE WHEN stasiun = 'A' THEN 1 ELSE 0 END) AS A,
+                SUM(CASE WHEN stasiun = 'B' THEN 1 ELSE 0 END) AS B,
+                SUM(CASE WHEN stasiun = 'C' THEN 1 ELSE 0 END) AS C,
+                SUM(CASE WHEN stasiun = 'D' THEN 1 ELSE 0 END) AS D,
+                SUM(CASE WHEN stasiun = 'E' THEN 1 ELSE 0 END) AS E,
+                SUM(CASE WHEN stasiun = 'F' THEN 1 ELSE 0 END) AS F,
+                SUM(CASE WHEN stasiun >= 'G' AND stasiun <= 'Z' THEN 1 ELSE 0 END) AS Z
+            FROM penerimaan_p
+            WHERE tanggal_penerimaan >= @awalTahun
+              AND tanggal_penerimaan < @akhirTahun
+        ", conn))
+                {
+                    cmd.Parameters.AddWithValue("@awalTahun", awalTahun);
+                    cmd.Parameters.AddWithValue("@akhirTahun", akhirTahun);
+
+                    using (var dr = await cmd.ExecuteReaderAsync())
+                    {
+                        if (await dr.ReadAsync())
+                        {
+                            a = dr["A"] != DBNull.Value ? Convert.ToDouble(dr["A"]) : 0;
+                            b = dr["B"] != DBNull.Value ? Convert.ToDouble(dr["B"]) : 0;
+                            c = dr["C"] != DBNull.Value ? Convert.ToDouble(dr["C"]) : 0;
+                            d = dr["D"] != DBNull.Value ? Convert.ToDouble(dr["D"]) : 0;
+                            e = dr["E"] != DBNull.Value ? Convert.ToDouble(dr["E"]) : 0;
+                            f = dr["F"] != DBNull.Value ? Convert.ToDouble(dr["F"]) : 0;
+                            z = dr["Z"] != DBNull.Value ? Convert.ToDouble(dr["Z"]) : 0;
+                        }
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            chartUssageMaterial.Series.Clear();
+            chartUssageMaterial.ChartAreas.Clear();
+
+            ChartArea area = new ChartArea("MainArea");
+            area.AxisX.Interval = 1;
+            area.AxisY.Minimum = 0;
+
+            area.AxisX.MajorGrid.LineWidth = 0;
+            area.AxisY.MajorGrid.LineWidth = 0;
+            chartUssageMaterial.ChartAreas.Add(area);
+
+            Series series = new Series
+            {
+                Name = "Total Stasiun",
+                ChartType = SeriesChartType.Column,
+                IsXValueIndexed = true,
+                IsValueShownAsLabel = true,
+                LabelForeColor = Color.Black
+            };
+
+            series.Points.AddXY("A", a);
+            series.Points.AddXY("B", b);
+            series.Points.AddXY("C", c);
+            series.Points.AddXY("D", d);
+            series.Points.AddXY("E", e);
+            series.Points.AddXY("F", f);
+            series.Points.AddXY("Unidentified", z);
+
+            chartUssageMaterial.Series.Add(series);
+            chartUssageMaterial.Legends.Clear();
+        }
+        private async Task LoadChartstokrejectstasiuncustom()
+        {
+            double a = 0, b = 0, c = 0, d = 0, e = 0, f = 0, z = 0;
+
+            try
+            {
+                using (var conn = await Koneksi.GetConnectionAsync())
+                using (var cmd = new SqlCommand(@"
+            SELECT 
+                SUM(CASE WHEN stasiun = 'A' THEN 1 ELSE 0 END) AS A,
+                SUM(CASE WHEN stasiun = 'B' THEN 1 ELSE 0 END) AS B,
+                SUM(CASE WHEN stasiun = 'C' THEN 1 ELSE 0 END) AS C,
+                SUM(CASE WHEN stasiun = 'D' THEN 1 ELSE 0 END) AS D,
+                SUM(CASE WHEN stasiun = 'E' THEN 1 ELSE 0 END) AS E,
+                SUM(CASE WHEN stasiun = 'F' THEN 1 ELSE 0 END) AS F,
+                SUM(CASE WHEN stasiun >= 'G' AND stasiun <= 'Z' THEN 1 ELSE 0 END) AS Z
+            FROM penerimaan_p
+            WHERE tanggal_penerimaan >= @TanggalMulai
+                  AND tanggal_penerimaan < DATEADD(DAY, 1, @TanggalAkhir);", conn))
+                {
+                    cmd.Parameters.AddWithValue("@TanggalMulai", tanggalcustom1.Value.Date);
+                    cmd.Parameters.AddWithValue("@TanggalAkhir", tanggalcustom2.Value.Date);
+
+                    using (var dr = await cmd.ExecuteReaderAsync())
+                    {
+                        if (await dr.ReadAsync())
+                        {
+                            a = dr["A"] != DBNull.Value ? Convert.ToDouble(dr["A"]) : 0;
+                            b = dr["B"] != DBNull.Value ? Convert.ToDouble(dr["B"]) : 0;
+                            c = dr["C"] != DBNull.Value ? Convert.ToDouble(dr["C"]) : 0;
+                            d = dr["D"] != DBNull.Value ? Convert.ToDouble(dr["D"]) : 0;
+                            e = dr["E"] != DBNull.Value ? Convert.ToDouble(dr["E"]) : 0;
+                            f = dr["F"] != DBNull.Value ? Convert.ToDouble(dr["F"]) : 0;
+                            z = dr["Z"] != DBNull.Value ? Convert.ToDouble(dr["Z"]) : 0;
+                        }
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -315,7 +554,6 @@ namespace GOS_FxApps
             chartUssageMaterial.Series.Add(series);
             chartUssageMaterial.Legends.Clear();
         }
-
         private async Task LoadchartRBByMonth()
         {
             double rbStock = 0, rbSawinge1 = 0, rbSawinge2 = 0,
@@ -413,44 +651,44 @@ namespace GOS_FxApps
                    rblathee1 = 0, rblathee2 = 0,
                    wpsawinge1 = 0, wpsawinge2 = 0,
                    wplathee1 = 0, wplathee2 = 0;
+            DateTime awalTahun = new DateTime(datebulan.Value.Year, 1, 1);
+            DateTime akhirTahun = awalTahun.AddYears(1);
 
             try
             {
                 using (var conn = await Koneksi.GetConnectionAsync())
-                { 
+                using (var cmd = new SqlCommand(@"
+            SELECT 
+                SUM(bstok) AS bstok,
+                SUM(bpe1) AS bpe1,
+                SUM(bpe2) AS bpe2,
+                SUM(bbe1) AS bbe1,
+                SUM(bbe2) AS bbe2,
+                SUM(wpe1) AS wpe1,
+                SUM(wpe2) AS wpe2,
+                SUM(wbe1) AS wbe1,
+                SUM(wbe2) AS wbe2
+            FROM Rb_Stok
+            WHERE tanggal >= @awalTahun
+              AND tanggal < @akhirTahun
+        ", conn))
+                {
+                    cmd.Parameters.AddWithValue("@awalTahun", awalTahun);
+                    cmd.Parameters.AddWithValue("@akhirTahun", akhirTahun);
 
-                    string query = @"
-                    SELECT 
-                        SUM(bstok) AS bstok,
-                        SUM(bpe1) AS bpe1,
-                        SUM(bpe2) AS bpe2,
-                        SUM(bbe1) AS bbe1,
-                        SUM(bbe2) AS bbe2,
-                        SUM(wpe1) AS wpe1,
-                        SUM(wpe2) AS wpe2,
-                        SUM(wbe1) AS wbe1,
-                        SUM(wbe2) AS wbe2
-                    FROM Rb_Stok
-                    WHERE YEAR(tanggal) = @tahun";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (var dr = await cmd.ExecuteReaderAsync())
                     {
-                        cmd.Parameters.AddWithValue("@tahun", datebulan.Value.Year);
-
-                        using (SqlDataReader dr = await cmd.ExecuteReaderAsync())
+                        if (await dr.ReadAsync())
                         {
-                            if (await dr.ReadAsync())
-                            {
-                                rbStock = dr["bstok"] != DBNull.Value ? Convert.ToDouble(dr["bstok"]) : 0;
-                                rbSawinge1 = dr["bpe1"] != DBNull.Value ? Convert.ToDouble(dr["bpe1"]) : 0;
-                                rbSawinge2 = dr["bpe2"] != DBNull.Value ? Convert.ToDouble(dr["bpe2"]) : 0;
-                                rblathee1 = dr["bbe1"] != DBNull.Value ? Convert.ToDouble(dr["bbe1"]) : 0;
-                                rblathee2 = dr["bbe2"] != DBNull.Value ? Convert.ToDouble(dr["bbe2"]) : 0;
-                                wpsawinge1 = dr["wpe1"] != DBNull.Value ? Convert.ToDouble(dr["wpe1"]) : 0;
-                                wpsawinge2 = dr["wpe2"] != DBNull.Value ? Convert.ToDouble(dr["wpe2"]) : 0;
-                                wplathee1 = dr["wbe1"] != DBNull.Value ? Convert.ToDouble(dr["wbe1"]) : 0;
-                                wplathee2 = dr["wbe2"] != DBNull.Value ? Convert.ToDouble(dr["wbe2"]) : 0;
-                            }
+                            rbStock = dr["bstok"] != DBNull.Value ? Convert.ToDouble(dr["bstok"]) : 0;
+                            rbSawinge1 = dr["bpe1"] != DBNull.Value ? Convert.ToDouble(dr["bpe1"]) : 0;
+                            rbSawinge2 = dr["bpe2"] != DBNull.Value ? Convert.ToDouble(dr["bpe2"]) : 0;
+                            rblathee1 = dr["bbe1"] != DBNull.Value ? Convert.ToDouble(dr["bbe1"]) : 0;
+                            rblathee2 = dr["bbe2"] != DBNull.Value ? Convert.ToDouble(dr["bbe2"]) : 0;
+                            wpsawinge1 = dr["wpe1"] != DBNull.Value ? Convert.ToDouble(dr["wpe1"]) : 0;
+                            wpsawinge2 = dr["wpe2"] != DBNull.Value ? Convert.ToDouble(dr["wpe2"]) : 0;
+                            wplathee1 = dr["wbe1"] != DBNull.Value ? Convert.ToDouble(dr["wbe1"]) : 0;
+                            wplathee2 = dr["wbe2"] != DBNull.Value ? Convert.ToDouble(dr["wbe2"]) : 0;
                         }
                     }
                 }
@@ -790,99 +1028,100 @@ namespace GOS_FxApps
         }
         private async Task LoadChartPenerimaanTahunan()
         {
-            
-                double totalE1 = 0, totalE2 = 0, totalE3 = 0,
-                       totalS = 0, totalD = 0, totalB = 0,
-                       totalBA = 0, totalCR = 0, totalM = 0,
-                       totalR = 0, totalC = 0, totalRL = 0;
+            double totalE1 = 0, totalE2 = 0, totalE3 = 0,
+                   totalS = 0, totalD = 0, totalB = 0,
+                   totalBA = 0, totalCR = 0, totalM = 0,
+                   totalR = 0, totalC = 0, totalRL = 0;
 
-                try
+            DateTime awalTahun = new DateTime(datebulan.Value.Year, 1, 1);
+            DateTime akhirTahun = awalTahun.AddYears(1);
+
+            try
+            {
+                using (var conn = await Koneksi.GetConnectionAsync())
+                using (var cmd = new SqlCommand(@"
+            SELECT
+                SUM(e1) AS TotalE1,
+                SUM(e2) AS TotalE2,
+                SUM(e3) AS TotalE3,
+                SUM(s)  AS TotalS,
+                SUM(d)  AS TotalD,
+                SUM(b)  AS TotalB,
+                SUM(ba) AS TotalBA,
+                SUM(cr) AS TotalCR,
+                SUM(m)  AS TotalM,
+                SUM(r)  AS TotalR,
+                SUM(c)  AS TotalC,
+                SUM(rl) AS TotalRL
+            FROM penerimaan_p
+            WHERE tanggal_penerimaan >= @awalTahun
+              AND tanggal_penerimaan < @akhirTahun
+        ", conn))
                 {
-                    using (var conn = await Koneksi.GetConnectionAsync())
+                    cmd.Parameters.AddWithValue("@awalTahun", awalTahun);
+                    cmd.Parameters.AddWithValue("@akhirTahun", akhirTahun);
+
+                    using (var dr = await cmd.ExecuteReaderAsync())
                     {
-                        string query = @"
-                    SELECT
-                        SUM(e1) AS TotalE1,
-                        SUM(e2) AS TotalE2,
-                        SUM(e3) AS TotalE3,
-                        SUM(s)  AS TotalS,
-                        SUM(d)  AS TotalD,
-                        SUM(b)  AS TotalB,
-                        SUM(ba) AS TotalBA,
-                        SUM(cr) AS TotalCR,
-                        SUM(m)  AS TotalM,
-                        SUM(r)  AS TotalR,
-                        SUM(c)  AS TotalC,
-                        SUM(rl) AS TotalRL
-                    FROM penerimaan_p
-                    WHERE YEAR(tanggal_penerimaan) = @tahun";
-
-                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        if (await dr.ReadAsync())
                         {
-                            cmd.Parameters.AddWithValue("@tahun", datebulan.Value.Year);
-
-                            using (SqlDataReader dr = await cmd.ExecuteReaderAsync())
-                            {
-                                if (await dr.ReadAsync())
-                                {
-                                    totalE1 = dr["TotalE1"] != DBNull.Value ? Convert.ToDouble(dr["TotalE1"]) : 0;
-                                    totalE2 = dr["TotalE2"] != DBNull.Value ? Convert.ToDouble(dr["TotalE2"]) : 0;
-                                    totalE3 = dr["TotalE3"] != DBNull.Value ? Convert.ToDouble(dr["TotalE3"]) : 0;
-                                    totalS = dr["TotalS"] != DBNull.Value ? Convert.ToDouble(dr["TotalS"]) : 0;
-                                    totalD = dr["TotalD"] != DBNull.Value ? Convert.ToDouble(dr["TotalD"]) : 0;
-                                    totalB = dr["TotalB"] != DBNull.Value ? Convert.ToDouble(dr["TotalB"]) : 0;
-                                    totalBA = dr["TotalBA"] != DBNull.Value ? Convert.ToDouble(dr["TotalBA"]) : 0;
-                                    totalCR = dr["TotalCR"] != DBNull.Value ? Convert.ToDouble(dr["TotalCR"]) : 0;
-                                    totalM = dr["TotalM"] != DBNull.Value ? Convert.ToDouble(dr["TotalM"]) : 0;
-                                    totalR = dr["TotalR"] != DBNull.Value ? Convert.ToDouble(dr["TotalR"]) : 0;
-                                    totalC = dr["TotalC"] != DBNull.Value ? Convert.ToDouble(dr["TotalC"]) : 0;
-                                    totalRL = dr["TotalRL"] != DBNull.Value ? Convert.ToDouble(dr["TotalRL"]) : 0;
-                                }
-                            }
+                            totalE1 = dr["TotalE1"] != DBNull.Value ? Convert.ToDouble(dr["TotalE1"]) : 0;
+                            totalE2 = dr["TotalE2"] != DBNull.Value ? Convert.ToDouble(dr["TotalE2"]) : 0;
+                            totalE3 = dr["TotalE3"] != DBNull.Value ? Convert.ToDouble(dr["TotalE3"]) : 0;
+                            totalS = dr["TotalS"] != DBNull.Value ? Convert.ToDouble(dr["TotalS"]) : 0;
+                            totalD = dr["TotalD"] != DBNull.Value ? Convert.ToDouble(dr["TotalD"]) : 0;
+                            totalB = dr["TotalB"] != DBNull.Value ? Convert.ToDouble(dr["TotalB"]) : 0;
+                            totalBA = dr["TotalBA"] != DBNull.Value ? Convert.ToDouble(dr["TotalBA"]) : 0;
+                            totalCR = dr["TotalCR"] != DBNull.Value ? Convert.ToDouble(dr["TotalCR"]) : 0;
+                            totalM = dr["TotalM"] != DBNull.Value ? Convert.ToDouble(dr["TotalM"]) : 0;
+                            totalR = dr["TotalR"] != DBNull.Value ? Convert.ToDouble(dr["TotalR"]) : 0;
+                            totalC = dr["TotalC"] != DBNull.Value ? Convert.ToDouble(dr["TotalC"]) : 0;
+                            totalRL = dr["TotalRL"] != DBNull.Value ? Convert.ToDouble(dr["TotalRL"]) : 0;
                         }
                     }
                 }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
-                                     "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Koneksi terputus. Pastikan jaringan aktif.",
+                                 "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             // ===== Refresh Chart =====
             chartUssageMaterial.Series.Clear();
-                chartUssageMaterial.ChartAreas.Clear();
+            chartUssageMaterial.ChartAreas.Clear();
 
-                ChartArea area = new ChartArea("MainArea");
-                area.AxisX.Interval = 1;
-                area.AxisY.Minimum = 0;
-                area.AxisX.MajorGrid.LineWidth = 0;
-                area.AxisY.MajorGrid.LineWidth = 0;
-                chartUssageMaterial.ChartAreas.Add(area);
+            ChartArea area = new ChartArea("MainArea");
+            area.AxisX.Interval = 1;
+            area.AxisY.Minimum = 0;
+            area.AxisX.MajorGrid.LineWidth = 0;
+            area.AxisY.MajorGrid.LineWidth = 0;
+            chartUssageMaterial.ChartAreas.Add(area);
 
-                Series series = new Series("Jumlah Penerimaan Tahunan")
-                {
-                    ChartType = SeriesChartType.Column,
-                    IsXValueIndexed = true,
-                    IsValueShownAsLabel = true,
-                    LabelForeColor = Color.Black
-                };
+            Series series = new Series("Jumlah Penerimaan Tahunan")
+            {
+                ChartType = SeriesChartType.Column,
+                IsXValueIndexed = true,
+                IsValueShownAsLabel = true,
+                LabelForeColor = Color.Black
+            };
 
-                series.Points.AddXY("E1", totalE1);
-                series.Points.AddXY("E2", totalE2);
-                series.Points.AddXY("E3", totalE3);
-                series.Points.AddXY("S", totalS);
-                series.Points.AddXY("D", totalD);
-                series.Points.AddXY("B", totalB);
-                series.Points.AddXY("BA", totalBA);
-                series.Points.AddXY("CR", totalCR);
-                series.Points.AddXY("M", totalM);
-                series.Points.AddXY("R", totalR);
-                series.Points.AddXY("C", totalC);
-                series.Points.AddXY("RL", totalRL);
+            series.Points.AddXY("E1", totalE1);
+            series.Points.AddXY("E2", totalE2);
+            series.Points.AddXY("E3", totalE3);
+            series.Points.AddXY("S", totalS);
+            series.Points.AddXY("D", totalD);
+            series.Points.AddXY("B", totalB);
+            series.Points.AddXY("BA", totalBA);
+            series.Points.AddXY("CR", totalCR);
+            series.Points.AddXY("M", totalM);
+            series.Points.AddXY("R", totalR);
+            series.Points.AddXY("C", totalC);
+            series.Points.AddXY("RL", totalRL);
 
-                chartUssageMaterial.Series.Add(series);
-                chartUssageMaterial.Legends.Clear();
+            chartUssageMaterial.Series.Add(series);
+            chartUssageMaterial.Legends.Clear();
         }
         private async Task LoadChartPenerimaanCustom()
         {
@@ -1193,57 +1432,59 @@ namespace GOS_FxApps
         private async Task LoadChartPerbaikanTahunan()
         {
             double totalE1 = 0, totalE2 = 0, totalE3 = 0,
-                   totalS = 0, totalD = 0, totalB = 0,
-                   totalBA = 0, totalCR = 0, totalM = 0,
-                   totalR = 0, totalC = 0, totalRL = 0,
-                   totalBA1 = 0, totalE4 = 0;
+            totalS = 0, totalD = 0, totalB = 0,
+            totalBA = 0, totalCR = 0, totalM = 0,
+            totalR = 0, totalC = 0, totalRL = 0,
+            totalBA1 = 0, totalE4 = 0;
+
+            DateTime awalTahun = new DateTime(datebulan.Value.Year, 1, 1);
+            DateTime akhirTahun = awalTahun.AddYears(1);
 
             try
             {
                 using (var conn = await Koneksi.GetConnectionAsync())
+                using (var cmd = new SqlCommand(@"
+            SELECT
+                SUM(e1_jumlah) AS TotalE1,
+                SUM(e2_jumlah) AS TotalE2,
+                SUM(e3) AS TotalE3,
+                SUM(e4) AS TotalE4,
+                SUM(s)  AS TotalS,
+                SUM(d)  AS TotalD,
+                SUM(b)  AS TotalB,
+                SUM(nba) AS TotalBA,
+                SUM(ba1) AS TotalBA1,
+                SUM(cr) AS TotalCR,
+                SUM(m)  AS TotalM,
+                SUM(r)  AS TotalR,
+                SUM(c)  AS TotalC,
+                SUM(rl) AS TotalRL
+            FROM perbaikan_p
+            WHERE tanggal_perbaikan >= @awalTahun
+              AND tanggal_perbaikan < @akhirTahun
+        ", conn))
                 {
-                    string query = @"
-                    SELECT
-                        SUM(e1_jumlah) AS TotalE1,
-                        SUM(e2_jumlah) AS TotalE2,
-                        SUM(e3) AS TotalE3,
-                        SUM(e4) AS TotalE4,
-                        SUM(s)  AS TotalS,
-                        SUM(d)  AS TotalD,
-                        SUM(b)  AS TotalB,
-                        SUM(nba) AS TotalBA,
-                        SUM(ba1) AS TotalBA1,
-                        SUM(cr) AS TotalCR,
-                        SUM(m)  AS TotalM,
-                        SUM(r)  AS TotalR,
-                        SUM(c)  AS TotalC,
-                        SUM(rl) AS TotalRL
-                    FROM perbaikan_p
-                    WHERE YEAR(tanggal_perbaikan) = @tahun";
+                    cmd.Parameters.Add("@awalTahun", SqlDbType.Date).Value = awalTahun;
+                    cmd.Parameters.Add("@akhirTahun", SqlDbType.Date).Value = akhirTahun;
 
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (var dr = await cmd.ExecuteReaderAsync())
                     {
-                        cmd.Parameters.AddWithValue("@tahun", datebulan.Value.Year);
-
-                        using (SqlDataReader dr = await cmd.ExecuteReaderAsync())
+                        if (await dr.ReadAsync())
                         {
-                            if (await dr.ReadAsync())
-                            {
-                                totalE1 = dr["TotalE1"] != DBNull.Value ? Convert.ToDouble(dr["TotalE1"]) : 0;
-                                totalE2 = dr["TotalE2"] != DBNull.Value ? Convert.ToDouble(dr["TotalE2"]) : 0;
-                                totalE3 = dr["TotalE3"] != DBNull.Value ? Convert.ToDouble(dr["TotalE3"]) : 0;
-                                totalE4 = dr["TotalE4"] != DBNull.Value ? Convert.ToDouble(dr["TotalE4"]) : 0;
-                                totalS = dr["TotalS"] != DBNull.Value ? Convert.ToDouble(dr["TotalS"]) : 0;
-                                totalD = dr["TotalD"] != DBNull.Value ? Convert.ToDouble(dr["TotalD"]) : 0;
-                                totalB = dr["TotalB"] != DBNull.Value ? Convert.ToDouble(dr["TotalB"]) : 0;
-                                totalBA = dr["TotalBA"] != DBNull.Value ? Convert.ToDouble(dr["TotalBA"]) : 0;
-                                totalBA1 = dr["TotalBA1"] != DBNull.Value ? Convert.ToDouble(dr["TotalBA1"]) : 0;
-                                totalCR = dr["TotalCR"] != DBNull.Value ? Convert.ToDouble(dr["TotalCR"]) : 0;
-                                totalM = dr["TotalM"] != DBNull.Value ? Convert.ToDouble(dr["TotalM"]) : 0;
-                                totalR = dr["TotalR"] != DBNull.Value ? Convert.ToDouble(dr["TotalR"]) : 0;
-                                totalC = dr["TotalC"] != DBNull.Value ? Convert.ToDouble(dr["TotalC"]) : 0;
-                                totalRL = dr["TotalRL"] != DBNull.Value ? Convert.ToDouble(dr["TotalRL"]) : 0;
-                            }
+                            totalE1 = dr["TotalE1"] != DBNull.Value ? Convert.ToDouble(dr["TotalE1"]) : 0;
+                            totalE2 = dr["TotalE2"] != DBNull.Value ? Convert.ToDouble(dr["TotalE2"]) : 0;
+                            totalE3 = dr["TotalE3"] != DBNull.Value ? Convert.ToDouble(dr["TotalE3"]) : 0;
+                            totalE4 = dr["TotalE4"] != DBNull.Value ? Convert.ToDouble(dr["TotalE4"]) : 0;
+                            totalS = dr["TotalS"] != DBNull.Value ? Convert.ToDouble(dr["TotalS"]) : 0;
+                            totalD = dr["TotalD"] != DBNull.Value ? Convert.ToDouble(dr["TotalD"]) : 0;
+                            totalB = dr["TotalB"] != DBNull.Value ? Convert.ToDouble(dr["TotalB"]) : 0;
+                            totalBA = dr["TotalBA"] != DBNull.Value ? Convert.ToDouble(dr["TotalBA"]) : 0;
+                            totalBA1 = dr["TotalBA1"] != DBNull.Value ? Convert.ToDouble(dr["TotalBA1"]) : 0;
+                            totalCR = dr["TotalCR"] != DBNull.Value ? Convert.ToDouble(dr["TotalCR"]) : 0;
+                            totalM = dr["TotalM"] != DBNull.Value ? Convert.ToDouble(dr["TotalM"]) : 0;
+                            totalR = dr["TotalR"] != DBNull.Value ? Convert.ToDouble(dr["TotalR"]) : 0;
+                            totalC = dr["TotalC"] != DBNull.Value ? Convert.ToDouble(dr["TotalC"]) : 0;
+                            totalRL = dr["TotalRL"] != DBNull.Value ? Convert.ToDouble(dr["TotalRL"]) : 0;
                         }
                     }
                 }
@@ -1460,11 +1701,33 @@ namespace GOS_FxApps
 
                 // ===== Setup axis X =====
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
+
                 axisX.Interval = 1;
                 axisX.IsLabelAutoFit = false;
-                axisX.ScaleView.Size = 5;
-                axisX.ScrollBar.Enabled = true;
-                axisX.ScrollBar.IsPositionedInside = true;
+                axisX.IsMarginVisible = true;
+                axisX.LabelStyle.TruncatedLabels = false;
+
+                int totalData = dt.Rows.Count;
+
+                if (totalData > 10)
+                {
+                    axisX.ScaleView.Zoomable = false;
+                    axisX.ScaleView.Size = 10;
+                    axisX.ScaleView.Position = 0;
+
+                    axisX.ScaleView.SmallScrollSize = 1;
+
+                    axisX.ScrollBar.Enabled = true;
+                    axisX.ScrollBar.IsPositionedInside = true;
+                    axisX.ScrollBar.Size = 12;
+                }
+                else
+                {
+                    axisX.ScaleView.ZoomReset();
+                    axisX.ScrollBar.Enabled = false;
+                }
+
+                axisX.MajorGrid.Enabled = false;
 
                 // ===== Bind data =====
                 chartUssageMaterial.DataSource = dt;
@@ -1529,11 +1792,33 @@ namespace GOS_FxApps
                 chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
+
                 axisX.Interval = 1;
                 axisX.IsLabelAutoFit = false;
-                axisX.ScaleView.Size = 5; 
-                axisX.ScrollBar.Enabled = true; 
-                axisX.ScrollBar.IsPositionedInside = true;
+                axisX.IsMarginVisible = true;
+                axisX.LabelStyle.TruncatedLabels = false;
+
+                int totalData = dt.Rows.Count;
+
+                if (totalData > 10)
+                {
+                    axisX.ScaleView.Zoomable = false;
+                    axisX.ScaleView.Size = 10;
+                    axisX.ScaleView.Position = 0;
+
+                    axisX.ScaleView.SmallScrollSize = 1;
+
+                    axisX.ScrollBar.Enabled = true;
+                    axisX.ScrollBar.IsPositionedInside = true;
+                    axisX.ScrollBar.Size = 12;
+                }
+                else
+                {
+                    axisX.ScaleView.ZoomReset();
+                    axisX.ScrollBar.Enabled = false;
+                }
+
+                axisX.MajorGrid.Enabled = false;
 
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
@@ -1596,11 +1881,33 @@ namespace GOS_FxApps
                 chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
+
                 axisX.Interval = 1;
                 axisX.IsLabelAutoFit = false;
-                axisX.ScaleView.Size = 5;
-                axisX.ScrollBar.Enabled = true;
-                axisX.ScrollBar.IsPositionedInside = true;
+                axisX.IsMarginVisible = true;
+                axisX.LabelStyle.TruncatedLabels = false;
+
+                int totalData = dt.Rows.Count;
+
+                if (totalData > 10)
+                {
+                    axisX.ScaleView.Zoomable = false;
+                    axisX.ScaleView.Size = 10;
+                    axisX.ScaleView.Position = 0;
+
+                    axisX.ScaleView.SmallScrollSize = 1;
+
+                    axisX.ScrollBar.Enabled = true;
+                    axisX.ScrollBar.IsPositionedInside = true;
+                    axisX.ScrollBar.Size = 12;
+                }
+                else
+                {
+                    axisX.ScaleView.ZoomReset();
+                    axisX.ScrollBar.Enabled = false;
+                }
+
+                axisX.MajorGrid.Enabled = false;
 
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
@@ -1663,11 +1970,33 @@ namespace GOS_FxApps
                 chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
+
                 axisX.Interval = 1;
                 axisX.IsLabelAutoFit = false;
-                axisX.ScaleView.Size = 5;
-                axisX.ScrollBar.Enabled = true;
-                axisX.ScrollBar.IsPositionedInside = true;
+                axisX.IsMarginVisible = true;
+                axisX.LabelStyle.TruncatedLabels = false;
+
+                int totalData = dt.Rows.Count;
+
+                if (totalData > 10)
+                {
+                    axisX.ScaleView.Zoomable = false;
+                    axisX.ScaleView.Size = 10;
+                    axisX.ScaleView.Position = 0;
+
+                    axisX.ScaleView.SmallScrollSize = 1;
+
+                    axisX.ScrollBar.Enabled = true;
+                    axisX.ScrollBar.IsPositionedInside = true;
+                    axisX.ScrollBar.Size = 12;
+                }
+                else
+                {
+                    axisX.ScaleView.ZoomReset();
+                    axisX.ScrollBar.Enabled = false;
+                }
+
+                axisX.MajorGrid.Enabled = false;
 
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
@@ -1733,11 +2062,33 @@ namespace GOS_FxApps
                 chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
+
                 axisX.Interval = 1;
                 axisX.IsLabelAutoFit = false;
-                axisX.ScaleView.Size = 5;
-                axisX.ScrollBar.Enabled = true;
-                axisX.ScrollBar.IsPositionedInside = true;
+                axisX.IsMarginVisible = true;
+                axisX.LabelStyle.TruncatedLabels = false;
+
+                int totalData = dt.Rows.Count;
+
+                if (totalData > 10)
+                {
+                    axisX.ScaleView.Zoomable = false;
+                    axisX.ScaleView.Size = 10;
+                    axisX.ScaleView.Position = 0;
+
+                    axisX.ScaleView.SmallScrollSize = 1;
+
+                    axisX.ScrollBar.Enabled = true;
+                    axisX.ScrollBar.IsPositionedInside = true;
+                    axisX.ScrollBar.Size = 12;
+                }
+                else
+                {
+                    axisX.ScaleView.ZoomReset();
+                    axisX.ScrollBar.Enabled = false;
+                }
+
+                axisX.MajorGrid.Enabled = false;
 
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
@@ -1801,11 +2152,33 @@ namespace GOS_FxApps
                 chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
+
                 axisX.Interval = 1;
                 axisX.IsLabelAutoFit = false;
-                axisX.ScaleView.Size = 5;
-                axisX.ScrollBar.Enabled = true;
-                axisX.ScrollBar.IsPositionedInside = true;
+                axisX.IsMarginVisible = true;
+                axisX.LabelStyle.TruncatedLabels = false;
+
+                int totalData = dt.Rows.Count;
+
+                if (totalData > 10)
+                {
+                    axisX.ScaleView.Zoomable = false;
+                    axisX.ScaleView.Size = 10;
+                    axisX.ScaleView.Position = 0;
+
+                    axisX.ScaleView.SmallScrollSize = 1;
+
+                    axisX.ScrollBar.Enabled = true;
+                    axisX.ScrollBar.IsPositionedInside = true;
+                    axisX.ScrollBar.Size = 12;
+                }
+                else
+                {
+                    axisX.ScaleView.ZoomReset();
+                    axisX.ScrollBar.Enabled = false;
+                }
+
+                axisX.MajorGrid.Enabled = false;
 
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
@@ -1868,11 +2241,33 @@ namespace GOS_FxApps
                 chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
+
                 axisX.Interval = 1;
                 axisX.IsLabelAutoFit = false;
-                axisX.ScaleView.Size = 5;
-                axisX.ScrollBar.Enabled = true;
-                axisX.ScrollBar.IsPositionedInside = true;
+                axisX.IsMarginVisible = true;
+                axisX.LabelStyle.TruncatedLabels = false;
+
+                int totalData = dt.Rows.Count;
+
+                if (totalData > 10)
+                {
+                    axisX.ScaleView.Zoomable = false;
+                    axisX.ScaleView.Size = 10;
+                    axisX.ScaleView.Position = 0;
+
+                    axisX.ScaleView.SmallScrollSize = 1;
+
+                    axisX.ScrollBar.Enabled = true;
+                    axisX.ScrollBar.IsPositionedInside = true;
+                    axisX.ScrollBar.Size = 12;
+                }
+                else
+                {
+                    axisX.ScaleView.ZoomReset();
+                    axisX.ScrollBar.Enabled = false;
+                }
+
+                axisX.MajorGrid.Enabled = false;
 
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
@@ -1936,11 +2331,33 @@ namespace GOS_FxApps
                 chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
+
                 axisX.Interval = 1;
                 axisX.IsLabelAutoFit = false;
-                axisX.ScaleView.Size = 5;
-                axisX.ScrollBar.Enabled = true;
-                axisX.ScrollBar.IsPositionedInside = true;
+                axisX.IsMarginVisible = true;
+                axisX.LabelStyle.TruncatedLabels = false;
+
+                int totalData = dt.Rows.Count;
+
+                if (totalData > 10)
+                {
+                    axisX.ScaleView.Zoomable = false;
+                    axisX.ScaleView.Size = 10;
+                    axisX.ScaleView.Position = 0;
+
+                    axisX.ScaleView.SmallScrollSize = 1;
+
+                    axisX.ScrollBar.Enabled = true;
+                    axisX.ScrollBar.IsPositionedInside = true;
+                    axisX.ScrollBar.Size = 12;
+                }
+                else
+                {
+                    axisX.ScaleView.ZoomReset();
+                    axisX.ScrollBar.Enabled = false;
+                }
+
+                axisX.MajorGrid.Enabled = false;
 
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
@@ -2006,11 +2423,33 @@ namespace GOS_FxApps
                 chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
+
                 axisX.Interval = 1;
                 axisX.IsLabelAutoFit = false;
-                axisX.ScaleView.Size = 5;
-                axisX.ScrollBar.Enabled = true;
-                axisX.ScrollBar.IsPositionedInside = true;
+                axisX.IsMarginVisible = true;
+                axisX.LabelStyle.TruncatedLabels = false;
+
+                int totalData = dt.Rows.Count;
+
+                if (totalData > 10)
+                {
+                    axisX.ScaleView.Zoomable = false;
+                    axisX.ScaleView.Size = 10;
+                    axisX.ScaleView.Position = 0;
+
+                    axisX.ScaleView.SmallScrollSize = 1;
+
+                    axisX.ScrollBar.Enabled = true;
+                    axisX.ScrollBar.IsPositionedInside = true;
+                    axisX.ScrollBar.Size = 12;
+                }
+                else
+                {
+                    axisX.ScaleView.ZoomReset();
+                    axisX.ScrollBar.Enabled = false;
+                }
+
+                axisX.MajorGrid.Enabled = false;
 
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
@@ -2074,11 +2513,33 @@ namespace GOS_FxApps
                 chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
+
                 axisX.Interval = 1;
                 axisX.IsLabelAutoFit = false;
-                axisX.ScaleView.Size = 5;
-                axisX.ScrollBar.Enabled = true;
-                axisX.ScrollBar.IsPositionedInside = true;
+                axisX.IsMarginVisible = true;
+                axisX.LabelStyle.TruncatedLabels = false;
+
+                int totalData = dt.Rows.Count;
+
+                if (totalData > 10)
+                {
+                    axisX.ScaleView.Zoomable = false;
+                    axisX.ScaleView.Size = 10;
+                    axisX.ScaleView.Position = 0;
+
+                    axisX.ScaleView.SmallScrollSize = 1;
+
+                    axisX.ScrollBar.Enabled = true;
+                    axisX.ScrollBar.IsPositionedInside = true;
+                    axisX.ScrollBar.Size = 12;
+                }
+                else
+                {
+                    axisX.ScaleView.ZoomReset();
+                    axisX.ScrollBar.Enabled = false;
+                }
+
+                axisX.MajorGrid.Enabled = false;
 
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
@@ -2141,11 +2602,33 @@ namespace GOS_FxApps
                 chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
+
                 axisX.Interval = 1;
                 axisX.IsLabelAutoFit = false;
-                axisX.ScaleView.Size = 5;
-                axisX.ScrollBar.Enabled = true;
-                axisX.ScrollBar.IsPositionedInside = true;
+                axisX.IsMarginVisible = true;
+                axisX.LabelStyle.TruncatedLabels = false;
+
+                int totalData = dt.Rows.Count;
+
+                if (totalData > 10)
+                {
+                    axisX.ScaleView.Zoomable = false;
+                    axisX.ScaleView.Size = 10;
+                    axisX.ScaleView.Position = 0;
+
+                    axisX.ScaleView.SmallScrollSize = 1;
+
+                    axisX.ScrollBar.Enabled = true;
+                    axisX.ScrollBar.IsPositionedInside = true;
+                    axisX.ScrollBar.Size = 12;
+                }
+                else
+                {
+                    axisX.ScaleView.ZoomReset();
+                    axisX.ScrollBar.Enabled = false;
+                }
+
+                axisX.MajorGrid.Enabled = false;
 
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
@@ -2208,11 +2691,33 @@ namespace GOS_FxApps
                 chartUssageMaterial.Legends.Add(legend);
 
                 var axisX = chartUssageMaterial.ChartAreas[0].AxisX;
+
                 axisX.Interval = 1;
                 axisX.IsLabelAutoFit = false;
-                axisX.ScaleView.Size = 5;
-                axisX.ScrollBar.Enabled = true;
-                axisX.ScrollBar.IsPositionedInside = true;
+                axisX.IsMarginVisible = true;
+                axisX.LabelStyle.TruncatedLabels = false;
+
+                int totalData = dt.Rows.Count;
+
+                if (totalData > 10)
+                {
+                    axisX.ScaleView.Zoomable = false;
+                    axisX.ScaleView.Size = 10;
+                    axisX.ScaleView.Position = 0;
+
+                    axisX.ScaleView.SmallScrollSize = 1;
+
+                    axisX.ScrollBar.Enabled = true;
+                    axisX.ScrollBar.IsPositionedInside = true;
+                    axisX.ScrollBar.Size = 12;
+                }
+                else
+                {
+                    axisX.ScaleView.ZoomReset();
+                    axisX.ScrollBar.Enabled = false;
+                }
+
+                axisX.MajorGrid.Enabled = false;
 
                 chartUssageMaterial.DataSource = dt;
                 chartUssageMaterial.DataBind();
@@ -2223,6 +2728,29 @@ namespace GOS_FxApps
                                  "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+        }
+
+        private void Chart_MouseWheel(object sender, MouseEventArgs e)
+        {
+            var chart = (Chart)sender;
+            var ax = chart.ChartAreas[0].AxisX;
+
+            if (!ax.ScrollBar.Enabled) return;
+
+            double newPos = ax.ScaleView.Position;
+
+            if (e.Delta > 0)
+                newPos--;
+            else
+                newPos++;
+
+            if (newPos < ax.Minimum)
+                newPos = ax.Minimum;
+
+            if (newPos + ax.ScaleView.Size > ax.Maximum)
+                newPos = ax.Maximum - ax.ScaleView.Size;
+
+            ax.ScaleView.Position = newPos;
         }
 
         private async Task OnDatabaseChanged(string table)
@@ -2272,6 +2800,9 @@ namespace GOS_FxApps
             lbltitlechart.Text =
                 $"{cmbpilihdata.Text}";
 
+            chartUssageMaterial.MouseWheel -= Chart_MouseWheel;
+            chartUssageMaterial.MouseWheel += Chart_MouseWheel;
+
             await LoadPanel();
             await LoadChartstokreject();
         }
@@ -2300,12 +2831,15 @@ namespace GOS_FxApps
             }
             else if (cmbpilihdata.SelectedIndex == 1)
             {
-                containerrentang.Visible = false;
-                containertanggal1.Visible = false;
-                containertanggal2.Visible = false;
                 containerbulan.Visible = false;
                 containertipe.Visible = false;
                 containertipem.Visible = false;
+                containertanggal1.Visible = false;
+
+                containerrentang.Visible = true;
+                containertanggal1.Visible = true;
+                cmbrentang.SelectedIndex = 0;
+                tanggalcustom1.Value = DateTime.Now;
             }
             else if (cmbpilihdata.SelectedIndex == 2)
             {
@@ -2384,8 +2918,32 @@ namespace GOS_FxApps
             }
             else if (cmbpilihdata.SelectedIndex == 1)
             {
-                await LoadChartstokrejectstasiun();
-                lbltitlechart.Text = cmbpilihdata.Text;
+                if (cmbrentang.SelectedIndex == 0)
+                {
+                    await LoadChartstokrejectstasiunhari();
+                    lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy");
+                }
+                else if (cmbrentang.SelectedIndex == 1)
+                {
+                    await LoadChartstokrejectstasiunbulan();
+                    lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + datebulan.Value.Month + "/" + datebulan.Value.Year;
+                }
+                else if (cmbrentang.SelectedIndex == 2)
+                {
+                    await LoadChartstokrejectstasiuntahun();
+                    lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + datebulan.Value.Year;
+                }
+                else if (cmbrentang.SelectedIndex == 3)
+                {
+                    if (tanggalcustom1.Value.Date > tanggalcustom2.Value.Date)
+                    {
+                        MessageBox.Show("Tanggal Mulai harus kurang dari atau sama dengan Tanggal Akhir agar valid", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    await LoadChartstokrejectstasiuncustom();
+                    lbltitlechart.Text = cmbpilihdata.Text + " " + cmbrentang.Text + " " + tanggalcustom1.Value.ToString("dd/MM/yyyy") + " s/d " + tanggalcustom2.Value.ToString("dd/MM/yyyy");
+                }
             }
             else if (cmbpilihdata.SelectedIndex == 2)
             {

@@ -54,27 +54,11 @@ namespace GOS_FxApps
 
         private async Task<bool> IsNetworkOk()
         {
-            string sqlServerIP = "192.168.1.25";
-
-            try
-            {
-                using (Ping p = new Ping())
-                {
-                    PingReply reply = await p.SendPingAsync(sqlServerIP, 1200);
-                    if (reply.Status != IPStatus.Success)
-                        return false;
-                }
-            }
-            catch
-            {
-                return false;
-            }
-
             try
             {
                 using (SqlConnection conn = new SqlConnection(Koneksi.GetConnectionString()))
                 {
-                    var timeoutTask = Task.Delay(2000);
+                    var timeoutTask = Task.Delay(3000);
                     var openTask = conn.OpenAsync();
 
                     var finished = await Task.WhenAny(openTask, timeoutTask);
@@ -82,13 +66,7 @@ namespace GOS_FxApps
                     if (finished == timeoutTask)
                         return false;
 
-                    if (conn.State == ConnectionState.Open)
-                    {
-                        conn.Close();
-                        return true;
-                    }
-
-                    return false;
+                    return conn.State == ConnectionState.Open;
                 }
             }
             catch
@@ -374,6 +352,12 @@ namespace GOS_FxApps
 
         private void btnprint_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.DataSource == null)
+            {
+                MessageBox.Show("Lakukan Pencarian Terlebih Dahulu", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (datejadwalMulai.Value.Date > datejadwalAkhir.Value.Date)
             {
                 MessageBox.Show("Tanggal Mulai harus kurang dari atau sama dengan Tanggal Akhir agar valid", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
