@@ -192,7 +192,7 @@
             this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
-            this.guna2Panel4.Size = new System.Drawing.Size(1122, 568);
+            this.guna2Panel4.Size = new System.Drawing.Size(1105, 568);
             this.guna2Panel4.TabIndex = 37;
             // 
             // dataGridView1
@@ -235,7 +235,7 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1100, 479);
+            this.dataGridView1.Size = new System.Drawing.Size(1083, 479);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -248,7 +248,7 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.guna2Panel1.Location = new System.Drawing.Point(11, 491);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1100, 65);
+            this.guna2Panel1.Size = new System.Drawing.Size(1083, 65);
             this.guna2Panel1.TabIndex = 12;
             // 
             // lblhalaman
@@ -279,7 +279,7 @@
             this.btnleft.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnleft.ForeColor = System.Drawing.Color.White;
             this.btnleft.Image = global::GOS_FxApps.Properties.Resources.left_arrow;
-            this.btnleft.Location = new System.Drawing.Point(955, 15);
+            this.btnleft.Location = new System.Drawing.Point(938, 15);
             this.btnleft.Margin = new System.Windows.Forms.Padding(2);
             this.btnleft.Name = "btnleft";
             this.btnleft.Size = new System.Drawing.Size(60, 37);
@@ -300,7 +300,7 @@
             this.btnright.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnright.ForeColor = System.Drawing.Color.White;
             this.btnright.Image = global::GOS_FxApps.Properties.Resources.right_arrow;
-            this.btnright.Location = new System.Drawing.Point(1027, 15);
+            this.btnright.Location = new System.Drawing.Point(1010, 15);
             this.btnright.Margin = new System.Windows.Forms.Padding(2);
             this.btnright.Name = "btnright";
             this.btnright.Size = new System.Drawing.Size(60, 37);
@@ -506,7 +506,7 @@
             this.btncari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btncari.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btncari.ForeColor = System.Drawing.Color.White;
-            this.btncari.Location = new System.Drawing.Point(925, 435);
+            this.btncari.Location = new System.Drawing.Point(908, 435);
             this.btncari.Margin = new System.Windows.Forms.Padding(2);
             this.btncari.Name = "btncari";
             this.btncari.Size = new System.Drawing.Size(105, 39);
@@ -568,7 +568,7 @@
             this.txtcari.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtcari.PlaceholderText = "Cari Berdasarkan Kode Barang Atau Nama Barang";
             this.txtcari.SelectedText = "";
-            this.txtcari.Size = new System.Drawing.Size(903, 39);
+            this.txtcari.Size = new System.Drawing.Size(886, 39);
             this.txtcari.TabIndex = 10;
             this.txtcari.TextOffset = new System.Drawing.Point(5, 0);
             this.txtcari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
@@ -592,7 +592,7 @@
             this.btnreset.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(53)))));
             this.btnreset.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnreset.ForeColor = System.Drawing.Color.White;
-            this.btnreset.Location = new System.Drawing.Point(1035, 435);
+            this.btnreset.Location = new System.Drawing.Point(1018, 435);
             this.btnreset.Name = "btnreset";
             this.btnreset.Size = new System.Drawing.Size(105, 39);
             this.btnreset.TabIndex = 75;

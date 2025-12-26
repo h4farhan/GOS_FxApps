@@ -168,6 +168,7 @@ namespace GOS_FxApps
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
                     dataGridView1.ReadOnly = true;
                     dataGridView1.AllowUserToAddRows = false;
+                    dataGridView1.AllowUserToResizeRows = false;
 
                     foreach (DataGridViewColumn col in dataGridView1.Columns)
                         col.Resizable = DataGridViewTriState.False;

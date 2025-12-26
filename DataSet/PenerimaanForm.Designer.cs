@@ -8486,18 +8486,16 @@ ORDER BY s.Shift;";
                 "E WHEN p.[cr] > 0 THEN 1 ELSE 0 END),0) AS cr,\r\n    NULLIF(SUM(p.[m]),0)        " +
                 "  AS m,\r\n    NULLIF(SUM(p.[r]),0)          AS r,\r\n    NULLIF(SUM(CASE WHEN p.[c]" +
                 " > 0 THEN 1 ELSE 0 END),0) AS c,\r\n    NULLIF(SUM(p.[rl]),0)         AS rl,\r\n\r\n  " +
-                "  NULLIF(\r\n        (\r\n            SUM(p.[e1_ers]) +\r\n            SUM(p.[e1_est])" +
-                " +\r\n            SUM(p.[e1_jumlah]) +\r\n            SUM(p.[e2_ers]) +\r\n           " +
-                " SUM(p.[e2_cst]) +\r\n            SUM(p.[e2_cstub]) +\r\n            SUM(p.[e2_jumla" +
-                "h]) +\r\n            SUM(p.[e3]) +\r\n            SUM(p.[e4]) +\r\n            SUM(CAS" +
-                "E WHEN p.[s] > 0 THEN 1 ELSE 0 END) +\r\n            SUM(p.[d]) +\r\n            SUM" +
-                "(p.[b]) +\r\n            SUM(p.[nba]) +\r\n            SUM(p.[ba1]) +\r\n            S" +
-                "UM(CASE WHEN p.[cr] > 0 THEN 1 ELSE 0 END) +\r\n            SUM(p.[m]) +\r\n        " +
-                "    SUM(p.[r]) +\r\n            SUM(CASE WHEN p.[c] > 0 THEN 1 ELSE 0 END) +\r\n    " +
-                "        SUM(p.[rl])\r\n        ), 0\r\n    ) AS total\r\n\r\nFROM Shifts s\r\nLEFT JOIN pe" +
-                "rbaikan_p p \r\n       ON s.Shift = p.Shift \r\n      AND p.tanggal_perbaikan BETWEE" +
-                "N @tanggal1 AND @tanggal2\r\n\r\nWHERE s.Shift <= @shift\r\n\r\nGROUP BY s.Shift\r\nORDER " +
-                "BY s.Shift;";
+                "  NULLIF(\r\n        (\r\n            SUM(p.[e1_jumlah]) +\r\n            SUM(p.[e2_ju" +
+                "mlah]) +\r\n            SUM(p.[e3]) +\r\n            SUM(p.[e4]) +\r\n            SUM(" +
+                "CASE WHEN p.[s] > 0 THEN 1 ELSE 0 END) +\r\n            SUM(p.[d]) +\r\n            " +
+                "SUM(p.[b]) +\r\n            SUM(p.[nba]) +\r\n            SUM(p.[ba1]) +\r\n          " +
+                "  SUM(CASE WHEN p.[cr] > 0 THEN 1 ELSE 0 END) +\r\n            SUM(p.[m]) +\r\n     " +
+                "       SUM(p.[r]) +\r\n            SUM(CASE WHEN p.[c] > 0 THEN 1 ELSE 0 END) +\r\n " +
+                "           SUM(p.[rl])\r\n        ), 0\r\n    ) AS total\r\n\r\nFROM Shifts s\r\nLEFT JOIN" +
+                " perbaikan_p p \r\n       ON s.Shift = p.Shift \r\n      AND p.tanggal_perbaikan BET" +
+                "WEEN @tanggal1 AND @tanggal2\r\n\r\nWHERE s.Shift <= @shift\r\n\r\nGROUP BY s.Shift\r\nORD" +
+                "ER BY s.Shift;";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal1", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tanggal2", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tanggal_perbaikan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

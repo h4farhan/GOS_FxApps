@@ -135,7 +135,10 @@ namespace GOS_FxApps
                         break;
                 }
             }
-            catch { }
+            catch
+            {
+                return;
+            }
         }
 
         private async Task tampilperbaikan()
@@ -206,6 +209,7 @@ namespace GOS_FxApps
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
             dataGridView1.ReadOnly = true;
+            dataGridView1.AllowUserToResizeRows = false;
 
             if (dt.Columns.Count >= 31)
             {
@@ -349,161 +353,119 @@ namespace GOS_FxApps
             List<Perbaikan> list = new List<Perbaikan>();
 
             using (var conn = await Koneksi.GetConnectionAsync())
+            using (var trans = conn.BeginTransaction())
             {
-                SqlCommand cmd1 = new SqlCommand(
-                    "SELECT no, nomor_rod FROM perbaikan_s WHERE nomor_rod IN (@A,@B,@C,@D,@E,@F,@G,@H,@I,@J)", conn);
-
-                cmd1.Parameters.AddWithValue("@A", txtrod1.Text);
-                cmd1.Parameters.AddWithValue("@B", txtrod2.Text);
-                cmd1.Parameters.AddWithValue("@C", txtrod3.Text);
-                cmd1.Parameters.AddWithValue("@D", txtrod4.Text);
-                cmd1.Parameters.AddWithValue("@E", txtrod5.Text);
-                cmd1.Parameters.AddWithValue("@F", txtrod6.Text);
-                cmd1.Parameters.AddWithValue("@G", txtrod7.Text);
-                cmd1.Parameters.AddWithValue("@H", txtrod8.Text);
-                cmd1.Parameters.AddWithValue("@I", txtrod9.Text);
-                cmd1.Parameters.AddWithValue("@J", txtrod10.Text);
-
                 try
                 {
-                    using (SqlDataReader reader = await cmd1.ExecuteReaderAsync())
+                    string querySelect = @"
+                SELECT no, nomor_rod
+                FROM perbaikan_s
+                WHERE nomor_rod IN (@A,@B,@C,@D,@E,@F,@G,@H,@I,@J)";
+
+                    using (var cmd = new SqlCommand(querySelect, conn, trans))
                     {
-                        HashSet<int> seenNo = new HashSet<int>();
+                        cmd.Parameters.Add("@A", SqlDbType.VarChar).Value = txtrod1.Text;
+                        cmd.Parameters.Add("@B", SqlDbType.VarChar).Value = txtrod2.Text;
+                        cmd.Parameters.Add("@C", SqlDbType.VarChar).Value = txtrod3.Text;
+                        cmd.Parameters.Add("@D", SqlDbType.VarChar).Value = txtrod4.Text;
+                        cmd.Parameters.Add("@E", SqlDbType.VarChar).Value = txtrod5.Text;
+                        cmd.Parameters.Add("@F", SqlDbType.VarChar).Value = txtrod6.Text;
+                        cmd.Parameters.Add("@G", SqlDbType.VarChar).Value = txtrod7.Text;
+                        cmd.Parameters.Add("@H", SqlDbType.VarChar).Value = txtrod8.Text;
+                        cmd.Parameters.Add("@I", SqlDbType.VarChar).Value = txtrod9.Text;
+                        cmd.Parameters.Add("@J", SqlDbType.VarChar).Value = txtrod10.Text;
 
-                        while (await reader.ReadAsync())
+                        using (var reader = await cmd.ExecuteReaderAsync())
                         {
-                            int no = Convert.ToInt32(reader["no"]);
-                            string nomorRod = reader["nomor_rod"]?.ToString();
+                            HashSet<int> seen = new HashSet<int>();
 
-                            if (!seenNo.Add(no))
+                            while (await reader.ReadAsync())
                             {
-                                MessageBox.Show(
-                                    $"Nomor 'no' {no} terdeteksi duplikat!\nProses dibatalkan.",
-                                    "Peringatan",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Warning
-                                );
-                                return;
+                                int no = reader.GetInt32(0);
+
+                                if (!seen.Add(no))
+                                    throw new Exception("Duplikat NO " + no);
+
+                                list.Add(new Perbaikan
+                                {
+                                    No = no,
+                                    NomorRod = reader.GetString(1)
+                                });
                             }
-
-                            list.Add(new Perbaikan
-                            {
-                                No = no,
-                                NomorRod = nomorRod
-                            });
                         }
                     }
+
+                    if (list.Count == 0)
+                        throw new Exception("Tidak ada data yang cocok");
+
+                    string insertQuery = @"
+                INSERT INTO pengiriman
+                (no, tanggal_pengiriman, shift, nomor_rod, updated_at, remaks)
+                VALUES (@no, @tanggal, @shift, @rod, GETDATE(), @remaks)";
+
+                    using (var cmdInsert = new SqlCommand(insertQuery, conn, trans))
+                    {
+                        cmdInsert.Parameters.Add("@no", SqlDbType.Int);
+                        cmdInsert.Parameters.Add("@tanggal", SqlDbType.DateTime);
+                        cmdInsert.Parameters.Add("@shift", SqlDbType.VarChar);
+                        cmdInsert.Parameters.Add("@rod", SqlDbType.VarChar);
+                        cmdInsert.Parameters.Add("@remaks", SqlDbType.VarChar);
+
+                        DateTime baseTime = MainForm.Instance.tanggal;
+                        int idx = 0;
+
+                        foreach (var item in list)
+                        {
+                            cmdInsert.Parameters["@no"].Value = item.No;
+                            cmdInsert.Parameters["@tanggal"].Value = baseTime.AddSeconds(idx++);
+                            cmdInsert.Parameters["@shift"].Value = MainForm.Instance.lblshift.Text;
+                            cmdInsert.Parameters["@rod"].Value = item.NomorRod;
+                            cmdInsert.Parameters["@remaks"].Value = loginform.login.name;
+
+                            await cmdInsert.ExecuteNonQueryAsync();
+                        }
+                    }
+
+                    string deleteQuery = @"
+                DELETE FROM perbaikan_s
+                WHERE nomor_rod IN (@A,@B,@C,@D,@E,@F,@G,@H,@I,@J)";
+
+                    using (var cmdDel = new SqlCommand(deleteQuery, conn, trans))
+                    {
+                        cmdDel.Parameters.Add("@A", SqlDbType.VarChar).Value = txtrod1.Text;
+                        cmdDel.Parameters.Add("@B", SqlDbType.VarChar).Value = txtrod2.Text;
+                        cmdDel.Parameters.Add("@C", SqlDbType.VarChar).Value = txtrod3.Text;
+                        cmdDel.Parameters.Add("@D", SqlDbType.VarChar).Value = txtrod4.Text;
+                        cmdDel.Parameters.Add("@E", SqlDbType.VarChar).Value = txtrod5.Text;
+                        cmdDel.Parameters.Add("@F", SqlDbType.VarChar).Value = txtrod6.Text;
+                        cmdDel.Parameters.Add("@G", SqlDbType.VarChar).Value = txtrod7.Text;
+                        cmdDel.Parameters.Add("@H", SqlDbType.VarChar).Value = txtrod8.Text;
+                        cmdDel.Parameters.Add("@I", SqlDbType.VarChar).Value = txtrod9.Text;
+                        cmdDel.Parameters.Add("@J", SqlDbType.VarChar).Value = txtrod10.Text;
+
+                        await cmdDel.ExecuteNonQueryAsync();
+                    }
+
+                    trans.Commit();
+
+                    await Task.Yield(); 
+
+                    MessageBox.Show("Data Berhasil Dikirim",
+                        "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    delay = 0;
+                    setdefault();
                 }
                 catch (SqlException)
                 {
+                    trans.Rollback();
                     MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Gagal Simpan Data.");
-                    return;
-                }
-
-                if (list.Count == 0)
-                {
-                    MessageBox.Show("Tidak ada data yang cocok dengan nomor ROD.",
-                                    "Peringatan",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Warning);
-                    return;
-                }
-
-                string queryInsertp = @"INSERT INTO pengiriman 
-            (no, tanggal_pengiriman, shift, nomor_rod, updated_at, remaks) 
-            VALUES (@no, @tanggal, @shift, @nomor_rod, GETDATE(), @remaks)";
-
-                string queryInsertm = @"INSERT INTO pengiriman_m 
-            (no, tanggal_pengiriman, shift, nomor_rod, updated_at, remaks) 
-            VALUES (@no, @tanggal, @shift, @nomor_rod, GETDATE(), @remaks)";
-
-                try
-                {
-                    using (var trans = conn.BeginTransaction())
-                    {
-                        try
-                        {
-                            DateTime baseTime = MainForm.Instance.tanggal;
-                            int index = 0;
-
-                            foreach (var item in list)
-                            {
-                                DateTime waktuPengiriman = baseTime.AddSeconds(index);
-
-                                using (SqlCommand cmdp = new SqlCommand(queryInsertp, conn, trans))
-                                {
-                                    cmdp.Parameters.AddWithValue("@no", item.No);
-                                    cmdp.Parameters.AddWithValue("@tanggal", waktuPengiriman);
-                                    cmdp.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
-                                    cmdp.Parameters.AddWithValue("@nomor_rod", item.NomorRod ?? (object)DBNull.Value);
-                                    cmdp.Parameters.AddWithValue("@remaks", loginform.login.name);
-
-                                    await cmdp.ExecuteNonQueryAsync();
-                                }
-
-                                using (SqlCommand cmdm = new SqlCommand(queryInsertm, conn, trans))
-                                {
-                                    cmdm.Parameters.AddWithValue("@no", item.No);
-                                    cmdm.Parameters.AddWithValue("@tanggal", waktuPengiriman);
-                                    cmdm.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
-                                    cmdm.Parameters.AddWithValue("@nomor_rod", item.NomorRod ?? (object)DBNull.Value);
-                                    cmdm.Parameters.AddWithValue("@remaks", loginform.login.name);
-
-                                    await cmdm.ExecuteNonQueryAsync();
-                                }
-
-                                index++;
-                            }
-
-                            using (SqlCommand cmd3 = new SqlCommand(
-                                "DELETE FROM perbaikan_s WHERE nomor_rod IN (@a,@b,@c,@d,@e,@f,@g,@h,@i,@j)", conn, trans))
-                            {
-                                cmd3.Parameters.AddWithValue("@a", txtrod1.Text);
-                                cmd3.Parameters.AddWithValue("@b", txtrod2.Text);
-                                cmd3.Parameters.AddWithValue("@c", txtrod3.Text);
-                                cmd3.Parameters.AddWithValue("@d", txtrod4.Text);
-                                cmd3.Parameters.AddWithValue("@e", txtrod5.Text);
-                                cmd3.Parameters.AddWithValue("@f", txtrod6.Text);
-                                cmd3.Parameters.AddWithValue("@g", txtrod7.Text);
-                                cmd3.Parameters.AddWithValue("@h", txtrod8.Text);
-                                cmd3.Parameters.AddWithValue("@i", txtrod9.Text);
-                                cmd3.Parameters.AddWithValue("@j", txtrod10.Text);
-
-                                await cmd3.ExecuteNonQueryAsync();
-                            }
-
-                            trans.Commit();
-
-                            MessageBox.Show("Data Berhasil Dikirim!",
-                                            "Sukses",
-                                            MessageBoxButtons.OK,
-                                            MessageBoxIcon.Information);
-                            delay = 0;
-                            setdefault();
-                        }
-                        catch (Exception exTrans)
-                        {
-                            trans.Rollback();
-                            MessageBox.Show("Gagal menyimpan: " + exTrans.Message);
-                        }
-                    }
-                }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
-                                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Gagal Simpan Data.");
-                    return;
+                    trans.Rollback();
+                    MessageBox.Show("Gagal Simpan Data: ");
                 }
             }
         }
@@ -542,12 +504,17 @@ namespace GOS_FxApps
 
             btnclear.Enabled = false;
             guna2Button2.Enabled = false;
+
             await insertdata();
+
             delay = 0;
+
+            this.SuspendLayout();
             setdefault();
+            this.ResumeLayout();
+
             btnclear.Enabled = false;
             guna2Button2.Enabled = false;
-            delay = 300;
         }
 
         private void btnclear_Click(object sender, EventArgs e)

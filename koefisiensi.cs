@@ -240,6 +240,7 @@ namespace GOS_FxApps
             dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.MultiSelect = false;
+            dataGridView1.AllowUserToResizeRows = false;
 
             if (dt.Columns.Count >= 23)
             {

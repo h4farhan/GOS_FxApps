@@ -185,6 +185,7 @@ namespace GOS_FxApps
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(34, 34, 36);
 
             dataGridView1.ReadOnly = true;
+            dataGridView1.AllowUserToResizeRows = false;
 
             if (dt.Columns.Count >= 6)
             {

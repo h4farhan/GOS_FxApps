@@ -415,12 +415,7 @@ SELECT
 
     NULLIF(
         (
-            SUM(p.[e1_ers]) +
-            SUM(p.[e1_est]) +
             SUM(p.[e1_jumlah]) +
-            SUM(p.[e2_ers]) +
-            SUM(p.[e2_cst]) +
-            SUM(p.[e2_cstub]) +
             SUM(p.[e2_jumlah]) +
             SUM(p.[e3]) +
             SUM(p.[e4]) +

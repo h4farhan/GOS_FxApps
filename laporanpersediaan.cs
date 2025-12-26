@@ -135,6 +135,7 @@ namespace GOS_FxApps
                     dataGridView1.ReadOnly = true;
                     dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                     dataGridView1.AllowUserToAddRows = false;
+                    dataGridView1.AllowUserToResizeRows = false;
 
                     foreach (DataGridViewColumn col in dataGridView1.Columns)
                         col.Resizable = DataGridViewTriState.False;

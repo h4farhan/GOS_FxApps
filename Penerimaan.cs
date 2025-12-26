@@ -86,6 +86,16 @@ namespace GOS_FxApps
             }
         }
 
+        private int ToInt(string text)
+        {
+            return int.TryParse(text, out int val) ? val : 0;
+        }
+
+        private int SafeParse(Guna2TextBox tb)
+        {
+            return int.TryParse(tb.Text, out int result) ? result : 0;
+        }
+
         private async Task simpandata()
         {
             try
@@ -98,22 +108,26 @@ namespace GOS_FxApps
                         string nomorRodFix = txtnomorrod.Text.Trim();
 
                         string queryCek = @"
-                    SELECT 'penerimaan_s' AS sumber FROM penerimaan_s WHERE nomor_rod = @rod
+                    SELECT 'penerimaan_s' 
+                    FROM penerimaan_s WHERE nomor_rod = @rod
                     UNION
-                    SELECT 'perbaikan_s' AS sumber FROM perbaikan_s WHERE nomor_rod = @rod";
+                    SELECT 'perbaikan_s'
+                    FROM perbaikan_s WHERE nomor_rod = @rod";
 
                         using (var cmd = new SqlCommand(queryCek, conn, trans))
                         {
-                            cmd.Parameters.AddWithValue("@rod", nomorRodFix);
-                            object sumber = await cmd.ExecuteScalarAsync();
+                            cmd.Parameters.Add("@rod", SqlDbType.VarChar).Value = nomorRodFix;
 
+                            object sumber = await cmd.ExecuteScalarAsync();
                             if (sumber != null)
                             {
-                                string pesan = (sumber.ToString() == "penerimaan_s")
+                                string pesan = sumber.ToString() == "penerimaan_s"
                                     ? "Nomor ROD ini sudah ada di data penerimaan dan belum diperbaiki."
                                     : "Nomor ROD ini sudah ada di data perbaikan dan belum dikirim.";
 
-                                MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show(pesan, "Peringatan",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                                 trans.Rollback();
                                 return;
                             }
@@ -125,14 +139,16 @@ namespace GOS_FxApps
                     WHERE nomor_rod = @nomor_rod
                     AND CONVERT(date, tanggal_penerimaan) = CONVERT(date, @tgl)", conn, trans))
                         {
-                            cmdCekTanggal.Parameters.AddWithValue("@nomor_rod", nomorRodFix);
-                            cmdCekTanggal.Parameters.AddWithValue("@tgl", MainForm.Instance.tanggal);
+                            cmdCekTanggal.Parameters.Add("@nomor_rod", SqlDbType.VarChar).Value = nomorRodFix;
+                            cmdCekTanggal.Parameters.Add("@tgl", SqlDbType.DateTime).Value = MainForm.Instance.tanggal;
 
                             if ((int)await cmdCekTanggal.ExecuteScalarAsync() > 0)
                             {
                                 MessageBox.Show(
                                     $"Nomor ROD {nomorRodFix} sudah pernah diterima pada tanggal yang sama.",
-                                    "Tanggal Duplikat", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    "Tanggal Duplikat",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
 
                                 trans.Rollback();
                                 return;
@@ -140,35 +156,45 @@ namespace GOS_FxApps
                         }
 
                         int hariRentang = 24;
-                        using (var cmdHari = new SqlCommand("SELECT hari FROM perputaran_rod", conn, trans))
+                        using (var cmd = new SqlCommand("SELECT hari FROM perputaran_rod", conn, trans))
                         {
-                            object val = await cmdHari.ExecuteScalarAsync();
-                            if (val != null && val != DBNull.Value)
-                                hariRentang = Convert.ToInt32(val);
+                            object v = await cmd.ExecuteScalarAsync();
+                            if (v != null && v != DBNull.Value)
+                                hariRentang = Convert.ToInt32(v);
                         }
 
-                        using (var cmdRentang = new SqlCommand(@"
-                    SELECT COUNT(*) 
+                        DateTime? tanggalBentrok = null;
+
+                        using (var cmd = new SqlCommand(@"
+                    SELECT TOP 1 tanggal_penerimaan
                     FROM penerimaan_p
-                    WHERE nomor_rod = @nomor_rod
-                    AND tanggal_penerimaan BETWEEN DATEADD(DAY, -@r, @tgl)
-                                              AND DATEADD(DAY, @r, @tgl)", conn, trans))
+                    WHERE nomor_rod = @rod
+                    AND tanggal_penerimaan BETWEEN DATEADD(DAY,-@h,@tgl)
+                                                 AND DATEADD(DAY,@h,@tgl)", conn, trans))
                         {
-                            cmdRentang.Parameters.AddWithValue("@nomor_rod", nomorRodFix);
-                            cmdRentang.Parameters.AddWithValue("@tgl", MainForm.Instance.tanggal);
-                            cmdRentang.Parameters.AddWithValue("@r", hariRentang);
+                            cmd.Parameters.Add("@rod", SqlDbType.VarChar).Value = nomorRodFix;
+                            cmd.Parameters.Add("@tgl", SqlDbType.DateTime).Value = MainForm.Instance.tanggal;
+                            cmd.Parameters.Add("@h", SqlDbType.Int).Value = hariRentang;
 
-                            if ((int)await cmdRentang.ExecuteScalarAsync() > 0)
+                            object v = await cmd.ExecuteScalarAsync();
+                            if (v != null && v != DBNull.Value)
+                                tanggalBentrok = Convert.ToDateTime(v);
+                        }
+
+                        if (tanggalBentrok.HasValue)
+                        {
+                            string tglBentrok = tanggalBentrok.Value.ToString("dd-MM-yyyy HH:mm:ss");
+
+                            if (MessageBox.Show(
+                                $"Nomor ROD {nomorRodFix} sudah pernah diterima pada tanggal {tglBentrok}\n" +
+                                $"(dalam rentang ±{hariRentang} hari).\n\n" +
+                                $"Tetap lanjutkan?",
+                                "Peringatan Duplikat ROD",
+                                MessageBoxButtons.OKCancel,
+                                MessageBoxIcon.Warning) != DialogResult.OK)
                             {
-                                DialogResult r = MessageBox.Show(
-                                    $"Nomor ROD {nomorRodFix} sudah pernah diterima dalam rentang ±{hariRentang} hari.\nLanjutkan?",
-                                    "Peringatan", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-
-                                if (r != DialogResult.OK)
-                                {
-                                    trans.Rollback();
-                                    return;
-                                }
+                                trans.Rollback();
+                                return;
                             }
                         }
 
@@ -178,32 +204,36 @@ namespace GOS_FxApps
                         {
                             using (var cmd = new SqlCommand($@"
                         INSERT INTO {t}
-                        (tanggal_penerimaan, shift, nomor_rod, jenis, stasiun, e1, e2, e3, 
-                         s, d, b, ba, cr, m, r, c, rl, jumlah, updated_at, remaks, catatan)
+                        (tanggal_penerimaan, shift, nomor_rod, jenis, stasiun,
+                         e1, e2, e3, s, d, b, ba, cr, m, r, c, rl,
+                         jumlah, updated_at, remaks, catatan)
                         VALUES
-                        (@tanggal_penerimaan, @shift, @nomorrod, @jenis, @stasiun, @e1, @e2, @e3,
-                         @s, @d, @b, @ba, @cr, @m, @r, @c, @rl, @jumlah, GETDATE(), @remaks, @catatan)", conn, trans))
+                        (@tanggal, @shift, @nomorrod, @jenis, @stasiun,
+                         @e1, @e2, @e3, @s, @d, @b, @ba, @cr, @m, @r, @c, @rl,
+                         @jumlah, GETDATE(), @remaks, @catatan)", conn, trans))
                             {
-                                cmd.Parameters.AddWithValue("@tanggal_penerimaan", MainForm.Instance.tanggal);
-                                cmd.Parameters.AddWithValue("@shift", MainForm.Instance.lblshift.Text);
-                                cmd.Parameters.AddWithValue("@nomorrod", nomorRodFix);
-                                cmd.Parameters.AddWithValue("@jenis", txtjenis.Text);
-                                cmd.Parameters.AddWithValue("@stasiun", txtstasiun.Text);
-                                cmd.Parameters.AddWithValue("@e1", txte1.Text);
-                                cmd.Parameters.AddWithValue("@e2", txte2.Text);
-                                cmd.Parameters.AddWithValue("@e3", txte3.Text);
-                                cmd.Parameters.AddWithValue("@s", txts.Text);
-                                cmd.Parameters.AddWithValue("@d", txtd.Text);
-                                cmd.Parameters.AddWithValue("@b", txtb.Text);
-                                cmd.Parameters.AddWithValue("@ba", txtba.Text);
-                                cmd.Parameters.AddWithValue("@cr", txtcr.Text);
-                                cmd.Parameters.AddWithValue("@m", txtm.Text);
-                                cmd.Parameters.AddWithValue("@r", txtr.Text);
-                                cmd.Parameters.AddWithValue("@c", txtc.Text);
-                                cmd.Parameters.AddWithValue("@rl", txtrl.Text);
-                                cmd.Parameters.AddWithValue("@jumlah", lbltotal.Text);
-                                cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
-                                cmd.Parameters.AddWithValue("@catatan", txtcatatan.Text);
+                                cmd.Parameters.Add("@tanggal", SqlDbType.DateTime).Value = MainForm.Instance.tanggal;
+                                cmd.Parameters.Add("@shift", SqlDbType.VarChar).Value = MainForm.Instance.lblshift.Text;
+                                cmd.Parameters.Add("@nomorrod", SqlDbType.VarChar).Value = nomorRodFix;
+                                cmd.Parameters.Add("@jenis", SqlDbType.VarChar).Value = txtjenis.Text;
+                                cmd.Parameters.Add("@stasiun", SqlDbType.VarChar).Value = txtstasiun.Text;
+
+                                cmd.Parameters.Add("@e1", SqlDbType.Int).Value = ToInt(txte1.Text);
+                                cmd.Parameters.Add("@e2", SqlDbType.Int).Value = ToInt(txte2.Text);
+                                cmd.Parameters.Add("@e3", SqlDbType.Int).Value = ToInt(txte3.Text);
+                                cmd.Parameters.Add("@s", SqlDbType.Int).Value = ToInt(txts.Text);
+                                cmd.Parameters.Add("@d", SqlDbType.Int).Value = ToInt(txtd.Text);
+                                cmd.Parameters.Add("@b", SqlDbType.Int).Value = ToInt(txtb.Text);
+                                cmd.Parameters.Add("@ba", SqlDbType.Int).Value = ToInt(txtba.Text);
+                                cmd.Parameters.Add("@cr", SqlDbType.Int).Value = ToInt(txtcr.Text);
+                                cmd.Parameters.Add("@m", SqlDbType.Int).Value = ToInt(txtm.Text);
+                                cmd.Parameters.Add("@r", SqlDbType.Int).Value = ToInt(txtr.Text);
+                                cmd.Parameters.Add("@c", SqlDbType.Int).Value = ToInt(txtc.Text);
+                                cmd.Parameters.Add("@rl", SqlDbType.Int).Value = ToInt(txtrl.Text);
+                                cmd.Parameters.Add("@jumlah", SqlDbType.Int).Value = ToInt(lbltotal.Text);
+
+                                cmd.Parameters.Add("@remaks", SqlDbType.VarChar).Value = loginform.login.name;
+                                cmd.Parameters.Add("@catatan", SqlDbType.VarChar).Value = txtcatatan.Text;
 
                                 await cmd.ExecuteNonQueryAsync();
                             }
@@ -211,7 +241,10 @@ namespace GOS_FxApps
 
                         trans.Commit();
 
-                        MessageBox.Show("Data berhasil disimpan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        await Task.Yield();
+
+                        MessageBox.Show("Data berhasil disimpan.",
+                            "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
@@ -223,35 +256,46 @@ namespace GOS_FxApps
             catch (SqlException)
             {
                 MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
-                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception)
+            catch
             {
                 MessageBox.Show("Gagal Simpan Data.");
-                return;
             }
         }
 
 
         private async void guna2Button2_Click(object sender, EventArgs e)
         {
-            if (txtnomorrod.Text == "" || txtjenis.Text == "" || txtstasiun.Text == "")
+            if (string.IsNullOrWhiteSpace(txtnomorrod.Text) ||
+                string.IsNullOrWhiteSpace(txtjenis.Text) ||
+                string.IsNullOrWhiteSpace(txtstasiun.Text))
             {
-                MessageBox.Show("Nomor ROD, Jenis dan Stasiun Tidak Boleh Kosong", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Nomor ROD, Jenis dan Stasiun Tidak Boleh Kosong",
+                    "Peringatan",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
                 return;
             }
 
             btnsimpan.Enabled = false;
             btncancel.Enabled = false;
+
             await simpandata();
+
             delay = 0;
+
+            this.SuspendLayout();
             setdefault();
+            this.ResumeLayout();
+
             btnsimpan.Enabled = false;
             btncancel.Enabled = false;
-            txtnomorrod.Focus();
+
             delay = 300;
         }
+
 
         private async Task OnDatabaseChanged(string table)
         {
@@ -283,7 +327,10 @@ namespace GOS_FxApps
                         break;
                 }
             }
-            catch { }
+            catch
+            {
+                return;
+            }
         }
 
         private async Task tampilperputaranrod()
@@ -380,6 +427,7 @@ namespace GOS_FxApps
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
 
             dataGridView1.ReadOnly = true;
+            dataGridView1.AllowUserToResizeRows = false;
 
             if (dt.Columns.Count >= 22)
             {
@@ -463,11 +511,6 @@ namespace GOS_FxApps
             txtcatatan.Clear();
             txtcari.Clear();
             lbltotal.Text = "-";
-        }
-
-        private int SafeParse(Guna2TextBox tb)
-        {
-            return int.TryParse(tb.Text, out int result) ? result : 0;
         }
 
         private void hitung()

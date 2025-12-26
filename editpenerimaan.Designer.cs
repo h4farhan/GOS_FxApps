@@ -850,6 +850,7 @@ namespace GOS_FxApps
             this.txtjenis.SelectedText = "";
             this.txtjenis.Size = new System.Drawing.Size(202, 41);
             this.txtjenis.TabIndex = 1;
+            this.txtjenis.TextChanged += new System.EventHandler(this.txtjenis_TextChanged);
             this.txtjenis.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txtjenis.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             // 
@@ -901,6 +902,7 @@ namespace GOS_FxApps
             this.txtstasiun.SelectedText = "";
             this.txtstasiun.Size = new System.Drawing.Size(202, 41);
             this.txtstasiun.TabIndex = 2;
+            this.txtstasiun.TextChanged += new System.EventHandler(this.txtstasiun_TextChanged);
             this.txtstasiun.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txtstasiun.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             // 
@@ -940,6 +942,7 @@ namespace GOS_FxApps
             this.txtnomorrod.SelectedText = "";
             this.txtnomorrod.Size = new System.Drawing.Size(202, 41);
             this.txtnomorrod.TabIndex = 0;
+            this.txtnomorrod.TextChanged += new System.EventHandler(this.txtnomorrod_TextChanged);
             this.txtnomorrod.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.txtnomorrod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hurufbesar_KeyPress);
             // 
@@ -1253,6 +1256,7 @@ namespace GOS_FxApps
             this.dateeditpenerimaan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dateeditpenerimaan.BorderRadius = 5;
             this.dateeditpenerimaan.BorderThickness = 2;
+            this.dateeditpenerimaan.Checked = true;
             this.dateeditpenerimaan.FillColor = System.Drawing.Color.White;
             this.dateeditpenerimaan.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.dateeditpenerimaan.ForeColor = System.Drawing.Color.Black;

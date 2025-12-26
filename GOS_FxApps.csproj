@@ -568,6 +568,12 @@
     <EmbeddedResource Include="datamaterial.resx">
       <DependentUpon>datamaterial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="datapenerimaanedit.resx">
+      <DependentUpon>datapenerimaanedit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dataperbaikanedit.resx">
+      <DependentUpon>dataperbaikanedit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="editpenerimaan.resx">
       <DependentUpon>editpenerimaan.cs</DependentUpon>
     </EmbeddedResource>
@@ -708,12 +714,6 @@
     <None Include="Resources\home %281%29.png" />
     <EmbeddedResource Include="buktiperubahan.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="datapenerimaanedit.resx">
-      <DependentUpon>datapenerimaanedit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="dataperbaikanedit.resx">
-      <DependentUpon>dataperbaikanedit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EstimasiPemakaianMaterial.resx">
       <DependentUpon>EstimasiPemakaianMaterial.cs</DependentUpon>

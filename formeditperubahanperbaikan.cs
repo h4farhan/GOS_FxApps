@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using Guna.UI2.WinForms;
 using System.IO;
+using static System.Net.WebRequestMethods;
 
 namespace GOS_FxApps
 {
@@ -68,7 +69,10 @@ namespace GOS_FxApps
                         break;
                 }
             }
-            catch { }
+            catch
+            {
+                return;
+            }
         }
 
         private async Task HitungTotalData()
@@ -130,31 +134,23 @@ namespace GOS_FxApps
             try
             {
                 int offset = (currentPage - 1) * pageSize;
-
-                string query;
-
-                if (!isSearching)
-                {
-                    query = $@"
-            SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis,
-                   e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah,
-                   e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl,
-                   jumlah, tanggal_perbaikan, updated_at, remaks, catatan, foto
-            FROM buktiperubahan
-            ORDER BY tanggal_perbaikan DESC
-            OFFSET {offset} ROWS FETCH NEXT {pageSize} ROWS ONLY";
-                }
-                else
-                {
-                    query = $@"
-            SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis,
-                   e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah,
-                   e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl,
-                   jumlah, tanggal_perbaikan, updated_at, remaks, catatan, foto
-            {lastSearchWhere}
-            ORDER BY tanggal_perbaikan DESC
-            OFFSET {offset} ROWS FETCH NEXT {pageSize} ROWS ONLY";
-                }
+                string query = !isSearching
+                    ? $@"
+                SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis,
+                       e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah,
+                       e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl,
+                       jumlah, tanggal_perbaikan, updated_at, remaks, catatan, foto
+                FROM buktiperubahan
+                ORDER BY tanggal_perbaikan DESC
+                OFFSET {offset} ROWS FETCH NEXT {pageSize} ROWS ONLY"
+                    : $@"
+                SELECT no, tanggal_penerimaan, shift, nomor_rod, jenis,
+                       e1_ers, e1_est, e1_jumlah, e2_ers, e2_cst, e2_cstub, e2_jumlah,
+                       e3, e4, s, d, b, bac, nba, ba, ba1, cr, m, r, c, rl,
+                       jumlah, tanggal_perbaikan, updated_at, remaks, catatan, foto
+                {lastSearchWhere}
+                ORDER BY tanggal_perbaikan DESC
+                OFFSET {offset} ROWS FETCH NEXT {pageSize} ROWS ONLY";
 
                 DataTable dt = new DataTable();
 
@@ -173,13 +169,32 @@ namespace GOS_FxApps
                     }
                 }
 
-                dt.Columns.Add("fotoImage", typeof(Image));
+                dt.Columns.Add("fotoImage", typeof(Image)).DefaultValue = null;
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    if (row["foto"] != DBNull.Value)
+                    {
+                        try
+                        {
+                            byte[] bytes = (byte[])row["foto"];
+                            using (MemoryStream ms = new MemoryStream(bytes))
+                            {
+                                row["fotoImage"] = Image.FromStream(ms);
+                            }
+                        }
+                        catch { }
+                    }
+                }
 
                 dataGridView1.Invoke(new Action(() =>
                 {
                     dataGridView1.RowTemplate.Height = 80;
                     dataGridView1.DataSource = dt;
+
                     dataGridView1.Columns["no"].Visible = false;
+                    if (dataGridView1.Columns.Contains("foto"))
+                        dataGridView1.Columns["foto"].Visible = false;
 
                     dataGridView1.Columns["tanggal_penerimaan"].HeaderText = "Tanggal Penerimaan";
                     dataGridView1.Columns["shift"].HeaderText = "Shift";
@@ -217,52 +232,39 @@ namespace GOS_FxApps
                     dataGridView1.Columns["remaks"].HeaderText = "Remaks";
                     dataGridView1.Columns["catatan"].HeaderText = "Catatan";
 
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                    dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
-                    if (dataGridView1.Columns.Contains("foto"))
-                        dataGridView1.Columns["foto"].Visible = false;
-
                     if (dataGridView1.Columns.Contains("fotoImage"))
                     {
                         var imgCol = (DataGridViewImageColumn)dataGridView1.Columns["fotoImage"];
                         imgCol.HeaderText = "Foto";
                         imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
                     }
-                }));
 
-                _ = Task.Run(() =>
-                {
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        if (row["foto"] != DBNull.Value)
-                        {
-                            try
-                            {
-                                byte[] bytes = (byte[])row["foto"];
-                                using (MemoryStream ms = new MemoryStream(bytes))
-                                {
-                                    row["fotoImage"] = Image.FromStream(ms);
-                                }
-                            }
-                            catch { }
-                        }
-                    }
-                });
-                
-                dataGridView1.Invoke(new Action(() =>
-                {
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    dataGridView1.ReadOnly = true;
+                    dataGridView1.AllowUserToResizeRows = false;
+                    dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
+
+                    dataGridView1.DataError -= DataGridView1_DataError; 
+                    dataGridView1.DataError += DataGridView1_DataError;
+
                     lblhalaman.Text = $"Halaman {currentPage} dari {totalPages}";
                     btnleft.Enabled = currentPage > 1;
                     btnright.Enabled = currentPage < totalPages;
                 }));
             }
-            catch
+            catch 
             {
-                return;
+               return;
             }
         }
+
+        private void DataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.ThrowException = false; 
+                                      
+            Console.WriteLine(e.Exception.Message);
+        }
+
 
         private async Task<bool> cari()
         {
@@ -514,6 +516,8 @@ namespace GOS_FxApps
             clearedit();
             txtnomorrod.Enabled = false;
             setfalse();
+            btnedit.Enabled = false;
+            btncancel.Enabled = false;
         }
 
         private async void formeditperubahanperbaikan_Load(object sender, EventArgs e)
@@ -674,125 +678,130 @@ namespace GOS_FxApps
             }
         }
 
+        private int ToInt(string text)
+        {
+            return int.TryParse(text, out int val) ? val : 0;
+        }
+
         private async Task editdata()
         {
             try
             {
                 using (var conn = await Koneksi.GetConnectionAsync())
+                using (var cmd = conn.CreateCommand())
                 {
-                    string query = @"
-        UPDATE buktiperubahan SET
-            tanggal_perbaikan = @tanggal,
-            shift = @shift,
-            nomor_rod = @nomorrod,
-            jenis = @jenis,
-            e1_ers = @e1ers,
-            e1_est = @e1est,
-            e1_jumlah = @e1jumlah,
-            e2_ers = @e2ers,
-            e2_cst = @e2cst,
-            e2_cstub = @e2cstub,
-            e2_jumlah = @e2jumlah,
-            e3 = @e3,
-            e4 = @e4,
-            s = @s,
-            d = @d,
-            b = @b,
-            bac = @bac,
-            nba = @nba,
-            ba = @ba,
-            ba1 = @ba1,
-            cr = @cr,
-            m = @m,
-            r = @r,
-            c = @c,
-            rl = @rl,
-            jumlah = @jumlah,
-            tanggal_penerimaan = @tanggalpenerimaan,
-            updated_at = GETDATE(),
-            remaks = @remaks,
-            catatan = @catatan
-        WHERE no = @no";
+                    cmd.CommandText = @"
+                    UPDATE buktiperubahan SET
+                        tanggal_perbaikan   = @tanggal,
+                        shift               = @shift,
+                        nomor_rod           = @nomorrod,
+                        jenis               = @jenis,
+                        e1_ers              = @e1ers,
+                        e1_est              = @e1est,
+                        e1_jumlah           = @e1jumlah,
+                        e2_ers              = @e2ers,
+                        e2_cst              = @e2cst,
+                        e2_cstub            = @e2cstub,
+                        e2_jumlah           = @e2jumlah,
+                        e3                  = @e3,
+                        e4                  = @e4,
+                        s                   = @s,
+                        d                   = @d,
+                        b                   = @b,
+                        bac                 = @bac,
+                        nba                 = @nba,
+                        ba                  = @ba,
+                        ba1                 = @ba1,
+                        cr                  = @cr,
+                        m                   = @m,
+                        r                   = @r,
+                        c                   = @c,
+                        rl                  = @rl,
+                        jumlah              = @jumlah,
+                        tanggal_penerimaan  = @tanggalpenerimaan,
+                        foto                = COALESCE(@foto, foto),
+                        updated_at          = GETDATE(),
+                        remaks              = @remaks,
+                        catatan             = @catatan
+                    WHERE no = @no";
+
+                    cmd.Parameters.Add("@no", SqlDbType.Int).Value = noprimary;
+                    cmd.Parameters.Add("@tanggal", SqlDbType.DateTime).Value = tanggalperbaikan;
+                    cmd.Parameters.Add("@shift", SqlDbType.Int).Value = shift;
+                    cmd.Parameters.Add("@nomorrod", SqlDbType.VarChar).Value = txtnomorrod.Text;
+                    cmd.Parameters.Add("@jenis", SqlDbType.VarChar).Value = txtjenis.Text;
+
+                    cmd.Parameters.Add("@e1ers", SqlDbType.Int).Value = ToInt(txte1ers.Text);
+                    cmd.Parameters.Add("@e1est", SqlDbType.Int).Value = ToInt(txte1est.Text);
+                    cmd.Parameters.Add("@e1jumlah", SqlDbType.Int).Value = ToInt(lbltotale1.Text);
+                    cmd.Parameters.Add("@e2ers", SqlDbType.Int).Value = ToInt(txte2ers.Text);
+                    cmd.Parameters.Add("@e2cst", SqlDbType.Int).Value = ToInt(txte2cst.Text);
+                    cmd.Parameters.Add("@e2cstub", SqlDbType.Int).Value = ToInt(txte2cstub.Text);
+                    cmd.Parameters.Add("@e2jumlah", SqlDbType.Int).Value = ToInt(lbltotale2.Text);
+                    cmd.Parameters.Add("@e3", SqlDbType.Int).Value = ToInt(txte3.Text);
+                    cmd.Parameters.Add("@e4", SqlDbType.Int).Value = ToInt(txte4.Text);
+                    cmd.Parameters.Add("@s", SqlDbType.Int).Value = ToInt(txts.Text);
+                    cmd.Parameters.Add("@d", SqlDbType.Int).Value = ToInt(txtd.Text);
+                    cmd.Parameters.Add("@b", SqlDbType.Int).Value = ToInt(txtb.Text);
+                    cmd.Parameters.Add("@bac", SqlDbType.Int).Value = ToInt(txtbac.Text);
+                    cmd.Parameters.Add("@nba", SqlDbType.Int).Value = ToInt(txtnba.Text);
+                    cmd.Parameters.Add("@ba", SqlDbType.Int).Value = ToInt(lbltotalba.Text);
+                    cmd.Parameters.Add("@ba1", SqlDbType.Int).Value = ToInt(txtba1.Text);
+                    cmd.Parameters.Add("@cr", SqlDbType.Int).Value = ToInt(txtcr.Text);
+                    cmd.Parameters.Add("@m", SqlDbType.Int).Value = ToInt(txtm.Text);
+                    cmd.Parameters.Add("@r", SqlDbType.Int).Value = ToInt(txtr.Text);
+                    cmd.Parameters.Add("@c", SqlDbType.Int).Value = ToInt(txtc.Text);
+                    cmd.Parameters.Add("@rl", SqlDbType.Int).Value = ToInt(txtrl.Text);
+                    cmd.Parameters.Add("@jumlah", SqlDbType.Int).Value = ToInt(lbltotal.Text);
+
+                    cmd.Parameters.Add("@tanggalpenerimaan", SqlDbType.DateTime).Value = tanggalpenerimaan;
+                    cmd.Parameters.Add("@remaks", SqlDbType.VarChar, 100).Value = loginform.login.name;
+                    cmd.Parameters.Add("@catatan", SqlDbType.VarChar, 255).Value = txtcatatan.Text;
 
                     if (fotoDiganti && fotoSementara != null)
                     {
-                        query = query.Replace("WHERE no = @no", ", foto = @foto WHERE no = @no");
-                    }
-
-                    SqlCommand cmd = new SqlCommand(query, conn);
-
-                    cmd.Parameters.AddWithValue("@no", noprimary);
-                    cmd.Parameters.AddWithValue("@tanggal", tanggalperbaikan);
-                    cmd.Parameters.AddWithValue("@shift", shift);
-                    cmd.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
-                    cmd.Parameters.AddWithValue("@jenis", txtjenis.Text);
-                    cmd.Parameters.AddWithValue("@e1ers", txte1ers.Text);
-                    cmd.Parameters.AddWithValue("@e1est", txte1est.Text);
-                    cmd.Parameters.AddWithValue("@e1jumlah", lbltotale1.Text);
-                    cmd.Parameters.AddWithValue("@e2ers", txte2ers.Text);
-                    cmd.Parameters.AddWithValue("@e2cst", txte2cst.Text);
-                    cmd.Parameters.AddWithValue("@e2cstub", txte2cstub.Text);
-                    cmd.Parameters.AddWithValue("@e2jumlah", lbltotale2.Text);
-                    cmd.Parameters.AddWithValue("@e3", txte3.Text);
-                    cmd.Parameters.AddWithValue("@e4", txte4.Text);
-                    cmd.Parameters.AddWithValue("@s", txts.Text);
-                    cmd.Parameters.AddWithValue("@d", txtd.Text);
-                    cmd.Parameters.AddWithValue("@b", txtb.Text);
-                    cmd.Parameters.AddWithValue("@bac", txtbac.Text);
-                    cmd.Parameters.AddWithValue("@nba", txtnba.Text);
-                    cmd.Parameters.AddWithValue("@ba", lbltotalba.Text);
-                    cmd.Parameters.AddWithValue("@ba1", txtba1.Text);
-                    cmd.Parameters.AddWithValue("@cr", txtcr.Text);
-                    cmd.Parameters.AddWithValue("@m", txtm.Text);
-                    cmd.Parameters.AddWithValue("@r", txtr.Text);
-                    cmd.Parameters.AddWithValue("@c", txtc.Text);
-                    cmd.Parameters.AddWithValue("@rl", txtrl.Text);
-                    cmd.Parameters.AddWithValue("@jumlah", lbltotal.Text);
-                    cmd.Parameters.AddWithValue("@tanggalpenerimaan", tanggalpenerimaan);
-                    cmd.Parameters.AddWithValue("@remaks", loginform.login.name);
-                    cmd.Parameters.AddWithValue("@catatan", txtcatatan.Text);
-
-                    if (fotoDiganti && fotoSementara != null)
-                    {
-                        using (MemoryStream ms = new MemoryStream())
+                        using (var ms = new MemoryStream())
                         {
                             fotoSementara.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                            cmd.Parameters.AddWithValue("@foto", ms.ToArray());
+                            cmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = ms.ToArray();
                         }
-                    }
-
-                    cmd.ExecuteNonQuery();
-
-                    MessageBox.Show("Data berhasil diperbarui!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    clearedit();
-                    setfalse();
-                    fotoDiganti = false;
-
-                    if (isSearching)
-                    {
-                        await HitungTotalDataPencarian();
-                        await tampil();
                     }
                     else
                     {
-                        await HitungTotalData();
-                        await tampil();
-
-                        resetsearchui();
+                        cmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = DBNull.Value;
                     }
+
+                    await cmd.ExecuteNonQueryAsync();
+                }
+
+                MessageBox.Show("Data berhasil diperbarui!", "Sukses",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                clearedit();
+                setfalse();
+                fotoDiganti = false;
+
+                if (isSearching)
+                {
+                    await HitungTotalDataPencarian();
+                    await tampil();
+                }
+                else
+                {
+                    await HitungTotalData();
+                    await tampil();
+                    resetsearchui();
                 }
             }
             catch (SqlException)
             {
                 MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
-                                "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                    "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Gagal Simpan Data.");
-                return;
+                MessageBox.Show("Gagal Simpan Data.\n" + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

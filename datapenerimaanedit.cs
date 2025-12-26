@@ -30,7 +30,7 @@ namespace GOS_FxApps
             {
                 using (SqlConnection conn = Koneksi.GetConnection())
                 {
-                    string query = "SELECT * FROM penerimaan_m WHERE no = @no";
+                    string query = "SELECT no,tanggal_penerimaan,shift,nomor_rod,jenis,stasiun,e1,e2,e3,s,d,b,ba,r,m,cr,c,rl,jumlah,updated_at,remaks,catatan FROM penerimaan_m WHERE no = @no";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@no", historyPenerimaan.instance.noprimary);
 
@@ -38,7 +38,13 @@ namespace GOS_FxApps
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
+                    dataGridView2.RowTemplate.Height = 35;
                     dataGridView2.DataSource = dt;
+                    dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    dataGridView2.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
+                    dataGridView2.AllowUserToResizeRows = false;
+                    dataGridView2.ReadOnly = true;
+
                     dataGridView2.Columns[0].Visible = false;
                     dataGridView2.Columns[1].HeaderText = "Tanggal Penerimaan";
                     dataGridView2.Columns[2].HeaderText = "Shift";
@@ -52,9 +58,9 @@ namespace GOS_FxApps
                     dataGridView2.Columns[10].HeaderText = "D";
                     dataGridView2.Columns[11].HeaderText = "B";
                     dataGridView2.Columns[12].HeaderText = "BA";
-                    dataGridView2.Columns[13].HeaderText = "CR";
+                    dataGridView2.Columns[13].HeaderText = "R";
                     dataGridView2.Columns[14].HeaderText = "M";
-                    dataGridView2.Columns[15].HeaderText = "R";
+                    dataGridView2.Columns[15].HeaderText = "CR";
                     dataGridView2.Columns[16].HeaderText = "C";
                     dataGridView2.Columns[17].HeaderText = "RL";
                     dataGridView2.Columns[18].HeaderText = "Jumlah";
@@ -81,7 +87,7 @@ namespace GOS_FxApps
             {
                 using (SqlConnection conn = Koneksi.GetConnection())
                 {
-                    string query = "SELECT * FROM penerimaan_e WHERE no = @no";
+                    string query = "SELECT no,tanggal_penerimaan,shift,nomor_rod,jenis,stasiun,e1,e2,e3,s,d,b,ba,r,m,cr,c,rl,jumlah,updated_at,remaks,catatan FROM penerimaan_e WHERE no = @no";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@no", historyPenerimaan.instance.noprimary);
 
@@ -89,30 +95,35 @@ namespace GOS_FxApps
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
+                    dataGridView1.RowTemplate.Height = 35;
                     dataGridView1.DataSource = dt;
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
+                    dataGridView1.AllowUserToResizeRows = false;
+                    dataGridView1.ReadOnly = true;
+
                     dataGridView1.Columns[0].Visible = false;
-                    dataGridView1.Columns[1].Visible = false;
-                    dataGridView1.Columns[2].HeaderText = "Tanggal Penerimaan";
-                    dataGridView1.Columns[3].HeaderText = "Shift";
-                    dataGridView1.Columns[4].HeaderText = "Nomor ROD";
-                    dataGridView1.Columns[5].HeaderText = "Jenis";
-                    dataGridView1.Columns[6].HeaderText = "Stasiun";
-                    dataGridView1.Columns[7].HeaderText = "E1";
-                    dataGridView1.Columns[8].HeaderText = "E2";
-                    dataGridView1.Columns[9].HeaderText = "E3";
-                    dataGridView1.Columns[10].HeaderText = "S";
-                    dataGridView1.Columns[11].HeaderText = "D";
-                    dataGridView1.Columns[12].HeaderText = "B";
-                    dataGridView1.Columns[13].HeaderText = "BA";
-                    dataGridView1.Columns[14].HeaderText = "CR";
-                    dataGridView1.Columns[15].HeaderText = "M";
-                    dataGridView1.Columns[16].HeaderText = "R";
-                    dataGridView1.Columns[17].HeaderText = "C";
-                    dataGridView1.Columns[18].HeaderText = "RL";
-                    dataGridView1.Columns[19].HeaderText = "Jumlah";
-                    dataGridView1.Columns[20].HeaderText = "Diubah";
-                    dataGridView1.Columns[21].HeaderText = "Remaks";
-                    dataGridView1.Columns[22].HeaderText = "Catatan";
+                    dataGridView1.Columns[1].HeaderText = "Tanggal Penerimaan";
+                    dataGridView1.Columns[2].HeaderText = "Shift";
+                    dataGridView1.Columns[3].HeaderText = "Nomor ROD";
+                    dataGridView1.Columns[4].HeaderText = "Jenis";
+                    dataGridView1.Columns[5].HeaderText = "Stasiun";
+                    dataGridView1.Columns[6].HeaderText = "E1";
+                    dataGridView1.Columns[7].HeaderText = "E2";
+                    dataGridView1.Columns[8].HeaderText = "E3";
+                    dataGridView1.Columns[9].HeaderText = "S";
+                    dataGridView1.Columns[10].HeaderText = "D";
+                    dataGridView1.Columns[11].HeaderText = "B";
+                    dataGridView1.Columns[12].HeaderText = "BA";
+                    dataGridView1.Columns[13].HeaderText = "R";
+                    dataGridView1.Columns[14].HeaderText = "M";
+                    dataGridView1.Columns[15].HeaderText = "CR";
+                    dataGridView1.Columns[16].HeaderText = "C";
+                    dataGridView1.Columns[17].HeaderText = "RL";
+                    dataGridView1.Columns[18].HeaderText = "Jumlah";
+                    dataGridView1.Columns[19].HeaderText = "Diubah";
+                    dataGridView1.Columns[20].HeaderText = "Remaks";
+                    dataGridView1.Columns[21].HeaderText = "Catatan";
                 }
             }
             catch (SqlException)

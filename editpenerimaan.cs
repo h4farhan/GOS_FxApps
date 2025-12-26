@@ -64,7 +64,10 @@ namespace GOS_FxApps
                         break;
                 }
             }
-            catch { }
+            catch
+            {
+                return;
+            }
         }
 
         private async Task HitungTotalData()
@@ -193,6 +196,7 @@ namespace GOS_FxApps
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
 
             dataGridView1.ReadOnly = true;
+            dataGridView1.AllowUserToResizeRows = false;
 
             if (dt.Columns.Count >= 22)
             {
@@ -486,6 +490,9 @@ namespace GOS_FxApps
 
             int hasil = angka1 + angka2 + angka3 + angka4 + angka5 + angka6 + angka7 + angka8 + angka9 + angka10 + angka11 + angka12;
             lbltotalupdate.Text = hasil.ToString();
+            btnupdate.Enabled = true;
+            btnclear.Enabled = true;
+            btndelete.Enabled = true;
         }
 
         private void hurufbesar_KeyPress(object sender, KeyPressEventArgs e)
@@ -505,6 +512,11 @@ namespace GOS_FxApps
             }
         }
 
+        private int ToInt(string text)
+        {
+            return int.TryParse(text, out int val) ? val : 0;
+        }
+
         private async void btnupdate_Click(object sender, EventArgs e)
         {
             if (txtnomorrod.Text == "" || txtjenis.Text == "" || txtstasiun.Text == "")
@@ -522,241 +534,244 @@ namespace GOS_FxApps
             using (var trans = conn.BeginTransaction())
             {
                 isEditing = true;
+
                 try
                 {
-                    string query = @"
-                SELECT 'penerimaan_s' AS sumber, nomor_rod 
-                FROM penerimaan_s 
-                WHERE nomor_rod = @rod AND no <> @no
-                UNION
-                SELECT 'perbaikan_s' AS sumber, nomor_rod 
-                FROM perbaikan_s
-                WHERE nomor_rod = @rod AND no <> @no";
+                    string cekRodQuery = @"
+                SELECT sumber FROM (
+                    SELECT 'penerimaan_s' AS sumber FROM penerimaan_s WHERE nomor_rod=@rod AND no<>@no
+                    UNION ALL
+                    SELECT 'perbaikan_s' FROM perbaikan_s WHERE nomor_rod=@rod AND no<>@no
+                ) x";
 
-                    using (SqlCommand cmd = new SqlCommand(query, conn, trans))
+                    using (var cmd = new SqlCommand(cekRodQuery, conn, trans))
                     {
-                        cmd.Parameters.AddWithValue("@rod", txtnomorrod.Text);
-                        cmd.Parameters.AddWithValue("@no", noprimary);
+                        cmd.Parameters.Add("@rod", SqlDbType.VarChar).Value = txtnomorrod.Text;
+                        cmd.Parameters.Add("@no", SqlDbType.Int).Value = noprimary;
 
-                        string sumber = null;
-
-                        using (SqlDataReader dr = await cmd.ExecuteReaderAsync())
-                        {
-                            if (await dr.ReadAsync())
-                                sumber = dr["sumber"].ToString();
-                        }
-
-                        if (sumber != null)
+                        object hasil = await cmd.ExecuteScalarAsync();
+                        if (hasil != null)
                         {
                             MessageBox.Show(
-                                sumber == "penerimaan_s"
+                                hasil.ToString() == "penerimaan_s"
                                 ? "Nomor ROD ini sudah ada di data penerimaan dan belum diperbaiki."
                                 : "Nomor ROD ini sudah ada di data perbaikan dan belum dikirim.",
                                 "Peringatan",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
-                            trans.Rollback();
 
+                            trans.Rollback();
                             return;
                         }
                     }
 
-                    if (!txtnomorrod.Text.Trim().Equals(nomorrodsebelumnya, StringComparison.OrdinalIgnoreCase))
+                    if (!txtnomorrod.Text.Equals(nomorrodsebelumnya, StringComparison.OrdinalIgnoreCase))
                     {
-                        using (SqlCommand cmdCekTanggal = new SqlCommand(@"
-                    SELECT COUNT(*) 
-                    FROM penerimaan_p
-                    WHERE nomor_rod = @nomor_rod
-                      AND CONVERT(date, tanggal_penerimaan) = CONVERT(date, @tgl)
-                      AND no <> @no", conn, trans))
+                        using (var cmd = new SqlCommand(@"
+                    SELECT COUNT(*) FROM penerimaan_p
+                    WHERE nomor_rod=@rod
+                      AND CONVERT(date,tanggal_penerimaan)=CONVERT(date,@tgl)
+                      AND no<>@no", conn, trans))
                         {
-                            cmdCekTanggal.Parameters.AddWithValue("@nomor_rod", txtnomorrod.Text);
-                            cmdCekTanggal.Parameters.AddWithValue("@tgl", MainForm.Instance.tanggal);
-                            cmdCekTanggal.Parameters.AddWithValue("@no", noprimary);
+                            cmd.Parameters.Add("@rod", SqlDbType.VarChar).Value = txtnomorrod.Text;
+                            cmd.Parameters.Add("@tgl", SqlDbType.DateTime).Value = tanggalpenerimaan;
+                            cmd.Parameters.Add("@no", SqlDbType.Int).Value = noprimary;
 
-                            int sudahAda = (int)await cmdCekTanggal.ExecuteScalarAsync();
-
-                            if (sudahAda > 0)
+                            if ((int)await cmd.ExecuteScalarAsync() > 0)
                             {
-                                MessageBox.Show(
-                                    $"Nomor ROD {txtnomorrod.Text} sudah pernah diterima pada tanggal yang sama ({MainForm.Instance.tanggal:dd MMMM yyyy}).",
-                                    "Tanggal Duplikat",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
+                                MessageBox.Show("Nomor ROD sudah diterima di tanggal yang sama.",
+                                                "Duplikat",
+                                                MessageBoxButtons.OK,
+                                                MessageBoxIcon.Warning);
                                 trans.Rollback();
-
                                 return;
                             }
                         }
                     }
 
                     int hariRentang = 24;
-
-                    using (SqlCommand cmdHari = new SqlCommand("SELECT hari FROM perputaran_rod", conn, trans))
+                    using (var cmd = new SqlCommand("SELECT hari FROM perputaran_rod", conn, trans))
                     {
-                        object val = await cmdHari.ExecuteScalarAsync();
-                        if (val != null && val != DBNull.Value)
-                            hariRentang = Convert.ToInt32(val);
+                        object v = await cmd.ExecuteScalarAsync();
+                        if (v != null && v != DBNull.Value)
+                            hariRentang = Convert.ToInt32(v);
                     }
 
-                    using (SqlCommand cmdCekRentang = new SqlCommand(@"
-                SELECT COUNT(*) 
-                FROM penerimaan_p
-                WHERE nomor_rod = @nomor_rod
-                  AND tanggal_penerimaan BETWEEN DATEADD(DAY, -@rentang, @tgl) 
-                                            AND DATEADD(DAY, @rentang, @tgl)
-                  AND no <> @no", conn, trans))
+                    DateTime? tanggalBentrok = null;
+
+                    using (var cmd = new SqlCommand(@"
+                    SELECT TOP 1 tanggal_penerimaan
+                    FROM penerimaan_p
+                    WHERE nomor_rod = @rod
+                      AND tanggal_penerimaan BETWEEN DATEADD(DAY,-@h,@tgl)
+                                                 AND DATEADD(DAY,@h,@tgl)
+                      AND no <> @no
+                    ORDER BY tanggal_penerimaan", conn, trans))
                     {
-                        cmdCekRentang.Parameters.AddWithValue("@nomor_rod", txtnomorrod.Text);
-                        cmdCekRentang.Parameters.AddWithValue("@tgl", MainForm.Instance.tanggal);
-                        cmdCekRentang.Parameters.AddWithValue("@rentang", hariRentang);
-                        cmdCekRentang.Parameters.AddWithValue("@no", noprimary);
+                        cmd.Parameters.Add("@rod", SqlDbType.VarChar).Value = txtnomorrod.Text.Trim();
+                        cmd.Parameters.Add("@tgl", SqlDbType.DateTime).Value = tanggalpenerimaan;
+                        cmd.Parameters.Add("@h", SqlDbType.Int).Value = hariRentang;
+                        cmd.Parameters.Add("@no", SqlDbType.Int).Value = noprimary;
 
-                        int terlaluDekat = (int)await cmdCekRentang.ExecuteScalarAsync();
+                        object v = await cmd.ExecuteScalarAsync();
+                        if (v != null && v != DBNull.Value)
+                            tanggalBentrok = Convert.ToDateTime(v);
+                    }
 
-                        if (terlaluDekat > 0)
+                    if (tanggalBentrok.HasValue)
+                    {
+                        string tglBentrok = tanggalBentrok.Value.ToString("dd-MM-yyyy HH:mm:ss");
+
+                        if (MessageBox.Show(
+                            $"Nomor ROD {txtnomorrod.Text} sudah pernah diterima pada tanggal {tglBentrok}\n" +
+                            $"(dalam rentang ±{hariRentang} hari).\n\n" +
+                            $"Tetap lanjutkan?",
+                            "Peringatan Duplikat ROD",
+                            MessageBoxButtons.OKCancel,
+                            MessageBoxIcon.Warning) != DialogResult.OK)
                         {
-                            if (MessageBox.Show(
-                                $"Nomor ROD {txtnomorrod.Text} sudah pernah diterima dalam rentang ±{hariRentang} hari.\n" +
-                                $"Tetap lanjutkan?",
-                                "Peringatan", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK)
-                            {
-                                trans.Rollback();
-                                return;
-                            }
+                            trans.Rollback();
+                            return;
                         }
                     }
 
-                    SqlCommand cmd1 = new SqlCommand(@"
-                UPDATE penerimaan_p 
-                SET nomor_rod=@nomorrod, jenis=@jenis, stasiun=@stasiun, 
-                    e1=@e1, e2=@e2, e3=@e3, s=@s, d=@d, b=@b, ba=@ba, cr=@cr, 
-                    m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah,
-                    remaks=@remaks, updated_at=GETDATE(), catatan=@catatan
-                WHERE no=@no", conn, trans);
+                    using (var cmd = new SqlCommand(@"
+                UPDATE penerimaan_p SET
+                    nomor_rod=@rod, jenis=@jenis, stasiun=@stasiun,
+                    e1=@e1,e2=@e2,e3=@e3,s=@s,d=@d,b=@b,ba=@ba,cr=@cr,
+                    m=@m,r=@r,c=@c,rl=@rl,jumlah=@jumlah,
+                    remaks=@remaks, catatan=@catatan, updated_at=GETDATE()
+                WHERE no=@no", conn, trans))
+                    {
+                        cmd.Parameters.Add("@rod", SqlDbType.VarChar).Value = txtnomorrod.Text;
+                        cmd.Parameters.Add("@jenis", SqlDbType.VarChar).Value = txtjenis.Text;
+                        cmd.Parameters.Add("@stasiun", SqlDbType.VarChar).Value = txtstasiun.Text;
 
-                    cmd1.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
-                    cmd1.Parameters.AddWithValue("@jenis", txtjenis.Text);
-                    cmd1.Parameters.AddWithValue("@stasiun", txtstasiun.Text);
-                    cmd1.Parameters.AddWithValue("@e1", txte1.Text);
-                    cmd1.Parameters.AddWithValue("@e2", txte2.Text);
-                    cmd1.Parameters.AddWithValue("@e3", txte3.Text);
-                    cmd1.Parameters.AddWithValue("@s", txts.Text);
-                    cmd1.Parameters.AddWithValue("@d", txtd.Text);
-                    cmd1.Parameters.AddWithValue("@b", txtb.Text);
-                    cmd1.Parameters.AddWithValue("@ba", txtba.Text);
-                    cmd1.Parameters.AddWithValue("@cr", txtcr.Text);
-                    cmd1.Parameters.AddWithValue("@m", txtm.Text);
-                    cmd1.Parameters.AddWithValue("@r", txtr.Text);
-                    cmd1.Parameters.AddWithValue("@c", txtc.Text);
-                    cmd1.Parameters.AddWithValue("@rl", txtrl.Text);
-                    cmd1.Parameters.AddWithValue("@jumlah", lbltotalupdate.Text);
-                    cmd1.Parameters.AddWithValue("@remaks", loginform.login.name);
-                    cmd1.Parameters.AddWithValue("@catatan", txtcatatan.Text);
-                    cmd1.Parameters.AddWithValue("@no", noprimary);
+                        cmd.Parameters.Add("@e1", SqlDbType.Int).Value = ToInt(txte1.Text);
+                        cmd.Parameters.Add("@e2", SqlDbType.Int).Value = ToInt(txte2.Text);
+                        cmd.Parameters.Add("@e3", SqlDbType.Int).Value = ToInt(txte3.Text);
+                        cmd.Parameters.Add("@s", SqlDbType.Int).Value = ToInt(txts.Text);
+                        cmd.Parameters.Add("@d", SqlDbType.Int).Value = ToInt(txtd.Text);
+                        cmd.Parameters.Add("@b", SqlDbType.Int).Value = ToInt(txtb.Text);
+                        cmd.Parameters.Add("@ba", SqlDbType.Int).Value = ToInt(txtba.Text);
+                        cmd.Parameters.Add("@cr", SqlDbType.Int).Value = ToInt(txtcr.Text);
+                        cmd.Parameters.Add("@m", SqlDbType.Int).Value = ToInt(txtm.Text);
+                        cmd.Parameters.Add("@r", SqlDbType.Int).Value = ToInt(txtr.Text);
+                        cmd.Parameters.Add("@c", SqlDbType.Int).Value = ToInt(txtc.Text);
+                        cmd.Parameters.Add("@rl", SqlDbType.Int).Value = ToInt(txtrl.Text);
+                        cmd.Parameters.Add("@jumlah", SqlDbType.Int).Value = ToInt(lbltotalupdate.Text);
 
-                    await cmd1.ExecuteNonQueryAsync();
+                        cmd.Parameters.Add("@remaks", SqlDbType.VarChar).Value = loginform.login.name;
+                        cmd.Parameters.Add("@catatan", SqlDbType.VarChar).Value = txtcatatan.Text;
+                        cmd.Parameters.Add("@no", SqlDbType.Int).Value = noprimary;
+
+                        await cmd.ExecuteNonQueryAsync();
+                    }
 
                     SqlCommand log1 = new SqlCommand("INSERT INTO penerimaan_e SELECT * FROM penerimaan_p WHERE no=@no", conn, trans);
                     log1.Parameters.AddWithValue("@no", noprimary);
                     await log1.ExecuteNonQueryAsync();
 
-                    // 2. Update penerimaan_s (Hanya kalau ada)
-                    SqlCommand cek2 = new SqlCommand("SELECT COUNT(*) FROM penerimaan_s WHERE no=@no", conn, trans);
-                    cek2.Parameters.AddWithValue("@no", noprimary);
-                    int ada2 = (int)await cek2.ExecuteScalarAsync();
+                    int adaPS = 0, adaPP = 0, adaPB = 0, adaPG = 0;
 
-                    if (ada2 > 0)
+                    using (var cmd = new SqlCommand(@"
+                SELECT
+                    (SELECT COUNT(*) FROM penerimaan_s WHERE no=@no),
+                    (SELECT COUNT(*) FROM perbaikan_p WHERE no=@no),
+                    (SELECT COUNT(*) FROM perbaikan_s WHERE no=@no),
+                    (SELECT COUNT(*) FROM pengiriman WHERE no=@no)", conn, trans))
                     {
-                        SqlCommand cmd2 = new SqlCommand(@"
-            UPDATE penerimaan_s
-            SET nomor_rod = @nomorrod, jenis=@jenis, stasiun=@stasiun, e1=@e1, e2=@e2, e3=@e3, s=@s, d=@d, 
-                b=@b, ba=@ba, cr=@cr, m=@m, r=@r, c=@c, rl=@rl, jumlah=@jumlah,
-                remaks=@remaks, updated_at=GETDATE(), catatan = @catatan
-            WHERE no=@no", conn, trans);
-
-                        cmd2.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
-                        cmd2.Parameters.AddWithValue("@jenis", txtjenis.Text);
-                        cmd2.Parameters.AddWithValue("@stasiun", txtstasiun.Text);
-                        cmd2.Parameters.AddWithValue("@e1", txte1.Text);
-                        cmd2.Parameters.AddWithValue("@e2", txte2.Text);
-                        cmd2.Parameters.AddWithValue("@e3", txte3.Text);
-                        cmd2.Parameters.AddWithValue("@s", txts.Text);
-                        cmd2.Parameters.AddWithValue("@d", txtd.Text);
-                        cmd2.Parameters.AddWithValue("@b", txtb.Text);
-                        cmd2.Parameters.AddWithValue("@ba", txtba.Text);
-                        cmd2.Parameters.AddWithValue("@cr", txtcr.Text);
-                        cmd2.Parameters.AddWithValue("@m", txtm.Text);
-                        cmd2.Parameters.AddWithValue("@r", txtr.Text);
-                        cmd2.Parameters.AddWithValue("@c", txtc.Text);
-                        cmd2.Parameters.AddWithValue("@rl", txtrl.Text);
-                        cmd2.Parameters.AddWithValue("@jumlah", lbltotalupdate.Text);
-                        cmd2.Parameters.AddWithValue("@remaks", loginform.login.name);
-                        cmd2.Parameters.AddWithValue("@no", noprimary);
-                        cmd2.Parameters.AddWithValue("@catatan", txtcatatan.Text);
-                        await cmd2.ExecuteNonQueryAsync();
+                        cmd.Parameters.Add("@no", SqlDbType.Int).Value = noprimary;
+                        using (var r = await cmd.ExecuteReaderAsync())
+                        {
+                            if (await r.ReadAsync())
+                            {
+                                adaPS = r.GetInt32(0);
+                                adaPP = r.GetInt32(1);
+                                adaPB = r.GetInt32(2);
+                                adaPG = r.GetInt32(3);
+                            }
+                        }
                     }
 
-                    // 3. Update perbaikan_p (Hanya kalau ada)
-                    SqlCommand cek3 = new SqlCommand("SELECT COUNT(*) FROM perbaikan_p WHERE no=@no", conn, trans);
-                    cek3.Parameters.AddWithValue("@no", noprimary);
-                    int ada3 = (int)await cek3.ExecuteScalarAsync();
-
-                    if (ada3 > 0)
+                    if (adaPS > 0)
                     {
-                        SqlCommand cmd3 = new SqlCommand(@"
-            UPDATE perbaikan_p 
-            SET nomor_rod=@nomorrod, remaks=@remaks, updated_at=GETDATE()
-            WHERE no=@no", conn, trans);
-                        cmd3.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
-                        cmd3.Parameters.AddWithValue("@remaks", loginform.login.name);
-                        cmd3.Parameters.AddWithValue("@no", noprimary);
-                        await cmd3.ExecuteNonQueryAsync();
+                        using (var cmd = new SqlCommand(
+                            "UPDATE penerimaan_s SET nomor_rod=@rod, jenis=@jenis, stasiun=@stasiun,e1=@e1,e2=@e2,e3=@e3,s=@s,d=@d,b=@b,ba=@ba,cr=@cr," +
+                            "m=@m,r=@r,c=@c,rl=@rl,jumlah=@jumlah,remaks=@remaks, catatan=@catatan, updated_at=GETDATE() WHERE no=@no",
+                            conn, trans))
+                        {
+                            cmd.Parameters.Add("@rod", SqlDbType.VarChar).Value = txtnomorrod.Text;
+                            cmd.Parameters.Add("@jenis", SqlDbType.VarChar).Value = txtjenis.Text;
+                            cmd.Parameters.Add("@stasiun", SqlDbType.VarChar).Value = txtstasiun.Text;
+
+                            cmd.Parameters.Add("@e1", SqlDbType.Int).Value = ToInt(txte1.Text);
+                            cmd.Parameters.Add("@e2", SqlDbType.Int).Value = ToInt(txte2.Text);
+                            cmd.Parameters.Add("@e3", SqlDbType.Int).Value = ToInt(txte3.Text);
+                            cmd.Parameters.Add("@s", SqlDbType.Int).Value = ToInt(txts.Text);
+                            cmd.Parameters.Add("@d", SqlDbType.Int).Value = ToInt(txtd.Text);
+                            cmd.Parameters.Add("@b", SqlDbType.Int).Value = ToInt(txtb.Text);
+                            cmd.Parameters.Add("@ba", SqlDbType.Int).Value = ToInt(txtba.Text);
+                            cmd.Parameters.Add("@cr", SqlDbType.Int).Value = ToInt(txtcr.Text);
+                            cmd.Parameters.Add("@m", SqlDbType.Int).Value = ToInt(txtm.Text);
+                            cmd.Parameters.Add("@r", SqlDbType.Int).Value = ToInt(txtr.Text);
+                            cmd.Parameters.Add("@c", SqlDbType.Int).Value = ToInt(txtc.Text);
+                            cmd.Parameters.Add("@rl", SqlDbType.Int).Value = ToInt(txtrl.Text);
+                            cmd.Parameters.Add("@jumlah", SqlDbType.Int).Value = ToInt(lbltotalupdate.Text);
+
+                            cmd.Parameters.Add("@remaks", SqlDbType.VarChar).Value = loginform.login.name;
+                            cmd.Parameters.Add("@catatan", SqlDbType.VarChar).Value = txtcatatan.Text;
+                            cmd.Parameters.Add("@no", SqlDbType.Int).Value = noprimary;
+                            await cmd.ExecuteNonQueryAsync();
+                        }
+                    }
+
+                    if (adaPP > 0)
+                    {
+                        using (var cmd = new SqlCommand(
+                            "UPDATE perbaikan_p SET nomor_rod=@rod, remaks=@r, updated_at=GETDATE() WHERE no=@no",
+                            conn, trans))
+                        {
+                            cmd.Parameters.Add("@rod", SqlDbType.VarChar).Value = txtnomorrod.Text;
+                            cmd.Parameters.Add("@r", SqlDbType.VarChar).Value = loginform.login.name;
+                            cmd.Parameters.Add("@no", SqlDbType.Int).Value = noprimary;
+                            await cmd.ExecuteNonQueryAsync();
+                        }
 
                         SqlCommand log3 = new SqlCommand("INSERT INTO perbaikan_e SELECT * FROM perbaikan_p WHERE no=@no", conn, trans);
-                        log3.Parameters.AddWithValue("@no", noprimary);
+                        log3.Parameters.Add("@no", SqlDbType.Int).Value = noprimary;
                         await log3.ExecuteNonQueryAsync();
                     }
 
-                    // 4. Update perbaikan_s (Hanya kalau ada)
-                    SqlCommand cek4 = new SqlCommand("SELECT COUNT(*) FROM perbaikan_s WHERE no=@no", conn, trans);
-                    cek4.Parameters.AddWithValue("@no", noprimary);
-                    int ada4 = (int)await cek4.ExecuteScalarAsync();
-
-                    if (ada4 > 0)
+                    if (adaPB > 0)
                     {
-                        SqlCommand cmd4 = new SqlCommand(@"
-            UPDATE perbaikan_s 
-            SET nomor_rod=@nomorrod, remaks=@remaks, updated_at=GETDATE()
-            WHERE no=@no", conn, trans);
-                        cmd4.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
-                        cmd4.Parameters.AddWithValue("@remaks", loginform.login.name);
-                        cmd4.Parameters.AddWithValue("@no", noprimary);
-                        await cmd4.ExecuteNonQueryAsync();
-
-                        SqlCommand log4 = new SqlCommand("INSERT INTO perbaikan_e SELECT * FROM perbaikan_s WHERE no=@no", conn, trans);
-                        log4.Parameters.AddWithValue("@no", noprimary);
-                        await log4.ExecuteNonQueryAsync();
+                        using (var cmd = new SqlCommand(
+                            "UPDATE perbaikan_s SET nomor_rod=@rod, remaks=@r, updated_at=GETDATE() WHERE no=@no",
+                            conn, trans))
+                        {
+                            cmd.Parameters.Add("@rod", SqlDbType.VarChar).Value = txtnomorrod.Text;
+                            cmd.Parameters.Add("@r", SqlDbType.VarChar).Value = loginform.login.name;
+                            cmd.Parameters.Add("@no", SqlDbType.Int).Value = noprimary;
+                            await cmd.ExecuteNonQueryAsync();
+                        }
                     }
 
-                    // 5. Update pengiriman (Hanya kalau ada)
-                    SqlCommand cek5 = new SqlCommand("SELECT COUNT(*) FROM pengiriman WHERE no=@no", conn, trans);
-                    cek5.Parameters.AddWithValue("@no", noprimary);
-                    int ada5 = (int)await cek5.ExecuteScalarAsync();
-
-                    if (ada5 > 0)
+                    if (adaPG > 0)
                     {
-                        SqlCommand cmd5 = new SqlCommand(@"
-            UPDATE pengiriman 
-            SET nomor_rod=@nomorrod, remaks=@remaks, updated_at=GETDATE()
-            WHERE no=@no", conn, trans);
-                        cmd5.Parameters.AddWithValue("@nomorrod", txtnomorrod.Text);
-                        cmd5.Parameters.AddWithValue("@remaks", loginform.login.name);
-                        cmd5.Parameters.AddWithValue("@no", noprimary);
-                        await cmd5.ExecuteNonQueryAsync();
+                        using (var cmd = new SqlCommand(
+                            "UPDATE pengiriman SET nomor_rod=@rod, remaks=@r, updated_at=GETDATE() WHERE no=@no",
+                            conn, trans))
+                        {
+                            cmd.Parameters.Add("@rod", SqlDbType.VarChar).Value = txtnomorrod.Text;
+                            cmd.Parameters.Add("@r", SqlDbType.VarChar).Value = loginform.login.name;
+                            cmd.Parameters.Add("@no", SqlDbType.Int).Value = noprimary;
+                            await cmd.ExecuteNonQueryAsync();
+                        }
                     }
 
                     trans.Commit();
+
+                    await Task.Yield();
 
                     MessageBox.Show("Data berhasil diperbarui.", "Sukses",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -776,7 +791,9 @@ namespace GOS_FxApps
 
                         resetsearchui();
                     }
-
+                    btnupdate.Enabled = false;
+                    btnclear.Enabled = false;
+                    btndelete.Enabled = false;
                 }
                 catch (SqlException)
                 {
@@ -842,7 +859,7 @@ namespace GOS_FxApps
                             using (SqlCommand cmd = new SqlCommand(
                                 $"DELETE FROM {table} WHERE no = @no", conn, trans))
                             {
-                                cmd.Parameters.Add("@no", SqlDbType.NVarChar).Value = noprimary;
+                                cmd.Parameters.Add("@no", SqlDbType.Int).Value = noprimary;
                                 await cmd.ExecuteNonQueryAsync();
                             }
                         }
@@ -962,11 +979,18 @@ namespace GOS_FxApps
             btnupdate.Enabled = false;
             btndelete.Enabled = false;
             btnclear.Enabled = false;
+
             await hapusdata();
+
             clearedit();
             setfalse();
             noprimary = 0;
+
+            btnupdate.Enabled = false;
+            btnclear.Enabled = false;
+            btndelete.Enabled = false;
         }
+
 
         private async void btnleft_Click(object sender, EventArgs e)
         {
@@ -994,6 +1018,27 @@ namespace GOS_FxApps
         private void txtcr_TextChanged(object sender, EventArgs e)
         {
             hitung();
+        }
+
+        private void txtjenis_TextChanged(object sender, EventArgs e)
+        {
+            btnupdate.Enabled = true;
+            btnclear.Enabled = true;
+            btndelete.Enabled = true;
+        }
+
+        private void txtnomorrod_TextChanged(object sender, EventArgs e)
+        {
+            btnupdate.Enabled = true;
+            btnclear.Enabled = true;
+            btndelete.Enabled = true;
+        }
+
+        private void txtstasiun_TextChanged(object sender, EventArgs e)
+        {
+            btnupdate.Enabled = true;
+            btnclear.Enabled = true;
+            btndelete.Enabled = true;
         }
     }
 }

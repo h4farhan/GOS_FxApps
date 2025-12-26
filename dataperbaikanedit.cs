@@ -36,9 +36,13 @@ namespace GOS_FxApps
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
-                    dataGridView2.DataSource = dt;
-                    dataGridView2.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                     dataGridView2.RowTemplate.Height = 35;
+                    dataGridView2.DataSource = dt;
+                    dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    dataGridView2.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
+                    dataGridView2.AllowUserToResizeRows = false;
+                    dataGridView2.ReadOnly = true;
+
                     dataGridView2.Columns[0].Visible = false;
                     dataGridView2.Columns[1].HeaderText = "Tanggal Perbaikan";
                     dataGridView2.Columns[2].HeaderText = "Shift";
@@ -96,9 +100,12 @@ namespace GOS_FxApps
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
-                    dataGridView1.DataSource = dt;
-                    dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
                     dataGridView1.RowTemplate.Height = 35;
+                    dataGridView1.DataSource = dt;
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(213, 213, 214);
+                    dataGridView1.AllowUserToResizeRows = false;
+                    dataGridView1.ReadOnly = true;
 
                     dataGridView1.Columns[0].Visible = false;
                     dataGridView1.Columns[1].HeaderText = "Tanggal Perbaikan";
