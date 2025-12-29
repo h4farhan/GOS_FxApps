@@ -512,6 +512,7 @@ namespace GOS_FxApps
             this.SuspendLayout();
             setdefault();
             this.ResumeLayout();
+            txtrod1.Focus();
 
             btnclear.Enabled = false;
             guna2Button2.Enabled = false;

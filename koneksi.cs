@@ -12,7 +12,7 @@ namespace GOS_FxApps
     public static class Koneksi
     {
         //untuk koneksi lokal laptop kantor
-        //Data Source = 192.168.1.25; Initial Catalog = tes; User ID = tii; Password=tii2025;TrustServerCertificate=True
+        //Data Source = TII_NB2_1122; Initial Catalog = tes; User ID = tii; Password=tii2025;TrustServerCertificate=True
         private static readonly string connectionString =
             //"Data Source=192.168.1.25;" +
             "Data Source=TII_NB2_1122;" +

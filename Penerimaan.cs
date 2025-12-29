@@ -292,6 +292,7 @@ namespace GOS_FxApps
 
             btnsimpan.Enabled = false;
             btncancel.Enabled = false;
+            txtnomorrod.Focus();
 
             delay = 300;
         }

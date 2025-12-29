@@ -181,15 +181,6 @@
                   <Width>1.49676cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.49675cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1.50074cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1.49676cm</Width>
-                </TablixColumn>
-                <TablixColumn>
                   <Width>1.25608cm</Width>
                 </TablixColumn>
                 <TablixColumn>
@@ -477,120 +468,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>bpe2</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                              <Width>0.25pt</Width>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="konversi_e1">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!konversi_e1.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                    <FontWeight>SemiBold</FontWeight>
-                                    <Color>#0070bf</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>konversi_e1</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                              <Width>0.25pt</Width>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="konversi_e2">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!konversi_e2.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                    <FontWeight>SemiBold</FontWeight>
-                                    <Color>#0070bf</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>konversi_e2</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                              <Width>0.25pt</Width>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="konversiroundbar">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!konversiroundbar.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                    <FontWeight>SemiBold</FontWeight>
-                                    <Color>#0070bf</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>konversiroundbar</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1217,120 +1094,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox12">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!konversi_e1.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                    <FontWeight>SemiBold</FontWeight>
-                                    <Color>#0070bf</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox12</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                              <Width>0.25pt</Width>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox13">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!konversi_e2.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                    <FontWeight>SemiBold</FontWeight>
-                                    <Color>#0070bf</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox13</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                              <Width>0.25pt</Width>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox14">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!konversiroundbar.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial Narrow</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                    <FontWeight>SemiBold</FontWeight>
-                                    <Color>#0070bf</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox14</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                              <Width>0.25pt</Width>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
                         <Textbox Name="bbe11">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -1774,9 +1537,6 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -1791,9 +1551,9 @@
             </TablixRowHierarchy>
             <DataSetName>datasetrbstokhari</DataSetName>
             <Top>2.6025cm</Top>
-            <Left>0.25448cm</Left>
+            <Left>2.47698cm</Left>
             <Height>1.15614cm</Height>
-            <Width>29.16256cm</Width>
+            <Width>24.66831cm</Width>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -2031,9 +1791,9 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>0.83251cm</Top>
-                <Left>14.36622cm</Left>
+                <Left>9.86931cm</Left>
                 <Height>1.08033cm</Height>
-                <Width>1.25614cm</Width>
+                <Width>1.25882cm</Width>
                 <ZIndex>5</ZIndex>
                 <Style>
                   <Border>
@@ -2070,9 +1830,9 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>0.83251cm</Top>
-                <Left>15.62099cm</Left>
+                <Left>11.12812cm</Left>
                 <Height>1.08033cm</Height>
-                <Width>1.25614cm</Width>
+                <Width>1.2521cm</Width>
                 <ZIndex>6</ZIndex>
                 <Style>
                   <Border>
@@ -2109,7 +1869,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>1.25441cm</Top>
-                <Left>20.64275cm</Left>
+                <Left>16.14584cm</Left>
                 <Height>0.65843cm</Height>
                 <Width>1.25608cm</Width>
                 <ZIndex>7</ZIndex>
@@ -2148,7 +1908,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>1.25441cm</Top>
-                <Left>19.38667cm</Left>
+                <Left>14.88976cm</Left>
                 <Height>0.65843cm</Height>
                 <Width>1.25608cm</Width>
                 <ZIndex>8</ZIndex>
@@ -2202,7 +1962,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>0.83251cm</Top>
-                <Left>18.13053cm</Left>
+                <Left>13.63362cm</Left>
                 <Height>1.08033cm</Height>
                 <Width>1.25614cm</Width>
                 <ZIndex>9</ZIndex>
@@ -2256,7 +2016,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>0.83251cm</Top>
-                <Left>16.87576cm</Left>
+                <Left>12.37885cm</Left>
                 <Height>1.08033cm</Height>
                 <Width>1.25614cm</Width>
                 <ZIndex>10</ZIndex>
@@ -2309,7 +2069,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>25.69429cm</Left>
+                <Left>21.19738cm</Left>
                 <Height>1.91283cm</Height>
                 <Width>1.49834cm</Width>
                 <ZIndex>11</ZIndex>
@@ -2347,7 +2107,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>1.25441cm</Top>
-                <Left>23.15491cm</Left>
+                <Left>18.658cm</Left>
                 <Height>0.65843cm</Height>
                 <Width>1.25608cm</Width>
                 <ZIndex>12</ZIndex>
@@ -2386,7 +2146,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>1.25441cm</Top>
-                <Left>21.89883cm</Left>
+                <Left>17.40192cm</Left>
                 <Height>0.65843cm</Height>
                 <Width>1.25608cm</Width>
                 <ZIndex>13</ZIndex>
@@ -2425,7 +2185,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>14.36622cm</Left>
+                <Left>9.86931cm</Left>
                 <Height>0.83251cm</Height>
                 <Width>2.51091cm</Width>
                 <ZIndex>14</ZIndex>
@@ -2463,7 +2223,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>16.87446cm</Left>
+                <Left>12.37755cm</Left>
                 <Height>0.83251cm</Height>
                 <Width>2.51222cm</Width>
                 <ZIndex>15</ZIndex>
@@ -2501,7 +2261,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>19.38667cm</Left>
+                <Left>14.88976cm</Left>
                 <Height>0.83251cm</Height>
                 <Width>5.02432cm</Width>
                 <ZIndex>16</ZIndex>
@@ -2552,7 +2312,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>24.41098cm</Left>
+                <Left>19.91407cm</Left>
                 <Height>0.83251cm</Height>
                 <Width>1.2833cm</Width>
                 <ZIndex>17</ZIndex>
@@ -2583,15 +2343,6 @@
                     </TablixColumn>
                     <TablixColumn>
                       <Width>1.49676cm</Width>
-                    </TablixColumn>
-                    <TablixColumn>
-                      <Width>1.49676cm</Width>
-                    </TablixColumn>
-                    <TablixColumn>
-                      <Width>1.49675cm</Width>
-                    </TablixColumn>
-                    <TablixColumn>
-                      <Width>1.50074cm</Width>
                     </TablixColumn>
                     <TablixColumn>
                       <Width>1.49676cm</Width>
@@ -2800,111 +2551,6 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox98</rd:DefaultName>
-                              <Style>
-                                <Border>
-                                  <Style>Solid</Style>
-                                  <Width>0.25pt</Width>
-                                </Border>
-                                <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                          </CellContents>
-                        </TablixCell>
-                        <TablixCell>
-                          <CellContents>
-                            <Textbox Name="Textbox86">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value />
-                                      <Style>
-                                        <FontSize>8pt</FontSize>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style>
-                                    <TextAlign>Center</TextAlign>
-                                  </Style>
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>Textbox86</rd:DefaultName>
-                              <Style>
-                                <Border>
-                                  <Style>Solid</Style>
-                                  <Width>0.25pt</Width>
-                                </Border>
-                                <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                          </CellContents>
-                        </TablixCell>
-                        <TablixCell>
-                          <CellContents>
-                            <Textbox Name="Textbox100">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value />
-                                      <Style>
-                                        <FontSize>8pt</FontSize>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style>
-                                    <TextAlign>Center</TextAlign>
-                                  </Style>
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>Textbox99</rd:DefaultName>
-                              <Style>
-                                <Border>
-                                  <Style>Solid</Style>
-                                  <Width>0.25pt</Width>
-                                </Border>
-                                <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                          </CellContents>
-                        </TablixCell>
-                        <TablixCell>
-                          <CellContents>
-                            <Textbox Name="Textbox101">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value />
-                                      <Style>
-                                        <FontSize>8pt</FontSize>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style>
-                                    <TextAlign>Center</TextAlign>
-                                  </Style>
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>Textbox100</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
@@ -3342,9 +2988,6 @@
                     <TablixMember />
                     <TablixMember />
                     <TablixMember />
-                    <TablixMember />
-                    <TablixMember />
-                    <TablixMember />
                   </TablixMembers>
                 </TablixColumnHierarchy>
                 <TablixRowHierarchy>
@@ -3357,7 +3000,7 @@
                 <DataSetName>datasetstokawal</DataSetName>
                 <Top>1.91283cm</Top>
                 <Height>0.54589cm</Height>
-                <Width>29.16255cm</Width>
+                <Width>24.6683cm</Width>
                 <ZIndex>18</ZIndex>
                 <Style>
                   <Border>
@@ -3458,114 +3101,6 @@
                   <PaddingBottom>2pt</PaddingBottom>
                 </Style>
               </Textbox>
-              <Textbox Name="Textbox69">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>KONVERSI</Value>
-                        <Style>
-                          <FontFamily>Consolas</FontFamily>
-                          <FontSize>6pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>E2</Value>
-                        <Style>
-                          <FontFamily>Consolas</FontFamily>
-                          <FontSize>6pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Top>0.83251cm</Top>
-                <Left>11.36878cm</Left>
-                <Height>1.08033cm</Height>
-                <Width>1.50074cm</Width>
-                <ZIndex>21</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>Solid</Style>
-                    <Width>0.25pt</Width>
-                  </Border>
-                  <BackgroundColor>#9bc2e6</BackgroundColor>
-                  <VerticalAlign>Middle</VerticalAlign>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-              <Textbox Name="Textbox70">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>KONVERSI</Value>
-                        <Style>
-                          <FontFamily>Consolas</FontFamily>
-                          <FontSize>6pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>ROUND BAR</Value>
-                        <Style>
-                          <FontFamily>Consolas</FontFamily>
-                          <FontSize>6pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Top>0.83251cm</Top>
-                <Left>12.86952cm</Left>
-                <Height>1.08033cm</Height>
-                <Width>1.49676cm</Width>
-                <ZIndex>22</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>Solid</Style>
-                    <Width>0.25pt</Width>
-                  </Border>
-                  <BackgroundColor>#9bc2e6</BackgroundColor>
-                  <VerticalAlign>Middle</VerticalAlign>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
               <Textbox Name="Textbox45">
                 <CanGrow>true</CanGrow>
                 <KeepTogether>true</KeepTogether>
@@ -3606,7 +3141,7 @@
                 <Left>6.87852cm</Left>
                 <Height>1.08033cm</Height>
                 <Width>1.49676cm</Width>
-                <ZIndex>23</ZIndex>
+                <ZIndex>21</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -3660,61 +3195,7 @@
                 <Left>8.37528cm</Left>
                 <Height>1.08033cm</Height>
                 <Width>1.49676cm</Width>
-                <ZIndex>24</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>Solid</Style>
-                    <Width>0.25pt</Width>
-                  </Border>
-                  <BackgroundColor>#9bc2e6</BackgroundColor>
-                  <VerticalAlign>Middle</VerticalAlign>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-              <Textbox Name="Textbox68">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>KONVERSI</Value>
-                        <Style>
-                          <FontFamily>Consolas</FontFamily>
-                          <FontSize>6pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>E1</Value>
-                        <Style>
-                          <FontFamily>Consolas</FontFamily>
-                          <FontSize>6pt</FontSize>
-                          <FontWeight>Bold</FontWeight>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Center</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Top>0.83251cm</Top>
-                <Left>9.87204cm</Left>
-                <Height>1.08033cm</Height>
-                <Width>1.49675cm</Width>
-                <ZIndex>25</ZIndex>
+                <ZIndex>22</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -3750,10 +3231,10 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>0.83251cm</Top>
-                <Left>19.38667cm</Left>
+                <Left>14.88976cm</Left>
                 <Height>0.4219cm</Height>
                 <Width>2.51222cm</Width>
-                <ZIndex>26</ZIndex>
+                <ZIndex>23</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -3789,10 +3270,10 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>0.83251cm</Top>
-                <Left>21.89889cm</Left>
+                <Left>17.40198cm</Left>
                 <Height>0.42191cm</Height>
                 <Width>2.51222cm</Width>
-                <ZIndex>27</ZIndex>
+                <ZIndex>24</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -3827,10 +3308,10 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>1.25443cm</Top>
-                <Left>24.41111cm</Left>
+                <Left>19.9142cm</Left>
                 <Height>0.65841cm</Height>
                 <Width>1.2833cm</Width>
-                <ZIndex>28</ZIndex>
+                <ZIndex>25</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -3865,10 +3346,10 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Top>0.83251cm</Top>
-                <Left>24.41111cm</Left>
+                <Left>19.9142cm</Left>
                 <Height>0.42191cm</Height>
                 <Width>1.2833cm</Width>
-                <ZIndex>29</ZIndex>
+                <ZIndex>26</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -3905,8 +3386,8 @@
                 <rd:DefaultName>Textbox38</rd:DefaultName>
                 <Left>6.87852cm</Left>
                 <Height>0.83251cm</Height>
-                <Width>7.48776cm</Width>
-                <ZIndex>30</ZIndex>
+                <Width>2.99353cm</Width>
+                <ZIndex>27</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -3941,10 +3422,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox38</rd:DefaultName>
-                <Left>27.19262cm</Left>
+                <Left>22.69571cm</Left>
                 <Height>1.91284cm</Height>
                 <Width>1.9699cm</Width>
-                <ZIndex>31</ZIndex>
+                <ZIndex>28</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -3960,9 +3441,9 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.14378cm</Top>
-            <Left>0.25448cm</Left>
+            <Left>2.47698cm</Left>
             <Height>2.45872cm</Height>
-            <Width>29.16255cm</Width>
+            <Width>24.6683cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -3975,7 +3456,7 @@
         <Height>1.65691in</Height>
         <Style />
       </Body>
-      <Width>29.7cm</Width>
+      <Width>28.75693cm</Width>
       <Page>
         <PageHeader>
           <Height>2.72304cm</Height>
@@ -4080,9 +3561,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox35</rd:DefaultName>
               <Top>1.84593cm</Top>
-              <Left>0.35339cm</Left>
+              <Left>2.57589cm</Left>
               <Height>0.70072cm</Height>
-              <Width>5.04998cm</Width>
+              <Width>24.5667cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
