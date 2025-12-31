@@ -295,7 +295,6 @@ namespace GOS_FxApps
             }
             catch (Exception)
             {
-                MessageBox.Show("Gagal Cari Data.");
                 return false;
             }
         }
