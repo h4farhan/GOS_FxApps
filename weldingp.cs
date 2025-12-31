@@ -93,13 +93,8 @@ namespace GOS_FxApps
                         break;
                 }
             }
-            catch (SqlException)
+            catch
             {
-                return;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Gagal realtime");
                 return;
             }
         }
@@ -118,13 +113,8 @@ namespace GOS_FxApps
                 }
                 totalPages = (int)Math.Ceiling(totalRecords / (double)pageSize);
             }
-            catch (SqlException)
+            catch
             {
-                return;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Gagal hitungtotaldata");
                 return;
             }
         }
@@ -157,13 +147,8 @@ namespace GOS_FxApps
 
                 totalPages = (int)Math.Ceiling(searchTotalRecords / (double)pageSize);
             }
-            catch (SqlException)
+            catch
             {
-                return;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Gagal hitungtotaldatacari");
                 return;
             }
         }
@@ -224,13 +209,8 @@ namespace GOS_FxApps
                     }
                 }
             }
-            catch (SqlException)
+            catch
             {
-                return;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Gagal tampil");
                 return;
             }
         }
@@ -324,7 +304,6 @@ namespace GOS_FxApps
             }
             catch (Exception)
             {
-                MessageBox.Show("Gagal cari");
                 return false;
             }
         }

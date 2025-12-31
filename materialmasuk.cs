@@ -68,13 +68,8 @@ namespace GOS_FxApps
                         break;
                 }
             }
-            catch (SqlException)
+            catch
             {
-                return;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Gagal realtime");
                 return;
             }
         }
@@ -93,13 +88,8 @@ namespace GOS_FxApps
                 }
                 totalPages = (int)Math.Ceiling(totalRecords / (double)pageSize);
             }
-            catch (SqlException)
+            catch
             {
-                return;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Gagal hitungtotaldata");
                 return;
             }
         }
@@ -132,13 +122,8 @@ namespace GOS_FxApps
 
                 totalPages = (int)Math.Ceiling(searchTotalRecords / (double)pageSize);
             }
-            catch (SqlException)
+            catch
             {
-                return;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Gagal hitungtotaldatacari");
                 return;
             }
         }
@@ -223,13 +208,8 @@ namespace GOS_FxApps
                     }
                 }
             }
-            catch (SqlException)
+            catch
             {
-                return;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Gagal tampil");
                 return;
             }
         }
@@ -307,8 +287,37 @@ namespace GOS_FxApps
             }
             catch (Exception)
             {
-                MessageBox.Show("Gagal cari");
                 return false;
+            }
+        }
+
+        private async Task totalaftersimpan()
+        {
+            if (cmbSpesifikasi.SelectedValue == null)
+                return;
+
+            string kodeBarang = cmbSpesifikasi.SelectedValue.ToString();
+
+            try
+            {
+                string query = @"
+            SELECT ISNULL(SUM(jumlahStok), 0)
+            FROM stok_material
+            WHERE kodeBarang = @kodeBarang";
+
+                using (var conn = await Koneksi.GetConnectionAsync())
+                using (var cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@kodeBarang", kodeBarang);
+
+                    int jumlahstok = Convert.ToInt32(await cmd.ExecuteScalarAsync());
+
+                    lblstoksaatini.Text = $"Stok Saat Ini: {jumlahstok}";
+                }
+            }
+            catch
+            {
+                return;
             }
         }
 
@@ -475,9 +484,9 @@ namespace GOS_FxApps
                     resetsearchui();
                 }
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
-                MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif.",
+                MessageBox.Show("Koneksi anda masih terputus. Pastikan jaringan aktif. " + ex.Message,
                     "Kesalahan Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -517,6 +526,8 @@ namespace GOS_FxApps
 
         private async void btnsimpan_Click(object sender, EventArgs e)
         {
+            string selectedNama = cmbnama.SelectedValue?.ToString();
+
             if (btnsimpan.Text == "Simpan Data")
             {
                 if (txtjumlah.Text == "" || cmbnama.Text == "Pilih Material" || cmbSpesifikasi.Text == "Pilih Spesifikasi")
@@ -530,14 +541,11 @@ namespace GOS_FxApps
                     if (result == DialogResult.OK)
                     {
                         await simpandata();
-                        await combonama();
+                        await combonama(selectedNama);
+                        await totalaftersimpan();
                         txtjumlah.Clear();
-                        txtcarinamabarang.Clear();
-                        lblstoksaatini.Text = "Stok Saat Ini: -";
-                        picture1.Image = null;
                         btnbatal.Enabled = false;
                         btnsimpan.Enabled = false;
-                        type = null;
                     }
                 }
             }
@@ -739,7 +747,7 @@ namespace GOS_FxApps
             }
         }
 
-        public async Task combonama()
+        public async Task combonama(string selectedNama = null)
         {
             try
             {
@@ -762,6 +770,16 @@ namespace GOS_FxApps
                     cmbnama.DisplayMember = "namaBarang";
                     cmbnama.ValueMember = "namaBarang";
                     cmbnama.SelectedIndex = 0;
+
+                    if (!string.IsNullOrEmpty(selectedNama) &&
+                    dt.AsEnumerable().Any(r => r.Field<string>("namaBarang") == selectedNama))
+                    {
+                        cmbnama.SelectedValue = selectedNama; 
+                    }
+                    else
+                    {
+                        cmbnama.SelectedIndex = 0;
+                    }
 
                     cmbnama.SelectedIndexChanged += cmbnama_SelectedIndexChanged;
                 }

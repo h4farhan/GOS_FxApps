@@ -68,7 +68,10 @@ namespace GOS_FxApps
                         break;
                 }
             }
-            catch { }
+            catch
+            {
+                return;
+            }
         }
 
         private async Task HitungTotalData()
@@ -319,7 +322,6 @@ namespace GOS_FxApps
             }
             catch (Exception)
             {
-                MessageBox.Show("Gagal Cari Data.");
                 return false;
             }
         }
